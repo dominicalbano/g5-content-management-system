@@ -39,7 +39,7 @@ class WebsiteTemplate < WebTemplate
   end
 
   def stylesheets
-    layout_stylesheets + widget_stylesheets
+    widget_stylesheets + layout_stylesheets
   end
 
   def layout_stylesheets
