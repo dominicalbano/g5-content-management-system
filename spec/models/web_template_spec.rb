@@ -77,4 +77,25 @@ describe WebTemplate do
       end
     end
   end
+
+  describe "#last_mod" do
+    let!(:drop_target) { Fabricate(:drop_target, web_template: web_template) }
+    let!(:widget) do
+      Fabricate(:widget, drop_target: drop_target, updated_at: Time.now - 2.days)
+    end
+
+    context "a template with widgets" do
+      it "gets the date from it's last widget" do
+        expect(web_template.last_mod).to eq(widget.updated_at.to_date)
+      end
+    end
+
+    context "a template with no widgets" do
+      before { web_template.stub(widgets: []) }
+
+      it "gets the date from itself" do
+        expect(web_template.last_mod).to eq(web_template.updated_at.to_date)
+      end
+    end
+  end
 end
