@@ -1,6 +1,7 @@
 require "spec_helper"
 
-describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, js: true, vcr: VCR_OPTIONS do
+describe "Integration '/:website_slug/:web_page_template_slug'",
+         auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
     VCR.use_cassette("Gardens") do
       GardenWebLayoutUpdater.new.update_all
