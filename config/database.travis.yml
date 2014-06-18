@@ -3,4 +3,4 @@ test:
   database: g5_content_management_system_test
   username: postgres
   script:
-  - SPEC_OPTS="--tag integration"
+    - SPEC_OPTS="--tag integration"
