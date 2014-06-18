@@ -49,13 +49,10 @@ class Widget < ActiveRecord::Base
   end
 
   def widgets
-    pattern = /(?=.*widget_id\z).*/
-    widgets = Widget.find(settings.select { |setting| setting.name =~ pattern &&
-                                                      setting.value != nil}.map(&:value))
-    more_widgets = widgets.collect do |widget|
-      widget.try(:widgets)
-    end
-    [widgets, more_widgets].flatten
+    child_widgets = find_child_widgets
+    more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
+
+    [child_widgets, more_widgets].flatten
   end
 
   def kind_of_widget?(kind)
@@ -105,4 +102,15 @@ class Widget < ActiveRecord::Base
   def set_defaults
     self.removeable = true
   end
+
+  def widget_settings
+    pattern = /(?=.*widget_id\z).*/
+    settings.select { |setting| setting.name =~ pattern && setting.value != nil }
+  end
+
+  def find_child_widgets
+    widget_settings.map(&:value).map do |id|
+      Widget.find(id) if Widget.exists?(id)
+    end
+  end 
 end
