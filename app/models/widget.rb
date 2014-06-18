@@ -52,7 +52,7 @@ class Widget < ActiveRecord::Base
     child_widgets = find_child_widgets
     more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
 
-    [child_widgets, more_widgets].flatten
+    [child_widgets, more_widgets].flatten.compact
   end
 
   def kind_of_widget?(kind)
@@ -112,5 +112,5 @@ class Widget < ActiveRecord::Base
     widget_settings.map(&:value).map do |id|
       Widget.find(id) if Widget.exists?(id)
     end
-  end 
+  end
 end
