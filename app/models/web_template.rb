@@ -162,6 +162,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def last_mod
+    return updated_at.to_date if widgets.empty?
     widgets.order("updated_at").last.updated_at.to_date
   end
 
