@@ -2,4 +2,3 @@ test:
   adapter: postgresql
   database: g5_content_management_system_test
   username: postgres
-  script: bundle exec rspec --tag integration
