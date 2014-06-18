@@ -44,9 +44,9 @@ class Website < ActiveRecord::Base
   end
 
   def stylesheets
-    (web_home_template.stylesheets +
-    web_page_templates.map(&:stylesheets) +
-    website_template.stylesheets).flatten.uniq
+    [web_home_template.try(:stylesheets),
+    web_page_templates.map(&:stylesheets),
+    website_template.try(:stylesheets)].flatten.uniq
   end
 
   def javascripts
