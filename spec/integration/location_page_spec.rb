@@ -29,7 +29,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
       context "accepting the confirm dialog" do
         it "Will update with theme colors when theme changes" do
           garden_theme.click
-          accept_confirm(page)
 
           expect(@website.reload.website_template).to_not eq @web_theme
           expect(primary_color).to_not eq html_primary_color
@@ -40,7 +39,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
       context "dismissing the confirm dialog" do
         it "Will not update the theme" do
           garden_theme.click
-          dismiss_confirm(page)
 
           expect(@website.reload.website_template.web_theme).to eq @web_theme
         end
