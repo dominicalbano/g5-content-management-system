@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.0.0"
+ruby "2.1.2"
 
 gem "rails", github: "rails/rails", branch: "4-1-stable"
 # Downgraded jquery-rails for Ember Views
@@ -55,6 +55,7 @@ group :development, :test do
   gem "capybara"
   gem "launchy"
   gem "selenium-webdriver"
+  gem "poltergeist"
   gem "database_cleaner"
   # ruby spec support
   gem 'factory_girl_rails'
