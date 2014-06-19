@@ -8,7 +8,6 @@ require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
 require "capybara/rails"
 require "capybara/rspec"
-require 'capybara/poltergeist' if ENV["HEADLESS"]
 require "database_cleaner"
 require "webmock/rspec"
 require "vcr"
@@ -72,4 +71,4 @@ def set_selenium_window_size(width, height)
   window.resize_to(width, height)
 end
 
-Capybara.javascript_driver = :poltergeist if ENV["HEADLESS"]
+Capybara.javascript_driver = :webkit if ENV["HEADLESS"]

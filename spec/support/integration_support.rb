@@ -14,6 +14,8 @@ def scroll_to(page, selector)
 end
 
 def drag_and_drop(source, target)
+  return source.drag_to(target) if ENV["HEADLESS"]
+
   builder = page.driver.browser.action
   source = source.native
   target = target.native
@@ -23,6 +25,16 @@ def drag_and_drop(source, target)
   builder.move_to        target
   builder.release        target
   builder.perform
+end
+
+def accept_confirm(page)
+  return page.driver.accept_js_confirms! if ENV["HEADLESS"]
+  page.driver.browser.switch_to.alert.accept
+end
+
+def dismiss_confirm(page)
+  return page.driver.dismiss_js_confirms! if ENV["HEADLESS"]
+  page.driver.browser.switch_to.alert.dismiss
 end
 
 def seed(file="example.yml")
