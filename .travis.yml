@@ -1,8 +1,10 @@
 language: ruby
 rvm:
   - 2.0.0
+
 install: "bin/wad"
 # Note that WAD doesn't clean up old bundles for you. If you change Gemfile.lock a lot and the bucket becomes very large, you probably want to clean out old bundles once in a while.
+
 script:
   - RAILS_ENV=test bundle exec rake db:schema:load --trace
   - bundle exec rspec
