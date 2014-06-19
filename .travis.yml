@@ -7,7 +7,7 @@ install: "bin/wad -v"
 
 script:
   - RAILS_ENV=test bundle exec rake db:schema:load --trace
-  - bundle exec rspec --tag integration
+  - bundle exec rspec --tag $(echo $RSPEC_TAG)
 before_script:
   - cp config/database.travis.yml config/database.yml
   - psql -c 'create database g5_content_management_system_test;' -U postgres
@@ -26,3 +26,6 @@ env:
     - S3_REGION=us-west-2
     - S3_BUCKET_NAME=cms-travis-cache
     - secure: "heRZxcYMYyUeQ7zMNJvXlYmc0QRN5+BNkexnzpgbOIwwxclZ8RyB5ax7yGoPakDTWxuYGV2oa6dcUkNuDKHsYm2p1v5p6OFJoT5c84mF3rHj5yFjRcI+S390kwWR0IV0BgNo/cj5d3er01u4Qgau087ip9r8SCZ7lc2fS/y4N/E="
+  matrix:
+    - RSPEC_TAG=~integration
+    - RSPEC_TAG=integration
