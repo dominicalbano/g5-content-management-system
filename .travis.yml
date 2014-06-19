@@ -1,6 +1,8 @@
 language: ruby
 rvm:
   - 2.0.0
+install: "bin/wad"
+# Note that WAD doesn't clean up old bundles for you. If you change Gemfile.lock a lot and the bucket becomes very large, you probably want to clean out old bundles once in a while.
 script:
   - RAILS_ENV=test bundle exec rake db:schema:load --trace
   - bundle exec rspec
@@ -17,3 +19,8 @@ notifications:
       - "%{repository}#%{build_number} %{message} (%{branch} - %{commit} : %{author}) Change view : %{compare_url} Build details : %{build_url}"
     on_success: change
     on_failure: always
+env:
+  global:
+    - S3_REGION=us-west-1
+    - S3_BUCKET_NAME=cms-travis-cache
+    - secure: "heRZxcYMYyUeQ7zMNJvXlYmc0QRN5+BNkexnzpgbOIwwxclZ8RyB5ax7yGoPakDTWxuYGV2oa6dcUkNuDKHsYm2p1v5p6OFJoT5c84mF3rHj5yFjRcI+S390kwWR0IV0BgNo/cj5d3er01u4Qgau087ip9r8SCZ7lc2fS/y4N/E="
