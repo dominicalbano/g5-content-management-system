@@ -52,7 +52,7 @@ group :development, :test do
   gem "rspec-rails"
   gem "shoulda-matchers"
   # ruby request specs
-  gem "capybara"
+  gem "capybara", "~> 2.1.0"
   gem "launchy"
   gem "selenium-webdriver"
   gem "database_cleaner"
