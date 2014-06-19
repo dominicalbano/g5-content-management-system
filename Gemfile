@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.1.2"
+ruby "2.0.0"
 
 gem "rails", github: "rails/rails", branch: "4-1-stable"
 # Downgraded jquery-rails for Ember Views
