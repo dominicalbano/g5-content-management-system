@@ -29,7 +29,8 @@ def set_setting(web_template, widget_name, setting_name, setting_value)
   setting.update_attributes(value: setting_value)
 end
 
-describe "Integration '/web_template/:id'", :auth_request, js: true, vcr: VCR_OPTIONS do
+describe "Integration '/web_template/:id'",
+         auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   describe "Renders preview of compiled web template" do
     describe "website_instructions" do
       before do

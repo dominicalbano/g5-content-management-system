@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Integration '/:id'", :auth_request, js: true, vcr: VCR_OPTIONS do
+describe "Integration '/:id'", auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   describe "Lists all web templates" do
     before do
       @client, @location, @website = seed

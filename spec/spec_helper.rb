@@ -39,8 +39,11 @@ RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
   # The integration deployment tests can be run with:
-  # rspec -t type:deployment
-  config.filter_run_excluding type: "deployment"
+  # rspec --tag deployment
+  # (`--tag` is `-t` for short)
+  # likewise the integration tests can be run with:
+  # rspec --tag integration
+  config.filter_run_excluding :integration, :deployment
 
   config.before(:suite) do
     # Temporary fix for default_url_host not being properly set in Rails 4.1.0
