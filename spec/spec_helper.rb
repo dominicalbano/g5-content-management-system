@@ -30,6 +30,14 @@ end
 
 VCR_OPTIONS = { record: :new_episodes, re_record_interval: 7.days }
 
+# By default specs will run in a headless webkit browser.
+# Set CI=true if you want to run integration specs with Firefox.
+if ENV["CI"]
+  Capybara.javascript_driver = :selenium
+else
+  Capybara.javascript_driver = :webkit
+end
+
 RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL, type: :request
@@ -70,5 +78,3 @@ def set_selenium_window_size(width, height)
   window = Capybara.current_session.driver.browser.manage.window
   window.resize_to(width, height)
 end
-
-Capybara.javascript_driver = :webkit if ENV["HEADLESS"]

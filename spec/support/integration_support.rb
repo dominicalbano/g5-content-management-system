@@ -14,27 +14,29 @@ def scroll_to(page, selector)
 end
 
 def drag_and_drop(source, target)
-  return source.drag_to(target) if ENV["HEADLESS"]
+  if ENV["CI"]
+    builder = page.driver.browser.action
+    source = source.native
+    target = target.native
 
-  builder = page.driver.browser.action
-  source = source.native
-  target = target.native
-
-  builder.click_and_hold source
-  builder.move_to        target, 1, 11
-  builder.move_to        target
-  builder.release        target
-  builder.perform
+    builder.click_and_hold source
+    builder.move_to        target, 1, 11
+    builder.move_to        target
+    builder.release        target
+    builder.perform
+  else
+    source.drag_to(target)
+  end
 end
 
 def accept_confirm(page)
-  return page.driver.accept_js_confirms! if ENV["HEADLESS"]
-  page.driver.browser.switch_to.alert.accept
+  return page.driver.browser.switch_to.alert.accept if ENV["CI"]
+  page.driver.accept_js_confirms!
 end
 
 def dismiss_confirm(page)
-  return page.driver.dismiss_js_confirms! if ENV["HEADLESS"]
-  page.driver.browser.switch_to.alert.dismiss
+  return page.driver.browser.switch_to.alert.dismiss if ENV["CI"]
+  page.driver.dismiss_js_confirms!
 end
 
 def seed(file="example.yml")
