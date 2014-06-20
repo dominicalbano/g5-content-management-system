@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.1.1"
+ruby "2.0.0"
 
 gem "rails", github: "rails/rails", branch: "4-1-stable"
 # Downgraded jquery-rails for Ember Views
@@ -53,6 +53,7 @@ group :development, :test do
   gem "shoulda-matchers"
   # ruby request specs
   gem "capybara"
+  gem "capybara-webkit"
   gem "launchy"
   gem "selenium-webdriver"
   gem "database_cleaner"

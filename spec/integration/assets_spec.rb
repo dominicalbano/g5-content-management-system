@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Integration assets", :auth_request, js: true, vcr: VCR_OPTIONS do
+describe "Integration assets", auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
     @client, @location, @website = seed
     visit "/#{@website.slug}/assets"

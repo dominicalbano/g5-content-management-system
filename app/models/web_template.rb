@@ -109,7 +109,7 @@ class WebTemplate < ActiveRecord::Base
 
   def stylesheets
     widgets.map(&:show_stylesheets).flatten +
-    website.try(:website_template).try(:stylesheets).to_a 
+    website.try(:website_template).try(:stylesheets).to_a
   end
 
   def javascripts
@@ -162,6 +162,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def last_mod
+    return updated_at.to_date if widgets.empty?
     widgets.order("updated_at").last.updated_at.to_date
   end
 
@@ -206,7 +207,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def default_slug_from_title
-    self.slug ||= title.parameterize
+    self.slug ||= name.parameterize
   end
 
   def format_redirect_patterns

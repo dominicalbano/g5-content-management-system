@@ -5,14 +5,14 @@
 # site. It must make outside HTTP requests to do this.  It
 # does not run by default. To run this spec run:
 #
-# rspec spec -t type:deployment
+# rspec spec -t deployment
 #
 # You will need the deployment enviroment varibales to be set.
 #
 
 require "spec_helper"
 
-describe ClientDeployer, vcr: { record: :new_episodes }, type: "deployment" do
+describe ClientDeployer, vcr: { record: :new_episodes }, deployment: true do
   before do
     @client = Fabricate(:client)
     @location = Fabricate(:location)

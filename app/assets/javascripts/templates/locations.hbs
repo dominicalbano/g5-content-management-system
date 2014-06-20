@@ -13,33 +13,33 @@
     </div>
   </div>
 
-
-
   <div class="faux-table faux-table--striped">
-
     <div class="faux-table-head">
       <span class="faux-table-cell">Name</span>
       <span class="faux-table-cell">Actions</span>
     </div> <!-- end .faux-table-head -->
 
-    <ul class="faux-table-body">
-      {{#each model}}
-      <li {{bindAttr class=":faux-table-row :location corporate"}}>
-        <div class="faux-table-cell">
-          {{#if corporate}}
-          <strong>Corporate:</strong>
-          {{/if}}
-          {{name}}
-        </div>
-        <div {{bindAttr class=":faux-table-cell single_domain"}}>
-          {{#link-to "website" this.website class="btn btn--a" }}Edit{{/link-to}}
-          <a {{bindAttr href="this.website.herokuUrl"}} class="btn btn--a">View</a>
-          {{confirmation-link title="Deploy" action="deploy" param=this 
-            message="You are about to deploy. Are you sure?" classes="btn btn--a deploy"}}
-        </div>
-      </li>
-      {{/each}}
-    </ul> <!-- end .faux-table-body -->
+    {{#if model.isUpdating}}
+      <div class="loading">Loading...</div>
+    {{else}}
+      <ul class="faux-table-body">
+        {{#each model}}
+        <li {{bindAttr class=":faux-table-row :location corporate"}}>
+          <div class="faux-table-cell">
+            {{#if corporate}}
+            <strong>Corporate:</strong>
+            {{/if}}
+            {{name}}
+          </div>
+          <div {{bindAttr class=":faux-table-cell single_domain"}}>
+            {{#link-to "website" this.website class="btn btn--a" }}Edit{{/link-to}}
+            <a {{bindAttr href="this.website.herokuUrl"}} class="btn btn--a">View</a>
+            {{confirmation-link title="Deploy" action="deploy" param=this 
+              message="You are about to deploy. Are you sure?" classes="btn btn--a deploy"}}
+          </div>
+        </li>
+        {{/each}}
+      </ul> <!-- end .faux-table-body -->
+    {{/if}}
   </div> <!-- end .faux-table -->
 </div>
-
