@@ -70,7 +70,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       within WEB_PAGE_SELECTOR do
         click_link "Page Settings"
         fill_in "page_name", with: "Hakuna Matata"
-        click_button "Save"
+        page.execute_script('$(".save").click()')
         expect(page).to have_content("HAKUNA MATATA")
       end
     end
@@ -79,7 +79,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       within WEB_PAGE_SELECTOR do
         click_link "Page Settings"
         fill_in "page_title", with: "No Worries"
-        click_button "Save"
+        page.execute_script('$(".save").click()')
         visit current_path
       end
       expect(@web_page_template.reload.title).to eq("No Worries")
@@ -89,7 +89,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       within WEB_PAGE_SELECTOR do
         click_link "Page Settings"
         fill_in "page_title", with: "{{ location_name }}"
-        click_button "Save"
+        page.execute_script('$(".save").click()')
         visit current_path
       end
       expect(@web_page_template.reload.title).to eq("{{ location_name }}")
@@ -163,7 +163,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       @website.web_page_templates.first.update_attribute(:in_trash, true)
       visit "/#{@website.slug}"
       within "#trash" do
-        click_link "trash-can"
+        find(".icon--trash").click
       end
     end
 
