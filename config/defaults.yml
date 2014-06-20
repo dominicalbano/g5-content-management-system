@@ -34,7 +34,6 @@ website_template:
     - html_id: drop-target-footer
       widgets:
         - slug: contact-info
-        - slug: hours
         - slug: footer-info
 
 web_home_template:
