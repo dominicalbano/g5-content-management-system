@@ -67,6 +67,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
     describe "Are drag and drop sortable" do
       before do
+        stub_const("ENV", { "CI" => true })
+
         @widget1 = @web_page_template.main_widgets.first
         @widget2 = @web_page_template.main_widgets.last
 
@@ -77,7 +79,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database" do
+      it "Updates display order in database", driver: :selenium do
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -186,6 +188,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
     describe "Are drag and drop sortable" do
       before do
+        stub_const("ENV", { "CI" => true })
+
         @widget1 = @website_template.aside_before_main_widgets.first
         @widget2 = @website_template.aside_before_main_widgets.last
 
@@ -196,7 +200,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database" do
+      it "Updates display order in database", driver: :selenium do
         within ".aside-before-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -305,6 +309,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
     describe "Are drag and drop sortable" do
       before do
+        stub_const("ENV", { "CI" => true })
+
         @widget1 = @website_template.aside_after_main_widgets.first
         @widget2 = @website_template.aside_after_main_widgets.last
 
@@ -315,7 +321,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database" do
+      it "Updates display order in database", driver: :selenium do
         within ".aside-after-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")

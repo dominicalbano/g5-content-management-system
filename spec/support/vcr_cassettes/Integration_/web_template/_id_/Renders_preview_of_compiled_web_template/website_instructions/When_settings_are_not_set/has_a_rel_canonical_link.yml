@@ -10,7 +10,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -49,7 +49,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -145,7 +145,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -407,7 +407,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -463,7 +463,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1298,7 +1298,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1364,7 +1364,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1410,7 +1410,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1448,7 +1448,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1490,7 +1490,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1511,7 +1511,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:08 GMT
+      - Fri, 20 Jun 2014 15:46:15 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1522,7 +1522,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:07 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:16 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -1533,7 +1533,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1554,7 +1554,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:08 GMT
+      - Fri, 20 Jun 2014 15:46:16 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1786,7 +1786,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:07 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:17 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -1797,7 +1797,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1818,7 +1818,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:08 GMT
+      - Fri, 20 Jun 2014 15:46:16 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1886,7 +1886,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:07 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:17 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -1897,7 +1897,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1918,7 +1918,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:09 GMT
+      - Fri, 20 Jun 2014 15:46:16 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1957,7 +1957,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:08 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:17 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -1968,7 +1968,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1989,7 +1989,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:09 GMT
+      - Fri, 20 Jun 2014 15:46:17 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2006,7 +2006,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:08 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:18 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
@@ -2017,7 +2017,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2038,7 +2038,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:10 GMT
+      - Fri, 20 Jun 2014 15:46:17 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2048,7 +2048,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:09 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:18 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -2059,7 +2059,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2080,7 +2080,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:10 GMT
+      - Fri, 20 Jun 2014 15:46:18 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2094,7 +2094,7 @@ http_interactions:
         {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
         .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:09 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:19 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -2105,7 +2105,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2126,7 +2126,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:10 GMT
+      - Fri, 20 Jun 2014 15:46:18 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2154,7 +2154,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:10 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:19 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -2165,7 +2165,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2186,7 +2186,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:11 GMT
+      - Fri, 20 Jun 2014 15:46:19 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2993,7 +2993,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:10 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:20 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
@@ -3004,7 +3004,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3025,7 +3025,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:12 GMT
+      - Fri, 20 Jun 2014 15:46:20 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3036,7 +3036,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:11 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:21 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -3047,7 +3047,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3068,7 +3068,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:12 GMT
+      - Fri, 20 Jun 2014 15:46:21 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3300,7 +3300,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:11 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:21 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -3311,7 +3311,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3332,7 +3332,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:13 GMT
+      - Fri, 20 Jun 2014 15:46:21 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3400,7 +3400,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:12 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:22 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -3411,7 +3411,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3432,7 +3432,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:13 GMT
+      - Fri, 20 Jun 2014 15:46:21 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3471,7 +3471,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:12 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:22 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -3482,7 +3482,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3503,7 +3503,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:14 GMT
+      - Fri, 20 Jun 2014 15:46:22 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3520,7 +3520,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:13 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:23 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
@@ -3531,7 +3531,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3552,7 +3552,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:14 GMT
+      - Fri, 20 Jun 2014 15:46:22 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3562,7 +3562,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:13 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:23 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -3573,7 +3573,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3594,7 +3594,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:14 GMT
+      - Fri, 20 Jun 2014 15:46:23 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3608,7 +3608,7 @@ http_interactions:
         {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
         .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:14 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:24 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -3619,7 +3619,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3640,7 +3640,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:15 GMT
+      - Fri, 20 Jun 2014 15:46:23 GMT
       Via:
       - 1.1 vegur
     body:
@@ -3668,7 +3668,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:14 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:24 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -3679,7 +3679,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -3700,7 +3700,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Thu, 19 Jun 2014 22:53:15 GMT
+      - Fri, 20 Jun 2014 15:46:23 GMT
       Via:
       - 1.1 vegur
     body:
@@ -4507,5 +4507,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 19 Jun 2014 22:53:14 GMT
+  recorded_at: Fri, 20 Jun 2014 15:46:24 GMT
 recorded_with: VCR 2.9.0
