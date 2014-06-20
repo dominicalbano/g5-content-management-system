@@ -73,3 +73,14 @@ def set_selenium_window_size(width, height)
   window = Capybara.current_session.driver.browser.manage.window
   window.resize_to(width, height)
 end
+
+# We need this to fix the random timeout error that we were seeing in CI.
+# May be related to: http://code.google.com/p/selenium/issues/detail?id=1439
+ 
+Capybara.register_driver :selenium_with_long_timeout do |app|
+  client = Selenium::WebDriver::Remote::Http::Default.new
+  client.timeout = 120
+  Capybara::Driver::Selenium.new(app, :browser => :firefox, :http_client => client)
+end
+ 
+Capybara.javascript_driver = :selenium_with_long_timeout
