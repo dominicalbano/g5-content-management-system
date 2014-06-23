@@ -16,11 +16,11 @@ module SettingNavigation
   end
 
   def website_navigation_setting
-    setting_website.settings.navigation.first
+    setting_website.settings.navigation.first if setting_website
   end
 
   def widget_navigation_settings
-    setting_website.widget_settings.navigation
+    setting_website.widget_settings.navigation if setting_website
   end
 
   # should be called on website setting, not widget setting
