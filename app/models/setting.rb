@@ -78,7 +78,7 @@ class Setting < ActiveRecord::Base
   private
 
   def set_website_id
-    self.website_id ||= owner.website_id if owner.respond_to?(:website_id)
+    self.website ||= SettingWebsiteFinder.new(self).find
     save
   end
 
