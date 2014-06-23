@@ -25,11 +25,15 @@ module SettingNavigation
 
   # should be called on website setting, not widget setting
   def update_widget_navigation_settings
+    return if old_drop_target?
+
     widget_navigation_settings.map(&:update_widget_navigation_setting).map(&:save)
   end
 
   # should be called on widget setting, not website setting
   def update_widget_navigation_setting
+    return if old_drop_target?
+
     if value
       self.value = create_new_value(website_navigation_setting.value, value)
     else
@@ -53,5 +57,9 @@ module SettingNavigation
 
   def setting_website
     website || NavigationSettingWebsiteFinder.new(self).find
+  end
+
+  def old_drop_target?
+    self.owner.drop_target_id && !DropTarget.exists?(self.owner.drop_target_id)
   end
 end
