@@ -30,14 +30,6 @@ end
 
 VCR_OPTIONS = { record: :new_episodes, re_record_interval: 7.days }
 
-# By default specs will run in a headless webkit browser.
-# Set CI=true if you want to run integration specs with Firefox.
-if ENV["CI"]
-  Capybara.javascript_driver = :selenium
-else
-  Capybara.javascript_driver = :webkit
-end
-
 RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL, type: :request
@@ -81,3 +73,22 @@ def set_selenium_window_size(width, height)
   window = Capybara.current_session.driver.browser.manage.window
   window.resize_to(width, height)
 end
+
+# We need this to fix the random timeout error that we were seeing in CI.
+# May be related to: http://code.google.com/p/selenium/issues/detail?id=1439
+ 
+Capybara.register_driver :selenium_with_long_timeout do |app|
+  client = Selenium::WebDriver::Remote::Http::Default.new
+  client.timeout = 120
+  Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => client)
+end
+ 
+# By default specs will run in a headless webkit browser.
+# Set CI=true if you want to run integration specs with Firefox.
+if ENV["CI"]
+  #Capybara.javascript_driver = :selenium
+  Capybara.javascript_driver = :selenium_with_long_timeout
+else
+  Capybara.javascript_driver = :webkit
+end
+
