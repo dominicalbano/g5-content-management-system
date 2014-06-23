@@ -60,6 +60,6 @@ module SettingNavigation
   end
 
   def old_drop_target?
-    self.owner.drop_target_id && !DropTarget.exists?(self.owner.drop_target_id)
+    owner.kind_of?(Widget) && owner.drop_target_id.present? && owner.drop_target.nil?
   end
 end
