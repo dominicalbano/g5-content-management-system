@@ -16,7 +16,7 @@ module SettingNavigation
   end
 
   def website_navigation_setting
-    setting_website.settings.navigation.first
+    setting_website.settings.navigation.first 
   end
 
   def widget_navigation_settings
