@@ -19,9 +19,23 @@ class WidgetDrop < Liquid::Drop
                                               map(&:address).to_json
   end
 
+  def id
+    widget.id
+  end
+
+  def parent_widget_id
+    parent_setting.owner.id if parent_setting
+  end
+
 private
 
   def selected_location_ids
     widget.included_locations.best_value.map(&:to_i)
+  end
+
+  def parent_setting
+    @parent_setting ||= Setting.find do |setting|
+      setting.name =~ /(?=column)(?=.*widget_id).*/ && setting.value == widget.id
+    end
   end
 end

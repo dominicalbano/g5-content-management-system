@@ -1,6 +1,7 @@
 class Location < ActiveRecord::Base
   include HasManySettings
   include ToParamUrn
+  include AfterUpdateSetSettingLocationsNavigation
 
   has_one :website, as: :owner, dependent: :destroy
 

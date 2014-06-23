@@ -36,8 +36,6 @@ coverage
 # Ignore railroady
 doc/*.svg
 
-# Ignore vcr_cassettes that always record new episodes
-spec/support/vcr_cassettes/ComponentGardenable
-
 # Ignore environment specific env
 .env.*
+

@@ -39,7 +39,7 @@ class WebsiteTemplate < WebTemplate
   end
 
   def stylesheets
-    layout_stylesheets + widget_stylesheets
+    widget_stylesheets + layout_stylesheets
   end
 
   def layout_stylesheets
@@ -69,7 +69,7 @@ class WebsiteTemplate < WebTemplate
   end
 
   def widget_show_javascripts
-    widgets ? widgets.map(&:show_javascript).flatten : []
+    widgets ? widgets.map(&:show_javascripts).flatten : []
   end
 
   def widget_lib_javascripts

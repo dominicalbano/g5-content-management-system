@@ -20,20 +20,13 @@ describe NavigationSettingWebsiteFinder do
       let!(:row_widget) { Fabricate(:widget, drop_target: drop_target) }
 
       let!(:row_widget_setting) do
-        Fabricate(:setting, name: "row_one_widget_id", value: widget.id)
+        Fabricate(:setting, name: "row_one_widget_id", value: widget.id, owner: row_widget)
       end
 
       context "a widget within a row widget" do
         before { Widget.any_instance.stub(drop_target: drop_target) }
 
         it { should eq(website) }
-      end
-
-      context "a widget within a column widget within row widget" do
-        it "should look for the parent widget's parent widget" do
-          finder.should_receive(:parent_widget_parent_website)
-          subject
-        end
       end
     end
   end

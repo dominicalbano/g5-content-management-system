@@ -5,18 +5,18 @@ class RowWidgetAssetCollector
 
   def javascripts
     return [] unless row_widget.present?
-    javascripts_for(row_widget_widgets) + javascripts_for(column_widget_widgets)
+    [javascripts_for(row_widget_widgets) + javascripts_for(column_widget_widgets)].flatten.uniq
   end
 
   def stylesheets
     return [] unless row_widget.present?
-    stylesheets_for(row_widget_widgets) + stylesheets_for(column_widget_widgets)
+    [stylesheets_for(row_widget_widgets) + stylesheets_for(column_widget_widgets)].flatten.uniq
   end
 
 private
 
   def javascripts_for(widgets)
-    (widgets.map(&:lib_javascripts) + widgets.map(&:show_javascript)).flatten.compact
+    (widgets.map(&:lib_javascripts) + widgets.map(&:show_javascripts)).flatten.compact
   end
 
   def stylesheets_for(widgets)

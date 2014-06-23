@@ -2,1486 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:29 GMT
-      Last-Modified:
-      - Thu, 29 May 2014 19:10:29 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '44'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |-
-        .html {
-          clear: both;
-          overflow: hidden;
-        }
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:29 GMT
-- request:
-    method: get
-    uri: http://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:29 GMT
-      Last-Modified:
-      - Thu, 29 May 2014 19:10:29 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '5087'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
-        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
-        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
-        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
-        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
-        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
-        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
-        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
-        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
-        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
-        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
-        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
-        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
-        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
-        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
-        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
-        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
-        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
-        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
-        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
-        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
-        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
-        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
-        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
-        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
-        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
-        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
-        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
-        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
-        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
-        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
-        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
-        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
-        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
-        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
-        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
-        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
-        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
-        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
-        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
-        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
-        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
-        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
-        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
-        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
-        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
-        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
-        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
-        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
-        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
-        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
-        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
-        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
-        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
-        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
-        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
-        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
-        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
-        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:29 GMT
-- request:
-    method: get
-    uri: http://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:29 GMT
-      Last-Modified:
-      - Thu, 29 May 2014 19:10:29 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '4122'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |-
-        /* FILTER STYLES =============================*/
-        .filters:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-        .filter-btn {
-          display: inline-block;
-        }
-        .filter-name {
-          margin-right: .25em;
-        }
-        .available-filter {
-          text-align: right;
-          font-size: 15px;
-          font-weight: bold;
-          padding: 1em 0;
-        }
-        .available-filter input {
-          display: inline;
-          margin-right: .5em;
-          vertical-align: .1em;
-        }
-        @media (min-width: 768px) {
-          .filter {
-            float: left;
-            margin-right: 2%;
-          }
-          .filter-name {
-            margin-right: .5em;
-          }
-        }
-        @media (min-width: 980px) {
-          .available-filter {
-            font-size: 18px;
-          }
-        }
-
-
-        /* SELECT FLOORPLAN STYLES =========================*/
-        .floorplans {
-          margin-bottom: 2em;
-        }
-        .floorplan-btn {
-          overflow: hidden;
-          border: 1px solid #cbcbcb;
-          border-radius: 5px;
-          background: #f0f0f0;
-          background: -webkit-linear-gradient(#fff, #f0f0f0);
-          background: -moz-linear-gradient(#fff, #f0f0f0);
-          background: -ms-linear-gradient(#fff, #f0f0f0);
-          background: -o-linear-gradient(#fff, #f0f0f0);
-          background: linear-gradient(#fff, #f0f0f0);
-          text-decoration: none;
-        }
-        .floorplans ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-        }
-        .floorplan-box {
-          border: 1px solid #bcbcbc;
-          border-radius: 10px;
-          position: relative;
-        }
-        .floorplan-container {
-          padding: .625em 10px;
-        }
-        .floorplan-container.selected {
-          background: #f0f0f0;
-          background: -webkit-linear-gradient(#fff, #f0f0f0);
-          background: -moz-linear-gradient(#fff, #f0f0f0);
-          background: -ms-linear-gradient(#fff, #f0f0f0);
-          background: -o-linear-gradient(#fff, #f0f0f0);
-          background: linear-gradient(#fff, #f0f0f0);
-        }
-        .floorplans a {
-          color: #504e4e;
-        }
-        .floorplans h2 {
-          font-size: 24px;
-        }
-        .floorplans h3 {
-          font-size: 20px;
-        }
-        .floorplan {
-          position: relative;
-          border-top: 1px solid #ccc;
-          padding: .625em 10px;
-        }
-        .floorplan:after {
-          content: "";
-          display: table;
-          clear:both;
-        }
-        li.floorplan:first-child {
-          border-top: none;
-        }
-        li.floorplan:nth-child(even) {
-          background: #efeded;
-        }
-        .floorplan-heading {
-          overflow: hidden;
-          margin-bottom: 1em;
-        }
-        .floorplan-heading p {
-          float: left;
-          margin-top: 0;
-          font-size: 18px;
-          border-bottom: 1px solid #504e4e;
-        }
-        .choose-floorplan {
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          width: 100%;
-          padding: .5em 1em;
-          float: right;
-          font-size: 16px;
-          text-align: center;
-        }
-        .choose-floorplan span {
-          display: block;
-        }
-        .choose-floorplan .soon {
-          border-top: 1px solid #cbcbcb;
-          padding-top: .2em;
-          margin-top: .2em;
-        }
-        .selected .choose-floorplan {
-          display: none;
-        }
-        .floorplan-info {
-          position: relative;
-          min-height: 50px;
-        }
-        .floorplan-info div {
-          min-height: 1px;
-        }
-        .floorplan-info p {
-          font-size: 13px;
-          line-height: 1.5;
-          margin: 0;
-        }
-        .floorplan-img {
-          float: left;
-          margin-right: 2%;
-          width: 13%;
-        }
-        .floorplan-img .floorplan-btn {
-          padding: 2px;
-          display: block;
-        }
-        .floorplan-img img {
-          display: block;
-          margin: 0 auto;
-        }
-        .floorplan .floorplan-beds,
-        .floorplan .floorplan-size {
-          margin-left: 17%;
-          width: 35%;
-        }
-
-        @media (max-width: 979px) {
-          .floorplan-rent {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 45%;
-          }
-          .floorplan-beds p {
-            display: inline-block;
-          }
-          .floorplan-beds p:first-child:after {
-            padding-left: .5em;
-            content: '/';
-          }
-        }
-        @media (min-width: 768px) {
-          .floorplan-heading {
-            margin-bottom: 0;
-          }
-          .floorplan-heading p {
-            font-size: 20px;
-          }
-          .choose-floorplan {
-            width: auto;
-          }
-          .floorplan-info p {
-            font-size: 16px;
-          }
-        }
-        @media (min-width: 980px) {
-          .floorplans h2 {
-            font-size: 36px;
-          }
-          .choose-floorplan {
-            position: absolute;
-            right: 10px;
-            top: 2em;
-            z-index: 1;
-          }
-          .floorplan .floorplan-beds,
-          .floorplan .floorplan-size,
-          .floorplan .floorplan-rent {
-            float: left;
-            margin-left: 0;
-            width: 20%;
-          }
-        }
-
-        #loading-floorplans {
-          margin: 200px auto;
-          text-align: center;
-          width: 200px;
-        }
-
-        #loading-floorplans .loader {
-          background: url(http://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
-          height: 32px;
-          margin: 0 auto 1em;
-          width: 32px;
-        }
-
-        .filters .filter .disabled {
-          cursor: default;
-        }
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:29 GMT
-- request:
-    method: get
-    uri: http://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:30 GMT
-      Last-Modified:
-      - Wed, 30 Apr 2014 22:47:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '386'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |
-        @media (min-width: 980px) {
-          .wrapper:before,
-          .wrapper:after {
-            display: table;
-            line-height: 0;
-            content: "";
-          }
-          .wrapper:after {
-            clear: both;
-          }
-          .layout-side-right section[role=main] {
-            float: left;
-          }
-          .layout-side-right .aside-top,
-          .layout-side-right aside[role=complementary] {
-            float: right;
-          }
-          footer[role=contentinfo] {
-            clear: both;
-          }
-        }
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:30 GMT
-- request:
-    method: get
-    uri: http://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/plain
-      Date:
-      - Thu, 29 May 2014 22:26:30 GMT
-      Last-Modified:
-      - Thu, 08 May 2014 17:43:08 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '14297'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |
-        @import 'colors.scss';
-        @import 'bourbon/bourbon.scss';
-
-        // HELPERS =======================
-        @mixin font-size($value) {
-          font-size: $value + px;
-          font-size: ($value / 10) + rem;
-        }
-
-        // VARIABLES ==================================
-        $text: #393939;
-        $light-text: #707070;
-        $text-font: 'proxima-nova', Helvetica, Arial, sans-serif;
-        $alt-font: 'proxima-nova-alt-condensed', Helvetica, Arial, sans-serif;
-        $heading-font: 'arvo', Georgia, serif;
-        $light-grey: #d9d9d9;
-        $grey: #888;
-        $dark: #393939;
-        $white: #fff;
-        $border-width: 6px;
-
-
-        // GENERAL ==================================
-        html {
-          font-size: 62.5%;
-          background: $white url('http://themes.g5dxm.com/high-rise/background.png') 0 0 repeat;
-        }
-        body {
-          @include font-size(16);
-          border-top: $border-width solid $secondaryColor;
-          color: $text;
-          font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
-          font-weight: 400;
-          line-height: 1.25;
-          @media (min-width: 960px) {
-            line-height: 1.375;
-          }
-        }
-        h1, h2, h3, h4, h5, h6 {
-          font-family: $heading-font;
-          font-weight: 400;
-          margin-top: 0;
-        }
-        h1 {
-          @include font-size(26);
-          line-height: 1.15384615;
-          margin-bottom: .5em;
-          @media (min-width: 960px) {
-            @include font-size(32);
-            line-height: 1.25;
-          }
-          @media (min-width: 1200px) {
-            @include font-size(36);
-          }
-        }
-        h2 {
-          @include font-size(22);
-          color: $grey;
-          font-family: $text-font;
-          line-height: 1.13636364;
-          margin-bottom: .5em;
-          @media (min-width: 960px) {
-            @include font-size(24);
-            line-height: 1.25;
-          }
-        }
-        a {
-          @include transition(color 0.2s ease-in);
-          color: $text;
-          text-decoration: none;
-          &:hover,
-          &:focus {
-            color: $secondaryColor;
-          }
-          [role=main] & {
-            text-decoration: underline;
-          }
-        }
-        fieldset {
-          border: none;
-          padding: 0;
-        }
-        .form-field {
-          margin-bottom: 1em;
-        }
-        input,
-        label,
-        legend {
-          @include font-size(18);
-        }
-        label,
-        legend {
-          font-family: $alt-font;
-          font-weight: 100;
-        }
-        #{$all-text-inputs},
-        textarea {
-          @include box-sizing(border-box);
-          background: $light-grey;
-          border: none;
-          font-family: $text-font;
-          padding: .3em .5em;
-          width: 100%;
-        }
-        input[type=checkbox],
-        input[type=radio] {
-          display: inline-block;
-          margin-right: .5em;
-          width: auto;
-        }
-        textarea {
-          height: 5em;
-        }
-
-
-        // LAYOUT ==================================
-        .layout {
-          @include box-sizing(border-box);
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 1230px;
-          width: 100%;
-        }
-        .wrapper {
-          background: $white;
-        }
-        .content,
-        [role=main],
-        [role=aside] {
-          @include clearfix;
-          @include box-sizing(border-box);
-        }
-
-
-        // HEADER/FOOTER ==================================
-        [role=banner] {
-          @include font-size(13);
-          font-family: $heading-font;
-          position: relative;
-          a {
-            color: #fff;
-          }
-          .buttons {
-            position: absolute;
-            right: 0;
-            top: -$border-width;
-          }
-          .navigation {
-            background: $dark;
-            font-family: $heading-font;
-            a {
-              display: block;
-              &:hover,
-              &:focus {
-                background: #000;
-                background: rgba(0, 0, 0, .3);
-              }
-            }
-          }
-        }
-        .logo {
-          max-width: 300px;
-          &, img {
-            display: block;
-            margin: 0;
-          }
-        }
-        .buttons {
-          a {
-            margin-left: 5px;
-            vertical-align: top;
-          }
-          .widget {
-            @include font-size(15);
-            display: inline-block;
-          }
-        }
-        .collapsable-btn {
-          border-left-color: $secondaryColor;
-          padding: 2px 6px !important;
-          .text {
-            display: none;
-          }
-          .bars {
-            display: block;
-            span {
-              border-bottom: 1px solid $white;
-              display: block;
-              margin: 6px 0;
-              width: 20px;
-            }
-          }
-          &:first-child {
-            margin-top: 0;
-          }
-        }
-        [role=contentinfo] {
-          @include clearfix;
-          @include font-size(12);
-          border-top: 4px double $text;
-          padding-bottom: 2em;
-          padding-top: 1em;
-          text-transform: uppercase;
-        }
-
-
-        // MAIN/ASIDE ==================================
-        [role=main] {
-          padding-bottom: 2em;
-          padding-top: 2em;
-        }
-        .aside-top {
-          padding-top: 2em;
-        }
-        [role=complementary] {
-          padding-bottom: 3em;
-        }
-
-
-        // WIDGETS ==================================
-        [role=contentinfo] .widget {
-          margin-bottom: 2em;
-        }
-        [role=main],
-        [role=complementary] {
-          .widget {
-            margin-top: 2em;
-          }
-        }
-
-        .btn,
-        input[type=submit] {
-          background: $dark;
-          border: none;
-          border-left: $border-width solid $primaryColor;
-          color: $white;
-          display: inline-block;
-          padding: .6em 2em;
-          text-decoration: none;
-          vertical-align: top;
-          &:hover,
-          &:focus {
-            border-left-color: $secondaryColor;
-            color: $white;
-          }
-        }
-        .form-note {
-          margin-bottom: 2em;
-        }
-        .form .required:after {
-          content: '*';
-          margin-left: .25em;
-        }
-        .form-instruction {
-          @include font-size(16);
-          display: inline-block;
-          font-family: $alt-font;
-          font-weight: 100;
-          margin: .5em 0 0 25px;
-        }
-        .form-optional {
-          color: $grey;
-          padding: 0 .5em;
-        }
-        input[type=submit] {
-          @include font-size(15);
-        }
-        [role=main] {
-          .btn {
-            text-decoration: none;
-          }
-          p, ul, ol {
-            color: $light-text;
-          }
-        }
-        .action-calls {
-          @include font-size(18);
-          font-family: $alt-font;
-          font-weight: 100;
-          text-transform: uppercase;
-          a {
-            background: $primaryColor;
-            border-left: $border-width solid $secondaryColor;
-            display: block;
-            margin-bottom: .2em;
-            padding: .2em 1em .3em 2em;
-            position: relative;
-            &:hover,
-            &:focus {
-              color: $white;
-            }
-            &:after {
-              content: '>';
-              position: absolute;
-              right: 1em;
-            }
-          }
-        }
-        .coupon {
-          @include clearfix;
-          h2 {
-            @include font-size(18);
-            border-bottom-color: $secondaryColor;
-            color: $secondaryColor;
-            margin-bottom: 2em;
-            padding-bottom: .5em;
-            text-align: center;
-          }
-          .coupon-logo {
-            display: block;
-            max-width: 60%;
-            margin: 1em auto 2em;
-          }
-          .p-name {
-            @include font-size(14);
-          }
-          .p-street-address,
-          .p-tel {
-            display: block;
-          }
-          .btn {
-            @include box-sizing(border-box);
-            @include font-size(14);
-            margin: 0;
-            padding: .4em;
-            text-align: center;
-            text-decoration: none;
-          }
-          .coupon-print {
-            margin-bottom: 1%;
-            width: 100%;
-          }
-          .coupon-email,
-          .coupon-text {
-            width: 49.5%;
-          }
-          .coupon-email {
-            margin-right: 1%;
-          }
-        }
-        [role=complementary] .photo img {
-          display: block;
-        }
-
-        @media (min-width: 768px) and (max-width: 980px) {
-          .coupon-info,
-          .coupon-map {
-            @include box-sizing(border-box);
-            float: left;
-            width: 50%;
-          }
-        }
-        @media (min-width: 1200px) {
-          [role=main] {
-            .coupon {
-              @include clearfix;
-              .coupon-info {
-                padding-right: 1%;
-              }
-              .coupon-map {
-                padding-left: 1%;
-              }
-              .btn {
-                @include font-size(16);
-              }
-            }
-            .coupon-info,
-            .coupon-map {
-              @include box-sizing(border-box);
-              float: left;
-              width: 50%;
-            }
-          }
-        }
-
-        .social-links {
-          a {
-            background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
-            background-size: 100%;
-            height: 33px;
-            overflow: hidden;
-            text-indent: -999em;
-            width: 32px;
-            vertical-align: middle;
-            &:last-child {
-              margin-right: 0;
-            }
-          }
-          .twitter {
-            background-position: 0 0;
-          }
-          .tumblr {
-            background-position: 0 -44px;
-          }
-          .facebook {
-            background-position: 0 -88px;
-          }
-          .instagram {
-            background-position: 0 -131px;
-          }
-          .vimeo {
-            background-position: 0 -174px;
-          }
-          .yelp {
-            background-position: 0 -218px;
-          }
-          .foursquare {
-            background-position: 0 -261px;
-          }
-          .pinterest {
-            background-position: 0 -305px;
-          }
-          .youtube {
-            background-position: 0 -349px;
-          }
-        }
-
-        .blog-feed a {
-          display: block;
-        }
-        .twitter-feed {
-          .tweet-text a,
-          .tweet-name,
-          .tweet-date,
-          .follow {
-            text-decoration: none;
-          }
-          li {
-            background: #393939;
-          }
-          .tweet-date {
-            color: #707070;
-          }
-          .tweet-date,
-          .tweet-name {
-            @include font-size(12);
-          }
-          .tweet-date,
-          .tweet-text p {
-            color: #b5b5b5;
-          }
-          .tweet-name {
-            color: $white;
-            display: block;
-          }
-          .tweet-text {
-            display: block;
-            margin-top: .25em;
-          }
-          .follow {
-            @include font-size(14);
-            background: $secondaryColor;
-            color: $white;
-            font-family: $heading-font;
-            margin-top: 1em;
-            padding: .5em 1em;
-          }
-        }
-        .tweet-list a {
-          color: $secondaryColor;
-        }
-        [role=complementary] {
-          .twitter-feed {
-            .tweet-text {
-              @include font-size(12);
-            }
-          }
-        }
-
-        .floorplans {
-          h3 {
-            font-family: $text-font;
-          }
-          label {
-            @include font-size(12);
-            font-family: inherit;
-          }
-          .filter {
-            @include linear-gradient(#fff, #f0f0f0);
-            border: 1px solid #cbcbcb;
-            border-radius: 5px;
-            margin-bottom: .5em;
-            padding: .75em .5em;
-            input {
-              display: none;
-            }
-          }
-          .filter-btn {
-            @include font-size(15);
-            @include linear-gradient(white, #f0f0f0);
-            border: 1px solid #cbcbcb;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
-            padding: .3125em .5em;
-          }
-          .disabled {
-            color: #cbcbcb;
-          }
-          input:checked + .filter-btn {
-            border-color: $text;
-          }
-          .filter-name {
-            @include font-size(15);
-            color: $secondaryColor;
-          }
-          .floorplan-heading strong {
-            @include font-size(16);
-            font-weight: 400;
-          }
-          .choose-floorplan {
-            text-decoration: none;
-            strong {
-              color: $secondaryColor;
-            }
-          }
-        }
-        .floorplan-container {
-          background: $white;
-        }
-
-        @media (min-width: 768px) {
-          .floorplans {
-            .filter {
-              padding: .75em 1em;
-            }
-            .filter-name {
-              @include font-size(22);
-            }
-            .filter-btn {
-              @include font-size(15);
-            }
-          }
-        }
-
-        [role=complementary] {
-          .social-links {
-            background: $white;
-            padding: 1em 20px;
-            text-align: center;
-          }
-          .contact-info {
-            font-family: $alt-font;
-            line-height: 1.2;
-            .p-name {
-              @include font-size(18px);
-              border-bottom: 1px dotted $text;
-              padding-bottom: .4em;
-            }
-            .adr,
-            .tel,
-            .email {
-              @include font-size(18);
-              background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
-              min-height: 35px;
-              padding-left: 40px;
-              text-transform: uppercase;
-            }
-            .tel {
-              background-position: 0 0;
-            }
-            .adr {
-              background-position: 0 -65px;
-            }
-            .email {
-              background-position: 0 -150px;
-            }
-          }
-        }
-        [role=contentinfo] {
-          .hours,
-          .contact-info {
-            float: left;
-            margin-right: 2em;
-          }
-          .contact-info h4 {
-            font-family: $text-font;
-            font-size: inherit;
-            margin: 0;
-          }
-          .navigation {
-            li {
-              display: inline-block;
-              &:before {
-                content: '| ';
-              }
-              &:first-child:before {
-                content: '';
-              }
-            }
-            a {
-              display: inline-block;
-            }
-          }
-          .hours p,
-          .contact-info p {
-            margin-bottom: 0;
-          }
-        }
-
-
-
-        // SMALLER THAN DESKTOP =====================
-        @media (max-width: 979px) {
-          [role=banner],
-          [role=main],
-          .aside-top,
-          [role=complementary],
-          [role=contentinfo] {
-            padding-left: 3%;
-            padding-right: 3%;
-          }
-          [role=banner] {
-            h1 {
-              @include font-size(30);
-            }
-            .logo {
-              width: 65%;
-            }
-            .buttons .button .btn {
-              height: 21px;
-              padding: 5px 1em;
-            }
-            .navigation {
-              @include font-size(16);
-              a {
-                display: block;
-                padding: .5em .5em .5em 2em;
-              }
-              li {
-                box-shadow: 0 -1px 0 #212121;
-                border-left: $border-width solid $secondaryColor;
-              }
-            }
-          }
-          [role=main] .action-calls li {
-            margin-bottom: .5em;
-          }
-          footer[role=contentinfo] .navigation {
-            text-align: center;
-          }
-        }
-
-
-        // IPAD AND LARGER ========================
-        @media (min-width: 768px) {
-          h2 {
-            margin-bottom: 1em;
-          }
-          input[type=checkbox],
-          input[type=radio] {
-            width: auto;
-          }
-          [role=banner] {
-            @include font-size(15);
-            padding-top: 1.5em;
-          }
-          .page-home [role=main] .photo {
-            margin-right: -1px;
-          }
-          .blog-feed,
-          .twitter-feed {
-            @include box-sizing(border-box);
-            width: 100%;
-          }
-          [role=contentinfo] .navigation {
-            float: right;
-            text-align: right;
-            margin-bottom: 0;
-          }
-        }
-
-
-        // SMALL DESKTOP AND LARGER =====================
-        @media (min-width: 980px) {
-          .layout {
-            padding-left: 2.5%;
-            padding-right: 2.5%;
-          }
-          [role=main] {
-            padding-left: 5.1282051%; // 60/1170px
-            padding-right: 5.1282051%;
-          }
-          [role=banner] {
-            margin-bottom: 1em;
-            h1 {
-              float: left;
-              margin-bottom: .5em;
-            }
-            .navigation {
-              border-collapse: collapse;
-              border-left: none;
-              clear: both;
-              display: table;
-              text-align: center;
-              width: 100%;
-              ul {
-                display: table-row;
-              }
-              li {
-                box-shadow: -1px 0 0 #212121;
-                border-left: 1px solid #434343;
-                display: table-cell;
-                &:first-child {
-                  box-shadow: none;
-                  border-left: none;
-                }
-              }
-              a {
-                padding: 1.25em 0 .783em;
-                border-bottom: .467em solid $dark;
-                &:hover,
-                &:focus,
-                &.active {
-                  border-bottom-color: $secondaryColor;
-                }
-              }
-            }
-          }
-          .wrapper {
-            border-bottom: $border-width solid $secondaryColor;
-            margin-bottom: 2em;
-            overflow: hidden;
-          }
-          .aside-top {
-            @include box-sizing(border-box);
-            padding-top: 0;
-          }
-          // this is a trick to create equal height columns. the parent needs overflow: hidden
-          [role=main],
-          [role=complementary] {
-            @include box-sizing(border-box);
-            margin-bottom: -2000px;
-            padding-bottom: 2000px;
-            .widget:last-child {
-              margin-bottom: 2em;
-            }
-          }
-          [role=main] {
-            border-right: 1px solid $light-grey;
-            width: 68.376068%; // 800/1170px
-          }
-          .aside-top,
-          [role=complementary] {
-            width: 31.623932%; // 370/1170px
-            .widget {
-              padding-left: 5.4054054%; // 20/370px
-              padding-right: 5.4054054%;
-            }
-            .action-calls {
-              padding-left: 0;
-              padding-right: 0;
-            }
-            .photo img {
-              width: 100%;
-            }
-          }
-          .buttons {
-            float: right;
-          }
-          .action-calls {
-            @include font-size(24);
-            a {
-              padding: .5em 1em;
-            }
-          }
-          .floorplans {
-            .floorplan-beds {
-              width: 15%;
-            }
-            .floorplan-rent {
-              width: 25%;
-            }
-          }
-          .page-home {
-            [role=main] {
-              padding-left: 0;
-              padding-right: 0;
-              padding-top: 0;
-              .html {
-                margin: 1em 5.1282051%;
-              }
-            }
-          }
-        }
-
-
-        // DESKTOP =====================
-        @media (min-width: 1200px) {
-          [role=complementary] .social-links {
-            text-align: left;
-            &:before {
-              @include font-size(32);
-              content: 'GET SOCIAL ///';
-              font-family: $alt-font;
-              font-weight: 100;
-              vertical-align: middle;
-            }
-          }
-        }
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:30 GMT
-- request:
-    method: get
-    uri: http://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:30 GMT
-      Last-Modified:
-      - Thu, 29 May 2014 19:10:29 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '488'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |
-        .button .btn-img,
-        .button a {
-          display: block;
-        }
-
-        .button-list {
-          overflow: hidden;
-        }
-        .button-list .btn-img {
-          float: left;
-          margin-right: 1em;
-        }
-        .button-grid {
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          text-align: center;
-        }
-        @media (min-width: 500px) {
-          .button-grid {
-            float: left;
-            padding: 0 1em;
-            width: 50%;
-          }
-          .button-grid:nth-of-type(2n+1) {
-            clear: left;
-          }
-        }
-        .button-grid .btn-img {
-          margin: 0 auto 1em;
-        }
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:30 GMT
-- request:
-    method: get
-    uri: http://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:30 GMT
-      Last-Modified:
-      - Thu, 29 May 2014 19:10:29 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '194'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |-
-        .contact-info .p-organization-name,
-        .contact-info .h-adr,
-        .contact-info .p-street-address,
-        .contact-info .p-tel,
-        .contact-info .p-url,
-         {
-          display: block;
-        }
-        .contact-info p {
-          margin-top: 0;
-        }
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:31 GMT
-- request:
-    method: get
-    uri: http://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:31 GMT
-      Last-Modified:
-      - Thu, 29 May 2014 19:10:29 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '30'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |
-        .hours p {
-          margin-top: 0;
-        }
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:31 GMT
-- request:
-    method: get
-    uri: http://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Thu, 29 May 2014 22:26:31 GMT
-      Last-Modified:
-      - Thu, 29 May 2014 19:10:29 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '600'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
-        .copyright {\n  margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n
-        \ margin-left: 10px;\n  vertical-align: top;\n}\n\n.footer-info .access {\n
-        \ background: url(http://themes.g5dxm.com/shared/access-icons.png) 0 0 no-repeat;\n
-        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n\n.footer-info
-        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n\n.footer-info .handicap-icon
-        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n\n.footer-info
-        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}"
-    http_version: 
-  recorded_at: Thu, 29 May 2014 22:26:31 GMT
-- request:
-    method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
     body:
       encoding: US-ASCII
@@ -1490,7 +10,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1498,18 +18,22 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:42 GMT
-      Last-Modified:
-      - Fri, 06 Jun 2014 16:51:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '44'
+      Server:
+      - Cowboy
       Connection:
       - keep-alive
+      Content-Length:
+      - '44'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:20 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: |-
@@ -1518,7 +42,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:42 GMT
+  recorded_at: Fri, 20 Jun 2014 18:13:21 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -1529,7 +53,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1537,21 +61,25 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:43 GMT
-      Last-Modified:
-      - Fri, 06 Jun 2014 16:51:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '4122'
+      Server:
+      - Cowboy
       Connection:
       - keep-alive
+      Content-Length:
+      - '4121'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:21 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
-      string: |-
+      string: |
         /* FILTER STYLES =============================*/
         .filters:after {
           content: "";
@@ -1768,19 +296,17 @@ http_interactions:
           text-align: center;
           width: 200px;
         }
-
         #loading-floorplans .loader {
           background: url(http://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
           height: 32px;
           margin: 0 auto 1em;
           width: 32px;
         }
-
         .filters .filter .disabled {
           cursor: default;
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:43 GMT
+  recorded_at: Fri, 20 Jun 2014 18:13:21 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -1791,7 +317,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -1799,18 +325,22 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:43 GMT
-      Last-Modified:
-      - Fri, 06 Jun 2014 16:51:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '5087'
+      Server:
+      - Cowboy
       Connection:
       - keep-alive
+      Content-Length:
+      - '5087'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:21 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
@@ -1876,898 +406,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:43 GMT
-- request:
-    method: get
-    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:44 GMT
-      Last-Modified:
-      - Wed, 04 Jun 2014 18:42:31 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '386'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |
-        @media (min-width: 980px) {
-          .wrapper:before,
-          .wrapper:after {
-            display: table;
-            line-height: 0;
-            content: "";
-          }
-          .wrapper:after {
-            clear: both;
-          }
-          .layout-side-right section[role=main] {
-            float: left;
-          }
-          .layout-side-right .aside-top,
-          .layout-side-right aside[role=complementary] {
-            float: right;
-          }
-          footer[role=contentinfo] {
-            clear: both;
-          }
-        }
-    http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:44 GMT
-- request:
-    method: get
-    uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Content-Type:
-      - text/plain
-      Date:
-      - Mon, 09 Jun 2014 16:06:44 GMT
-      Last-Modified:
-      - Thu, 08 May 2014 17:43:08 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '14297'
-      Connection:
-      - keep-alive
-    body:
-      encoding: UTF-8
-      string: |
-        @import 'colors.scss';
-        @import 'bourbon/bourbon.scss';
-
-        // HELPERS =======================
-        @mixin font-size($value) {
-          font-size: $value + px;
-          font-size: ($value / 10) + rem;
-        }
-
-        // VARIABLES ==================================
-        $text: #393939;
-        $light-text: #707070;
-        $text-font: 'proxima-nova', Helvetica, Arial, sans-serif;
-        $alt-font: 'proxima-nova-alt-condensed', Helvetica, Arial, sans-serif;
-        $heading-font: 'arvo', Georgia, serif;
-        $light-grey: #d9d9d9;
-        $grey: #888;
-        $dark: #393939;
-        $white: #fff;
-        $border-width: 6px;
-
-
-        // GENERAL ==================================
-        html {
-          font-size: 62.5%;
-          background: $white url('http://themes.g5dxm.com/high-rise/background.png') 0 0 repeat;
-        }
-        body {
-          @include font-size(16);
-          border-top: $border-width solid $secondaryColor;
-          color: $text;
-          font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
-          font-weight: 400;
-          line-height: 1.25;
-          @media (min-width: 960px) {
-            line-height: 1.375;
-          }
-        }
-        h1, h2, h3, h4, h5, h6 {
-          font-family: $heading-font;
-          font-weight: 400;
-          margin-top: 0;
-        }
-        h1 {
-          @include font-size(26);
-          line-height: 1.15384615;
-          margin-bottom: .5em;
-          @media (min-width: 960px) {
-            @include font-size(32);
-            line-height: 1.25;
-          }
-          @media (min-width: 1200px) {
-            @include font-size(36);
-          }
-        }
-        h2 {
-          @include font-size(22);
-          color: $grey;
-          font-family: $text-font;
-          line-height: 1.13636364;
-          margin-bottom: .5em;
-          @media (min-width: 960px) {
-            @include font-size(24);
-            line-height: 1.25;
-          }
-        }
-        a {
-          @include transition(color 0.2s ease-in);
-          color: $text;
-          text-decoration: none;
-          &:hover,
-          &:focus {
-            color: $secondaryColor;
-          }
-          [role=main] & {
-            text-decoration: underline;
-          }
-        }
-        fieldset {
-          border: none;
-          padding: 0;
-        }
-        .form-field {
-          margin-bottom: 1em;
-        }
-        input,
-        label,
-        legend {
-          @include font-size(18);
-        }
-        label,
-        legend {
-          font-family: $alt-font;
-          font-weight: 100;
-        }
-        #{$all-text-inputs},
-        textarea {
-          @include box-sizing(border-box);
-          background: $light-grey;
-          border: none;
-          font-family: $text-font;
-          padding: .3em .5em;
-          width: 100%;
-        }
-        input[type=checkbox],
-        input[type=radio] {
-          display: inline-block;
-          margin-right: .5em;
-          width: auto;
-        }
-        textarea {
-          height: 5em;
-        }
-
-
-        // LAYOUT ==================================
-        .layout {
-          @include box-sizing(border-box);
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 1230px;
-          width: 100%;
-        }
-        .wrapper {
-          background: $white;
-        }
-        .content,
-        [role=main],
-        [role=aside] {
-          @include clearfix;
-          @include box-sizing(border-box);
-        }
-
-
-        // HEADER/FOOTER ==================================
-        [role=banner] {
-          @include font-size(13);
-          font-family: $heading-font;
-          position: relative;
-          a {
-            color: #fff;
-          }
-          .buttons {
-            position: absolute;
-            right: 0;
-            top: -$border-width;
-          }
-          .navigation {
-            background: $dark;
-            font-family: $heading-font;
-            a {
-              display: block;
-              &:hover,
-              &:focus {
-                background: #000;
-                background: rgba(0, 0, 0, .3);
-              }
-            }
-          }
-        }
-        .logo {
-          max-width: 300px;
-          &, img {
-            display: block;
-            margin: 0;
-          }
-        }
-        .buttons {
-          a {
-            margin-left: 5px;
-            vertical-align: top;
-          }
-          .widget {
-            @include font-size(15);
-            display: inline-block;
-          }
-        }
-        .collapsable-btn {
-          border-left-color: $secondaryColor;
-          padding: 2px 6px !important;
-          .text {
-            display: none;
-          }
-          .bars {
-            display: block;
-            span {
-              border-bottom: 1px solid $white;
-              display: block;
-              margin: 6px 0;
-              width: 20px;
-            }
-          }
-          &:first-child {
-            margin-top: 0;
-          }
-        }
-        [role=contentinfo] {
-          @include clearfix;
-          @include font-size(12);
-          border-top: 4px double $text;
-          padding-bottom: 2em;
-          padding-top: 1em;
-          text-transform: uppercase;
-        }
-
-
-        // MAIN/ASIDE ==================================
-        [role=main] {
-          padding-bottom: 2em;
-          padding-top: 2em;
-        }
-        .aside-top {
-          padding-top: 2em;
-        }
-        [role=complementary] {
-          padding-bottom: 3em;
-        }
-
-
-        // WIDGETS ==================================
-        [role=contentinfo] .widget {
-          margin-bottom: 2em;
-        }
-        [role=main],
-        [role=complementary] {
-          .widget {
-            margin-top: 2em;
-          }
-        }
-
-        .btn,
-        input[type=submit] {
-          background: $dark;
-          border: none;
-          border-left: $border-width solid $primaryColor;
-          color: $white;
-          display: inline-block;
-          padding: .6em 2em;
-          text-decoration: none;
-          vertical-align: top;
-          &:hover,
-          &:focus {
-            border-left-color: $secondaryColor;
-            color: $white;
-          }
-        }
-        .form-note {
-          margin-bottom: 2em;
-        }
-        .form .required:after {
-          content: '*';
-          margin-left: .25em;
-        }
-        .form-instruction {
-          @include font-size(16);
-          display: inline-block;
-          font-family: $alt-font;
-          font-weight: 100;
-          margin: .5em 0 0 25px;
-        }
-        .form-optional {
-          color: $grey;
-          padding: 0 .5em;
-        }
-        input[type=submit] {
-          @include font-size(15);
-        }
-        [role=main] {
-          .btn {
-            text-decoration: none;
-          }
-          p, ul, ol {
-            color: $light-text;
-          }
-        }
-        .action-calls {
-          @include font-size(18);
-          font-family: $alt-font;
-          font-weight: 100;
-          text-transform: uppercase;
-          a {
-            background: $primaryColor;
-            border-left: $border-width solid $secondaryColor;
-            display: block;
-            margin-bottom: .2em;
-            padding: .2em 1em .3em 2em;
-            position: relative;
-            &:hover,
-            &:focus {
-              color: $white;
-            }
-            &:after {
-              content: '>';
-              position: absolute;
-              right: 1em;
-            }
-          }
-        }
-        .coupon {
-          @include clearfix;
-          h2 {
-            @include font-size(18);
-            border-bottom-color: $secondaryColor;
-            color: $secondaryColor;
-            margin-bottom: 2em;
-            padding-bottom: .5em;
-            text-align: center;
-          }
-          .coupon-logo {
-            display: block;
-            max-width: 60%;
-            margin: 1em auto 2em;
-          }
-          .p-name {
-            @include font-size(14);
-          }
-          .p-street-address,
-          .p-tel {
-            display: block;
-          }
-          .btn {
-            @include box-sizing(border-box);
-            @include font-size(14);
-            margin: 0;
-            padding: .4em;
-            text-align: center;
-            text-decoration: none;
-          }
-          .coupon-print {
-            margin-bottom: 1%;
-            width: 100%;
-          }
-          .coupon-email,
-          .coupon-text {
-            width: 49.5%;
-          }
-          .coupon-email {
-            margin-right: 1%;
-          }
-        }
-        [role=complementary] .photo img {
-          display: block;
-        }
-
-        @media (min-width: 768px) and (max-width: 980px) {
-          .coupon-info,
-          .coupon-map {
-            @include box-sizing(border-box);
-            float: left;
-            width: 50%;
-          }
-        }
-        @media (min-width: 1200px) {
-          [role=main] {
-            .coupon {
-              @include clearfix;
-              .coupon-info {
-                padding-right: 1%;
-              }
-              .coupon-map {
-                padding-left: 1%;
-              }
-              .btn {
-                @include font-size(16);
-              }
-            }
-            .coupon-info,
-            .coupon-map {
-              @include box-sizing(border-box);
-              float: left;
-              width: 50%;
-            }
-          }
-        }
-
-        .social-links {
-          a {
-            background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
-            background-size: 100%;
-            height: 33px;
-            overflow: hidden;
-            text-indent: -999em;
-            width: 32px;
-            vertical-align: middle;
-            &:last-child {
-              margin-right: 0;
-            }
-          }
-          .twitter {
-            background-position: 0 0;
-          }
-          .tumblr {
-            background-position: 0 -44px;
-          }
-          .facebook {
-            background-position: 0 -88px;
-          }
-          .instagram {
-            background-position: 0 -131px;
-          }
-          .vimeo {
-            background-position: 0 -174px;
-          }
-          .yelp {
-            background-position: 0 -218px;
-          }
-          .foursquare {
-            background-position: 0 -261px;
-          }
-          .pinterest {
-            background-position: 0 -305px;
-          }
-          .youtube {
-            background-position: 0 -349px;
-          }
-        }
-
-        .blog-feed a {
-          display: block;
-        }
-        .twitter-feed {
-          .tweet-text a,
-          .tweet-name,
-          .tweet-date,
-          .follow {
-            text-decoration: none;
-          }
-          li {
-            background: #393939;
-          }
-          .tweet-date {
-            color: #707070;
-          }
-          .tweet-date,
-          .tweet-name {
-            @include font-size(12);
-          }
-          .tweet-date,
-          .tweet-text p {
-            color: #b5b5b5;
-          }
-          .tweet-name {
-            color: $white;
-            display: block;
-          }
-          .tweet-text {
-            display: block;
-            margin-top: .25em;
-          }
-          .follow {
-            @include font-size(14);
-            background: $secondaryColor;
-            color: $white;
-            font-family: $heading-font;
-            margin-top: 1em;
-            padding: .5em 1em;
-          }
-        }
-        .tweet-list a {
-          color: $secondaryColor;
-        }
-        [role=complementary] {
-          .twitter-feed {
-            .tweet-text {
-              @include font-size(12);
-            }
-          }
-        }
-
-        .floorplans {
-          h3 {
-            font-family: $text-font;
-          }
-          label {
-            @include font-size(12);
-            font-family: inherit;
-          }
-          .filter {
-            @include linear-gradient(#fff, #f0f0f0);
-            border: 1px solid #cbcbcb;
-            border-radius: 5px;
-            margin-bottom: .5em;
-            padding: .75em .5em;
-            input {
-              display: none;
-            }
-          }
-          .filter-btn {
-            @include font-size(15);
-            @include linear-gradient(white, #f0f0f0);
-            border: 1px solid #cbcbcb;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
-            padding: .3125em .5em;
-          }
-          .disabled {
-            color: #cbcbcb;
-          }
-          input:checked + .filter-btn {
-            border-color: $text;
-          }
-          .filter-name {
-            @include font-size(15);
-            color: $secondaryColor;
-          }
-          .floorplan-heading strong {
-            @include font-size(16);
-            font-weight: 400;
-          }
-          .choose-floorplan {
-            text-decoration: none;
-            strong {
-              color: $secondaryColor;
-            }
-          }
-        }
-        .floorplan-container {
-          background: $white;
-        }
-
-        @media (min-width: 768px) {
-          .floorplans {
-            .filter {
-              padding: .75em 1em;
-            }
-            .filter-name {
-              @include font-size(22);
-            }
-            .filter-btn {
-              @include font-size(15);
-            }
-          }
-        }
-
-        [role=complementary] {
-          .social-links {
-            background: $white;
-            padding: 1em 20px;
-            text-align: center;
-          }
-          .contact-info {
-            font-family: $alt-font;
-            line-height: 1.2;
-            .p-name {
-              @include font-size(18px);
-              border-bottom: 1px dotted $text;
-              padding-bottom: .4em;
-            }
-            .adr,
-            .tel,
-            .email {
-              @include font-size(18);
-              background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
-              min-height: 35px;
-              padding-left: 40px;
-              text-transform: uppercase;
-            }
-            .tel {
-              background-position: 0 0;
-            }
-            .adr {
-              background-position: 0 -65px;
-            }
-            .email {
-              background-position: 0 -150px;
-            }
-          }
-        }
-        [role=contentinfo] {
-          .hours,
-          .contact-info {
-            float: left;
-            margin-right: 2em;
-          }
-          .contact-info h4 {
-            font-family: $text-font;
-            font-size: inherit;
-            margin: 0;
-          }
-          .navigation {
-            li {
-              display: inline-block;
-              &:before {
-                content: '| ';
-              }
-              &:first-child:before {
-                content: '';
-              }
-            }
-            a {
-              display: inline-block;
-            }
-          }
-          .hours p,
-          .contact-info p {
-            margin-bottom: 0;
-          }
-        }
-
-
-
-        // SMALLER THAN DESKTOP =====================
-        @media (max-width: 979px) {
-          [role=banner],
-          [role=main],
-          .aside-top,
-          [role=complementary],
-          [role=contentinfo] {
-            padding-left: 3%;
-            padding-right: 3%;
-          }
-          [role=banner] {
-            h1 {
-              @include font-size(30);
-            }
-            .logo {
-              width: 65%;
-            }
-            .buttons .button .btn {
-              height: 21px;
-              padding: 5px 1em;
-            }
-            .navigation {
-              @include font-size(16);
-              a {
-                display: block;
-                padding: .5em .5em .5em 2em;
-              }
-              li {
-                box-shadow: 0 -1px 0 #212121;
-                border-left: $border-width solid $secondaryColor;
-              }
-            }
-          }
-          [role=main] .action-calls li {
-            margin-bottom: .5em;
-          }
-          footer[role=contentinfo] .navigation {
-            text-align: center;
-          }
-        }
-
-
-        // IPAD AND LARGER ========================
-        @media (min-width: 768px) {
-          h2 {
-            margin-bottom: 1em;
-          }
-          input[type=checkbox],
-          input[type=radio] {
-            width: auto;
-          }
-          [role=banner] {
-            @include font-size(15);
-            padding-top: 1.5em;
-          }
-          .page-home [role=main] .photo {
-            margin-right: -1px;
-          }
-          .blog-feed,
-          .twitter-feed {
-            @include box-sizing(border-box);
-            width: 100%;
-          }
-          [role=contentinfo] .navigation {
-            float: right;
-            text-align: right;
-            margin-bottom: 0;
-          }
-        }
-
-
-        // SMALL DESKTOP AND LARGER =====================
-        @media (min-width: 980px) {
-          .layout {
-            padding-left: 2.5%;
-            padding-right: 2.5%;
-          }
-          [role=main] {
-            padding-left: 5.1282051%; // 60/1170px
-            padding-right: 5.1282051%;
-          }
-          [role=banner] {
-            margin-bottom: 1em;
-            h1 {
-              float: left;
-              margin-bottom: .5em;
-            }
-            .navigation {
-              border-collapse: collapse;
-              border-left: none;
-              clear: both;
-              display: table;
-              text-align: center;
-              width: 100%;
-              ul {
-                display: table-row;
-              }
-              li {
-                box-shadow: -1px 0 0 #212121;
-                border-left: 1px solid #434343;
-                display: table-cell;
-                &:first-child {
-                  box-shadow: none;
-                  border-left: none;
-                }
-              }
-              a {
-                padding: 1.25em 0 .783em;
-                border-bottom: .467em solid $dark;
-                &:hover,
-                &:focus,
-                &.active {
-                  border-bottom-color: $secondaryColor;
-                }
-              }
-            }
-          }
-          .wrapper {
-            border-bottom: $border-width solid $secondaryColor;
-            margin-bottom: 2em;
-            overflow: hidden;
-          }
-          .aside-top {
-            @include box-sizing(border-box);
-            padding-top: 0;
-          }
-          // this is a trick to create equal height columns. the parent needs overflow: hidden
-          [role=main],
-          [role=complementary] {
-            @include box-sizing(border-box);
-            margin-bottom: -2000px;
-            padding-bottom: 2000px;
-            .widget:last-child {
-              margin-bottom: 2em;
-            }
-          }
-          [role=main] {
-            border-right: 1px solid $light-grey;
-            width: 68.376068%; // 800/1170px
-          }
-          .aside-top,
-          [role=complementary] {
-            width: 31.623932%; // 370/1170px
-            .widget {
-              padding-left: 5.4054054%; // 20/370px
-              padding-right: 5.4054054%;
-            }
-            .action-calls {
-              padding-left: 0;
-              padding-right: 0;
-            }
-            .photo img {
-              width: 100%;
-            }
-          }
-          .buttons {
-            float: right;
-          }
-          .action-calls {
-            @include font-size(24);
-            a {
-              padding: .5em 1em;
-            }
-          }
-          .floorplans {
-            .floorplan-beds {
-              width: 15%;
-            }
-            .floorplan-rent {
-              width: 25%;
-            }
-          }
-          .page-home {
-            [role=main] {
-              padding-left: 0;
-              padding-right: 0;
-              padding-top: 0;
-              .html {
-                margin: 1em 5.1282051%;
-              }
-            }
-          }
-        }
-
-
-        // DESKTOP =====================
-        @media (min-width: 1200px) {
-          [role=complementary] .social-links {
-            text-align: left;
-            &:before {
-              @include font-size(32);
-              content: 'GET SOCIAL ///';
-              font-family: $alt-font;
-              font-weight: 100;
-              vertical-align: middle;
-            }
-          }
-        }
-    http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:44 GMT
+  recorded_at: Fri, 20 Jun 2014 18:13:22 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -2778,7 +417,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2786,18 +425,22 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:45 GMT
-      Last-Modified:
-      - Fri, 06 Jun 2014 16:51:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '497'
+      Server:
+      - Cowboy
       Connection:
       - keep-alive
+      Content-Length:
+      - '497'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:22 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: |
@@ -2834,7 +477,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:45 GMT
+  recorded_at: Fri, 20 Jun 2014 18:13:22 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -2845,7 +488,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2853,34 +496,37 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:45 GMT
-      Last-Modified:
-      - Fri, 06 Jun 2014 16:51:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '194'
+      Server:
+      - Cowboy
       Connection:
       - keep-alive
+      Content-Length:
+      - '193'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:23 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
-      string: |-
+      string: |
         .contact-info .p-organization-name,
         .contact-info .h-adr,
         .contact-info .p-street-address,
         .contact-info .p-tel,
-        .contact-info .p-url,
-         {
+        .contact-info .p-url {
           display: block;
         }
         .contact-info p {
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:45 GMT
+  recorded_at: Fri, 20 Jun 2014 18:13:23 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
@@ -2891,7 +537,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2899,18 +545,22 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:46 GMT
-      Last-Modified:
-      - Fri, 06 Jun 2014 16:51:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '30'
+      Server:
+      - Cowboy
       Connection:
       - keep-alive
+      Content-Length:
+      - '30'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:23 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: |
@@ -2918,7 +568,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:46 GMT
+  recorded_at: Fri, 20 Jun 2014 18:13:23 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -2929,7 +579,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - "*/*"
+      - '*/*'
       User-Agent:
       - Ruby
   response:
@@ -2937,28 +587,2445 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      Content-Type:
-      - text/css
-      Date:
-      - Mon, 09 Jun 2014 16:06:46 GMT
-      Last-Modified:
-      - Fri, 06 Jun 2014 16:51:24 GMT
-      Status:
-      - 200 OK
-      Content-Length:
-      - '600'
+      Server:
+      - Cowboy
       Connection:
       - keep-alive
+      Content-Length:
+      - '597'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:23 GMT
+      Via:
+      - 1.1 vegur
     body:
       encoding: UTF-8
       string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
         .copyright {\n  margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n
-        \ margin-left: 10px;\n  vertical-align: top;\n}\n\n.footer-info .access {\n
+        \ margin-left: 10px;\n  vertical-align: top;\n}\n.footer-info .access {\n
         \ background: url(http://themes.g5dxm.com/shared/access-icons.png) 0 0 no-repeat;\n
-        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n\n.footer-info
-        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n\n.footer-info .handicap-icon
-        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n\n.footer-info
-        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}"
+        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n.footer-info
+        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info .handicap-icon
+        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
+        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
     http_version: 
-  recorded_at: Mon, 09 Jun 2014 16:06:46 GMT
+  recorded_at: Fri, 20 Jun 2014 18:13:24 GMT
+- request:
+    method: get
+    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '386'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 04 Jun 2014 18:42:31 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:24 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @media (min-width: 980px) {
+          .wrapper:before,
+          .wrapper:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .wrapper:after {
+            clear: both;
+          }
+          .layout-side-right section[role=main] {
+            float: left;
+          }
+          .layout-side-right .aside-top,
+          .layout-side-right aside[role=complementary] {
+            float: right;
+          }
+          footer[role=contentinfo] {
+            clear: both;
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:24 GMT
+- request:
+    method: get
+    uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '14297'
+      Content-Type:
+      - text/plain
+      Last-Modified:
+      - Wed, 18 Jun 2014 18:01:57 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:24 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @import 'colors.scss';
+        @import 'bourbon/bourbon.scss';
+
+        // HELPERS =======================
+        @mixin font-size($value) {
+          font-size: $value + px;
+          font-size: ($value / 10) + rem;
+        }
+
+        // VARIABLES ==================================
+        $text: #393939;
+        $light-text: #707070;
+        $text-font: 'proxima-nova', Helvetica, Arial, sans-serif;
+        $alt-font: 'proxima-nova-alt-condensed', Helvetica, Arial, sans-serif;
+        $heading-font: 'arvo', Georgia, serif;
+        $light-grey: #d9d9d9;
+        $grey: #888;
+        $dark: #393939;
+        $white: #fff;
+        $border-width: 6px;
+
+
+        // GENERAL ==================================
+        html {
+          font-size: 62.5%;
+          background: $white url('http://themes.g5dxm.com/high-rise/background.png') 0 0 repeat;
+        }
+        body {
+          @include font-size(16);
+          border-top: $border-width solid $secondaryColor;
+          color: $text;
+          font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+          font-weight: 400;
+          line-height: 1.25;
+          @media (min-width: 960px) {
+            line-height: 1.375;
+          }
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-family: $heading-font;
+          font-weight: 400;
+          margin-top: 0;
+        }
+        h1 {
+          @include font-size(26);
+          line-height: 1.15384615;
+          margin-bottom: .5em;
+          @media (min-width: 960px) {
+            @include font-size(32);
+            line-height: 1.25;
+          }
+          @media (min-width: 1200px) {
+            @include font-size(36);
+          }
+        }
+        h2 {
+          @include font-size(22);
+          color: $grey;
+          font-family: $text-font;
+          line-height: 1.13636364;
+          margin-bottom: .5em;
+          @media (min-width: 960px) {
+            @include font-size(24);
+            line-height: 1.25;
+          }
+        }
+        a {
+          @include transition(color 0.2s ease-in);
+          color: $text;
+          text-decoration: none;
+          &:hover,
+          &:focus {
+            color: $secondaryColor;
+          }
+          [role=main] & {
+            text-decoration: underline;
+          }
+        }
+        fieldset {
+          border: none;
+          padding: 0;
+        }
+        .form-field {
+          margin-bottom: 1em;
+        }
+        input,
+        label,
+        legend {
+          @include font-size(18);
+        }
+        label,
+        legend {
+          font-family: $alt-font;
+          font-weight: 100;
+        }
+        #{$all-text-inputs},
+        textarea {
+          @include box-sizing(border-box);
+          background: $light-grey;
+          border: none;
+          font-family: $text-font;
+          padding: .3em .5em;
+          width: 100%;
+        }
+        input[type=checkbox],
+        input[type=radio] {
+          display: inline-block;
+          margin-right: .5em;
+          width: auto;
+        }
+        textarea {
+          height: 5em;
+        }
+
+
+        // LAYOUT ==================================
+        .layout {
+          @include box-sizing(border-box);
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1230px;
+          width: 100%;
+        }
+        .wrapper {
+          background: $white;
+        }
+        .content,
+        [role=main],
+        [role=aside] {
+          @include clearfix;
+          @include box-sizing(border-box);
+        }
+
+
+        // HEADER/FOOTER ==================================
+        [role=banner] {
+          @include font-size(13);
+          font-family: $heading-font;
+          position: relative;
+          a {
+            color: #fff;
+          }
+          .buttons {
+            position: absolute;
+            right: 0;
+            top: -$border-width;
+          }
+          .navigation {
+            background: $dark;
+            font-family: $heading-font;
+            a {
+              display: block;
+              &:hover,
+              &:focus {
+                background: #000;
+                background: rgba(0, 0, 0, .3);
+              }
+            }
+          }
+        }
+        .logo {
+          max-width: 300px;
+          &, img {
+            display: block;
+            margin: 0;
+          }
+        }
+        .buttons {
+          a {
+            margin-left: 5px;
+            vertical-align: top;
+          }
+          .widget {
+            @include font-size(15);
+            display: inline-block;
+          }
+        }
+        .collapsable-btn {
+          border-left-color: $secondaryColor;
+          padding: 2px 6px !important;
+          .text {
+            display: none;
+          }
+          .bars {
+            display: block;
+            span {
+              border-bottom: 1px solid $white;
+              display: block;
+              margin: 6px 0;
+              width: 20px;
+            }
+          }
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        [role=contentinfo] {
+          @include clearfix;
+          @include font-size(12);
+          border-top: 4px double $text;
+          padding-bottom: 2em;
+          padding-top: 1em;
+          text-transform: uppercase;
+        }
+
+
+        // MAIN/ASIDE ==================================
+        [role=main] {
+          padding-bottom: 2em;
+          padding-top: 2em;
+        }
+        .aside-top {
+          padding-top: 2em;
+        }
+        [role=complementary] {
+          padding-bottom: 3em;
+        }
+
+
+        // WIDGETS ==================================
+        [role=contentinfo] .widget {
+          margin-bottom: 2em;
+        }
+        [role=main],
+        [role=complementary] {
+          .widget {
+            margin-top: 2em;
+          }
+        }
+
+        .btn,
+        input[type=submit] {
+          background: $dark;
+          border: none;
+          border-left: $border-width solid $primaryColor;
+          color: $white;
+          display: inline-block;
+          padding: .6em 2em;
+          text-decoration: none;
+          vertical-align: top;
+          &:hover,
+          &:focus {
+            border-left-color: $secondaryColor;
+            color: $white;
+          }
+        }
+        .form-note {
+          margin-bottom: 2em;
+        }
+        .form .required:after {
+          content: '*';
+          margin-left: .25em;
+        }
+        .form-instruction {
+          @include font-size(16);
+          display: inline-block;
+          font-family: $alt-font;
+          font-weight: 100;
+          margin: .5em 0 0 25px;
+        }
+        .form-optional {
+          color: $grey;
+          padding: 0 .5em;
+        }
+        input[type=submit] {
+          @include font-size(15);
+        }
+        [role=main] {
+          .btn {
+            text-decoration: none;
+          }
+          p, ul, ol {
+            color: $light-text;
+          }
+        }
+        .action-calls {
+          @include font-size(18);
+          font-family: $alt-font;
+          font-weight: 100;
+          text-transform: uppercase;
+          a {
+            background: $primaryColor;
+            border-left: $border-width solid $secondaryColor;
+            display: block;
+            margin-bottom: .2em;
+            padding: .2em 1em .3em 2em;
+            position: relative;
+            &:hover,
+            &:focus {
+              color: $white;
+            }
+            &:after {
+              content: '>';
+              position: absolute;
+              right: 1em;
+            }
+          }
+        }
+        .coupon {
+          @include clearfix;
+          h2 {
+            @include font-size(18);
+            border-bottom-color: $secondaryColor;
+            color: $secondaryColor;
+            margin-bottom: 2em;
+            padding-bottom: .5em;
+            text-align: center;
+          }
+          .coupon-logo {
+            display: block;
+            max-width: 60%;
+            margin: 1em auto 2em;
+          }
+          .p-name {
+            @include font-size(14);
+          }
+          .p-street-address,
+          .p-tel {
+            display: block;
+          }
+          .btn {
+            @include box-sizing(border-box);
+            @include font-size(14);
+            margin: 0;
+            padding: .4em;
+            text-align: center;
+            text-decoration: none;
+          }
+          .coupon-print {
+            margin-bottom: 1%;
+            width: 100%;
+          }
+          .coupon-email,
+          .coupon-text {
+            width: 49.5%;
+          }
+          .coupon-email {
+            margin-right: 1%;
+          }
+        }
+        [role=complementary] .photo img {
+          display: block;
+        }
+
+        @media (min-width: 768px) and (max-width: 980px) {
+          .coupon-info,
+          .coupon-map {
+            @include box-sizing(border-box);
+            float: left;
+            width: 50%;
+          }
+        }
+        @media (min-width: 1200px) {
+          [role=main] {
+            .coupon {
+              @include clearfix;
+              .coupon-info {
+                padding-right: 1%;
+              }
+              .coupon-map {
+                padding-left: 1%;
+              }
+              .btn {
+                @include font-size(16);
+              }
+            }
+            .coupon-info,
+            .coupon-map {
+              @include box-sizing(border-box);
+              float: left;
+              width: 50%;
+            }
+          }
+        }
+
+        .social-links {
+          a {
+            background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
+            background-size: 100%;
+            height: 33px;
+            overflow: hidden;
+            text-indent: -999em;
+            width: 32px;
+            vertical-align: middle;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          .twitter {
+            background-position: 0 0;
+          }
+          .tumblr {
+            background-position: 0 -44px;
+          }
+          .facebook {
+            background-position: 0 -88px;
+          }
+          .instagram {
+            background-position: 0 -131px;
+          }
+          .vimeo {
+            background-position: 0 -174px;
+          }
+          .yelp {
+            background-position: 0 -218px;
+          }
+          .foursquare {
+            background-position: 0 -261px;
+          }
+          .pinterest {
+            background-position: 0 -305px;
+          }
+          .youtube {
+            background-position: 0 -349px;
+          }
+        }
+
+        .blog-feed a {
+          display: block;
+        }
+        .twitter-feed {
+          .tweet-text a,
+          .tweet-name,
+          .tweet-date,
+          .follow {
+            text-decoration: none;
+          }
+          li {
+            background: #393939;
+          }
+          .tweet-date {
+            color: #707070;
+          }
+          .tweet-date,
+          .tweet-name {
+            @include font-size(12);
+          }
+          .tweet-date,
+          .tweet-text p {
+            color: #b5b5b5;
+          }
+          .tweet-name {
+            color: $white;
+            display: block;
+          }
+          .tweet-text {
+            display: block;
+            margin-top: .25em;
+          }
+          .follow {
+            @include font-size(14);
+            background: $secondaryColor;
+            color: $white;
+            font-family: $heading-font;
+            margin-top: 1em;
+            padding: .5em 1em;
+          }
+        }
+        .tweet-list a {
+          color: $secondaryColor;
+        }
+        [role=complementary] {
+          .twitter-feed {
+            .tweet-text {
+              @include font-size(12);
+            }
+          }
+        }
+
+        .floorplans {
+          h3 {
+            font-family: $text-font;
+          }
+          label {
+            @include font-size(12);
+            font-family: inherit;
+          }
+          .filter {
+            @include linear-gradient(#fff, #f0f0f0);
+            border: 1px solid #cbcbcb;
+            border-radius: 5px;
+            margin-bottom: .5em;
+            padding: .75em .5em;
+            input {
+              display: none;
+            }
+          }
+          .filter-btn {
+            @include font-size(15);
+            @include linear-gradient(white, #f0f0f0);
+            border: 1px solid #cbcbcb;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            padding: .3125em .5em;
+          }
+          .disabled {
+            color: #cbcbcb;
+          }
+          input:checked + .filter-btn {
+            border-color: $text;
+          }
+          .filter-name {
+            @include font-size(15);
+            color: $secondaryColor;
+          }
+          .floorplan-heading strong {
+            @include font-size(16);
+            font-weight: 400;
+          }
+          .choose-floorplan {
+            text-decoration: none;
+            strong {
+              color: $secondaryColor;
+            }
+          }
+        }
+        .floorplan-container {
+          background: $white;
+        }
+
+        @media (min-width: 768px) {
+          .floorplans {
+            .filter {
+              padding: .75em 1em;
+            }
+            .filter-name {
+              @include font-size(22);
+            }
+            .filter-btn {
+              @include font-size(15);
+            }
+          }
+        }
+
+        [role=complementary] {
+          .social-links {
+            background: $white;
+            padding: 1em 20px;
+            text-align: center;
+          }
+          .contact-info {
+            font-family: $alt-font;
+            line-height: 1.2;
+            .p-name {
+              @include font-size(18px);
+              border-bottom: 1px dotted $text;
+              padding-bottom: .4em;
+            }
+            .adr,
+            .tel,
+            .email {
+              @include font-size(18);
+              background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
+              min-height: 35px;
+              padding-left: 40px;
+              text-transform: uppercase;
+            }
+            .tel {
+              background-position: 0 0;
+            }
+            .adr {
+              background-position: 0 -65px;
+            }
+            .email {
+              background-position: 0 -150px;
+            }
+          }
+        }
+        [role=contentinfo] {
+          .hours,
+          .contact-info {
+            float: left;
+            margin-right: 2em;
+          }
+          .contact-info h4 {
+            font-family: $text-font;
+            font-size: inherit;
+            margin: 0;
+          }
+          .navigation {
+            li {
+              display: inline-block;
+              &:before {
+                content: '| ';
+              }
+              &:first-child:before {
+                content: '';
+              }
+            }
+            a {
+              display: inline-block;
+            }
+          }
+          .hours p,
+          .contact-info p {
+            margin-bottom: 0;
+          }
+        }
+
+
+
+        // SMALLER THAN DESKTOP =====================
+        @media (max-width: 979px) {
+          [role=banner],
+          [role=main],
+          .aside-top,
+          [role=complementary],
+          [role=contentinfo] {
+            padding-left: 3%;
+            padding-right: 3%;
+          }
+          [role=banner] {
+            h1 {
+              @include font-size(30);
+            }
+            .logo {
+              width: 65%;
+            }
+            .buttons .button .btn {
+              height: 21px;
+              padding: 5px 1em;
+            }
+            .navigation {
+              @include font-size(16);
+              a {
+                display: block;
+                padding: .5em .5em .5em 2em;
+              }
+              li {
+                box-shadow: 0 -1px 0 #212121;
+                border-left: $border-width solid $secondaryColor;
+              }
+            }
+          }
+          [role=main] .action-calls li {
+            margin-bottom: .5em;
+          }
+          footer[role=contentinfo] .navigation {
+            text-align: center;
+          }
+        }
+
+
+        // IPAD AND LARGER ========================
+        @media (min-width: 768px) {
+          h2 {
+            margin-bottom: 1em;
+          }
+          input[type=checkbox],
+          input[type=radio] {
+            width: auto;
+          }
+          [role=banner] {
+            @include font-size(15);
+            padding-top: 1.5em;
+          }
+          .page-home [role=main] .photo {
+            margin-right: -1px;
+          }
+          .blog-feed,
+          .twitter-feed {
+            @include box-sizing(border-box);
+            width: 100%;
+          }
+          [role=contentinfo] .navigation {
+            float: right;
+            text-align: right;
+            margin-bottom: 0;
+          }
+        }
+
+
+        // SMALL DESKTOP AND LARGER =====================
+        @media (min-width: 980px) {
+          .layout {
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+          }
+          [role=main] {
+            padding-left: 5.1282051%; // 60/1170px
+            padding-right: 5.1282051%;
+          }
+          [role=banner] {
+            margin-bottom: 1em;
+            h1 {
+              float: left;
+              margin-bottom: .5em;
+            }
+            .navigation {
+              border-collapse: collapse;
+              border-left: none;
+              clear: both;
+              display: table;
+              text-align: center;
+              width: 100%;
+              ul {
+                display: table-row;
+              }
+              li {
+                box-shadow: -1px 0 0 #212121;
+                border-left: 1px solid #434343;
+                display: table-cell;
+                &:first-child {
+                  box-shadow: none;
+                  border-left: none;
+                }
+              }
+              a {
+                padding: 1.25em 0 .783em;
+                border-bottom: .467em solid $dark;
+                &:hover,
+                &:focus,
+                &.active {
+                  border-bottom-color: $secondaryColor;
+                }
+              }
+            }
+          }
+          .wrapper {
+            border-bottom: $border-width solid $secondaryColor;
+            margin-bottom: 2em;
+            overflow: hidden;
+          }
+          .aside-top {
+            @include box-sizing(border-box);
+            padding-top: 0;
+          }
+          // this is a trick to create equal height columns. the parent needs overflow: hidden
+          [role=main],
+          [role=complementary] {
+            @include box-sizing(border-box);
+            margin-bottom: -2000px;
+            padding-bottom: 2000px;
+            .widget:last-child {
+              margin-bottom: 2em;
+            }
+          }
+          [role=main] {
+            border-right: 1px solid $light-grey;
+            width: 68.376068%; // 800/1170px
+          }
+          .aside-top,
+          [role=complementary] {
+            width: 31.623932%; // 370/1170px
+            .widget {
+              padding-left: 5.4054054%; // 20/370px
+              padding-right: 5.4054054%;
+            }
+            .action-calls {
+              padding-left: 0;
+              padding-right: 0;
+            }
+            .photo img {
+              width: 100%;
+            }
+          }
+          .buttons {
+            float: right;
+          }
+          .action-calls {
+            @include font-size(24);
+            a {
+              padding: .5em 1em;
+            }
+          }
+          .floorplans {
+            .floorplan-beds {
+              width: 15%;
+            }
+            .floorplan-rent {
+              width: 25%;
+            }
+          }
+          .page-home {
+            [role=main] {
+              padding-left: 0;
+              padding-right: 0;
+              padding-top: 0;
+              .html {
+                margin: 1em 5.1282051%;
+              }
+            }
+          }
+        }
+
+
+        // DESKTOP =====================
+        @media (min-width: 1200px) {
+          [role=complementary] .social-links {
+            text-align: left;
+            &:before {
+              @include font-size(32);
+              content: 'GET SOCIAL ///';
+              font-family: $alt-font;
+              font-weight: 100;
+              vertical-align: middle;
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:25 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '44'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:25 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |-
+        .html {
+          clear: both;
+          overflow: hidden;
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:25 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4121'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:26 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        /* FILTER STYLES =============================*/
+        .filters:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        .filter-btn {
+          display: inline-block;
+        }
+        .filter-name {
+          margin-right: .25em;
+        }
+        .available-filter {
+          text-align: right;
+          font-size: 15px;
+          font-weight: bold;
+          padding: 1em 0;
+        }
+        .available-filter input {
+          display: inline;
+          margin-right: .5em;
+          vertical-align: .1em;
+        }
+        @media (min-width: 768px) {
+          .filter {
+            float: left;
+            margin-right: 2%;
+          }
+          .filter-name {
+            margin-right: .5em;
+          }
+        }
+        @media (min-width: 980px) {
+          .available-filter {
+            font-size: 18px;
+          }
+        }
+
+
+        /* SELECT FLOORPLAN STYLES =========================*/
+        .floorplans {
+          margin-bottom: 2em;
+        }
+        .floorplan-btn {
+          overflow: hidden;
+          border: 1px solid #cbcbcb;
+          border-radius: 5px;
+          background: #f0f0f0;
+          background: -webkit-linear-gradient(#fff, #f0f0f0);
+          background: -moz-linear-gradient(#fff, #f0f0f0);
+          background: -ms-linear-gradient(#fff, #f0f0f0);
+          background: -o-linear-gradient(#fff, #f0f0f0);
+          background: linear-gradient(#fff, #f0f0f0);
+          text-decoration: none;
+        }
+        .floorplans ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .floorplan-box {
+          border: 1px solid #bcbcbc;
+          border-radius: 10px;
+          position: relative;
+        }
+        .floorplan-container {
+          padding: .625em 10px;
+        }
+        .floorplan-container.selected {
+          background: #f0f0f0;
+          background: -webkit-linear-gradient(#fff, #f0f0f0);
+          background: -moz-linear-gradient(#fff, #f0f0f0);
+          background: -ms-linear-gradient(#fff, #f0f0f0);
+          background: -o-linear-gradient(#fff, #f0f0f0);
+          background: linear-gradient(#fff, #f0f0f0);
+        }
+        .floorplans a {
+          color: #504e4e;
+        }
+        .floorplans h2 {
+          font-size: 24px;
+        }
+        .floorplans h3 {
+          font-size: 20px;
+        }
+        .floorplan {
+          position: relative;
+          border-top: 1px solid #ccc;
+          padding: .625em 10px;
+        }
+        .floorplan:after {
+          content: "";
+          display: table;
+          clear:both;
+        }
+        li.floorplan:first-child {
+          border-top: none;
+        }
+        li.floorplan:nth-child(even) {
+          background: #efeded;
+        }
+        .floorplan-heading {
+          overflow: hidden;
+          margin-bottom: 1em;
+        }
+        .floorplan-heading p {
+          float: left;
+          margin-top: 0;
+          font-size: 18px;
+          border-bottom: 1px solid #504e4e;
+        }
+        .choose-floorplan {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          padding: .5em 1em;
+          float: right;
+          font-size: 16px;
+          text-align: center;
+        }
+        .choose-floorplan span {
+          display: block;
+        }
+        .choose-floorplan .soon {
+          border-top: 1px solid #cbcbcb;
+          padding-top: .2em;
+          margin-top: .2em;
+        }
+        .selected .choose-floorplan {
+          display: none;
+        }
+        .floorplan-info {
+          position: relative;
+          min-height: 50px;
+        }
+        .floorplan-info div {
+          min-height: 1px;
+        }
+        .floorplan-info p {
+          font-size: 13px;
+          line-height: 1.5;
+          margin: 0;
+        }
+        .floorplan-img {
+          float: left;
+          margin-right: 2%;
+          width: 13%;
+        }
+        .floorplan-img .floorplan-btn {
+          padding: 2px;
+          display: block;
+        }
+        .floorplan-img img {
+          display: block;
+          margin: 0 auto;
+        }
+        .floorplan .floorplan-beds,
+        .floorplan .floorplan-size {
+          margin-left: 17%;
+          width: 35%;
+        }
+
+        @media (max-width: 979px) {
+          .floorplan-rent {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 45%;
+          }
+          .floorplan-beds p {
+            display: inline-block;
+          }
+          .floorplan-beds p:first-child:after {
+            padding-left: .5em;
+            content: '/';
+          }
+        }
+        @media (min-width: 768px) {
+          .floorplan-heading {
+            margin-bottom: 0;
+          }
+          .floorplan-heading p {
+            font-size: 20px;
+          }
+          .choose-floorplan {
+            width: auto;
+          }
+          .floorplan-info p {
+            font-size: 16px;
+          }
+        }
+        @media (min-width: 980px) {
+          .floorplans h2 {
+            font-size: 36px;
+          }
+          .choose-floorplan {
+            position: absolute;
+            right: 10px;
+            top: 2em;
+            z-index: 1;
+          }
+          .floorplan .floorplan-beds,
+          .floorplan .floorplan-size,
+          .floorplan .floorplan-rent {
+            float: left;
+            margin-left: 0;
+            width: 20%;
+          }
+        }
+
+        #loading-floorplans {
+          margin: 200px auto;
+          text-align: center;
+          width: 200px;
+        }
+        #loading-floorplans .loader {
+          background: url(http://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
+          height: 32px;
+          margin: 0 auto 1em;
+          width: 32px;
+        }
+        .filters .filter .disabled {
+          cursor: default;
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:27 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5087'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:27 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
+        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
+        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
+        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
+        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
+        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
+        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
+        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
+        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
+        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
+        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
+        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
+        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
+        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
+        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
+        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
+        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
+        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
+        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
+        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
+        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
+        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
+        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
+        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
+        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
+        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
+        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
+        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
+        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
+        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
+        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
+        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
+        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
+        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
+        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
+        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
+        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
+        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
+        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
+        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
+        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
+        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
+        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
+        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
+        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
+        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
+        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
+        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
+        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
+        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
+        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
+        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
+        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
+        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
+        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
+        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
+        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
+        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
+        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:27 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '497'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:28 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .button,
+        .button .btn-img,
+        .button a {
+          display: block;
+        }
+
+        .button-list {
+          overflow: hidden;
+        }
+        .button-list .btn-img {
+          float: left;
+          margin-right: 1em;
+        }
+        .button-grid {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        @media (min-width: 500px) {
+          .button-grid {
+            float: left;
+            padding: 0 1em;
+            width: 50%;
+          }
+          .button-grid:nth-of-type(2n+1) {
+            clear: left;
+          }
+        }
+        .button-grid .btn-img {
+          margin: 0 auto 1em;
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:28 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '193'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:28 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .contact-info .p-organization-name,
+        .contact-info .h-adr,
+        .contact-info .p-street-address,
+        .contact-info .p-tel,
+        .contact-info .p-url {
+          display: block;
+        }
+        .contact-info p {
+          margin-top: 0;
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:28 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '30'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:28 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .hours p {
+          margin-top: 0;
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:29 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '597'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 18 Jun 2014 17:05:44 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:29 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
+        .copyright {\n  margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n
+        \ margin-left: 10px;\n  vertical-align: top;\n}\n.footer-info .access {\n
+        \ background: url(http://themes.g5dxm.com/shared/access-icons.png) 0 0 no-repeat;\n
+        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n.footer-info
+        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info .handicap-icon
+        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
+        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:29 GMT
+- request:
+    method: get
+    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '386'
+      Content-Type:
+      - text/css
+      Last-Modified:
+      - Wed, 04 Jun 2014 18:42:31 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:30 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @media (min-width: 980px) {
+          .wrapper:before,
+          .wrapper:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .wrapper:after {
+            clear: both;
+          }
+          .layout-side-right section[role=main] {
+            float: left;
+          }
+          .layout-side-right .aside-top,
+          .layout-side-right aside[role=complementary] {
+            float: right;
+          }
+          footer[role=contentinfo] {
+            clear: both;
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:30 GMT
+- request:
+    method: get
+    uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '14297'
+      Content-Type:
+      - text/plain
+      Last-Modified:
+      - Wed, 18 Jun 2014 18:01:57 GMT
+      Status:
+      - 200 OK
+      Date:
+      - Fri, 20 Jun 2014 18:13:30 GMT
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @import 'colors.scss';
+        @import 'bourbon/bourbon.scss';
+
+        // HELPERS =======================
+        @mixin font-size($value) {
+          font-size: $value + px;
+          font-size: ($value / 10) + rem;
+        }
+
+        // VARIABLES ==================================
+        $text: #393939;
+        $light-text: #707070;
+        $text-font: 'proxima-nova', Helvetica, Arial, sans-serif;
+        $alt-font: 'proxima-nova-alt-condensed', Helvetica, Arial, sans-serif;
+        $heading-font: 'arvo', Georgia, serif;
+        $light-grey: #d9d9d9;
+        $grey: #888;
+        $dark: #393939;
+        $white: #fff;
+        $border-width: 6px;
+
+
+        // GENERAL ==================================
+        html {
+          font-size: 62.5%;
+          background: $white url('http://themes.g5dxm.com/high-rise/background.png') 0 0 repeat;
+        }
+        body {
+          @include font-size(16);
+          border-top: $border-width solid $secondaryColor;
+          color: $text;
+          font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+          font-weight: 400;
+          line-height: 1.25;
+          @media (min-width: 960px) {
+            line-height: 1.375;
+          }
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-family: $heading-font;
+          font-weight: 400;
+          margin-top: 0;
+        }
+        h1 {
+          @include font-size(26);
+          line-height: 1.15384615;
+          margin-bottom: .5em;
+          @media (min-width: 960px) {
+            @include font-size(32);
+            line-height: 1.25;
+          }
+          @media (min-width: 1200px) {
+            @include font-size(36);
+          }
+        }
+        h2 {
+          @include font-size(22);
+          color: $grey;
+          font-family: $text-font;
+          line-height: 1.13636364;
+          margin-bottom: .5em;
+          @media (min-width: 960px) {
+            @include font-size(24);
+            line-height: 1.25;
+          }
+        }
+        a {
+          @include transition(color 0.2s ease-in);
+          color: $text;
+          text-decoration: none;
+          &:hover,
+          &:focus {
+            color: $secondaryColor;
+          }
+          [role=main] & {
+            text-decoration: underline;
+          }
+        }
+        fieldset {
+          border: none;
+          padding: 0;
+        }
+        .form-field {
+          margin-bottom: 1em;
+        }
+        input,
+        label,
+        legend {
+          @include font-size(18);
+        }
+        label,
+        legend {
+          font-family: $alt-font;
+          font-weight: 100;
+        }
+        #{$all-text-inputs},
+        textarea {
+          @include box-sizing(border-box);
+          background: $light-grey;
+          border: none;
+          font-family: $text-font;
+          padding: .3em .5em;
+          width: 100%;
+        }
+        input[type=checkbox],
+        input[type=radio] {
+          display: inline-block;
+          margin-right: .5em;
+          width: auto;
+        }
+        textarea {
+          height: 5em;
+        }
+
+
+        // LAYOUT ==================================
+        .layout {
+          @include box-sizing(border-box);
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1230px;
+          width: 100%;
+        }
+        .wrapper {
+          background: $white;
+        }
+        .content,
+        [role=main],
+        [role=aside] {
+          @include clearfix;
+          @include box-sizing(border-box);
+        }
+
+
+        // HEADER/FOOTER ==================================
+        [role=banner] {
+          @include font-size(13);
+          font-family: $heading-font;
+          position: relative;
+          a {
+            color: #fff;
+          }
+          .buttons {
+            position: absolute;
+            right: 0;
+            top: -$border-width;
+          }
+          .navigation {
+            background: $dark;
+            font-family: $heading-font;
+            a {
+              display: block;
+              &:hover,
+              &:focus {
+                background: #000;
+                background: rgba(0, 0, 0, .3);
+              }
+            }
+          }
+        }
+        .logo {
+          max-width: 300px;
+          &, img {
+            display: block;
+            margin: 0;
+          }
+        }
+        .buttons {
+          a {
+            margin-left: 5px;
+            vertical-align: top;
+          }
+          .widget {
+            @include font-size(15);
+            display: inline-block;
+          }
+        }
+        .collapsable-btn {
+          border-left-color: $secondaryColor;
+          padding: 2px 6px !important;
+          .text {
+            display: none;
+          }
+          .bars {
+            display: block;
+            span {
+              border-bottom: 1px solid $white;
+              display: block;
+              margin: 6px 0;
+              width: 20px;
+            }
+          }
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        [role=contentinfo] {
+          @include clearfix;
+          @include font-size(12);
+          border-top: 4px double $text;
+          padding-bottom: 2em;
+          padding-top: 1em;
+          text-transform: uppercase;
+        }
+
+
+        // MAIN/ASIDE ==================================
+        [role=main] {
+          padding-bottom: 2em;
+          padding-top: 2em;
+        }
+        .aside-top {
+          padding-top: 2em;
+        }
+        [role=complementary] {
+          padding-bottom: 3em;
+        }
+
+
+        // WIDGETS ==================================
+        [role=contentinfo] .widget {
+          margin-bottom: 2em;
+        }
+        [role=main],
+        [role=complementary] {
+          .widget {
+            margin-top: 2em;
+          }
+        }
+
+        .btn,
+        input[type=submit] {
+          background: $dark;
+          border: none;
+          border-left: $border-width solid $primaryColor;
+          color: $white;
+          display: inline-block;
+          padding: .6em 2em;
+          text-decoration: none;
+          vertical-align: top;
+          &:hover,
+          &:focus {
+            border-left-color: $secondaryColor;
+            color: $white;
+          }
+        }
+        .form-note {
+          margin-bottom: 2em;
+        }
+        .form .required:after {
+          content: '*';
+          margin-left: .25em;
+        }
+        .form-instruction {
+          @include font-size(16);
+          display: inline-block;
+          font-family: $alt-font;
+          font-weight: 100;
+          margin: .5em 0 0 25px;
+        }
+        .form-optional {
+          color: $grey;
+          padding: 0 .5em;
+        }
+        input[type=submit] {
+          @include font-size(15);
+        }
+        [role=main] {
+          .btn {
+            text-decoration: none;
+          }
+          p, ul, ol {
+            color: $light-text;
+          }
+        }
+        .action-calls {
+          @include font-size(18);
+          font-family: $alt-font;
+          font-weight: 100;
+          text-transform: uppercase;
+          a {
+            background: $primaryColor;
+            border-left: $border-width solid $secondaryColor;
+            display: block;
+            margin-bottom: .2em;
+            padding: .2em 1em .3em 2em;
+            position: relative;
+            &:hover,
+            &:focus {
+              color: $white;
+            }
+            &:after {
+              content: '>';
+              position: absolute;
+              right: 1em;
+            }
+          }
+        }
+        .coupon {
+          @include clearfix;
+          h2 {
+            @include font-size(18);
+            border-bottom-color: $secondaryColor;
+            color: $secondaryColor;
+            margin-bottom: 2em;
+            padding-bottom: .5em;
+            text-align: center;
+          }
+          .coupon-logo {
+            display: block;
+            max-width: 60%;
+            margin: 1em auto 2em;
+          }
+          .p-name {
+            @include font-size(14);
+          }
+          .p-street-address,
+          .p-tel {
+            display: block;
+          }
+          .btn {
+            @include box-sizing(border-box);
+            @include font-size(14);
+            margin: 0;
+            padding: .4em;
+            text-align: center;
+            text-decoration: none;
+          }
+          .coupon-print {
+            margin-bottom: 1%;
+            width: 100%;
+          }
+          .coupon-email,
+          .coupon-text {
+            width: 49.5%;
+          }
+          .coupon-email {
+            margin-right: 1%;
+          }
+        }
+        [role=complementary] .photo img {
+          display: block;
+        }
+
+        @media (min-width: 768px) and (max-width: 980px) {
+          .coupon-info,
+          .coupon-map {
+            @include box-sizing(border-box);
+            float: left;
+            width: 50%;
+          }
+        }
+        @media (min-width: 1200px) {
+          [role=main] {
+            .coupon {
+              @include clearfix;
+              .coupon-info {
+                padding-right: 1%;
+              }
+              .coupon-map {
+                padding-left: 1%;
+              }
+              .btn {
+                @include font-size(16);
+              }
+            }
+            .coupon-info,
+            .coupon-map {
+              @include box-sizing(border-box);
+              float: left;
+              width: 50%;
+            }
+          }
+        }
+
+        .social-links {
+          a {
+            background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
+            background-size: 100%;
+            height: 33px;
+            overflow: hidden;
+            text-indent: -999em;
+            width: 32px;
+            vertical-align: middle;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          .twitter {
+            background-position: 0 0;
+          }
+          .tumblr {
+            background-position: 0 -44px;
+          }
+          .facebook {
+            background-position: 0 -88px;
+          }
+          .instagram {
+            background-position: 0 -131px;
+          }
+          .vimeo {
+            background-position: 0 -174px;
+          }
+          .yelp {
+            background-position: 0 -218px;
+          }
+          .foursquare {
+            background-position: 0 -261px;
+          }
+          .pinterest {
+            background-position: 0 -305px;
+          }
+          .youtube {
+            background-position: 0 -349px;
+          }
+        }
+
+        .blog-feed a {
+          display: block;
+        }
+        .twitter-feed {
+          .tweet-text a,
+          .tweet-name,
+          .tweet-date,
+          .follow {
+            text-decoration: none;
+          }
+          li {
+            background: #393939;
+          }
+          .tweet-date {
+            color: #707070;
+          }
+          .tweet-date,
+          .tweet-name {
+            @include font-size(12);
+          }
+          .tweet-date,
+          .tweet-text p {
+            color: #b5b5b5;
+          }
+          .tweet-name {
+            color: $white;
+            display: block;
+          }
+          .tweet-text {
+            display: block;
+            margin-top: .25em;
+          }
+          .follow {
+            @include font-size(14);
+            background: $secondaryColor;
+            color: $white;
+            font-family: $heading-font;
+            margin-top: 1em;
+            padding: .5em 1em;
+          }
+        }
+        .tweet-list a {
+          color: $secondaryColor;
+        }
+        [role=complementary] {
+          .twitter-feed {
+            .tweet-text {
+              @include font-size(12);
+            }
+          }
+        }
+
+        .floorplans {
+          h3 {
+            font-family: $text-font;
+          }
+          label {
+            @include font-size(12);
+            font-family: inherit;
+          }
+          .filter {
+            @include linear-gradient(#fff, #f0f0f0);
+            border: 1px solid #cbcbcb;
+            border-radius: 5px;
+            margin-bottom: .5em;
+            padding: .75em .5em;
+            input {
+              display: none;
+            }
+          }
+          .filter-btn {
+            @include font-size(15);
+            @include linear-gradient(white, #f0f0f0);
+            border: 1px solid #cbcbcb;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            padding: .3125em .5em;
+          }
+          .disabled {
+            color: #cbcbcb;
+          }
+          input:checked + .filter-btn {
+            border-color: $text;
+          }
+          .filter-name {
+            @include font-size(15);
+            color: $secondaryColor;
+          }
+          .floorplan-heading strong {
+            @include font-size(16);
+            font-weight: 400;
+          }
+          .choose-floorplan {
+            text-decoration: none;
+            strong {
+              color: $secondaryColor;
+            }
+          }
+        }
+        .floorplan-container {
+          background: $white;
+        }
+
+        @media (min-width: 768px) {
+          .floorplans {
+            .filter {
+              padding: .75em 1em;
+            }
+            .filter-name {
+              @include font-size(22);
+            }
+            .filter-btn {
+              @include font-size(15);
+            }
+          }
+        }
+
+        [role=complementary] {
+          .social-links {
+            background: $white;
+            padding: 1em 20px;
+            text-align: center;
+          }
+          .contact-info {
+            font-family: $alt-font;
+            line-height: 1.2;
+            .p-name {
+              @include font-size(18px);
+              border-bottom: 1px dotted $text;
+              padding-bottom: .4em;
+            }
+            .adr,
+            .tel,
+            .email {
+              @include font-size(18);
+              background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
+              min-height: 35px;
+              padding-left: 40px;
+              text-transform: uppercase;
+            }
+            .tel {
+              background-position: 0 0;
+            }
+            .adr {
+              background-position: 0 -65px;
+            }
+            .email {
+              background-position: 0 -150px;
+            }
+          }
+        }
+        [role=contentinfo] {
+          .hours,
+          .contact-info {
+            float: left;
+            margin-right: 2em;
+          }
+          .contact-info h4 {
+            font-family: $text-font;
+            font-size: inherit;
+            margin: 0;
+          }
+          .navigation {
+            li {
+              display: inline-block;
+              &:before {
+                content: '| ';
+              }
+              &:first-child:before {
+                content: '';
+              }
+            }
+            a {
+              display: inline-block;
+            }
+          }
+          .hours p,
+          .contact-info p {
+            margin-bottom: 0;
+          }
+        }
+
+
+
+        // SMALLER THAN DESKTOP =====================
+        @media (max-width: 979px) {
+          [role=banner],
+          [role=main],
+          .aside-top,
+          [role=complementary],
+          [role=contentinfo] {
+            padding-left: 3%;
+            padding-right: 3%;
+          }
+          [role=banner] {
+            h1 {
+              @include font-size(30);
+            }
+            .logo {
+              width: 65%;
+            }
+            .buttons .button .btn {
+              height: 21px;
+              padding: 5px 1em;
+            }
+            .navigation {
+              @include font-size(16);
+              a {
+                display: block;
+                padding: .5em .5em .5em 2em;
+              }
+              li {
+                box-shadow: 0 -1px 0 #212121;
+                border-left: $border-width solid $secondaryColor;
+              }
+            }
+          }
+          [role=main] .action-calls li {
+            margin-bottom: .5em;
+          }
+          footer[role=contentinfo] .navigation {
+            text-align: center;
+          }
+        }
+
+
+        // IPAD AND LARGER ========================
+        @media (min-width: 768px) {
+          h2 {
+            margin-bottom: 1em;
+          }
+          input[type=checkbox],
+          input[type=radio] {
+            width: auto;
+          }
+          [role=banner] {
+            @include font-size(15);
+            padding-top: 1.5em;
+          }
+          .page-home [role=main] .photo {
+            margin-right: -1px;
+          }
+          .blog-feed,
+          .twitter-feed {
+            @include box-sizing(border-box);
+            width: 100%;
+          }
+          [role=contentinfo] .navigation {
+            float: right;
+            text-align: right;
+            margin-bottom: 0;
+          }
+        }
+
+
+        // SMALL DESKTOP AND LARGER =====================
+        @media (min-width: 980px) {
+          .layout {
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+          }
+          [role=main] {
+            padding-left: 5.1282051%; // 60/1170px
+            padding-right: 5.1282051%;
+          }
+          [role=banner] {
+            margin-bottom: 1em;
+            h1 {
+              float: left;
+              margin-bottom: .5em;
+            }
+            .navigation {
+              border-collapse: collapse;
+              border-left: none;
+              clear: both;
+              display: table;
+              text-align: center;
+              width: 100%;
+              ul {
+                display: table-row;
+              }
+              li {
+                box-shadow: -1px 0 0 #212121;
+                border-left: 1px solid #434343;
+                display: table-cell;
+                &:first-child {
+                  box-shadow: none;
+                  border-left: none;
+                }
+              }
+              a {
+                padding: 1.25em 0 .783em;
+                border-bottom: .467em solid $dark;
+                &:hover,
+                &:focus,
+                &.active {
+                  border-bottom-color: $secondaryColor;
+                }
+              }
+            }
+          }
+          .wrapper {
+            border-bottom: $border-width solid $secondaryColor;
+            margin-bottom: 2em;
+            overflow: hidden;
+          }
+          .aside-top {
+            @include box-sizing(border-box);
+            padding-top: 0;
+          }
+          // this is a trick to create equal height columns. the parent needs overflow: hidden
+          [role=main],
+          [role=complementary] {
+            @include box-sizing(border-box);
+            margin-bottom: -2000px;
+            padding-bottom: 2000px;
+            .widget:last-child {
+              margin-bottom: 2em;
+            }
+          }
+          [role=main] {
+            border-right: 1px solid $light-grey;
+            width: 68.376068%; // 800/1170px
+          }
+          .aside-top,
+          [role=complementary] {
+            width: 31.623932%; // 370/1170px
+            .widget {
+              padding-left: 5.4054054%; // 20/370px
+              padding-right: 5.4054054%;
+            }
+            .action-calls {
+              padding-left: 0;
+              padding-right: 0;
+            }
+            .photo img {
+              width: 100%;
+            }
+          }
+          .buttons {
+            float: right;
+          }
+          .action-calls {
+            @include font-size(24);
+            a {
+              padding: .5em 1em;
+            }
+          }
+          .floorplans {
+            .floorplan-beds {
+              width: 15%;
+            }
+            .floorplan-rent {
+              width: 25%;
+            }
+          }
+          .page-home {
+            [role=main] {
+              padding-left: 0;
+              padding-right: 0;
+              padding-top: 0;
+              .html {
+                margin: 1em 5.1282051%;
+              }
+            }
+          }
+        }
+
+
+        // DESKTOP =====================
+        @media (min-width: 1200px) {
+          [role=complementary] .social-links {
+            text-align: left;
+            &:before {
+              @include font-size(32);
+              content: 'GET SOCIAL ///';
+              font-family: $alt-font;
+              font-weight: 100;
+              vertical-align: middle;
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Fri, 20 Jun 2014 18:13:30 GMT
 recorded_with: VCR 2.9.0

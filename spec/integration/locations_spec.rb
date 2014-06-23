@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Integration '/'", :auth_request, js: true, vcr: VCR_OPTIONS do
+describe "Integration '/'", auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   describe "Lists all locations" do
     before do
       Resque.stub(:enqueue)
@@ -23,7 +23,7 @@ describe "Integration '/'", :auth_request, js: true, vcr: VCR_OPTIONS do
       within LOCATION_SELECTOR do
         click_link "Deploy"
       end
-      page.driver.browser.switch_to.alert.accept
+      accept_confirm(page)
       expect(current_path).to eq(root_path)
     end
 

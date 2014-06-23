@@ -91,4 +91,39 @@ describe Widget, vcr: VCR_OPTIONS do
       end
     end
   end
+  describe "instance methods" do
+    let(:widget) {Fabricate.create(:widget,
+                                   {garden_widget: garden_widget})}
+    let(:garden_widget) {Fabricate(:garden_widget,
+                                 {  show_stylesheets: ["foo.css", "bar.css"],
+                                    show_javascript: "show.js",
+                                    lib_javascripts: ["a.js", "b.js"] })}
+    let!(:setting) { Fabricate.create(:setting,
+                                     {name: 'row_1_widget_id',
+                                      value: widget.id,
+                                      owner: row_widget}) }
+    let(:row_widget) {Fabricate.create(:widget).reload}
+
+
+    describe "#show_stylesheets" do
+      it "returns stylesheets associated through garden_widget" do
+        expect(widget.show_stylesheets).to eq(["foo.css","bar.css"])
+      end
+    end
+    describe "#show_javascripts" do
+      it "returns associated javascripts" do
+        expect(widget.show_javascripts).to eq(["show.js"])
+      end
+    end
+    describe "#lib_javascripts" do
+      it "returns associated lib javascripts" do
+        expect(widget.lib_javascripts).to eq(["a.js","b.js"])
+      end
+    end
+    describe "#widgets" do
+      it "returns associated child widgets" do
+        expect(row_widget.widgets).to eq([widget])
+      end
+    end
+  end
 end

@@ -109,19 +109,13 @@ class WebTemplate < ActiveRecord::Base
 
   def stylesheets
     widgets.map(&:show_stylesheets).flatten +
-    website.try(:website_template).try(:stylesheets).to_a +
-    row_widget_asset_collector.stylesheets
+    website.try(:website_template).try(:stylesheets).to_a
   end
 
   def javascripts
-    widget_lib_javascripts + widgets.map(&:show_javascript).flatten.compact +
-    website.try(:website_template).try(:javascripts).to_a.flatten.compact +
-    row_widget_asset_collector.javascripts
-  end
-
-  def widget_lib_javascripts
+    widgets.map(&:show_javascripts).flatten.compact +
     widgets.map(&:lib_javascripts).flatten.compact +
-    website.try(:website_template).try(:widget_lib_javascripts).to_a.flatten.compact
+    website.try(:website_template).try(:javascripts).to_a.flatten.compact
   end
 
   def website_compile_path
@@ -168,6 +162,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def last_mod
+    return updated_at.to_date if widgets.empty?
     widgets.order("updated_at").last.updated_at.to_date
   end
 
@@ -212,7 +207,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def default_slug_from_title
-    self.slug ||= title.parameterize
+    self.slug ||= name.parameterize
   end
 
   def format_redirect_patterns

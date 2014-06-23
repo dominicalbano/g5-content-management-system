@@ -1,6 +1,7 @@
 class Website < ActiveRecord::Base
   include HasManySettings
   include HasSettingNavigation
+  include HasSettingLocationsNavigation
   include AfterCreateUpdateUrn
   include ToParamUrn
 
@@ -44,7 +45,9 @@ class Website < ActiveRecord::Base
   end
 
   def stylesheets
-    web_templates.map(&:stylesheets).flatten.uniq
+    [web_home_template.try(:stylesheets),
+    web_page_templates.map(&:stylesheets),
+    website_template.try(:stylesheets)].flatten.uniq
   end
 
   def javascripts

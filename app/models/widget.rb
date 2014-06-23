@@ -16,7 +16,6 @@ class Widget < ActiveRecord::Base
     to: :drop_target, allow_nil: true
 
   delegate :name, :url, :thumbnail, :edit_html, :edit_javascript, :show_html,
-    :show_javascript, :lib_javascripts, :show_stylesheets,
     to: :garden_widget, allow_nil: true
 
   # prefix means access with `garden_widget_settings` not `settings`
@@ -33,6 +32,28 @@ class Widget < ActiveRecord::Base
     joins(:garden_widget).where("garden_widgets.name = ?", "Meta Description") }
   scope :not_meta_description, -> {
     joins(:garden_widget).where("garden_widgets.name != ?", "Meta Description") }
+  
+  def show_stylesheets
+    [garden_widget.try(:show_stylesheets), 
+     widgets.collect(&:show_stylesheets)].flatten.compact.uniq
+  end
+
+  def show_javascripts
+    [garden_widget.try(:show_javascript),
+     widgets.collect(&:show_javascripts)].flatten.compact.uniq
+  end
+
+  def lib_javascripts
+    [garden_widget.try(:lib_javascripts), 
+     widgets.collect(&:lib_javascripts)].flatten.compact.uniq
+  end
+
+  def widgets
+    child_widgets = find_child_widgets
+    more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
+
+    [child_widgets, more_widgets].flatten.compact
+  end
 
   def kind_of_widget?(kind)
     name == kind
@@ -80,5 +101,16 @@ class Widget < ActiveRecord::Base
   # TODO: Is this being used?
   def set_defaults
     self.removeable = true
+  end
+
+  def widget_settings
+    pattern = /(?=.*widget_id\z).*/
+    settings.select { |setting| setting.name =~ pattern && setting.value != nil }
+  end
+
+  def find_child_widgets
+    widget_settings.map(&:value).map do |id|
+      Widget.find(id) if Widget.exists?(id)
+    end
   end
 end

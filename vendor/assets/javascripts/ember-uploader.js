@@ -124,7 +124,8 @@ Ember.S3Uploader = Ember.Uploader.extend({
 
     set(this, 'isUploading', true);
     return this.sign(file).then(function(json) {
-      var url = "http://" + json.bucket + ".s3.amazonaws.com";
+      var url = "//s3-" + json.region + ".amazonaws.com/" + json.bucket + "/";
+      delete json.region;
       var data = self.setupFormData(file, json);
       var type = get(self, 'type');
 
