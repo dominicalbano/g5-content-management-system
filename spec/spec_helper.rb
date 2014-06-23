@@ -30,15 +30,6 @@ end
 
 VCR_OPTIONS = { record: :new_episodes, re_record_interval: 7.days }
 
-# By default specs will run in a headless webkit browser.
-# Set CI=true if you want to run integration specs with Firefox.
-if ENV["CI"]
-  #Capybara.javascript_driver = :selenium
-  Capybara.javascript_driver = :selenium_with_long_timeout
-else
-  Capybara.javascript_driver = :webkit
-end
-
 RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL, type: :request
@@ -92,4 +83,12 @@ Capybara.register_driver :selenium_with_long_timeout do |app|
   Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => client)
 end
  
-Capybara.javascript_driver = :selenium_with_long_timeout
+# By default specs will run in a headless webkit browser.
+# Set CI=true if you want to run integration specs with Firefox.
+if ENV["CI"]
+  #Capybara.javascript_driver = :selenium
+  Capybara.javascript_driver = :selenium_with_long_timeout
+else
+  Capybara.javascript_driver = :webkit
+end
+
