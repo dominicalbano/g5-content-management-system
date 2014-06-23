@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Integration '/areas'", :auth_request, vcr: VCR_OPTIONS do
+describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR_OPTIONS do
   let!(:client) { Fabricate(:client) }
   let!(:corporate_location) { Fabricate(:location, corporate: true) }
   let!(:website) { Fabricate(:website, owner: corporate_location) }

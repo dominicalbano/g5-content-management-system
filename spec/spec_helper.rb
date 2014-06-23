@@ -30,6 +30,14 @@ end
 
 VCR_OPTIONS = { record: :new_episodes, re_record_interval: 7.days }
 
+# By default specs will run in a headless webkit browser.
+# Set CI=true if you want to run integration specs with Firefox.
+if ENV["CI"]
+  Capybara.javascript_driver = :selenium
+else
+  Capybara.javascript_driver = :webkit
+end
+
 RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL, type: :request
@@ -39,8 +47,11 @@ RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
 
   # The integration deployment tests can be run with:
-  # rspec -t type:deployment
-  config.filter_run_excluding type: "deployment"
+  # rspec --tag deployment
+  # (`--tag` is `-t` for short)
+  # likewise the integration tests can be run with:
+  # rspec --tag integration
+  config.filter_run_excluding :integration, :deployment
 
   config.before(:suite) do
     # Temporary fix for default_url_host not being properly set in Rails 4.1.0

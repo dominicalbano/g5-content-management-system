@@ -1,6 +1,7 @@
 require "spec_helper"
 
-describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, js: true, vcr: VCR_OPTIONS do
+describe "Integration '/:website_slug/:web_page_template_slug'",
+         auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
     VCR.use_cassette("Gardens") do
       GardenWebLayoutUpdater.new.update_all
@@ -24,12 +25,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
       let(:secondary_color) { @web_theme.secondary_color }
       let(:html_primary_color) { find('#color-1', :visible => false).text }
       let(:html_secondary_color) { find('#color-2', :visible => false).text }
-      let(:garden_theme) { find('.theme-picker .thumb:first-of-type a') }
+      let(:garden_theme) { find('.theme-picker .thumb:first-of-type') }
 
       context "accepting the confirm dialog" do
         it "Will update with theme colors when theme changes" do
           garden_theme.click
-          page.driver.browser.switch_to.alert.accept
 
           expect(@website.reload.website_template).to_not eq @web_theme
           expect(primary_color).to_not eq html_primary_color
@@ -40,7 +40,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
       context "dismissing the confirm dialog" do
         it "Will not update the theme" do
           garden_theme.click
-          page.driver.browser.switch_to.alert.dismiss
 
           expect(@website.reload.website_template.web_theme).to eq @web_theme
         end
@@ -69,6 +68,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
     describe "Are drag and drop sortable" do
       before do
+        stub_const("ENV", { "CI" => true })
+
         @widget1 = @web_page_template.main_widgets.first
         @widget2 = @web_page_template.main_widgets.last
 
@@ -79,7 +80,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database" do
+      it "Updates display order in database", driver: :selenium do
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -104,7 +105,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm(page)
             sleep 1
           end.to change{ @web_page_template.reload.main_widgets.count }.by(-1)
           expect(all(".main-widgets .widget").length).to eq existing_widget_count-1
@@ -118,7 +119,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
             2.times do
               existing_widget = find(".main-widgets .widget:first-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm(page)
               sleep 1
             end
           end.to change{ @web_page_template.reload.main_widgets.count }.by(-2)
@@ -143,7 +144,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm(page)
             sleep 1
           end.to change{ @web_page_template.reload.main_widgets.count }.by(-1)
           expect(all(".main-widgets .widget").length).to eq existing_widget_count-1
@@ -157,7 +158,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
             2.times do
               existing_widget = find(".main-widgets .widget:last-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm(page)
               sleep 1
             end
           end.to change{ @web_page_template.reload.main_widgets.count }.by(-2)
@@ -188,6 +189,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
     describe "Are drag and drop sortable" do
       before do
+        stub_const("ENV", { "CI" => true })
+
         @widget1 = @website_template.aside_before_main_widgets.first
         @widget2 = @website_template.aside_before_main_widgets.last
 
@@ -198,7 +201,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database" do
+      it "Updates display order in database", driver: :selenium do
         within ".aside-before-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -223,7 +226,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm(page)
             sleep 1
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-1)
           expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count-1
@@ -237,7 +240,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
             2.times do
               existing_widget = find(".aside-before-main-widgets .widget:first-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm(page)
               sleep 1
             end
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-2)
@@ -262,7 +265,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm(page)
             sleep 1
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-1)
           expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count-1
@@ -276,7 +279,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
             2.times do
               existing_widget = find(".aside-before-main-widgets .widget:last-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm(page)
               sleep 1
             end
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-2)
@@ -307,6 +310,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
     describe "Are drag and drop sortable" do
       before do
+        stub_const("ENV", { "CI" => true })
+
         @widget1 = @website_template.aside_after_main_widgets.first
         @widget2 = @website_template.aside_after_main_widgets.last
 
@@ -317,7 +322,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database" do
+      it "Updates display order in database", driver: :selenium do
         within ".aside-after-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -342,7 +347,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm(page)
             sleep 1
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-1)
           expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count-1
@@ -356,7 +361,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
             2.times do
               existing_widget = find(".aside-after-main-widgets .widget:first-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm(page)
               sleep 1
             end
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-2)
@@ -381,7 +386,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
 
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
-            page.driver.browser.switch_to.alert.accept
+            accept_confirm(page)
             sleep 1
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-1)
           expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count-1
@@ -395,7 +400,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'", :auth_request, 
             2.times do
               existing_widget = find(".aside-after-main-widgets .widget:last-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
-              page.driver.browser.switch_to.alert.accept
+              accept_confirm(page)
               sleep 1
             end
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-2)
