@@ -37,6 +37,6 @@ private
   end
 
   def destroyer(widget)
-    LayoutWidgetDestroyer.new(self, id_setting_ids(widget))
+    LayoutWidgetDestroyer.new(self.owner.settings)
   end
 end

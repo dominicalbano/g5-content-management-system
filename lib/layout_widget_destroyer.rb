@@ -1,23 +1,17 @@
 class LayoutWidgetDestroyer
-  def initialize(setting, id_settings)
-    @setting = setting
-    @id_settings = id_settings
+  def initialize(settings)
+    @settings = settings
   end
 
   def destroy
-    @id_settings.each do |setting|
-      widget_id = widget_id_for(setting)
-      obliterate(widget_id) if widget_id.present?
+    @settings.each do |setting|
+      Widget.destroy(setting.value) if existing_child_widget_setting?(setting)
     end
   end
 
 protected
 
-  def widget_id_for(setting)
-    @setting.owner.settings.where(name: setting).first.try(:value)
-  end
-
-  def obliterate(widget_id)
-    Widget.destroy(widget_id) if Widget.exists?(widget_id)
+  def existing_child_widget_setting?(setting)
+    setting.name =~ /widget_id/ && Widget.exists?(setting.value)
   end
 end
