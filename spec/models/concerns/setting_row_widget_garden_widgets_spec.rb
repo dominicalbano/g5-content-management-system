@@ -30,6 +30,13 @@ shared_examples_for SettingRowWidgetGardenWidgets do
         end
       end
     end
+
+    describe "#after_destroy" do
+      it "destroy's the setting's widget's child widgets" do
+        described_instance.should_receive(:destroy_row_widget_widgets)
+        described_instance.destroy
+      end
+    end
   end
 
   describe "When not an avaiable_garden_widgets setting" do

@@ -13,6 +13,7 @@ module SettingColumnWidgetGardenWidgets
 
   included do
     after_update :update_column_widget_id_setting
+    after_destroy :destroy_column_widget_widgets
   end
 
   def update_column_widget_id_setting
@@ -20,5 +21,9 @@ module SettingColumnWidgetGardenWidgets
       LayoutWidgetUpdater.
         new(self, COLUMN_GARDEN_WIDGET_NAME_SETTINGS, COLUMN_WIDGET_ID_SETTINGS).update
     end
+  end
+
+  def destroy_column_widget_widgets
+    LayoutWidgetDestroyer.new(self, COLUMN_WIDGET_ID_SETTINGS).destroy
   end
 end

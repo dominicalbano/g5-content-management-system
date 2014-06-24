@@ -10,6 +10,7 @@ module SettingRowWidgetGardenWidgets
 
   included do
     after_update :update_row_widget_id_setting
+    after_destroy :destroy_row_widget_widgets
   end
 
   def update_row_widget_id_setting
@@ -17,5 +18,9 @@ module SettingRowWidgetGardenWidgets
       LayoutWidgetUpdater.
         new(self, ROW_GARDEN_WIDGET_NAME_SETTINGS, ROW_WIDGET_ID_SETTINGS).update
     end
+  end
+
+  def destroy_row_widget_widgets
+    LayoutWidgetDestroyer.new(self, ROW_WIDGET_ID_SETTINGS).destroy
   end
 end
