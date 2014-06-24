@@ -13,7 +13,7 @@ module SettingLayoutWidgetGardenWidgets
   end
 
   def destroy_layout_widget_widgets
-    LayoutWidgetDestroyer.new(self.owner.settings).destroy
+    LayoutWidgetDestroyer.new(self).destroy
   end
 
 private
