@@ -18,6 +18,6 @@ protected
   end
 
   def obliterate(widget_id)
-    Widget.find(widget_id).destroy if Widget.exists?(widget_id)
+    Widget.destroy(widget_id) if Widget.exists?(widget_id)
   end
 end
