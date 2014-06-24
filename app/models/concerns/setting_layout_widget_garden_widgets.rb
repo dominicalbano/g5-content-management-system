@@ -13,7 +13,7 @@ module SettingLayoutWidgetGardenWidgets
   end
 
   def destroy_layout_widget_widgets
-    LAYOUT_WIDGETS.each { |widget| destroyer(widget).destroy }
+    LayoutWidgetDestroyer.new(self.owner.settings).destroy
   end
 
 private
@@ -25,7 +25,7 @@ private
     ]
   end
 
-  def id_setting_ids(widget)
+  def id_setting_names(widget)
     [
       "#{widget}_one_widget_id", "#{widget}_two_widget_id",
       "#{widget}_three_widget_id", "#{widget}_four_widget_id"
@@ -33,10 +33,6 @@ private
   end
 
   def updater(widget)
-    LayoutWidgetUpdater.new(self, name_setting_names(widget), id_setting_ids(widget))
-  end
-
-  def destroyer(widget)
-    LayoutWidgetDestroyer.new(self.owner.settings)
+    LayoutWidgetUpdater.new(self, name_setting_names(widget), id_setting_names(widget))
   end
 end

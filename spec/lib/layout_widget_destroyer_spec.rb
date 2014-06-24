@@ -6,7 +6,7 @@ describe LayoutWidgetDestroyer do
   let!(:widget_two) { Fabricate(:widget) }
   let!(:widget_unrelated) { Fabricate(:widget) }
   let!(:setting) { Fabricate(:setting, owner: widget) }
-  let(:destroyer) { described_class.new(setting) }
+  let(:destroyer) { described_class.new(widget.settings) }
 
   let!(:id_setting_one) do
     Fabricate(:setting, name: "row_one_widget_id", owner: widget, value: widget_one.id)
