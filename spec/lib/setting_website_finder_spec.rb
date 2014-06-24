@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe NavigationSettingWebsiteFinder do
+describe SettingWebsiteFinder do
   let(:finder) { described_class.new(setting) }
   let(:widget) { Fabricate(:widget) }
   let(:setting) { Fabricate(:setting, owner: widget) }

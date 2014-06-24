@@ -1,20 +1,20 @@
-class NavigationSettingWebsiteFinder
+class SettingWebsiteFinder
   def initialize(setting)
     @setting = setting
-    @widget = @setting.owner
+    @owner = @setting.owner
     @website = nil
   end
 
   def find
     loop do
-      @website = website_for(@widget)
+      @website = website_for(@owner)
       return @website if @website.present?
 
-      setting = find_setting(@widget.id)
+      setting = find_layout_setting_by_value(@owner.id)
       return unless setting
 
-      @widget = setting.owner
-      @website = website_for(@widget)
+      @owner = setting.owner
+      @website = website_for(@owner)
       return @website if @website.present?
     end
   end
@@ -26,9 +26,10 @@ private
     owner.drop_target.web_template.website if owner.drop_target
   end
 
-  def find_setting(widget_id)
+  def find_layout_setting_by_value(owner_id)
     Setting.find do |setting|
-      setting.name =~ /(?=(column|row))(?=.*widget_id).*/ && setting.value == widget_id
+      setting.name =~ /(?=(column|row))(?=.*widget_id).*/ && setting.value == owner_id
     end
   end
 end
+
