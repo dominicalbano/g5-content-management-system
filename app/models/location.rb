@@ -14,6 +14,7 @@ class Location < ActiveRecord::Base
   scope :corporate, -> { where(corporate: true).first }
 
   before_validation :set_city_slug_from_city
+  before_save :set_city_slug_from_city
 
   def website_id
     website.try(:id)
