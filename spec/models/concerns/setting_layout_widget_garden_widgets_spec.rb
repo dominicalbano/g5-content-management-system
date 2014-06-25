@@ -1,18 +1,20 @@
 require "spec_helper"
 
-shared_examples_for SettingRowWidgetGardenWidgets do
+shared_examples_for SettingLayoutWidgetGardenWidgets do
   describe "When availble_garden_widgets setting" do
     let!(:widget) { Fabricate(:widget) }
-    let!(:corresponding_setting) { Fabricate(:setting,
-      name: SettingRowWidgetGardenWidgets::ROW_WIDGET_ID_SETTINGS[0],
-      owner: widget) }
-    let!(:described_instance) { Fabricate(:setting,
-      name: SettingRowWidgetGardenWidgets::ROW_GARDEN_WIDGET_NAME_SETTINGS[0],
-      owner: widget) }
+
+    let!(:corresponding_setting) do
+      Fabricate(:setting, name: "column_one_widget_id", owner: widget)
+    end
+
+    let!(:described_instance) do
+      Fabricate(:setting, name: "column_one_widget_name", owner: widget)
+    end
 
     describe "After update" do
       it "Tries to update corresponding setting" do
-        described_instance.should_receive(:update_row_widget_id_setting)
+        described_instance.should_receive(:update_layout_widget_id_setting)
         described_instance.save
       end
 
@@ -30,6 +32,13 @@ shared_examples_for SettingRowWidgetGardenWidgets do
         end
       end
     end
+
+    describe "#after_destroy" do
+      it "destroy's the setting's widget's child widgets" do
+        described_instance.should_receive(:destroy_layout_widget_widgets)
+        described_instance.destroy
+      end
+    end
   end
 
   describe "When not an avaiable_garden_widgets setting" do
@@ -45,5 +54,5 @@ shared_examples_for SettingRowWidgetGardenWidgets do
 end
 
 describe Setting do
-  it_behaves_like SettingRowWidgetGardenWidgets
+  it_behaves_like SettingLayoutWidgetGardenWidgets
 end
