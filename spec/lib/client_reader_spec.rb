@@ -41,6 +41,11 @@ describe ClientReader do
 
     describe "client create/update" do
       context "an existing client" do
+        let!(:client) { Fabricate(:client, uid: client_uid) }
+
+        it "does not create a website for the client" do
+          expect { subject }.to_not change { Website.all.size }.from(0).to(1)
+        end
       end
 
       context "a new client" do
@@ -61,6 +66,7 @@ describe ClientReader do
 
         describe "client website creation" do
           context "single domain client" do
+            let(:client_uid) { "#{Rails.root}/spec/support/single_domain_client.html" }
             let!(:client) { Fabricate(:client, type: "SingleDomainClient", uid: client_uid) }
 
             it "creates a website for the client" do
