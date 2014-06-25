@@ -13,6 +13,8 @@ class Location < ActiveRecord::Base
 
   scope :corporate, -> { where(corporate: true).first }
 
+  before_validation :set_city_slug_from_city
+
   def website_id
     website.try(:id)
   end
@@ -25,7 +27,9 @@ class Location < ActiveRecord::Base
     neighborhood.try(:parameterize).to_s
   end
 
-  def city_slug
-    city.try(:parameterize).to_s
+  private
+
+  def set_city_slug_from_city
+    self.city_slug = city.to_s.parameterize
   end
 end
