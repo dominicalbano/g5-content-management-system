@@ -14,6 +14,7 @@ G5CMS::Application.routes.draw do
 
       resources :clients, only: [:show] do
         post "deploy_websites"
+        post "update"
       end
 
       resources :locations, only: [:index, :show]
