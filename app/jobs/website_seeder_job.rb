@@ -4,6 +4,8 @@ class WebsiteSeederJob
 
   def self.perform
     Location.all.each do |location|
+      next if location.website.present?
+
       self.new(location).perform
     end
   end
