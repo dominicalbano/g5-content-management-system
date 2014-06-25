@@ -11,6 +11,11 @@ App.LocationsController = Ember.ArrayController.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+    updateClient: (model) ->
+      url = "/api/v1/clients/1/update"
+      $form = $("<form action='" + url + "' method='post'></form>")
+      $form.appendTo("body").submit()
+      false
     updateGardenWebLayouts: ->
       url = "/api/v1/garden_web_layouts/update"
       $form = $("<form action='" + url + "' method='post'></form>")
