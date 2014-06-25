@@ -39,20 +39,41 @@ describe ClientReader do
       end
     end
 
-    describe "client creation" do
-      it "saves the client" do
-        expect { subject }.to change { Client.all.size }.from(0).to(1)
+    describe "client create/update" do
+      context "an existing client" do
       end
 
-      describe "specific client data" do
-        subject(:client) { Client.first }
+      context "a new client" do
+        it "saves the client" do
+          expect { subject }.to change { Client.all.size }.from(0).to(1)
+        end
 
-        before { client_reader.perform }
+        describe "specific client data" do
+          subject(:client) { Client.first }
 
-        its([:name]) { should eq("Farmhouse") }
-        its([:vertical]) { should eq("Apartments") }
-        its([:type]) { should eq("MultiDomainClient") }
-        its([:domain]) { should eq("http://farmhouseapartments.com/") }
+          before { client_reader.perform }
+
+          its([:name]) { should eq("Farmhouse") }
+          its([:vertical]) { should eq("Apartments") }
+          its([:type]) { should eq("MultiDomainClient") }
+          its([:domain]) { should eq("http://farmhouseapartments.com/") }
+        end
+
+        describe "client website creation" do
+          context "single domain client" do
+            let!(:client) { Fabricate(:client, type: "SingleDomainClient", uid: client_uid) }
+
+            it "creates a website for the client" do
+              expect { subject }.to change { Website.all.size }.from(0).to(1)
+            end
+          end
+
+          context "multi domain client" do
+            it "does not create a website for the client" do
+              expect { subject }.to_not change { Website.all.size }.from(0).to(1)
+            end
+          end
+        end
       end
     end
 

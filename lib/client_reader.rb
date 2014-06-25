@@ -34,7 +34,7 @@ private
     client.type     = uf2_client.g5_domain_type.to_s
     client.save
 
-    create_client_website(client) if client.type == "SingleDomainClient"
+    find_or_create_client_website(client) if client.type == "SingleDomainClient"
   end
 
   def process_client
@@ -85,7 +85,7 @@ private
     @uf2_client ||= Microformats2.parse(@client_uid).first
   end
 
-  def create_client_website(client)
-    Website.create(owner_id: client.id, owner_type: "Client")
+  def find_or_create_client_website(client)
+    Website.where(owner_id: client.id, owner_type: "Client").first_or_create
   end
 end
