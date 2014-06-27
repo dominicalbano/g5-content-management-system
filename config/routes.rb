@@ -14,7 +14,6 @@ G5CMS::Application.routes.draw do
 
       resources :clients, only: [:show] do
         post "deploy_websites"
-        post "update"
       end
 
       resources :locations, only: [:index, :show]
@@ -72,6 +71,8 @@ G5CMS::Application.routes.draw do
   # WidgetEntry is published for new form widget
   resources :widget_entries, only: [:index, :show]
   resources :tags, only: [:show]
+
+  post "update" => "webhooks#update"
 
   get "/areas/:state", to: "area_pages#show"
   get "/areas/:state/:city", to: "area_pages#show"
