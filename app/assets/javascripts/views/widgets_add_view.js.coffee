@@ -7,6 +7,7 @@ App.WidgetsAddView = Ember.View.extend JQ.Droppable,
   accept: ".new-widget"
   activeClass: "drop-target-active"
   tolerance: "touch"
+  hoverClass: "hovering"
 
   # JQ.Droppable uiEvent
   drop: (event, ui) ->

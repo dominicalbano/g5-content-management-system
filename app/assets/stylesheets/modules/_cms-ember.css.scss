@@ -201,6 +201,13 @@
   .ui-draggable {
     cursor: move;
   }
+  .ui-draggable-dragging{
+    background-color:#f8f8f8;
+  }
+  .add-drop-zone .hovering,
+  .remove-drop-zone .hovering{
+    background-color:#ddd;
+  }
   .widget-list,
   .add-widgets {
     text-transform: uppercase;
