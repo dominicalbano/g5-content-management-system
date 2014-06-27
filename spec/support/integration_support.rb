@@ -20,7 +20,7 @@ def drag_and_drop(source, target)
     target = target.native
 
     builder.click_and_hold source
-    builder.move_to        target, 1, 11
+    builder.move_to        target, 5, 11
     builder.move_to        target
     builder.release        target
     builder.perform
