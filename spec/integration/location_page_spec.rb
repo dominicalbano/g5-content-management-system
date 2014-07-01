@@ -84,7 +84,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
-          h2 = find("h2:first-of-type")
           expect(@widget2.display_order > @widget1.display_order).to be_true
           drag_and_drop_below(widget1, widget2)
           sleep 1

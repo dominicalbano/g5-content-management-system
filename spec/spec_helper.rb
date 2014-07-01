@@ -53,7 +53,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
-    set_selenium_window_size(1250, 800) if Capybara.current_driver == :selenium_with_long_timeout
+    set_selenium_window_size(1250, 800) if Capybara.current_driver == :selenium
   end
 
   config.before(:each, :js => true) do
