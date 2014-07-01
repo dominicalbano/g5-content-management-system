@@ -16,11 +16,11 @@ module SettingNavigation
   end
 
   def website_navigation_setting
-    website.settings.navigation.first
+    setting_website.settings.navigation.first
   end
 
   def widget_navigation_settings
-    website.widget_settings.navigation
+    setting_website.widget_settings.navigation
   end
 
   # should be called on website setting, not widget setting
@@ -55,11 +55,15 @@ module SettingNavigation
     new_value
   end
 
-  def has_drop_target?
-    owner.kind_of?(Widget) && owner.drop_target_id.present? && owner.drop_target.present?
+  def orphaned_drop_target?
+    owner.kind_of?(Widget) && owner.drop_target_id.present? && owner.drop_target.blank?
   end
 
   def valid_setting?
-    website && has_drop_target?
+    setting_website && !orphaned_drop_target?
+  end
+
+  def setting_website
+    website ||= SettingWebsiteFinder.new(self).find
   end
 end
