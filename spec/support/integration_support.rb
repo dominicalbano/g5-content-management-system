@@ -19,10 +19,22 @@ def drag_and_drop(source, target)
     source = source.native
     target = target.native
 
+    builder.drag_and_drop source, target
+    builder.perform
+  else
+    source.drag_to(target)
+  end
+end
+
+def drag_and_drop_below(source, target)
+  if ENV["CI"]
+    builder = page.driver.browser.action
+    source = source.native
+    target = target.native
+
     builder.click_and_hold source
-    builder.move_to        target, 5, 11
-    builder.move_to        target
-    builder.release        target
+    builder.move_to        target, (target.size.width)/2+1, (target.size.height)/2+1
+    builder.release
     builder.perform
   else
     source.drag_to(target)

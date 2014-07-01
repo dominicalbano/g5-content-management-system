@@ -84,8 +84,9 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
+          h2 = find("h2:first-of-type")
           expect(@widget2.display_order > @widget1.display_order).to be_true
-          drag_and_drop(widget1, widget2)
+          drag_and_drop_below(widget1, widget2)
           sleep 1
           expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_true
         end
@@ -206,7 +207,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
           expect(@widget2.display_order > @widget1.display_order).to be_true
-          drag_and_drop(widget1, widget2)
+          drag_and_drop_below(widget1, widget2)
           sleep 1
           expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_true
         end
@@ -297,12 +298,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       it "Creates a new widget in the database and displays in DOM" do
         garden_widget = find(".widget-list .widgets--list-view .widget:first-of-type")
-        drop_target_add = find(".aside-after-main-widgets .drop-target-add:first-of-type")
+        drop_target_add = find(".aside-after-main-widgets .add-drop-zone:first-of-type")
         existing_widget_count = all(".aside-after-main-widgets .widget").length
 
         expect do
           drag_and_drop(garden_widget, drop_target_add)
-          sleep 1
         end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(1)
         expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count + 1
       end

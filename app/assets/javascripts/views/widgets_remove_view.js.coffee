@@ -6,7 +6,7 @@ App.WidgetsRemoveView = Ember.View.extend JQ.Droppable,
   # JQ.Droppable uiOptions
   accept: ".existing-widget"
   activeClass: "drop-target-active"
-  tolerance: "touch"
+  tolerance: "pointer"
   hoverClass: "hovering"
 
   # JQ.Droppable uiEvent
