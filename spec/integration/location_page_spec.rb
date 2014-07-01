@@ -101,7 +101,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       describe "When widgets exist on page load" do
         it "Destroys an existing widget in the database and updates DOM" do
           existing_widget = find(".main-widgets .widget:first-of-type")
-          drop_target_remove = find(".main-widgets .drop-target-remove:first-of-type")
+          drop_target_remove = find(".main-widgets .remove-drop-zone")
           existing_widget_count = all(".main-widgets .widget").length
 
           expect do
@@ -327,7 +327,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
           expect(@widget2.display_order > @widget1.display_order).to be_true
-          drag_and_drop(widget1, widget2)
+          drag_and_drop_below(widget1, widget2)
           sleep 1
           expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_true
         end

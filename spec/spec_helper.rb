@@ -43,7 +43,7 @@ RSpec.configure do |config|
   # (`--tag` is `-t` for short)
   # likewise the integration tests can be run with:
   # rspec --tag integration
-  config.filter_run_excluding :integration, :deployment
+  config.filter_run_excluding  :deployment
 
   config.before(:suite) do
     # Temporary fix for default_url_host not being properly set in Rails 4.1.0
@@ -53,7 +53,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
-    set_selenium_window_size(1250, 800) if Capybara.current_driver == :selenium_with_long_timeout
+    set_selenium_window_size(1250, 800) #if Capybara.current_driver == :selenium_with_long_timeout
   end
 
   config.before(:each, :js => true) do

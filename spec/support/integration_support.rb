@@ -13,16 +13,18 @@ def scroll_to(page, selector)
   EOS
 end
 
-def drag_and_drop(source, target)
+def drag_and_drop(element, target)
   if ENV["CI"]
     builder = page.driver.browser.action
-    source = source.native
+    element = element.native
     target = target.native
 
-    builder.drag_and_drop source, target
+    builder.click_and_hold(element)
+    builder.move_to(target)
+    builder.release
     builder.perform
   else
-    source.drag_to(target)
+    element.drag_to(target)
   end
 end
 
