@@ -188,6 +188,10 @@ class WebTemplate < ActiveRecord::Base
     end
   end
 
+  def body_class
+    type.titleize.parameterize
+  end
+
   private
 
   def default_enabled_to_true
