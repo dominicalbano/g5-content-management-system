@@ -98,4 +98,20 @@ describe WebTemplate do
       end
     end
   end
+
+  describe "#body_class" do
+    subject { web_template.body_class }
+
+    context "home home template" do
+      let(:web_template) { Fabricate.build(:web_home_template) }
+
+      it { should eq("web-home-template") }
+    end
+
+    context "home page template" do
+      let(:web_template) { Fabricate.build(:web_page_template) }
+
+      it { should eq("web-page-template") }
+    end
+  end
 end

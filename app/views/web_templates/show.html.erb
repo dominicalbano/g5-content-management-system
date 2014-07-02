@@ -13,7 +13,7 @@
 <% content_for(:head_widgets) { raw meta_description_widgets(web_template) } %>
 <% content_for(:head_widgets) { raw head_widgets(web_template) } %>
 
-<% content_for(:body_classes) { "page-#{web_template.name.parameterize}" } %>
+<% content_for(:body_classes) { "page-#{web_template.name.parameterize} #{web_template.body_class}" } %>
 
 <%= raw preview(web_template.website_layout, web_template) %>
 
