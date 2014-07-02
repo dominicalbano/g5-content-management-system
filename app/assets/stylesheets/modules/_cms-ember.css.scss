@@ -201,6 +201,10 @@
   .ui-draggable {
     cursor: move;
   }
+  .add-drop-zone .hovering,
+  .remove-drop-zone .hovering{
+    background-color:#ddd;
+  }
   .widget-list,
   .add-widgets {
     text-transform: uppercase;

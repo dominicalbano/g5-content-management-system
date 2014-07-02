@@ -60,6 +60,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     it "clicking on the gear should flip page card to reveal settings" do
       within WEB_PAGE_SELECTOR do
         click_link "Page Settings"
+        sleep 1
       end
       expect(page).to have_css(".web-page-template.flipped:first-of-type")
       expect(page).to have_content("PAGE NAME (FOR CMS)")
