@@ -302,6 +302,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
         expect do
           drag_and_drop(garden_widget, drop_target_add)
+          sleep 1
         end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(1)
         expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count + 1
       end
