@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624162933) do
+ActiveRecord::Schema.define(version: 20140708175443) do
 
   create_table "assets", force: true do |t|
     t.string   "url"
@@ -187,6 +187,7 @@ ActiveRecord::Schema.define(version: 20140624162933) do
     t.integer  "display_order"
     t.string   "redirect_patterns"
     t.boolean  "in_trash"
+    t.integer  "parent_id"
   end
 
   add_index "web_templates", ["website_id"], name: "index_web_templates_on_website_id"

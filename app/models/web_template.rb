@@ -34,6 +34,7 @@ class WebTemplate < ActiveRecord::Base
   scope :not_trash, -> { where(in_trash: false) }
   scope :navigateable, -> { not_trash.enabled.where("type != ?", "WebsiteTemplate") }
   scope :created_at_asc, -> { order("created_at ASC") }
+  scope :top_level, -> { where(parent_id: nil)}
 
   before_validation :default_enabled_to_true
   before_validation :default_in_trash_to_false
@@ -190,6 +191,10 @@ class WebTemplate < ActiveRecord::Base
 
   def body_class
     type.titleize.parameterize
+  end
+
+  def child_templates
+    WebTemplate.where(parent_id: id)
   end
 
   private

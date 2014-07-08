@@ -114,4 +114,34 @@ describe WebTemplate do
       it { should eq("web-page-template") }
     end
   end
+  describe "page hierarchy" do
+    let!(:web_template) { Fabricate(:web_home_template) }
+
+    it "should respond to child_templates" do
+      web_template.should respond_to :child_templates
+    end
+
+    context "without children" do
+      it "should return an empty array" do
+        expect(web_template.child_templates).to be_empty
+      end
+    end
+
+    context "with child templates" do
+      let!(:child_template) {Fabricate(:web_page_template, parent_id: web_template.id)}
+      let!(:other_template) {Fabricate(:web_page_template, parent_id: nil)}
+
+      it "should return an array of child templates" do
+        expect(web_template.child_templates).to eq([child_template])
+      end
+
+      describe ".top_level pages (with no parent references)" do
+        it "should return top level templates" do
+          expect(WebTemplate.top_level).to eq [web_template, other_template]
+        end
+      end
+
+    end
+  end
 end
+

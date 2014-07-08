@@ -24,6 +24,9 @@
         {{/view}}
       </div>
 
+      <label>Parent Page ID</label>
+      {{input type="text" value=parentId name="parent_id"}}
+
       <div class="buttons">
         {{#view App.CardAction}}
           <button {{action cancel this}} class="cancel-link card-flip">
