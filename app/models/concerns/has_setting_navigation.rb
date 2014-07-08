@@ -35,6 +35,8 @@ module HasSettingNavigation
       partial_hash["display"] = web_template.display
       partial_hash["name"] = web_template.name
       partial_hash["url"] = web_template.url
+      partial_hash["top_level"] = web_template.child_templates.present?
+      partial_hash["child_templates"] = web_template.child_templates
       hash["#{web_template.id}"] = partial_hash
     end
     hash
