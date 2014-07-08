@@ -197,6 +197,10 @@ class WebTemplate < ActiveRecord::Base
     WebTemplate.where(parent_id: id)
   end
 
+  def top_level
+    child_templates.present?
+  end
+
   private
 
   def default_enabled_to_true

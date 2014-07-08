@@ -31,14 +31,23 @@ module HasSettingNavigation
   def navigateable_web_templates_to_hashes
     hash = {}
     navigateable_web_templates.each do |web_template|
-      partial_hash = HashWithToLiquid.new
-      partial_hash["display"] = web_template.display
-      partial_hash["name"] = web_template.name
-      partial_hash["url"] = web_template.url
-      partial_hash["top_level"] = web_template.child_templates.present?
-      partial_hash["child_templates"] = web_template.child_templates
-      hash["#{web_template.id}"] = partial_hash
+      hash["#{web_template.id}"] = to_liquid(web_template)
     end
     hash
+  end
+
+  def to_liquid(web_template)
+    partial_hash = HashWithToLiquid.new
+    partial_hash["display"] = web_template.display
+    partial_hash["name"] = web_template.name
+    partial_hash["url"] = web_template.url
+    partial_hash["top_level"] = web_template.top_level
+
+    child_templates = web_template.child_templates.map do |child_template|
+      to_liquid(child_template)
+    end
+
+    partial_hash["child_templates"] = child_templates
+    partial_hash
   end
 end
