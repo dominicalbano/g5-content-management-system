@@ -1,7 +1,7 @@
 class WebTemplateDecorator < Draper::Decorator
   delegate_all
 
-  liquid_methods :display, :title, :url, :top_level, :child_templates
+  liquid_methods :display, :title, :url
 
   def display
     true

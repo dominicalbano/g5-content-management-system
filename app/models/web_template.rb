@@ -201,6 +201,10 @@ class WebTemplate < ActiveRecord::Base
     child_templates.present?
   end
 
+  def child_template?
+    parent_id.present?
+  end
+
   private
 
   def default_enabled_to_true
