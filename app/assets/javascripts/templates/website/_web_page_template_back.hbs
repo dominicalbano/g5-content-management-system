@@ -15,6 +15,19 @@
         {{input value=title name="page_title"}}
       {{/view}}
 
+      <div class="form-field template-select">
+        <label>Parent Page</label>
+
+        {{view Ember.Select
+               contentBinding="controller.templates"
+               prompt="None"
+               name="parent_id"
+               valueBinding="content.id"
+               value=parentId
+               optionValuePath="content.id"
+               optionLabelPath="content.name"}}
+      </div>
+
       <div class="form-field">
         <label class="switch-label">Page Status</label>
         {{#view App.ToggleBtn}}
@@ -23,9 +36,6 @@
           </div>
         {{/view}}
       </div>
-
-      <label>Parent Page ID</label>
-      {{input type="text" value=parentId name="parent_id"}}
 
       <div class="buttons">
         {{#view App.CardAction}}

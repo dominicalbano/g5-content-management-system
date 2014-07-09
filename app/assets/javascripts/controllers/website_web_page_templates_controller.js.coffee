@@ -9,6 +9,10 @@ App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
     @endPropertyChanges()
     @get("store").save()
 
+  templates: (->
+    @get("model").get("firstObject").get("website").get("webPageTemplates")
+  ).property()
+
   actions:
     save: (model) ->
       model.save()
