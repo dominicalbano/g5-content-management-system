@@ -20,7 +20,7 @@ module HasSettingNavigation
   def update_navigation_settings
     navigation_settings.each do |navigation_setting|
       navigation_setting.update_attribute(:value,
-      navigateable_web_templates_to_hashes)
+                                          navigateable_web_templates_to_hashes)
     end
   end
 
