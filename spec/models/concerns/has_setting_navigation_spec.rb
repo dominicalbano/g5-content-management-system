@@ -64,7 +64,8 @@ shared_examples_for HasSettingNavigation do
 
         context "a top level page with child pages" do
           let!(:child_template) do
-            Fabricate(:web_template, website: described_instance, parent_id: web_page_template.id)
+            Fabricate(:web_page_template, website: described_instance, parent_id: web_page_template.id,
+                     enabled: true)
           end
 
           it "has an array of child templates" do
@@ -72,27 +73,27 @@ shared_examples_for HasSettingNavigation do
           end
 
           it "populates a child display" do
-            expect(first_child["display"]).to eq(child_template.display)
+            expect(first_child[1]["display"]).to eq(child_template.display)
           end
 
           it "populates a child name" do
-            expect(first_child["name"]).to eq(child_template.name)
+            expect(first_child[1]["name"]).to eq(child_template.name)
           end
 
           it "populates a child url" do
-            expect(first_child["url"]).to eq(child_template.url)
+            expect(first_child[1]["url"]).to eq(child_template.url)
           end
 
           it "populates a child top_level" do
-            expect(first_child["top_level?"]).to eq(child_template.top_level?)
+            expect(first_child[1]["top_level?"]).to eq(child_template.top_level?)
           end
 
           it "populates a child child_template?" do
-            expect(first_child["child_template?"]).to be_true
+            expect(first_child[1]["child_template?"]).to be_true
           end
 
           it "populates a child child_templates" do
-            expect(first_child["child_templates"]).to eq(child_template.children)
+            expect(first_child[1]["child_templates"]).to eq({})
           end
         end
       end
