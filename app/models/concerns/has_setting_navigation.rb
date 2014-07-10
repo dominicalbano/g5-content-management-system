@@ -25,7 +25,7 @@ module HasSettingNavigation
   end
 
   def navigateable_web_templates
-    web_templates.navigateable.rank(:display_order).decorate
+    web_templates.navigateable.top_level.rank(:display_order).decorate
   end
 
   def navigateable_web_templates_to_hashes
@@ -44,11 +44,12 @@ module HasSettingNavigation
     partial_hash["top_level?"] = web_template.top_level?
     partial_hash["child_template?"] = web_template.child_template?
 
-    child_templates = web_template.children.map do |child_template|
-      to_liquid(child_template)
+    children_hash = {}
+    child_templates = web_template.children.navigateable.map do |child_template|
+      children_hash["#{child_template.id}"] = to_liquid(child_template)
     end
 
-    partial_hash["child_templates"] = child_templates
+    partial_hash["child_templates"] = children_hash
     partial_hash
   end
 end
