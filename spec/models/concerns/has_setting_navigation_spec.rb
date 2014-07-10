@@ -84,7 +84,7 @@ shared_examples_for HasSettingNavigation do
           end
 
           it "populates a child top_level" do
-            expect(first_child["top_level?"]).to eq(child_template.top_level)
+            expect(first_child["top_level?"]).to eq(child_template.top_level?)
           end
 
           it "populates a child child_template?" do
