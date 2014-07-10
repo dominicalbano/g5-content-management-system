@@ -198,7 +198,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def top_level?
-    children.present?
+    !child_template?
   end
 
   def child_template?
