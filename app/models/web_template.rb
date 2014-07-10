@@ -193,12 +193,12 @@ class WebTemplate < ActiveRecord::Base
     type.titleize.parameterize
   end
 
-  def child_templates
+  def children
     WebTemplate.where(parent_id: id)
   end
 
-  def top_level
-    child_templates.present?
+  def top_level?
+    children.present?
   end
 
   def child_template?

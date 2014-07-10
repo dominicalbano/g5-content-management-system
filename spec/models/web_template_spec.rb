@@ -118,12 +118,12 @@ describe WebTemplate do
     let!(:web_template) { Fabricate(:web_home_template) }
 
     it "should respond to child_templates" do
-      web_template.should respond_to :child_templates
+      web_template.should respond_to :children
     end
 
     context "without children" do
       it "should return an empty array" do
-        expect(web_template.child_templates).to be_empty
+        expect(web_template.children).to be_empty
       end
     end
 
@@ -132,7 +132,7 @@ describe WebTemplate do
       let!(:other_template) {Fabricate(:web_page_template, parent_id: nil)}
 
       it "should return an array of child templates" do
-        expect(web_template.child_templates).to eq([child_template])
+        expect(web_template.children).to eq([child_template])
       end
 
       describe ".top_level pages (with no parent references)" do

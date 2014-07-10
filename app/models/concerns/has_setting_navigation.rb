@@ -41,10 +41,10 @@ module HasSettingNavigation
     partial_hash["display"] = web_template.display
     partial_hash["name"] = web_template.name
     partial_hash["url"] = web_template.url
-    partial_hash["top_level"] = web_template.top_level
+    partial_hash["top_level?"] = web_template.top_level?
     partial_hash["child_template?"] = web_template.child_template?
 
-    child_templates = web_template.child_templates.map do |child_template|
+    child_templates = web_template.children.map do |child_template|
       to_liquid(child_template)
     end
 

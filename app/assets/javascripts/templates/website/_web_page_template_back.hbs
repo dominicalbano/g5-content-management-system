@@ -21,11 +21,10 @@
         {{view Ember.Select
                contentBinding="controller.templates"
                prompt="None"
-               name="parent_id"
-               valueBinding="content.id"
-               value=parentId
+               name="parent"
                optionValuePath="content.id"
-               optionLabelPath="content.name"}}
+               optionLabelPath="content.name"
+               selectionBinding=parent }}
       </div>
 
       <div class="form-field">
