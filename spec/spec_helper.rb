@@ -67,6 +67,10 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.after(:suite) do
+    puts "\n\nReminder: \033[1;31m\Don't forget to run integration specs with rspec -t integration\e[0m"
+  end
 end
 
 def set_selenium_window_size(width, height)
