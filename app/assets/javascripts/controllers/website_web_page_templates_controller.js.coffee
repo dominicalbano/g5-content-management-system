@@ -1,4 +1,5 @@
 App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
+  itemController: 'WebPageTemplate'
   updateSortOrder: (indexes) ->
     @beginPropertyChanges()
     @get("model").forEach (item) ->
