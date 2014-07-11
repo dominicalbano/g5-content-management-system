@@ -21,3 +21,4 @@ App.WebsiteIndexController = Ember.ObjectController.extend
       @endPropertyChanges()
       @get("store").save()
       @set "confirmEmptyTrash", false
+

@@ -6,5 +6,4 @@ class WebTemplateDecorator < Draper::Decorator
   def display
     true
   end
-
 end

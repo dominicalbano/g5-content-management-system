@@ -1,5 +1,15 @@
 App.WebPageTemplateController = Ember.ObjectController.extend
   needs: ["client"]
+  templates: (->
+    # The content array from Ember Data is immutable, so i must create
+    # a new array in order to remove self from it for the dropdown
+    mutableTemplates = []
+    this.parentController.get('content').forEach((template) ->
+      mutableTemplates.pushObject(template)
+    )
+    mutableTemplates.removeObject(this.get("model"))
+  ).property()
+
   actions:
     deploy: (model) ->
       url = "/websites/" + model.get("website.id") + "/deploy"
@@ -10,3 +20,4 @@ App.WebPageTemplateController = Ember.ObjectController.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+
