@@ -50,6 +50,7 @@ group :development, :test do
   # ruby specs
   gem "timecop"
   gem "rspec-rails"
+  gem "rspec-its"
   gem "shoulda-matchers"
   # ruby request specs
   gem "capybara"
