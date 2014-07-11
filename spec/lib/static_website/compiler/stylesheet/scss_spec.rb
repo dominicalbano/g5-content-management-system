@@ -35,9 +35,9 @@ describe StaticWebsite::Compiler::Stylesheet::Scss do
       end
 
       it "writes file to compile path" do
-        expect(File.exists?(subject.compile_path)).to be_false
+        expect(File.exists?(subject.compile_path)).to be_falsey
         subject.compile
-        expect(File.exists?(subject.compile_path)).to be_true
+        expect(File.exists?(subject.compile_path)).to be_truthy
       end
 
       it "compiles scss into css" do

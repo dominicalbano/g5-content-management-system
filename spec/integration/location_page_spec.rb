@@ -84,10 +84,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
-          expect(@widget2.display_order > @widget1.display_order).to be_true
+          expect(@widget2.display_order > @widget1.display_order).to be_truthy
           drag_and_drop_below(widget1, widget2)
           sleep 1
-          expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_true
+          expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_truthy
         end
       end
     end
@@ -205,10 +205,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".aside-before-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
-          expect(@widget2.display_order > @widget1.display_order).to be_true
+          expect(@widget2.display_order > @widget1.display_order).to be_truthy
           drag_and_drop_below(widget1, widget2)
           sleep 1
-          expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_true
+          expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_truthy
         end
       end
     end
@@ -326,10 +326,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".aside-after-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
-          expect(@widget2.display_order > @widget1.display_order).to be_true
+          expect(@widget2.display_order > @widget1.display_order).to be_truthy
           drag_and_drop_below(widget1, widget2)
           sleep 1
-          expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_true
+          expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_truthy
         end
       end
     end

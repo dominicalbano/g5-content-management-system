@@ -89,7 +89,7 @@ shared_examples_for HasSettingNavigation do
           end
 
           it "populates a child child_template?" do
-            expect(first_child[1]["child_template?"]).to be_true
+            expect(first_child[1]["child_template?"]).to be_truthy
           end
 
           it "populates a child child_templates" do

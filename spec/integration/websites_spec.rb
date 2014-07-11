@@ -115,10 +115,10 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       within ".web-page-templates" do
         web_page_template1 = find(".web-page-template:first-of-type")
         web_page_template2 = find(".web-page-template:last-of-type")
-        expect(@web_page_template2.display_order > @web_page_template1.display_order).to be_true
+        expect(@web_page_template2.display_order > @web_page_template1.display_order).to be_truthy
         drag_and_drop(web_page_template1, web_page_template2)
         sleep 1
-        expect(@web_page_template2.reload.display_order < @web_page_template1.reload.display_order).to be_true
+        expect(@web_page_template2.reload.display_order < @web_page_template1.reload.display_order).to be_truthy
       end
     end
   end

@@ -26,7 +26,7 @@ describe StaticWebsite::Compiler::CompileDirectory do
       let(:subject) { StaticWebsite::Compiler::CompileDirectory.new(path_exists) }
 
       it "does nothing" do
-        expect(Dir.exists?(subject.path)).to be_true
+        expect(Dir.exists?(subject.path)).to be_truthy
         expect(subject.compile).to be_nil
       end
     end
@@ -35,9 +35,9 @@ describe StaticWebsite::Compiler::CompileDirectory do
       let(:subject) { StaticWebsite::Compiler::CompileDirectory.new(path_does_not_exist) }
 
       it "makes a directory at the path" do
-        expect(Dir.exists?(subject.path)).to be_false
+        expect(Dir.exists?(subject.path)).to be_falsey
         expect(subject.compile).to eq [subject.path]
-        expect(Dir.exists?(subject.path)).to be_true
+        expect(Dir.exists?(subject.path)).to be_truthy
       end
     end
   end
@@ -55,7 +55,7 @@ describe StaticWebsite::Compiler::CompileDirectory do
       let(:subject) { StaticWebsite::Compiler::CompileDirectory.new(path_does_not_exist) }
 
       it "does nothing" do
-        expect(Dir.exists?(subject.path)).to be_false
+        expect(Dir.exists?(subject.path)).to be_falsey
         expect(subject.clean_up).to be_nil
       end
     end
@@ -64,9 +64,9 @@ describe StaticWebsite::Compiler::CompileDirectory do
       let(:subject) { StaticWebsite::Compiler::CompileDirectory.new(path_exists) }
 
       it "removes directory at the path" do
-        expect(Dir.exists?(subject.path)).to be_true
+        expect(Dir.exists?(subject.path)).to be_truthy
         expect(subject.clean_up).to eq [subject.path]
-        expect(Dir.exists?(subject.path)).to be_false
+        expect(Dir.exists?(subject.path)).to be_falsey
       end
     end
   end

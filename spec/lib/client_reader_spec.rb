@@ -44,7 +44,7 @@ describe ClientReader do
         let!(:client) { Fabricate(:client, uid: client_uid) }
 
         it "does not create a website for the client" do
-          expect { subject }.to_not change { Website.all.size }.from(0).to(1)
+          expect { subject }.not_to change { Website.all.size }
         end
       end
 
@@ -76,7 +76,7 @@ describe ClientReader do
 
           context "multi domain client" do
             it "does not create a website for the client" do
-              expect { subject }.to_not change { Website.all.size }.from(0).to(1)
+              expect { subject }.to_not change { Website.all.size }
             end
           end
         end
@@ -101,7 +101,7 @@ describe ClientReader do
         its([:city]) { should eq("Hollywood") }
         its([:postal_code]) { should eq("80229") }
         its([:phone_number]) { should eq("555-555-5555") }
-        its([:corporate]) { should be_false }
+        its([:corporate]) { should be_falsey }
         its([:neighborhood]) { should eq('Westwood')}
         its([:floor_plans]) { should eq('2 Bedroom 2 Bath, Studio')}
         its([:primary_amenity]) { should eq('Secret Passages')}
