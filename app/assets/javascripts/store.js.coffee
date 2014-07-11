@@ -10,3 +10,6 @@ App.ApplicationStore = DS.Store.extend({
 App.ApplicationAdapter = DS.ActiveModelAdapter.extend({
   namespace: 'api/v1'
 })
+#App.WebsiteSerializer = DS.ActiveModelSerializer.extend({ 
+#  primary_key: 'slug'
+#})

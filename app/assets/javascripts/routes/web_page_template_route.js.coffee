@@ -2,7 +2,7 @@ App.WebPageTemplateRoute = Ember.Route.extend
   model: (params) ->
     websiteSlug = params["website_slug"]
     webPageTemplateSlug = params["web_page_template_slug"]
-    websites = App.Website.find({})
+    websites = this.store.find('website')
     webPageTemplates = new DS.AdapterPopulatedRecordArray()
 
     websites.one "didLoad", ->
