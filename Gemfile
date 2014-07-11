@@ -4,7 +4,7 @@ ruby "2.1.2"
 gem 'rails', "4.1.4"
 # Downgraded jquery-rails for Ember Views
 gem "jquery-rails", "~> 3.0.4"
-gem "jquery-ui-rails"
+gem "jquery-ui-rails", "4.2.1"
 
 gem "quiet_assets"
 gem "bootstrap-sass"

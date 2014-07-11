@@ -97,4 +97,3 @@ if ENV["CI"]
 else
   Capybara.javascript_driver = :webkit
 end
-
