@@ -53,10 +53,10 @@ group :development, :test do
   gem "rspec-its"
   gem "shoulda-matchers"
   # ruby request specs
-  gem "capybara"
+  gem "capybara", "2.3.0"
   gem "capybara-webkit"
   gem "launchy"
-  gem "selenium-webdriver"
+  gem "selenium-webdriver", "2.41.0"
   gem "database_cleaner"
   # ruby spec support
   gem 'factory_girl_rails'
