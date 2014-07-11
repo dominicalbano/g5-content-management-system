@@ -18,7 +18,7 @@
                 <div class="thumb">
                   <a href="#" {{ action "update" this }}>
                     {{#view App.GardenWebThemeView contentBinding="this"}}
-                    <img alt="Thumbnail" {{ bindAttr src="thumbnail" }} {{ bindAttr class="view.isSelected" }}>
+                    <img alt="Thumbnail" {{ bind-attr src="thumbnail" }} {{ bind-attr class="view.isSelected" }}>
                     {{ name }}
                     {{/view}}
                   </a>

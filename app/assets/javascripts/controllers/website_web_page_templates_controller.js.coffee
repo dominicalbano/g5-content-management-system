@@ -8,7 +8,7 @@ App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
       # Set display order position
       item.set "displayOrderPosition", index
     @endPropertyChanges()
-    @get("store").save()
+    @get("model").save()
 
   templates: (->
     @get("model")
@@ -17,6 +17,5 @@ App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
   actions:
     save: (model) ->
       model.save()
-
     cancel: (model) ->
-      model.get('transaction').rollback()
+      model.rollback

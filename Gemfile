@@ -23,8 +23,6 @@ gem "aws-sdk"
 gem "httparty"
 
 gem "ember-rails"
-gem "ember-source", "~> 1.0.0"
-gem "ember-data-source", "~> 0.14"
 
 gem 'g5_authenticatable', '~> 0.2'
 
