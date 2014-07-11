@@ -25,10 +25,10 @@ describe Setting, vcr: VCR_OPTIONS do
   #   let(:instance_setting) { Fabricate(:setting, categories: ["instance"]) }
 
   #   it "returns true when categories includes collection" do
-  #     collection_setting.collection?.should be_true
+  #     collection_setting.collection?.should be_truthy
   #   end
   #   it "returns false when categories doesn't includes collection" do
-  #     instance_setting.collection?.should be_false
+  #     instance_setting.collection?.should be_falsey
   #   end
   # end
 

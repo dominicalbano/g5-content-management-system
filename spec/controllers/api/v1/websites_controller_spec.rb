@@ -13,7 +13,7 @@ describe Api::V1::WebsitesController, :auth_controller do
     it "renders websites as json" do
       get :index
       expect(response.status).to eq 200
-      pending("response.body JSON equals Website.all (after ran through the serializer and as JSON)")
+      skip("response.body JSON equals Website.all (after ran through the serializer and as JSON)")
     end
   end
 
