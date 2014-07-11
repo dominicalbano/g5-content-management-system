@@ -10,7 +10,8 @@ class WebPageTemplateSerializer < WebTemplateSerializer
              :slug,
              :display_order,
              :redirect_patterns,
-             :in_trash
+             :in_trash,
+             :parent_id
 
   def preview_url
     if corporate?

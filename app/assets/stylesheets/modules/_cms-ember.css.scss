@@ -329,3 +329,11 @@
     display:none;
   }
 }
+
+.template-select {
+  float:right;
+
+  select {
+    max-width: 135px;
+  }
+}

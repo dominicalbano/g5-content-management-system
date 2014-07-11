@@ -10,3 +10,4 @@ App.WebPageTemplate = DS.Model.extend
   displayOrder: DS.attr("number")
   displayOrderPosition: DS.attr("number")
   inTrash: DS.attr("boolean")
+  parent: DS.belongsTo("App.WebPageTemplate")

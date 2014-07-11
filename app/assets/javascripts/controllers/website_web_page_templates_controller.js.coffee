@@ -1,4 +1,5 @@
 App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
+  itemController: 'WebPageTemplate'
   updateSortOrder: (indexes) ->
     @beginPropertyChanges()
     @get("model").forEach (item) ->
@@ -8,6 +9,10 @@ App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
       item.set "displayOrderPosition", index
     @endPropertyChanges()
     @get("store").save()
+
+  templates: (->
+    @get("model")
+  ).property()
 
   actions:
     save: (model) ->

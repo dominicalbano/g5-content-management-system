@@ -27,26 +27,75 @@ shared_examples_for HasSettingNavigation do
         described_instance.navigateable_web_templates_to_hashes.should eq({})
       end
     end
+
     context "has web pages" do
       let!(:web_page_template) { Fabricate(:web_page_template, website: described_instance) }
-      before do
-        @result = described_instance.navigateable_web_templates_to_hashes
-      end
+      let(:result) { described_instance.navigateable_web_templates_to_hashes }
 
       it "uses web template id string as key" do
-        @result.keys.first.should eq web_page_template.id.to_s
+        result.keys.first.should eq web_page_template.id.to_s
       end
+
       it "returns hashes with to liquid defined" do
-        @result.values.sample.should be_a(HashWithToLiquid)
+        result.values.sample.should be_a(HashWithToLiquid)
       end
+
       it "hashes have key 'display'" do
-        @result.values.first["display"].should_not be_nil
+        result.values.first["display"].should_not be_nil
       end
+
       it "hashes have key 'name'" do
-        @result.values.sample["name"].should_not be_nil
+        result.values.sample["name"].should_not be_nil
       end
+
       it "hashes have key 'url'" do
-        @result.values.sample["url"].should_not be_nil
+        result.values.sample["url"].should_not be_nil
+      end
+
+      describe "child templates" do
+        let(:child_templates) { result.first[1]["child_templates"] }
+        let(:first_child) { child_templates.first }
+
+        context "no child pages" do
+          it "has an empty array of child templates" do
+            expect(child_templates).to be_empty
+          end
+        end
+
+        context "a top level page with child pages" do
+          let!(:child_template) do
+            Fabricate(:web_page_template, website: described_instance, parent_id: web_page_template.id,
+                     enabled: true)
+          end
+
+          it "has an array of child templates" do
+            expect(child_templates).to_not be_empty
+          end
+
+          it "populates a child display" do
+            expect(first_child[1]["display"]).to eq(child_template.display)
+          end
+
+          it "populates a child name" do
+            expect(first_child[1]["name"]).to eq(child_template.name)
+          end
+
+          it "populates a child url" do
+            expect(first_child[1]["url"]).to eq(child_template.url)
+          end
+
+          it "populates a child top_level" do
+            expect(first_child[1]["top_level?"]).to eq(child_template.top_level?)
+          end
+
+          it "populates a child child_template?" do
+            expect(first_child[1]["child_template?"]).to be_true
+          end
+
+          it "populates a child child_templates" do
+            expect(first_child[1]["child_templates"]).to eq({})
+          end
+        end
       end
     end
   end
