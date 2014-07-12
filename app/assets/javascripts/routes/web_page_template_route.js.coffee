@@ -1,24 +1,6 @@
 App.WebPageTemplateRoute = Ember.Route.extend
   model: (params) ->
-    websiteSlug = params["website_slug"]
-    webPageTemplateSlug = params["web_page_template_slug"]
-    websites = this.store.find('website')
-    webPageTemplates = new DS.AdapterPopulatedRecordArray()
-
-    websites.one "didLoad", ->
-      website = null
-      webPageTemplate = null
-
-      websites.forEach (x) -> website = x if x.get("slug") is websiteSlug
-      website.get("webPageTemplates").forEach (x) -> webPageTemplate = x if x.get("slug") is webPageTemplateSlug
-
-      unless webPageTemplate?
-        webHomeTemplate = website.get("webHomeTemplate")
-        webPageTemplate = webHomeTemplate if webHomeTemplate.get("slug") is webPageTemplateSlug
-
-      webPageTemplates.resolve webPageTemplate
-
-    webPageTemplates
+    @modelFor("website").get("webPageTemplates")
 
   afterModel: (webPageTemplate, transition) ->
     if webPageTemplate.get("isWebHomeTemplate")?
@@ -43,9 +25,9 @@ App.WebPageTemplateRoute = Ember.Route.extend
     @controllerFor("asideAfterMainWidgets").set("model", model.get("website.websiteTemplate.asideAfterMainWidgets"))
     @controllerFor("footerWidgets").set("model", model.get("website.websiteTemplate.footerWidgets"))
     # setup garden controllers last
-    @controllerFor("gardenWebLayouts").set("model", App.GardenWebLayout.find())
-    @controllerFor("gardenWebThemes").set("model", App.GardenWebTheme.find())
-    @controllerFor("gardenWidgets").set("model", App.GardenWidget.find())
+    @controllerFor("gardenWebLayouts").set("model", this.store.find('gardenWebLayout'))
+    @controllerFor("gardenWebThemes").set("model", this.store.find('gardenWebTheme'))
+    @controllerFor("gardenWidgets").set("model", this.store.find('gardenWidget'))
 
     @setBreadcrumb(@controllerFor("webPageTemplate").get("model").get("name"))
 

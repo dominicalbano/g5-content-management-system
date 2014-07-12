@@ -3,12 +3,12 @@ App.Router.map ->
 
   @route "docs", path: "/:website_slug/docs"
 
-  @resource "webHomeTemplate", path: "/:website_slug/:web_home_template_slug"
-  @resource "webPageTemplate", path: "/:website_slug/:web_page_template_slug"
   @resource "releases", path: "/:website_slug/releases"
 
   @resource "website", path: "/:website_slug", ->
     @resource "assets"
+    @resource "webHomeTemplate", path: ":web_home_template_slug"
+    @resource "webPageTemplate", path: ":web_page_template_slug"
     @resource "webPageTemplates", ->
       @route "new"
 
