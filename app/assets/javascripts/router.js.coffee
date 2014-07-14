@@ -7,7 +7,7 @@ App.Router.map ->
 
   @resource "website", path: "/:website_slug", ->
     @resource "assets"
-    @resource "webHomeTemplate", path: ":web_home_template_slug"
+    @resource "webHomeTemplate", path: "home"
     @resource "webPageTemplate", path: ":web_page_template_slug"
     @resource "webPageTemplates", ->
       @route "new"

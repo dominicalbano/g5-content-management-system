@@ -7,7 +7,6 @@ describe "Integration assets", auth_request: true, integration: true, js: true, 
   end
 
   it "shows the file select input" do
-    binding.pry
     page.should have_css "input[type=file]"
   end
 
