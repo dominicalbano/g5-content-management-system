@@ -1,6 +1,7 @@
 App.WebPageTemplateRoute = Ember.Route.extend
   model: (params) ->
-    @modelFor("website").get("webPageTemplates")
+    @store.find("webPageTemplate", {slug: params.web_page_template_slug}).then (result) ->
+      result.get("firstObject")
 
   afterModel: (webPageTemplate, transition) ->
     if webPageTemplate.get("isWebHomeTemplate")?
