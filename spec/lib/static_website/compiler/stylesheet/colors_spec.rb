@@ -42,9 +42,9 @@ describe StaticWebsite::Compiler::Stylesheet::Colors do
       end
 
       it "writes file to compile path" do
-        expect(File.exists?(subject.compile_path)).to be_false
+        expect(File.exists?(subject.compile_path)).to be_falsey
         subject.view.compile
-        expect(File.exists?(subject.compile_path)).to be_true
+        expect(File.exists?(subject.compile_path)).to be_truthy
       end
 
       it "renders erb with colors" do

@@ -33,9 +33,9 @@ describe StaticWebsite::Compiler::Javascript::Coffee do
       end
 
       it "writes file to compile path" do
-        expect(File.exists?(subject.compile_path)).to be_false
+        expect(File.exists?(subject.compile_path)).to be_falsey
         subject.compile
-        expect(File.exists?(subject.compile_path)).to be_true
+        expect(File.exists?(subject.compile_path)).to be_truthy
       end
 
       it "compiles coffee into js" do

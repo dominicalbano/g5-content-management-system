@@ -30,7 +30,7 @@ describe ReleasesManager do
         its(["version"]) { should eq(48) }
         its(["created_at"]) { should eq("2014-01-22T00:16:59Z") }
         its(["description"]) { should eq("Deploy aeccd5a") }
-        its(["current"]) { should be_true }
+        its(["current"]) { should be_truthy }
       end
 
       context "specific data with a rollback" do
@@ -44,7 +44,7 @@ describe ReleasesManager do
         its(["version"]) { should eq(53) }
         its(["created_at"]) { should eq("2014-01-22T00:20:00Z") }
         its(["description"]) { should eq("Deploy 1h12h") }
-        its(["current"]) { should be_true }
+        its(["current"]) { should be_truthy }
       end
 
       context "bad credentials" do

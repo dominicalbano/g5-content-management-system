@@ -6,6 +6,7 @@ end
 ENV["RAILS_ENV"] ||= "test"
 require File.expand_path("../../config/environment", __FILE__)
 require "rspec/rails"
+require "rspec/its"
 require "capybara/rails"
 require "capybara/rspec"
 require "database_cleaner"
@@ -44,6 +45,7 @@ RSpec.configure do |config|
   # likewise the integration tests can be run with:
   # rspec --tag integration
   config.filter_run_excluding :integration, :deployment
+  config.infer_spec_type_from_file_location!
 
   config.before(:suite) do
     # Temporary fix for default_url_host not being properly set in Rails 4.1.0
@@ -95,4 +97,3 @@ if ENV["CI"]
 else
   Capybara.javascript_driver = :webkit
 end
-
