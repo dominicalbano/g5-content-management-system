@@ -104,19 +104,19 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
-    ember-data-source (0.14)
+    ember-data-source (1.0.0.beta.8)
       ember-source
-    ember-rails (0.14.1)
+    ember-rails (0.15.0)
       active_model_serializers
       barber (>= 0.4.1)
-      ember-data-source
-      ember-source
+      ember-data-source (>= 1.0.0.beta.5)
+      ember-source (>= 1.1.0)
       execjs (>= 1.2)
-      handlebars-source
+      handlebars-source (> 1.0.0)
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.0.1)
-      handlebars-source (= 1.0.12)
+    ember-source (1.6.1)
+      handlebars-source (~> 1.0)
     erubis (2.7.0)
     excon (0.38.0)
     execjs (2.2.1)
@@ -167,7 +167,7 @@ GEM
     guard-rspec (4.2.10)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-    handlebars-source (1.0.12)
+    handlebars-source (1.3.0)
     hashie (2.0.5)
     heroku-api (0.3.18)
       excon (~> 0.27)
