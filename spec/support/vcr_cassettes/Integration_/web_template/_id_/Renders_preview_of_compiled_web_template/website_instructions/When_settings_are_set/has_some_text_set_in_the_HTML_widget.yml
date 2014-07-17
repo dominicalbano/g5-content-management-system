@@ -111,11 +111,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:48 GMT
+      - Thu, 17 Jul 2014 21:13:50 GMT
       Via:
       - 1.1 vegur
     body:
@@ -126,7 +126,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:49 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:52 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -154,11 +154,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:49 GMT
+      - Thu, 17 Jul 2014 21:13:51 GMT
       Via:
       - 1.1 vegur
     body:
@@ -390,7 +390,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:50 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:52 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -418,11 +418,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:49 GMT
+      - Thu, 17 Jul 2014 21:13:52 GMT
       Via:
       - 1.1 vegur
     body:
@@ -490,7 +490,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:50 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:53 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -518,11 +518,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:49 GMT
+      - Thu, 17 Jul 2014 21:13:52 GMT
       Via:
       - 1.1 vegur
     body:
@@ -561,7 +561,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:50 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:54 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -589,11 +589,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:50 GMT
+      - Thu, 17 Jul 2014 21:13:53 GMT
       Via:
       - 1.1 vegur
     body:
@@ -610,7 +610,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:51 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:54 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -634,29 +634,31 @@ http_interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '597'
+      - '728'
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:50 GMT
+      - Thu, 17 Jul 2014 21:13:54 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
-        .copyright {\n  margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n
-        \ margin-left: 10px;\n  vertical-align: top;\n}\n.footer-info .access {\n
-        \ background: url(http://themes.g5dxm.com/shared/access-icons.png) 0 0 no-repeat;\n
-        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n.footer-info
-        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info .handicap-icon
-        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
-        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:51 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:55 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -688,7 +690,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:51 GMT
+      - Thu, 17 Jul 2014 21:13:54 GMT
       Via:
       - 1.1 vegur
     body:
@@ -716,7 +718,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:52 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:56 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -740,15 +742,15 @@ http_interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '14297'
+      - '14419'
       Content-Type:
       - text/plain
       Last-Modified:
-      - Mon, 07 Jul 2014 18:26:40 GMT
+      - Thu, 17 Jul 2014 19:43:10 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:51 GMT
+      - Thu, 17 Jul 2014 21:13:55 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1169,6 +1171,9 @@ http_interactions:
           .youtube {
             background-position: 0 -349px;
           }
+          .google-plus {
+            background-position: 0 -540px;
+          }
         }
 
         .blog-feed a {
@@ -1305,7 +1310,8 @@ http_interactions:
             }
             .adr,
             .tel,
-            .email {
+            .email,
+            .chat {
               @include font-size(18);
               background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
               min-height: 35px;
@@ -1320,6 +1326,9 @@ http_interactions:
             }
             .email {
               background-position: 0 -150px;
+            }
+            .chat {
+              background-position: 0 -225px;
             }
           }
         }
@@ -1555,7 +1564,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:52 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:56 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
@@ -1583,11 +1592,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:52 GMT
+      - Thu, 17 Jul 2014 21:13:57 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1598,7 +1607,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:53 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:58 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -1626,11 +1635,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:52 GMT
+      - Thu, 17 Jul 2014 21:13:57 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1862,7 +1871,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:53 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:59 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -1890,11 +1899,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:53 GMT
+      - Thu, 17 Jul 2014 21:13:58 GMT
       Via:
       - 1.1 vegur
     body:
@@ -1962,7 +1971,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:54 GMT
+  recorded_at: Thu, 17 Jul 2014 21:13:59 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -1990,11 +1999,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:53 GMT
+      - Thu, 17 Jul 2014 21:13:59 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2033,7 +2042,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:54 GMT
+  recorded_at: Thu, 17 Jul 2014 21:14:00 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -2061,11 +2070,11 @@ http_interactions:
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:53 GMT
+      - Thu, 17 Jul 2014 21:13:59 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2082,7 +2091,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:55 GMT
+  recorded_at: Thu, 17 Jul 2014 21:14:01 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -2106,29 +2115,31 @@ http_interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '597'
+      - '728'
       Content-Type:
       - text/css
       Last-Modified:
-      - Fri, 11 Jul 2014 16:24:49 GMT
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:54 GMT
+      - Thu, 17 Jul 2014 21:14:00 GMT
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
-        .copyright {\n  margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n
-        \ margin-left: 10px;\n  vertical-align: top;\n}\n.footer-info .access {\n
-        \ background: url(http://themes.g5dxm.com/shared/access-icons.png) 0 0 no-repeat;\n
-        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n.footer-info
-        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info .handicap-icon
-        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
-        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:55 GMT
+  recorded_at: Thu, 17 Jul 2014 21:14:01 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -2160,7 +2171,7 @@ http_interactions:
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:55 GMT
+      - Thu, 17 Jul 2014 21:14:00 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2188,7 +2199,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:56 GMT
+  recorded_at: Thu, 17 Jul 2014 21:14:02 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -2212,15 +2223,15 @@ http_interactions:
       Connection:
       - keep-alive
       Content-Length:
-      - '14297'
+      - '14419'
       Content-Type:
       - text/plain
       Last-Modified:
-      - Mon, 07 Jul 2014 18:26:40 GMT
+      - Thu, 17 Jul 2014 19:43:10 GMT
       Status:
       - 200 OK
       Date:
-      - Fri, 11 Jul 2014 17:08:55 GMT
+      - Thu, 17 Jul 2014 21:14:01 GMT
       Via:
       - 1.1 vegur
     body:
@@ -2641,6 +2652,9 @@ http_interactions:
           .youtube {
             background-position: 0 -349px;
           }
+          .google-plus {
+            background-position: 0 -540px;
+          }
         }
 
         .blog-feed a {
@@ -2777,7 +2791,8 @@ http_interactions:
             }
             .adr,
             .tel,
-            .email {
+            .email,
+            .chat {
               @include font-size(18);
               background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
               min-height: 35px;
@@ -2792,6 +2807,9 @@ http_interactions:
             }
             .email {
               background-position: 0 -150px;
+            }
+            .chat {
+              background-position: 0 -225px;
             }
           }
         }
@@ -3027,5 +3045,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 11 Jul 2014 17:08:56 GMT
+  recorded_at: Thu, 17 Jul 2014 21:14:03 GMT
 recorded_with: VCR 2.9.2
