@@ -9,21 +9,21 @@ describe CorporateMapSetting do
     subject { CorporateMapSetting.new.value }
 
     it "displays the correct populated_states" do
-      expect(subject["populated_states"]).to eq(["CA", "OR"])
+      expect(subject["populated_states"]).to eq("[\"CA\",\"OR\"]")
     end
 
     it "displays the correct state_location_counts" do
-      expect(subject["state_location_counts"]).to eq({ "CA" => 2, "OR" => 1 })
+      expect(subject["state_location_counts"]).to eq("{\"CA\":2,\"OR\":1}")
     end
 
     describe "colors" do
       context "no corporate defined location" do
         it "displays the default primary color" do
-          expect(subject["primary_color"]).to eq("#222222")
+          expect(subject["primary_color"]).to eq("\"#222222\"")
         end
 
         it "displays the default hover color" do
-          expect(subject["hover_color"]).to eq("#333333")
+          expect(subject["hover_color"]).to eq("\"#333333\"")
         end
       end
 
@@ -36,11 +36,11 @@ describe CorporateMapSetting do
 
         context "no custom web_theme colors" do
           it "displays the default primary color" do
-            expect(subject["primary_color"]).to eq("#000000")
+            expect(subject["primary_color"]).to eq("\"#000000\"")
           end
 
           it "displays the default hover color" do
-            expect(subject["hover_color"]).to eq("#2b2b2b")
+            expect(subject["hover_color"]).to eq("\"#2b2b2b\"")
           end
         end
 
@@ -50,11 +50,11 @@ describe CorporateMapSetting do
           end
 
           it "displays the default primary color" do
-            expect(subject["primary_color"]).to eq("#FF66FF")
+            expect(subject["primary_color"]).to eq("\"#FF66FF\"")
           end
 
           it "displays the default hover color" do
-            expect(subject["hover_color"]).to eq("#ff91ff")
+            expect(subject["hover_color"]).to eq("\"#ff91ff\"")
           end
         end
       end
