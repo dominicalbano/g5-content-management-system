@@ -4,10 +4,10 @@ class CorporateMapSetting
 
   def value
     {
-      populated_states: populated_states,
-      state_location_counts: state_location_counts,
-      primary_color: primary_color,
-      hover_color: hover_color
+      "populated_states" => populated_states,
+      "state_location_counts" => state_location_counts,
+      "primary_color" => primary_color,
+      "hover_color" => hover_color
     }
   end
 
