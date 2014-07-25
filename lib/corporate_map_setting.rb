@@ -32,13 +32,7 @@ private
   end
 
   def lighten_hex(hex, amount=0.17)
-    rgb = hex.scan(/../).map {|color| color.hex}
-
-    rgb[0] = [(rgb[0].to_i + 255 * amount).round, 255].min
-    rgb[1] = [(rgb[1].to_i + 255 * amount).round, 255].min
-    rgb[2] = [(rgb[2].to_i + 255 * amount).round, 255].min
-
-    rgb
+    hex.scan(/../).map(&:hex).map { |color| [(color.to_i + 255 * amount).round, 255].min }
   end
 
   def populated_states
