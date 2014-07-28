@@ -15,7 +15,7 @@ module HasSettingCorporateMap
 
   def update_corporate_map_setting
     corporate_map_settings.each do |corporate_map_setting|
-      corporate_map_setting.update_attribute(:value, CorporateMapSetting.new.value)
+      corporate_map_setting.update(value: CorporateMapSetting.new.value)
     end
   end
 end
