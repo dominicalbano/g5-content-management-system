@@ -18,7 +18,7 @@ class ColorFinder
 
   def location_primary_color
     return unless @location
-    web_theme.custom_primary_color|| web_theme.garden_web_theme.primary_color
+    web_theme.custom_primary_color || web_theme.garden_web_theme.primary_color
   end
 
   def calculate_hover_color(base_color)
