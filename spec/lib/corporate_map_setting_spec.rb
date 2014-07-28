@@ -49,11 +49,11 @@ describe CorporateMapSetting do
             Fabricate(:web_theme, custom_primary_color: "#FF66FF", garden_web_theme: garden_web_theme)
           end
 
-          it "displays the default primary color" do
+          it "displays the custom primary color" do
             expect(subject["primary_color"]).to eq("\"#FF66FF\"")
           end
 
-          it "displays the default hover color" do
+          it "displays the custom hover color" do
             expect(subject["hover_color"]).to eq("\"#ff91ff\"")
           end
         end
