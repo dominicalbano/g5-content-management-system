@@ -31,7 +31,6 @@ class ColorFinder
   end
 
   def web_theme
-    return unless @location
     @web_theme ||= @location.website.website_template.web_theme
   end
 end
