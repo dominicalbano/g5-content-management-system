@@ -11,10 +11,12 @@ App.SortableWidgetsController = Ember.ArrayController.extend
       if item? and item.get("currentState.stateName") != "root.deleted.saved"
         if item.get("isRemoved")
           item.deleteRecord()
+          item.save()
         else
           # Get the new display order position
           index = indexes[item.get("id")]
           # Set display order position
           item.set "displayOrderPosition", index
+          item.save()
     @endPropertyChanges()
-    @get("store").save()
+

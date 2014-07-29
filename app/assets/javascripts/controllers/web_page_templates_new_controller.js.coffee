@@ -2,8 +2,8 @@ App.WebPageTemplatesNewController = Ember.ObjectController.extend
   actions:
     save: ->
       @get('model').save()
-      @transitionToRoute 'website'
+      @transitionToRoute 'websiteIndex'
 
     cancel: ->
       @get('model').deleteRecord()
-      @transitionToRoute 'website'
+      @transitionToRoute 'websiteIndex'

@@ -10,10 +10,10 @@
         <strong class="banner-subtitle">{{controllers.client.name}}</strong>
       </a>
 
-      {{#if controllers.websiteIndex}}
+      {{#if controllers.website}}
         &raquo;
-        {{#link-to "website" controllers.websiteIndex}}
-          <strong class="banner-subtitle">{{controllers.websiteIndex.name}}</strong>
+        {{#link-to "website" controllers.website}}
+          <strong class="banner-subtitle">{{controllers.website.name}}</strong>
         {{/link-to}}
       {{/if}}
 
@@ -25,3 +25,4 @@
 
   </div> <!-- end .l-container -->
 </header>
+

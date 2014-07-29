@@ -17,7 +17,7 @@
     <ul class="faux-table-body">
       {{#each controller}}
         <li class="asset faux-table-row">
-          <div class="faux-table-cell"><a {{bindAttr href=url}} target='new'><img {{bindAttr src=url}} width='100'></a></div>
+          <div class="faux-table-cell"><a {{bind-attr href=url}} target='new'><img {{bind-attr src=url}} width='100'></a></div>
           <div class="faux-table-cell">{{click-select url=url }}</div>
           <div class="faux-table-cell">{{confirm-button title='delete' action='deleteAsset' param=this}}</div>
         </li>

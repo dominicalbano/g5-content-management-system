@@ -22,4 +22,4 @@ App.WebsiteWebPageTemplatesView = Ember.View.extend JQ.Sortable,
       droppedView = Ember.View.views[droppedViewId]
       # Set view not in trash
       droppedView.content.set("inTrash", true)
-      droppedView.content.save()
+

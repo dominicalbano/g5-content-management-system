@@ -1,5 +1,5 @@
 App.Location = DS.Model.extend
-  website: DS.belongsTo("App.Website")
+  website: DS.belongsTo("website")
   urn: DS.attr("string")
   domain: DS.attr("string")
   name: DS.attr("string")

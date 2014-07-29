@@ -1,6 +1,6 @@
 App.Client = DS.Model.extend
-  locations:     DS.hasMany("App.Location")
-  websites:      DS.hasMany("App.Website")
+  locations:     DS.hasMany("location")
+  websites:      DS.hasMany("website")
   urn:           DS.attr("string")
   name:          DS.attr("string")
   url:           DS.attr("string")
