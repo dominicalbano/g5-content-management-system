@@ -5,48 +5,52 @@ class WebsiteSeeder
     @location = location
     @client = Client.first
     @instructions = instructions || @client.website_defaults
+    @website = location.create_website
   end
 
   def seed
-    client_services = ClientServices.new
-    client = client_services.client
+    create_general_settings
+    create_services_settings
+    create_website_template(website, instructions["website_template"])
+    create_web_home_template(website, instructions["web_home_template"])
+    create_web_page_templates(website, instructions["web_page_templates"])
 
-    Rails.logger.info "Creating website for location #{location.name}"
-    @website = location.create_website
+    website
+  end
 
-    Rails.logger.info "Creating website settings"
-    create_setting!("client_urn", client_services.client_urn)
-    create_setting!("client_url", client_services.client_url)
-    create_setting!("client_location_urns", client_services.client_location_urns)
-    create_setting!("client_location_urls", client_services.client_location_urls)
+  def client_services
+    @client_services ||= ClientServices.new
+  end
 
+  def create_general_settings
+    general_settings.each { |key, value| create_setting!(key, value) }
+  end
+
+  def general_settings
+    {
+      "client_urn"                => client_services.client_urn,
+      "client_url"                => client_services.client_url,
+      "client_location_urns"      => client_services.client_location_urns,
+      "client_location_urls"      => client_services.client_location_urls,
+      "location_urn"              => location.urn,
+      "location_url"              => location.domain,
+      "location_street_address"   => location.street_address,
+      "location_city"             => location.city,
+      "location_state"            => location.state,
+      "location_postal_code"      => location.postal_code,
+      "phone_number"              => location.phone_number,
+      "row_widget_garden_widgets" => RowWidgetGardenWidgetsSetting.new.value,
+      "locations_navigation"      => LocationsNavigationSetting.new.value
+    }
+  end
+
+  def create_services_settings
     ClientServices::SERVICES.each do |service|
       %w(urn url).each do |suffix|
         setting_name = [service, suffix].join("_")
         create_setting!(setting_name, client_services.public_send(setting_name.to_sym))
       end
     end
-
-    create_setting!("location_urn", location.urn)
-    create_setting!("location_url", location.domain)
-    create_setting!("location_street_address", location.street_address)
-    create_setting!("location_city", location.city)
-    create_setting!("location_state", location.state)
-    create_setting!("location_postal_code", location.postal_code)
-    create_setting!("phone_number", location.phone_number)
-    create_setting!("row_widget_garden_widgets", RowWidgetGardenWidgetsSetting.new.value)
-    create_setting!("locations_navigation", LocationsNavigationSetting.new.value)
-
-    Rails.logger.info "Creating website template"
-    create_website_template(website, instructions["website_template"])
-
-    Rails.logger.info "Creating web home template"
-    create_web_home_template(website, instructions["web_home_template"])
-
-    Rails.logger.info "Creating web page template"
-    create_web_page_templates(website, instructions["web_page_templates"])
-
-    website
   end
 
   def create_website_template(website, instruction)
