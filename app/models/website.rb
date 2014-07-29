@@ -17,11 +17,15 @@ class Website < ActiveRecord::Base
   has_many :web_templates
   has_many :assets, dependent: :destroy
   has_many :widgets, through: :web_templates
-  has_many :widget_settings, through: :widgets, source: :settings
 
   validates :urn, presence: true, uniqueness: true, unless: :new_record?
 
   scope :location_websites, -> { where(owner_type: "Location") }
+
+  def widget_settings
+    widgets.collect {|widget| widget.settings}.flatten +
+    widgets.collect {|widget| widget.nested_settings}.flatten
+  end
 
   def website_id
     id

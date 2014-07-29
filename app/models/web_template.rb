@@ -238,8 +238,5 @@ class WebTemplate < ActiveRecord::Base
   def single_domain_internal_page?
     web_page_template? && single_domain? && !website.corporate?
   end
-
-  def row_widget_asset_collector
-    @row_widget_asset_collector ||= RowWidgetAssetCollector.new(self)
-  end
 end
+

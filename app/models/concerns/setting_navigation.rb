@@ -20,7 +20,7 @@ module SettingNavigation
   end
 
   def widget_navigation_settings
-    setting_website.widget_settings.navigation
+    setting_website.widget_settings.select {|widget| widget.name == "navigation"}
   end
 
   # should be called on website setting, not widget setting
