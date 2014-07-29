@@ -35,6 +35,7 @@ describe WebsiteSeeder do
       expect(setting_value_for("phone_number")).to eq(location.phone_number)
       expect(setting_value_for("row_widget_garden_widgets")).to eq(RowWidgetGardenWidgetsSetting.new.value)
       expect(setting_value_for("locations_navigation")).to eq(LocationsNavigationSetting.new.value)
+      expect(setting_value_for("corporate_map")).to eq(CorporateMapSetting.new.value)
     end
 
     it "creates the appropriate templates" do

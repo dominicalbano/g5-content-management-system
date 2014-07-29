@@ -2,6 +2,7 @@ class Website < ActiveRecord::Base
   include HasManySettings
   include HasSettingNavigation
   include HasSettingLocationsNavigation
+  include HasSettingCorporateMap
   include AfterCreateUpdateUrn
   include ToParamUrn
 
