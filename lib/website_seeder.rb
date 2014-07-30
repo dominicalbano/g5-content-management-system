@@ -54,7 +54,8 @@ class WebsiteSeeder
   def other_settings
     {
       "row_widget_garden_widgets" => RowWidgetGardenWidgetsSetting.new.value,
-      "locations_navigation"      => LocationsNavigationSetting.new.value
+      "locations_navigation"      => LocationsNavigationSetting.new.value,
+      "corporate_map"             => CorporateMapSetting.new.value
     }
   end
 
