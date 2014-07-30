@@ -10,11 +10,11 @@
     </ul>
     <div class="buttons">
       {{#if isWebHomeTemplate}}
-        {{#link-to "webHomeTemplate" model class="btn btn--small"}}Edit{{/link-to}}
+        {{#link-to "webHomeTemplate" class="btn btn--small"}}Edit{{/link-to}}
       {{else}}
         {{#link-to "webPageTemplate" this class="btn btn--small"}}Edit{{/link-to}}
       {{/if}}
-      <a {{bindAttr href="previewUrl"}} class="btn btn--small">Preview</a>
+      <a {{bind-attr href="previewUrl"}} class="btn btn--small">Preview</a>
     </div>
 
     {{ partial "website/webPageTemplateFlip" }}

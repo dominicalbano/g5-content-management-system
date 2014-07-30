@@ -173,7 +173,7 @@ http_interactions:
         .filter-btn {
           display: inline-block;
         }
-        .filter-name {
+        .filter-name {spec/support/vcr_cassettes/Integration_/web_template/_id_/Renders_preview_of_compiled_web_template/website_instructions/When_settings_are_set/has_some_text_set_in_the_HTML_widget.yml
           margin-right: .25em;
         }
         .available-filter {

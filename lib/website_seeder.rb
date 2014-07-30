@@ -35,7 +35,7 @@ class WebsiteSeeder
       "client_urn"           => client_services.client_urn,
       "client_url"           => client_services.client_url,
       "client_location_urns" => client_services.client_location_urns,
-      "client_location_urls" => client_services.client_location_urls,
+      "client_location_urls" => client_services.client_location_urls
     }
   end
 
@@ -47,7 +47,7 @@ class WebsiteSeeder
       "location_city"           => location.city,
       "location_state"          => location.state,
       "location_postal_code"    => location.postal_code,
-      "phone_number"            => location.phone_number,
+      "phone_number"            => location.phone_number
     }
   end
 

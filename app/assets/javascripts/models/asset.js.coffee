@@ -1,3 +1,3 @@
 App.Asset = DS.Model.extend
-  website: DS.belongsTo("App.Website")
+  website: DS.belongsTo("website")
   url: DS.attr("string")

@@ -24,16 +24,16 @@
     {{else}}
       <ul class="faux-table-body">
         {{#each model}}
-        <li {{bindAttr class=":faux-table-row :location corporate"}}>
+        <li {{bind-attr class=":faux-table-row :location corporate"}}>
           <div class="faux-table-cell">
             {{#if corporate}}
             <strong>Corporate:</strong>
             {{/if}}
             {{name}}
           </div>
-          <div {{bindAttr class=":faux-table-cell single_domain"}}>
+          <div {{bind-attr class=":faux-table-cell single_domain"}}>
             {{#link-to "website" this.website class="btn btn--a" }}Edit{{/link-to}}
-            <a {{bindAttr href="this.website.herokuUrl"}} class="btn btn--a">View</a>
+            <a {{bind-attr href="this.website.herokuUrl"}} class="btn btn--a">View</a>
             {{confirmation-link title="Deploy" action="deploy" param=this 
               message="You are about to deploy. Are you sure?" classes="btn btn--a deploy"}}
           </div>

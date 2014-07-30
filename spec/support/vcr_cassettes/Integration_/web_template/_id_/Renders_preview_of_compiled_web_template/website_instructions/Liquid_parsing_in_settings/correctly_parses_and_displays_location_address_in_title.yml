@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
+    uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
     body:
       encoding: US-ASCII
       string: ''
@@ -22,50 +22,12 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '30'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Mon, 28 Jul 2014 21:48:16 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:14:59 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        .hours p {
-          margin-top: 0;
-        }
-    http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:14:59 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '30'
+      Last-Modified:
+      - Thu, 17 Jul 2014 20:27:55 GMT
       Content-Type:
       - text/css
       Last-Modified:
