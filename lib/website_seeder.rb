@@ -27,18 +27,32 @@ class WebsiteSeeder
   end
 
   def general_settings
+    client_settings.merge(location_settings).merge(other_settings)
+  end
+
+  def client_settings
     {
-      "client_urn"                => client_services.client_urn,
-      "client_url"                => client_services.client_url,
-      "client_location_urns"      => client_services.client_location_urns,
-      "client_location_urls"      => client_services.client_location_urls,
-      "location_urn"              => location.urn,
-      "location_url"              => location.domain,
-      "location_street_address"   => location.street_address,
-      "location_city"             => location.city,
-      "location_state"            => location.state,
-      "location_postal_code"      => location.postal_code,
-      "phone_number"              => location.phone_number,
+      "client_urn"           => client_services.client_urn,
+      "client_url"           => client_services.client_url,
+      "client_location_urns" => client_services.client_location_urns,
+      "client_location_urls" => client_services.client_location_urls,
+    }
+  end
+
+  def location_settings
+    {
+      "location_urn"            => location.urn,
+      "location_url"            => location.domain,
+      "location_street_address" => location.street_address,
+      "location_city"           => location.city,
+      "location_state"          => location.state,
+      "location_postal_code"    => location.postal_code,
+      "phone_number"            => location.phone_number,
+    }
+  end
+
+  def other_settings
+    {
       "row_widget_garden_widgets" => RowWidgetGardenWidgetsSetting.new.value,
       "locations_navigation"      => LocationsNavigationSetting.new.value
     }

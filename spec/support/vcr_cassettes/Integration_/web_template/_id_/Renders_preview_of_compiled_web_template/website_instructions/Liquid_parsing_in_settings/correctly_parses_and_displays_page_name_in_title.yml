@@ -106,16 +106,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '44'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:33 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:44 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '44'
       Via:
       - 1.1 vegur
     body:
@@ -126,7 +126,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:46 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:35 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -149,16 +149,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '4121'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:33 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:45 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '4121'
       Via:
       - 1.1 vegur
     body:
@@ -390,7 +390,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:47 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:35 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -413,16 +413,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '5087'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:34 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:46 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '5087'
       Via:
       - 1.1 vegur
     body:
@@ -490,7 +490,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:47 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:36 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -513,16 +513,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '497'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:34 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:47 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
       Via:
       - 1.1 vegur
     body:
@@ -561,7 +561,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:48 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:36 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -584,16 +584,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '193'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:35 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:48 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
       Via:
       - 1.1 vegur
     body:
@@ -610,7 +610,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:50 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:37 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -633,16 +633,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '728'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:36 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:49 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
       Via:
       - 1.1 vegur
     body:
@@ -658,7 +658,7 @@ http_interactions:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
         200px;\n}\n"
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:51 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:38 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -681,16 +681,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '386'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Mon, 07 Jul 2014 18:25:51 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:37 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:50 GMT
+      Last-Modified:
+      - Mon, 07 Jul 2014 18:25:51 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
       Via:
       - 1.1 vegur
     body:
@@ -718,7 +718,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:52 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:39 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -741,16 +741,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '14419'
-      Content-Type:
-      - text/plain
-      Last-Modified:
-      - Thu, 17 Jul 2014 19:43:10 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:38 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:51 GMT
+      Last-Modified:
+      - Mon, 28 Jul 2014 21:37:35 GMT
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '14419'
       Via:
       - 1.1 vegur
     body:
@@ -1564,7 +1564,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:53 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:40 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
@@ -1587,16 +1587,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '44'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:39 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:53 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '44'
       Via:
       - 1.1 vegur
     body:
@@ -1607,7 +1607,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:54 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:41 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -1630,16 +1630,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '4121'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:39 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:54 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '4121'
       Via:
       - 1.1 vegur
     body:
@@ -1871,7 +1871,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:55 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:41 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -1894,16 +1894,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '5087'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:40 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:54 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '5087'
       Via:
       - 1.1 vegur
     body:
@@ -1971,7 +1971,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:56 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:42 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -1994,16 +1994,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '497'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:40 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:55 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
       Via:
       - 1.1 vegur
     body:
@@ -2042,7 +2042,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:57 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:42 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -2065,16 +2065,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '193'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:41 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:56 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
       Via:
       - 1.1 vegur
     body:
@@ -2091,7 +2091,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:57 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:42 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -2114,16 +2114,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '728'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Thu, 17 Jul 2014 20:27:55 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:41 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:57 GMT
+      Last-Modified:
+      - Tue, 29 Jul 2014 21:35:19 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
       Via:
       - 1.1 vegur
     body:
@@ -2139,7 +2139,7 @@ http_interactions:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
         200px;\n}\n"
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:58 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:43 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -2162,16 +2162,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '386'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Mon, 07 Jul 2014 18:25:51 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:41 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:57 GMT
+      Last-Modified:
+      - Mon, 07 Jul 2014 18:25:51 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
       Via:
       - 1.1 vegur
     body:
@@ -2199,7 +2199,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:11:59 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:43 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -2222,16 +2222,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '14419'
-      Content-Type:
-      - text/plain
-      Last-Modified:
-      - Thu, 17 Jul 2014 19:43:10 GMT
+      Date:
+      - Wed, 30 Jul 2014 17:30:42 GMT
       Status:
       - 200 OK
-      Date:
-      - Thu, 17 Jul 2014 21:11:58 GMT
+      Last-Modified:
+      - Mon, 28 Jul 2014 21:37:35 GMT
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '14419'
       Via:
       - 1.1 vegur
     body:
@@ -3045,5 +3045,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 17 Jul 2014 21:12:00 GMT
+  recorded_at: Wed, 30 Jul 2014 17:30:44 GMT
 recorded_with: VCR 2.9.2
