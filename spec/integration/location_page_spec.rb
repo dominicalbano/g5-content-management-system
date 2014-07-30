@@ -54,12 +54,14 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       it "Creates a new widget in the database and displays in DOM" do
-        garden_widget = find(".widget-list .widgets--list-view .widget:first-of-type")
+        garden_widget = find(".widget-list .widgets--list-view .widget:last-of-type")
         drop_target_add = find(".main-widgets .drop-target-add:first-of-type")
         existing_widget_count = all(".main-widgets .widget").length
 
-        drag_and_drop(garden_widget, drop_target_add)
-
+        expect do
+          drag_and_drop(garden_widget, drop_target_add)
+          sleep 1
+        end.to change{ @web_page_template.reload.main_widgets.count }.by(1)
         expect(all(".main-widgets .widget").length).to eq existing_widget_count + 1
       end
     end
@@ -173,12 +175,14 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       it "Creates a new widget in the database and displays in DOM" do
-        garden_widget = find(".widget-list .widgets--list-view .widget:first-of-type")
+        garden_widget = find(".widget-list .widgets--list-view .widget:last-of-type")
         drop_target_add = find(".aside-before-main-widgets .drop-target-add:first-of-type")
         existing_widget_count = all(".aside-before-main-widgets .widget").length
 
-        drag_and_drop(garden_widget, drop_target_add)
-
+        expect do
+          drag_and_drop(garden_widget, drop_target_add)
+          sleep 1
+        end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(1)
         expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count + 1
       end
     end
@@ -292,12 +296,14 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       it "Creates a new widget in the database and displays in DOM" do
-        garden_widget = find(".widget-list .widgets--list-view .widget:first-of-type")
+        garden_widget = find(".widget-list .widgets--list-view .widget:last-of-type")
         drop_target_add = find(".aside-after-main-widgets .add-drop-zone:first-of-type")
         existing_widget_count = all(".aside-after-main-widgets .widget").length
 
-        drag_and_drop(garden_widget, drop_target_add)
-
+        expect do
+          drag_and_drop(garden_widget, drop_target_add)
+          sleep 1
+        end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(1)
         expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count + 1
       end
     end
