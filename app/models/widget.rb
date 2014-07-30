@@ -96,6 +96,10 @@ class Widget < ActiveRecord::Base
     removed_settings.map(&:destroy)
   end
 
+  def nested_settings
+    widgets.collect {|widget| widget.settings}.flatten
+  end
+
   private
 
   # TODO: Is this being used?
