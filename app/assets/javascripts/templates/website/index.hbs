@@ -1,57 +1,58 @@
-<div class="page-title">
-  <span class="buttons l-pullLeft">
-    {{#link-to "assets" this class="btn" }}Asset Manager{{/link-to}}
-    {{#link-to "redirectManager" this class="btn" }}Redirects Manager{{/link-to}}
-    {{#link-to "releases" this class="btn" }}Recent Deploys{{/link-to}}
-    {{#link-to "docs" this class="btn" }}Docs{{/link-to}}
-  </span>
-  {{#if controllers.client.single_domain}}
-    {{confirmation-link title="Deploy All" action="deploy_all" param=this 
-      message="You are about to deploy. Are you sure?" classes="btn l-pullRight"}}
-  {{else}}
-    {{confirmation-link title="Deploy" action="deploy" param=this 
-      message="You are about to deploy. Are you sure?" classes="btn l-pullRight"}}
-  {{/if}}
-</div>
-
-<div class="site-settings page-section l-grid">
-  {{ render "website/websiteTemplate" websiteTemplate }}
-</div>
-
-<div class="site-pages page-section">
+<div class="l-container">
   <div class="page-title">
-    {{#view App.NewPage}}
-      {{#link-to "webPageTemplates.new" class="new-page-btn btn" }}Create New Page{{/link-to}}
-    {{/view}}
+    <span class="buttons l-pullLeft">
+      {{#link-to "assets" this class="btn" }}Asset Manager{{/link-to}}
+      {{#link-to "redirectManager" this class="btn" }}Redirects Manager{{/link-to}}
+      {{#link-to "releases" this class="btn" }}Recent Deploys{{/link-to}}
+      {{#link-to "docs" this class="btn" }}Docs{{/link-to}}
+    </span>
+    {{#if controllers.client.single_domain}}
+      {{confirmation-link title="Deploy All" action="deploy_all" param=this 
+        message="You are about to deploy. Are you sure?" classes="btn l-pullRight"}}
+    {{else}}
+      {{confirmation-link title="Deploy" action="deploy" param=this 
+        message="You are about to deploy. Are you sure?" classes="btn l-pullRight"}}
+    {{/if}}
   </div>
-  <div class="cards">
-    {{ render "website/webHomeTemplate" webHomeTemplate }}
-    {{ render "website/webPageTemplates" webPageTemplates }}
-    {{ outlet "newWebPageTemplate" }}
+
+  <div class="site-settings page-section l-grid">
+    {{ render "website/websiteTemplate" websiteTemplate }}
   </div>
-</div>
 
-<div id="trash">
-  <a href="#" {{action confirmEmptyTrash}} id="trash-can">
-    <div class="icon icon--trash"></div>
-  </a>
-
-  <div class="l-container">
-    <div id="deleted-pages" class="cards">
-      {{ render "website/webPageTemplatesInTrash" webPageTemplates }}
+  <div class="site-pages page-section">
+    <div class="page-title">
+      {{#view App.NewPage}}
+        {{#link-to "webPageTemplates.new" class="new-page-btn btn" }}Create New Page{{/link-to}}
+      {{/view}}
+    </div>
+    <div class="cards">
+      {{ render "website/webHomeTemplate" webHomeTemplate }}
+      {{ render "website/webPageTemplates" webPageTemplates }}
+      {{ outlet "newWebPageTemplate" }}
     </div>
   </div>
 
-  {{#view App.WebsiteWebPageTemplatesEmptyTrashView}}
-    <div class="lightbox-body">
-      <h2>Empty the Trash</h2>
-      <p>This is immediate and permanent. There is no undo.</p>
-      <p class="c-important">Are you sure?</p>
-      <div class="buttons">
-        <a href="#" {{action confirmEmptyTrash}} class="btn--text" id="empty-trash-cancel">Cancel</a>
-        <a href="#" {{action emptyTrash}} class="btn" id="empty-trash-yes">Yes</a>
+  <div id="trash">
+    <a href="#" {{action confirmEmptyTrash}} id="trash-can">
+      <div class="icon icon--trash"></div>
+    </a>
+
+    <div class="l-container">
+      <div id="deleted-pages" class="cards">
+        {{ render "website/webPageTemplatesInTrash" webPageTemplates }}
       </div>
     </div>
-  {{/view}}
-</div>
 
+    {{#view App.WebsiteWebPageTemplatesEmptyTrashView}}
+      <div class="lightbox-body">
+        <h2>Empty the Trash</h2>
+        <p>This is immediate and permanent. There is no undo.</p>
+        <p class="c-important">Are you sure?</p>
+        <div class="buttons">
+          <a href="#" {{action confirmEmptyTrash}} class="btn--text" id="empty-trash-cancel">Cancel</a>
+          <a href="#" {{action emptyTrash}} class="btn" id="empty-trash-yes">Yes</a>
+        </div>
+      </div>
+    {{/view}}
+  </div>
+</div>
