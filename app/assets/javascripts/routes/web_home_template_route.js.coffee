@@ -1,8 +1,9 @@
 App.WebHomeTemplateRoute = Ember.Route.extend
+  model: ->
+    this.modelFor("website").get("webHomeTemplate")
+
   setupController: (controller, model) ->
     controller.set("model", model)
-    # setup website controller
-    @controllerFor("website").set("model", model.get("website"))
     # setup mainWidgets controller
     @controllerFor("mainWidgets").set("model", model.get("mainWidgets"))
     # setup website.websiteTemplate controllers

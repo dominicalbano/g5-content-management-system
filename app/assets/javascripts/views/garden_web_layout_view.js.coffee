@@ -4,3 +4,4 @@ App.GardenWebLayoutView = Ember.View.extend
   isSelected: ( ->
     @get("controller.selectedLayout.name") is @get("content.name")
   ).property("controller.selectedLayout.name")
+

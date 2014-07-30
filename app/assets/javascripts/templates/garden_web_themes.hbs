@@ -13,7 +13,7 @@
       {{else}}
         {{#view App.ThumbnailScrollerView}}
           <div class="jTscrollerContainer">
-            <div class="jTscroller thumbs clearfix">
+            <div class="jTscroller thumbs clearfix" style="width:100%">
               {{#each model}}
                 <div class="thumb">
                   <a href="#" {{ action "update" this }}>
