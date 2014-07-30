@@ -114,9 +114,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascripts
-    widgets.map(&:show_javascripts).flatten.compact +
-    widgets.map(&:lib_javascripts).flatten.compact +
-    website.try(:website_template).try(:javascripts).to_a.flatten.compact
+    show_javascripts + lib_javascripts + website_template_javascripts
   end
 
   def website_compile_path
@@ -149,7 +147,6 @@ class WebTemplate < ActiveRecord::Base
     javascripts_compiler.uploaded_paths
   end
 
-
   def owner_domain
     owner.domain if owner
   end
@@ -168,17 +165,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def render_title
-    Liquid::Template.parse(title).render(
-      "web_template_name" => name,
-      "location_name" => owner.name,
-      "location_city" => owner.city,
-      "location_state" => owner.state,
-      "location_neighborhood" => owner.neighborhood,
-      "location_floor_plans" => owner.floor_plans,
-      "location_primary_amenity" => owner.primary_amenity,
-      "location_qualifier" => owner.qualifier,
-      "location_primary_landmark" => owner.primary_landmark
-    )
+    Liquid::Template.parse(title).render(title_parameters)
   end
 
   def base_path
@@ -206,6 +193,32 @@ class WebTemplate < ActiveRecord::Base
   end
 
   private
+
+  def title_parameters
+    {
+      "web_template_name"         => name,
+      "location_name"             => owner.name,
+      "location_city"             => owner.city,
+      "location_state"            => owner.state,
+      "location_neighborhood"     => owner.neighborhood,
+      "location_floor_plans"      => owner.floor_plans,
+      "location_primary_amenity"  => owner.primary_amenity,
+      "location_qualifier"        => owner.qualifier,
+      "location_primary_landmark" => owner.primary_landmark
+    }
+  end
+
+  def show_javascripts
+    widgets.map(&:show_javascripts).flatten.compact
+  end
+
+  def lib_javascripts
+    widgets.map(&:lib_javascripts).flatten.compact
+  end
+
+  def website_template_javascripts
+    website.try(:website_template).try(:javascripts).to_a.flatten.compact
+  end
 
   def default_enabled_to_true
     # ||= does not work here because enabled is a boolean
