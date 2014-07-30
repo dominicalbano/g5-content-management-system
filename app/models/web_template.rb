@@ -114,9 +114,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascripts
-    widgets.map(&:show_javascripts).flatten.compact +
-    widgets.map(&:lib_javascripts).flatten.compact +
-    website.try(:website_template).try(:javascripts).to_a.flatten.compact
+    show_javascripts + lib_javascripts + website_template_javascripts
   end
 
   def website_compile_path
@@ -148,7 +146,6 @@ class WebTemplate < ActiveRecord::Base
     javascripts_compiler.compile
     javascripts_compiler.uploaded_paths
   end
-
 
   def owner_domain
     owner.domain if owner
@@ -206,6 +203,18 @@ class WebTemplate < ActiveRecord::Base
   end
 
   private
+
+  def show_javascripts
+    widgets.map(&:show_javascripts).flatten.compact
+  end
+
+  def lib_javascripts
+    widgets.map(&:lib_javascripts).flatten.compact
+  end
+
+  def website_template_javascripts
+    website.try(:website_template).try(:javascripts).to_a.flatten.compact
+  end
 
   def default_enabled_to_true
     # ||= does not work here because enabled is a boolean
