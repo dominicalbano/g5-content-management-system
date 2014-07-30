@@ -16,7 +16,7 @@ before_script:
 notifications:
   campfire:
     rooms:
-      secure: kp3AoXOS91YPScPGF/i4fWOKlG3HiMEdW4fJZKlAiQsKIBTjh5R4VnvwbSAfG62bb2LaERlgq3G3uKE5X1ayRA0BG7hMYXmK1pK8KMQfQF2iOo9FgLn8qW9bdFrg/e0KWNtFimjL+oBoT7zOlCQEXWfMoMbMeaICiSxnFdIg6U0=
+      secure: "CSoJcsijaW8+9XoQbXlP8WIv0pZGUs7JEFhyDMglVPlROms7Qe/hA/OB65wjinoC/33rsaNaxEgpOq8w1G8SJkFMUrI7QlevXD0qeDxS7puhvu/StBHY6YMohiSbVc1G+4ubI5RxBoVf1/5CakcDIouUxXXSMbkcgncFFGrB5/M="
     template:
       - "%{repository}#%{build_number} %{message} (%{branch} - %{commit} : %{author}) Change view : %{compare_url} Build details : %{build_url}"
     on_success: change
