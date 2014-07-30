@@ -59,7 +59,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         existing_widget_count = all(".main-widgets .widget").length
 
         expect do
-          drag_and_drop(garden_widget, drop_target_add)
+          drag_and_drop_add(garden_widget, drop_target_add)
           sleep 1
         end.to change{ @web_page_template.reload.main_widgets.count }.by(1)
         expect(all(".main-widgets .widget").length).to eq existing_widget_count + 1
@@ -180,7 +180,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         existing_widget_count = all(".aside-before-main-widgets .widget").length
 
         expect do
-          drag_and_drop(garden_widget, drop_target_add)
+          drag_and_drop_add(garden_widget, drop_target_add)
           sleep 1
         end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(1)
         expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count + 1
@@ -301,7 +301,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         existing_widget_count = all(".aside-after-main-widgets .widget").length
 
         expect do
-          drag_and_drop(garden_widget, drop_target_add)
+          drag_and_drop_add(garden_widget, drop_target_add)
           sleep 1
         end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(1)
         expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count + 1

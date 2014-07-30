@@ -43,6 +43,21 @@ def drag_and_drop_below(source, target)
   end
 end
 
+def drag_and_drop_add(element, target)
+  if ENV["CI"]
+    builder = page.driver.browser.action
+    element = element.native
+    target = target.native
+
+    builder.click_and_hold(element)
+    builder.move_to(target, 5, 5)
+    builder.release
+    builder.perform
+  else
+    element.drag_to(target)
+  end
+end
+
 def accept_confirm(page)
   return page.driver.browser.switch_to.alert.accept if ENV["CI"]
   page.driver.accept_js_confirms!
