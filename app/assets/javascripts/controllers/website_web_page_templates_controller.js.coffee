@@ -18,4 +18,4 @@ App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
     save: (model) ->
       model.save()
     cancel: (model) ->
-      model.rollback
+      model.rollback()
