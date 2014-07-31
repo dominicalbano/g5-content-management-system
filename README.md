@@ -1,6 +1,6 @@
 # G5 CMS
 
-[![Build Status](https://travis-ci.org/G5/g5-content-management-system.svg)](https://travis-ci.org/G5/g5-content-management-system)
+[![Build Status](https://travis-ci.org/G5/g5-content-management-system.svg?branch=master)](https://travis-ci.org/G5/g5-content-management-system)
 [![Code Climate](https://codeclimate.com/repos/5114447913d6374d5000e638/badges/065a0ae50d3b8277ebb2/gpa.png)](https://codeclimate.com/repos/5114447913d6374d5000e638/feed)
 
 - Seeds client from client uid
