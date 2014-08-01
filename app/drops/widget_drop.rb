@@ -30,6 +30,10 @@ class WidgetDrop < Liquid::Drop
 
   ClientServices::SERVICES.each do |service|
     delegate :"#{service}_url", to: :client_services
+
+    define_method :"secure_#{service}_url" do
+      client_services.send(:"#{service}_url", secure: true)
+    end
   end
 
 private

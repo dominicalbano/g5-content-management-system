@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe WidgetDrop do
-  let!(:client) { Fabricate(:client) }
+  let!(:client) { Fabricate(:client, uid: "http://g5-hub.herokuapp.com/g5-c-12345-test") }
   let!(:location) { Fabricate(:location) }
   let!(:web_template) { Fabricate(:web_template) }
   let(:drop_target) { Fabricate(:drop_target, web_template: web_template) }
@@ -17,9 +17,7 @@ describe WidgetDrop do
   end
 
   describe "service URL helpers" do
-    let(:client_services) { double(cpns_url: "http://example.com/cpns") }
-    before { allow(ClientServices).to receive(:new).and_return(client_services) }
-
-    its(:cpns_url) { should eq("http://example.com/cpns") }
+    its(:cpns_url) { should eq("http://g5-cpns-12345-test.herokuapp.com/") }
+    its(:secure_cpns_url) { should eq("https://g5-cpns-12345-test.herokuapp.com/") }
   end
 end
