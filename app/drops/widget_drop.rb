@@ -27,6 +27,15 @@ class WidgetDrop < Liquid::Drop
     parent_setting.owner.id if parent_setting
   end
 
+
+  ClientServices::SERVICES.each do |service|
+    delegate :"#{service}_url", to: :client_services
+
+    define_method :"secure_#{service}_url" do
+      client_services.send(:"#{service}_url", secure: true)
+    end
+  end
+
 private
 
   def selected_location_ids
@@ -37,5 +46,9 @@ private
     @parent_setting ||= Setting.find do |setting|
       setting.name =~ /(?=column)(?=.*widget_id).*/ && setting.value == widget.id
     end
+  end
+
+  def client_services
+    @client_services ||= ClientServices.new
   end
 end

@@ -37,9 +37,9 @@ class ClientServices
       ENV["#{service.upcase}_APP_NAME"] || send(:"#{service}_urn")[0...HEROKU_APP_NAME_MAX_LENGTH]
     end
 
-    define_method("#{service}_url") do
-      # Custom or Heroku URL
-      ENV["#{service.upcase}_URL"] || ("http://" + send(:"#{service}_app_name") + ".herokuapp.com/")
+    define_method("#{service}_url") do |secure: false|
+      protocol = secure ? "https" : "http"
+      ENV["#{service.upcase}_URL"] || ("#{protocol}://" + send(:"#{service}_app_name") + ".herokuapp.com/")
     end
   end
 end
