@@ -74,5 +74,17 @@ describe ClientServices do
         end
       end
     end
+
+    describe "service URL" do
+      context "by default" do
+        subject { @client_services.cls_url }
+        it { should eq("http://g5-cls-irrelevant-clientname.herokuapp.com/") }
+      end
+
+      context "passed secure: true" do
+        subject { @client_services.cls_url(secure: true) }
+        it { should eq("https://g5-cls-irrelevant-clientname.herokuapp.com/") }
+      end
+    end
   end
 end
