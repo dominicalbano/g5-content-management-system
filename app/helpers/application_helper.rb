@@ -8,8 +8,6 @@ module ApplicationHelper
   end
 
   def leads_service_js
-    subdomain = client.urn.gsub("-c-", "-cls-")[0...30]
-    domain = "herokuapp.com"
-    "https://#{subdomain}.#{domain}/assets/form_enhancer.js"
+    ClientServices.new.cls_url(secure: true) + "assets/form_enhancer.js"
   end
 end
