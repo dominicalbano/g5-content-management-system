@@ -10,9 +10,9 @@ class WebsiteDecorator < Draper::Decorator
   end
 
   def heroku_app_name
-    return model.urn[0..29] unless single_domain_location?
+    return model.urn[0..29].gsub(/\A[-\.]+|[-\.]+\z/, "") unless single_domain_location?
 
-    client.website.urn[0..29]
+    client.website.urn[0..29].gsub(/\A[-\.]+|[-\.]+\z/, "")
   end
 
   def domain
