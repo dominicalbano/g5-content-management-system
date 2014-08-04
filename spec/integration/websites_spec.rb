@@ -47,6 +47,12 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}"
     end
 
+    it "'create new page' link goes to '/:website_slug/webPageTemplates/new'" do
+      click_link "Create New Page"
+
+      current_path.should eq "/#{@website.slug}/webPageTemplates/new"
+    end
+
   end
 
   describe "Web page templates have settings" do
