@@ -48,9 +48,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "'create new page' link goes to '/:website_slug/webPageTemplates/new'" do
-      within WEB_PAGE_SELECTOR do
-        click_link "Create New Page"
-      end
+      click_link "Create New Page"
 
       current_path.should eq "/#{@website.slug}/webPageTemplates/new"
     end
