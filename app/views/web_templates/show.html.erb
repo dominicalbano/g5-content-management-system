@@ -5,20 +5,6 @@
     stylesheet_link_tag(*web_template.stylesheet_link_paths)
   else
     stylesheet_link_tag(web_template.application_min_css_path)
-    raw %{
-          <script
-            src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js"
-            data-apikey="0a788166c89a000c898376471f76a95d">
-          </script>
-
-          <script src="//js.honeybadger.io/v0.1/honeybadger.min.js" type="text/javascript"></script>
-          <script type="text/javascript">
-            Honeybadger.configure({
-              api_key: '#{ENV["HONEYBADGER_API_KEY"]}',
-              environment: 'production'
-            });
-          </script>
-        }
   end
 } %>
 
