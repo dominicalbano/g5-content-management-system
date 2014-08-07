@@ -391,7 +391,7 @@ DEPENDENCIES
   bourbon
   capybara (= 2.3.0)
   capybara-webkit
-  ckeditor (~> 4.1.0)
+  ckeditor
   codeclimate-test-reporter
   coffee-rails
   coffee-script
