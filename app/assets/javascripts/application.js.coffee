@@ -8,7 +8,6 @@
 #= require spectrum
 #= require bootstrapSwitch
 #= require jquery.thumbnailScroller
-#= require ckeditor/config
 #= require ckeditor/init
 #= require handlebars
 #= require ember
