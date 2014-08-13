@@ -17,10 +17,12 @@
         {{/link-to}}
       {{/if}}
 
-      <span class="page-name">
-        &raquo;
-        <a><strong class="banner-subtitle"></strong></a>
-      </span>
+      {{#if controllers.webPageTemplate}}
+        <span class="page-name">
+          &raquo;
+          <a><strong class="banner-subtitle">{{controllers.webPageTemplate.name}}</strong></a>
+        </span>
+      {{/if}}
     </h1>
 
   </div> <!-- end .l-container -->
