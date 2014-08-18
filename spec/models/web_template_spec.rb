@@ -114,6 +114,30 @@ describe WebTemplate do
       it { should eq("web-page-template") }
     end
   end
+
+  describe "#location_body_class" do
+    subject { web_template.location_body_class }
+
+    context "a website owned by a location" do
+      context "non corporate location" do
+        it { should eq("site-location") }
+      end
+
+      context "corporate location" do
+        let(:location) { Fabricate(:location, corporate: true) }
+
+        it { should eq("site-corporate") }
+      end
+    end
+
+    context "a website owned by a client" do
+      let(:client) { Fabricate.build(:client) }
+      let(:website) { Fabricate.build(:website, owner: client) }
+
+      it { should eq("site-location") }
+    end
+  end
+
   describe "page hierarchy" do
     let!(:web_template) { Fabricate(:web_home_template) }
 

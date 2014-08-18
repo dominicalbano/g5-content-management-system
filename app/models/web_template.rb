@@ -180,6 +180,11 @@ class WebTemplate < ActiveRecord::Base
     type.titleize.parameterize
   end
 
+  def location_body_class
+    corporate = website.owner.try(:corporate)
+    corporate ? "site-corporate" : "site-location"
+  end
+
   def children
     WebTemplate.where(parent_id: id)
   end
