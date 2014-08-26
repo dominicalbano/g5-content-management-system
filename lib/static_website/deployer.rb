@@ -13,6 +13,9 @@ module StaticWebsite
     def deploy
       @retries = 0
       begin
+        if @website.client.organization.present? && !heroku_app_created?
+          create_app_in_org
+        end
         deployer.deploy(deployer_options) do |repo|
           cp_r_compile_path(repo)
         end
@@ -66,5 +69,29 @@ module StaticWebsite
     def clean_up
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
     end
+
+    private
+
+    def create_app_in_org
+      heroku_platform_api.organization_app.create(platform_api_options)
+    end
+
+    def heroku_platform_api
+      @heroku_platform_api ||= PlatformAPI.connect_oauth("#{ENV['HEROKU_API_KEY']}")
+    end
+
+    def platform_api_options
+      { git_url: @website.git_repo,
+        name: @website.name,
+        organization: @website.client.organization
+      }
+    end
+
+    def heroku_app_created?
+      heroku_platform_api.organization_app.list_for_organization(app.organization).select {
+        |orgapp| orgapp["name"] == app.name
+      }.count > 0
+    end
   end
 end
+
