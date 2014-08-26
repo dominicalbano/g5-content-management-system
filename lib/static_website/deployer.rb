@@ -82,7 +82,7 @@ module StaticWebsite
     end
 
     def platform_api_options
-      { git_url: @website.git_repo,
+      { git_url: @website.github_repo,
         name: @website.heroku_app_name,
         organization: @website.client.organization
       }
