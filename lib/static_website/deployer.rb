@@ -14,6 +14,7 @@ module StaticWebsite
       @retries = 0
       begin
         if @website.client.organization.present? && !heroku_app_created?
+          Rails.logger.info "Creating #{@website.heroku_app_name} within org: #{@website.client.organization} ..."
           create_app_in_org
         end
         deployer.deploy(deployer_options) do |repo|
@@ -82,7 +83,7 @@ module StaticWebsite
 
     def platform_api_options
       { git_url: @website.git_repo,
-        name: @website.name,
+        name: @website.heroku_app_name,
         organization: @website.client.organization
       }
     end
