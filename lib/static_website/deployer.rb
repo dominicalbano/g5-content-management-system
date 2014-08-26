@@ -90,7 +90,7 @@ module StaticWebsite
 
     def heroku_app_created?
       heroku_platform_api.organization_app.list_for_organization(@website.client.organization).select {
-        |orgapp| orgapp["name"] == @website.heroku_app.name
+        |orgapp| orgapp["name"] == @website.heroku_app_name
       }.count > 0
     end
   end
