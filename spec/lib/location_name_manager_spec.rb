@@ -23,6 +23,8 @@ describe LocationNameManager do
   end
 
   describe "#asset_bucket" do
+    before { stub_const("ENV", { "AWS_S3_BUCKET_NAME_FOO_BAR_BAZ" => "assets.foo-bar-baz" }) }
+
     subject { location_name_manager.asset_bucket }
 
     it { is_expected.to eq("assets.foo-bar-baz") }
