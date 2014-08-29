@@ -21,4 +21,10 @@ describe LocationNameManager do
 
     it { is_expected.to eq("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ=assets.foo-bar-baz") }
   end
+
+  describe "#asset_bucket" do
+    subject { location_name_manager.asset_bucket }
+
+    it { is_expected.to eq("assets.foo-bar-baz") }
+  end
 end

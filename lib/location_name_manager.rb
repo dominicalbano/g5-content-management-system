@@ -11,6 +11,10 @@ class LocationNameManager
     "assets.#{@location_name.parameterize}"
   end
 
+  def asset_bucket
+    ENV[asset_bucket_config_variable_name]
+  end
+
   def asset_bucket_config
     "#{asset_bucket_config_variable_name}=#{asset_bucket_name}"
   end
