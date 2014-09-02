@@ -14,6 +14,10 @@ class HerokuClient
     HTTParty.post(url_for("releases"), params({ release: release_id }))
   end
 
+  def get_config_vars
+    HTTParty.get(url_for("config-vars"), headers).body
+  end
+
   def set_config(env, value)
     HTTParty.patch(url_for("config-vars"), params({ env => value }))
   end

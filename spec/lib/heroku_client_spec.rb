@@ -42,6 +42,24 @@ describe HerokuClient do
     end
   end
 
+  describe "#get_config_vars" do
+    let(:response) { double(body: '[{"FOO":"bar"}]') }
+
+    before { HTTParty.stub(get: response) }
+
+    subject { heroku_client.get_config_vars }
+
+    it "calls the Heroku api resource with the appropriate headers" do
+      HTTParty.should_receive(:get).with(
+        "https://api.heroku.com/apps/#{app}/config-vars",
+        { headers: { "Content-Type" => "application/json",
+                     "Accept" => "application/vnd.heroku+json; version=3",
+                     "Authorization" => Base64.encode64(":#{api_key}") } }
+      )
+      subject
+    end
+  end
+
   describe "#set_config" do
     let(:env) { "FOO" }
     let(:value) { "bar-baz" }
