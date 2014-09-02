@@ -6,8 +6,8 @@ describe LocationBucketCreator do
   let(:location_bucket_creator) { described_class.new(location) }
   let(:s3) { double(buckets: buckets) }
   let(:buckets) { double(create: nil) }
-
-  let(:heroku_client) { double(set_config: nil) }
+  let(:heroku_client) { double(set_config: nil, get_config_vars: config_vars_response) }
+  let(:config_vars_response) { "{}" }
 
   before do
     SecureRandom.stub(hex: 12345)
@@ -16,27 +16,55 @@ describe LocationBucketCreator do
   end
 
   describe "#create" do
-    subject { location_bucket_creator.create }
+    after { location_bucket_creator.create }
 
-    after { subject }
+    it "calls get_config_vars on HerokuClient" do
+      heroku_client.should_receive(:get_config_vars)
+    end
 
-    describe "bucket creation" do
-      it "instantiates a new AWS::S3 client" do
-        AWS::S3.should_receive(:new)
+    context "a location with a bucket already set" do
+      let(:config_vars_response) do
+        "{\"AWS_S3_BUCKET_NAME_FOO_BAR_BAZ\":\"assets.foo-bar-baz-12345\"}"
       end
 
-      it "calls create on the S3 client's buckets" do
-        buckets.should_receive(:create).with("assets.foo-bar-baz-12345")
+      describe "bucket creation" do
+        it "doesn't instantiate a new AWS::S3 client" do
+          AWS::S3.should_not_receive(:new)
+        end
+
+        it "doesn't call create on the S3 client's buckets" do
+          buckets.should_not_receive(:create)
+        end
+      end
+
+      describe "config set" do
+        it "doesn't set the config via the HerokuClient" do
+          heroku_client.should_not_receive(:set_config).
+            with("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ", "assets.foo-bar-baz-12345")
+        end
       end
     end
 
-    describe "config set" do
-      it "instantiates a new HerokuClient" do
-        HerokuClient.should_receive(:new).with(ClientServices.new.cms_app_name)
+    context "a location with no bucket set" do
+      describe "bucket creation" do
+        it "instantiates a new AWS::S3 client" do
+          AWS::S3.should_receive(:new)
+        end
+
+        it "calls create on the S3 client's buckets" do
+          buckets.should_receive(:create).with("assets.foo-bar-baz-12345")
+        end
       end
 
-      it "calls create on the S3 client's buckets" do
-        heroku_client.should_receive(:set_config).with("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ", "assets.foo-bar-baz-12345")
+      describe "config set" do
+        it "instantiates a new HerokuClient" do
+          HerokuClient.should_receive(:new).with(ClientServices.new.cms_app_name)
+        end
+
+        it "sets the config via the HerokuClient" do
+          heroku_client.should_receive(:set_config).
+            with("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ", "assets.foo-bar-baz-12345")
+        end
       end
     end
   end
