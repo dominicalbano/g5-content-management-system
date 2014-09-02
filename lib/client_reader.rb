@@ -50,8 +50,6 @@ private
 
     location = Location.find_or_initialize_by(uid: uf2_location.uid.to_s)
 
-    #create_asset_bucket(location) if location.new_record?
-
     location.urn              = uf2_location.uid.to_s.split("/").last
     location.name             = uf2_location.name.to_s
     location.domain           = uf2_location.g5_domain.to_s
@@ -66,7 +64,10 @@ private
     location.primary_amenity  = uf2_location.g5_aparment_amenity_1.to_s
     location.qualifier        = uf2_location.g5_aparment_feature_1.to_s
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
-    location.save
+
+    if location.save
+      location.create_asset_bucket
+    end
   end
 
   # Now we need to clean up locations that are in the database that shouldn't
@@ -89,9 +90,5 @@ private
 
   def find_or_create_client_website(client)
     Website.where(owner_id: client.id, owner_type: "Client").first_or_create
-  end
-
-  def create_ass_bucket(location)
-    LocationBucketCreator.new(location).create
   end
 end
