@@ -8,7 +8,7 @@ class LocationNameManager
   end
 
   def asset_bucket_name
-    "assets.#{@location_name.parameterize}"
+    "assets.#{@location_name.parameterize}-#{SecureRandom.hex(5)}"
   end
 
   def asset_bucket
