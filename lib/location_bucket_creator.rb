@@ -15,6 +15,7 @@ class LocationBucketCreator
   end
 
   def set_config
+    HerokuClient.new(app_name).set_config(config_var, bucket_name)
   end
 
   def location_name_manager
@@ -29,12 +30,8 @@ class LocationBucketCreator
     location_name_manager.asset_bucket_config_variable_name
   end
 
-  def config_setting
-    "#{config_var}=#{bucket_name}"
-  end
-
   def app_name
-    "foo"
+    ClientServices.new.cms_app_name
   end
 
   def s3
