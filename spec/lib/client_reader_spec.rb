@@ -5,6 +5,9 @@ describe ClientReader do
   let(:client_uid) { "#{Rails.root}/spec/support/client.html" }
   let(:uf2_client) { Microformats2.parse(client_uid) }
   let(:parsed) { double(first: uf2_client.first) }
+  let(:location_bucket_creator) { double(create: nil) }
+
+  before { LocationBucketCreator.stub(new: location_bucket_creator) }
 
   describe "#perform" do
     before { Microformats2.stub(parse: parsed) }
