@@ -50,6 +50,8 @@ private
 
     location = Location.find_or_initialize_by(uid: uf2_location.uid.to_s)
 
+    #create_asset_bucket(location) if location.new_record?
+
     location.urn              = uf2_location.uid.to_s.split("/").last
     location.name             = uf2_location.name.to_s
     location.domain           = uf2_location.g5_domain.to_s
@@ -87,5 +89,9 @@ private
 
   def find_or_create_client_website(client)
     Website.where(owner_id: client.id, owner_type: "Client").first_or_create
+  end
+
+  def create_ass_bucket(location)
+    LocationBucketCreator.new(location).create
   end
 end
