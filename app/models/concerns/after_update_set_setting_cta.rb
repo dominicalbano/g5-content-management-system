@@ -8,7 +8,7 @@ module AfterUpdateSetSettingCta
   private
 
   def should_update_cta_settings?
-    city_change? || state_changed?
+    city_changed? || state_changed?
   end
 
   def update_cta_settings
