@@ -4,8 +4,6 @@ class CtaSettingsUpdater
       website = SettingWebsiteFinder.new(setting).find
       next if skip_update?(setting, website)
 
-      binding.pry
-
       setting.update(value: build_url(setting, website))
     end
   end

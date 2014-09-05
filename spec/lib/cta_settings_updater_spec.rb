@@ -3,7 +3,8 @@ require "spec_helper"
 describe CtaSettingsUpdater do
   let(:cta_settings_updater) { described_class.new }
   let!(:client) { Fabricate(:client, vertical: "fast-food") }
-  let!(:website) { Fabricate(:website) }
+  let!(:location) { Fabricate(:location, city: "Bend", state: "Oregon") }
+  let!(:website) { Fabricate(:website, owner: location) }
   let!(:web_template) { Fabricate(:web_page_template, website: website) }
   let!(:drop_target) { Fabricate(:drop_target, web_template: web_template) }
   let!(:widget) { Fabricate(:widget, drop_target: drop_target) }
@@ -57,7 +58,7 @@ describe CtaSettingsUpdater do
 
       it "updates the setting value" do
         subject
-        expect(link_setting.value).to eq("foo")
+        expect(link_setting.reload.value).to eq("/fast-food/oregon/bend/baz")
       end
     end
   end
