@@ -139,6 +139,7 @@ describe WebTemplate do
   end
 
   describe "page hierarchy" do
+    let!(:client) {Fabricate(:client)}
     let!(:web_template) { Fabricate(:web_home_template) }
 
     it "should respond to child_templates" do
