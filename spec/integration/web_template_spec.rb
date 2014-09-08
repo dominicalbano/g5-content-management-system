@@ -84,7 +84,8 @@ describe "Integration '/web_template/:id'",
       describe "Liquid parsing in settings" do
         it "correctly parses and displays page name in title" do
           @web_page_template.update_attributes!(title: "{{web_template_name}}")
-          visit '/' + @web_page_template.url
+          url = '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
+          visit url
           expect(page).to have_title "#{@web_page_template.name}"
         end
         it "correctly parses and displays location address in title" do
