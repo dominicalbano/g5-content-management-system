@@ -162,7 +162,7 @@ describe WebTemplate do
 
       describe ".top_level pages (with no parent references)" do
         it "should return top level templates" do
-          expect(WebTemplate.top_level).to eq [web_template, other_template]
+          expect(WebTemplate.top_level).to =~ [web_template, other_template]
         end
       end
 
