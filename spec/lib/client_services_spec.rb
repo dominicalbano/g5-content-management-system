@@ -73,6 +73,7 @@ describe ClientServices do
           @client_services.send(:"#{service}_url").should == "http://#{service_app_name}.herokuapp.com/"
         end
       end
+
     end
 
     describe "service URL" do
@@ -84,6 +85,13 @@ describe ClientServices do
       context "passed secure: true" do
         subject { @client_services.cls_url(secure: true) }
         it { should eq("https://g5-cls-irrelevant-clientname.herokuapp.com/") }
+      end
+
+      context "when the truncated name would end in a dash, which breaks Android" do
+        let!(:client_urn) { Fabricate(:client, uid: "g5-c-1234-beefabcdefg-what-the") }
+
+        subject { @client_services.cpns_url }
+        it { should eq("http://g5-cpns-1234-beefabcdefg-what.herokuapp.com/") }
       end
     end
   end

@@ -29,7 +29,12 @@ class ClientServices
   SERVICES.each do |service|
     define_method("#{service}_urn") do
       # Custom or replace the Client's app prefix
-      ENV["#{service.upcase}_URN"] || client_urn.gsub(/-c-/, "-#{service}-")
+      urn = ENV["#{service.upcase}_URN"] || client_urn.gsub(/-c-/, "-#{service}-")
+      if urn[-1] == "-"
+        urn = urn[0..-2]
+      end
+
+      urn
     end
 
     define_method("#{service}_app_name") do
