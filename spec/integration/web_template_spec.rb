@@ -48,7 +48,8 @@ describe "Integration '/web_template/:id'",
 
       describe "When settings are not set" do
         before do
-          visit "/" + @web_page_template.url
+          url = '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
+          visit url
         end
 
         it "has web template title in title tag" do
@@ -71,7 +72,8 @@ describe "Integration '/web_template/:id'",
       describe "When settings are set" do
         before do
           set_setting(@web_page_template, "HTML", "text", "enter text here")
-          visit '/' + @web_page_template.url
+          url = '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
+          visit url
         end
 
         it "has some text set in the HTML widget" do
@@ -90,12 +92,13 @@ describe "Integration '/web_template/:id'",
         end
         it "correctly parses and displays location address in title" do
           @web_page_template.update_attributes!(title: "{{location_city}} {{loation_neighborhood}} {{location_state}}")
-          visit '/' + @web_page_template.url
+          visit '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
+          save_and_open_page
           expect(page).to have_title "#{@location.city} #{@location.neighborhood} #{@location.state}"
         end
         it "correctly parses and displays location info in title" do
           @web_page_template.update_attributes!(title: "{{location_floor_plans}} {{loation_primary_amenity}} {{location_qualifier}} {{location_primary_landmark}}")
-          visit '/' + @web_page_template.url
+          visit '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
           expect(page).to have_title "#{@location.floor_plans} #{@location.primary_amenity} #{@location.qualifier} #{@location.primary_landmark}"
         end
       end
