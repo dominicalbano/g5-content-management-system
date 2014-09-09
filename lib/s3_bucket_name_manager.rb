@@ -1,14 +1,14 @@
-class LocationNameManager
-  def initialize(location_name)
-    @location_name = location_name
+class S3BucketNameManager
+  def initialize(location)
+    @location = location
   end
 
   def asset_bucket_config_variable_name
-    "AWS_S3_BUCKET_NAME_#{@location_name.parameterize.underscore.upcase}"
+    "AWS_S3_BUCKET_NAME_#{@location.name.parameterize.underscore.upcase}"
   end
 
   def asset_bucket_name
-    "assets.#{@location_name.parameterize}-#{SecureRandom.hex(5)}"
+    "assets.#{@location.urn}"
   end
 
   def asset_bucket
