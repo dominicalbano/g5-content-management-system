@@ -22,7 +22,7 @@ describe LocationBucketCreator do
       heroku_client.should_receive(:get_config_vars)
     end
 
-    context "a location with a bucket already set" do
+    context "a location with a bucket config var already set" do
       let(:config_vars_response) do
         "{\"AWS_S3_BUCKET_NAME_FOO_BAR_BAZ\":\"assets.#{location.urn}\"}"
       end
@@ -45,25 +45,37 @@ describe LocationBucketCreator do
       end
     end
 
-    context "a location with no bucket set" do
-      describe "bucket creation" do
-        it "instantiates a new AWS::S3 client" do
-          AWS::S3.should_receive(:new)
+    context "a location with no bucket config var is set" do
+      context "when the bucket already exists" do
+        before do
+          allow(buckets).to receive(:create).and_raise(AWS::S3::Errors::BucketAlreadyExists)
         end
 
-        it "calls create on the S3 client's buckets" do
-          buckets.should_receive(:create).with("assets.#{location.urn}")
+        it "it should call metrics with places details" do
+          expect(location_bucket_creator.create).to eq(false)
         end
       end
 
-      describe "config set" do
-        it "instantiates a new HerokuClient" do
-          HerokuClient.should_receive(:new).with(ClientServices.new.cms_app_name)
+      context "when the bucket does not exist" do
+        describe "bucket creation" do
+          it "instantiates a new AWS::S3 client" do
+            AWS::S3.should_receive(:new)
+          end
+
+          it "calls create on the S3 client's buckets" do
+            buckets.should_receive(:create).with("assets.#{location.urn}")
+          end
         end
 
-        it "sets the config via the HerokuClient" do
-          heroku_client.should_receive(:set_config).
-            with("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ", "assets.#{location.urn}")
+        describe "config set" do
+          it "instantiates a new HerokuClient" do
+            HerokuClient.should_receive(:new).with(ClientServices.new.cms_app_name)
+          end
+
+          it "sets the config via the HerokuClient" do
+            heroku_client.should_receive(:set_config).
+              with("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ", "assets.#{location.urn}")
+          end
         end
       end
     end
