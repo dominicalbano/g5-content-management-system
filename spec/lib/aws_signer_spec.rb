@@ -2,6 +2,8 @@ require 'spec_helper'
 require 'timecop'
 
 describe AWSSigner do
+  let!(:location) { Fabricate(:location, name: "foobarlocation") }
+
   subject do
     AWSSigner.new({:locationName => 'foobarlocation',
                    :name => 'file with spaces.something.jpg'})
@@ -32,4 +34,3 @@ describe AWSSigner do
     end
   end
 end
-

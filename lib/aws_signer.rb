@@ -107,7 +107,7 @@ private
   end
 
   def bucket
-    LocationNameManager.new(@params[:locationName]).asset_bucket
+    S3BucketNameManager.new(location).asset_bucket
   end
 
   def upload_signature
@@ -122,6 +122,10 @@ private
 
   def sluggify_filename
     @params[:name].split('.').map {|part| part.parameterize}.join('.')
+  end
+
+  def location
+    Location.where(name: @params[:locationName]).first
   end
 end
 

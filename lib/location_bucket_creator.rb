@@ -25,11 +25,11 @@ class LocationBucketCreator
   end
 
   def bucket_name
-    location_name_manager.asset_bucket_name
+    s3_bucket_name_manager.asset_bucket_name
   end
 
   def config_var
-    location_name_manager.asset_bucket_config_variable_name
+    s3_bucket_name_manager.asset_bucket_config_variable_name
   end
 
   def s3_client
@@ -44,7 +44,7 @@ class LocationBucketCreator
     @heroku_client ||= HerokuClient.new(ClientServices.new.cms_app_name)
   end
 
-  def location_name_manager
-    @location_name_manager ||= LocationNameManager.new(@location.name)
+  def s3_bucket_name_manager
+    @s3_bucket_name_manager ||= S3BucketNameManager.new(@location)
   end
 end
