@@ -45,13 +45,13 @@ describe LocationBucketCreator do
       end
     end
 
-    context "a location with no bucket config var is set" do
+    context "a location with no bucket config var set" do
       context "when the bucket already exists" do
         before do
           allow(buckets).to receive(:create).and_raise(AWS::S3::Errors::BucketAlreadyExists)
         end
 
-        it "it should call metrics with places details" do
+        it "doesn't blow up" do
           expect(location_bucket_creator.create).to eq(false)
         end
       end
