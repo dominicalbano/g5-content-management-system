@@ -29,6 +29,10 @@ class Location < ActiveRecord::Base
     neighborhood.try(:parameterize).to_s
   end
 
+  def create_asset_bucket
+    LocationBucketCreator.new(self).create
+  end
+
   private
 
   def set_city_slug_from_city

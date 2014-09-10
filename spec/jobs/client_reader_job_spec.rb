@@ -10,6 +10,7 @@ describe ClientReaderJob, vcr: VCR_OPTIONS do
     before do
       Client.destroy_all
       Location.destroy_all
+      Location.any_instance.stub(:create_asset_bucket)
     end
 
     describe "creates clients" do

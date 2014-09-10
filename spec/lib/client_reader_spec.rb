@@ -6,6 +6,8 @@ describe ClientReader do
   let(:uf2_client) { Microformats2.parse(client_uid) }
   let(:parsed) { double(first: uf2_client.first) }
 
+  before { Location.any_instance.stub(:create_asset_bucket) }
+
   describe "#perform" do
     before { Microformats2.stub(parse: parsed) }
 

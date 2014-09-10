@@ -64,7 +64,10 @@ private
     location.primary_amenity  = uf2_location.g5_aparment_amenity_1.to_s
     location.qualifier        = uf2_location.g5_aparment_feature_1.to_s
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
-    location.save
+
+    if location.save
+      location.create_asset_bucket
+    end
   end
 
   # Now we need to clean up locations that are in the database that shouldn't
