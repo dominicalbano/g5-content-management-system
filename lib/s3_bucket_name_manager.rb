@@ -4,7 +4,11 @@ class S3BucketNameManager
   end
 
   def asset_bucket_config_variable_name
-    "AWS_S3_BUCKET_NAME_#{@location.name.parameterize.underscore.upcase}"
+    "AWS_S3_BUCKET_NAME_#{@location.urn.parameterize.underscore.upcase}"
+  end
+
+  def asset_bucket_config_variable_url
+    "AWS_S3_BUCKET_URL_#{@location.urn.parameterize.underscore.upcase}"
   end
 
   def asset_bucket_name
