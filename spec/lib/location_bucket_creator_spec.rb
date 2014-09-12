@@ -52,7 +52,7 @@ describe LocationBucketCreator do
         end
 
         it "doesn't blow up" do
-          expect(location_bucket_creator.create).to eq(false)
+          expect(location_bucket_creator.create).to be_falsey
         end
       end
 

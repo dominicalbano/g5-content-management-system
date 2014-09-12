@@ -6,12 +6,9 @@ class LocationBucketCreator
   def create
     return if config_exists?
 
-    begin
-      create_bucket
-      set_config
-    rescue AWS::S3::Errors::BucketAlreadyExists
-      false
-    end
+    create_bucket
+    set_config
+  rescue
   end
 
   private
