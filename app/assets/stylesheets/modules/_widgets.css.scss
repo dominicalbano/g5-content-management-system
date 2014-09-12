@@ -19,6 +19,9 @@
     padding-right: 1%;
     text-align: center;
     width: 20%;
+    &:nth-of-type(5n+1) {
+      clear: left;
+    }
     img {
       margin: 0 auto .25em;
     }
