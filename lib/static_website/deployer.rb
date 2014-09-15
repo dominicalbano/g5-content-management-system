@@ -25,6 +25,8 @@ module StaticWebsite
         else
           raise e
         end
+      else
+        take_db_snapshot
       ensure
         clean_up
       end
@@ -66,5 +68,13 @@ module StaticWebsite
     def clean_up
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
     end
+
+    private
+
+    def take_db_snapshot
+      GithubHerokuDeployer.heroku_run("APP=#{ENV['HEROKU_APP_NAME']} DATABASE=DATABASE_URL /app/bin/backup.sh -ag5-backups-manager", {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''})
+    end
+
   end
 end
+
