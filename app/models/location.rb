@@ -29,8 +29,8 @@ class Location < ActiveRecord::Base
     neighborhood.try(:parameterize).to_s
   end
 
-  def create_asset_bucket
-    LocationBucketCreator.new(self).create
+  def create_bucket
+    BucketCreator.new(self).create
   end
 
   private
