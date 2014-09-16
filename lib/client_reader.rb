@@ -32,7 +32,12 @@ private
     client.vertical = uf2_client.g5_vertical.to_s
     client.domain   = uf2_client.g5_domain.to_s
     client.type     = uf2_client.g5_domain_type.to_s
-    client.save
+
+    new_record = client.new_record?
+
+    if client.save
+      client.create_bucket if new_record
+    end
 
     find_or_create_client_website(client) if client.type == "SingleDomainClient"
   end
@@ -66,7 +71,7 @@ private
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
 
     if location.save
-      location.create_asset_bucket
+      location.create_bucket
     end
   end
 

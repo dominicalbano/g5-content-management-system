@@ -59,15 +59,15 @@ describe Location do
     end
   end
 
-  describe "#create_asset_bucket" do
+  describe "#create_bucket" do
     let(:location) { Fabricate(:location) }
     let(:location_bucket_creator) { double(create: nil) }
 
-    before { LocationBucketCreator.stub(new: location_bucket_creator) }
-    after { location.create_asset_bucket }
+    before { BucketCreator.stub(new: location_bucket_creator) }
+    after { location.create_bucket }
 
-    it "instantiates a new LocationBucketCreator class" do
-      LocationBucketCreator.should_receive(:new).with(location)
+    it "instantiates a new BucketCreator class" do
+      BucketCreator.should_receive(:new).with(location)
     end
 
     it "calls create on the bucket creator" do
