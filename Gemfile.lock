@@ -104,7 +104,7 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
-    ember-data-source (1.0.0.beta.8)
+    ember-data-source (1.0.0.beta.10)
       ember-source
     ember-rails (0.15.0)
       active_model_serializers
@@ -115,7 +115,7 @@ GEM
       handlebars-source (> 1.0.0)
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.6.1)
+    ember-source (1.7.0)
       handlebars-source (~> 1.0)
     erubis (2.7.0)
     excon (0.38.0)
