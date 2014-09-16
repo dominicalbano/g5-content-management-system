@@ -11,6 +11,6 @@ class Api::V1::ReleasesController < Api::V1::ApplicationController
   private
 
   def release_manager
-    ReleasesManager.new(params["website_slug"])
+    ReleasesManager.new(params["website_id"])
   end
 end
