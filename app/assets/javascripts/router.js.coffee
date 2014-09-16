@@ -3,6 +3,7 @@ App.Router.map ->
 
   @route "docs", path: "/:website_slug/docs"
 
+  @route "saves"
 
   @resource "website", path: "/:website_slug", ->
     @resource "releases"

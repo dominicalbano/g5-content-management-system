@@ -7,3 +7,4 @@ App.ReleasesController = Ember.ArrayController.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+
