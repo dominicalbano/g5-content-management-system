@@ -5,8 +5,10 @@
       if(!window.console)var console={log:function(){},warn:function(){},error:function(){},time:function(){},timeEnd:function(){}};
     </script>
   <% if mode == "preview" %>
+    <base href="<%= request.protocol + [request.host_with_port, @location.urn].join('/') %>/">
     <%= stylesheet_link_tag(*web_template.stylesheet_link_paths)%>
   <% else %>
+    <base href="/">
     <%= stylesheet_link_tag(web_template.application_min_css_path) %>
     <script
       src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js"

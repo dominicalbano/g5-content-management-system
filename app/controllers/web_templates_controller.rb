@@ -1,7 +1,7 @@
 class WebTemplatesController < ApplicationController
   def show
     @location = Location.where(
-      "lower(city_slug) = ?", params[:city_slug].to_s.downcase).first
+      "urn = ?", params[:urn]).first
 
     @website = @location.website if @location
 
