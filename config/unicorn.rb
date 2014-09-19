@@ -1,5 +1,5 @@
 worker_processes Integer(ENV["WEB_CONCURRENCY"] || 3)
-timeout 120
+timeout 1000
 preload_app true
 
 before_fork do |server, worker|
