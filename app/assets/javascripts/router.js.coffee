@@ -2,7 +2,6 @@ App.Router.map ->
   @route "redirectManager", path: "/:website_slug/redirects"
 
   @route "docs", path: "/:website_slug/docs"
-  @route "saves"
 
   @route "saves"
 
