@@ -35,7 +35,7 @@ private
 
     new_record = client.new_record?
 
-    if client.save
+    if client.save && production?
       client.create_bucket if new_record
     end
 
@@ -70,7 +70,7 @@ private
     location.qualifier        = uf2_location.g5_aparment_feature_1.to_s
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
 
-    if location.save
+    if location.save && production?
       location.create_bucket
     end
   end
@@ -95,5 +95,9 @@ private
 
   def find_or_create_client_website(client)
     Website.where(owner_id: client.id, owner_type: "Client").first_or_create
+  end
+
+  def production?
+    Rails.env.production?
   end
 end
