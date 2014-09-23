@@ -14,7 +14,7 @@ class SavesManager
       { id: object.key,
         created_at: object.last_modified,
         client: Client.first.id.to_s,
-       url: object.key.split('/').last}
+        url: object.key.split('/').last }
     end
     #process(filtered(items)).first(@limit)
   rescue
