@@ -72,9 +72,14 @@ module StaticWebsite
     private
 
     def take_db_snapshot
-      binding.pry
-      AWS.s3.buckets["g5-heroku-pgbackups-archive-#{Client.first.urn}"].exists?
-      GithubHerokuDeployer.heroku_run("APP=#{ENV['HEROKU_APP_NAME']} DATABASE=DATABASE_URL /app/bin/backup.sh -ag5-backups-manager", {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''})
+      GithubHerokuDeployer.heroku_run("APP=#{ENV['HEROKU_APP_NAME']} DATABASE=DATABASE_URL S3_BUCKET_PATH=#{find_or_create_s3_bucket.name} /app/bin/backup.sh -ag5-backups-manager", {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''})
+    end
+    
+    def find_or_create_s3_bucket
+      unless AWS.s3.buckets["g5-heroku-pgbackups-archive-#{Client.first.urn}"].exists?
+        AWS.s3.buckets.create("g5-heroku-pgbackups-archive-#{Client.first.urn}")
+      end
+      AWS.s3.buckets["g5-heroku-pgbackups-archive-#{Client.first.urn}"]
     end
 
   end
