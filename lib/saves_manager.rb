@@ -10,7 +10,12 @@ class SavesManager
 
     items = bucket.objects.select do |object|
       object.key if object.key =~ /.+\.dump\.gz\z/
-    end.map(&:key)
+    end.map do |object|
+      { id: object.key,
+        created_at: object.last_modified,
+        client: Client.first.id.to_s,
+       url: object.key.split('/').last}
+    end
     #process(filtered(items)).first(@limit)
   rescue
     []
@@ -55,3 +60,4 @@ class SavesManager
     item["description"].split("Rollback to v").last.to_i
   end
 end
+

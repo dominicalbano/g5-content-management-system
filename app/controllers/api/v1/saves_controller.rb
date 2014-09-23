@@ -10,8 +10,8 @@ class Api::V1::SavesController < Api::V1::ApplicationController
 
   private
 
-  def save_manager
-    SaveManager.new(params["website_slug"])
+  def saves_manager
+    SavesManager.new
   end
 end
 
