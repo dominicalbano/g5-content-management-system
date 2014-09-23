@@ -16,7 +16,7 @@ describe URLFormat::MultiDomainFormatter do
   context "other templates" do
     let(:type) { "WebPageTemplate" }
 
-    it { should eq("/#{client.vertical_slug}/#{owner.state_slug}" \
+    it { should eq("#{client.vertical_slug}/#{owner.state_slug}" \
                    "/#{owner.city_slug}/#{web_template.slug}") }
   end
 end

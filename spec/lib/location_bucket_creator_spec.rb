@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe LocationBucketCreator do
+describe BucketCreator do
   let!(:client) { Fabricate(:client, name: "Test Client") }
   let(:location) { Fabricate(:location, name: "Foo Bar Baz", urn: "g5-cl-foo") }
   let(:location_bucket_creator) { described_class.new(location) }

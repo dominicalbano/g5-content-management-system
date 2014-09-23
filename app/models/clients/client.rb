@@ -38,4 +38,10 @@ class Client < ActiveRecord::Base
       WEBSITE_DEFAULTS
     end
   end
+
+  def create_bucket
+    BucketCreator.new(self).create
+  end
+
 end
+

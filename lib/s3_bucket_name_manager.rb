@@ -1,25 +1,25 @@
 class S3BucketNameManager
-  def initialize(location)
-    @location = location
+  def initialize(owner)
+    @owner = owner
   end
 
-  def asset_bucket_config_variable_name
-    "AWS_S3_BUCKET_NAME_#{@location.urn.parameterize.underscore.upcase}"
+  def bucket_bucket_config_variable_url
+    "AWS_S3_BUCKET_URL_#{@owner.urn.parameterize.underscore.upcase}"
   end
 
-  def asset_bucket_config_variable_url
-    "AWS_S3_BUCKET_URL_#{@location.urn.parameterize.underscore.upcase}"
+  def bucket_config_variable_name
+    "AWS_S3_BUCKET_NAME_#{@owner.name.parameterize.underscore.upcase}"
   end
 
-  def asset_bucket_name
-    "assets.#{@location.urn}"
+  def bucket_name
+    "assets.#{@owner.urn}"
   end
 
-  def asset_bucket
-    ENV[asset_bucket_config_variable_name]
+  def bucket
+    ENV[bucket_config_variable_name]
   end
 
-  def asset_bucket_config
-    "#{asset_bucket_config_variable_name}=#{asset_bucket_name}"
+  def bucket_config
+    "#{bucket_config_variable_name}=#{bucket_name}"
   end
 end
