@@ -5,37 +5,37 @@ class WebsiteTemplate < WebTemplate
 
   # TODO: remove when Ember App implements DropTarget
   def head_widgets
-    drop_targets.where(html_id: "drop-target-head").first.try(:widgets)
+    drop_targets.where(html_id: "drop-target-head").first.try(:widgets) || []
   end
 
   # TODO: remove when Ember App implements DropTarget
   def logo_widgets
-    drop_targets.where(html_id: "drop-target-logo").first.try(:widgets)
+    drop_targets.where(html_id: "drop-target-logo").first.try(:widgets) || []
   end
 
   # TODO: remove when Ember App implements DropTarget
   def btn_widgets
-    drop_targets.where(html_id: "drop-target-btn").first.try(:widgets)
+    drop_targets.where(html_id: "drop-target-btn").first.try(:widgets) || []
   end
 
   # TODO: remove when Ember App implements DropTarget
   def nav_widgets
-    drop_targets.where(html_id: "drop-target-nav").first.try(:widgets)
+    drop_targets.where(html_id: "drop-target-nav").first.try(:widgets) || []
   end
 
   # TODO: remove when Ember App implements DropTarget
   def footer_widgets
-    drop_targets.where(html_id: "drop-target-footer").first.try(:widgets)
+    drop_targets.where(html_id: "drop-target-footer").first.try(:widgets) || []
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_before_main_widgets
-    drop_targets.where(html_id: "drop-target-aside-before-main").first.try(:widgets)
+    drop_targets.where(html_id: "drop-target-aside-before-main").first.try(:widgets) || []
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_after_main_widgets
-    drop_targets.where(html_id: "drop-target-aside-after-main").first.try(:widgets)
+    drop_targets.where(html_id: "drop-target-aside-after-main").first.try(:widgets) || []
   end
 
   def stylesheets
