@@ -76,10 +76,10 @@ module StaticWebsite
     end
     
     def find_or_create_s3_bucket
-      unless AWS.s3.buckets["g5-heroku-pgbackups-archive-#{Client.first.urn}"].exists?
-        AWS.s3.buckets.create("g5-heroku-pgbackups-archive-#{Client.first.urn}")
+      unless AWS.s3.buckets["pgbackups.#{Client.first.urn}"].exists?
+        AWS.s3.buckets.create("pgbackups.#{Client.first.urn}")
       end
-      AWS.s3.buckets["g5-heroku-pgbackups-archive-#{Client.first.urn}"]
+      AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
     end
 
   end
