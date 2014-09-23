@@ -6,10 +6,12 @@ class SavesManager
   end
 
   def fetch_all
-    s3 = AWS.s3.buckets['g5-heroku-pgbackups-archive']
-    items = JSON.parse(HerokuClient.new(location.website.urn).saves)
+    bucket = AWS.s3.buckets['g5-heroku-pgbackups-archive']
 
-    process(filtered(items)).first(@limit)
+    items = bucket.objects.select do |object|
+      object.key if object.key =~ /.+\.dump\.gz\z/
+    end.map(&:key)
+    #process(filtered(items)).first(@limit)
   rescue
     []
   end
