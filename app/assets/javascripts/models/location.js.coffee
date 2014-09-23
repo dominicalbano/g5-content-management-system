@@ -5,3 +5,6 @@ App.Location = DS.Model.extend
   name: DS.attr("string")
   corporate: DS.attr("boolean")
   single_domain: DS.attr("boolean")
+  websiteHerokuUrl: DS.attr("string")
+  websiteSlug: DS.attr("string")
+
