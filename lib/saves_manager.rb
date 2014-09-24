@@ -11,7 +11,7 @@ class SavesManager
     #bucket = AWS.s3.buckets["pgbackups.g5-c-1skmeepf-clowns-monkeys-jokers"]
 
     items = bucket.objects.select do |object|
-      object.key if object.key =~ /.+\.dump\.gz\z/
+      object.key if object.key =~ /.+\.dump\z/
     end.map do |object|
       { id: object.key.split('.').first,
         created_at: object.last_modified,
