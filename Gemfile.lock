@@ -216,6 +216,8 @@ GEM
     minitest (5.4.0)
     modelish (0.3.0)
       hashie (~> 2.0.5)
+    momentjs-rails (2.8.3)
+      railties (>= 3.1)
     mono_logger (1.1.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
@@ -418,6 +420,7 @@ DEPENDENCIES
   lograge
   memcachier
   microformats2
+  momentjs-rails
   newrelic_rpm
   non-stupid-digest-assets
   pg

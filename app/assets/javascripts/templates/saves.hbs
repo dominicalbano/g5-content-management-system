@@ -5,7 +5,7 @@
     <ul class="faux-table-body">
       {{#each model}}
       <li {{bind-attr class=":faux-table-row current"}}>
-        <div class="faux-table-cell">{{created_at}}</div>
+        <div class="faux-table-cell">{{formatDate created_at}}</div>
         <div class="faux-table-cell">{{url}}</div>
         <div class="faux-table-cell">
           <button class="btn" {{action restore this.id controller.slug}}>Restore This Save</button>

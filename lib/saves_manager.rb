@@ -42,7 +42,7 @@ class SavesManager
   end
 
   def get_dump_presigned_url(save_id)
-    find_or_create_s3_bucket.objects["#{save_id}.dump"].url_for("get").to_s
+    find_or_create_s3_bucket.objects["#{save_id}.dump"].url_for(:get, :expires => 10*60).to_s
   end
 
   def filtered(items)
