@@ -1,6 +1,6 @@
-class LocationBucketCreator
-  def initialize(location)
-    @location = location
+class BucketCreator
+  def initialize(owner)
+    @owner = owner
   end
 
   def create
@@ -29,11 +29,11 @@ class LocationBucketCreator
   end
 
   def bucket_name
-    s3_bucket_name_manager.asset_bucket_name
+    s3_bucket_name_manager.bucket_name
   end
 
   def config_var
-    s3_bucket_name_manager.asset_bucket_config_variable_name
+    s3_bucket_name_manager.bucket_config_variable_name
   end
 
   def s3_client
@@ -49,6 +49,6 @@ class LocationBucketCreator
   end
 
   def s3_bucket_name_manager
-    @s3_bucket_name_manager ||= S3BucketNameManager.new(@location)
+    @s3_bucket_name_manager ||= S3BucketNameManager.new(@owner)
   end
 end

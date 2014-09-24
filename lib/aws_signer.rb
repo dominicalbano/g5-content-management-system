@@ -107,7 +107,7 @@ private
   end
 
   def bucket
-    S3BucketNameManager.new(location).asset_bucket
+    S3BucketNameManager.new(location).bucket
   end
 
   def upload_signature

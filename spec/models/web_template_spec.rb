@@ -139,6 +139,7 @@ describe WebTemplate do
   end
 
   describe "page hierarchy" do
+    let!(:client) {Fabricate(:client)}
     let!(:web_template) { Fabricate(:web_home_template) }
 
     it "should respond to child_templates" do
@@ -161,7 +162,7 @@ describe WebTemplate do
 
       describe ".top_level pages (with no parent references)" do
         it "should return top level templates" do
-          expect(WebTemplate.top_level).to eq [web_template, other_template]
+          expect(WebTemplate.top_level).to match_array [web_template, other_template]
         end
       end
 
