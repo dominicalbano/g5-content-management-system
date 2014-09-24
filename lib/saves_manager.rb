@@ -7,11 +7,13 @@ class SavesManager
 
   def fetch_all
     bucket = AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
+    #V for testing
+    #bucket = AWS.s3.buckets["pgbackups.g5-c-1skmeepf-clowns-monkeys-jokers"]
 
     items = bucket.objects.select do |object|
       object.key if object.key =~ /.+\.dump\.gz\z/
     end.map do |object|
-      { id: object.key,
+      { id: object.key.split('.').first,
         created_at: object.last_modified,
         client: Client.first.id.to_s,
         url: object.key.split('/').last }
@@ -21,12 +23,23 @@ class SavesManager
     []
   end
 
-  def rollback(save_id)
-    HerokuClient.new(location.website.urn).rollback(save_id)
+  def save
+    GithubHerokuDeployer.heroku_run("APP=#{ENV['HEROKU_APP_NAME']} DATABASE=DATABASE_URL S3_BUCKET_PATH=#{find_or_create_s3_bucket.name} /app/bin/backup.sh -ag5-backups-manager", {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''})
+  end
+
+  def restore(save_id)
+    binding.pry
+    GithubHerokuDeployer.heroku_run("APP=#{ENV['HEROKU_APP_NAME']} DATABASE=DATABASE_URL S3_BUCKET_PATH=#{find_or_create_s3_bucket.name} BACKUP_NAME=#{save_id} /app/bin/restore.sh -ag5-backups-manager", {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''})
   end
 
   private
 
+  def find_or_create_s3_bucket
+    unless AWS.s3.buckets["pgbackups.#{Client.first.urn}"].exists?
+      AWS.s3.buckets.create("pgbackups.#{Client.first.urn}")
+    end
+    AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
+  end
 
   def filtered(items)
     items.select { |item| item if deploy?(item) || rollback?(item) }

@@ -8,7 +8,7 @@
         <div class="faux-table-cell">{{created_at}}</div>
         <div class="faux-table-cell">{{url}}</div>
         <div class="faux-table-cell">
-          <button class="btn" {{action rollback this.id controller.slug}}>Rollback</button>
+          <button class="btn" {{action restore this.id controller.slug}}>Restore This Save</button>
         </div>
       </li>
       {{/each}}

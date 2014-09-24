@@ -4,4 +4,10 @@ inflector.irregular('save', 'saves')
 App.SavesRoute = Ember.Route.extend
   model: ->
     @get('store').find('save')
+  actions:
+    restore: (id) ->
+      url = "/api/v1/saves/#{id}/restore"
+      $form = $("<form action='" + url + "' method='post'></form>")
+      $form.appendTo("body").submit()
+      false
 
