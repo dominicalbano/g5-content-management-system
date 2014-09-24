@@ -17,3 +17,4 @@ App.Client = DS.Model.extend
   cxm_urn:       DS.attr("string")
   cxm_url:       DS.attr("string")
   single_domain: DS.attr("boolean")
+  vertical:       DS.attr("string")
