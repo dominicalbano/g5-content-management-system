@@ -6,7 +6,7 @@ class SavesManager
   end
 
   def fetch_all
-    bucket = AWS.s3.buckets['g5-heroku-pgbackups-archive']
+    bucket = AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
 
     items = bucket.objects.select do |object|
       object.key if object.key =~ /.+\.dump\.gz\z/
