@@ -27,7 +27,8 @@ describe Api::V1::LocationsController, :auth_controller do
           corporate: location.corporate,
           single_domain: false,
           website_slug: website.slug,
-          website_heroku_url: website.decorate.heroku_url
+          website_heroku_url: website.decorate.heroku_url,
+          website_id: website.id
         } 
       )
       expect(result).to eq(expected_response)
@@ -40,13 +41,6 @@ describe Api::V1::LocationsController, :auth_controller do
       before do
         LocationSerializer.any_instance.stub(:website_heroku_url).and_return(heroku_url)
       end  
-      #let!(:client) { Fabricate(:client, type: "SingleDomainClient") }
-      
-      # let(:website) { Fabricate(:website) }
-      # let(:location) { website.owner }
-       # before do
-      #   Client.stub_chain(:first, :type).and_return("SingleDomainClient")
-      # end  
 
       it "has attributes" do
         get :show, id: location.id
@@ -59,7 +53,8 @@ describe Api::V1::LocationsController, :auth_controller do
             corporate: location.corporate,
             single_domain: true,
             website_slug: website.slug,
-            website_heroku_url: heroku_url
+            website_heroku_url: heroku_url,
+            website_id: website.id
           } 
         )
         expect(result).to eq(expected_response)
