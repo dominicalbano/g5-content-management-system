@@ -28,7 +28,6 @@ class SavesManager
   end
 
   def restore(save_id)
-    binding.pry
     GithubHerokuDeployer.heroku_run("APP=#{ENV['HEROKU_APP_NAME']} DATABASE=DATABASE_URL S3_BUCKET_PATH=#{find_or_create_s3_bucket.name} BACKUP_NAME=#{save_id} /app/bin/restore.sh -ag5-backups-manager", {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''})
   end
 
