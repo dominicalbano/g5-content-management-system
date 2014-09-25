@@ -7,8 +7,9 @@ describe StaticWebsite::Deployer do
 
   describe "#deploy" do
     it "asks the deployer website" do
+      expect_any_instance_of(SavesManager).to receive(:save).and_return(true)
       subject.deployer.stub(:deploy)
-      subject.deployer.should_receive(:deploy).with(subject.deployer_options).once
+      expect(subject.deployer).to receive(:deploy).with(subject.deployer_options).once
       subject.deploy
     end
 
