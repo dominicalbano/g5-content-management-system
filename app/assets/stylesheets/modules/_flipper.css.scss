@@ -44,3 +44,13 @@
 .back {
 	@include transform (rotateY(180deg));
 }
+
+
+.flipped {
+	.back {
+		@include backface-visibility(visible);
+	}		
+	a.card-corner {
+	  display: none;	
+	}
+}
