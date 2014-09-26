@@ -13,7 +13,8 @@ App.GardenWidgetView = Ember.View.extend JQ.Draggable,
   ).property("content.name")
 
   widgetType: ( ->
-    "googus"
+    type = @get("content.widget_type")
+    "#{type.dasherize()}-widget" if type
   ).property()
 
   # JQ.Draggable uiEvent
