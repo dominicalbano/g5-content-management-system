@@ -4,10 +4,11 @@ module StaticWebsite
   class Deployer
     attr_reader :website, :compile_path, :retries
 
-    def initialize(website)
+    def initialize(website, user_email)
       @website = website
       @compile_path = website.compile_path
       @retries = 0
+      @user_email = user_email
     end
 
     def deploy
@@ -72,7 +73,7 @@ module StaticWebsite
     private
 
     def take_db_snapshot
-      SavesManager.new(current_user.email).save
+      SavesManager.new(@user_email).save
     end
     
   end

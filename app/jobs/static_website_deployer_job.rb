@@ -6,11 +6,12 @@ class StaticWebsiteDeployerJob
     new(website_urn).perform
   end
 
-  def initialize(website_urn)
+  def initialize(website_urn, user_email)
     @website = Website.find_by_urn(website_urn).decorate
+    @user_email = user_email
   end
 
   def perform
-    StaticWebsite.compile_and_deploy(@website)
+    StaticWebsite.compile_and_deploy(@website, @user_email)
   end
 end
