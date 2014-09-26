@@ -16,7 +16,7 @@ App.WidgetView = Ember.View.extend
 
   click: (event) ->
     if @get("content.id")
-      @get("controller").set("selectedWidget", this.get("content.name"))
+      @set("controller.controllers.website.selectedWidgetName", this.get("content.name"))
       @getEditForm()
     false
 
