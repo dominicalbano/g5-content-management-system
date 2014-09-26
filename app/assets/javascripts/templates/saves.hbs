@@ -1,6 +1,7 @@
 <div class="saves l-container">
   <div class="page-title"><h2>CMS State Save Points</h2></div>
 
+  <button class="btn" {{action save}}>Save</button>
   <div class="faux-table faux-table--striped">
     <ul class="faux-table-body">
       {{#each model}}
@@ -8,7 +9,7 @@
         <div class="faux-table-cell">{{formatDate created_at}}</div>
         <div class="faux-table-cell">{{url}}</div>
         <div class="faux-table-cell">
-          <button class="btn" {{action restore this.id controller.slug}}>Restore This Save</button>
+          <button class="btn" {{action restore this.id}}>Restore This Save</button>
         </div>
       </li>
       {{/each}}

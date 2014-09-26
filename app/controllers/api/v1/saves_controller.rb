@@ -9,6 +9,11 @@ class Api::V1::SavesController < Api::V1::ApplicationController
     redirect_to root_path, notice: "Restoring Save. This may take a few minutes."
   end
 
+  def create
+    saves_manager.save
+    redirect_to root_path, notice: "Saving. This may take a few minutes."
+  end
+
   private
 
   def saves_manager

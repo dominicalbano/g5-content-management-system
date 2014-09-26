@@ -10,4 +10,9 @@ App.SavesRoute = Ember.Route.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+    save: ->
+      url = "/api/v1/saves"
+      $form = $("<form action='" + url + "' method='post'></form>")
+      $form.appendTo("body").submit()
+      false
 
