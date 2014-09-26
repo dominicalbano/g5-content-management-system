@@ -6,9 +6,9 @@ class SavesManager
   end
 
   def fetch_all
-    bucket = AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
+    #bucket = AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
     #V for testing
-    #bucket = AWS.s3.buckets["pgbackups.g5-c-1skmeepf-clowns-monkeys-jokers"]
+    bucket = AWS.s3.buckets["pgbackups.g5-c-1skmeepf-clowns-monkeys-jokers"]
 
     items = bucket.objects.select do |object|
       object.key if object.key =~ /.+\.dump\z/
@@ -17,7 +17,7 @@ class SavesManager
         created_at: object.last_modified,
         client: Client.first.id.to_s,
         url: object.key.split('/').last }
-    end
+    end.sort {|a,b| b[:created_at] <=> a[:created_at]}
     #process(filtered(items)).first(@limit)
   rescue
     []
