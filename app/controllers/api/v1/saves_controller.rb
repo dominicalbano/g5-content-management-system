@@ -17,7 +17,7 @@ class Api::V1::SavesController < Api::V1::ApplicationController
   private
 
   def saves_manager
-    SavesManager.new
+    SavesManager.new(current_user.email)
   end
 end
 
