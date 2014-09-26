@@ -2,8 +2,8 @@ class StaticWebsiteDeployerJob
   extend HerokuResqueAutoscaler if Rails.env.production?
   @queue = :static_website_deployer
 
-  def self.perform(website_urn)
-    new(website_urn).perform
+  def self.perform(website_urn, user_email)
+    new(website_urn, user_email).perform
   end
 
   def initialize(website_urn, user_email)
@@ -15,3 +15,4 @@ class StaticWebsiteDeployerJob
     StaticWebsite.compile_and_deploy(@website, @user_email)
   end
 end
+

@@ -121,7 +121,7 @@ describe Website, vcr: VCR_OPTIONS do
 
     it "calls StaticWebsiteDeployerJob with urn" do
       StaticWebsiteDeployerJob.should_receive(:perform).with(website.urn).once
-      website.deploy
+      website.deploy("user@email.com")
     end
   end
 
