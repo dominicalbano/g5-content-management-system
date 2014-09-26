@@ -1,15 +1,14 @@
 App.GardenWebThemesController = Ember.ArrayController.extend
-  needs: ["webTheme"]
+  needs: ["webTheme","webThemes","gardenWebThemes"]
 
   selectedTheme: ( ->
     @get("controllers.webTheme.model")
   ).property("controllers.webTheme.model")
 
-  isUsed: ( ->
-    # put some logic in here to loop through web_themes in http://localhost:3000/api/v1/clients/1 for  
-    # a list of used themes. use that list to show or hide the theme type with a css class name
-  
-    "blah-blah-blah"
+  relevantThemes: ( ->
+    themes = this.store.all('web_theme')
+    names = themes.map (theme) -> theme.get('name')
+    names
   ).property()
 
   actions:

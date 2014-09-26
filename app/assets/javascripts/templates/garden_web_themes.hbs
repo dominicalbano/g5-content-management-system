@@ -15,7 +15,7 @@
           <div class="jTscrollerContainer">
             <div class="jTscroller thumbs clearfix" style="width:100%">
               {{#each model}}
-                <div {{bind-attr class=":thumb controller.isUsed"}}>
+                <div class="thumb">
                   <a href="#" {{ action "update" this }}>
                     {{#view App.GardenWebThemeView contentBinding="this"}}
                     <img alt="Thumbnail" {{ bind-attr src="thumbnail" }} {{ bind-attr class="view.isSelected" }}>

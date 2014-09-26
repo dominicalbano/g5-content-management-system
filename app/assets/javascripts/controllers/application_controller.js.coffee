@@ -1,2 +1,2 @@
 App.ApplicationController = Ember.Controller.extend
-  needs: ['client', 'location', 'website', 'webPageTemplate']
+  needs: ['client', 'location', 'website', 'webPageTemplate', 'webTheme']
