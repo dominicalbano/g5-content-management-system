@@ -72,7 +72,7 @@ module StaticWebsite
     private
 
     def take_db_snapshot
-      SavesManager.new.save
+      SavesManager.new(current_user.email).save
     end
     
   end
