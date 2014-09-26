@@ -98,7 +98,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "has a dynamic heading" do
+      it "has a dynamic heading", driver: :selenium do
         widget1 = first(".main-widgets .add-widgets .existing-widget")
         widget1.click
         expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
@@ -232,7 +232,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "has a dynamic heading" do
+      it "has a dynamic heading", driver: :selenium do
         widget1 = first(".aside-before-main-widgets .add-widgets .existing-widget")
         widget1.click
         expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
@@ -366,7 +366,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "has a dynamic heading" do
+      it "has a dynamic heading", driver: :selenium do
         widget1 = first(".aside-after-main-widgets .add-widgets .existing-widget")
         widget1.click
         expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
