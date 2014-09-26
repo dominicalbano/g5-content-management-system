@@ -1,7 +1,9 @@
 App.WebsiteRoute = Ember.Route.extend
   model: (params) ->
+    # Refactor me to only get the relevant website instead of all websites and then filter
     @store.find("website").then (result) ->
-      result.findBy("slug", params.website_slug)
+      slug = params.website_slug
+      result.findBy("slug", slug)
 
   serialize: (model) ->
     website_slug: model.get "slug"
