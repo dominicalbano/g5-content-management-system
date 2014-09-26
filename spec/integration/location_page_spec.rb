@@ -92,6 +92,19 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
     end
 
+    describe "editable" do
+      before do
+        @widget1 = @web_page_template.main_widgets.first
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a dynamic heading" do
+        widget1 = first(".main-widgets .add-widgets .existing-widget")
+        widget1.click
+        expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
+      end  
+    end  
+
     describe "Are drag and drop removeable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
@@ -213,6 +226,19 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
     end
 
+    describe "editable" do
+      before do
+        @widget1 = @website_template.aside_before_main_widgets.first
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a dynamic heading" do
+        widget1 = first(".aside-before-main-widgets .add-widgets .existing-widget")
+        widget1.click
+        expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
+      end  
+    end  
+
     describe "Are drag and drop removeable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
@@ -333,6 +359,19 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         end
       end
     end
+
+    describe "editable" do
+      before do
+        @widget1 = @website_template.aside_after_main_widgets.first
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a dynamic heading" do
+        widget1 = first(".aside-after-main-widgets .add-widgets .existing-widget")
+        widget1.click
+        expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
+      end  
+    end  
 
     describe "Are drag and drop removeable" do
       before do
