@@ -114,4 +114,8 @@
   }
 }
 
-.client-user .ember-view.unused-theme{display:none;}
+.client-user {
+  .ember-view.unused-theme,
+  .ember-view .g5-internal-feature,
+  .apartments-client .storage-feature{ display:none; }
+}
