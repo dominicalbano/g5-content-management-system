@@ -8,6 +8,9 @@ class DeployTasks
     GardenWebThemeUpdater.new.update_all
     GardenWidgetUpdater.new.update_all
 
-    WebsiteSeederJob.perform
+    Location.all.each do |location|
+      next if location.website.present?
+      WebsiteSeeder.new(location).seed
+    end
   end
 end
