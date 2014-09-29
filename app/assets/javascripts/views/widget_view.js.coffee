@@ -16,7 +16,6 @@ App.WidgetView = Ember.View.extend
 
   widgetType: ( ->
     type = @get("content.widget_type")
-    debugger
     "#{type.dasherize()}-feature" if type
   ).property()
 
