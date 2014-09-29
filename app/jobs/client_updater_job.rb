@@ -3,7 +3,7 @@ class ClientUpdaterJob
   @queue = :updater
 
   def self.perform
-    ClientReaderJob.perform(ENV["G5_CLIENT_UID"])
+    ClientReader.new(client_uid).perform
     WebsiteSeederJob.perform
   end
 end
