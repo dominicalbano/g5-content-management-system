@@ -20,7 +20,14 @@ class SavesManager
   end
 
   def save
-    GithubHerokuDeployer.heroku_run("APP=#{ENV['HEROKU_APP_NAME']} USER_EMAIL=#{@user_email} DATABASE=DATABASE_URL S3_BUCKET_PATH=#{find_or_create_s3_bucket.name} /app/bin/backup.sh -ag5-backups-manager", {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''})
+    GithubHerokuDeployer.heroku_run("
+           APP=#{ENV['HEROKU_APP_NAME']}
+           USER_EMAIL=#{@user_email}
+           DATABASE=DATABASE_URL
+           S3_BUCKET_PATH=#{find_or_create_s3_bucket.name}
+           /app/bin/backup.sh -ag5-backups-manager",
+           {github_repo:' ', heroku_app_name: "g5-backups-manager", heroku_repo: ''}
+    )
   end
 
   def restore(save_id)
