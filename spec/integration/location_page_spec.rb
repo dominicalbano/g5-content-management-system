@@ -103,6 +103,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget1.click
+          sleep 1
           expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
         end
       end  
@@ -240,6 +241,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".aside-before-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget1.click
+          sleep 1
           expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
         end
       end  
@@ -377,6 +379,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".aside-after-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget1.click
+          sleep 1
           expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
         end
       end
