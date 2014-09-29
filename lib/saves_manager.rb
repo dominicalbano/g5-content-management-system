@@ -7,9 +7,7 @@ class SavesManager
   end
 
   def fetch_all
-    #bucket = AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
-    #V for testing
-    bucket = AWS.s3.buckets["pgbackups.g5-c-1skmeepf-clowns-monkeys-jokers"]
+    bucket = AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
 
     items = bucket.objects.select do |object|
       object.key if object.key =~ /.+\.dump\z/
@@ -17,7 +15,6 @@ class SavesManager
       { id: object.key.rpartition('.').first,
         created_at: object.last_modified }
     end.sort {|a,b| b[:created_at] <=> a[:created_at]}
-    #process(filtered(items)).first(@limit)
   rescue
     []
   end
