@@ -15,7 +15,7 @@ class Widget < ActiveRecord::Base
   delegate :html_id,
     to: :drop_target, allow_nil: true
 
-  delegate :name, :url, :thumbnail, :edit_html, :edit_javascript, :show_html,
+  delegate :name, :url, :thumbnail, :edit_html, :edit_javascript, :show_html, :widget_type,
     to: :garden_widget, allow_nil: true
 
   # prefix means access with `garden_widget_settings` not `settings`
