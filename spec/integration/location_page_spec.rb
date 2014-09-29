@@ -94,14 +94,17 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "editable" do
       before do
+        stub_const("ENV", { "CI" => true })
         @widget1 = @web_page_template.main_widgets.first
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
       it "has a dynamic heading", driver: :selenium do
-        widget1 = first(".main-widgets .add-widgets .existing-widget")
-        widget1.click
-        expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
+        within ".main-widgets" do
+          widget1 = find(".widget:first-of-type")
+          widget1.click
+          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+        end
       end  
     end  
 
@@ -228,14 +231,17 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "editable" do
       before do
+        stub_const("ENV", { "CI" => true })
         @widget1 = @website_template.aside_before_main_widgets.first
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
       it "has a dynamic heading", driver: :selenium do
-        widget1 = first(".aside-before-main-widgets .add-widgets .existing-widget")
-        widget1.click
-        expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
+        within ".aside-before-main-widgets" do
+          widget1 = find(".widget:first-of-type")
+          widget1.click
+          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+        end
       end  
     end  
 
@@ -362,15 +368,18 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "editable" do
       before do
+        stub_const("ENV", { "CI" => true })
         @widget1 = @website_template.aside_after_main_widgets.first
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
       it "has a dynamic heading", driver: :selenium do
-        widget1 = first(".aside-after-main-widgets .add-widgets .existing-widget")
-        widget1.click
-        expect(find("#myModalLabel").text).to eq("Edit #{@widget1.name}".upcase)
-      end  
+        within ".aside-after-main-widgets" do
+          widget1 = find(".widget:first-of-type")
+          widget1.click
+          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+        end
+      end
     end  
 
     describe "Are drag and drop removeable" do
