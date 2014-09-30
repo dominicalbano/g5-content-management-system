@@ -37,10 +37,10 @@ class SavesManager
   private
 
   def find_or_create_s3_bucket
-    unless AWS.s3.buckets["pgbackups.#{Client.first.urn}"].exists?
-      AWS.s3.buckets.create("pgbackups.#{Client.first.urn}")
+    unless AWS.s3.buckets["assets.#{Client.first.urn}"].exists?
+      AWS.s3.buckets.create("assets.#{Client.first.urn}")
     end
-    AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
+    AWS.s3.buckets["assets.#{Client.first.urn}"]
   end
 
   def get_dump_presigned_url(save_id)
