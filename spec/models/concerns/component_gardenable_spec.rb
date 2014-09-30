@@ -1,4 +1,4 @@
-require "spec_helper"
+37
 
 class Component
   include ComponentGardenable
