@@ -33,9 +33,18 @@ describe ApplicationHelper do
       it { is_expected.to be_falsey }
     end
 
-    context "g5 user" do
+    context "a getg5 g5 user" do
       let(:email) { "foo@getg5.com" }
+      it { is_expected.to be_truthy }
+    end
 
+    context "a g5platform g5 user" do
+      let(:email) { "foo@g5platform.com" }
+      it { is_expected.to be_truthy }
+    end
+
+    context "a g5searchmarketing g5 user" do
+      let(:email) { "foo@g5searchmarketing.com" }
       it { is_expected.to be_truthy }
     end
   end
@@ -50,9 +59,18 @@ describe ApplicationHelper do
       it { is_expected.to eq("client-user") }
     end
 
-    context "g5 user" do
+    context "a getg5 g5 user" do
       let(:email) { "foo@getg5.com" }
+      it { is_expected.to eq("g5-user") }
+    end
 
+    context "a g5platform g5 user" do
+      let(:email) { "foo@g5platform.com" }
+      it { is_expected.to eq("g5-user") }
+    end
+
+    context "a g5searchmarketing g5 user" do
+      let(:email) { "foo@g5searchmarketing.com" }
       it { is_expected.to eq("g5-user") }
     end
   end
