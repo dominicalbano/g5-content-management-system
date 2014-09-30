@@ -7,7 +7,7 @@ class SavesManager
   end
 
   def fetch_all
-    bucket = AWS.s3.buckets["pgbackups.#{Client.first.urn}"]
+    bucket = AWS.s3.buckets["assets.#{Client.first.urn}"]
 
     items = bucket.objects.select do |object|
       object.key if object.key =~ /.+\.dump\z/
