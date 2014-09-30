@@ -39,6 +39,30 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     end
   end  
 
+  describe "verticals" do
+    context "multifamily" do
+      before do
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "multifamily" do
+        expect(find("div.apartments-client")).to_not be_nil
+      end 
+    end  
+
+    context "storage" do
+      before do
+        @client.update_attribute(:vertical, "storage")
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "storage" do
+        expect(find("div.storage-client")).to_not be_nil
+      end 
+    end 
+
+  end  
+
   describe "Color picker" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
