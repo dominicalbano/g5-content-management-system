@@ -54,7 +54,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       context "verticals" do
         it "multifamily" do
           expect(find("div.apartments-client")).to_not be_nil
-          page.should have_selector('.builder.apartments-client .widget.storage-feature', visible: false)
+          page.should have_selector('.builder.apartments-client .widget.self-storage-feature', visible: false)
           page.should have_selector('.builder.apartments-client .widget:not(.storage-feature)', visible: true)
         end 
       end
@@ -81,8 +81,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       context "verticals" do
         it "multifamily" do
           expect(find("div.apartments-client")).to_not be_nil
-          page.should have_selector('.builder.apartments-client .widget.storage-feature', visible: true)
-          page.should have_selector('.builder.apartments-client .widget:not(.storage-feature)', visible: true)
+          page.should have_selector('.builder.apartments-client .widget.self-storage-feature', visible: true)
+          page.should have_selector('.builder.apartments-client .widget:not(.self-storage-feature)', visible: true)
         end 
       end
       
