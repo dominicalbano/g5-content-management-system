@@ -53,7 +53,7 @@ describe GardenWidgetUpdater do
       end
 
       it "sets widget_type" do
-        expect(garden_widget.widget_type).to eq "foo"
+        expect(garden_widget.widget_type).to eq "G5 Internal"
       end
 
       it "sets thumbnail" do
