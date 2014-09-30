@@ -1,7 +1,6 @@
 class SavesManager
 
-  def initialize(user_email, limit=nil)
-    @limit = limit || DEFAULT_LIMIT
+  def initialize(user_email)
     @user_email = user_email
   end
 
