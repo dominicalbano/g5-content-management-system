@@ -15,6 +15,30 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     @web_theme = @website_template.web_theme
   end
 
+  describe "Authorization" do
+    context "client user" do
+      before do
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a body class" do
+        expect(find("body.client-user")).to_not be_nil
+      end  
+    end
+    
+    context "g5 user" do
+      let(:user) { FactoryGirl.create(:g5_authenticatable_user, email: "test@getg5.com") }
+
+      before do
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a body class" do
+        expect(find("body.g5-user")).to_not be_nil
+      end  
+    end
+  end  
+
   describe "Color picker" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
