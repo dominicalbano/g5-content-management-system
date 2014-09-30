@@ -22,4 +22,38 @@ describe ApplicationHelper do
 
     it { should eq("https://g5-cls-12345-test.herokuapp.com/assets/form_enhancer.js") }
   end
+
+  describe "#g5_user?" do
+    let(:email) { "foo@bar.com" }
+
+    before { view.stub(current_user: double(email: email) ) }
+    subject { helper.g5_user? }
+
+    context "non g5 user" do
+      it { is_expected.to be_falsey }
+    end
+
+    context "g5 user" do
+      let(:email) { "foo@getg5.com" }
+
+      it { is_expected.to be_truthy }
+    end
+  end
+
+  describe "#user_class" do
+    let(:email) { "foo@bar.com" }
+
+    before { view.stub(current_user: double(email: email) ) }
+    subject { helper.user_class }
+
+    context "non g5 user" do
+      it { is_expected.to eq("client-user") }
+    end
+
+    context "g5 user" do
+      let(:email) { "foo@getg5.com" }
+
+      it { is_expected.to eq("g5-user") }
+    end
+  end
 end
