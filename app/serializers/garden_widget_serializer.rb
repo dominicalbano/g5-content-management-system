@@ -2,5 +2,6 @@ class GardenWidgetSerializer < ActiveModel::Serializer
   attributes  :id,
               :name,
               :thumbnail,
-              :url
+              :url,
+              :widget_type
 end
