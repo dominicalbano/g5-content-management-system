@@ -1,13 +1,13 @@
 class SavesManager
-  DEFAULT_LIMIT = 5
 
   def initialize(user_email, limit=nil)
     @limit = limit || DEFAULT_LIMIT
     @user_email = user_email
   end
 
+
   def fetch_all
-    bucket = AWS.s3.buckets["assets.#{Client.first.urn}"]
+    bucket = AWS.s3.buckets[bucket_name]
 
     items = bucket.objects.select do |object|
       object.key if object.key =~ /.+\.dump\z/
@@ -36,47 +36,20 @@ class SavesManager
 
   private
 
+  def bucket_name
+    "assets.#{Client.first.urn}"
+  end
+
   def find_or_create_s3_bucket
-    unless AWS.s3.buckets["assets.#{Client.first.urn}"].exists?
-      AWS.s3.buckets.create("assets.#{Client.first.urn}")
+    unless AWS.s3.buckets[bucket_name].exists?
+      AWS.s3.buckets.create(bucket_name)
     end
-    AWS.s3.buckets["assets.#{Client.first.urn}"]
+    AWS.s3.buckets[bucket_name]
   end
 
   def get_dump_presigned_url(save_id)
     find_or_create_s3_bucket.objects["#{save_id}.dump"].url_for(:get, :expires => 10*60).to_s
   end
 
-  def filtered(items)
-    items.select { |item| item if deploy?(item) || rollback?(item) }
-  end
-
-  def current_deploy(items)
-    return items.first if deploy?(items.first)
-    current = items.detect { |item| item["version"] == version(items.first) }
-
-    current.present? ? current : items.detect { |item| deploy?(item) }
-  end
-
-  def process(items)
-    flag_current(items).select { |item| item if deploy?(item) }
-  end
-
-  def flag_current(items)
-    current = current_deploy(items.reverse!)
-    items.each { |item| item["current"] = item == current ? true : false }
-  end
-
-  def deploy?(item)
-    item["description"] =~ /Deploy/
-  end
-
-  def rollback?(item)
-    item["description"] =~ /Rollback/
-  end
-
-  def version(item)
-    item["description"].split("Rollback to v").last.to_i
-  end
 end
 
