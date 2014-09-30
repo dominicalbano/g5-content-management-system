@@ -3,7 +3,7 @@ require "spec_helper"
 describe "Integration '/:website_slug/:web_page_template_slug'",
          auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
-    VCR.use_cassette("Gardens") do
+    VCR.use_cassette("Gardens", record: :all) do
       GardenWebLayoutUpdater.new.update_all
       GardenWebThemeUpdater.new.update_all
       GardenWidgetUpdater.new.update_all
@@ -60,6 +60,17 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         expect(find("div.storage-client")).to_not be_nil
       end 
     end 
+  end  
+
+  describe "g5 internal widgets" do
+    before do
+      visit "/#{@website.slug}/#{@web_page_template.slug}"
+    end
+
+    it "has classes" do
+      expect(all('.builder.apartments-client .widget.g5-internal-feature').length).to be > 1
+      expect(all('.builder.apartments-client .widget:not(.g5-internal-feature)').length).to be > 1
+    end  
 
   end  
 
