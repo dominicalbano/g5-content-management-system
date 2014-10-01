@@ -47,11 +47,11 @@ def drag_and_drop_add(element, target)
 end
 
 def accept_confirm(page)
-  page.driver.accept_js_confirms!
+  page.driver.browser.switch_to.alert.accept
 end
 
 def dismiss_confirm(page)
-  page.driver.dismiss_js_confirms!
+  page.driver.browser.switch_to.alert.dismiss
 end
 
 def seed(file="example.yml")
