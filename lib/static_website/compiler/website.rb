@@ -60,7 +60,7 @@ module StaticWebsite
       end
 
       def area_pages
-        AreaPages.new(website.compile_path, location_websites)
+        AreaPages.new(website.compile_path, Website.location_websites)
       end
 
       def htaccess
@@ -73,12 +73,6 @@ module StaticWebsite
 
       def robots
         @robots ||= Robots.new(website)
-      end
-
-      private
-
-      def location_websites
-        Website.location_websites.reject { |location| location.owner.corporate? }
       end
     end
   end
