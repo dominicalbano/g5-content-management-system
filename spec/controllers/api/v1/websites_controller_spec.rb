@@ -19,12 +19,12 @@ describe Api::V1::WebsitesController, :auth_controller do
 
   describe "#show" do
     it "finds website" do
-      Website.should_receive(:find).with(website.id.to_s).once
-      get :show, id: website.id
+      get :show, id: website.slug
+      expect(response.status).to eq 200
     end
 
     it "renders website as json" do
-      get :show, id: website.id
+      get :show, id: website.slug
       expect(response.body).to eq WebsiteSerializer.new(website).to_json
     end
   end

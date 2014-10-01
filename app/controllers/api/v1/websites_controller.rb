@@ -4,7 +4,7 @@ class Api::V1::WebsitesController < Api::V1::ApplicationController
   end
 
   def show
-    render json: Website.find(params[:id])
+    render json: Website.all.detect{|website| website.slug == params[:id]}
   end
 
   def deploy
