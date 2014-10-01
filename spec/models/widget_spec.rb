@@ -110,20 +110,27 @@ describe Widget, vcr: VCR_OPTIONS do
         expect(widget.show_stylesheets).to eq(["foo.css","bar.css"])
       end
     end
+
     describe "#show_javascripts" do
       it "returns associated javascripts" do
         expect(widget.show_javascripts).to eq(["show.js"])
       end
     end
+
     describe "#lib_javascripts" do
       it "returns associated lib javascripts" do
         expect(widget.lib_javascripts).to eq(["a.js","b.js"])
       end
     end
+
     describe "#widgets" do
       it "returns associated child widgets" do
         expect(row_widget.widgets).to eq([widget])
       end
     end
+
+    it "#widget_type" do
+      expect(widget.widget_type).to eq(garden_widget.widget_type)
+    end  
   end
 end

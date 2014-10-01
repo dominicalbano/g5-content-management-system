@@ -4,3 +4,4 @@ App.HeadWidget = DS.Model.extend App.ReloadIframe,
   thumbnail: DS.attr("string")
   url: DS.attr("string")
   section: DS.attr("string")
+  widget_type: DS.attr("string")

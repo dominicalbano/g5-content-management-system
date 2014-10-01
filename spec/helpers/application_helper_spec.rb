@@ -22,4 +22,56 @@ describe ApplicationHelper do
 
     it { should eq("https://g5-cls-12345-test.herokuapp.com/assets/form_enhancer.js") }
   end
+
+  describe "user class methods" do
+    let(:email) { "foo@bar.com" }
+
+    before { view.stub(current_user: double(email: email) ) }
+
+    describe "#g5_user?" do
+      subject { helper.g5_user? }
+
+      context "non g5 user" do
+        it { is_expected.to be_falsey }
+      end
+
+      context "a getg5 g5 user" do
+        let(:email) { "foo@getg5.com" }
+        it { is_expected.to be_truthy }
+      end
+
+      context "a g5platform g5 user" do
+        let(:email) { "foo@g5platform.com" }
+        it { is_expected.to be_truthy }
+      end
+
+      context "a g5searchmarketing g5 user" do
+        let(:email) { "foo@g5searchmarketing.com" }
+        it { is_expected.to be_truthy }
+      end
+    end
+
+    describe "#user_class" do
+      subject { helper.user_class }
+
+      context "non g5 user" do
+        it { is_expected.to eq("client-user") }
+      end
+
+      context "a getg5 g5 user" do
+        let(:email) { "foo@getg5.com" }
+        it { is_expected.to eq("g5-user") }
+      end
+
+      context "a g5platform g5 user" do
+        let(:email) { "foo@g5platform.com" }
+        it { is_expected.to eq("g5-user") }
+      end
+
+      context "a g5searchmarketing g5 user" do
+        let(:email) { "foo@g5searchmarketing.com" }
+        it { is_expected.to eq("g5-user") }
+      end
+    end
+  end
 end

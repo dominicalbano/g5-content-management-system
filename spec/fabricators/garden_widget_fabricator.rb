@@ -5,4 +5,5 @@ Fabricator :garden_widget do
   thumbnail { Faker::Internet.url }
   edit_html { "<div>edit</div>" }
   show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">show</div>" }
+  widget_type { "" }
 end
