@@ -25,7 +25,7 @@ shared_examples_for SettingLayoutWidgetGardenWidgets do
       end
 
       describe "When value changes" do
-        before { described_instance.value = "Foo" }
+        before { described_instance.value = widget.name }
 
         it "Updates corresponding setting" do
           expect { described_instance.save }.to change { corresponding_setting.reload.value }
@@ -56,3 +56,4 @@ end
 describe Setting do
   it_behaves_like SettingLayoutWidgetGardenWidgets
 end
+

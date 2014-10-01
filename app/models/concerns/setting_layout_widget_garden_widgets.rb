@@ -38,3 +38,4 @@ private
     LayoutWidgetUpdater.new(self, name_setting_names(widget), id_setting_names(widget))
   end
 end
+
