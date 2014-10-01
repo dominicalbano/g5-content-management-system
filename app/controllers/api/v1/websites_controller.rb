@@ -14,3 +14,4 @@ class Api::V1::WebsitesController < Api::V1::ApplicationController
     redirect_to root_path, notice: "Deploying website #{@website.name}. This may take few minutes."
   end
 end
+
