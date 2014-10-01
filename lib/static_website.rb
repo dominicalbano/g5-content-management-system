@@ -3,7 +3,9 @@ require "static_website/deployer"
 
 module StaticWebsite
   def self.compile_and_deploy(website)
-    compile(website) && deploy(website)
+    compile(website)
+    compile_area_pages(website) if website.owner.corporate?
+    deploy(website)
   end
 
   def self.compile(website)
@@ -11,9 +13,7 @@ module StaticWebsite
   end
 
   def self.compile_area_pages(website)
-    if website.owner.corporate?
-      AreaPages.new(website.compile_path, Website.location_websites).compile
-    end
+    AreaPages.new(website.compile_path, Website.location_websites).compile
   end
 
   def self.deploy(website)
