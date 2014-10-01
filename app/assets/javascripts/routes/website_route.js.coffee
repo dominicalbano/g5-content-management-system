@@ -1,7 +1,6 @@
 App.WebsiteRoute = Ember.Route.extend
   model: (params) ->
-    slug = params.website_slug
-    @store.find("website", slug)
+    @store.find("website", params.website_slug)
 
   serialize: (model) ->
     website_slug: model.get "slug"
