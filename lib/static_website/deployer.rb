@@ -4,10 +4,11 @@ module StaticWebsite
   class Deployer
     attr_reader :website, :compile_path, :retries
 
-    def initialize(website)
+    def initialize(website, user_email)
       @website = website
       @compile_path = website.compile_path
       @retries = 0
+      @user_email = user_email
     end
 
     def deploy
@@ -25,6 +26,8 @@ module StaticWebsite
         else
           raise e
         end
+      else
+        take_db_snapshot
       ensure
         clean_up
       end
@@ -66,5 +69,13 @@ module StaticWebsite
     def clean_up
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
     end
+
+    private
+
+    def take_db_snapshot
+      SavesManager.new(@user_email).save
+    end
+    
   end
 end
+
