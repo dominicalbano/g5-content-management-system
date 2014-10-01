@@ -7,6 +7,6 @@ class ColumnWidgetGardenWidgetsSetting
   private
 
   def excluded_widgets
-    ExcludedLayoutWidgets::WIDGETS << "Column"
+    ExcludedLayoutWidgets::WIDGETS.dup << "Column"
   end
 end

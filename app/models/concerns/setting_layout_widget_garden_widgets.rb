@@ -22,7 +22,7 @@ private
     [
       "#{widget}_one_widget_name", "#{widget}_two_widget_name",
       "#{widget}_three_widget_name", "#{widget}_four_widget_name",
-      "#{widget}_five_widget_name"
+      "#{widget}_five_widget_name", "#{widget}_six_widget_name"
     ]
   end
 
@@ -30,7 +30,7 @@ private
     [
       "#{widget}_one_widget_id", "#{widget}_two_widget_id",
       "#{widget}_three_widget_id", "#{widget}_four_widget_id",
-      "#{widget}_five_widget_id"
+      "#{widget}_five_widget_id", "#{widget}_six_widget_id"
     ]
   end
 

@@ -15,6 +15,99 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     @web_theme = @website_template.web_theme
   end
 
+  describe "themes" do
+    before do
+      visit "/#{@website.slug}/#{@web_page_template.slug}"
+    end
+
+    it "hides unused themes" do
+      page.should have_selector('.unused-theme', visible: false)
+      page.should have_selector('.used-theme', visible: true)
+    end  
+  end  
+
+  describe "layouts" do
+    before do
+      visit "/#{@website.slug}/#{@web_page_template.slug}"
+    end
+
+    it "hides unused layouts" do
+      page.should have_selector('.unused-layout', visible: false)
+      page.should have_selector('.used-layout', visible: true)
+    end  
+  end  
+
+  describe "Authorization" do
+    before do
+      visit "/#{@website.slug}/#{@web_page_template.slug}"
+    end
+
+    context "client user" do
+      it "has a body class" do
+        expect(find("body.client-user")).to_not be_nil
+      end
+
+      it "hides navigation" do
+        page.should have_selector('nav.g5-internal-feature', visible: false)
+      end  
+
+      context "verticals" do
+        it "multifamily" do
+          expect(find("div.apartments-client")).to_not be_nil
+          page.should have_selector('.builder.apartments-client .widget.self-storage-feature', visible: false)
+          page.should have_selector('.builder.apartments-client .widget:not(.self-storage-feature)', visible: true)
+        end 
+      end
+      
+      context "widgets" do
+        it "has classes" do
+          page.should have_selector('.builder.apartments-client .widget.g5-internal-feature', visible: false)
+          page.should have_selector('.builder.apartments-client .widget:not(.g5-internal-feature)', visible: true)
+        end 
+      end  
+    end
+    
+    context "g5 user" do
+      let(:user) { FactoryGirl.create(:g5_authenticatable_user, email: "test@getg5.com") }
+
+      it "has a body class" do
+        expect(find("body.g5-user")).to_not be_nil
+      end 
+
+      it "shows navigation" do
+        page.should have_selector('nav.g5-internal-feature', visible: true)
+      end  
+
+      context "verticals" do
+        it "multifamily" do
+          expect(find("div.apartments-client")).to_not be_nil
+          page.should have_selector('.builder.apartments-client .widget.self-storage-feature', visible: true)
+          page.should have_selector('.builder.apartments-client .widget:not(.self-storage-feature)', visible: true)
+        end 
+      end
+      
+      context "widgets" do
+        it "has classes" do
+          page.should have_selector('.builder.apartments-client .widget.g5-internal-feature', visible: true)
+          page.should have_selector('.builder.apartments-client .widget:not(.g5-internal-feature)', visible: true)
+        end 
+      end  
+    end
+  end  
+
+  describe "dynamic vertical class" do
+    context "storage" do
+      before do
+        @client.update_attribute(:vertical, "foo")
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "storage" do
+        expect(find("div.foo-client")).to_not be_nil
+      end 
+    end 
+  end  
+
   describe "Color picker" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"

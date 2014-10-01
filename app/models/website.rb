@@ -59,7 +59,7 @@ class Website < ActiveRecord::Base
     web_templates.map(&:javascripts).flatten.uniq
   end
 
-  def deploy
+  def deploy(user_email)
     StaticWebsiteDeployerJob.perform(urn)
   end
 

@@ -13,7 +13,8 @@ class ColumnWidgetShowHtml < LayoutWidgetShowHtml
     render_widget("row_two_widget_id", "#drop-target-second-row")  if display_two?
     render_widget("row_three_widget_id", "#drop-target-third-row") if display_three?
     render_widget("row_four_widget_id", "#drop-target-fourth-row") if display_four?
-    render_widget("row_five_widget_id", "#drop-target-fifth-row")  if count?("five")
+    render_widget("row_five_widget_id", "#drop-target-fifth-row")  if display_five?
+    render_widget("row_six_widget_id", "#drop-target-sixth-row")  if count?("six")
   end
 
   def row_count
@@ -29,7 +30,11 @@ class ColumnWidgetShowHtml < LayoutWidgetShowHtml
   end
 
   def display_four?
-    count?("four") || count?("five")
+    count?("four") || display_five?
+  end
+
+  def display_five?
+    count?("five") || count?("six")
   end
 
   def count?(row)
