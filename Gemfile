@@ -53,7 +53,6 @@ group :development, :test do
   gem "shoulda-matchers"
   # ruby request specs
   gem "capybara", "2.3.0"
-  gem "capybara-webkit"
   gem "launchy"
   gem "selenium-webdriver", "2.41.0"
   gem "database_cleaner"
