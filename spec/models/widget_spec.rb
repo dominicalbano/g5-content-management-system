@@ -2,6 +2,19 @@ require "spec_helper"
 
 describe Widget, vcr: VCR_OPTIONS do
 
+  describe "validations" do
+    let(:widget){Fabricate(:widget)}
+    let(:no_garden_widget){Fabricate.build(:widget, {garden_widget: nil})}
+
+    it "builds a valid widget" do
+      expect(widget).to be_valid
+    end
+
+    it "requires a garden_widget_id" do
+      expect(no_garden_widget).to_not be_valid
+    end
+  end
+
   describe "#update_attributes" do
     let(:garden_widget) { Fabricate(:garden_widget, settings: [name: "foo"]) }
     let(:widget) { Fabricate(:widget, garden_widget: garden_widget) }
@@ -134,3 +147,4 @@ describe Widget, vcr: VCR_OPTIONS do
     end  
   end
 end
+
