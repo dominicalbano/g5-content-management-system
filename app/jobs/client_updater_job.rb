@@ -3,8 +3,14 @@ class ClientUpdaterJob
   @queue = :updater
 
   def self.perform
-    @retries = 0
+    self.new.perform
+  end
 
+  def initialize
+    @retries = 0
+  end
+
+  def perform
     ClientReader.new(ENV["G5_CLIENT_UID"]).perform
 
     Location.all.each do |location|
