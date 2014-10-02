@@ -3,14 +3,8 @@ class ClientUpdaterJob
   @queue = :updater
 
   def self.perform
-    self.new.perform
-  end
+    tries ||= 3
 
-  def initialize
-    @retries = 0
-  end
-
-  def perform
     ClientReader.new(ENV["G5_CLIENT_UID"]).perform
 
     Location.all.each do |location|
@@ -18,7 +12,6 @@ class ClientUpdaterJob
       WebsiteSeeder.new(location).seed
     end
   rescue
-    @retries += 1
-    retry if @retries < 4
+    retry unless (tries -= 1).zero?
   end
 end
