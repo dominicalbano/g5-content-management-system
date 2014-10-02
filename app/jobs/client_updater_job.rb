@@ -19,6 +19,6 @@ class ClientUpdaterJob
     end
   rescue
     @retries += 1
-    Resque.enqueue(ClientUpdaterJob) if @retries < 4
+    retry if @retries < 4
   end
 end
