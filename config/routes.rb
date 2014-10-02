@@ -17,7 +17,9 @@ G5CMS::Application.routes.draw do
       end
 
       resources :locations, only: [:index, :show]
-      resources :websites, only: [:index, :show]
+      resources :websites, only: [:index, :show] do
+        post "deploy"
+      end
       resources :website_templates, only: [:show]
       resources :web_layouts, only: [:show, :update]
       resources :web_themes, only: [:show, :update]

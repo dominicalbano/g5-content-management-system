@@ -60,11 +60,11 @@ class Website < ActiveRecord::Base
   end
 
   def deploy(user_email)
-    StaticWebsiteDeployerJob.perform(urn)
+    StaticWebsiteDeployerJob.perform(urn, user_email)
   end
 
-  def async_deploy
-    Resque.enqueue(StaticWebsiteDeployerJob, urn)
+  def async_deploy(user_email)
+    Resque.enqueue(StaticWebsiteDeployerJob, urn, user_email)
   end
 
   def colors
