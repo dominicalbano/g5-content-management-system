@@ -33,11 +33,7 @@ private
     client.domain   = uf2_client.g5_domain.to_s
     client.type     = uf2_client.g5_domain_type.to_s
 
-    new_record = client.new_record?
-
-    if client.save && production?
-      client.create_bucket if new_record
-    end
+    client.save
 
     find_or_create_client_website(client) if client.type == "SingleDomainClient"
   end
@@ -70,9 +66,7 @@ private
     location.qualifier        = uf2_location.g5_aparment_feature_1.to_s
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
 
-    if location.save && production?
-      location.create_bucket
-    end
+    location.save
   end
 
   # Now we need to clean up locations that are in the database that shouldn't
