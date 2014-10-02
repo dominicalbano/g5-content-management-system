@@ -9,7 +9,8 @@ module SettingLayoutWidgetGardenWidgets
   end
 
   def update_layout_widget_id_setting
-    LAYOUT_WIDGETS.each { |widget| updater(widget).update } if value_changed?
+    #the rails generated method 'value_changed?' was always returning true
+    LAYOUT_WIDGETS.each { |widget| updater(widget).update } if the_value_has_changed?
   end
 
   def destroy_layout_widget_widgets
@@ -17,6 +18,11 @@ module SettingLayoutWidgetGardenWidgets
   end
 
 private
+
+  #the rails generated method 'value_changed?' was always returning true
+  def the_value_has_changed?
+    self.value != self.value_was
+  end
 
   def name_setting_names(widget)
     [
@@ -38,3 +44,4 @@ private
     LayoutWidgetUpdater.new(self, name_setting_names(widget), id_setting_names(widget))
   end
 end
+

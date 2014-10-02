@@ -2,6 +2,8 @@ class Widget < ActiveRecord::Base
   include RankedModel
   include HasManySettings
 
+  validates :garden_widget_id, presence: true
+
   ranks :display_order, with_same: :drop_target_id
 
   belongs_to :garden_widget
@@ -49,7 +51,6 @@ class Widget < ActiveRecord::Base
   end
 
   def widgets
-    child_widgets = find_child_widgets
     more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
 
     [child_widgets, more_widgets].flatten.compact
@@ -112,7 +113,7 @@ class Widget < ActiveRecord::Base
     settings.select { |setting| setting.name =~ pattern && setting.value != nil }
   end
 
-  def find_child_widgets
+  def child_widgets
     widget_settings.map(&:value).map do |id|
       Widget.find(id) if Widget.exists?(id)
     end
