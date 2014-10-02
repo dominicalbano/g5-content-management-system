@@ -39,7 +39,7 @@ private
       #client.create_bucket if new_record
     #end
 
-    client.size
+    client.save
 
     find_or_create_client_website(client) if client.type == "SingleDomainClient"
   end
