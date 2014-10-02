@@ -9,7 +9,7 @@ class BucketCreator
     begin
       create_bucket
       set_config
-    rescue AWS::S3::Errors::BucketAlreadyExists
+    rescue
       false
     end
   end
