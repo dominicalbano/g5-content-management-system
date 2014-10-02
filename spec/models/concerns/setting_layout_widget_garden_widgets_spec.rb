@@ -54,7 +54,7 @@ shared_examples_for SettingLayoutWidgetGardenWidgets do
   end
 
   describe "When not an avaiable_garden_widgets setting" do
-    let(:setting) { Fabricate(:setting_with_owner) }
+    let(:setting) { Fabricate(:setting) }
 
     describe "After update" do
       it "Does not try to update widget_id_setting setting" do
