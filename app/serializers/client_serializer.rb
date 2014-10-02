@@ -17,6 +17,8 @@ class ClientSerializer < ActiveModel::Serializer
               :cls_url,
               :cxm_urn,
               :cxm_url,
+              :dsh_urn,
+              :dsh_url,
               :single_domain,
               :vertical
 
