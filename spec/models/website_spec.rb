@@ -130,7 +130,7 @@ describe Website, vcr: VCR_OPTIONS do
 
     it "enqueues StaticWebsiteDeployerJob with urn" do
       Resque.stub(:enqueue)
-      Resque.should_receive(:enqueue).with(StaticWebsiteDeployerJob, website.urn).once
+      Resque.should_receive(:enqueue).with(StaticWebsiteDeployerJob, website.urn, "user@email.com").once
       website.async_deploy
     end
   end
