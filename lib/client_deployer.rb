@@ -35,6 +35,4 @@ module ClientDeployer
   def self.location_websites
     Website.location_websites
   end
-
 end
-
