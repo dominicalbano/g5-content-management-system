@@ -20,6 +20,24 @@ describe WebTemplate do
     end
   end
 
+  describe "callbacks" do
+    before do 
+      web_template.save
+    end
+      
+    context "set_navigation_setting" do
+      it "updates" do
+        expect(web_template).to receive(:update_navigation_settings)
+        web_template.update_attribute(:in_trash, true)
+      end  
+
+      it "skips" do
+        expect(web_template).to_not receive(:update_navigation_settings)
+        web_template.update_attributes(in_trash: true, should_skip_update_navigation_settings: true)
+      end 
+    end  
+  end  
+
   describe "#web_layout" do
     it { web_template.should respond_to :web_layout }
   end
