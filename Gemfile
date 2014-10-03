@@ -21,6 +21,7 @@ gem "coffee-script"
 gem "ranked-model"
 gem "aws-sdk"
 gem "httparty"
+gem "momentjs-rails"
 
 gem "ember-rails"
 
