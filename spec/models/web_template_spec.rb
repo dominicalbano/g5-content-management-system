@@ -31,6 +31,11 @@ describe WebTemplate do
         web_template.update_attribute(:in_trash, true)
       end  
 
+      it "enqueues a worker" do
+        expect(Resque).to receive(:enqueue).with(UpdateNavigationSettingsJob, website.id)
+        web_template.update_attribute(:in_trash, true)
+      end  
+
       it "skips" do
         expect(web_template).to_not receive(:update_navigation_settings)
         web_template.update_attributes(in_trash: true, should_skip_update_navigation_settings: true)
