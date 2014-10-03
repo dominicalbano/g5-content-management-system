@@ -9,10 +9,11 @@ App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
       # Set display order position
       item.set "displayOrderPosition", index
       # We only want the update_navigation_settings logic in core to fire off on the last update
-      if i == length then shouldSkipUpdateNavigationSettings=false else shouldSkipUpdateNavigationSettings=true
-      item.set "shouldSkipUpdateNavigationSettings", shouldSkipUpdateNavigationSettings
+      item.set "shouldUpdateNavigationSettings", (if (i==length) then true else false)
     @endPropertyChanges()
-    @get("model").save()
+    @get("model").save().then =>
+      @get("model").map (item) ->
+       item.set "shouldUpdateNavigationSettings", true
 
   templates: (->
     @get("model")
