@@ -26,14 +26,21 @@ describe WebTemplate do
     end
       
     context "set_navigation_setting" do
-      it "updates" do
-        expect(web_template).to receive(:update_navigation_settings)
-        web_template.update_attribute(:in_trash, true)
-      end  
+      describe "should update" do
+        it "updates by default when a relevant attr changes" do
+          expect(web_template).to receive(:update_navigation_settings)
+          web_template.update_attribute(:in_trash, true)
+        end  
 
-      it "enqueues a worker" do
-        expect(Resque).to receive(:enqueue).with(UpdateNavigationSettingsJob, website.id)
-        web_template.update_attribute(:in_trash, true)
+        it "updates when should_skip_update_navigation_settings is false" do
+          expect(web_template).to receive(:update_navigation_settings)
+          web_template.update_attributes(in_trash: true, should_skip_update_navigation_settings: false)
+        end  
+
+        it "enqueues a worker" do
+          expect(Resque).to receive(:enqueue).with(UpdateNavigationSettingsJob, website.id)
+          web_template.update_attribute(:in_trash, true)
+        end  
       end  
 
       it "skips" do

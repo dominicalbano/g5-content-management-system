@@ -10,8 +10,11 @@ module AfterUpdateSetSettingNavigation
   private
 
   def should_update_navigation_settings?
-    return false if should_skip_update_navigation_settings
-    name_changed? || display_order_changed? || enabled_changed? || in_trash_changed? || parent_id_changed?
+    if !should_skip_update_navigation_settings.nil?
+      !should_skip_update_navigation_settings
+    else  
+      name_changed? || display_order_changed? || enabled_changed? || in_trash_changed? || parent_id_changed?
+    end
   end
 
   def update_navigation_settings
