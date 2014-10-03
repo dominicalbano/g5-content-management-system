@@ -73,7 +73,7 @@ describe Api::V1::WebPageTemplatesController, :auth_controller do
       end
 
       it "responds 200 OK" do
-        put :update, id: web_page_template.id, web_page_template: { name: "name" }
+        put :update, id: web_page_template.id, web_page_template: { name: "name", should_skip_update_navigation_settings: true }
         expect(response.status).to eq 200
       end
 
