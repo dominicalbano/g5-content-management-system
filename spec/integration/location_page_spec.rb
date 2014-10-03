@@ -185,6 +185,23 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
     end
 
+    describe "editable" do
+      before do
+        stub_const("ENV", { "CI" => true })
+        @widget1 = @web_page_template.main_widgets.first
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a dynamic heading", driver: :selenium do
+        within ".main-widgets" do
+          widget1 = find(".widget:first-of-type")
+          widget1.click
+          sleep 1
+          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+        end
+      end  
+    end  
+
     describe "Are drag and drop removeable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
@@ -306,6 +323,23 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
     end
 
+    describe "editable" do
+      before do
+        stub_const("ENV", { "CI" => true })
+        @widget1 = @website_template.aside_before_main_widgets.first
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a dynamic heading", driver: :selenium do
+        within ".aside-before-main-widgets" do
+          widget1 = find(".widget:first-of-type")
+          widget1.click
+          sleep 1
+          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+        end
+      end  
+    end  
+
     describe "Are drag and drop removeable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
@@ -426,6 +460,23 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         end
       end
     end
+
+    describe "editable" do
+      before do
+        stub_const("ENV", { "CI" => true })
+        @widget1 = @website_template.aside_after_main_widgets.first
+        visit "/#{@website.slug}/#{@web_page_template.slug}"
+      end
+
+      it "has a dynamic heading", driver: :selenium do
+        within ".aside-after-main-widgets" do
+          widget1 = find(".widget:first-of-type")
+          widget1.click
+          sleep 1
+          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+        end
+      end
+    end  
 
     describe "Are drag and drop removeable" do
       before do

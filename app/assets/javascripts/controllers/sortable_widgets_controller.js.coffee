@@ -1,4 +1,5 @@
 App.SortableWidgetsController = Ember.ArrayController.extend
+  needs: ["website"]
   sortProperties: ["displayOrder"]
 
   updateSortOrder: (indexes) ->
