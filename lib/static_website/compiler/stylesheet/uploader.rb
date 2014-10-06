@@ -16,8 +16,8 @@ module StaticWebsite
           )
 
           unless location_name.empty?
-            @bucket_name = ENV[s3_bucket_name_manager.bucket]
-            @bucket_url = ENV[s3_bucket_name_manager.bucket_url]
+            @bucket_name = s3_bucket_name_manager.bucket
+            @bucket_url = s3_bucket_name_manager.bucket_url
           end
         end
 

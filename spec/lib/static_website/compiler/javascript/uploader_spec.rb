@@ -11,6 +11,7 @@ describe StaticWebsite::Compiler::Javascript::Uploader do
       uploader = uploader_klass.new([], "North Shore Oahu")
       expect(uploader.bucket_name).to eq "assets.northshoreoahu.com"
     end
+
     it "handles non letter characters" do
       ENV["AWS_S3_BUCKET_NAME_G5_CL_NORTH_SHORE_2"] = "assets.northshoreoahu.com"
       uploader = uploader_klass.new([], "North Shore O'ahu")
