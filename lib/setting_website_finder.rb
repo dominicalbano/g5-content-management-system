@@ -27,7 +27,7 @@ private
   end
 
   def find_layout_setting_by_value(owner_id)
-    Setting.where(value: owner_id).find do |setting|
+    Setting.where(value: owner_id.to_s).find do |setting|
       setting.name =~ /(?=(column|row))(?=.*widget_id).*/
     end
   end
