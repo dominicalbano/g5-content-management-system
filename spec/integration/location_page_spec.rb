@@ -147,7 +147,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       it "Creates a new widget in the database and displays in DOM" do
-        garden_widget = find(".widget-list .widgets--list-view .widget:last-of-type")
+        garden_widget = find(".widget-list .widget-view .widget:last-of-type")
         drop_target_add = find(".main-widgets .drop-target-add:first-of-type")
         existing_widget_count = all(".main-widgets .widget").length
 
