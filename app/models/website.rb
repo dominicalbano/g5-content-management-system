@@ -59,12 +59,12 @@ class Website < ActiveRecord::Base
     web_templates.map(&:javascripts).flatten.uniq
   end
 
-  def deploy
-    StaticWebsiteDeployerJob.perform(urn)
+  def deploy(user_email)
+    StaticWebsiteDeployerJob.perform(urn, user_email)
   end
 
-  def async_deploy
-    Resque.enqueue(StaticWebsiteDeployerJob, urn)
+  def async_deploy(user_email)
+    Resque.enqueue(StaticWebsiteDeployerJob, urn, user_email)
   end
 
   def colors

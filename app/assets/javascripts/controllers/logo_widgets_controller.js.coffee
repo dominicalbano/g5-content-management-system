@@ -1,1 +1,2 @@
-App.LogoWidgetsController = Ember.ArrayController.extend()
+App.LogoWidgetsController = Ember.ArrayController.extend
+  needs: ["website"]

@@ -2,6 +2,7 @@
   <div class="page-title">
     <h2>Locations</h2>
     <div class="buttons l-pullRight">
+      {{#link-to 'saves' class="btn"}}Saves{{/link-to}}
       <a {{action updateGardenWidgets}} href="#" class="btn">Update Widgets</a>
       <a {{action updateGardenWebThemes}} href="#" class="btn">Update Themes</a>
       <a {{action updateGardenWebLayouts}} href="#" class="btn">Update Layouts</a>
@@ -32,8 +33,8 @@
             {{name}}
           </div>
           <div {{bind-attr class=":faux-table-cell single_domain"}}>
-            {{#link-to "website" this.website class="btn btn--a" }}Edit{{/link-to}}
-            <a {{bind-attr href="this.website.herokuUrl"}} class="btn btn--a">View</a>
+            {{#link-to "website" websiteSlug class="btn btn--a" }}Edit{{/link-to}}
+            <a {{bind-attr href="this.websiteHerokuUrl"}} class="btn btn--a">View</a>
             {{confirmation-link title="Deploy" action="deploy" param=this 
               message="You are about to deploy. Are you sure?" classes="btn btn--a deploy"}}
           </div>

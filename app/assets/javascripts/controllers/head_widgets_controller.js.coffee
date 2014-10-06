@@ -1,1 +1,2 @@
-App.HeadWidgetsController = Ember.ArrayController.extend()
+App.HeadWidgetsController = Ember.ArrayController.extend
+  needs: ["website"]

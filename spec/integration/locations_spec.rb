@@ -5,7 +5,7 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
     before do
       Resque.stub(:enqueue)
 
-      @client = Fabricate(:client)
+      @client = Fabricate(:client, uid: "http://g5-hub.herokuapp.com/clients/g5-c-123abc-blah-blah-blah")
       @location = Fabricate(:location)
       @website = Fabricate(:website, owner: @location)
       @location.reload
@@ -33,12 +33,15 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
       end
 
       within "header" do
-        # CSS upcases these names, so we also upcase
         expect(page).to have_content(@client.name.upcase)
         expect(page).to have_content(@location.name.upcase)
       end
 
       expect(current_path).to eq("/#{@website.slug}")
+    end
+
+    it 'adds a link to the DXM portal' do
+      expect(find("h1.banner-title a[href='http://g5-dsh-123abc-blah-blah-blah.herokuapp.com/']")).to_not be_nil
     end
 
     it "'View' link goes to Heroku App" do

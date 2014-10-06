@@ -1,8 +1,6 @@
 class ClientSerializer < ActiveModel::Serializer
   embed :ids, include: true
-
-  has_many :locations
-
+  
   attributes  :id,
               :urn,
               :name,
@@ -19,7 +17,10 @@ class ClientSerializer < ActiveModel::Serializer
               :cls_url,
               :cxm_urn,
               :cxm_url,
-              :single_domain
+              :dsh_urn,
+              :dsh_url,
+              :single_domain,
+              :vertical
 
   def url
     client_services.client_url
