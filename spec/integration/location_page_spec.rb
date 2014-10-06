@@ -161,8 +161,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop sortable" do
       before do
-        stub_const("ENV", { "CI" => true })
-
         @widget1 = @web_page_template.main_widgets.first
         @widget2 = @web_page_template.main_widgets.last
 
@@ -173,7 +171,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database", driver: :selenium do
+      it "Updates display order in database" do
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -187,12 +185,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "editable" do
       before do
-        stub_const("ENV", { "CI" => true })
         @widget1 = @web_page_template.main_widgets.first
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "has a dynamic heading", driver: :selenium do
+      it "has a dynamic heading" do
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget1.click
@@ -299,8 +296,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop sortable" do
       before do
-        stub_const("ENV", { "CI" => true })
-
         @widget1 = @website_template.aside_before_main_widgets.first
         @widget2 = @website_template.aside_before_main_widgets.last
 
@@ -311,7 +306,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database", driver: :selenium do
+      it "Updates display order in database" do
         within ".aside-before-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -325,12 +320,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "editable" do
       before do
-        stub_const("ENV", { "CI" => true })
         @widget1 = @website_template.aside_before_main_widgets.first
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "has a dynamic heading", driver: :selenium do
+      it "has a dynamic heading" do
         within ".aside-before-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget1.click
@@ -437,8 +431,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop sortable" do
       before do
-        stub_const("ENV", { "CI" => true })
-
         @widget1 = @website_template.aside_after_main_widgets.first
         @widget2 = @website_template.aside_after_main_widgets.last
 
@@ -449,7 +441,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "Updates display order in database", driver: :selenium do
+      it "Updates display order in database" do
         within ".aside-after-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget2 = find(".widget:last-of-type")
@@ -463,12 +455,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "editable" do
       before do
-        stub_const("ENV", { "CI" => true })
         @widget1 = @website_template.aside_after_main_widgets.first
         visit "/#{@website.slug}/#{@web_page_template.slug}"
       end
 
-      it "has a dynamic heading", driver: :selenium do
+      it "has a dynamic heading" do
         within ".aside-after-main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget1.click
