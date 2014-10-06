@@ -24,11 +24,11 @@ class S3BucketNameManager
   end
 
   def bucket
-    ENV[bucket_config_variable_name] || ENV[bucket_config_variable_name_based_name]
+    ENV[bucket_config_variable_name] || ENV[bucket_config_variable_name_based_name] || ""
   end
 
   def bucket_url
-    ENV[bucket_config_variable_url] || ENV[bucket_config_variable_name_based_url]
+    ENV[bucket_config_variable_url] || ENV[bucket_config_variable_name_based_url] || ""
   end
 
   def bucket_config
