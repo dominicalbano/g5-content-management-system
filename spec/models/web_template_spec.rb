@@ -43,8 +43,9 @@ describe WebTemplate do
 
         it "enqueues a worker" do
           web_template.unstub(:update_navigation_settings)
-          expect(Resque).to receive(:enqueue).with(UpdateNavigationSettingsJob, website.id)
+          ResqueSpec.reset!
           web_template.update_attribute(:in_trash, true)
+          expect(UpdateNavigationSettingsJob).to have_queued(website.id)
         end  
       end  
 
