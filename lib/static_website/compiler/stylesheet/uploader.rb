@@ -15,7 +15,7 @@ module StaticWebsite
             region: ENV["AWS_REGION"] || "us-west-2"
           )
 
-          unless location_name.empty?
+          unless @location_name.empty?
             @bucket_name = s3_bucket_name_manager.bucket
             @bucket_url = s3_bucket_name_manager.bucket_url
           end
