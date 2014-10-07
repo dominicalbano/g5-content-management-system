@@ -1,8 +1,8 @@
 App.ReleasesRoute = Ember.Route.extend
-  model: ->
+  setupController: (controller, model) ->
     slug = @modelFor("website").get("slug")
-    @get('store').find('release', {website_slug: slug})
+    controller.set("slug", slug)
+    controller.set("model", App.Release.find(website_slug: slug))
 
   serialize: (model) ->
-    website_slug: model.get("slug")
-
+    website_slug: model.get "slug"

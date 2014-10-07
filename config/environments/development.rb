@@ -26,6 +26,4 @@ G5CMS::Application.configure do
   config.ember.variant = :development
 
   config.eager_load = false
-
-  Rails.application.default_url_options[:host] = 'localhost:3000'
 end

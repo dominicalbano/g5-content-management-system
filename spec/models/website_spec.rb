@@ -120,9 +120,8 @@ describe Website, vcr: VCR_OPTIONS do
     let(:website) { Fabricate(:website) }
 
     it "calls StaticWebsiteDeployerJob with urn" do
-      user_email = "user@email.com"
-      StaticWebsiteDeployerJob.should_receive(:perform).with(website.urn, user_email).once
-      website.deploy(user_email)
+      StaticWebsiteDeployerJob.should_receive(:perform).with(website.urn).once
+      website.deploy
     end
   end
 
@@ -131,8 +130,8 @@ describe Website, vcr: VCR_OPTIONS do
 
     it "enqueues StaticWebsiteDeployerJob with urn" do
       Resque.stub(:enqueue)
-      Resque.should_receive(:enqueue).with(StaticWebsiteDeployerJob, website.urn, "user@email.com").once
-      website.async_deploy("user@email.com")
+      Resque.should_receive(:enqueue).with(StaticWebsiteDeployerJob, website.urn).once
+      website.async_deploy
     end
   end
 

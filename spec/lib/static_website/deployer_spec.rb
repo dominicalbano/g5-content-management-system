@@ -3,13 +3,12 @@ require "spec_helper"
 describe StaticWebsite::Deployer do
   let!(:client) { Fabricate(:client) }
   let(:website) { Fabricate(:website).decorate }
-  let(:subject) { StaticWebsite::Deployer.new(website, "user@email.com") }
+  let(:subject) { StaticWebsite::Deployer.new(website) }
 
   describe "#deploy" do
     it "asks the deployer website" do
-      expect_any_instance_of(SavesManager).to receive(:save).and_return(true)
       subject.deployer.stub(:deploy)
-      expect(subject.deployer).to receive(:deploy).with(subject.deployer_options).once
+      subject.deployer.should_receive(:deploy).with(subject.deployer_options).once
       subject.deploy
     end
 

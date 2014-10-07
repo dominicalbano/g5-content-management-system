@@ -18,7 +18,7 @@ describe LocationCollector do
     context "city level params" do
       let(:params) { { state: "oregon", city: "bend" } }
 
-      it { is_expected.to match_array([city_location, neighborhood_location]) }
+      it { should eq([city_location, neighborhood_location]) }
     end
 
     context "neighborhood level params" do

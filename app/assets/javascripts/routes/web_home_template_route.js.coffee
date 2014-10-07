@@ -1,9 +1,9 @@
 App.WebHomeTemplateRoute = Ember.Route.extend
-  model: ->
-    this.modelFor("website").get("webHomeTemplate")
-
   setupController: (controller, model) ->
+    # setup this controller
     controller.set("model", model)
+    # setup website controller
+    @controllerFor("website").set("model", model.get("website"))
     # setup mainWidgets controller
     @controllerFor("mainWidgets").set("model", model.get("mainWidgets"))
     # setup website.websiteTemplate controllers
@@ -18,9 +18,9 @@ App.WebHomeTemplateRoute = Ember.Route.extend
     @controllerFor("asideAfterMainWidgets").set("model", model.get("website.websiteTemplate.asideAfterMainWidgets"))
     @controllerFor("footerWidgets").set("model", model.get("website.websiteTemplate.footerWidgets"))
     # setup garden controllers last
-    @controllerFor("gardenWebLayouts").set("model", @store.find('gardenWebLayout'))
-    @controllerFor("gardenWebThemes").set("model", @store.find("gardenWebTheme"))
-    @controllerFor("gardenWidgets").set("model", @store.find("gardenWidget"))
+    @controllerFor("gardenWebLayouts").set("model", App.GardenWebLayout.find())
+    @controllerFor("gardenWebThemes").set("model", App.GardenWebTheme.find())
+    @controllerFor("gardenWidgets").set("model", App.GardenWidget.find())
 
     @setBreadcrumb(@controllerFor("webHomeTemplate").get("model").get("name"))
 
@@ -30,3 +30,6 @@ App.WebHomeTemplateRoute = Ember.Route.extend
   deactivate: ->
     $('.page-name').hide()
 
+  serialize: (model) ->
+    website_slug: model.get("website.slug")
+    web_home_template_slug: model.get("slug")

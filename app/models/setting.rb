@@ -57,24 +57,24 @@ class Setting < ActiveRecord::Base
   end
 
   def others_with_higher_priority
-    query = others.order_priority_desc
+    query = self.class
+    query = query.for_website(website_id) if website_id
+    query = query.where_name(name)
+    query = query.value_is_present
+    query = query.order_priority_desc
     query = query.where_priority_lt(priority)
   end
 
   def others_with_lower_priority
-    query = others.order_priority_asc
+    query = self.class
+    query = query.for_website(website_id) if website_id
+    query = query.where_name(name)
+    query = query.value_is_present
+    query = query.order_priority_asc
     query = query.where_priority_gt(priority)
   end
 
   private
-
-  def others
-    query = self.class
-    query = query.for_website(website_id) if website_id
-    query = query.where_name(name)
-
-    query.value_is_present
-  end
 
   def set_website_id
     self.website ||= SettingWebsiteFinder.new(self).find

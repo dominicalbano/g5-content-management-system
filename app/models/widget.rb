@@ -2,8 +2,6 @@ class Widget < ActiveRecord::Base
   include RankedModel
   include HasManySettings
 
-  validates :garden_widget_id, presence: true
-
   ranks :display_order, with_same: :drop_target_id
 
   belongs_to :garden_widget
@@ -17,7 +15,7 @@ class Widget < ActiveRecord::Base
   delegate :html_id,
     to: :drop_target, allow_nil: true
 
-  delegate :name, :url, :thumbnail, :edit_html, :edit_javascript, :show_html, :widget_type,
+  delegate :name, :url, :thumbnail, :edit_html, :edit_javascript, :show_html,
     to: :garden_widget, allow_nil: true
 
   # prefix means access with `garden_widget_settings` not `settings`
@@ -51,6 +49,7 @@ class Widget < ActiveRecord::Base
   end
 
   def widgets
+    child_widgets = find_child_widgets
     more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
 
     [child_widgets, more_widgets].flatten.compact
@@ -97,10 +96,6 @@ class Widget < ActiveRecord::Base
     removed_settings.map(&:destroy)
   end
 
-  def nested_settings
-    widgets.collect {|widget| widget.settings}.flatten
-  end
-
   private
 
   # TODO: Is this being used?
@@ -113,7 +108,7 @@ class Widget < ActiveRecord::Base
     settings.select { |setting| setting.name =~ pattern && setting.value != nil }
   end
 
-  def child_widgets
+  def find_child_widgets
     widget_settings.map(&:value).map do |id|
       Widget.find(id) if Widget.exists?(id)
     end

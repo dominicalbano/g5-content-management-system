@@ -9,11 +9,11 @@ describe StaticWebsiteDeployerJob do
 
   it "decorates website object" do
     Website.any_instance.should_receive(:decorate).once
-    StaticWebsiteDeployerJob.perform(website.urn, "user@email.com")
+    StaticWebsiteDeployerJob.perform(website.urn)
   end
 
   it "compile and deploys website" do
-    StaticWebsite.should_receive(:compile_and_deploy).with(website.decorate, "user@email.com").once
-    StaticWebsiteDeployerJob.perform(website.urn, "user@email.com")
+    StaticWebsite.should_receive(:compile_and_deploy).with(website.decorate).once
+    StaticWebsiteDeployerJob.perform(website.urn)
   end
 end

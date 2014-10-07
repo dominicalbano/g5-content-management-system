@@ -35,9 +35,7 @@ describe GardenWidgetUpdater do
   end
 
   describe "#update" do
-    let(:garden_widget) do
-      Fabricate(:garden_widget, url: "spec/support/garden_widget_updater/widget-test/updated.html")
-    end
+    let(:garden_widget) { Fabricate(:garden_widget, url: "spec/support/garden_widget_updater/widget-test/updated.html") }
 
     describe "GardenWidget attributes" do
       before do
@@ -50,10 +48,6 @@ describe GardenWidgetUpdater do
 
       it "sets name" do
         expect(garden_widget.name).to eq "Updated Garden Widget"
-      end
-
-      it "sets widget_type" do
-        expect(garden_widget.widget_type).to eq "G5 Internal"
       end
 
       it "sets thumbnail" do

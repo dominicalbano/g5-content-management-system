@@ -21,4 +21,3 @@ class LayoutWidgetShowHtml
     end
   end
 end
-

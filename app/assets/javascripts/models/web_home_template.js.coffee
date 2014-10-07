@@ -1,6 +1,6 @@
 App.WebHomeTemplate = DS.Model.extend
-  website: DS.belongsTo("website")
-  mainWidgets: DS.hasMany("mainWidget")
+  website: DS.belongsTo("App.Website")
+  mainWidgets: DS.hasMany("App.MainWidget")
   previewUrl: DS.attr("string")
   name: DS.attr("string")
   slug: DS.attr("string")

@@ -96,10 +96,7 @@ web_page_templates:
       - html_id: drop-target-main
         widgets:
           - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: apply
+          - slug: apply-form
           - slug: html
           - slug: meta-description
 
@@ -108,10 +105,7 @@ web_page_templates:
       - html_id: drop-target-main
         widgets:
           - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: tour
+          - slug: tour-form
           - slug: html
           - slug: meta-description
 
@@ -120,10 +114,7 @@ web_page_templates:
       - html_id: drop-target-main
         widgets:
           - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: request
+          - slug: request-info-form
           - slug: html
           - slug: meta-description
 
@@ -132,10 +123,7 @@ web_page_templates:
       - html_id: drop-target-main
         widgets:
           - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: contact
+          - slug: contact-form
           - slug: html
           - slug: meta-description
 
@@ -158,10 +146,7 @@ web_page_templates:
       - html_id: drop-target-main
         widgets:
           - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: maintenance
+          - slug: service-request-form
           - slug: html
           - slug: meta-description
 
@@ -170,10 +155,7 @@ web_page_templates:
       - html_id: drop-target-main
         widgets:
           - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: suggestion
+          - slug: suggestion-form
           - slug: html
           - slug: meta-description
 

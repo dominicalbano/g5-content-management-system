@@ -42,8 +42,7 @@ module StaticWebsite
           empty_folders = []
         end
 
-        htaccess_contents = ["DirectoryIndex index.html",
-                            "<IfModule mod_rewrite.c>",
+        htaccess_contents = ["<IfModule mod_rewrite.c>",
                             "\tRewriteEngine On",
                             empty_folders,
                             redirect_rules,

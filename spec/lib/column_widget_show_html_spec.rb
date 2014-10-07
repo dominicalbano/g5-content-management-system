@@ -75,24 +75,6 @@ describe ColumnWidgetShowHtml do
             expect(column_widget_show_html).to receive(:render_widget).exactly(4).times
           end
         end
-
-        context "five rows" do
-          let(:name) { "row_five_widget_id" }
-          let(:value) { "five" }
-
-          it "calls render_widget five times" do
-            expect(column_widget_show_html).to receive(:render_widget).exactly(5).times
-          end
-        end
-
-        context "six rows" do
-          let(:name) { "row_six_widget_id" }
-          let(:value) { "six" }
-
-          it "calls render_widget six times" do
-            expect(column_widget_show_html).to receive(:render_widget).exactly(6).times
-          end
-        end
       end
     end
   end

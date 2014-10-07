@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "2.1.2"
 
-gem 'rails', "4.1.5"
+gem 'rails', "4.1.4"
 # Downgraded jquery-rails for Ember Views
 gem "jquery-rails", "~> 3.0.4"
 gem "jquery-ui-rails"
@@ -21,9 +21,10 @@ gem "coffee-script"
 gem "ranked-model"
 gem "aws-sdk"
 gem "httparty"
-gem "momentjs-rails"
 
 gem "ember-rails"
+gem "ember-source", "~> 1.0.0"
+gem "ember-data-source", "~> 0.14"
 
 gem 'g5_authenticatable', '~> 0.2'
 
@@ -55,7 +56,7 @@ group :development, :test do
   gem "capybara", "2.3.0"
   gem "capybara-webkit"
   gem "launchy"
-  gem "selenium-webdriver"
+  gem "selenium-webdriver", "2.41.0"
   gem "database_cleaner"
   # ruby spec support
   gem 'factory_girl_rails'

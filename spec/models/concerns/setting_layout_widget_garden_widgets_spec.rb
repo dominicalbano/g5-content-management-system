@@ -1,65 +1,53 @@
 require "spec_helper"
 
 shared_examples_for SettingLayoutWidgetGardenWidgets do
-  before do
-    @row_garden_widget = Fabricate(:row_garden_widget)
-    @row_garden_widget.settings << Fabricate.build(:column_one_widget_id)
-    @row_garden_widget.settings << Fabricate.build(:column_one_widget_name)
-    @row_garden_widget.save
-  end
-
   describe "When availble_garden_widgets setting" do
-    let(:row_widget) { Fabricate(:widget, garden_widget: @row_garden_widget) }
-    let(:other_widget) {Fabricate(:widget)}
+    let!(:widget) { Fabricate(:widget) }
 
-    describe "on creation" do
-      it "does not create extra widgets" do
-        expect{Fabricate(:widget, garden_widget: @row_garden_widget)}.to change{Widget.count}.by(1)
-      end
+    let!(:corresponding_setting) do
+      Fabricate(:setting, name: "column_one_widget_id", owner: widget)
+    end
+
+    let!(:described_instance) do
+      Fabricate(:setting, name: "column_one_widget_name", owner: widget)
     end
 
     describe "After update" do
-      it "Tries to update widget_id_setting" do
-        widget_name_setting = row_widget.settings.where(name: "column_one_widget_name").first
-        widget_name_setting.should_receive(:update_layout_widget_id_setting)
-        widget_name_setting.save
+      it "Tries to update corresponding setting" do
+        described_instance.should_receive(:update_layout_widget_id_setting)
+        described_instance.save
       end
 
-      it "Does not update widget_id_setting setting when value doesnt change" do
-        widget_name_setting = row_widget.settings.where(name: "column_one_widget_name").first
-        widget_id_setting = row_widget.settings.where(name: "column_one_widget_name").first
-        expect { widget_name_setting.save }.to_not change { widget_id_setting.reload.value }
+      describe "When value does not change" do
+        it "Does not update corresponding setting" do
+          expect { described_instance.save }.to_not change { corresponding_setting.reload.value }
+        end
       end
 
       describe "When value changes" do
-        before do
-          @widget_name_setting = row_widget.settings.where(name: "column_one_widget_name").first
-          @widget_id_setting = row_widget.settings.where(name: "column_one_widget_id").first
-        end
+        before { described_instance.value = "Foo" }
 
-        it "Updates widget_id_setting setting" do
-          @widget_name_setting.value = other_widget.name
-          expect { @widget_name_setting.save }.to change { @widget_id_setting.reload.value }
+        it "Updates corresponding setting" do
+          expect { described_instance.save }.to change { corresponding_setting.reload.value }
         end
       end
     end
 
     describe "#after_destroy" do
       it "destroy's the setting's widget's child widgets" do
-        widget_name_setting = row_widget.settings.where(name: "column_one_widget_name").first
-        widget_name_setting.should_receive(:destroy_layout_widget_widgets)
-        widget_name_setting.destroy
+        described_instance.should_receive(:destroy_layout_widget_widgets)
+        described_instance.destroy
       end
     end
   end
 
   describe "When not an avaiable_garden_widgets setting" do
-    let(:setting) { Fabricate(:setting) }
+    let(:described_instance) { Fabricate(:setting) }
 
     describe "After update" do
-      it "Does not try to update widget_id_setting setting" do
-        setting.should_not_receive(:update_widget_id_setting)
-        setting.save
+      it "Does not try to update corresponding setting" do
+        described_instance.should_not_receive(:update_widget_id_setting)
+        described_instance.save
       end
     end
   end
@@ -68,4 +56,3 @@ end
 describe Setting do
   it_behaves_like SettingLayoutWidgetGardenWidgets
 end
-

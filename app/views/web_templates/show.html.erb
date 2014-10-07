@@ -1,36 +1,19 @@
 <% content_for(:title) { web_template.render_title } %>
 
-<% content_for(:head) do %>
-    <script type="text/javascript">
-      if(!window.console)var console={log:function(){},warn:function(){},error:function(){},time:function(){},timeEnd:function(){}};
-    </script>
-  <% if mode == "preview" %>
-    <base href="<%= request.protocol + [request.host_with_port, @location.urn].join('/') %>/">
-    <%= stylesheet_link_tag(*web_template.stylesheet_link_paths)%>
-  <% else %>
-    <base href="/">
-    <%= stylesheet_link_tag(web_template.application_min_css_path) %>
-    <script
-      src="//d2wy8f7a9ursnm.cloudfront.net/bugsnag-2.min.js"
-      data-apikey="0a788166c89a000c898376471f76a95d">
-    </script>
-
-    <script src="//js.honeybadger.io/v0.1/honeybadger.min.js" type="text/javascript"></script>
-    <script type="text/javascript">
-      Honeybadger.configure({
-        api_key: "<%=ENV['HONEYBADGER_API_KEY']%>",
-        environment: 'production'
-      });
-    </script>
-  <% end %>
-<% end %>
+<% content_for(:head) {
+  if mode == "preview"
+    stylesheet_link_tag(*web_template.stylesheet_link_paths)
+  else
+    stylesheet_link_tag(web_template.application_min_css_path)
+  end
+} %>
 
 <% content_for(:head) { raw web_template.decorate.canonical_link_element } %>
 
 <% content_for(:head_widgets) { raw meta_description_widgets(web_template) } %>
 <% content_for(:head_widgets) { raw head_widgets(web_template) } %>
 
-<% content_for(:body_classes) { "page-#{web_template.name.parameterize} #{web_template.body_class} #{web_template.location_body_class}" } %>
+<% content_for(:body_classes) { "page-#{web_template.name.parameterize} #{web_template.body_class}" } %>
 
 <%= raw preview(web_template.website_layout, web_template) %>
 

@@ -114,7 +114,9 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascripts
-    show_javascripts + lib_javascripts + website_template_javascripts
+    widgets.map(&:show_javascripts).flatten.compact +
+    widgets.map(&:lib_javascripts).flatten.compact +
+    website.try(:website_template).try(:javascripts).to_a.flatten.compact
   end
 
   def website_compile_path
@@ -147,6 +149,7 @@ class WebTemplate < ActiveRecord::Base
     javascripts_compiler.uploaded_paths
   end
 
+
   def owner_domain
     owner.domain if owner
   end
@@ -165,7 +168,17 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def render_title
-    Liquid::Template.parse(title).render(title_parameters)
+    Liquid::Template.parse(title).render(
+      "web_template_name" => name,
+      "location_name" => owner.name,
+      "location_city" => owner.city,
+      "location_state" => owner.state,
+      "location_neighborhood" => owner.neighborhood,
+      "location_floor_plans" => owner.floor_plans,
+      "location_primary_amenity" => owner.primary_amenity,
+      "location_qualifier" => owner.qualifier,
+      "location_primary_landmark" => owner.primary_landmark
+    )
   end
 
   def base_path
@@ -178,11 +191,6 @@ class WebTemplate < ActiveRecord::Base
 
   def body_class
     type.titleize.parameterize
-  end
-
-  def location_body_class
-    corporate = website.owner.try(:corporate)
-    corporate ? "site-corporate" : "site-location"
   end
 
   def children
@@ -198,32 +206,6 @@ class WebTemplate < ActiveRecord::Base
   end
 
   private
-
-  def title_parameters
-    {
-      "web_template_name"         => name,
-      "location_name"             => owner.name,
-      "location_city"             => owner.city,
-      "location_state"            => owner.state,
-      "location_neighborhood"     => owner.neighborhood,
-      "location_floor_plans"      => owner.floor_plans,
-      "location_primary_amenity"  => owner.primary_amenity,
-      "location_qualifier"        => owner.qualifier,
-      "location_primary_landmark" => owner.primary_landmark
-    }
-  end
-
-  def show_javascripts
-    widgets.map(&:show_javascripts).flatten.compact
-  end
-
-  def lib_javascripts
-    widgets.map(&:lib_javascripts).flatten.compact
-  end
-
-  def website_template_javascripts
-    website.try(:website_template).try(:javascripts).to_a.flatten.compact
-  end
 
   def default_enabled_to_true
     # ||= does not work here because enabled is a boolean
@@ -256,5 +238,8 @@ class WebTemplate < ActiveRecord::Base
   def single_domain_internal_page?
     web_page_template? && single_domain? && !website.corporate?
   end
-end
 
+  def row_widget_asset_collector
+    @row_widget_asset_collector ||= RowWidgetAssetCollector.new(self)
+  end
+end

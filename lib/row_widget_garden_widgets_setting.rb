@@ -1,6 +1,5 @@
 class RowWidgetGardenWidgetsSetting
   def value
-    GardenWidget.where("name not in (?)", ExcludedLayoutWidgets::WIDGETS).
-      order("name ASC").map(&:name)
+    GardenWidget.where("name != ?", "Row").order("name ASC").map(&:name)
   end
 end

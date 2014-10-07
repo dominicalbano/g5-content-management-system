@@ -1,2 +1,1 @@
-App.BtnWidgetsController = Ember.ArrayController.extend
-  needs: ["website"]
+App.BtnWidgetsController = Ember.ArrayController.extend()

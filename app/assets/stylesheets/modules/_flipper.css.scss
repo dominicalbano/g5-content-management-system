@@ -39,18 +39,12 @@
 	top: 0;
 }
 
+/* front pane, placed above back */
+.front {
+	z-index: 2;
+}
 
 /* back, initially hidden pane */
 .back {
 	@include transform (rotateY(180deg));
-}
-
-
-.flipped {
-	.back {
-		@include backface-visibility(visible);
-	}		
-	a.card-corner {
-	  display: none;	
-	}
 }

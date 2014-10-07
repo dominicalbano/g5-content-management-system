@@ -13,7 +13,7 @@ module StaticWebsite
             secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
             region: ENV["AWS_REGION"] || "us-west-2"
           )
-          location_name = location_name.parameterize.underscore.upcase
+          location_name = location_name.to_s.underscore.upcase.gsub(/ /, "_")
           @bucket_name = ENV["AWS_S3_BUCKET_NAME_#{location_name}"]
           @bucket_url = ENV["AWS_S3_BUCKET_URL_#{location_name}"]
         end

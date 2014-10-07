@@ -27,8 +27,7 @@ module ClientDeployer
       def render_htaccess
         Website.location_websites.each { |website| process_website(website.decorate) }
 
-        htaccess_contents = ["DirectoryIndex index.html",
-                             "<IfModule mod_rewrite.c>",
+        htaccess_contents = ["<IfModule mod_rewrite.c>",
                              "\tRewriteEngine On",
                              @empty_folders.flatten,
                              @redirect_rules.flatten,

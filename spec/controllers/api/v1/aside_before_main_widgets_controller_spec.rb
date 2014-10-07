@@ -12,7 +12,7 @@ describe Api::V1::AsideBeforeMainWidgetsController, :auth_controller, vcr: VCR_O
       website_template = Fabricate(:website_template)
       drop_target = Fabricate(:drop_target, html_id: "drop-target-aside-before-main")
       website_template.drop_targets << drop_target
-      post :create, id: widget.id, aside_before_main_widget: { website_template_id: website_template.id, name: "lol", garden_widget_id: widget.garden_widget_id }
+      post :create, id: widget.id, aside_before_main_widget: { website_template_id: website_template.id, name: "lol" }
       expect(response.body).to include "\"drop_target_id\":#{drop_target.id}"
     end
   end

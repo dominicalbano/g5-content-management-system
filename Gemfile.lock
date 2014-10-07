@@ -1,29 +1,29 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    actionmailer (4.1.5)
-      actionpack (= 4.1.5)
-      actionview (= 4.1.5)
+    actionmailer (4.1.4)
+      actionpack (= 4.1.4)
+      actionview (= 4.1.4)
       mail (~> 2.5.4)
-    actionpack (4.1.5)
-      actionview (= 4.1.5)
-      activesupport (= 4.1.5)
+    actionpack (4.1.4)
+      actionview (= 4.1.4)
+      activesupport (= 4.1.4)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
-    actionview (4.1.5)
-      activesupport (= 4.1.5)
+    actionview (4.1.4)
+      activesupport (= 4.1.4)
       builder (~> 3.1)
       erubis (~> 2.7.0)
     active_model_serializers (0.8.1)
       activemodel (>= 3.0)
-    activemodel (4.1.5)
-      activesupport (= 4.1.5)
+    activemodel (4.1.4)
+      activesupport (= 4.1.4)
       builder (~> 3.1)
-    activerecord (4.1.5)
-      activemodel (= 4.1.5)
-      activesupport (= 4.1.5)
+    activerecord (4.1.4)
+      activemodel (= 4.1.4)
+      activesupport (= 4.1.4)
       arel (~> 5.0.0)
-    activesupport (4.1.5)
+    activesupport (4.1.4)
       i18n (~> 0.6, >= 0.6.9)
       json (~> 1.7, >= 1.7.7)
       minitest (~> 5.1)
@@ -61,9 +61,9 @@ GEM
       json
     celluloid (0.15.2)
       timers (~> 1.1.0)
-    childprocess (0.5.5)
+    childprocess (0.5.3)
       ffi (~> 1.0, >= 1.0.11)
-    ckeditor (4.1.0)
+    ckeditor (4.0.11)
       mime-types
       orm_adapter (~> 0.5.0)
     codeclimate-test-reporter (0.3.0)
@@ -104,21 +104,21 @@ GEM
       activemodel (>= 3.0)
       activesupport (>= 3.0)
       request_store (~> 1.0.3)
-    ember-data-source (1.0.0.beta.10)
+    ember-data-source (0.14)
       ember-source
-    ember-rails (0.15.0)
+    ember-rails (0.14.1)
       active_model_serializers
       barber (>= 0.4.1)
-      ember-data-source (>= 1.0.0.beta.5)
-      ember-source (>= 1.1.0)
+      ember-data-source
+      ember-source
       execjs (>= 1.2)
-      handlebars-source (> 1.0.0)
+      handlebars-source
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.7.0)
-      handlebars-source (~> 1.0)
+    ember-source (1.0.1)
+      handlebars-source (= 1.0.12)
     erubis (2.7.0)
-    excon (0.39.6)
+    excon (0.38.0)
     execjs (2.2.1)
     fabrication (2.11.3)
     factory_girl (4.4.0)
@@ -130,7 +130,7 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
-    ffi (1.9.5)
+    ffi (1.9.3)
     foreman (0.74.0)
       dotenv (~> 0.11.1)
       thor (~> 0.19.1)
@@ -167,10 +167,10 @@ GEM
     guard-rspec (4.2.10)
       guard (~> 2.1)
       rspec (>= 2.14, < 4.0)
-    handlebars-source (1.3.0)
+    handlebars-source (1.0.12)
     hashie (2.0.5)
-    heroku-api (0.3.19)
-      excon (~> 0.38)
+    heroku-api (0.3.18)
+      excon (~> 0.27)
       multi_json (~> 1.8)
     heroku_resque_autoscaler (0.1.2)
       heroku-api (~> 0.3.5)
@@ -216,13 +216,11 @@ GEM
     minitest (5.4.0)
     modelish (0.3.0)
       hashie (~> 2.0.5)
-    momentjs-rails (2.8.3)
-      railties (>= 3.1)
     mono_logger (1.1.0)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    newrelic_rpm (3.9.4.245)
+    newrelic_rpm (3.9.0.229)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
     non-stupid-digest-assets (1.0.4)
@@ -257,24 +255,24 @@ GEM
     rack-test (0.6.2)
       rack (>= 1.0)
     railroady (1.1.1)
-    rails (4.1.5)
-      actionmailer (= 4.1.5)
-      actionpack (= 4.1.5)
-      actionview (= 4.1.5)
-      activemodel (= 4.1.5)
-      activerecord (= 4.1.5)
-      activesupport (= 4.1.5)
+    rails (4.1.4)
+      actionmailer (= 4.1.4)
+      actionpack (= 4.1.4)
+      actionview (= 4.1.4)
+      activemodel (= 4.1.4)
+      activerecord (= 4.1.4)
+      activesupport (= 4.1.4)
       bundler (>= 1.3.0, < 2.0)
-      railties (= 4.1.5)
+      railties (= 4.1.4)
       sprockets-rails (~> 2.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
     rails_serve_static_assets (0.0.2)
     rails_stdout_logging (0.0.3)
-    railties (4.1.5)
-      actionpack (= 4.1.5)
-      activesupport (= 4.1.5)
+    railties (4.1.4)
+      actionpack (= 4.1.4)
+      activesupport (= 4.1.4)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
@@ -285,7 +283,7 @@ GEM
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     redis (3.1.0)
-    redis-namespace (1.5.1)
+    redis-namespace (1.5.0)
       redis (~> 3.0, >= 3.0.4)
     request_store (1.0.6)
     resque (1.25.2)
@@ -325,11 +323,11 @@ GEM
       sass (~> 3.2.0)
       sprockets (~> 2.8, <= 2.11.0)
       sprockets-rails (~> 2.0)
-    selenium-webdriver (2.43.0)
-      childprocess (~> 0.5)
+    selenium-webdriver (2.41.0)
+      childprocess (>= 0.5.0)
       multi_json (~> 1.0)
       rubyzip (~> 1.0)
-      websocket (~> 1.0)
+      websocket (~> 1.0.4)
     shoulda-matchers (2.6.1)
       activesupport (>= 3.0.0)
     simplecov (0.8.2)
@@ -361,7 +359,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    tzinfo (1.2.2)
+    tzinfo (1.2.1)
       thread_safe (~> 0.1)
     uglifier (2.5.1)
       execjs (>= 0.3.0)
@@ -378,7 +376,7 @@ GEM
     webmock (1.18.0)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
-    websocket (1.2.1)
+    websocket (1.0.7)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
@@ -401,7 +399,9 @@ DEPENDENCIES
   database_cleaner
   dotenv-rails
   draper
+  ember-data-source (~> 0.14)
   ember-rails
+  ember-source (~> 1.0.0)
   fabrication
   factory_girl_rails
   faker
@@ -420,21 +420,20 @@ DEPENDENCIES
   lograge
   memcachier
   microformats2
-  momentjs-rails
   newrelic_rpm
   non-stupid-digest-assets
   pg
   pry
   quiet_assets
   railroady
-  rails (= 4.1.5)
+  rails (= 4.1.4)
   rails_12factor
   ranked-model
   rb-fsevent
   rspec-its
   rspec-rails
   sass-rails
-  selenium-webdriver
+  selenium-webdriver (= 2.41.0)
   shoulda-matchers
   sprockets (= 2.11.0)
   sqlite3

@@ -19,27 +19,13 @@ describe Api::V1::WebsitesController, :auth_controller do
 
   describe "#show" do
     it "finds website" do
-      get :show, id: website.slug
-      expect(response.status).to eq 200
+      Website.should_receive(:find).with(website.id.to_s).once
+      get :show, id: website.id
     end
 
     it "renders website as json" do
-      get :show, id: website.slug
+      get :show, id: website.id
       expect(response.body).to eq WebsiteSerializer.new(website).to_json
-    end
-  end
-
-  describe "#deploy" do
-    let(:website) { Fabricate(:website) }
-
-    before(:each) do
-      Website.stub(:find).and_return(website)
-    end
-
-    it "redirects to root" do
-      Resque.stub(:enqueue).and_return(true)
-      post :deploy, website_id: 1
-      response.should redirect_to root_path
     end
   end
 end

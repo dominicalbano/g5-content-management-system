@@ -1,6 +1,6 @@
 App.WebPageTemplate = DS.Model.extend
-  website: DS.belongsTo("website")
-  mainWidgets: DS.hasMany("mainWidget")
+  website: DS.belongsTo("App.Website")
+  mainWidgets: DS.hasMany("App.MainWidget")
   previewUrl: DS.attr("string")
   name: DS.attr("string")
   slug: DS.attr("string")
@@ -10,4 +10,4 @@ App.WebPageTemplate = DS.Model.extend
   displayOrder: DS.attr("number")
   displayOrderPosition: DS.attr("number")
   inTrash: DS.attr("boolean")
-  parent: DS.belongsTo("WebPageTemplate")
+  parent: DS.belongsTo("App.WebPageTemplate")

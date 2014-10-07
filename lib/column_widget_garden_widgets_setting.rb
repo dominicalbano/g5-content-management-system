@@ -1,12 +1,6 @@
 class ColumnWidgetGardenWidgetsSetting
   def value
-    GardenWidget.where("name not in (?)", excluded_widgets).
-      order("name ASC").map(&:name)
-  end
-
-  private
-
-  def excluded_widgets
-    ExcludedLayoutWidgets::WIDGETS.dup << "Column"
+    GardenWidget.where("name != ? AND name != ?", "Column", "Row").
+                 order("name ASC").map(&:name)
   end
 end

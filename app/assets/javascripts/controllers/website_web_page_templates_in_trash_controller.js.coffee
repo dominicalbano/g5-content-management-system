@@ -4,4 +4,4 @@ App.WebsiteWebPageTemplatesInTrashController = Ember.ArrayController.extend
       model.save()
 
     cancel: (model) ->
-      model.rollback()
+      model.get('transaction').rollback()

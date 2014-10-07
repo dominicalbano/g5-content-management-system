@@ -9,9 +9,13 @@ module HasSettingCorporateMap
     Website.all.map(&:update_corporate_map_setting)
   end
 
+  def corporate_map_settings
+    settings.where(name: "corporate_map")
+  end
+
   def update_corporate_map_setting
-    settings.where(name: "corporate_map").each do |setting|
-      setting.update(value: CorporateMapSetting.new.value)
+    corporate_map_settings.each do |corporate_map_setting|
+      corporate_map_setting.update(value: CorporateMapSetting.new.value)
     end
   end
 end

@@ -75,8 +75,8 @@ end
 ```coffee
 # Client Ember Model - Grabs the attrs from the Client Serializer
 App.Client = DS.Model.extend
-  locations:     DS.hasMany("Location")
-  websites:      DS.hasMany("Website")
+  locations:     DS.hasMany("App.Location")
+  websites:      DS.hasMany("App.Website")
   urn:           DS.attr("string")
   name:          DS.attr("string")
   url:           DS.attr("string")

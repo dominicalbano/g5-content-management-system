@@ -10,14 +10,6 @@ App.WebPageTemplateController = Ember.ObjectController.extend
     mutableTemplates.removeObject(this.get("model"))
   ).property()
 
-  classNameForVertical: ( ->
-    vertical = @get("controllers.client.vertical")
-    if vertical
-      "#{vertical.toLowerCase()} client".dasherize()
-    else
-      ""
-  ).property('controllers.client.vertical')
-
   actions:
     deploy: (model) ->
       url = "/websites/" + model.get("website.id") + "/deploy"

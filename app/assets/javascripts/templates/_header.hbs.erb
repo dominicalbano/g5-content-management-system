@@ -2,29 +2,26 @@
   <div class="l-container">
 
     <h1 class="banner-title">
-      <a {{bind-attr href="controllers.client.dsh_url"}}>
-        <img class="banner-logo" src="<%= asset_path("logo.png") %>" alt="G5" /><span class='banner-logo-text'>DXM</span>
+      <a href="/">
+        <img class="banner-logo" src="<%= asset_path("logo.png") %>" alt="G5" /> CMS:
       </a>
 
       <a href="/">
-        CMS: <strong class="banner-subtitle">{{controllers.client.name}}</strong>
+        <strong class="banner-subtitle">{{controllers.client.name}}</strong>
       </a>
 
-      {{#if controllers.website}}
+      {{#if controllers.websiteIndex}}
         &raquo;
-        {{#link-to "website" controllers.website}}
-          <strong class="banner-subtitle">{{controllers.website.name}}</strong>
+        {{#link-to "website" controllers.websiteIndex}}
+          <strong class="banner-subtitle">{{controllers.websiteIndex.name}}</strong>
         {{/link-to}}
       {{/if}}
 
-      {{#if controllers.webPageTemplate}}
-        <span class="page-name">
-          &raquo;
-          <a><strong class="banner-subtitle">{{controllers.webPageTemplate.name}}</strong></a>
-        </span>
-      {{/if}}
+      <span class="page-name">
+        &raquo;
+        <a><strong class="banner-subtitle"></strong></a>
+      </span>
     </h1>
 
   </div> <!-- end .l-container -->
 </header>
-

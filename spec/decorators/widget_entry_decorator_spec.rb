@@ -13,7 +13,7 @@ describe WidgetEntryDecorator, vcr: VCR_OPTIONS do
 
   describe "#summary" do
     it "should include the widget's name" do
-      expect(decorated_widget_entry.summary).to include(widget_entry.widget.name)
+      decorated_widget_entry.summary.should include widget_entry.widget.name
     end
   end
 
@@ -26,7 +26,7 @@ describe WidgetEntryDecorator, vcr: VCR_OPTIONS do
   describe "#categories" do
     it "should include the last word the widget name" do
       widget_name_last_word = widget_entry.widget_name.split.last.downcase
-      expect(decorated_widget_entry.categories).to include(widget_name_last_word)
+      decorated_widget_entry.categories.should include widget_name_last_word
     end
   end
 end

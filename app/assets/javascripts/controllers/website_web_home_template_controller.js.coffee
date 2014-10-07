@@ -4,4 +4,4 @@ App.WebsiteWebHomeTemplateController = Ember.ObjectController.extend
       model.save()
 
     cancel: (model) ->
-      model.rollback()
+      model.get('transaction').rollback()

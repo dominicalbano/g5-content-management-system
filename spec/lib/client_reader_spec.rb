@@ -6,9 +6,6 @@ describe ClientReader do
   let(:uf2_client) { Microformats2.parse(client_uid) }
   let(:parsed) { double(first: uf2_client.first) }
 
-  before { Location.any_instance.stub(:create_bucket) }
-  before { Client.any_instance.stub(:create_bucket) }
-
   describe "#perform" do
     before { Microformats2.stub(parse: parsed) }
 
@@ -128,4 +125,3 @@ describe ClientReader do
     end
   end
 end
-

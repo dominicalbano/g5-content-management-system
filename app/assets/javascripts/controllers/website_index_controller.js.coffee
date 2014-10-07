@@ -18,7 +18,7 @@ App.WebsiteIndexController = Ember.ObjectController.extend
       @beginPropertyChanges()
       @get("webPageTemplates").filterBy("inTrash", true).forEach (item) ->
         item.deleteRecord()
-        item.save()
       @endPropertyChanges()
+      @get("store").save()
       @set "confirmEmptyTrash", false
 

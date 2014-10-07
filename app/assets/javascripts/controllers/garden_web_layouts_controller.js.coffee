@@ -1,15 +1,9 @@
 App.GardenWebLayoutsController = Ember.ArrayController.extend
-  needs: ["webLayout", "gardenWebLayout"]
+  needs: ["webLayout"]
 
   selectedLayout: ( ->
     @get("controllers.webLayout.model")
   ).property("controllers.webLayout.model")
-
-  relevantLayouts: ( ->
-    layouts = this.store.all('web_layout')
-    names = layouts.map (layout) -> layout.get('name')
-    names
-  ).property()
 
   actions:
     update: (gardenWebLayout) ->

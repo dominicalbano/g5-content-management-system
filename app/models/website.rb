@@ -18,15 +18,11 @@ class Website < ActiveRecord::Base
   has_many :web_templates
   has_many :assets, dependent: :destroy
   has_many :widgets, through: :web_templates
+  has_many :widget_settings, through: :widgets, source: :settings
 
   validates :urn, presence: true, uniqueness: true, unless: :new_record?
 
   scope :location_websites, -> { where(owner_type: "Location") }
-
-  def widget_settings
-    widgets.collect {|widget| widget.settings}.flatten +
-    widgets.collect {|widget| widget.nested_settings}.flatten
-  end
 
   def website_id
     id
@@ -59,12 +55,12 @@ class Website < ActiveRecord::Base
     web_templates.map(&:javascripts).flatten.uniq
   end
 
-  def deploy(user_email)
-    StaticWebsiteDeployerJob.perform(urn, user_email)
+  def deploy
+    StaticWebsiteDeployerJob.perform(urn)
   end
 
-  def async_deploy(user_email)
-    Resque.enqueue(StaticWebsiteDeployerJob, urn, user_email)
+  def async_deploy
+    Resque.enqueue(StaticWebsiteDeployerJob, urn)
   end
 
   def colors

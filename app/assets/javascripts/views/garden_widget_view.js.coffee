@@ -1,7 +1,7 @@
 App.GardenWidgetView = Ember.View.extend JQ.Draggable,
   tagName: "li"
   classNames: ["thumb", "widget", "new-widget"]
-  classNameBindings: ["dasherizedName","widgetType"]
+  classNameBindings: ["dasherizedName"]
   templateName: "_garden_widget"
   # JQ.Draggable uiOptions
   revert: true
@@ -11,11 +11,6 @@ App.GardenWidgetView = Ember.View.extend JQ.Draggable,
     name = @get("content.name")
     name.dasherize() if name
   ).property("content.name")
-
-  widgetType: ( ->
-    type = @get("content.widget_type")
-    "#{type.dasherize()}-feature" if type
-  ).property()
 
   # JQ.Draggable uiEvent
   start: (event, ui) ->

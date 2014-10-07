@@ -17,7 +17,7 @@ class ColorFinder
   private
 
   def location_primary_color
-    return unless valid?
+    return unless @location
     web_theme.custom_primary_color || web_theme.garden_web_theme.primary_color
   end
 
@@ -31,10 +31,7 @@ class ColorFinder
   end
 
   def web_theme
+    return unless @location
     @web_theme ||= @location.website.website_template.web_theme
-  end
-
-  def valid?
-    @location && @location.website && @location.website.website_template
   end
 end

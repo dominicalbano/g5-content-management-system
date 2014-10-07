@@ -1,4 +1,4 @@
-37
+require "spec_helper"
 
 class Component
   include ComponentGardenable
@@ -33,15 +33,15 @@ describe ComponentGardenable, vcr: { record: :new_episodes } do
         before do
           stub_const "MAIN_APP_UID", 'foo'
         end
-        it "parses components" do
-          expect(Component.components_microformats.length).to be > 0
+        it "should reject components when they have targets not including our UID" do
+          Component.components_microformats.length.should == 40
         end
       end
 
       describe "private widget targets us" do
         it "should accept components when they have targets including our UID" do
           pending "implement this spec when there is a private widget"
-          fail
+          Component.components_microformats.length.should == 39
         end
       end
     end
