@@ -14,10 +14,6 @@ module StaticWebsite
     def deploy
       @retries = 0
       begin
-        if @website.client.organization.present? && !heroku_app_created?
-          Rails.logger.info "Creating #{@website.heroku_app_name} within org: #{@website.client.organization} ..."
-          create_app_in_org
-        end
         deployer.deploy(deployer_options) do |repo|
           cp_r_compile_path(repo)
         end
@@ -44,7 +40,11 @@ module StaticWebsite
     def deployer_options
       { github_repo: @website.github_repo,
         heroku_app_name: @website.heroku_app_name,
-        heroku_repo: @website.heroku_repo }
+        heroku_repo: @website.heroku_repo,
+        git_url: @website.github_repo,
+        name: @website.heroku_app_name,
+        organization: @website.client.organization
+      }
     end
 
     def cp_r_compile_path(repo)
@@ -76,29 +76,8 @@ module StaticWebsite
 
     private
 
-    def create_app_in_org
-      heroku_platform_api.organization_app.create(platform_api_options)
-    end
-
     def take_db_snapshot
       SavesManager.new(@user_email).save
-    end
-
-    def heroku_platform_api
-      @heroku_platform_api ||= PlatformAPI.connect_oauth("#{ENV['HEROKU_API_KEY']}")
-    end
-
-    def platform_api_options
-      { git_url: @website.github_repo,
-        name: @website.heroku_app_name,
-        organization: @website.client.organization
-      }
-    end
-
-    def heroku_app_created?
-      heroku_platform_api.organization_app.list_for_organization(@website.client.organization).select {
-        |orgapp| orgapp["name"] == @website.heroku_app_name
-      }.count > 0
     end
   end
 end
