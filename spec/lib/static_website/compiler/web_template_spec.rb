@@ -7,7 +7,10 @@ describe StaticWebsite::Compiler::WebTemplate do
   let(:web_template) { Fabricate(:web_home_template, website_id: website.id) }
   let(:web_layout) { Fabricate(:web_layout) }
 
-  before { web_template.stub(:website_layout).and_return(web_layout) }
+  before do
+    web_template.stub(:update_navigation_settings)
+    web_template.stub(:website_layout).and_return(web_layout)
+  end 
 
   describe "#compile" do
     let(:subject) { StaticWebsite::Compiler::WebTemplate.new(web_template) }

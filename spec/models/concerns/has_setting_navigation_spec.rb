@@ -32,6 +32,10 @@ shared_examples_for HasSettingNavigation do
       let!(:web_page_template) { Fabricate(:web_page_template, website: described_instance) }
       let(:result) { described_instance.navigateable_web_templates_to_hashes }
 
+      before do
+        web_page_template.stub(:update_navigation_settings)
+      end  
+
       it "uses web template id string as key" do
         result.keys.first.should eq web_page_template.id.to_s
       end

@@ -5,6 +5,10 @@ describe WebTemplate do
   let(:website) { Fabricate.build(:website, owner: location) }
   let(:web_template) { Fabricate.build(:web_template, website: website) }
 
+  before do
+    web_template.stub(:update_navigation_settings)
+  end  
+
   describe "validations" do
     it "has a valid fabricator" do
       Fabricate.build(:web_template).should be_valid
@@ -38,6 +42,7 @@ describe WebTemplate do
         end  
 
         it "enqueues a worker" do
+          web_template.unstub(:update_navigation_settings)
           expect(Resque).to receive(:enqueue).with(UpdateNavigationSettingsJob, website.id)
           web_template.update_attribute(:in_trash, true)
         end  

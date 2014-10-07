@@ -7,6 +7,7 @@ describe Api::V1::WebPageTemplatesController, :auth_controller do
   let(:main_drop_target) { Fabricate(:drop_target) }
 
   before do
+    web_page_template.stub(:update_navigation_settings)
     web_page_template.drop_targets << main_drop_target
   end
 
