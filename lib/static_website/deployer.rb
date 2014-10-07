@@ -4,10 +4,11 @@ module StaticWebsite
   class Deployer
     attr_reader :website, :compile_path, :retries
 
-    def initialize(website)
+    def initialize(website, user_email)
       @website = website
       @compile_path = website.compile_path
       @retries = 0
+      @user_email = user_email
     end
 
     def deploy
@@ -29,6 +30,8 @@ module StaticWebsite
         else
           raise e
         end
+      else
+        take_db_snapshot
       ensure
         clean_up
       end
@@ -75,6 +78,10 @@ module StaticWebsite
 
     def create_app_in_org
       heroku_platform_api.organization_app.create(platform_api_options)
+    end
+
+    def take_db_snapshot
+      SavesManager.new(@user_email).save
     end
 
     def heroku_platform_api

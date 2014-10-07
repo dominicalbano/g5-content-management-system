@@ -3,6 +3,7 @@ class Location < ActiveRecord::Base
   include ToParamUrn
   include AfterUpdateSetSettingLocationsNavigation
   include AfterUpdateSetSettingCorporateMap
+  include AfterUpdateSetSettingCta
 
   has_one :website, as: :owner, dependent: :destroy
 
@@ -26,6 +27,10 @@ class Location < ActiveRecord::Base
 
   def neighborhood_slug
     neighborhood.try(:parameterize).to_s
+  end
+
+  def create_bucket
+    BucketCreator.new(self).create
   end
 
   private

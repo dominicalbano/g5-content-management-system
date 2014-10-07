@@ -107,7 +107,7 @@ private
   end
 
   def bucket
-    ENV["AWS_S3_BUCKET_NAME_#{@params[:locationName].parameterize.underscore.upcase}"]
+    S3BucketNameManager.new(location).bucket
   end
 
   def upload_signature
@@ -122,6 +122,10 @@ private
 
   def sluggify_filename
     @params[:name].split('.').map {|part| part.parameterize}.join('.')
+  end
+
+  def location
+    Location.where(name: @params[:locationName]).first
   end
 end
 

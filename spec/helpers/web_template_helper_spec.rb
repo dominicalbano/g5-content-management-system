@@ -1,6 +1,7 @@
 require "spec_helper"
 
 describe WebTemplatesHelper, vcr: VCR_OPTIONS do
+  let!(:client) {Fabricate(:client)}
   let(:website) { Fabricate(:website) }
   let(:website_template) { Fabricate(:website_template) }
   let(:web_layout) { Fabricate(:web_layout) }

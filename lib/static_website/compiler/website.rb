@@ -3,6 +3,7 @@ require "static_website/compiler/javascripts"
 require "static_website/compiler/stylesheets"
 require "static_website/compiler/web_template"
 require "static_website/compiler/web_templates"
+require "static_website/compiler/area_pages"
 require "static_website/compiler/htaccess"
 require "static_website/compiler/sitemap"
 require "static_website/compiler/robots"
@@ -24,6 +25,7 @@ module StaticWebsite
         stylesheets.compile
         web_home_template.compile
         web_page_templates.compile
+        area_pages.compile if website.owner.corporate?
         htaccess.compile
         sitemap.compile
         robots.compile
@@ -55,6 +57,10 @@ module StaticWebsite
 
       def web_page_templates
         @web_page_templates ||= WebTemplates.new(website.web_page_templates)
+      end
+
+      def area_pages
+        AreaPages.new(website.compile_path, ::Website.location_websites)
       end
 
       def htaccess

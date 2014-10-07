@@ -69,4 +69,6 @@ G5CMS::Application.configure do
   config.ember.variant = :production
 
   config.eager_load = true
+  Rails.application.default_url_options[:host] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
 end
+

@@ -89,4 +89,8 @@ private
   def find_or_create_client_website(client)
     Website.where(owner_id: client.id, owner_type: "Client").first_or_create
   end
+
+  def production?
+    Rails.env.production?
+  end
 end

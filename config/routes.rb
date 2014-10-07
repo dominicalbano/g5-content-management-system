@@ -17,7 +17,9 @@ G5CMS::Application.routes.draw do
       end
 
       resources :locations, only: [:index, :show]
-      resources :websites, only: [:index, :show]
+      resources :websites, only: [:index, :show] do
+        post "deploy"
+      end
       resources :website_templates, only: [:show]
       resources :web_layouts, only: [:show, :update]
       resources :web_themes, only: [:show, :update]
@@ -55,6 +57,9 @@ G5CMS::Application.routes.draw do
       resources :releases, only: [:index, :show] do
         post "website/:website_slug", to: 'releases#rollback'
       end
+      resources :saves, only: [:index, :show, :create] do
+        post "restore"
+      end
     end
   end
 
@@ -81,8 +86,8 @@ G5CMS::Application.routes.draw do
   # Ember.js application
   get "/:location_slug", to: "locations#index"
   get "/:location_slug/:web_page_template_slug", to: "locations#index"
-  get "/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
-  get "/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
+  get "/:urn/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
+  get "/:urn/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
   get "/:vertical_slug/:state_slug/:city_slug/:owner_urn/:web_template_slug", to: "web_templates#show"
 
   # Root to Ember.js application

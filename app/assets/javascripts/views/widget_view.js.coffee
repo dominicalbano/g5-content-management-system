@@ -1,7 +1,7 @@
 App.WidgetView = Ember.View.extend
   tagName: "li"
   classNames: ["thumb", "widget", "existing-widget"]
-  classNameBindings: ["dasherizedName"]
+  classNameBindings: ["dasherizedName","widgetType"]
   attributeBindings: ["id:data-id"]
   templateName: "_widget"
 
@@ -14,8 +14,14 @@ App.WidgetView = Ember.View.extend
     id = @get("content.id")
   ).property("content.id")
 
+  widgetType: ( ->
+    type = @get("content.widget_type")
+    "#{type.dasherize()}-feature" if type
+  ).property()
+
   click: (event) ->
     if @get("content.id")
+      @set("controller.controllers.website.selectedWidgetName", this.get("content.name"))
       @getEditForm()
     false
 

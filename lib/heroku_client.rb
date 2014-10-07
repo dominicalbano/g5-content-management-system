@@ -7,17 +7,25 @@ class HerokuClient
   end
 
   def releases
-    HTTParty.get(release_resource, headers).body
+    HTTParty.get(url_for("releases"), headers).body
   end
 
   def rollback(release_id)
-    HTTParty.post(release_resource, post_params(release_id))
+    HTTParty.post(url_for("releases"), params({ release: release_id }))
+  end
+
+  def get_config_vars
+    HTTParty.get(url_for("config-vars"), headers).body
+  end
+
+  def set_config(env, value)
+    HTTParty.patch(url_for("config-vars"), params({ env => value }))
   end
 
   private
 
-  def release_resource
-    "#{BASE_ENDPOINT}/#{@app}/releases"
+  def url_for(resource)
+    "#{BASE_ENDPOINT}/#{@app}/#{resource}"
   end
 
   def headers
@@ -30,7 +38,7 @@ class HerokuClient
     }
   end
 
-  def post_params(release_id)
-    { body: { release: release_id }.to_json }.merge(headers)
+  def params(body)
+    { body: body.to_json }.merge(headers)
   end
 end
