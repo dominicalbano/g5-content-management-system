@@ -8,14 +8,17 @@ module StaticWebsite
 
         def initialize(from_paths, location_name)
           @from_paths = from_paths
+          @location_name = location_name
           @s3 = AWS::S3.new(
             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
             secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
             region: ENV["AWS_REGION"] || "us-west-2"
           )
-          location_name = location_name.to_s.parameterize.underscore.upcase
-          @bucket_name = ENV["AWS_S3_BUCKET_NAME_#{location_name}"]
-          @bucket_url = ENV["AWS_S3_BUCKET_URL_#{location_name}"]
+
+          unless @location_name.empty?
+            @bucket_name = s3_bucket_name_manager.bucket
+            @bucket_url = s3_bucket_name_manager.bucket_url
+          end
         end
 
         def compile
@@ -45,6 +48,16 @@ module StaticWebsite
         def to_path(from_path)
           filename = File.basename(from_path)
           to_path = File.join("javascripts", filename)
+        end
+
+        private
+
+        def s3_bucket_name_manager
+          @s3_bucket_name_manager ||= S3BucketNameManager.new(location)
+        end
+
+        def location
+          Location.where(name: @location_name).first
         end
       end
     end
