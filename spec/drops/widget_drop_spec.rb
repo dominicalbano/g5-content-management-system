@@ -23,10 +23,14 @@ describe WidgetDrop do
 
   describe "parent_widget_id" do
     before do
+      website = Fabricate(:website)
+      webtemplate = Fabricate(:web_template)
+      website.web_templates << webtemplate
+      webtemplate.drop_targets << Fabricate(:drop_target)
       row_garden_widget = Fabricate(:row_garden_widget)
-      row_garden_widget.settings << Fabricate(:column_one_widget_name)
-      row_garden_widget.settings << Fabricate(:column_one_widget_id)
-      @widget = Fabricate(:widget, garden_widget: row_garden_widget)
+      row_garden_widget.settings << Fabricate.build(:column_one_widget_name)
+      row_garden_widget.settings << Fabricate.build(:column_one_widget_id)
+      @widget = Fabricate(:widget, garden_widget: row_garden_widget, drop_target: webtemplate.drop_targets.first)
       @widget.settings.where(name: "column_one_widget_name").first.
         update_attributes(value: (Fabricate(:garden_widget).name))
     end

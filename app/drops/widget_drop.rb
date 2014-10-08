@@ -43,8 +43,8 @@ private
   end
 
   def parent_setting
-    @parent_setting ||= Setting.where(value: widget.id).find do |setting|
-      setting.name =~ /(?=column)(?=.*widget_id).*/
+    @parent_setting ||= Setting.where("name LIKE 'column%widget_id'").find do |setting|
+      setting.value = widget.id
     end
   end
 
