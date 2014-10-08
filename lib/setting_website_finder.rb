@@ -26,9 +26,10 @@ private
   end
 
   def find_layout_setting_by_value(owner_id)
-    Setting.where("name LIKE 'column%widget_id'").find do |setting|
+    Setting.where("name LIKE '%widget_id'").find do |setting|
       setting.value = owner_id
     end
   end
 end
+
 
