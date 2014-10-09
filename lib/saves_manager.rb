@@ -8,14 +8,14 @@ class SavesManager
   def fetch_all
     bucket = AWS.s3.buckets[bucket_name]
 
-    items = bucket.objects.select do |object|
+    items = bucket.as_tree(prefix: "#{client_urn}/db-backups").children.select do |object|
       object.key if object.key =~ /.+\.dump\z/
     end.map do |object|
       { id: object.key.rpartition('.').first,
         created_at: object.last_modified }
     end.sort {|a,b| b[:created_at] <=> a[:created_at]}
-  rescue
-    []
+  #rescue => e
+  #  [e]
   end
 
   def save
@@ -35,9 +35,17 @@ class SavesManager
 
   private
 
+  def client
+    Client.take
+  end
+
+  def client_urn
+    client.urn
+  end
+
   def bucket_name
-    "assets.#{Client.first.urn}"
-    S3BucketNameManager.new(Client.take).bucket_name
+    "assets.#{client_urn}"
+    S3BucketNameManager.new(client).bucket_name
   end
 
   def find_or_create_s3_bucket
