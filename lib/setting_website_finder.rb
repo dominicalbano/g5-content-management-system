@@ -9,7 +9,6 @@ class SettingWebsiteFinder
     loop do
       @website = website_for(@owner)
       return @website if @website.present?
-
       setting = find_layout_setting_by_value(@owner.id)
       return unless setting
 
@@ -27,9 +26,10 @@ private
   end
 
   def find_layout_setting_by_value(owner_id)
-    Setting.where(value: owner_id.to_s).find do |setting|
+    Setting.where("value LIKE '%?%'", owner_id).find do |setting|
       setting.name =~ /(?=(column|row))(?=.*widget_id).*/
     end
   end
 end
+
 
