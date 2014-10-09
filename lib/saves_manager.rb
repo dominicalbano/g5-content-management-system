@@ -14,8 +14,9 @@ class SavesManager
       { id: object.key.rpartition('.').first,
         created_at: object.last_modified }
     end.sort {|a,b| b[:created_at] <=> a[:created_at]}
-  #rescue => e
-  #  [e]
+  rescue => e
+    Rails.logger.warn e.message
+    []
   end
 
   def save
