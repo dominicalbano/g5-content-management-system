@@ -26,8 +26,6 @@ class S3BucketNameManager
   end
 
   def bucket
-    ENV[bucket_config_variable_name] || 
-    ENV[bucket_config_variable_name_based_name] || 
     "g5-orion-clients"
   end
 
