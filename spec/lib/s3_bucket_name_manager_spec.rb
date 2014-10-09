@@ -67,18 +67,6 @@ describe S3BucketNameManager do
   describe "#bucket_url" do
     subject { s3_bucket_name_manager.bucket_url }
 
-    context "an existing urn based variable" do
-      before { stub_const("ENV", { "AWS_S3_BUCKET_URL_G5_CL_FOO_BAR_BAZ" => "foo" }) }
-
-      it { is_expected.to eq("foo") }
-    end
-
-    context "only a name based variable" do
-      before { stub_const("ENV", { "AWS_S3_BUCKET_URL_FOO_BAR_BAZ" => "bar" }) }
-
-      it { is_expected.to eq("bar") }
-    end
-
     context "no env variable" do
       it { is_expected.to eq(S3BucketNameManager.const_get("BUCKET_URL")) }
     end

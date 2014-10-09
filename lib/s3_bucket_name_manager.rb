@@ -32,8 +32,6 @@ class S3BucketNameManager
   end
 
   def bucket_url
-    ENV[bucket_config_variable_url] ||
-    ENV[bucket_config_variable_name_based_url] ||
     BUCKET_URL
   end
 
