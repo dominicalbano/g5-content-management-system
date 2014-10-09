@@ -46,7 +46,6 @@ class Setting < ActiveRecord::Base
   # TODO: rename value to my_value or something
   def best_value
     value || others_with_lower_priority.first.try(:value) || global_others.first.try(:value) || default_value
-    #value
   end
 
   def global_others
