@@ -69,7 +69,7 @@ class Setting < ActiveRecord::Base
   private
 
   def others
-    if website_id.nil? then set_website_id end
+    set_website_id if website_id.nil?
     query = self.class
     query = query.for_website(website_id) if website_id
     query = query.where_name(name)
