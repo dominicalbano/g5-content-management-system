@@ -73,6 +73,15 @@ RSpec.configure do |config|
   config.after(:suite) do
     puts "\n\nReminder: \033[1;31m\Don't forget to run integration specs with rspec -t integration\e[0m"
   end
+  config.mock_with :rspec do |mocks|
+
+    # This option should be set when all dependencies are being loaded
+    # before a spec run, as is the case in a typical spec helper. It will
+    # cause any verifying double instantiation for a class that does not
+    # exist to raise, protecting against incorrectly spelt names.
+    mocks.verify_doubled_constant_names = true
+
+  end
 end
 
 def set_selenium_window_size(width, height)

@@ -46,7 +46,10 @@ describe S3BucketNameManager do
     subject { s3_bucket_name_manager.bucket }
 
     context "an existing urn based variable" do
-      before { stub_const("ENV", { "AWS_S3_BUCKET_NAME_G5_CL_FOO_BAR_BAZ" => "assets.g5-cl-foo-bar-baz" }) }
+      before do
+        stub_const("ENV", 
+                   { "AWS_S3_BUCKET_NAME_G5_CL_FOO_BAR_BAZ" => "assets.g5-cl-foo-bar-baz" })
+      end
 
       it { is_expected.to eq("assets.g5-cl-foo-bar-baz") }
     end
@@ -55,6 +58,9 @@ describe S3BucketNameManager do
       before { stub_const("ENV", { "AWS_S3_BUCKET_NAME_FOO_BAR_BAZ" => "assets.foo-bar-baz" }) }
 
       it { is_expected.to eq("assets.foo-bar-baz") }
+    end
+    context "no env variable based on anything — v2 of buckets where all clients are in 1" do
+      it {is_expected.to eq "g5-orion-clients"}
     end
   end
 
@@ -71,6 +77,10 @@ describe S3BucketNameManager do
       before { stub_const("ENV", { "AWS_S3_BUCKET_URL_FOO_BAR_BAZ" => "bar" }) }
 
       it { is_expected.to eq("bar") }
+    end
+
+    context "no env variable" do
+      it { is_expected.to eq(S3BucketNameManager.const_get("BUCKET_URL")) }
     end
   end
 end

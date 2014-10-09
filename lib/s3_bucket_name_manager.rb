@@ -1,4 +1,6 @@
 class S3BucketNameManager
+  BUCKET_URL = "https://s3-us-west-2.amazonaws.com/g5-orion-clients"
+
   def initialize(owner)
     @owner = owner
   end
@@ -24,14 +26,19 @@ class S3BucketNameManager
   end
 
   def bucket
-    ENV[bucket_config_variable_name] || ENV[bucket_config_variable_name_based_name] || ""
+    ENV[bucket_config_variable_name] || 
+    ENV[bucket_config_variable_name_based_name] || 
+    "g5-orion-clients"
   end
 
   def bucket_url
-    ENV[bucket_config_variable_url] || ENV[bucket_config_variable_name_based_url] || ""
+    ENV[bucket_config_variable_url] ||
+    ENV[bucket_config_variable_name_based_url] ||
+    BUCKET_URL
   end
 
   def bucket_config
     "#{bucket_config_variable_name}=#{bucket_name}"
   end
 end
+

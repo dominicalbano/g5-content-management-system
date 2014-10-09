@@ -52,3 +52,4 @@ class BucketCreator
     @s3_bucket_name_manager ||= S3BucketNameManager.new(@owner)
   end
 end
+

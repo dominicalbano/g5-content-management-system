@@ -23,60 +23,74 @@ describe Client do
     end
   end
 
-  describe "#website_defaults" do
-    let!(:client) { Fabricate(:client, vertical: vertical) }
 
-    subject { client.website_defaults }
+  describe "instance methods" do
+    let(:client) {Fabricate(:client)}
 
-    context "Self Storage" do
-      let(:vertical) { "Self-Storage" }
+    describe "#website_defaults" do
+      let!(:client) { Fabricate(:client, vertical: vertical) }
 
-      it "loads the appropriate defaults" do
-        expect(subject).to eq load_yaml("website_defaults_self_storage.yml")
+      subject { client.website_defaults }
+
+      context "Self Storage" do
+        let(:vertical) { "Self-Storage" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_yaml("website_defaults_self_storage.yml")
+        end
+      end
+
+      context "Apartments" do
+        let(:vertical) { "Apartments" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_yaml("website_defaults_apartments.yml")
+        end
+      end
+
+      context "Assisted Living" do
+        let(:vertical) { "Assisted-Living" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_yaml("website_defaults_assisted_living.yml")
+        end
+      end
+
+      context "everything else" do
+        let(:vertical) { "foo" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_yaml("defaults.yml")
+        end
       end
     end
 
-    context "Apartments" do
-      let(:vertical) { "Apartments" }
-
-      it "loads the appropriate defaults" do
-        expect(subject).to eq load_yaml("website_defaults_apartments.yml")
+    describe "#deploy" do
+      it "calls StaticWebsiteDeployerJob with urn" do
+        ClientDeployerJob.should_receive(:perform).once
+        client.deploy
       end
     end
 
-    context "Assisted Living" do
-      let(:vertical) { "Assisted-Living" }
-
-      it "loads the appropriate defaults" do
-        expect(subject).to eq load_yaml("website_defaults_assisted_living.yml")
+    describe "#async_deploy" do
+      it "enqueues StaticWebsiteDeployerJob with urn" do
+        Resque.stub(:enqueue)
+        Resque.should_receive(:enqueue).with(ClientDeployerJob).once
+        client.async_deploy
       end
     end
 
-    context "everything else" do
-      let(:vertical) { "foo" }
+    describe "#create_bucket" do
+      it "sends self to the bucket creator" do
+        client = Fabricate(:client)
+        bucket_creator = instance_double(BucketCreator)
 
-      it "loads the appropriate defaults" do
-        expect(subject).to eq load_yaml("defaults.yml")
+        expect(BucketCreator).to receive(:new).with(client).and_return(bucket_creator)
+        expect(bucket_creator).to receive(:create)
+
+        client.create_bucket
       end
-    end
-  end
-
-  describe "#deploy" do
-    let(:client) { Fabricate(:client) }
-
-    it "calls StaticWebsiteDeployerJob with urn" do
-      ClientDeployerJob.should_receive(:perform).once
-      client.deploy
-    end
-  end
-
-  describe "#async_deploy" do
-    let(:client) { Fabricate(:client) }
-
-    it "enqueues StaticWebsiteDeployerJob with urn" do
-      Resque.stub(:enqueue)
-      Resque.should_receive(:enqueue).with(ClientDeployerJob).once
-      client.async_deploy
     end
   end
 end
+
