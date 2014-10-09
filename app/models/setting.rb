@@ -46,6 +46,7 @@ class Setting < ActiveRecord::Base
   # TODO: rename value to my_value or something
   def best_value
     value || others_with_lower_priority.first.try(:value) || global_others.first.try(:value) || default_value
+    #value
   end
 
   def global_others
@@ -63,17 +64,17 @@ class Setting < ActiveRecord::Base
 
   def others_with_lower_priority
     query = others.order_priority_asc
-    query = query.where_priority_gt(priority)
+    query = query.where_priority_gte(priority)
   end
 
   private
 
   def others
+    if website_id.nil? then set_website_id end
     query = self.class
     query = query.for_website(website_id) if website_id
     query = query.where_name(name)
-
-    query.value_is_present
+    query = query.value_is_present
   end
 
   def set_website_id
