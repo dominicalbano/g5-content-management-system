@@ -37,6 +37,7 @@ class SavesManager
 
   def bucket_name
     "assets.#{Client.first.urn}"
+    S3BucketNameManager.new(Client.take).bucket_name
   end
 
   def find_or_create_s3_bucket

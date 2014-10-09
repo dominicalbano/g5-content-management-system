@@ -16,7 +16,7 @@ module StaticWebsite
           )
 
           unless @location_name.empty?
-            @bucket_name = s3_bucket_name_manager.bucket
+            @bucket_name = s3_bucket_name_manager.bucket_name
             @bucket_url = s3_bucket_name_manager.bucket_url
           end
         end

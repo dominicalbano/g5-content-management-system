@@ -17,7 +17,11 @@ class BucketCreator
   private
 
   def create_bucket
-    s3_client.buckets.create(bucket_name)
+    begin
+      s3_client.buckets.create(bucket_name)
+    rescue => e
+      Rails.logger.warn e.message
+    end
   end
 
   def config_exists?
@@ -33,7 +37,7 @@ class BucketCreator
   end
 
   def config_var
-    s3_bucket_name_manager.bucket_config_variable_name
+    s3_bucket_name_manager.heroku_config_key_for_bucket_name
   end
 
   def s3_client

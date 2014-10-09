@@ -55,7 +55,7 @@ private
 
   def canonical_request(datetime)
     "DELETE\n"\
-    "/#{bucket}/uploads/#{sluggify_filename}\n"\
+    "/#{bucket}/#{Client.take.urn}/#{location.urn}/uploads/#{sluggify_filename}\n"\
     "\n"\
     "host:s3-#{region}.amazonaws.com\n"\
     "x-amz-date:#{iso8601_datetime(datetime)}\n"\
@@ -107,7 +107,7 @@ private
   end
 
   def bucket
-    @bucket ||= S3BucketNameManager.new(location).bucket
+    @bucket ||= S3BucketNameManager.new(location).bucket_name
   end
 
   def upload_signature
