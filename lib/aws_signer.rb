@@ -12,7 +12,7 @@ class AWSSigner
       bucket: bucket,
       region: region,
       expires: @now + 10.hours,
-      key: "uploads/#{sluggify_filename}",
+      key: "#{bucket_asset_key_prefix}/uploads/#{sluggify_filename}",
       policy: policy,
       signature: upload_signature,
       success_action_status: '201',
