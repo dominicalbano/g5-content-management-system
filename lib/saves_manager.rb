@@ -2,7 +2,7 @@ class SavesManager
   FOLDER_NAME = "db-backups"
 
   def initialize(user_email)
-    @user_email = user_email.gsub('.', '')
+    @user_email = user_email.parameterize
   end
 
 
