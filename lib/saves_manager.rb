@@ -2,7 +2,7 @@ class SavesManager
   FOLDER_NAME = "db-backups"
 
   def initialize(user_email)
-    @user_email = user_email
+    @user_email = user_email.gsub('.', '')
   end
 
 
@@ -10,7 +10,7 @@ class SavesManager
     items = bucket_target_branch.select do |leaf|
       leaf.key if leaf.key =~ /.+\.dump\z/
     end.map do |leaf|
-      { id: leaf.key.rpartition('.').first,
+      { id: leaf.key.split('/').last.rpartition('.').first,
         created_at: leaf.object.last_modified }
     end.sort {|a,b| b[:created_at] <=> a[:created_at]}
   rescue => e
@@ -54,6 +54,7 @@ class SavesManager
 
   def prefix
     client.bucket_asset_key_prefix
+    #"mj-c-6h0so0g-cloud-storage"
   end
 
   def client
