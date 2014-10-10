@@ -5,10 +5,18 @@ describe SavesManager do
   let(:saves) {[
     double({created_at:"2014-01-21T19:30:19Z",
             key:"user@foo.com-9547b11a-2236-4cfb-b6ad-11cdca45c1cf-DATABASE-URL.dump",
-            last_modified: "2014-01-21T19:34:25Z"}),
+            last_modified: "2014-01-21T19:34:25Z",
+            object: double({created_at:"2014-01-21T19:30:19Z",
+                     key:"user@foo.com-9547b11a-2236-4cfb-b6ad-11cdca45c1cf-DATABASE-URL.dump",
+                     last_modified: "2014-01-21T19:34:25Z"})
+          }),
     double({created_at:"2014-01-21T19:34:25Z",
             key:"user2@foo.com-9547b11a-2236-4cfb-b6ad-11cdcafoo-DATABASE-URL.dump",
-            last_modified: "2014-01-21T19:34:25Z"})
+            last_modified: "2014-01-21T19:34:25Z",
+            object: double({created_at:"2014-01-21T19:34:25Z",
+                     key:"user2@foo.com-9547b11a-2236-4cfb-b6ad-11cdcafoo-DATABASE-URL.dump",
+                     last_modified: "2014-01-21T19:34:25Z"})
+          })
   ]}
   let!(:client){Fabricate(:client)}
 
@@ -24,7 +32,7 @@ describe SavesManager do
       subject { saves_manager.fetch_all.first }
 
       its([:id]) {should eq("user@foo.com-9547b11a-2236-4cfb-b6ad-11cdca45c1cf-DATABASE-URL") }
-      its([:created_at]) { should eq("2014-01-21T19:34:25Z") }
+      its([:created_at]) {should eq("2014-01-21T19:34:25Z") }
     end
   end
 
