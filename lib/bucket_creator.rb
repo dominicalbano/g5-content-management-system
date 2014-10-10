@@ -9,7 +9,8 @@ class BucketCreator
     begin
       create_bucket
       set_config
-    rescue
+    rescue => e
+      Rails.logger.warn e.message
       false
     end
   end
@@ -17,11 +18,7 @@ class BucketCreator
   private
 
   def create_bucket
-    begin
-      s3_client.buckets.create(bucket_name)
-    rescue => e
-      Rails.logger.warn e.message
-    end
+    s3_client.buckets.create(bucket_name)
   end
 
   def config_exists?
