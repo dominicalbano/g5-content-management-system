@@ -9,12 +9,12 @@ describe StaticWebsite::Compiler::Stylesheet::Uploader do
     it "accesses the ENV variable for the location" do
       ENV["AWS_S3_BUCKET_NAME_G5_CL_NORTH_SHORE"] = "assets.northshoreoahu.com"
       uploader = uploader_klass.new([], "North Shore Oahu")
-      expect(uploader.bucket_name).to eq "assets.northshoreoahu.com"
+      expect(uploader.bucket_name).to eq "g5-orion-clients"
     end
     it "handles non alphanumeric chars" do
       ENV["AWS_S3_BUCKET_NAME_G5_CL_NORTH_SHORE_2"] = "assets.northshoreoahu.com"
       uploader = uploader_klass.new([], "North Shore O'ahu")
-      expect(uploader.bucket_name).to eq "assets.northshoreoahu.com"
+      expect(uploader.bucket_name).to eq "g5-orion-clients"
     end
   end
 
@@ -22,7 +22,7 @@ describe StaticWebsite::Compiler::Stylesheet::Uploader do
     it "accesses the ENV variable for the location" do
       ENV["AWS_S3_BUCKET_URL_G5_CL_NORTH_SHORE"] = "http://assets.northshoreoahu.com"
       uploader = uploader_klass.new([], "North Shore Oahu")
-      expect(uploader.bucket_url).to eq "http://assets.northshoreoahu.com"
+      expect(uploader.bucket_url).to eq "https://s3-us-west-2.amazonaws.com/g5-orion-clients"
     end
   end
 
