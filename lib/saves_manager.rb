@@ -74,7 +74,7 @@ class SavesManager
   end
 
   def get_dump_presigned_url(save_id)
-    bucket_target_branch["#{save_id}.dump"].url_for(:get, :expires => 10*60).to_s
+    bucket_target_branch.collection["#{save_id}.dump"].url_for(:get, :expires => 10*60).to_s
   end
 
 end
