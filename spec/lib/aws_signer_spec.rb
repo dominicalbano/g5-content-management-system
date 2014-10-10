@@ -23,7 +23,7 @@ describe AWSSigner do
       subject.upload_headers.should include :acl => "public-read"
       subject.upload_headers.should include \
         :signature => "EyOpsiDQ55Fo9aeENPyXgUhg4OM="
-      subject.upload_headers.should include :key => "uploads/file-with-spaces.something.jpg"
+      subject.upload_headers.should include :key => "client-urn/foo/uploads/file-with-spaces.something.jpg"
     end
   end
 

@@ -18,7 +18,7 @@ describe S3BucketNameManager do
   end
 
   describe "#bucket_asset_key_prefix" do
-    subject { s3_bucket_name_manager.bucket_asset_key_prefix }
+    subject { s3_bucket_name_manager.asset_key_prefix }
     it { is_expected.to eq("#{client.urn}/g5-cl-foo-bar-baz") }
   end
 

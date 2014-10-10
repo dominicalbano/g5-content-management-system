@@ -15,6 +15,7 @@ describe WebsiteDecorator do
   end
 
   it "has a 30 character heroku name" do
+    binding.pry
     website.heroku_app_name.length.should eq 30
   end
 
