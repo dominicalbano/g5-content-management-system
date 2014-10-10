@@ -31,7 +31,7 @@ describe AWSSigner do
     it "returns a hash of header items" do
       subject.delete_headers.should include :aws_access_key_id => ENV['AWS_ACCESS_KEY_ID']
       subject.delete_headers.should include \
-        :signature => "e737aa61a2f92f9d0116db5fd4f746994e386e73a8eae7dd8833aed6eb83583a"
+        :signature =>"e737aa61a2f92f9d0116db5fd4f746994e386e73a8eae7dd8833aed6eb83583a"
     end
   end
 end

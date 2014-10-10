@@ -14,7 +14,7 @@ class S3BucketNameManager
     "S3_BUCKET_NAME"
   end
 
-  def bucket_asset_key_prefix #bucket_name
+  def asset_key_prefix #bucket_name
     @owner.bucket_asset_key_prefix
   end
 
