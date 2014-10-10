@@ -45,7 +45,7 @@ class SavesManager
   end
 
   def bucket_name
-    "assets.#{client_urn}"
+    #"assets.#{client_urn}"
     S3BucketNameManager.new(client).bucket_name
   end
 

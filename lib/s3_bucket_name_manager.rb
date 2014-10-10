@@ -15,7 +15,7 @@ class S3BucketNameManager
   end
 
   def bucket_asset_key_prefix #bucket_name
-    "#{Client.take.urn}/#{@owner.urn}"
+    @owner.bucket_asset_key_prefix
   end
 
   def bucket_name

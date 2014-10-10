@@ -91,6 +91,12 @@ describe Client do
         client.create_bucket
       end
     end
+    
+    describe "#bucket_asset_key_prefix" do
+      it "returns the urn" do
+        expect(client.bucket_asset_key_prefix).to eq("foo")
+      end
+    end
   end
 end
 

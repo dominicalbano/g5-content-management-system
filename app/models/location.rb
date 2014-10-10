@@ -20,6 +20,10 @@ class Location < ActiveRecord::Base
   def website_id
     website.try(:id)
   end
+  
+  def bucket_asset_key_prefix
+    "#{Client.take.bucket_asset_key_prefix}/#{urn}"
+  end
 
   def state_slug
     state.try(:parameterize).to_s
