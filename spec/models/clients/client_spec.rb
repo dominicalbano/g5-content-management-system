@@ -94,7 +94,7 @@ describe Client do
     
     describe "#bucket_asset_key_prefix" do
       it "returns the urn" do
-        expect(client.bucket_asset_key_prefix).to eq("foo")
+        expect(client.bucket_asset_key_prefix).to eq(client.urn)
       end
     end
   end
