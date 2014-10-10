@@ -40,11 +40,15 @@ class SavesManager
   end
 
   def backups_path
-    "/#{client.bucket_asset_key_prefix}/#{FOLDER_NAME}"
+    "/#{prefix}/#{FOLDER_NAME}"
   end
 
   def bucket_backups_full_path
-    "#{s3_bucket.name}/#{client.bucket_asset_key_prefix}/#{FOLDER_NAME}"
+    "#{s3_bucket.name}/#{prefix}/#{FOLDER_NAME}"
+  end
+
+  def prefix
+    client.bucket_asset_key_prefix
   end
 
   def client
@@ -64,7 +68,7 @@ class SavesManager
   end
 
   def get_dump_presigned_url(save_id)
-    s3_bucket.objects["#{save_id}.dump"].url_for(:get, :expires => 10*60).to_s
+    bucket_target_branch["#{save_id}.dump"].url_for(:get, :expires => 10*60).to_s
   end
 
 end
