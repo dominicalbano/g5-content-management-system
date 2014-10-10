@@ -74,7 +74,7 @@ class SavesManager
   end
 
   def get_dump_presigned_url(save_id)
-    bucket_target_branch_children.select do |object| 
+    bucket_target_branch_children.select do |object|
       object.key == "#{backups_path}/#{save_id}.dump"
     end.first.url_for(:get, :expires => 10*60).to_s
   end
