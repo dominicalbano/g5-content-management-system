@@ -7,7 +7,7 @@ class SavesManager
 
 
   def fetch_all
-    items = bucket_target_branch.select do |leaf|
+    items = bucket_target_branch_children.select do |leaf|
       leaf.key if leaf.key =~ /.+\.dump\z/
     end.map do |leaf|
       { id: leaf.key.split('/').last.rpartition('.').first,
@@ -40,7 +40,7 @@ class SavesManager
 
   private
 
-  def bucket_target_branch
+  def bucket_target_branch_children
     s3_bucket.as_tree(prefix: backups_path).children
   end
 
@@ -49,7 +49,7 @@ class SavesManager
   end
 
   def bucket_backups_full_path
-    "#{s3_bucket.name}/#{prefix}/#{FOLDER_NAME}"
+    "#{s3_bucket.name}/#{backups_path}"
   end
 
   def prefix
@@ -74,7 +74,9 @@ class SavesManager
   end
 
   def get_dump_presigned_url(save_id)
-    bucket_target_branch.collection["#{save_id}.dump"].url_for(:get, :expires => 10*60).to_s
+    bucket_target_branch_children.select do |object| 
+      object.key == "#{backups_path}/#{save_id}.dump"
+    end.first.url_for(:get, :expires => 10*60).to_s
   end
 
 end
