@@ -7,11 +7,11 @@ class SavesManager
 
 
   def fetch_all
-    items = bucket_target_branch.select do |object|
-      object.key if object.key =~ /.+\.dump\z/
-    end.map do |object|
-      { id: object.key.rpartition('.').first,
-        created_at: object.last_modified }
+    items = bucket_target_branch.select do |leaf|
+      leaf.key if leaf.key =~ /.+\.dump\z/
+    end.map do |leaf|
+      { id: leaf.key.rpartition('.').first,
+        created_at: leaf.object.last_modified }
     end.sort {|a,b| b[:created_at] <=> a[:created_at]}
   rescue => e
     Rails.logger.warn e.message
@@ -40,7 +40,7 @@ class SavesManager
   end
 
   def backups_path
-    "/#{prefix}/#{FOLDER_NAME}"
+    "#{prefix}/#{FOLDER_NAME}"
   end
 
   def bucket_backups_full_path
