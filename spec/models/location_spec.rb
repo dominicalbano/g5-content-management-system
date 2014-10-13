@@ -43,6 +43,12 @@ describe Location do
     let!(:corp_location) { Fabricate(:location, status: "New", corporate: true) }
     let!(:live_website) { Fabricate(:website, owner: live_location) }
 
+    describe "#default_scope" do
+      subject { Location.all }
+
+      it { is_expected.to eq([corp_location, live_location]) }
+    end
+
     describe "#corporate" do
       subject { Location.corporate }
 

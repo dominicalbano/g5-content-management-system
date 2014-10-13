@@ -16,6 +16,8 @@ class Location < ActiveRecord::Base
   validates :state, presence: true
   validates :status, presence: true, inclusion: { in: STATUS_TYPES, message: "%{value} is not a valid status" }
 
+  default_scope { order("corporate DESC") }
+
   scope :corporate, -> { where(corporate: true).first }
   scope :live, -> { where(status: "Live") }
   scope :live_websites, -> { live.map(&:website) }
