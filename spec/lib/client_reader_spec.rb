@@ -110,6 +110,7 @@ describe ClientReader do
         its([:primary_amenity]) { should eq('Secret Passages')}
         its([:qualifier]) { should eq('Luxury')}
         its([:primary_landmark]) { should eq('Seattle Grace Hospital')}
+        its([:status]) { should eq('Live')}
       end
     end
 

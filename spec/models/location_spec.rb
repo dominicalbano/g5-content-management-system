@@ -14,6 +14,58 @@ describe Location do
     it "should require urn" do
       Fabricate.build(:location, urn: "").should_not be_valid
     end
+
+    describe "status" do
+      it "should require status" do
+        Fabricate.build(:location, status: "").should_not be_valid
+      end
+
+      it "rejects invalid status types" do
+        Fabricate.build(:location, status: "Foo").should_not be_valid
+      end
+
+      it "accepts New status type" do
+        Fabricate.build(:location, status: "New").should be_valid
+      end
+
+      it "accepts Live status type" do
+        Fabricate.build(:location, status: "Live").should be_valid
+      end
+
+      it "accepts Suspended status type" do
+        Fabricate.build(:location, status: "Suspended").should be_valid
+      end
+    end
+  end
+
+  describe "scopes" do
+    let!(:live_location) { Fabricate(:location, status: "Live") }
+    let!(:corp_location) { Fabricate(:location, status: "New", corporate: true) }
+    let!(:live_website) { Fabricate(:website, owner: live_location) }
+
+    describe "#default_scope" do
+      subject { Location.all }
+
+      it { is_expected.to eq([corp_location, live_location]) }
+    end
+
+    describe "#corporate" do
+      subject { Location.corporate }
+
+      it { is_expected.to eq(corp_location) }
+    end
+
+    describe "#live" do
+      subject { Location.live }
+
+      it { is_expected.to eq([live_location]) }
+    end
+
+    describe "#live_websites" do
+      subject { Location.live_websites }
+
+      it { is_expected.to eq([live_website]) }
+    end
   end
 
   describe "#urn" do

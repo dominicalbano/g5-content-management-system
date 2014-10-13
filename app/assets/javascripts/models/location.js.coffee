@@ -7,4 +7,4 @@ App.Location = DS.Model.extend
   websiteHerokuUrl: DS.attr("string")
   websiteSlug: DS.attr("string")
   websiteId: DS.attr("string")
-
+  status: DS.attr("string")
