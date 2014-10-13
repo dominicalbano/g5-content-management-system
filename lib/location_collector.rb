@@ -22,6 +22,6 @@ private
   end
 
   def locations_by_state
-    Location.all.select { |location| location.state_slug == @params[:state] }
+    Location.live.all.select { |location| location.state_slug == @params[:state] }
   end
 end
