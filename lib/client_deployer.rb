@@ -33,6 +33,6 @@ module ClientDeployer
   end
 
   def self.location_websites
-    Website.location_websites
+    Website.live_location_websites
   end
 end
