@@ -1,19 +1,27 @@
 require "spec_helper"
 
 describe CorporateMapSetting do
-  let!(:location_2) { Fabricate(:location, state: "CA", city: "San Francisco") }
-  let!(:location_3) { Fabricate(:location, state: "OR") }
-  let!(:location_1) { Fabricate(:location, state: "CA", city: "Los Angeles") }
+  let!(:location_2) { Fabricate(:location, state: "CA", city: "San Francisco", status: "Live") }
+  let!(:location_3) { Fabricate(:location, state: "OR", status: "Live") }
+  let!(:location_1) { Fabricate(:location, state: "CA", city: "Los Angeles", status: "Live") }
+  let!(:location_4) { Fabricate(:location, state: "CA", city: "San Diego", status: "New") }
+  let!(:location_5) { Fabricate(:location, state: "CA", city: "Chico", status: "New") }
 
   describe "#value" do
     subject { CorporateMapSetting.new.value }
 
-    it "displays the correct populated_states" do
-      expect(subject["populated_states"]).to eq("[\"CA\",\"OR\"]")
-    end
+    describe "location values" do
+      let!(:corporate_location) do
+        Fabricate(:location, state: "WA", corporate: true, status: "Live")
+      end
 
-    it "displays the correct state_location_counts" do
-      expect(subject["state_location_counts"]).to eq("{\"CA\":2,\"OR\":1}")
+      it "displays the correct populated_states" do
+        expect(subject["populated_states"]).to eq("[\"CA\",\"OR\"]")
+      end
+
+      it "displays the correct state_location_counts" do
+        expect(subject["state_location_counts"]).to eq("{\"CA\":2,\"OR\":1}")
+      end
     end
 
     describe "colors" do
