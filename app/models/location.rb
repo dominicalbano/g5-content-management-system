@@ -1,4 +1,6 @@
 class Location < ActiveRecord::Base
+  STATUS_TYPES = ["New", "Live", "Suspended"]
+
   include HasManySettings
   include ToParamUrn
   include AfterUpdateSetSettingLocationsNavigation
@@ -12,6 +14,7 @@ class Location < ActiveRecord::Base
   validates :name, presence: true
   validates :city, presence: true
   validates :state, presence: true
+  validates :status, presence: true, inclusion: { in: STATUS_TYPES, message: "%{value} is not a valid status" }
 
   scope :corporate, -> { where(corporate: true).first }
 

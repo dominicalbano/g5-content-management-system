@@ -14,6 +14,28 @@ describe Location do
     it "should require urn" do
       Fabricate.build(:location, urn: "").should_not be_valid
     end
+
+    describe "status" do
+      it "should require status" do
+        Fabricate.build(:location, status: "").should_not be_valid
+      end
+
+      it "rejects invalid status types" do
+        Fabricate.build(:location, status: "Foo").should_not be_valid
+      end
+
+      it "accepts New status type" do
+        Fabricate.build(:location, status: "New").should be_valid
+      end
+
+      it "accepts Live status type" do
+        Fabricate.build(:location, status: "Live").should be_valid
+      end
+
+      it "accepts Suspended status type" do
+        Fabricate.build(:location, status: "Suspended").should be_valid
+      end
+    end
   end
 
   describe "#urn" do
