@@ -17,6 +17,7 @@
   <div class="faux-table faux-table--striped">
     <div class="faux-table-head">
       <span class="faux-table-cell">Name</span>
+      <span class="faux-table-cell">Status</span>
       <span class="faux-table-cell">Actions</span>
     </div> <!-- end .faux-table-head -->
 
@@ -31,6 +32,9 @@
             <strong>Corporate:</strong>
             {{/if}}
             {{name}}
+          </div>
+          <div class="faux-table-cell">
+            {{status}}
           </div>
           <div {{bind-attr class=":faux-table-cell single_domain"}}>
             {{#link-to "website" websiteSlug class="btn btn--a" }}Edit{{/link-to}}

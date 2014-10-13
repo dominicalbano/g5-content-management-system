@@ -12,7 +12,8 @@ class LocationSerializer < ActiveModel::Serializer
               :single_domain,
               :website_heroku_url,
               :website_slug,
-              :website_id
+              :website_id,
+              :status
 
   def single_domain
     Client.first.type == "SingleDomainClient"
