@@ -28,7 +28,8 @@ describe Api::V1::LocationsController, :auth_controller do
           single_domain: false,
           website_slug: website.slug,
           website_heroku_url: website.decorate.heroku_url,
-          website_id: website.id
+          website_id: website.id,
+          status: location.status
         } 
       )
       expect(result).to eq(expected_response)
@@ -54,7 +55,8 @@ describe Api::V1::LocationsController, :auth_controller do
             single_domain: true,
             website_slug: website.slug,
             website_heroku_url: heroku_url,
-            website_id: website.id
+            website_id: website.id,
+            status: location.status
           } 
         )
         expect(result).to eq(expected_response)
