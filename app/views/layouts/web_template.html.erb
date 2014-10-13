@@ -15,6 +15,32 @@
     <script src="https://s3.amazonaws.com/themes.g5dxm.com/shared/javascripts/modernizr.custom.js"></script>
 
     <%= yield(:head) %>
+
+    <style type="text/css">
+      .area_page {
+        margin: 30px auto;
+        max-width: 1170px;
+        padding: 0 15px;
+      }
+      .area_page_locations { 
+        width:33%;
+        float:left;
+      }
+      .area_page .canvas {
+        padding-bottom: 75%;
+        padding-top: 30px;
+        width: 66%%;
+        float:left;
+        position: relative;
+      }
+      .area_page .canvas img {
+        max-width: none;
+      }
+      .area_page .canvas label {
+        width: auto;
+        display: inline;
+      }
+    </style>
   </head>
 
   <body class="<%= [mode, yield(:body_classes)].join(" ") %>">
