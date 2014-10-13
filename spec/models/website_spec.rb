@@ -34,20 +34,6 @@ describe Website, vcr: VCR_OPTIONS do
         expect(Website.location_websites).to eq([location_website])
       end
     end
-
-    describe "#live_location_websites" do
-      subject { Website.live_location_websites }
-
-      context "new locations only" do
-        it { is_expected.to be_empty }
-      end
-
-      context "Live location" do
-        let(:location) { Fabricate(:location, status: "Live") }
-
-        it { is_expected.to eq([location_website]) }
-      end
-    end
   end
 
   describe "#urn" do

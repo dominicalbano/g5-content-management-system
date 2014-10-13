@@ -22,9 +22,6 @@ class Website < ActiveRecord::Base
   validates :urn, presence: true, uniqueness: true, unless: :new_record?
 
   scope :location_websites, -> { where(owner_type: "Location") }
-  scope :live_location_websites, -> do
-    location_websites.select { |website| website.owner.status == "Live" }
-  end
 
   def widget_settings
     widgets.collect {|widget| widget.settings}.flatten +
