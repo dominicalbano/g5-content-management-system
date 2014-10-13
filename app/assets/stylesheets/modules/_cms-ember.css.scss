@@ -337,3 +337,30 @@
     max-width: 135px;
   }
 }
+
+.status-label {
+  padding:4px 10px;
+  text-align:center;
+}
+
+.status-live .status-label {
+  background:#dff0d8;
+  color:#3c763d;
+}
+
+.status-new .status-label {
+  background:#fcf8e3;
+  color:#8a6d3b;
+}
+
+.status-new .status-label {
+  background:#d9edf7;
+  color:#31708f;
+}
+
+
+
+.status-suspended .status-label {
+  background:#f2dede;
+  color:#a94442;
+}
