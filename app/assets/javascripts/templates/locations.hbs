@@ -26,7 +26,7 @@
     {{else}}
       <ul class="faux-table-body">
         {{#each model}}
-        <li {{bind-attr class=":faux-table-row :location corporate"}}>
+        <li {{bind-attr class=":faux-table-row :location corporate status_class"}}>
           <div class="faux-table-cell">
             {{#if corporate}}
             <strong>Corporate:</strong>
@@ -34,7 +34,9 @@
             {{name}}
           </div>
           <div class="faux-table-cell">
-            {{status}}
+            <div class="status-label">
+              {{status}}
+            </div>
           </div>
           <div {{bind-attr class=":faux-table-cell single_domain"}}>
             {{#link-to "website" websiteSlug class="btn btn--a" }}Edit{{/link-to}}
