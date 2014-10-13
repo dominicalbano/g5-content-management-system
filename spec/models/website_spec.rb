@@ -25,24 +25,27 @@ describe Website, vcr: VCR_OPTIONS do
 
   describe "location scopes" do
     let(:client) { Fabricate(:client) }
-    let(:location) { Fabricate(:location) }
+    let(:location) { Fabricate(:location, status: "New") }
     let!(:client_website) { Fabricate(:website, owner: client) }
+    let!(:location_website) { Fabricate(:website, owner: location) }
 
     describe "#location_websites" do
-      let!(:location_website) { Fabricate(:website, owner: location) }
-
       it "returns location websites only" do
         expect(Website.location_websites).to eq([location_website])
       end
     end
 
     describe "#live_location_websites" do
-      let!(:live_location_website) { Fabricate(:website, owner: location, status: "Live") }
-      let!(:new_location_website) { Fabricate(:website, owner: location, status: "New") }
-      let!(:suspended_location_website) { Fabricate(:website, owner: location, status: "Suspended") }
+      subject { Website.live_location_websites }
 
-      it "returns live location websites only" do
-        expect(Website.live_location_websites).to eq([live_location_website])
+      context "new locations only" do
+        it { is_expected.to be_empty }
+      end
+
+      context "Live location" do
+        let(:location) { Fabricate(:location, status: "Live") }
+
+        it { is_expected.to eq([location_website]) }
       end
     end
   end
