@@ -54,7 +54,6 @@ class SavesManager
 
   def prefix
     client.bucket_asset_key_prefix
-    #"mj-c-6h0so0g-cloud-storage"
   end
 
   def client
