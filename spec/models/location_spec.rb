@@ -38,6 +38,30 @@ describe Location do
     end
   end
 
+  describe "scopes" do
+    let!(:live_location) { Fabricate(:location, status: "Live") }
+    let!(:corp_location) { Fabricate(:location, status: "New", corporate: true) }
+    let!(:live_website) { Fabricate(:website, owner: live_location) }
+
+    describe "#corporate" do
+      subject { Location.corporate }
+
+      it { is_expected.to eq(corp_location) }
+    end
+
+    describe "#live" do
+      subject { Location.live }
+
+      it { is_expected.to eq([live_location]) }
+    end
+
+    describe "#live_websites" do
+      subject { Location.live_websites }
+
+      it { is_expected.to eq([live_website]) }
+    end
+  end
+
   describe "#urn" do
     let(:location) { Fabricate(:location) }
 

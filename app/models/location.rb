@@ -17,6 +17,8 @@ class Location < ActiveRecord::Base
   validates :status, presence: true, inclusion: { in: STATUS_TYPES, message: "%{value} is not a valid status" }
 
   scope :corporate, -> { where(corporate: true).first }
+  scope :live, -> { where(status: "Live") }
+  scope :live_websites, -> { live.map(&:website) }
 
   before_validation :set_city_slug_from_city
 
