@@ -75,6 +75,14 @@ describe Location do
       location.urn.should match /g5-cl-\d+-/
     end
   end
+  describe "#bucket_asset_key_prefix" do
+    let(:location) { Fabricate(:location) }
+    let!(:client) {Fabricate(:client)}
+
+    it "prepends its urn with the client prefix" do
+      expect(location.bucket_asset_key_prefix).to eq("#{client.bucket_asset_key_prefix}/#{location.urn}")
+    end
+  end
 
   describe "#website_id" do
     let(:location) { Fabricate(:location) }
@@ -127,3 +135,4 @@ describe Location do
     end
   end
 end
+

@@ -16,7 +16,7 @@ module StaticWebsite
           )
 
           unless @location_name.empty?
-            @bucket_name = s3_bucket_name_manager.bucket
+            @bucket_name = s3_bucket_name_manager.bucket_name
             @bucket_url = s3_bucket_name_manager.bucket_url
           end
         end
@@ -47,7 +47,7 @@ module StaticWebsite
 
         def to_path(from_path)
           filename = File.basename(from_path)
-          to_path = File.join("javascripts", filename)
+          to_path = File.join("#{location.bucket_asset_key_prefix}/javascripts", filename)
         end
 
         private
