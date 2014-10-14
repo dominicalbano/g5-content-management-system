@@ -25,7 +25,7 @@ describe Website, vcr: VCR_OPTIONS do
 
   describe "location scopes" do
     let(:client) { Fabricate(:client) }
-    let(:location) { Fabricate(:location, status: "New") }
+    let(:location) { Fabricate(:location, status: "Suspended") }
     let!(:client_website) { Fabricate(:website, owner: client) }
     let!(:location_website) { Fabricate(:website, owner: location) }
 
