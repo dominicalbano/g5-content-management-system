@@ -1,5 +1,5 @@
 class Location < ActiveRecord::Base
-  STATUS_TYPES = ["New", "Live", "Suspended"]
+  STATUS_TYPES = ["Pending", "Live", "Suspended"]
 
   include HasManySettings
   include ToParamUrn

@@ -4,8 +4,8 @@ describe CorporateMapSetting do
   let!(:location_2) { Fabricate(:location, state: "CA", city: "San Francisco", status: "Live") }
   let!(:location_3) { Fabricate(:location, state: "OR", status: "Live") }
   let!(:location_1) { Fabricate(:location, state: "CA", city: "Los Angeles", status: "Live") }
-  let!(:location_4) { Fabricate(:location, state: "CA", city: "San Diego", status: "New") }
-  let!(:location_5) { Fabricate(:location, state: "CA", city: "Chico", status: "New") }
+  let!(:location_4) { Fabricate(:location, state: "CA", city: "San Diego", status: "Pending") }
+  let!(:location_5) { Fabricate(:location, state: "CA", city: "Chico", status: "Pending") }
 
   describe "#value" do
     subject { CorporateMapSetting.new.value }

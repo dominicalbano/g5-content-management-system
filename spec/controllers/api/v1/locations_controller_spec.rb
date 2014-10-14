@@ -29,7 +29,8 @@ describe Api::V1::LocationsController, :auth_controller do
           website_slug: website.slug,
           website_heroku_url: website.decorate.heroku_url,
           website_id: website.id,
-          status: location.status
+          status: location.status,
+          status_class: "status-#{location.status.downcase}"
         } 
       )
       expect(result).to eq(expected_response)
@@ -56,7 +57,8 @@ describe Api::V1::LocationsController, :auth_controller do
             website_slug: website.slug,
             website_heroku_url: heroku_url,
             website_id: website.id,
-            status: location.status
+            status: location.status,
+            status_class: "status-#{location.status.downcase}"
           } 
         )
         expect(result).to eq(expected_response)

@@ -8,3 +8,4 @@ App.Location = DS.Model.extend
   websiteSlug: DS.attr("string")
   websiteId: DS.attr("string")
   status: DS.attr("string")
+  status_class: DS.attr("string")
