@@ -338,19 +338,24 @@
   }
 }
 
+.status {
+  width: 70px;
+}
+
 .status-label {
   padding:4px 10px;
   text-align:center;
+  border-radius:2px;
 }
 
 .status-live .status-label {
-  background:#D8EECF;
-  color:#3c763d;
+  background:#6cc644;
+  color:#fff;
 }
 
 .status-new .status-label {
   background:#D2E5EE;
-  color:#31708f;
+  color:#629AB6;
 }
 
 .status-suspended .status-label {
