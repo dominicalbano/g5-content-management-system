@@ -15,7 +15,7 @@ describe WebsiteDecorator do
   end
 
   it "has a 30 character heroku name" do
-    website.heroku_app_name.length.should eq 30
+    expect(website.heroku_app_name.length).to be <= 30
   end
 
   it "has a heroku repo" do

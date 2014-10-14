@@ -23,11 +23,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Oct 2014 15:48:07 GMT
+      - Mon, 13 Oct 2014 00:49:33 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 30 Sep 2014 21:22:35 GMT
+      - Fri, 10 Oct 2014 22:39:11 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -42,7 +42,107 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:07 GMT
+  recorded_at: Mon, 13 Oct 2014 00:49:33 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 13 Oct 2014 00:49:33 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Fri, 10 Oct 2014 22:39:11 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '5087'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
+        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
+        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
+        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
+        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
+        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
+        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
+        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
+        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
+        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
+        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
+        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
+        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
+        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
+        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
+        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
+        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
+        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
+        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
+        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
+        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
+        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
+        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
+        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
+        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
+        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
+        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
+        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
+        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
+        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
+        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
+        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
+        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
+        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
+        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
+        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
+        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
+        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
+        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
+        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
+        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
+        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
+        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
+        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
+        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
+        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
+        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
+        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
+        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
+        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
+        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
+        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
+        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
+        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
+        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
+        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
+        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
+        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
+        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
+    http_version: 
+  recorded_at: Mon, 13 Oct 2014 00:49:33 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -66,11 +166,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Oct 2014 15:48:07 GMT
+      - Mon, 13 Oct 2014 00:49:34 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 30 Sep 2014 21:22:35 GMT
+      - Fri, 10 Oct 2014 22:39:11 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -306,107 +406,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:07 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Wed, 01 Oct 2014 15:48:08 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Tue, 30 Sep 2014 21:22:35 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '5087'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
-        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
-        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
-        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
-        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
-        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
-        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
-        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
-        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
-        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
-        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
-        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
-        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
-        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
-        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
-        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
-        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
-        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
-        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
-        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
-        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
-        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
-        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
-        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
-        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
-        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
-        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
-        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
-        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
-        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
-        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
-        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
-        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
-        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
-        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
-        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
-        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
-        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
-        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
-        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
-        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
-        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
-        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
-        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
-        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
-        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
-        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
-        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
-        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
-        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
-        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
-        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
-        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
-        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
-        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
-        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
-        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
-        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
-        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
-    http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:08 GMT
+  recorded_at: Mon, 13 Oct 2014 00:49:34 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -430,11 +430,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Oct 2014 15:48:08 GMT
+      - Mon, 13 Oct 2014 00:49:34 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 30 Sep 2014 21:22:35 GMT
+      - Fri, 10 Oct 2014 22:39:11 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -477,7 +477,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:08 GMT
+  recorded_at: Mon, 13 Oct 2014 00:49:34 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -501,11 +501,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Oct 2014 15:48:08 GMT
+      - Mon, 13 Oct 2014 00:49:35 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 30 Sep 2014 21:22:35 GMT
+      - Fri, 10 Oct 2014 22:39:11 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -526,7 +526,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:08 GMT
+  recorded_at: Mon, 13 Oct 2014 00:49:35 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -550,11 +550,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Oct 2014 15:48:09 GMT
+      - Mon, 13 Oct 2014 00:49:35 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 30 Sep 2014 21:22:35 GMT
+      - Fri, 10 Oct 2014 22:39:11 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -574,7 +574,7 @@ http_interactions:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
         200px;\n}\n"
     http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:09 GMT
+  recorded_at: Mon, 13 Oct 2014 00:49:35 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -598,7 +598,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Oct 2014 15:48:09 GMT
+      - Mon, 13 Oct 2014 00:49:36 GMT
       Status:
       - 200 OK
       Last-Modified:
@@ -634,7 +634,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:09 GMT
+  recorded_at: Mon, 13 Oct 2014 00:49:36 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -658,11 +658,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 01 Oct 2014 15:48:10 GMT
+      - Mon, 13 Oct 2014 00:49:36 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 30 Sep 2014 23:00:47 GMT
+      - Fri, 10 Oct 2014 05:44:44 GMT
       Content-Type:
       - text/plain
       Content-Length:
@@ -1433,7 +1433,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 01 Oct 2014 15:48:10 GMT
+  recorded_at: Mon, 13 Oct 2014 00:49:36 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
@@ -1457,11 +1457,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:18 GMT
+      - Tue, 14 Oct 2014 17:12:15 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Thu, 02 Oct 2014 21:18:29 GMT
+      - Mon, 13 Oct 2014 17:45:18 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -1476,7 +1476,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:18 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:17 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -1500,11 +1500,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:19 GMT
+      - Tue, 14 Oct 2014 17:12:15 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Thu, 02 Oct 2014 21:18:29 GMT
+      - Mon, 13 Oct 2014 17:45:18 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -1576,7 +1576,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:19 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:18 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -1600,11 +1600,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:19 GMT
+      - Tue, 14 Oct 2014 17:12:16 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Thu, 02 Oct 2014 21:18:29 GMT
+      - Mon, 13 Oct 2014 17:45:18 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -1840,7 +1840,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:19 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:18 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -1864,11 +1864,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:20 GMT
+      - Tue, 14 Oct 2014 17:12:16 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Thu, 02 Oct 2014 21:18:29 GMT
+      - Mon, 13 Oct 2014 17:45:18 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -1911,7 +1911,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:20 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:18 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
@@ -1935,20 +1935,20 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:20 GMT
+      - Tue, 14 Oct 2014 17:12:16 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Thu, 02 Oct 2014 21:18:29 GMT
+      - Mon, 13 Oct 2014 17:45:18 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '584'
+      - '589'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: |-
+      string: |
         header[role=banner] .navigation {
           overflow-y: auto;
         }
@@ -1966,8 +1966,7 @@ http_interactions:
         }
 
         @media (max-width: 979px) {
-
-          .subnav {
+          .show-subnav {
             max-height: none;
           }
         }
@@ -1988,7 +1987,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:20 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:19 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -2012,11 +2011,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:20 GMT
+      - Tue, 14 Oct 2014 17:12:17 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Thu, 02 Oct 2014 21:18:29 GMT
+      - Mon, 13 Oct 2014 17:45:18 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -2037,7 +2036,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:20 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:19 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -2061,11 +2060,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:21 GMT
+      - Tue, 14 Oct 2014 17:12:17 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Thu, 02 Oct 2014 21:18:29 GMT
+      - Mon, 13 Oct 2014 17:45:18 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -2085,7 +2084,7 @@ http_interactions:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
         200px;\n}\n"
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:21 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:20 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -2109,7 +2108,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:21 GMT
+      - Tue, 14 Oct 2014 17:12:18 GMT
       Status:
       - 200 OK
       Last-Modified:
@@ -2145,7 +2144,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:21 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:20 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -2169,11 +2168,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 06 Oct 2014 15:47:21 GMT
+      - Tue, 14 Oct 2014 17:12:18 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 01 Oct 2014 17:47:17 GMT
+      - Fri, 10 Oct 2014 05:44:44 GMT
       Content-Type:
       - text/plain
       Content-Length:
@@ -2944,5 +2943,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 06 Oct 2014 15:47:22 GMT
+  recorded_at: Tue, 14 Oct 2014 17:12:20 GMT
 recorded_with: VCR 2.9.2

@@ -20,7 +20,15 @@ class CorporateMapSetting
   end
 
   def grouped_locations
-    Location.order("locations.state ASC").order("locations.city ASC").all.group_by(&:state)
+    ordered_live_locations.all.group_by(&:state)
+  end
+
+  def ordered_live_locations
+    live_locations.order("locations.state ASC").order("locations.city ASC")
+  end
+
+  def live_locations
+    Location.live.where(corporate: false)
   end
 
   def states_and_counts
