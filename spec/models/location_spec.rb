@@ -24,8 +24,8 @@ describe Location do
         Fabricate.build(:location, status: "Foo").should_not be_valid
       end
 
-      it "accepts New status type" do
-        Fabricate.build(:location, status: "New").should be_valid
+      it "accepts Pending status type" do
+        Fabricate.build(:location, status: "Pending").should be_valid
       end
 
       it "accepts Live status type" do
@@ -40,7 +40,7 @@ describe Location do
 
   describe "scopes" do
     let!(:live_location) { Fabricate(:location, status: "Live") }
-    let!(:corp_location) { Fabricate(:location, status: "New", corporate: true) }
+    let!(:corp_location) { Fabricate(:location, status: "Pending", corporate: true) }
     let!(:live_website) { Fabricate(:website, owner: live_location) }
 
     describe "#default_scope" do
