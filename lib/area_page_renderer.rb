@@ -11,7 +11,7 @@ class AreaPageRenderer
 private
 
   def title
-    "<h1>Locations in #{@area}</h1>"
+    "<h1>Locations in #{@area.upcase}</h1>"
   end
 
   def locations_markup

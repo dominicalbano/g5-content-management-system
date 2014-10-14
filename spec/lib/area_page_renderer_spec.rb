@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe AreaPageRenderer do
   let(:renderer) { described_class.new(Location.all, area) }
-  let(:area) { "Bend, Oregon" }
+  let(:area) { "Or" }
   let!(:client) { Fabricate(:client) }
   let!(:location) { Fabricate(:location) }
   let!(:website) { Fabricate(:website, owner: location) }
@@ -11,7 +11,7 @@ describe AreaPageRenderer do
     subject { renderer.render }
 
     it "includes the correct title" do
-      expect(subject).to include("Locations in Bend, Oregon")
+      expect(subject).to include("Locations in OR")
     end
 
     it "includes the location name" do
