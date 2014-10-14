@@ -43,8 +43,8 @@ private
   end
 
   def parent_setting
-    @parent_setting ||= Setting.find do |setting|
-      setting.name =~ /(?=column)(?=.*widget_id).*/ && setting.value == widget.id
+    @parent_setting ||= Setting.where("value LIKE '%?%'", widget.id).find do |setting|
+      setting.name =~ /(?=(column|row))(?=.*widget_id).*/
     end
   end
 
@@ -52,3 +52,4 @@ private
     @client_services ||= ClientServices.new
   end
 end
+

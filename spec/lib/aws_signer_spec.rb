@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'timecop'
 
 describe AWSSigner do
-  let!(:location) { Fabricate(:location, name: "foobarlocation") }
+  let!(:location) { Fabricate(:location, name: "foobarlocation", urn: "foo") }
 
   subject do
     AWSSigner.new({:locationName => 'foobarlocation',
@@ -21,7 +21,7 @@ describe AWSSigner do
     it "returns a hash of header items" do
       subject.upload_headers.should include :acl => "public-read"
       subject.upload_headers.should include \
-        :signature => "GWl5VffTKRxZ8HtF2RrzpPVJ/+w="
+        :signature => "nt/NKEd10o/Nah9Vftgw2yspuuk="
       subject.upload_headers.should include :key => "uploads/file-with-spaces.something.jpg"
     end
   end

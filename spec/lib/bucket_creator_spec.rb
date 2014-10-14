@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe BucketCreator do
   let!(:client) { Fabricate(:client, name: "Test Client") }
-  let(:location) { Fabricate(:location, name: "Foo Bar Baz") }
+  let(:location) { Fabricate(:location, name: "Foo Bar Baz", urn: "g5-cl-foo") }
   let(:location_bucket_creator) { described_class.new(location) }
   let(:s3) { double(buckets: buckets) }
   let(:buckets) { double(create: nil) }
@@ -24,7 +24,7 @@ describe BucketCreator do
 
     context "a location with a bucket config var already set" do
       let(:config_vars_response) do
-        "{\"AWS_S3_BUCKET_NAME_FOO_BAR_BAZ\":\"assets.#{location.urn}\"}"
+        "{\"AWS_S3_BUCKET_NAME_G5_CL_FOO\":\"assets.#{location.urn}\"}"
       end
 
       describe "bucket creation" do
@@ -40,7 +40,7 @@ describe BucketCreator do
       describe "config set" do
         it "doesn't set the config via the HerokuClient" do
           heroku_client.should_not_receive(:set_config).
-            with("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ", "assets.#{location.urn}")
+            with("AWS_S3_BUCKET_NAME_G5_CL_FOO", "assets.#{location.urn}")
         end
       end
     end
@@ -74,7 +74,7 @@ describe BucketCreator do
 
           it "sets the config via the HerokuClient" do
             heroku_client.should_receive(:set_config).
-              with("AWS_S3_BUCKET_NAME_FOO_BAR_BAZ", "assets.#{location.urn}")
+              with("AWS_S3_BUCKET_NAME_G5_CL_FOO", "assets.#{location.urn}")
           end
         end
       end

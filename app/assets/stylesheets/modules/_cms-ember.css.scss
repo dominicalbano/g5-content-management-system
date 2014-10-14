@@ -337,3 +337,28 @@
     max-width: 135px;
   }
 }
+
+.status {
+  width: 95px;
+}
+
+.status-label {
+  padding:4px 10px;
+  text-align:center;
+  border-radius:2px;
+}
+
+.status-live .status-label {
+  background:#6cc644;
+  color:#fff;
+}
+
+.status-pending .status-label {
+  background:#D2E5EE;
+  color:#629AB6;
+}
+
+.status-suspended .status-label {
+  background:#f2dede;
+  color:#a94442;
+}

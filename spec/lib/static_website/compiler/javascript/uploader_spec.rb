@@ -1,16 +1,19 @@
 require "spec_helper"
 
 describe StaticWebsite::Compiler::Javascript::Uploader do
+  let!(:location) { Fabricate(:location, name: "North Shore Oahu", urn: "g5-cl-north-shore") }
+  let!(:location2) { Fabricate(:location, name: "North Shore O'ahu", urn: "g5-cl-north-shore-2") }
   let(:uploader_klass) { StaticWebsite::Compiler::Javascript::Uploader }
 
   describe "#bucket_name" do
     it "accesses the ENV variable for the location" do
-      ENV["AWS_S3_BUCKET_NAME_NORTH_SHORE_OAHU"] = "assets.northshoreoahu.com"
+      ENV["AWS_S3_BUCKET_NAME_G5_CL_NORTH_SHORE"] = "assets.northshoreoahu.com"
       uploader = uploader_klass.new([], "North Shore Oahu")
       expect(uploader.bucket_name).to eq "assets.northshoreoahu.com"
     end
+
     it "handles non letter characters" do
-      ENV["AWS_S3_BUCKET_NAME_NORTH_SHORE_O_AHU"] = "assets.northshoreoahu.com"
+      ENV["AWS_S3_BUCKET_NAME_G5_CL_NORTH_SHORE_2"] = "assets.northshoreoahu.com"
       uploader = uploader_klass.new([], "North Shore O'ahu")
       expect(uploader.bucket_name).to eq "assets.northshoreoahu.com"
     end
@@ -18,7 +21,7 @@ describe StaticWebsite::Compiler::Javascript::Uploader do
 
   describe "#bucket_url" do
     it "accesses the ENV variable for the location" do
-      ENV["AWS_S3_BUCKET_URL_NORTH_SHORE_OAHU"] = "http://assets.northshoreoahu.com"
+      ENV["AWS_S3_BUCKET_URL_G5_CL_NORTH_SHORE"] = "http://assets.northshoreoahu.com"
       uploader = uploader_klass.new([], "North Shore Oahu")
       expect(uploader.bucket_url).to eq "http://assets.northshoreoahu.com"
     end

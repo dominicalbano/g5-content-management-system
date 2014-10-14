@@ -23,14 +23,16 @@ describe Website, vcr: VCR_OPTIONS do
     end
   end
 
-  describe "#location_websites" do
+  describe "location scopes" do
     let(:client) { Fabricate(:client) }
-    let(:location) { Fabricate(:location) }
+    let(:location) { Fabricate(:location, status: "Suspended") }
     let!(:client_website) { Fabricate(:website, owner: client) }
     let!(:location_website) { Fabricate(:website, owner: location) }
 
-    it "returns location websites only" do
-      expect(Website.location_websites).to eq([location_website])
+    describe "#location_websites" do
+      it "returns location websites only" do
+        expect(Website.location_websites).to eq([location_website])
+      end
     end
   end
 
