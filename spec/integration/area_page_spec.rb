@@ -29,12 +29,12 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
       end
 
       it "has one location" do
-        expect(page.all(".area_page .adr").count).to eq(1)
+        expect(page.all(".area-page .adr").count).to eq(1)
       end
 
-      it "displays the location's heroku url" do
-        expect(page).to have_link(neighborhood_location.name),
-                        href: neighborhood_website.decorate.heroku_url
+      it "displays the location's url" do
+        expect(page).to have_link("Visit Location"),
+                        href: neighborhood_website.decorate.url
       end
 
       it "displays the location's street address" do
@@ -62,7 +62,7 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
       end
 
       it "has two locations" do
-        expect(page.all(".area_page .adr").count).to eq(2)
+        expect(page.all(".area-page .adr").count).to eq(2)
       end
     end
 
@@ -74,7 +74,7 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
       end
 
       it "has 3 locations" do
-        expect(page.all(".area_page .adr").count).to eq(3)
+        expect(page.all(".area-page .adr").count).to eq(3)
       end
     end
   end
