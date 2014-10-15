@@ -2,12 +2,12 @@ module AfterUpdateSetNavSettings
   extend ActiveSupport::Concern
 
   included do
-    after_update :update_settings, if: :should_update_nav_settings?
+    after_update :update_settings, if: :should_update_location_paths?
   end
 
   private
 
-  def should_update_nav_settings?
+  def should_update_location_paths?
     city_changed? || state_changed?
   end
 
