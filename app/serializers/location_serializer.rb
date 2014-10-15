@@ -12,7 +12,9 @@ class LocationSerializer < ActiveModel::Serializer
               :single_domain,
               :website_heroku_url,
               :website_slug,
-              :website_id
+              :website_id,
+              :status,
+              :status_class
 
   def single_domain
     Client.first.type == "SingleDomainClient"
@@ -26,4 +28,7 @@ class LocationSerializer < ActiveModel::Serializer
     object.website.decorate.heroku_url
   end
 
+  def status_class
+    "status-#{object.status.downcase}"
+  end
 end

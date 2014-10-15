@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe Api::V1::AssetsController, :auth_controller do
   let!(:location) { Fabricate(:location, name: "hollywood") }
+  let!(:client) {Fabricate(:client)}
 
   describe "#sign_upload" do
     it "should render json template with header data for aws" do

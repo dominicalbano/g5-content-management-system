@@ -49,7 +49,7 @@ describe ClientServices do
 
   describe "#client_location_urls" do
     it "grabs the client_location_urls" do
-      @client_services.client_location_urls.should == [location1.domain, location2.domain]
+      @client_services.client_location_urls.should =~ [location1.domain, location2.domain]
     end
   end
 

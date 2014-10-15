@@ -60,6 +60,7 @@
 
 .btn--a {
   background-color: $c-background-b;
+  border-radius: 2px;
   &:hover,
   &:focus {
     background-color: darken($c-background-b, 10%);

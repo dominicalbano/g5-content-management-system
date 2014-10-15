@@ -72,7 +72,7 @@ group :test do
   gem "capybara", "2.3.0"
   gem "capybara-webkit"
   gem "launchy"
-  gem "selenium-webdriver", "2.41.0"
+  gem "selenium-webdriver"
   gem "database_cleaner"
   # ruby spec support
   gem 'factory_girl_rails'

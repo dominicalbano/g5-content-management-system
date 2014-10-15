@@ -20,6 +20,13 @@ shared_examples_for AfterUpdateSetSettingCorporateMap do
       end
     end
 
+    context "status changed" do
+      it "calls #update_corporate_map_settings" do
+        described_instance.should_receive(:update_corporate_map_settings)
+        described_instance.update_attribute(:status, "Suspended")
+      end
+    end
+
     context "city changed" do
       it "does not call #update_corporate_map_settings" do
         described_instance.should_not_receive(:update_corporate_map_settings)

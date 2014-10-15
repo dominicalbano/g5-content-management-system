@@ -20,4 +20,24 @@ describe WidgetDrop do
     its(:cpns_url) { should eq("http://g5-cpns-12345-test.herokuapp.com/") }
     its(:secure_cpns_url) { should eq("https://g5-cpns-12345-test.herokuapp.com/") }
   end
+
+  describe "parent_widget_id" do
+    before do
+      website = Fabricate(:website)
+      webtemplate = Fabricate(:web_template)
+      website.web_templates << webtemplate
+      webtemplate.drop_targets << Fabricate(:drop_target)
+      row_garden_widget = Fabricate(:row_garden_widget)
+      row_garden_widget.settings << Fabricate.build(:column_one_widget_name)
+      row_garden_widget.settings << Fabricate.build(:column_one_widget_id)
+      @widget = Fabricate(:widget, garden_widget: row_garden_widget, drop_target: webtemplate.drop_targets.first)
+      @widget.settings.where(name: "column_one_widget_name").first.
+        update_attributes(value: (Fabricate(:garden_widget).name))
+    end
+
+    it "returns the parent widget id if there is one" do
+      WidgetDrop.new(Widget.last, client.try(:locations)).parent_widget_id.should eql(@widget.id)
+    end
+  end
+
 end

@@ -35,3 +35,4 @@ describe SettingWebsiteFinder do
     end
   end
 end
+

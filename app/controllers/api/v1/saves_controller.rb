@@ -10,8 +10,8 @@ class Api::V1::SavesController < Api::V1::ApplicationController
   end
 
   def create
-    saves_manager.save
-    redirect_to root_path, notice: "Saving. This may take a few minutes."
+    result = saves_manager.save
+    redirect_to root_path, notice: "#{result}"
   end
 
   private
