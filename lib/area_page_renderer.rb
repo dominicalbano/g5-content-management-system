@@ -5,7 +5,7 @@ class AreaPageRenderer
   end
 
   def render
-    "<div class='area_page map'>#{title + locations_markup + map}</div>"
+    "<div class='area_page map'>#{title + locations_markup + map + footer}</div>"
   end
 
 private
@@ -35,6 +35,10 @@ private
       partial: "area_pages/map",
       locals: { addresses: location_addresses }
     )
+  end
+
+  def footer
+    "<div class='area-page-footer'></div>"
   end
 
   def location_markup(location)
