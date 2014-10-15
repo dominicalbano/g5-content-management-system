@@ -11,7 +11,7 @@ class AreaPageRenderer
 private
 
   def title
-    "<h1>Locations in #{@area.upcase}</h1>"
+    "<h1>Locations in #{formatted_area}</h1>"
   end
 
   def locations_markup
@@ -58,5 +58,11 @@ private
   def address_for(location)
     "#{location.street_address}, #{location.city}, " \
     "#{location.state} #{location.postal_code}"
+  end
+
+  def formatted_area
+    components = @area.split(",")
+    components.last.upcase!
+    components.join(",")
   end
 end

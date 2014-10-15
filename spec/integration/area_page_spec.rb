@@ -10,20 +10,22 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
   let!(:widget) { Fabricate(:widget, drop_target: drop_target) }
 
   describe "Lists all locations for the given route" do
-    let!(:state_location) { Fabricate(:location, state: "Oregon") }
+    let!(:state_location) { Fabricate(:location, state: "OR", status: "Live") }
     let!(:state_website) { Fabricate(:website, owner: state_location) }
-    let!(:city_location) { Fabricate(:location, state: "Oregon", city: "Bend") }
+    let!(:city_location) { Fabricate(:location, state: "OR", city: "Bend", status: "Live") }
     let!(:city_website) { Fabricate(:website, owner: city_location) }
-    let!(:neighborhood_location) { Fabricate(:location, state: "Oregon", city: "Bend", neighborhood: "Foo") }
+    let!(:neighborhood_location) do
+      Fabricate(:location, state: "OR", city: "Bend", neighborhood: "Foo", status: "Live")
+    end
     let!(:neighborhood_website) { Fabricate(:website, owner: neighborhood_location) }
 
     before { visit path }
 
     context "state, city and neighborhood parameters" do
-      let(:path) { "/areas/oregon/bend/foo" }
+      let(:path) { "/areas/or/bend/foo" }
 
       it "has the appropriate area in the header" do
-        expect(page).to have_content("Locations in Foo, Bend, Oregon")
+        expect(page).to have_content("Locations in Foo, Bend, OR")
       end
 
       it "has one location" do
@@ -53,10 +55,10 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
     end
 
     context "state, and city parameters" do
-      let(:path) { "/areas/oregon/bend" }
+      let(:path) { "/areas/or/bend" }
 
       it "has the appropriate area in the header" do
-        expect(page).to have_content("Locations in Bend, Oregon")
+        expect(page).to have_content("Locations in Bend, OR")
       end
 
       it "has two locations" do
@@ -65,10 +67,10 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
     end
 
     context "state only parameters" do
-      let(:path) { "/areas/oregon" }
+      let(:path) { "/areas/or" }
 
       it "has the appropriate area in the header" do
-        expect(page).to have_content("Locations in Oregon")
+        expect(page).to have_content("Locations in OR")
       end
 
       it "has 3 locations" do
