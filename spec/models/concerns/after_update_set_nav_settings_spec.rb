@@ -1,6 +1,6 @@
 require "spec_helper"
 
-shared_examples_for AfterUpdateSetSettingCta do
+shared_examples_for AfterUpdateSetNavSettings do
   let(:described_instance) { described_class.new }
 
   describe ".after_update" do
@@ -9,6 +9,11 @@ shared_examples_for AfterUpdateSetSettingCta do
     context "state changed" do
       it "calls #update_cta_settings" do
         described_instance.should_receive(:update_cta_settings)
+        described_instance.update_attribute(:state, "new state")
+      end
+
+      it "calls #update_nav_settings" do
+        described_instance.should_receive(:update_nav_settings)
         described_instance.update_attribute(:state, "new state")
       end
     end
@@ -30,7 +35,5 @@ shared_examples_for AfterUpdateSetSettingCta do
 end
 
 describe Location do
-  it_behaves_like AfterUpdateSetSettingCta
+  it_behaves_like AfterUpdateSetNavSettings
 end
-
-
