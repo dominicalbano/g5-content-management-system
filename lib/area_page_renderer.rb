@@ -5,7 +5,7 @@ class AreaPageRenderer
   end
 
   def render
-    "<div class='area_page map'>#{title + locations_markup + map + footer}</div>"
+    "<div class='area-page map'>#{title + locations_markup + map + footer}</div>"
   end
 
 private
@@ -15,7 +15,7 @@ private
   end
 
   def locations_markup
-    "<div class='area_page_locations'>#{locations}</div>"
+    "<div class='area-page-locations'>#{locations}</div>"
   end
 
   def locations
