@@ -28,13 +28,9 @@ class Api::V1::WebPageTemplatesController < Api::V1::ApplicationController
   end
 
   def destroy
-    @web_page_template = WebPageTemplate.find(params[:id])
-
-    if WebTemplateDestroyer.new(@web_page_template).destroy
-      render json: nil, status: :ok
-    else
-      render json: @web_page_template.errors, status: :unprocessable_entity
-    end
+    web_page_template = WebPageTemplate.find(params[:id])
+    Resque.enqueue(WebTemplateDestroyerJob, web_page_template.id)
+    render json: nil, status: :ok
   end
 
   private

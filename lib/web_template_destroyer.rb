@@ -1,6 +1,6 @@
 class WebTemplateDestroyer
-  def initialize(template)
-    @template = template
+  def initialize(idt)
+    @template = WebTemplate.find(id)
   end
 
   def destroy

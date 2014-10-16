@@ -1,12 +1,12 @@
 require "spec_helper"
 
 describe WebTemplateDestroyer do
-  let(:destroyer) { described_class.new(template) }
+  let(:destroyer) { described_class.new(template_id) }
   let(:widget_collector) { double(collect: widgets) }
   let(:widgets) { [widget_one, widget_two] }
   let!(:widget_one) { Fabricate(:widget) }
   let!(:widget_two) { Fabricate(:widget) }
-  let!(:template) { Fabricate(:web_page_template) }
+  let!(:template_id) { Fabricate(:web_page_template).id }
 
   before { WebTemplateWidgetCollector.stub(new: widget_collector) }
 
