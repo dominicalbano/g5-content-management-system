@@ -1,6 +1,6 @@
 require "spec_helper"
 
-shared_examples_for AfterUpdateSetNavSettings do
+shared_examples_for AfterUpdateSetPathSettings do
   let(:described_instance) { described_class.new }
 
   describe ".after_update" do
@@ -35,5 +35,5 @@ shared_examples_for AfterUpdateSetNavSettings do
 end
 
 describe Location do
-  it_behaves_like AfterUpdateSetNavSettings
+  it_behaves_like AfterUpdateSetPathSettings
 end

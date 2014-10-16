@@ -1,4 +1,4 @@
-module AfterUpdateSetNavSettings
+module AfterUpdateSetPathSettings
   extend ActiveSupport::Concern
 
   included do

@@ -5,7 +5,7 @@ class Location < ActiveRecord::Base
   include ToParamUrn
   include AfterUpdateSetSettingLocationsNavigation
   include AfterUpdateSetSettingCorporateMap
-  include AfterUpdateSetNavSettings
+  include AfterUpdateSetPathSettings
 
   has_one :website, as: :owner, dependent: :destroy
 
