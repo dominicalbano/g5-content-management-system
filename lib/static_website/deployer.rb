@@ -46,7 +46,7 @@ module StaticWebsite
         heroku_repo: @website.heroku_repo,
         git_url: @website.github_repo,
         name: @website.heroku_app_name,
-        organization: @website.client.organization
+        heroku_organization_name: @website.client.organization
       }
     end
 
