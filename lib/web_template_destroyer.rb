@@ -11,10 +11,6 @@ class WebTemplateDestroyer
   private
 
   def destroy_widgets
-    widgets.map(&:destroy)
-  end
-
-  def widgets
-    WebTemplateWidgetCollector.new(@template).collect
+    WebTemplateWidgetCollector.new(@template).collect.map(&:destroy)
   end
 end
