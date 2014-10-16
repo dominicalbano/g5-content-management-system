@@ -8,10 +8,12 @@ module StaticWebsite
   end
 
   def self.compile(website)
+    Rails.logger.info("Compiling website")
     Compiler.new(website).compile
   end
 
   def self.deploy(website, user_email)
+    Rails.logger.info("Deploying website")
     Deployer.new(website, user_email).deploy
   end
 end
