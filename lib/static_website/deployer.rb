@@ -17,6 +17,7 @@ module StaticWebsite
       begin
         Rails.logger.info("About to deploy with options:")
         deployer.deploy(deployer_options) do |repo|
+          Rails.logger.info("calling cp_r_compile_path(repo)")
           cp_r_compile_path(repo)
         end
       rescue GithubHerokuDeployer::CommandException,
@@ -52,8 +53,10 @@ module StaticWebsite
     def cp_r_compile_path(repo)
       # save repo dir so we can remove it later
       @repo_dir = repo.dir.to_s
+      Rails.logger.info("Repo dir: #{@repo_dir}")
 
       # copy static website into repo
+      Rails.logger.info("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
@@ -61,6 +64,7 @@ module StaticWebsite
 
       # commit changes
       repo.add('.')
+      Rails.logger.info("git committing all")
       repo.commit_all "Add compiled site"
     end
 
