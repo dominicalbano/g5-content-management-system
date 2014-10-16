@@ -14,6 +14,7 @@ module StaticWebsite
     def deploy
       @retries = 0
       begin
+        Rails.logger.info("About to deploy with options: #{deployer_options}")
         deployer.deploy(deployer_options) do |repo|
           cp_r_compile_path(repo)
         end
