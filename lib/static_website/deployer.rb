@@ -15,7 +15,7 @@ module StaticWebsite
       Rails.logger.info("Deploy called with #{[@website, @compile_path, @user_email]}")
       @retries = 0
       begin
-        Rails.logger.info("About to deploy with options: #{deployer_options}")
+        Rails.logger.info("About to deploy with options:")
         deployer.deploy(deployer_options) do |repo|
           cp_r_compile_path(repo)
         end
