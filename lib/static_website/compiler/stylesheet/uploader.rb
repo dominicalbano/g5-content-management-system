@@ -22,6 +22,7 @@ module StaticWebsite
         end
 
         def compile
+          Rails.logger.info("Writing style assets to S3")
           s3_bucket_object.write(Pathname.new(from_path), write_options)
         end
 
