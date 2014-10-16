@@ -12,6 +12,7 @@ module StaticWebsite
     end
 
     def deploy
+      Rails.logger.info("Deploy called with #{[@website, @compile_path, @user_email]}")
       @retries = 0
       begin
         Rails.logger.info("About to deploy with options: #{deployer_options}")
