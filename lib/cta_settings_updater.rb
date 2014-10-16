@@ -9,7 +9,7 @@ class CtaSettingsUpdater
   end
 
   def cta_link_settings
-    Setting.select { |s| s.name =~ /cta_link_/ }
+    Setting.where("name LIKE 'cta_link_%'")
   end
 
   private
