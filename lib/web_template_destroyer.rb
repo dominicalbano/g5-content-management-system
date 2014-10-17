@@ -1,5 +1,5 @@
 class WebTemplateDestroyer
-  def initialize(idt)
+  def initialize(id)
     @template = WebTemplate.find(id)
   end
 
