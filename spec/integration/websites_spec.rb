@@ -183,14 +183,5 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
         end
       end.not_to change { WebPageTemplate.count }
     end
-
-    it "Empties trash if yes is clicked" do
-      expect do
-        within ".empty-trash" do
-          click_link "empty-trash-yes"
-          sleep 1
-        end
-      end.to change { WebPageTemplate.count }.by(-1)
-    end
   end
 end
