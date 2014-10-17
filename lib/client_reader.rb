@@ -32,7 +32,7 @@ private
     client.vertical = uf2_client.g5_vertical.to_s
     client.domain   = uf2_client.g5_domain.to_s
     client.type     = uf2_client.g5_domain_type.to_s
-
+    client.organization = uf2_client.g5_organization.to_s
     client.save
 
     find_or_create_client_website(client) if client.type == "SingleDomainClient"

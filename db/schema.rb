@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20141014164905) do
     t.string   "vertical"
     t.string   "type"
     t.string   "domain"
+    t.string   "organization"
   end
 
   create_table "drop_targets", force: true do |t|
