@@ -2,24 +2,37 @@ require 'spec_helper'
 
 describe SavesManager do
   let(:saves_manager) { SavesManager.new("user@email.com") }
-  let(:saves) { JSON.parse(open(Rails.root+"spec/fixtures/saves.json").read) }
+  let(:saves) {[
+    double({created_at:"2014-01-21T19:30:19Z",
+            key:"user@foo.com-9547b11a-2236-4cfb-b6ad-11cdca45c1cf-DATABASE-URL.dump",
+            last_modified: "2014-01-21T19:34:25Z",
+            object: double({created_at:"2014-01-21T19:30:19Z",
+                     key:"user@foo.com-9547b11a-2236-4cfb-b6ad-11cdca45c1cf-DATABASE-URL.dump",
+                     last_modified: "2014-01-21T19:34:25Z"})
+          }),
+    double({created_at:"2014-01-21T19:34:25Z",
+            key:"user2@foo.com-9547b11a-2236-4cfb-b6ad-11cdcafoo-DATABASE-URL.dump",
+            last_modified: "2014-01-21T19:34:25Z",
+            object: double({created_at:"2014-01-21T19:34:25Z",
+                     key:"user2@foo.com-9547b11a-2236-4cfb-b6ad-11cdcafoo-DATABASE-URL.dump",
+                     last_modified: "2014-01-21T19:34:25Z"})
+          })
+  ]}
+  let!(:client){Fabricate(:client)}
 
   before do
-    SavesManager.any_instance.stub(:fetch_all).and_return(saves)
+    saves.stub_chain(:as_tree, :children).and_return(saves)
+    AWS.stub_chain(:s3, :buckets, :[]).and_return(saves)
   end
 
   describe "#fetch_all" do
     subject { saves_manager.fetch_all }
 
     context "db backups existing in bucket" do
-      before do
-        AWS.stub_chain(:s3, :buckets).and_return(saves)
-      end
-
       subject { saves_manager.fetch_all.first }
 
-      its(["id"]) { should eq("user@foo.com-a257b175-587a-4c75-82e7-d3d2903b3464-DATABASE-URL.dump") }
-      its(["created_at"]) { should eq("2014-01-21T19:30:19Z") }
+      its([:id]) {should eq("user@foo.com-9547b11a-2236-4cfb-b6ad-11cdca45c1cf-DATABASE-URL") }
+      its([:created_at]) {should eq("2014-01-21T19:34:25Z") }
     end
   end
 

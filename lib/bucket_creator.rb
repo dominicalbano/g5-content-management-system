@@ -9,7 +9,8 @@ class BucketCreator
     begin
       create_bucket
       set_config
-    rescue
+    rescue => e
+      Rails.logger.warn e.message
       false
     end
   end
@@ -33,7 +34,7 @@ class BucketCreator
   end
 
   def config_var
-    s3_bucket_name_manager.bucket_config_variable_name
+    s3_bucket_name_manager.heroku_config_key_for_bucket_name
   end
 
   def s3_client
@@ -52,3 +53,4 @@ class BucketCreator
     @s3_bucket_name_manager ||= S3BucketNameManager.new(@owner)
   end
 end
+

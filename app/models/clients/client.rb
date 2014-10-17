@@ -10,6 +10,10 @@ class Client < ActiveRecord::Base
     uid.split("/").last
   end
 
+  def bucket_asset_key_prefix
+    urn
+  end
+
   def locations
     Location.all
   end

@@ -11,6 +11,8 @@ describe WebTemplatesHelper, vcr: VCR_OPTIONS do
   let(:widget) { Fabricate(:widget) }
 
   before :each do
+    website_template.stub(:update_navigation_settings)
+    web_home_template.stub(:update_navigation_settings)
     website.website_template = website_template
     website_template.web_layout = web_layout
     website_template.web_theme = web_theme

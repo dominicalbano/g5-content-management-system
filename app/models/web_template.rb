@@ -43,6 +43,8 @@ class WebTemplate < ActiveRecord::Base
 
   before_save :format_redirect_patterns
 
+  attr_accessor :should_update_navigation_settings
+
   # TODO: remove when Ember App implements DropTarget
   def main_widgets
     drop_targets.where(html_id: "drop-target-main").first.try(:widgets) || []

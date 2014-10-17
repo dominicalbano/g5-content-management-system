@@ -1,5 +1,5 @@
 <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
-  <a href="<%= location.website.decorate.heroku_url %>"><%= location.name %></a><br>
+  <strong><%= location.name %></strong><br>
 
   <span class="p-street-address street-address" itemprop="streetAddress">
     <%= location.street_address %>
@@ -13,4 +13,6 @@
   <span class="p-postal-code postal-code" itemprop="postalCode">
     <%= location.postal_code %>
   </span>
+
+  <a href="<%= location.website.decorate.url %>">Visit Location</a>
 </p>

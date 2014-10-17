@@ -40,6 +40,7 @@ describe Setting, vcr: VCR_OPTIONS do
     let(:client_setting) { Fabricate.build(:setting, name: "same_name") }
 
     before do
+      web_template.stub(:update_navigation_settings)
       web_template.settings << web_template_setting
       website.web_templates << web_template
       website.settings << website_setting
@@ -129,16 +130,16 @@ describe Setting, vcr: VCR_OPTIONS do
     let(:setting1) { Fabricate(:setting, name: "same", value: "1", priority: 1) }
     let(:setting2) { Fabricate(:setting, name: "same", value: "2", priority: 2) }
 
-    it "returns empty when no others" do
-      setting2.others_with_lower_priority.should be_empty
-    end
-
     it "returns one when one other" do
-      setting1.others_with_lower_priority.should eq [setting2]
+      setting2.others_with_lower_priority.should eq [setting2]
     end
 
     it "returns two when two others" do
-      setting0.others_with_lower_priority.should eq [setting1, setting2]
+      setting1.others_with_lower_priority.should eq [setting1, setting2]
+    end
+
+    it "returns three when three others" do
+      setting0.others_with_lower_priority.should eq [setting0, setting1, setting2]
     end
   end
 

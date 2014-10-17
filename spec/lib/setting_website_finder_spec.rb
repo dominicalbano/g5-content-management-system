@@ -23,11 +23,26 @@ describe SettingWebsiteFinder do
         Fabricate(:setting, name: "row_one_widget_id", value: widget.id, owner: row_widget)
       end
 
+      before do
+        web_template.stub(:update_navigation_settings)
+      end  
+
       context "a widget within a row widget" do
         before { Widget.any_instance.stub(drop_target: drop_target) }
 
         it { should eq(website) }
       end
+    end
+  end
+
+  describe "#find_layout_setting_by_value" do
+    let!(:setting_one) { Fabricate(:setting, value: 1234, name: "column_one_widget_id") }
+    let!(:setting_two) { Fabricate(:setting, value: 123, name: "column_one_widget_id") }
+
+    subject { finder.find_layout_setting_by_value(123) }
+
+    it "finds the correct setting" do
+      expect(subject).to eq(setting_two)
     end
   end
 end

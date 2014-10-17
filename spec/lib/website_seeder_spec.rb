@@ -7,6 +7,10 @@ describe WebsiteSeeder do
   let(:defaults) { YAML.load_file("#{Rails.root}/config/defaults.yml") }
   let(:seeder) { WebsiteSeeder.new(location) }
 
+  before do
+    WebTemplate.any_instance.stub(:update_navigation_settings)
+  end  
+
   def setting_value_for(name)
     website.settings.where(name: name).first.value
   end
@@ -84,6 +88,10 @@ describe WebsiteSeeder do
     let(:instructions) { defaults["web_home_template"] }
     let!(:web_home_template) { Fabricate(:web_home_template) }
 
+    before do
+      web_home_template.stub(:update_navigation_settings)
+    end  
+
     subject { seeder.create_web_home_template(website, instructions) }
 
     context "a valid website" do
@@ -109,6 +117,10 @@ describe WebsiteSeeder do
   describe "#create_web_page_templates" do
     let(:instructions) { [defaults["web_page_templates"].first] }
     let!(:web_page_template) { Fabricate(:web_page_template) }
+
+    before do
+      web_page_template.stub(:update_navigation_settings)
+    end  
 
     subject { seeder.create_web_page_templates(website, instructions) }
 
@@ -137,6 +149,10 @@ describe WebsiteSeeder do
     let!(:web_template) { Fabricate(:website_template) }
     let!(:drop_target) { Fabricate(:drop_target) }
     let(:instructions) { defaults["web_page_templates"].first["drop_targets"] }
+
+    before do
+      web_template.stub(:update_navigation_settings)
+    end  
 
     subject { seeder.create_drop_targets(web_template, instructions) }
 

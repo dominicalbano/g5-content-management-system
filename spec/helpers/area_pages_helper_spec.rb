@@ -12,6 +12,7 @@ describe AreaPagesHelper, vcr: VCR_OPTIONS do
   let(:renderer) { double(render: "Foo") }
 
   before :each do
+    web_home_template.stub(:update_navigation_settings)
     AreaPageRenderer.stub(new: renderer)
     website.website_template = website_template
     website_template.web_layout = web_layout

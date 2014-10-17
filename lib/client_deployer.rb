@@ -21,7 +21,7 @@ module ClientDeployer
   end
 
   def self.area_pages(compile_path)
-    StaticWebsite::Compiler::AreaPages.new(compile_path, location_websites)
+    StaticWebsite::Compiler::AreaPages.new(compile_path, Location.live_websites)
   end
 
   def self.compile_location_websites
@@ -30,9 +30,5 @@ module ClientDeployer
 
   def self.cleanup(compile_path)
     StaticWebsite::Compiler::CompileDirectory.new(compile_path, false).clean_up
-  end
-
-  def self.location_websites
-    Website.location_websites
   end
 end

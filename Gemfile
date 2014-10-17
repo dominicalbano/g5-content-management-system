@@ -46,28 +46,6 @@ group :development, :test do
   gem "pry"
   # database
   gem "sqlite3"
-  # ruby specs
-  gem "timecop"
-  gem "rspec-rails"
-  gem "rspec-its"
-  gem "shoulda-matchers"
-  # ruby request specs
-  gem "capybara", "2.3.0"
-  gem "capybara-webkit"
-  gem "launchy"
-  gem "selenium-webdriver", "2.41.0"
-  gem "database_cleaner"
-  # ruby spec support
-  gem 'factory_girl_rails'
-  gem "fabrication"
-  gem "faker"
-  gem "webmock", require: false
-  gem "vcr", require: false
-  # ruby spec coverage
-  gem "codeclimate-test-reporter", require: false
-  # guard specs
-  gem "guard-rspec", require: false
-  gem "rb-fsevent"
   # server processes runner
   gem "foreman"
 end
@@ -82,3 +60,29 @@ group :production do
   gem "memcachier"
   gem "honeybadger"
 end
+
+group :test do
+  gem 'resque_spec'
+  # ruby specs
+  gem "timecop"
+  gem "rspec-rails"
+  gem "rspec-its"
+  gem "shoulda-matchers"
+  # ruby request specs
+  gem "capybara", "2.3.0"
+  gem "capybara-webkit"
+  gem "launchy"
+  gem "selenium-webdriver"
+  gem "database_cleaner"
+  # ruby spec support
+  gem 'factory_girl_rails'
+  gem "fabrication"
+  gem "faker"
+  gem "webmock", require: false
+  gem "vcr", require: false
+  # ruby spec coverage
+  gem "codeclimate-test-reporter", require: false
+  # guard specs
+  gem "guard-rspec", require: false
+  gem "rb-fsevent"
+end  
