@@ -11,3 +11,4 @@ App.WebPageTemplate = DS.Model.extend
   displayOrderPosition: DS.attr("number")
   inTrash: DS.attr("boolean")
   parent: DS.belongsTo("WebPageTemplate", {inverse:null})
+  shouldUpdateNavigationSettings: DS.attr("boolean"), defaultValue: -> true

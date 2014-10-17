@@ -11,6 +11,10 @@ describe CtaSettingsUpdater do
   let!(:setting) { Fabricate(:setting, name: "foo", owner: widget) }
   let!(:link_setting) { Fabricate(:setting, name: "cta_link_1", owner: widget) }
 
+  before do
+    web_template.stub(:update_navigation_settings)
+  end  
+
   describe "#update" do
     subject { cta_settings_updater.update }
 

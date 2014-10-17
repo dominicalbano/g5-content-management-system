@@ -46,6 +46,23 @@ group :development, :test do
   gem "pry"
   # database
   gem "sqlite3"
+  # server processes runner
+  gem "foreman"
+end
+
+group :production do
+  gem "unicorn"
+  gem "lograge"
+  gem "pg"
+  gem "rails_12factor"
+  gem "newrelic_rpm"
+  gem "dalli"
+  gem "memcachier"
+  gem "honeybadger"
+end
+
+group :test do
+  gem 'resque_spec'
   # ruby specs
   gem "timecop"
   gem "rspec-rails"
@@ -68,17 +85,4 @@ group :development, :test do
   # guard specs
   gem "guard-rspec", require: false
   gem "rb-fsevent"
-  # server processes runner
-  gem "foreman"
-end
-
-group :production do
-  gem "unicorn"
-  gem "lograge"
-  gem "pg"
-  gem "rails_12factor"
-  gem "newrelic_rpm"
-  gem "dalli"
-  gem "memcachier"
-  gem "honeybadger"
-end
+end  

@@ -40,6 +40,7 @@ describe Setting, vcr: VCR_OPTIONS do
     let(:client_setting) { Fabricate.build(:setting, name: "same_name") }
 
     before do
+      web_template.stub(:update_navigation_settings)
       web_template.settings << web_template_setting
       website.web_templates << web_template
       website.settings << website_setting

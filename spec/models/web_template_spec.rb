@@ -5,6 +5,10 @@ describe WebTemplate do
   let(:website) { Fabricate.build(:website, owner: location) }
   let(:web_template) { Fabricate.build(:web_template, website: website) }
 
+  before do
+    web_template.stub(:update_navigation_settings)
+  end  
+
   describe "validations" do
     it "has a valid fabricator" do
       Fabricate.build(:web_template).should be_valid
@@ -19,6 +23,38 @@ describe WebTemplate do
       Fabricate.build(:web_template, slug: "").should be_valid
     end
   end
+
+  describe "callbacks" do
+    before do 
+      web_template.save
+    end
+      
+    context "set_navigation_setting" do
+      describe "should update" do
+        it "updates by default when a relevant attr changes" do
+          expect(web_template).to receive(:update_navigation_settings)
+          web_template.update_attribute(:in_trash, true)
+        end  
+
+        it "updates when should_skip_update_navigation_settings is false" do
+          expect(web_template).to receive(:update_navigation_settings)
+          web_template.update_attributes(in_trash: true, should_update_navigation_settings: true)
+        end  
+
+        it "enqueues a worker" do
+          web_template.unstub(:update_navigation_settings)
+          ResqueSpec.reset!
+          web_template.update_attribute(:in_trash, true)
+          expect(UpdateNavigationSettingsJob).to have_queued(website.id)
+        end  
+      end  
+
+      it "skips" do
+        expect(web_template).to_not receive(:update_navigation_settings)
+        web_template.update_attributes(in_trash: true, should_update_navigation_settings: false)
+      end 
+    end  
+  end  
 
   describe "#web_layout" do
     it { web_template.should respond_to :web_layout }
