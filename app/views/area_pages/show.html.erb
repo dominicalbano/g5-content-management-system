@@ -12,7 +12,7 @@
 <% content_for(:head) { raw canonical_link_element(params, web_template) } %>
 <% content_for(:head_widgets) { raw meta_description_widgets(web_template) } %>
 <% content_for(:head_widgets) { raw head_widgets(web_template) } %>
-<% content_for(:body_classes) { "area-page" } %>
+<% content_for(:body_classes) { "area" } %>
 
 <%= raw area_preview(web_template.website_layout, web_template, locations, area) %>
 
