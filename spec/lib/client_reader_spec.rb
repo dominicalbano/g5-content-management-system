@@ -111,6 +111,7 @@ describe ClientReader do
         its([:qualifier]) { should eq('Luxury')}
         its([:primary_landmark]) { should eq('Seattle Grace Hospital')}
         its([:status]) { should eq('Live')}
+        its([:thumbnail]) { should eq('http://foo.com/image.jpg')}
       end
     end
 
