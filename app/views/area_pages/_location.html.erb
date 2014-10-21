@@ -1,3 +1,7 @@
+<% if location.thumbnail.present? %>
+  <img src="<% location.thumbnail %>" alt="<%= location.name %> photo">
+<% end %>
+
 <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
   <strong><%= location.name %></strong><br>
 
