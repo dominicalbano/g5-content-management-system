@@ -18,6 +18,7 @@ class GardenWidgetUpdater
     component ||= garden_widget.component_microformat
     garden_widget.url = get_url(component)
     garden_widget.name = get_name(component)
+    garden_widget.widget_id = get_widget_id(component)
     garden_widget.widget_type = get_widget_type(component)
     garden_widget.slug = get_slug(component)
     garden_widget.thumbnail = get_thumbnail(component)
@@ -63,6 +64,12 @@ class GardenWidgetUpdater
   def get_name(component)
     if component.respond_to?(:name)
       component.name.to_s
+    end
+  end
+
+  def get_widget_id(component)
+    if component.respond_to?(:widget_id)
+      component.widget_id.to_i
     end
   end
 
