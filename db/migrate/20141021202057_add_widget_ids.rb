@@ -11,8 +11,8 @@ class AddWidgetIds < ActiveRecord::Migration
       [8, "contact-form"],
       [9, "contact-info"],
       [10, "contact-info-sheet"],
-      [11, "content-stripe"],
-      [12, "corporate-map"],
+      [11, "row"],
+      [12, "corporate-locations-map"],
       [13, "coupon"],
       [14, "directions"],
       [15, "featured-properties"],
@@ -44,14 +44,15 @@ class AddWidgetIds < ActiveRecord::Migration
       [41, "social-feed"],
       [42, "social-links"],
       [43, "suggestion-form"],
-      [44, "tell-friend-form"],
+      [44, "tell-a-friend"],
       [45, "tour-form"],
       [46, "typekit"],
       [47, "video"]
     ]
 
     widget_list.each do |value|
-      GardenWidget.find_by_slug(value[1]).update(widget_id: value[0])
+      garden_widget = GardenWidget.find_by_slug(value[1])
+      garden_widget.update(widget_id: value[0]) if garden_widget
     end
   end
 end
