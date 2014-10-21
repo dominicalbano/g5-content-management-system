@@ -31,31 +31,3 @@ fieldset {
   margin: 0;
   padding: 0;
 }
-.collapsable-btn {
-  display: inline-block;
-  cursor: pointer; }
-.collapsable-content,
-.collapsable-content.collapse {
-  height: 0;
-  overflow: hidden; }
-.collapse {
-  position: relative;
-  height: 0;
-  overflow: hidden;
-  -webkit-transition: height 0.35s ease;
-  -moz-transition: height 0.35s ease;
-  -o-transition: height 0.35s ease;
-  transition: height 0.35s ease; }
-.collapse.in {
-  height: auto; }
-
-
-@media (min-width: 980px) {
-  .collapsable-btn {
-    display: none !important;
-  }
-  .collapsable-content {
-    height: auto !important;
-    overflow: visible !important;
-  }
-}
