@@ -12,7 +12,7 @@ class Widget < ActiveRecord::Base
   has_many :widget_entries, dependent: :destroy
 
   belongs_to :parent, class_name: "Widget", foreign_key: "parent_widget_id"
-  has_many :children, class_name: "Widget", foreign_key: "parent_widget_id"
+  has_many :children, class_name: "Widget", foreign_key: "parent_widget_id", dependent: :destroy
 
   delegate :website_id,
     to: :web_template, allow_nil: true
