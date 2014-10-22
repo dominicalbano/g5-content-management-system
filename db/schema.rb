@@ -31,16 +31,6 @@ ActiveRecord::Schema.define(version: 20141021233346) do
     t.string   "organization"
   end
 
-  create_table "custom_integration_settings", force: true do |t|
-    t.integer  "integration_setting_id"
-    t.string   "name"
-    t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "custom_integration_settings", ["integration_setting_id"], name: "index_custom_integration_settings_on_integration_setting_id"
-
   create_table "drop_targets", force: true do |t|
     t.integer  "web_template_id"
     t.string   "html_id"
@@ -105,24 +95,6 @@ ActiveRecord::Schema.define(version: 20141021233346) do
     t.datetime "updated_at"
     t.string   "widget_type"
   end
-
-  create_table "integration_settings", force: true do |t|
-    t.integer  "location_id"
-    t.string   "inventory_service_url"
-    t.string   "etl_strategy_name"
-    t.string   "inventory_vendor_user_name"
-    t.string   "inventory_vendor_password"
-    t.string   "inventory_vendor_endpoint"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "inventory_service_auth_token"
-    t.string   "lead_vendor_endpoint"
-    t.string   "lead_vendor_user_name"
-    t.string   "lead_vendor_password"
-    t.string   "lead_strategy_name"
-  end
-
-  add_index "integration_settings", ["location_id"], name: "index_integration_settings_on_location_id"
 
   create_table "locations", force: true do |t|
     t.string   "uid"
