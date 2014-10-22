@@ -66,7 +66,6 @@ private
     location.qualifier        = uf2_location.g5_aparment_feature_1.to_s
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
     location.status           = uf2_location.g5_status.to_s
-    location.thumbnail        = uf2_location.g5_thumbnail.to_s
 
     location.save
   end
