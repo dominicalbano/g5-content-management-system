@@ -69,7 +69,7 @@ class GardenWidgetUpdater
 
   def get_widget_id(component)
     if component.respond_to?(:widget_id)
-      component.widget_id.to_i
+      component.widget_id.to_s.to_i
     end
   end
 
