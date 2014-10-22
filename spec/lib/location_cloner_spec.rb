@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe LocationCloner do
-  let(:location_cloner) { LocationCloner.new(source_location, target_location) }
+  let(:location_cloner) { LocationCloner.new(source_location.id, target_location.id) }
   let!(:source_location) { Fabricate(:location) }
   let!(:source_website) { Fabricate(:website, owner: source_location) }
   let!(:source_web_template) { Fabricate(:web_template, website: source_website) }

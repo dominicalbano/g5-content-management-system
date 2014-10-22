@@ -1,7 +1,7 @@
 class LocationCloner
-  def initialize(source_location, target_location)
-    @source_location = source_location
-    @target_location = target_location
+  def initialize(source_location_id, target_location_id)
+    @source_location = Location.find(source_location_id)
+    @target_location = Location.find(target_location_id)
   end
 
   def clone
