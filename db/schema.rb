@@ -120,6 +120,7 @@ ActiveRecord::Schema.define(version: 20141022001046) do
     t.string   "qualifier"
     t.string   "floor_plans"
     t.string   "status",           default: "Pending"
+    t.string   "thumb_url"
   end
 
   add_index "locations", ["urn"], name: "index_locations_on_urn", using: :btree

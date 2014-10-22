@@ -1,4 +1,5 @@
 <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
+  <%= image_tag(location.thumb_url, {style: "float: left;", class: "u-photo"}) if location.thumb_url %>
   <strong><%= location.name %></strong><br>
 
   <span class="p-street-address street-address" itemprop="streetAddress">
