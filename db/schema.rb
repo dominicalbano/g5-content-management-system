@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014164905) do
+ActiveRecord::Schema.define(version: 20141021233346) do
 
   create_table "assets", force: true do |t|
     t.string   "url"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20141014164905) do
     t.string   "qualifier"
     t.string   "floor_plans"
     t.string   "status",           default: "Pending"
+    t.string   "thumb_url"
   end
 
   add_index "locations", ["urn"], name: "index_locations_on_urn"
