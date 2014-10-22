@@ -3,7 +3,7 @@ class GardenWidgetUpdater
     updated_garden_widgets = []
 
     components_microformats.map do |component|
-      garden_widget = GardenWidget.find_or_initialize_by(name: get_name(component))
+      garden_widget = GardenWidget.find_or_initialize_by(id: get_id(component))
       update(garden_widget, component)
       updated_garden_widgets << garden_widget
     end if components_microformats
