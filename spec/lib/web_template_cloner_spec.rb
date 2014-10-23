@@ -3,44 +3,38 @@ require "spec_helper"
 describe WebTemplateCloner do
   let(:web_template_cloner) { WebTemplateCloner.new(source_template, target_website) }
   let!(:target_website) { Fabricate(:website) }
-
-  let!(:source_template) { Fabricate(:web_template, name: "Foo", slug: "web-template") }
+  let!(:source_template) { Fabricate(:web_template, name: "Foo", type: "WebsiteTemplate") }
   let!(:source_layout) { Fabricate(:web_layout, web_template: source_template) }
   let!(:source_theme) { Fabricate(:web_theme, web_template: source_template) }
   let!(:source_drop_target) { Fabricate(:drop_target, web_template: source_template) }
   let!(:row_garden_widget) { Fabricate(:row_garden_widget) }
   let!(:source_widget) do
-    Fabricate(:widget, drop_target: source_drop_target,
-                       garden_widget: row_garden_widget)
-  end
-  let!(:source_widget_widget) { Fabricate(:widget, drop_target: nil) }
-  let!(:source_widget_id_setting) do
-    Fabricate(:setting, owner: source_widget,
-                        name: "column_one_widget_id",
-                        value: source_widget_widget.id )
-  end
-  let!(:source_widget_name_setting) do
-    Fabricate(:setting, owner: source_widget,
-                        name: "column_one_widget_name",
-                        value: source_widget_widget.name )
+    Fabricate(:widget, drop_target: source_drop_target, garden_widget: row_garden_widget)
   end
 
+  let!(:source_widget_2) do
+    Fabricate(:widget, drop_target: source_drop_target, garden_widget: row_garden_widget)
+  end
+
+
   describe "#clone" do
+    let(:widget_cloner) { double(clone: nil) }
+
+    before { WidgetCloner.stub(new: widget_cloner) }
+
     context "before anything happens" do
       specify { expect(target_website.web_templates.size).to eq(0) }
       specify { expect(WebLayout.all.size).to eq(1) }
       specify { expect(WebTheme.all.size).to eq(1) }
       specify { expect(DropTarget.all.size).to eq(1) }
       specify { expect(Widget.all.size).to eq(2) }
-      specify { expect(Setting.all.size).to eq(2) }
     end
 
     context "after running clone" do
       let(:target_web_template) { target_website.web_templates.first }
       let(:target_widget) { target_web_template.drop_targets.first.widgets.first }
 
-      subject { web_template_cloner.clone }
-      before { subject }
+      before { web_template_cloner.clone }
 
       describe "web template cloning" do
         it "clones a WebTemplate to for the target website" do
@@ -52,28 +46,38 @@ describe WebTemplateCloner do
         end
       end
 
-      it "clones a WebLayout to for the target website template" do
-        expect(target_web_template.web_layout).to be_present
+      describe "web layout cloning" do
+        it "clones a new WebLayout" do
+          expect(WebLayout.all.size).to eq(2)
+        end
+
+        it "assigns the new web layout to the new template" do
+          expect(target_web_template.web_layout).to be_present
+        end
       end
 
-      it "clones a WebTheme to for the target website template" do
-        expect(target_web_template.web_theme).to be_present
+      describe "web theme cloning" do
+        it "clones a new WebTheme" do
+          expect(WebTheme.all.size).to eq(2)
+        end
+
+        it "assigns the new web theme to the new template" do
+          expect(target_web_template.web_theme).to be_present
+        end
       end
 
-      it "clones a DropTarget to for the target website template" do
-        expect(target_web_template.drop_targets.size).to eq(1)
+      describe "drop target cloning" do
+        it "clones a new DropTarget" do
+          expect(DropTarget.all.size).to eq(2)
+        end
+
+        it "assigns the new drop target to the new template" do
+          expect(target_web_template.drop_targets.size).to eq(1)
+        end
       end
 
-      it "clones a Widget to for the target drop target" do
-        expect(target_web_template.drop_targets.first.widgets.size).to eq(1)
-      end
-
-      it "clones a Setting for the widget" do
-        expect(target_widget.settings.size).to eq(1)
-      end
-
-      it "clones a Widget to for the target drop target" do
-        expect(Widget.all.size).to eq(4)
+      it "calls WidgetCloner for each widget" do
+        expect(widget_cloner).to have_received(:clone).exactly(2).times
       end
     end
   end
