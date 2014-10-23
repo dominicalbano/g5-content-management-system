@@ -1,6 +1,6 @@
 <p class="h-adr p-adr adr" itemscope itemtype="http://schema.org/PostalAddress">
   <% if location.thumb_url.present? %>
-    <%= image_tag(location.thumb_url, style: "float: left;", class: "u-photo", alt: "#{location.name} Photo" %>
+    <%= image_tag(location.thumb_url, style: "float: left;", class: "u-photo", alt: "#{location.name} Photo") %>
   <% end %>
 
   <strong><%= location.name %></strong><br>
