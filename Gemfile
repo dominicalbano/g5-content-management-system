@@ -1,5 +1,5 @@
 source "https://rubygems.org"
-ruby "2.1.3"
+ruby "2.1.2"
 
 gem 'rails', "4.1.5"
 # Downgraded jquery-rails for Ember Views
@@ -22,10 +22,9 @@ gem "ranked-model"
 gem "aws-sdk"
 gem "httparty"
 gem "momentjs-rails"
-
 gem "ember-rails"
-
 gem 'g5_authenticatable', '~> 0.2'
+gem "pg"
 
 # Temporary fix
 gem "sprockets", "=2.11.0"
@@ -53,7 +52,6 @@ end
 group :production do
   gem "unicorn"
   gem "lograge"
-  gem "pg"
   gem "rails_12factor"
   gem "newrelic_rpm"
   gem "dalli"
