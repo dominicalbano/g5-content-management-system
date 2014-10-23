@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe RowWidgetGardenWidgetsSetting do
   let!(:legit_widget) { Fabricate(:garden_widget, name: "Legit") }
-  let!(:row_widget) { Fabricate(:garden_widget, name: "Row") }
+  let!(:content_stripe_widget) { Fabricate(:garden_widget, name: "Content Stripe") }
   let!(:analytics_widget) { Fabricate(:garden_widget, name: "Analytics") }
   let!(:typekit_widget) { Fabricate(:garden_widget, name: "Typekit") }
   let!(:meta_widget) { Fabricate(:garden_widget, name: "Meta") }
@@ -10,8 +10,8 @@ describe RowWidgetGardenWidgetsSetting do
   describe "#value" do
     subject { described_class.new.value }
 
-    it "does not include the Row widget" do
-      subject.should_not include(row_widget.name)
+    it "does not include the Content Stripe widget" do
+      subject.should_not include(content_stripe_widget.name)
     end
 
     it "does not include the Analytics widget" do
