@@ -16,7 +16,6 @@ describe WebTemplateCloner do
     Fabricate(:widget, drop_target: source_drop_target, garden_widget: row_garden_widget)
   end
 
-
   describe "#clone" do
     let(:widget_cloner) { double(clone: nil) }
 
