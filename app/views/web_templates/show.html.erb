@@ -39,10 +39,11 @@
     <%= javascript_include_tag(*web_template.javascripts) %>
   <% else %>
     <%= javascript_include_tag(*web_template.javascript_include_paths) %>
-    <%= javascript_tag do %>
-      $(function() {
-        $('base').attr('href', window.location.protocol + "//" + window.location.host);
-      });
-    <% end %>
+  <% end %>
+  <%= javascript_tag do %>
+    $(function() {
+      $('base').attr('href', window.location.protocol + "//" + window.location.host);
+    });
   <% end %>
 <% end %>
+
