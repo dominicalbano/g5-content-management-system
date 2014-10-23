@@ -32,7 +32,7 @@ describe WebTemplateCloner do
       specify { expect(WebTheme.all.size).to eq(1) }
       specify { expect(DropTarget.all.size).to eq(1) }
       specify { expect(Widget.all.size).to eq(2) }
-      specify { expect(Setting.all.size).to eq(1) }
+      specify { expect(Setting.all.size).to eq(2) }
     end
 
     context "after running clone" do
