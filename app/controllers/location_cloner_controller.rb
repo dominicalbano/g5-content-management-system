@@ -7,8 +7,11 @@ class LocationClonerController < ApplicationController
   end
 
   def clone_location
-    Resque.enqueue(LocationClonerJob, params["source_location"], params["target_location"])
-    flash[:notice] = "Location is being cloned"
+    params["target_location_ids"].each do |location_id|
+      Resque.enqueue(LocationClonerJob, params["source_location"], location_id)
+    end
+
+    flash[:notice] = "Your location(s) are being cloned"
     redirect_to :back
   end
 end
