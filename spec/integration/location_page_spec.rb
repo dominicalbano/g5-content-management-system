@@ -26,21 +26,12 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     end  
   end  
 
-  describe "layouts" do
-    before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
-      all(".btn--toggle-show")[0].click
-    end
-
-    it "hides unused layouts" do
-      page.should have_selector('.unused-layout', visible: false)
-      page.should have_selector('.used-layout', visible: true)
-    end  
-  end  
-
   describe "Authorization" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
+      all(".btn--toggle-show").each do |toggle_button|
+        toggle_button.click
+      end
     end
 
     context "client user" do
@@ -92,7 +83,18 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           page.should have_selector('.builder.apartments-client .widget.g5-internal-feature', visible: true)
           page.should have_selector('.builder.apartments-client .widget:not(.g5-internal-feature)', visible: true)
         end 
-      end  
+      end
+
+      context "layouts" do
+        # before do
+        #   all(".btn--toggle-show").click
+        # end
+
+        it "hides unused layouts" do
+          page.should have_selector('.unused-layout', visible: false)
+          page.should have_selector('.used-layout', visible: true)
+        end  
+      end   
     end
   end  
 
