@@ -1,0 +1,24 @@
+<div class="rows-layout layout">
+  <div class="cloner">
+    <h1><%= fa_icon "history" %> Location Cloner</h1>
+
+    <%= form_tag "/location_cloner/clone_location" do %>
+      <div class="clone-location">
+        <label for="source_location"><%= fa_icon "copy" %> Source Location</label>
+        <p>The location you want to use as the model</p>
+        <%= select_tag "source_location", options_for_select(@locations) %>
+      </div>
+
+      <div class="clone-location">
+        <label for="target_location"><%= fa_icon "dot-circle-o" %> Source Location</label>
+        <p>The location chosen below will be completely destroyed and re-cloned based on the chosen location above.</p>
+        <%= select_tag "target_location", options_for_select(@locations) %>
+      </div>
+
+      <div class="clone-actions">
+        <%= submit_tag "Clone", class: "clone-link clone-link-green" %>
+        <%= link_to "View Resque", "/resque", class: "clone-link clone-link-blue" %>
+      </div>
+    <% end %>
+  </div>
+</div>
