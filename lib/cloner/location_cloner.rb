@@ -1,4 +1,4 @@
-class LocationCloner
+class Cloner::LocationCloner
   def initialize(source_location_id, target_location_id)
     @source_location = Location.find(source_location_id)
     @target_location = Location.find(target_location_id)
@@ -22,7 +22,7 @@ class LocationCloner
 
   def clone_source_web_templates
     @source_location.website.web_templates.each do |web_template|
-      WebTemplateCloner.new(web_template, @target_location).clone
+      Cloner::WebTemplateCloner.new(web_template, @target_location).clone
     end
   end
 end

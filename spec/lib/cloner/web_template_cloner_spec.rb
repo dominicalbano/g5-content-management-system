@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe WebTemplateCloner do
-  let(:web_template_cloner) { WebTemplateCloner.new(source_template, target_website) }
+describe Cloner::WebTemplateCloner do
+  let(:web_template_cloner) { described_class.new(source_template, target_website) }
   let!(:target_website) { Fabricate(:website) }
   let!(:source_template) { Fabricate(:web_template, name: "Foo", type: "WebsiteTemplate") }
   let!(:source_layout) { Fabricate(:web_layout, web_template: source_template) }
@@ -19,7 +19,7 @@ describe WebTemplateCloner do
   describe "#clone" do
     let(:widget_cloner) { double(clone: nil) }
 
-    before { WidgetCloner.stub(new: widget_cloner) }
+    before { Cloner::WidgetCloner.stub(new: widget_cloner) }
 
     context "before anything happens" do
       specify { expect(target_website.web_templates.size).to eq(0) }

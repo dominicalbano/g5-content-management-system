@@ -1,4 +1,4 @@
-class WebTemplateCloner
+class Cloner::WebTemplateCloner
   def initialize(template, target_website)
     @template = template
     @target_website = target_website
@@ -6,7 +6,7 @@ class WebTemplateCloner
 
   def clone
     new_template = @template.dup
-    new_template.update({website_id: @target_website.id})
+    new_template.update(website: @target_website)
 
     clone_layout(new_template) if website_template?
     clone_theme(new_template) if website_template?
@@ -37,6 +37,6 @@ class WebTemplateCloner
   end
 
   def clone_widgets(widgets, drop_target)
-    widgets.each { |widget| WidgetCloner.new(widget, drop_target).clone }
+    widgets.each { |widget| Cloner::WidgetCloner.new(widget, drop_target).clone }
   end
 end

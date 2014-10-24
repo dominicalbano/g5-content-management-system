@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe WebTemplateCloner do
-  let(:widget_cloner) { WidgetCloner.new(widget, target_drop_target) }
+describe Cloner::WidgetCloner do
+  let(:widget_cloner) { described_class.new(widget, target_drop_target) }
   let!(:website) { Fabricate(:website) }
   let!(:template) { Fabricate(:web_template, website: website) }
   let!(:target_drop_target) { Fabricate(:drop_target, web_template: template) }

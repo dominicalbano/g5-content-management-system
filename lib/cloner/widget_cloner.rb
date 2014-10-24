@@ -1,4 +1,4 @@
-class WidgetCloner
+class Cloner::WidgetCloner
   def initialize(widget, target_drop_target)
     @widget = widget
     @target_drop_target = target_drop_target

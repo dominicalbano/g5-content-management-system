@@ -1,7 +1,7 @@
 require "spec_helper"
 
-describe LocationCloner do
-  let(:location_cloner) { LocationCloner.new(source_location.id, target_location.id) }
+describe Cloner::LocationCloner do
+  let(:location_cloner) { described_class.new(source_location.id, target_location.id) }
   let!(:source_location) { Fabricate(:location) }
   let!(:source_website) { Fabricate(:website, owner: source_location) }
   let!(:source_web_template) { Fabricate(:web_template, website: source_website) }
@@ -15,7 +15,7 @@ describe LocationCloner do
 
     before do
       WebTemplateDestroyer.stub(new: destroyer)
-      WebTemplateCloner.stub(new: cloner)
+      Cloner::WebTemplateCloner.stub(new: cloner)
     end
 
     before { location_cloner.clone }
@@ -29,7 +29,7 @@ describe LocationCloner do
     end
 
     it "instantiates the web template cloner" do
-      expect(WebTemplateCloner).to have_received(:new).
+      expect(Cloner::WebTemplateCloner).to have_received(:new).
         with(source_web_template, target_location)
     end
 
