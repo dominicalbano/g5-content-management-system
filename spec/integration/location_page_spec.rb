@@ -29,6 +29,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "layouts" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
+      all(".btn--toggle-show")[0].click
     end
 
     it "hides unused layouts" do
