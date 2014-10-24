@@ -22,7 +22,7 @@ class Cloner::LocationCloner
 
   def clone_source_web_templates
     @source_location.website.web_templates.each do |web_template|
-      Cloner::WebTemplateCloner.new(web_template, @target_location).clone
+      Cloner::WebTemplateCloner.new(web_template, @target_location.website).clone
     end
   end
 end

@@ -30,7 +30,7 @@ describe Cloner::LocationCloner do
 
     it "instantiates the web template cloner" do
       expect(Cloner::WebTemplateCloner).to have_received(:new).
-        with(source_web_template, target_location)
+        with(source_web_template, target_location.website)
     end
 
     it "calls clone on the cloner class" do
