@@ -2,7 +2,9 @@ require "spec_helper"
 
 describe WebTemplateCloner do
   let(:widget_cloner) { WidgetCloner.new(widget, target_drop_target) }
-  let!(:target_drop_target) { Fabricate(:drop_target) }
+  let!(:website) { Fabricate(:website) }
+  let!(:template) { Fabricate(:web_template, website: website) }
+  let!(:target_drop_target) { Fabricate(:drop_target, web_template: template) }
   let!(:row_garden_widget) { Fabricate(:row_garden_widget) }
   let!(:widget) { Fabricate(:widget, garden_widget: row_garden_widget) }
   let!(:child_widget) { Fabricate(:widget, drop_target: nil) }
@@ -22,7 +24,11 @@ describe WebTemplateCloner do
     end
 
     context "after running clone" do
-      before { widget_cloner.clone }
+      before do
+        widget.settings << widget_id_setting
+        widget.settings << widget_name_setting
+        widget_cloner.clone
+      end
 
       describe "widget cloning" do
         it "clones a new widget" do
@@ -41,6 +47,12 @@ describe WebTemplateCloner do
 
         it "assigns the new widget to the new drop target" do
           expect(target_drop_target.widgets.size).to eq(1)
+        end
+      end
+
+      describe "child widget cloning" do
+        it "assigns the child widget to the new widget" do
+          expect(target_drop_target.widgets.first.widgets.size).to eq(1)
         end
       end
     end

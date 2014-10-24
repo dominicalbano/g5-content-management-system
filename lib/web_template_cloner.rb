@@ -29,7 +29,9 @@ class WebTemplateCloner
 
   def clone_drop_targets(drop_targets, new_template)
     drop_targets.each do |drop_target|
-      new_drop_target = drop_target.dup.update(web_template: new_template)
+      new_drop_target = drop_target.dup
+      new_drop_target.update(web_template: new_template)
+
       clone_widgets(drop_target.widgets, new_drop_target)
     end
   end
