@@ -577,865 +577,6 @@ http_interactions:
   recorded_at: Tue, 14 Oct 2014 17:13:16 GMT
 - request:
     method: get
-    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 14 Oct 2014 17:13:14 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Mon, 07 Jul 2014 18:25:51 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '386'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        @media (min-width: 980px) {
-          .wrapper:before,
-          .wrapper:after {
-            display: table;
-            line-height: 0;
-            content: "";
-          }
-          .wrapper:after {
-            clear: both;
-          }
-          .layout-side-right section[role=main] {
-            float: left;
-          }
-          .layout-side-right .aside-top,
-          .layout-side-right aside[role=complementary] {
-            float: right;
-          }
-          footer[role=contentinfo] {
-            clear: both;
-          }
-        }
-    http_version: 
-  recorded_at: Tue, 14 Oct 2014 17:13:17 GMT
-- request:
-    method: get
-    uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Tue, 14 Oct 2014 17:13:15 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 10 Oct 2014 05:44:44 GMT
-      Content-Type:
-      - text/plain
-      Content-Length:
-      - '13587'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        @import 'colors.scss';
-        @import 'bourbon/bourbon.scss';
-
-        // HELPERS =======================
-        @mixin font-size($value) {
-          font-size: $value + px;
-          font-size: ($value / 10) + rem;
-        }
-
-        // VARIABLES ==================================
-        $text: #393939;
-        $light-text: #707070;
-        $text-font: 'proxima-nova', Helvetica, Arial, sans-serif;
-        $alt-font: 'proxima-nova-alt-condensed', Helvetica, Arial, sans-serif;
-        $heading-font: 'arvo', Georgia, serif;
-        $light-grey: #d9d9d9;
-        $grey: #888;
-        $dark: #393939;
-        $white: #fff;
-        $border-width: 6px;
-
-
-        // GENERAL ==================================
-        html {
-          font-size: 62.5%;
-          background: $white url('http://themes.g5dxm.com/high-rise/background.png') 0 0 repeat;
-        }
-        body {
-          @include font-size(16);
-          border-top: $border-width solid $secondaryColor;
-          color: $text;
-          font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
-          font-weight: 400;
-          line-height: 1.25;
-          @media (min-width: 960px) {
-            line-height: 1.375;
-          }
-        }
-        h1, h2, h3, h4, h5, h6 {
-          font-family: $heading-font;
-          font-weight: 400;
-          margin-top: 0;
-        }
-        h1 {
-          @include font-size(26);
-          line-height: 1.15384615;
-          margin-bottom: .5em;
-          @media (min-width: 960px) {
-            @include font-size(32);
-            line-height: 1.25;
-          }
-          @media (min-width: 1200px) {
-            @include font-size(36);
-          }
-        }
-        h2 {
-          @include font-size(22);
-          color: $grey;
-          font-family: $text-font;
-          line-height: 1.13636364;
-          margin-bottom: .5em;
-          @media (min-width: 960px) {
-            @include font-size(24);
-            line-height: 1.25;
-          }
-        }
-        a {
-          @include transition(color 0.2s ease-in);
-          color: $text;
-          text-decoration: none;
-          &:hover,
-          &:focus {
-            color: $secondaryColor;
-          }
-          [role=main] & {
-            text-decoration: underline;
-          }
-        }
-        fieldset {
-          border: none;
-          padding: 0;
-        }
-        .form-field {
-          margin-bottom: 1em;
-        }
-        input,
-        label,
-        legend {
-          @include font-size(18);
-        }
-        label,
-        legend {
-          font-family: $alt-font;
-          font-weight: 100;
-        }
-        #{$all-text-inputs},
-        textarea {
-          @include box-sizing(border-box);
-          background: $light-grey;
-          border: none;
-          font-family: $text-font;
-          padding: .3em .5em;
-          width: 100%;
-        }
-        input[type=checkbox],
-        input[type=radio] {
-          display: inline-block;
-          margin-right: .5em;
-          width: auto;
-        }
-        textarea {
-          height: 5em;
-        }
-
-
-        // LAYOUT ==================================
-        .layout {
-          @include box-sizing(border-box);
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 1230px;
-          width: 100%;
-        }
-        .wrapper {
-          background: $white;
-        }
-        .content,
-        [role=main],
-        [role=aside] {
-          @include clearfix;
-          @include box-sizing(border-box);
-        }
-
-
-        // HEADER/FOOTER ==================================
-        [role=banner] {
-          @include font-size(13);
-          font-family: $heading-font;
-          position: relative;
-          a {
-            color: #fff;
-          }
-          .buttons {
-            position: absolute;
-            right: 0;
-            top: -$border-width;
-          }
-          .navigation {
-            background: $dark;
-            font-family: $heading-font;
-            a {
-              display: block;
-              &:hover,
-              &:focus {
-                background: #000;
-                background: rgba(0, 0, 0, .3);
-              }
-            }
-          }
-        }
-        .logo {
-          max-width: 300px;
-          &, img {
-            display: block;
-            margin: 0;
-          }
-        }
-        .buttons {
-          a {
-            margin-left: 5px;
-            vertical-align: top;
-          }
-          .widget {
-            @include font-size(15);
-            display: inline-block;
-          }
-        }
-        .collapsable-btn {
-          border-left-color: $secondaryColor;
-          padding: 2px 6px !important;
-          .text {
-            display: none;
-          }
-          .bars {
-            display: block;
-            span {
-              border-bottom: 1px solid $white;
-              display: block;
-              margin: 6px 0;
-              width: 20px;
-            }
-          }
-          &:first-child {
-            margin-top: 0;
-          }
-        }
-        [role=contentinfo] {
-          @include clearfix;
-          @include font-size(12);
-          border-top: 4px double $text;
-          padding-bottom: 2em;
-          padding-top: 1em;
-          text-transform: uppercase;
-        }
-
-
-        // MAIN/ASIDE ==================================
-        [role=main] {
-          padding-bottom: 2em;
-          padding-top: 2em;
-        }
-        .aside-top {
-          padding-top: 2em;
-        }
-        [role=complementary] {
-          padding-bottom: 3em;
-        }
-
-
-        // WIDGETS ==================================
-        [role=contentinfo] .widget {
-          margin-bottom: 2em;
-        }
-        [role=main],
-        [role=complementary] {
-          .widget {
-            margin-top: 2em;
-          }
-        }
-
-        .btn,
-        input[type=submit] {
-          background: $dark;
-          border: none;
-          border-left: $border-width solid $primaryColor;
-          color: $white;
-          display: inline-block;
-          padding: .6em 2em;
-          text-decoration: none;
-          vertical-align: top;
-          &:hover,
-          &:focus {
-            border-left-color: $secondaryColor;
-            color: $white;
-          }
-        }
-        .form-note {
-          margin-bottom: 2em;
-        }
-        .form .required:after {
-          content: '*';
-          margin-left: .25em;
-        }
-        .form-instruction {
-          @include font-size(16);
-          display: inline-block;
-          font-family: $alt-font;
-          font-weight: 100;
-          margin: .5em 0 0 25px;
-        }
-        .form-optional {
-          color: $grey;
-          padding: 0 .5em;
-        }
-        input[type=submit] {
-          @include font-size(15);
-        }
-        [role=main] {
-          .btn {
-            text-decoration: none;
-          }
-          p, ul, ol {
-            color: $light-text;
-          }
-        }
-        .action-calls {
-          @include font-size(18);
-          font-family: $alt-font;
-          font-weight: 100;
-          text-transform: uppercase;
-          a {
-            background: $primaryColor;
-            border-left: $border-width solid $secondaryColor;
-            display: block;
-            margin-bottom: .2em;
-            padding: .2em 1em .3em 2em;
-            position: relative;
-            &:hover,
-            &:focus {
-              color: $white;
-            }
-            &:after {
-              content: '>';
-              position: absolute;
-              right: 1em;
-            }
-          }
-        }
-        .coupon {
-          h2 {
-            @include font-size(18);
-            border-bottom-color: $secondaryColor;
-            color: $secondaryColor;
-          }
-          .p-name,
-          .btn {
-            @include font-size(14);
-          }
-          .btn {
-            cursor: pointer;
-            padding: .65em;
-            line-height: 1;
-            text-align: center;
-            text-decoration: none;
-          }
-          input[type=submit] {
-            padding-left: 2em;
-            padding-right: 2em;
-          }
-        }
-
-        [role=complementary] .photo img {
-          display: block;
-        }
-
-        .social-links {
-          a {
-            background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
-            background-size: 100%;
-            height: 33px;
-            width: 32px;
-            vertical-align: middle;
-            text-indent: 100%;
-            white-space: nowrap;
-            overflow: hidden;
-            &:last-child {
-              margin-right: 0;
-            }
-          }
-          .twitter {
-            background-position: 0 0;
-          }
-          .tumblr {
-            background-position: 0 -44px;
-          }
-          .facebook {
-            background-position: 0 -88px;
-          }
-          .instagram {
-            background-position: 0 -131px;
-          }
-          .vimeo {
-            background-position: 0 -174px;
-          }
-          .yelp {
-            background-position: 0 -218px;
-          }
-          .foursquare {
-            background-position: 0 -261px;
-          }
-          .pinterest {
-            background-position: 0 -305px;
-          }
-          .youtube {
-            background-position: 0 -349px;
-          }
-          .google-plus {
-            background-position: 0 -540px;
-          }
-        }
-
-        .blog-feed a {
-          display: block;
-        }
-        .twitter-feed {
-          .tweet-text a,
-          .tweet-name,
-          .tweet-date,
-          .follow {
-            text-decoration: none;
-          }
-          li {
-            background: #393939;
-          }
-          .tweet-date {
-            color: #707070;
-          }
-          .tweet-date,
-          .tweet-name {
-            @include font-size(12);
-          }
-          .tweet-date,
-          .tweet-text p {
-            color: #b5b5b5;
-          }
-          .tweet-name {
-            color: $white;
-            display: block;
-          }
-          .tweet-text {
-            display: block;
-            margin-top: .25em;
-          }
-          .follow {
-            @include font-size(14);
-            background: $secondaryColor;
-            color: $white;
-            font-family: $heading-font;
-            margin-top: 1em;
-            padding: .5em 1em;
-          }
-        }
-        .tweet-list a {
-          color: $secondaryColor;
-        }
-        [role=complementary] {
-          .twitter-feed {
-            .tweet-text {
-              @include font-size(12);
-            }
-          }
-        }
-
-        .floorplans {
-          h3 {
-            font-family: $text-font;
-          }
-          label {
-            @include font-size(12);
-            font-family: inherit;
-          }
-          .filter {
-            @include linear-gradient(#fff, #f0f0f0);
-            border: 1px solid #cbcbcb;
-            border-radius: 5px;
-            margin-bottom: .5em;
-            padding: .75em .5em;
-            input {
-              display: none;
-            }
-          }
-          .filter-btn {
-            @include font-size(15);
-            @include linear-gradient(white, #f0f0f0);
-            border: 1px solid #cbcbcb;
-            border-radius: 5px;
-            cursor: pointer;
-            font-weight: 700;
-            padding: .3125em .5em;
-          }
-          .disabled {
-            color: #cbcbcb;
-          }
-          input:checked + .filter-btn {
-            border-color: $text;
-          }
-          .filter-name {
-            @include font-size(15);
-            color: $secondaryColor;
-          }
-          .floorplan-heading strong {
-            @include font-size(16);
-            font-weight: 400;
-          }
-          .choose-floorplan {
-            text-decoration: none;
-            strong {
-              color: $secondaryColor;
-            }
-          }
-        }
-        .floorplan-container {
-          background: $white;
-        }
-
-        @media (min-width: 768px) {
-          .floorplans {
-            .filter {
-              padding: .75em 1em;
-            }
-            .filter-name {
-              @include font-size(22);
-            }
-            .filter-btn {
-              @include font-size(15);
-            }
-          }
-        }
-
-        [role=complementary] {
-          .social-links {
-            background: $white;
-            padding: 1em 20px;
-            text-align: center;
-          }
-          .contact-info {
-            font-family: $alt-font;
-            line-height: 1.2;
-            .p-name {
-              @include font-size(18px);
-              border-bottom: 1px dotted $text;
-              padding-bottom: .4em;
-            }
-            .adr,
-            .tel,
-            .email,
-            .chat {
-              @include font-size(18);
-              background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
-              min-height: 35px;
-              padding-left: 40px;
-              text-transform: uppercase;
-            }
-            .tel {
-              background-position: 0 0;
-            }
-            .adr {
-              background-position: 0 -65px;
-            }
-            .email {
-              background-position: 0 -150px;
-            }
-            .chat {
-              background-position: 0 -225px;
-            }
-          }
-        }
-        [role=contentinfo] {
-          .hours,
-          .contact-info {
-            float: left;
-            margin-right: 2em;
-          }
-          .contact-info h4 {
-            font-family: $text-font;
-            font-size: inherit;
-            margin: 0;
-          }
-          .navigation {
-            li {
-              display: inline-block;
-              &:before {
-                content: '| ';
-              }
-              &:first-child:before {
-                content: '';
-              }
-            }
-            a {
-              display: inline-block;
-            }
-          }
-          .hours p,
-          .contact-info p {
-            margin-bottom: 0;
-          }
-        }
-
-
-
-        // SMALLER THAN DESKTOP =====================
-        @media (max-width: 979px) {
-          [role=banner],
-          [role=main],
-          .aside-top,
-          [role=complementary],
-          [role=contentinfo] {
-            padding-left: 3%;
-            padding-right: 3%;
-          }
-          [role=banner] {
-            h1 {
-              @include font-size(30);
-            }
-            .logo {
-              width: 65%;
-            }
-            .buttons .button .btn {
-              height: 21px;
-              padding: 5px 1em;
-            }
-            .navigation {
-              @include font-size(16);
-              a {
-                display: block;
-                padding: .5em .5em .5em 2em;
-              }
-              li {
-                box-shadow: 0 -1px 0 #212121;
-                border-left: $border-width solid $secondaryColor;
-              }
-            }
-          }
-          [role=main] .action-calls li {
-            margin-bottom: .5em;
-          }
-          footer[role=contentinfo] .navigation {
-            text-align: center;
-          }
-        }
-
-
-        // IPAD AND LARGER ========================
-        @media (min-width: 768px) {
-          h2 {
-            margin-bottom: 1em;
-          }
-          input[type=checkbox],
-          input[type=radio] {
-            width: auto;
-          }
-          [role=banner] {
-            @include font-size(15);
-            padding-top: 1.5em;
-          }
-          .page-home [role=main] .photo {
-            margin-right: -1px;
-          }
-          .blog-feed,
-          .twitter-feed {
-            @include box-sizing(border-box);
-            width: 100%;
-          }
-          [role=contentinfo] .navigation {
-            float: right;
-            text-align: right;
-            margin-bottom: 0;
-          }
-        }
-
-
-        // SMALL DESKTOP AND LARGER =====================
-        @media (min-width: 980px) {
-          .layout {
-            padding-left: 2.5%;
-            padding-right: 2.5%;
-          }
-          [role=main] {
-            padding-left: 5.1282051%; // 60/1170px
-            padding-right: 5.1282051%;
-          }
-          [role=banner] {
-            margin-bottom: 1em;
-            h1 {
-              float: left;
-              margin-bottom: .5em;
-            }
-            .navigation {
-              border-collapse: collapse;
-              border-left: none;
-              clear: both;
-              display: table;
-              text-align: center;
-              width: 100%;
-              ul {
-                display: table-row;
-              }
-              li {
-                box-shadow: -1px 0 0 #212121;
-                border-left: 1px solid #434343;
-                display: table-cell;
-                &:first-child {
-                  box-shadow: none;
-                  border-left: none;
-                }
-              }
-              a {
-                padding: 1.25em 0 .783em;
-                border-bottom: .467em solid $dark;
-                &:hover,
-                &:focus,
-                &.active {
-                  border-bottom-color: $secondaryColor;
-                }
-              }
-            }
-          }
-          .wrapper {
-            border-bottom: $border-width solid $secondaryColor;
-            margin-bottom: 2em;
-            overflow: hidden;
-          }
-          .aside-top {
-            @include box-sizing(border-box);
-            padding-top: 0;
-          }
-          // this is a trick to create equal height columns. the parent needs overflow: hidden
-          [role=main],
-          [role=complementary] {
-            @include box-sizing(border-box);
-            .web-home-template & {
-              margin-bottom: -2000px;
-              padding-bottom: 2000px;
-            }
-            .widget:last-child {
-              margin-bottom: 2em;
-            }
-          }
-          [role=main] {
-            border-right: 1px solid $light-grey;
-            width: 68.376068%; // 800/1170px
-          }
-          .aside-top,
-          [role=complementary] {
-            width: 31.623932%; // 370/1170px
-            .widget {
-              padding-left: 5.4054054%; // 20/370px
-              padding-right: 5.4054054%;
-            }
-            .action-calls {
-              padding-left: 0;
-              padding-right: 0;
-            }
-            .photo img {
-              width: 100%;
-            }
-          }
-          .buttons {
-            float: right;
-          }
-          .action-calls {
-            @include font-size(24);
-            a {
-              padding: .5em 1em;
-            }
-          }
-          .floorplans {
-            .floorplan-beds {
-              width: 15%;
-            }
-            .floorplan-rent {
-              width: 25%;
-            }
-          }
-          .page-home {
-            [role=main] {
-              padding-left: 0;
-              padding-right: 0;
-              padding-top: 0;
-              .html {
-                margin: 1em 5.1282051%;
-              }
-            }
-          }
-        }
-
-
-        // DESKTOP =====================
-        @media (min-width: 1200px) {
-          [role=complementary] .social-links {
-            text-align: left;
-            &:before {
-              @include font-size(32);
-              content: 'GET SOCIAL ///';
-              font-family: $alt-font;
-              font-weight: 100;
-              vertical-align: middle;
-            }
-          }
-        }
-    http_version: 
-  recorded_at: Tue, 14 Oct 2014 17:13:17 GMT
-- request:
-    method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
     body:
       encoding: US-ASCII
@@ -2972,4 +2113,891 @@ http_interactions:
         }
     http_version: 
   recorded_at: Thu, 23 Oct 2014 19:05:27 GMT
+- request:
+    method: get
+    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 27 Oct 2014 18:19:20 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Tue, 21 Oct 2014 17:03:49 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @media (min-width: 980px) {
+          .wrapper:before,
+          .wrapper:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .wrapper:after {
+            clear: both;
+          }
+          .layout-side-right section[role=main] {
+            float: left;
+          }
+          .layout-side-right .aside-top,
+          .layout-side-right aside[role=complementary] {
+            float: right;
+          }
+          footer[role=contentinfo] {
+            clear: both;
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 18:19:20 GMT
+- request:
+    method: get
+    uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 27 Oct 2014 18:19:20 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:33 GMT
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '14170'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @import 'colors.scss';
+        @import 'bourbon/bourbon.scss';
+
+        // HELPERS =======================
+        @mixin font-size($value) {
+          font-size: $value + px;
+          font-size: ($value / 10) + rem;
+        }
+
+        // VARIABLES ==================================
+        $text: #393939;
+        $light-text: #707070;
+        $text-font: 'proxima-nova', Helvetica, Arial, sans-serif;
+        $alt-font: 'proxima-nova-alt-condensed', Helvetica, Arial, sans-serif;
+        $heading-font: 'arvo', Georgia, serif;
+        $light-grey: #d9d9d9;
+        $grey: #888;
+        $dark: #393939;
+        $white: #fff;
+        $border-width: 6px;
+
+
+        // GENERAL ==================================
+        html {
+          font-size: 62.5%;
+          background: $white url('http://themes.g5dxm.com/high-rise/background.png') 0 0 repeat;
+        }
+        body {
+          @include font-size(16);
+          border-top: $border-width solid $secondaryColor;
+          color: $text;
+          font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+          font-weight: 400;
+          line-height: 1.25;
+          @media (min-width: 960px) {
+            line-height: 1.375;
+          }
+        }
+        h1, h2, h3, h4, h5, h6 {
+          font-family: $heading-font;
+          font-weight: 400;
+          margin-top: 0;
+        }
+        h1 {
+          @include font-size(26);
+          line-height: 1.15384615;
+          margin-bottom: .5em;
+          @media (min-width: 960px) {
+            @include font-size(32);
+            line-height: 1.25;
+          }
+          @media (min-width: 1200px) {
+            @include font-size(36);
+          }
+        }
+        h2 {
+          @include font-size(22);
+          color: $grey;
+          font-family: $text-font;
+          line-height: 1.13636364;
+          margin-bottom: .5em;
+          @media (min-width: 960px) {
+            @include font-size(24);
+            line-height: 1.25;
+          }
+        }
+        a {
+          @include transition(color 0.2s ease-in);
+          color: $text;
+          text-decoration: none;
+          &:hover,
+          &:focus {
+            color: $secondaryColor;
+          }
+          [role=main] & {
+            text-decoration: underline;
+          }
+        }
+        fieldset {
+          border: none;
+          padding: 0;
+        }
+        .form-field {
+          margin-bottom: 1em;
+        }
+        input,
+        label,
+        legend {
+          @include font-size(18);
+        }
+        label,
+        legend {
+          font-family: $alt-font;
+          font-weight: 100;
+        }
+        #{$all-text-inputs},
+        textarea {
+          @include box-sizing(border-box);
+          background: $light-grey;
+          border: none;
+          font-family: $text-font;
+          padding: .3em .5em;
+          width: 100%;
+        }
+        input[type=checkbox],
+        input[type=radio] {
+          display: inline-block;
+          margin-right: .5em;
+          width: auto;
+        }
+        textarea {
+          height: 5em;
+        }
+
+
+        // LAYOUT ==================================
+        .layout {
+          @include box-sizing(border-box);
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 1230px;
+          width: 100%;
+        }
+        .wrapper {
+          background: $white;
+        }
+        .content,
+        [role=main],
+        [role=aside] {
+          @include clearfix;
+          @include box-sizing(border-box);
+        }
+
+
+        // HEADER/FOOTER ==================================
+        [role=banner] {
+          @include font-size(13);
+          font-family: $heading-font;
+          position: relative;
+          a {
+            color: #fff;
+          }
+          .buttons {
+            position: absolute;
+            right: 0;
+            top: -$border-width;
+          }
+          .navigation {
+            background: $dark;
+            font-family: $heading-font;
+            a {
+              display: block;
+              &:hover,
+              &:focus {
+                background: #000;
+                background: rgba(0, 0, 0, .3);
+              }
+            }
+          }
+        }
+        .logo {
+          max-width: 300px;
+          &, img {
+            display: block;
+            margin: 0;
+          }
+        }
+        .buttons {
+          a {
+            margin-left: 5px;
+            vertical-align: top;
+          }
+          .widget {
+            @include font-size(15);
+            display: inline-block;
+          }
+        }
+        .collapsable-btn {
+          display: inline-block;
+          cursor: pointer; }
+        .collapsable-content,
+        .collapsable-content.collapse {
+          height: 0;
+          overflow: hidden; }
+        .collapse {
+          position: relative;
+          height: 0;
+          overflow: hidden;
+          -webkit-transition: height 0.35s ease;
+          -moz-transition: height 0.35s ease;
+          -o-transition: height 0.35s ease;
+          transition: height 0.35s ease; }
+        .collapse.in {
+          height: auto; }
+
+        @media (min-width: 980px) {
+          .collapsable-btn {
+            display: none !important;
+          }
+          .collapsable-content {
+            height: auto !important;
+            overflow: visible !important;
+          }
+        }
+
+        .collapsable-btn {
+          border-left-color: $secondaryColor;
+          padding: 2px 6px !important;
+          .text {
+            display: none;
+          }
+          .bars {
+            display: block;
+            span {
+              border-bottom: 1px solid $white;
+              display: block;
+              margin: 6px 0;
+              width: 20px;
+            }
+          }
+          &:first-child {
+            margin-top: 0;
+          }
+        }
+        [role=contentinfo] {
+          @include clearfix;
+          @include font-size(12);
+          border-top: 4px double $text;
+          padding-bottom: 2em;
+          padding-top: 1em;
+          text-transform: uppercase;
+        }
+
+
+        // MAIN/ASIDE ==================================
+        [role=main] {
+          padding-bottom: 2em;
+          padding-top: 2em;
+        }
+        .aside-top {
+          padding-top: 2em;
+        }
+        [role=complementary] {
+          padding-bottom: 3em;
+        }
+
+
+        // WIDGETS ==================================
+        [role=contentinfo] .widget {
+          margin-bottom: 2em;
+        }
+        [role=main],
+        [role=complementary] {
+          .widget {
+            margin-top: 2em;
+          }
+        }
+
+        .btn,
+        input[type=submit] {
+          background: $dark;
+          border: none;
+          border-left: $border-width solid $primaryColor;
+          color: $white;
+          display: inline-block;
+          padding: .6em 2em;
+          text-decoration: none;
+          vertical-align: top;
+          &:hover,
+          &:focus {
+            border-left-color: $secondaryColor;
+            color: $white;
+          }
+        }
+        .form-note {
+          margin-bottom: 2em;
+        }
+        .form .required:after {
+          content: '*';
+          margin-left: .25em;
+        }
+        .form-instruction {
+          @include font-size(16);
+          display: inline-block;
+          font-family: $alt-font;
+          font-weight: 100;
+          margin: .5em 0 0 25px;
+        }
+        .form-optional {
+          color: $grey;
+          padding: 0 .5em;
+        }
+        input[type=submit] {
+          @include font-size(15);
+        }
+        [role=main] {
+          .btn {
+            text-decoration: none;
+          }
+          p, ul, ol {
+            color: $light-text;
+          }
+        }
+        .action-calls {
+          @include font-size(18);
+          font-family: $alt-font;
+          font-weight: 100;
+          text-transform: uppercase;
+          a {
+            background: $primaryColor;
+            border-left: $border-width solid $secondaryColor;
+            display: block;
+            margin-bottom: .2em;
+            padding: .2em 1em .3em 2em;
+            position: relative;
+            &:hover,
+            &:focus {
+              color: $white;
+            }
+            &:after {
+              content: '>';
+              position: absolute;
+              right: 1em;
+            }
+          }
+        }
+        .coupon {
+          h2 {
+            @include font-size(18);
+            border-bottom-color: $secondaryColor;
+            color: $secondaryColor;
+          }
+          .p-name,
+          .btn {
+            @include font-size(14);
+          }
+          .btn {
+            cursor: pointer;
+            padding: .65em;
+            line-height: 1;
+            text-align: center;
+            text-decoration: none;
+          }
+          input[type=submit] {
+            padding-left: 2em;
+            padding-right: 2em;
+          }
+        }
+
+        [role=complementary] .photo img {
+          display: block;
+        }
+
+        .social-links {
+          a {
+            background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
+            background-size: 100%;
+            height: 33px;
+            width: 32px;
+            vertical-align: middle;
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+          .twitter {
+            background-position: 0 0;
+          }
+          .tumblr {
+            background-position: 0 -44px;
+          }
+          .facebook {
+            background-position: 0 -88px;
+          }
+          .instagram {
+            background-position: 0 -131px;
+          }
+          .vimeo {
+            background-position: 0 -174px;
+          }
+          .yelp {
+            background-position: 0 -218px;
+          }
+          .foursquare {
+            background-position: 0 -261px;
+          }
+          .pinterest {
+            background-position: 0 -305px;
+          }
+          .youtube {
+            background-position: 0 -349px;
+          }
+          .google-plus {
+            background-position: 0 -392px;
+          }
+        }
+
+        .blog-feed a {
+          display: block;
+        }
+        .twitter-feed {
+          .tweet-text a,
+          .tweet-name,
+          .tweet-date,
+          .follow {
+            text-decoration: none;
+          }
+          li {
+            background: #393939;
+          }
+          .tweet-date {
+            color: #707070;
+          }
+          .tweet-date,
+          .tweet-name {
+            @include font-size(12);
+          }
+          .tweet-date,
+          .tweet-text p {
+            color: #b5b5b5;
+          }
+          .tweet-name {
+            color: $white;
+            display: block;
+          }
+          .tweet-text {
+            display: block;
+            margin-top: .25em;
+          }
+          .follow {
+            @include font-size(14);
+            background: $secondaryColor;
+            color: $white;
+            font-family: $heading-font;
+            margin-top: 1em;
+            padding: .5em 1em;
+          }
+        }
+        .tweet-list a {
+          color: $secondaryColor;
+        }
+        [role=complementary] {
+          .twitter-feed {
+            .tweet-text {
+              @include font-size(12);
+            }
+          }
+        }
+
+        .floorplans {
+          h3 {
+            font-family: $text-font;
+          }
+          label {
+            @include font-size(12);
+            font-family: inherit;
+          }
+          .filter {
+            @include linear-gradient(#fff, #f0f0f0);
+            border: 1px solid #cbcbcb;
+            border-radius: 5px;
+            margin-bottom: .5em;
+            padding: .75em .5em;
+            input {
+              display: none;
+            }
+          }
+          .filter-btn {
+            @include font-size(15);
+            @include linear-gradient(white, #f0f0f0);
+            border: 1px solid #cbcbcb;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 700;
+            padding: .3125em .5em;
+          }
+          .disabled {
+            color: #cbcbcb;
+          }
+          input:checked + .filter-btn {
+            border-color: $text;
+          }
+          .filter-name {
+            @include font-size(15);
+            color: $secondaryColor;
+          }
+          .floorplan-heading strong {
+            @include font-size(16);
+            font-weight: 400;
+          }
+          .choose-floorplan {
+            text-decoration: none;
+            strong {
+              color: $secondaryColor;
+            }
+          }
+        }
+        .floorplan-container {
+          background: $white;
+        }
+
+        @media (min-width: 768px) {
+          .floorplans {
+            .filter {
+              padding: .75em 1em;
+            }
+            .filter-name {
+              @include font-size(22);
+            }
+            .filter-btn {
+              @include font-size(15);
+            }
+          }
+        }
+
+        [role=complementary] {
+          .social-links {
+            background: $white;
+            padding: 1em 20px;
+            text-align: center;
+          }
+          .contact-info {
+            font-family: $alt-font;
+            line-height: 1.2;
+            .p-name {
+              @include font-size(18px);
+              border-bottom: 1px dotted $text;
+              padding-bottom: .4em;
+            }
+            .adr,
+            .tel,
+            .email,
+            .chat {
+              @include font-size(18);
+              background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
+              min-height: 35px;
+              padding-left: 40px;
+              text-transform: uppercase;
+            }
+            .tel {
+              background-position: 0 0;
+            }
+            .adr {
+              background-position: 0 -65px;
+            }
+            .email {
+              background-position: 0 -150px;
+            }
+            .chat {
+              background-position: 0 -225px;
+            }
+          }
+        }
+        [role=contentinfo] {
+          .hours,
+          .contact-info {
+            float: left;
+            margin-right: 2em;
+          }
+          .contact-info h4 {
+            font-family: $text-font;
+            font-size: inherit;
+            margin: 0;
+          }
+          .navigation {
+            li {
+              display: inline-block;
+              &:before {
+                content: '| ';
+              }
+              &:first-child:before {
+                content: '';
+              }
+            }
+            a {
+              display: inline-block;
+            }
+          }
+          .hours p,
+          .contact-info p {
+            margin-bottom: 0;
+          }
+        }
+
+
+
+        // SMALLER THAN DESKTOP =====================
+        @media (max-width: 979px) {
+          [role=banner],
+          [role=main],
+          .aside-top,
+          [role=complementary],
+          [role=contentinfo] {
+            padding-left: 3%;
+            padding-right: 3%;
+          }
+          [role=banner] {
+            h1 {
+              @include font-size(30);
+            }
+            .logo {
+              width: 65%;
+            }
+            .buttons .button .btn {
+              height: 21px;
+              padding: 5px 1em;
+            }
+            .navigation {
+              @include font-size(16);
+              a {
+                display: block;
+                padding: .5em .5em .5em 2em;
+              }
+              li {
+                box-shadow: 0 -1px 0 #212121;
+                border-left: $border-width solid $secondaryColor;
+              }
+            }
+          }
+          [role=main] .action-calls li {
+            margin-bottom: .5em;
+          }
+          footer[role=contentinfo] .navigation {
+            text-align: center;
+          }
+        }
+
+
+        // IPAD AND LARGER ========================
+        @media (min-width: 768px) {
+          h2 {
+            margin-bottom: 1em;
+          }
+          input[type=checkbox],
+          input[type=radio] {
+            width: auto;
+          }
+          [role=banner] {
+            @include font-size(15);
+            padding-top: 1.5em;
+          }
+          .page-home [role=main] .photo {
+            margin-right: -1px;
+          }
+          .blog-feed,
+          .twitter-feed {
+            @include box-sizing(border-box);
+            width: 100%;
+          }
+          [role=contentinfo] .navigation {
+            float: right;
+            text-align: right;
+            margin-bottom: 0;
+          }
+        }
+
+
+        // SMALL DESKTOP AND LARGER =====================
+        @media (min-width: 980px) {
+          .layout {
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+          }
+          [role=main] {
+            padding-left: 5.1282051%; // 60/1170px
+            padding-right: 5.1282051%;
+          }
+          [role=banner] {
+            margin-bottom: 1em;
+            h1 {
+              float: left;
+              margin-bottom: .5em;
+            }
+            .navigation {
+              border-collapse: collapse;
+              border-left: none;
+              clear: both;
+              display: table;
+              text-align: center;
+              width: 100%;
+              ul {
+                display: table-row;
+              }
+              li {
+                box-shadow: -1px 0 0 #212121;
+                border-left: 1px solid #434343;
+                display: table-cell;
+                &:first-child {
+                  box-shadow: none;
+                  border-left: none;
+                }
+              }
+              a {
+                padding: 1.25em 0 .783em;
+                border-bottom: .467em solid $dark;
+                &:hover,
+                &:focus,
+                &.active {
+                  border-bottom-color: $secondaryColor;
+                }
+              }
+            }
+          }
+          .wrapper {
+            border-bottom: $border-width solid $secondaryColor;
+            margin-bottom: 2em;
+            overflow: hidden;
+          }
+          .aside-top {
+            @include box-sizing(border-box);
+            padding-top: 0;
+          }
+          // this is a trick to create equal height columns. the parent needs overflow: hidden
+          [role=main],
+          [role=complementary] {
+            @include box-sizing(border-box);
+            .web-home-template & {
+              margin-bottom: -2000px;
+              padding-bottom: 2000px;
+            }
+            .widget:last-child {
+              margin-bottom: 2em;
+            }
+          }
+          [role=main] {
+            border-right: 1px solid $light-grey;
+            width: 68.376068%; // 800/1170px
+          }
+          .aside-top,
+          [role=complementary] {
+            width: 31.623932%; // 370/1170px
+            .widget {
+              padding-left: 5.4054054%; // 20/370px
+              padding-right: 5.4054054%;
+            }
+            .action-calls {
+              padding-left: 0;
+              padding-right: 0;
+            }
+            .photo img {
+              width: 100%;
+            }
+          }
+          .buttons {
+            float: right;
+          }
+          .action-calls {
+            @include font-size(24);
+            a {
+              padding: .5em 1em;
+            }
+          }
+          .floorplans {
+            .floorplan-beds {
+              width: 15%;
+            }
+            .floorplan-rent {
+              width: 25%;
+            }
+          }
+          .page-home {
+            [role=main] {
+              padding-left: 0;
+              padding-right: 0;
+              padding-top: 0;
+              .html {
+                margin: 1em 5.1282051%;
+              }
+            }
+          }
+        }
+
+
+        // DESKTOP =====================
+        @media (min-width: 1200px) {
+          [role=complementary] .social-links {
+            text-align: left;
+            &:before {
+              @include font-size(32);
+              content: 'GET SOCIAL ///';
+              font-family: $alt-font;
+              font-weight: 100;
+              vertical-align: middle;
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 18:19:21 GMT
 recorded_with: VCR 2.9.2
