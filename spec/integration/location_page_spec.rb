@@ -18,6 +18,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "themes" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
+
+      all(".btn--toggle-show").each do |toggle_button|
+        toggle_button.click
+      end
     end
 
     it "hides unused themes" do
