@@ -35,6 +35,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       visit "/#{@website.slug}/#{@web_page_template.slug}"
       all(".btn--toggle-show").each do |toggle_button|
         toggle_button.click
+        sleep 1
       end
     end
 
@@ -90,10 +91,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       context "layouts" do
-        # before do
-        #   all(".btn--toggle-show").click
-        # end
-
         it "hides unused layouts" do
           page.should have_selector('.unused-layout', visible: false)
           page.should have_selector('.used-layout', visible: true)
