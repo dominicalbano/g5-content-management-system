@@ -1,5 +1,14 @@
 require "spec_helper"
 
+def open_gardens
+  # add a long delay to make sure ember is done doing all it's black magic
+  # otherwise we get intermittent failures when looking for garden widgets
+  sleep 3
+  all(".btn--toggle-show").each do |toggle_button|
+    toggle_button.click
+  end
+end
+
 describe "Integration '/:website_slug/:web_page_template_slug'",
          auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
@@ -18,11 +27,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "themes" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
-
-      sleep 3
-      all(".btn--toggle-show").each do |toggle_button|
-        toggle_button.click
-      end
+      open_gardens
     end
 
     it "hides unused themes" do
@@ -34,11 +39,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "layouts" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
-
-      sleep 3
-      all(".btn--toggle-show").each do |toggle_button|
-        toggle_button.click
-      end
+      open_gardens
     end
 
     it "hides unused layouts" do
@@ -124,11 +125,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Color picker" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
-
-      sleep 3
-      all(".btn--toggle-show").each do |toggle_button|
-        toggle_button.click
-      end
+      open_gardens
     end
 
     describe "Theme selection" do
@@ -256,12 +253,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
-          # add a long delay to make sure ember is done doing all it's black magic
-          # otherwise we get intermittent failures when looking for garden widgets
-          sleep 3
-          all(".btn--toggle-show").each do |toggle_button|
-            toggle_button.click
-          end
+          open_gardens
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".main-widgets .drop-target-add:first-of-type")
           2.times do
@@ -305,10 +297,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "Are drag and drop addable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
-        sleep 3
-        all(".btn--toggle-show").each do |toggle_button|
-          toggle_button.click
-        end
+        open_gardens
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -401,10 +390,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
-          sleep 3
-          all(".btn--toggle-show").each do |toggle_button|
-            toggle_button.click
-          end
+          open_gardens
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".aside-before-main-widgets .drop-target-add:first-of-type")
           2.times do
@@ -448,11 +434,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "Are drag and drop addable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
-
-        sleep 3
-        all(".btn--toggle-show").each do |toggle_button|
-          toggle_button.click
-        end
+        open_gardens
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -545,10 +527,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
-          sleep 3
-          all(".btn--toggle-show").each do |toggle_button|
-            toggle_button.click
-          end
+          open_gardens
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".aside-after-main-widgets .drop-target-add:first-of-type")
           2.times do
