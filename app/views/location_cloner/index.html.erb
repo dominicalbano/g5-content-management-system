@@ -1,17 +1,20 @@
 <div class="rows-layout layout">
   <div class="cloner">
-    <h1><%= fa_icon "history" %> Location Cloner</h1>
+    <h1><%= fa_icon "copy" %> Location Cloner</h1>
 
     <%= form_tag "/location_cloner/clone_location" do %>
       <div class="clone-location">
-        <label for="source_location"><%= fa_icon "copy" %> Source Location</label>
-        <p>The location you want to use as the model</p>
+        <span class="clone-step">1.</span>
+
+        <label for="source_location"><%= fa_icon "code" %> Source Location</label>
         <%= select_tag "source_location", options_for_select(@locations) %>
       </div>
 
       <div class="clone-location target-location">
+        <span class="clone-step">2.</span>
+
         <label for="target_location_ids"><%= fa_icon "dot-circle-o" %> Target Locations</label>
-        <p>The locations chosen below will be completely destroyed and re-cloned based on the source location above.</p>
+        <p>The locations chosen will be completely destroyed and re-cloned based on the source location above.</p>
         <%= select_tag "target_location_ids", options_for_select(@locations), multiple: true %>
       </div>
 

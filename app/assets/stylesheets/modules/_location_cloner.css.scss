@@ -21,6 +21,10 @@
     border-top-right-radius:3px;
     font-weight:normal;
     text-transform: none;
+
+    i {
+      margin-right:8px;
+    }
   }
 
   form {
@@ -28,12 +32,33 @@
   }
 
   .clone-location {
-    padding:20px 30px;
+    padding:30px;
     background:#fff;
     border-radius:3px;
-    border-bottom:3px solid #e6e6e6;
+    border-bottom:3px solid #ddd;
     text-align:center;
     margin:15px 0;
+    position:relative;
+
+    .clone-step {
+      position:absolute;
+      color:#fff;
+      font-weight:bold;
+      top:0;
+      left:0;
+      border-top-left-radius:3px;
+      border-bottom-right-radius:15px;
+      background:#3B4655;
+      border-bottom:3px solid #20262F;
+      background:#ccc;
+      border-bottom:none;
+      padding:6px 15px;
+      padding:6px 15px 4px;
+      background:#FFCC5A;
+      border-bottom:3px solid #EFBE52;
+      background: $g5-blue-light;
+      border-bottom:3px solid #5EA3C3;
+    }
 
     p {
       margin:8px 0;
@@ -43,6 +68,10 @@
 
   label {
     font-size:114%;
+
+    i {
+      color:#6cc644;
+    }
   }
 
   select {
@@ -54,11 +83,15 @@
     border-bottom:2px solid #ddd;
     height: 50px;
     width:100%;
+    background: #fff;
+    border: 1px solid #e6e6e6;
   }
 
   .target-location select {
     height:300px;
-    border:none;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    padding: 30px;
   }
 
   .clone-actions {
@@ -73,6 +106,7 @@
     text-align:center;
     text-decoration:none;
     width:430px;
+    font-size:110%;
   }
 
   .clone-link-green {
@@ -83,7 +117,7 @@
   }
 
   .clone-link-blue {
-    background: #6dbde2;
+    background: $g5-blue-light;
     border-bottom:3px solid #5EA3C3;
     display:inline-block;
     padding:11px 10px 9px;
