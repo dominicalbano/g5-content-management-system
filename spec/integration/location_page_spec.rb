@@ -24,6 +24,18 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     @web_theme = @website_template.web_theme
   end
 
+  describe "initial page load" do
+    before do
+      visit "/#{@website.slug}/#{@web_page_template.slug}"
+    end
+
+    it "collapses all gardens" do
+      page.should have_selector('.theme-picker .toggle-content', visible: false)
+      page.should have_selector('.layout-picker .toggle-content', visible: false)
+      page.should have_selector('.widget-list .toggle-content', visible: false)
+    end
+  end
+
   describe "themes" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
