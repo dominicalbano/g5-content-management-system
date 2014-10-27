@@ -12,6 +12,6 @@ class LocationClonerController < ApplicationController
     end
 
     flash[:notice] = "Your location(s) are being cloned"
-    render action: :index
+    redirect_to :back
   end
 end

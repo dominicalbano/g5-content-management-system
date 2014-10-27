@@ -41,6 +41,8 @@ class Cloner::WidgetCloner
   end
 
   def set_setting(target_widget, setting)
+    return if setting.blank?
+
     found_setting = target_widget.settings.where(name: setting.name).first
     found_setting.update(value: setting.value) if found_setting
   end

@@ -14,7 +14,10 @@ describe LocationClonerController do
     end
 
     describe "#clone_location" do
-      before { ResqueSpec.reset! }
+      before do
+        ResqueSpec.reset!
+        request.env["HTTP_REFERER"] = "/location_cloner"
+      end
 
       context "one target id" do
         let(:params) { { "source_location" => "1", "target_location_ids" => ["2"] } }
