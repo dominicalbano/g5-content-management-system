@@ -297,9 +297,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "Are drag and drop addable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
-        # all(".btn--toggle-show").each do |toggle_button|
-        #   toggle_button.click
-        # end
+        sleep 3
+        all(".btn--toggle-show").each do |toggle_button|
+          toggle_button.click
+        end
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -392,6 +393,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
+          sleep 3
+          all(".btn--toggle-show").each do |toggle_button|
+            toggle_button.click
+          end
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".aside-before-main-widgets .drop-target-add:first-of-type")
           2.times do
