@@ -1,5 +1,14 @@
 require "spec_helper"
 
+def open_gardens
+  # add a long delay to make sure ember is done doing all it's black magic
+  # otherwise we get intermittent failures when looking around in a garden
+  sleep 3
+  all(".btn--toggle-show").each do |toggle_button|
+    toggle_button.click
+  end
+end
+
 describe "Integration '/:website_slug/:web_page_template_slug'",
          auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
@@ -15,31 +24,34 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     @web_theme = @website_template.web_theme
   end
 
+  describe "initial page load" do
+    before do
+      visit "/#{@website.slug}/#{@web_page_template.slug}"
+    end
+
+    it "collapses all gardens" do
+      page.should have_selector('.theme-picker .toggle-content', visible: false)
+      page.should have_selector('.layout-picker .toggle-content', visible: false)
+      page.should have_selector('.widget-list .toggle-content', visible: false)
+    end
+  end
+
   describe "themes" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
+      open_gardens
     end
 
     it "hides unused themes" do
       page.should have_selector('.unused-theme', visible: false)
       page.should have_selector('.used-theme', visible: true)
     end  
-  end  
-
-  describe "layouts" do
-    before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
-    end
-
-    it "hides unused layouts" do
-      page.should have_selector('.unused-layout', visible: false)
-      page.should have_selector('.used-layout', visible: true)
-    end  
-  end  
+  end
 
   describe "Authorization" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
+      open_gardens
     end
 
     context "client user" do
@@ -64,6 +76,14 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           page.should have_selector('.builder.apartments-client .widget.g5-internal-feature', visible: false)
           page.should have_selector('.builder.apartments-client .widget:not(.g5-internal-feature)', visible: true)
         end 
+      end
+
+      context "layouts" do
+        it "hides unused layouts" do
+          pending("Irrelevant until clients have access to layout garden")
+          page.should have_selector('.unused-layout', visible: false)
+          page.should have_selector('.used-layout', visible: true)
+        end
       end  
     end
     
@@ -91,7 +111,14 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           page.should have_selector('.builder.apartments-client .widget.g5-internal-feature', visible: true)
           page.should have_selector('.builder.apartments-client .widget:not(.g5-internal-feature)', visible: true)
         end 
-      end  
+      end
+
+      context "layouts" do
+        it "shows used and unused layouts" do
+          page.should have_selector('.unused-layout', visible: true)
+          page.should have_selector('.used-layout', visible: true)
+        end
+      end 
     end
   end  
 
@@ -111,6 +138,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Color picker" do
     before do
       visit "/#{@website.slug}/#{@web_page_template.slug}"
+      open_gardens
     end
 
     describe "Theme selection" do
@@ -238,6 +266,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
+          open_gardens
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".main-widgets .drop-target-add:first-of-type")
           2.times do
@@ -281,6 +310,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "Are drag and drop addable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
+        open_gardens
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -373,6 +403,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
+          open_gardens
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".aside-before-main-widgets .drop-target-add:first-of-type")
           2.times do
@@ -416,6 +447,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "Are drag and drop addable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}"
+        open_gardens
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -508,6 +540,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
+          open_gardens
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".aside-after-main-widgets .drop-target-add:first-of-type")
           2.times do
