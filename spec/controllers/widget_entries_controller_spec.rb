@@ -14,7 +14,7 @@ describe WidgetEntriesController do
         get :index
         response.should render_template(:index)
       end
-      it "assigs decorated collection to @widget_entries" do
+      it "assigns decorated collection to @widget_entries" do
         get :index
         assigns(:widget_entries).should be_kind_of Draper::CollectionDecorator
       end
@@ -28,7 +28,7 @@ describe WidgetEntriesController do
         get :show, id: 1
         response.should render_template(:show)
       end
-      it "assigs decorated widget entry to @widget_entry" do
+      it "assigns decorated widget entry to @widget_entry" do
         get :show, id: 1
         assigns(:widget_entry).should be_kind_of WidgetEntryDecorator
       end
