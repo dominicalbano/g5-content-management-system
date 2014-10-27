@@ -11,11 +11,6 @@ describe LocationClonerController do
         get :index
         response.should render_template(:index)
       end
-
-      it "sets @locations" do
-        get :index
-        expect(assigns(:locations)).to eq([[location.name, location.id]])
-      end
     end
 
     describe "#clone_location" do
