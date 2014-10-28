@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G5 CMS: <%= @client_name %></title>
+    <%= stylesheet_link_tag "application" %>
+    <%= javascript_include_tag "https://s3.amazonaws.com/themes.g5dxm.com/shared/javascripts/jquery-1.8.1.min.js" %>
+    <%= javascript_include_tag "/internal" %>
+    <%= csrf_meta_tag %>
+    <%= yield(:head) %>
+  </head>
+  <body class="<%= user_class %>">
+    <% flash.each do |name, msg| %>
+      <%= flash_div name %>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>
