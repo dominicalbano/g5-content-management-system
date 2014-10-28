@@ -12,7 +12,7 @@ end
 describe "Integration '/:website_slug/:web_page_template_slug'",
          auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
-    VCR.use_cassette("Gardens2") do
+    VCR.use_cassette("Gardens") do
       GardenWebLayoutUpdater.new.update_all
       GardenWebThemeUpdater.new.update_all
       GardenWidgetUpdater.new.update_all
