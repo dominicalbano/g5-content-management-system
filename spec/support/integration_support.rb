@@ -69,4 +69,5 @@ def open_gardens
   sleep 3
   all(".btn--toggle-show").each do |toggle_button|
     toggle_button.click
+  end
 end
