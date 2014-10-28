@@ -52,7 +52,7 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
         click_link "View"
       end
 
-      expect(page).to have_content("Heroku | Welcome to your new app!")
+      expect(page).to have_content("Heroku | No such app")
     end
 
     it "Update widgets link produces a flash notice" do
