@@ -1,14 +1,5 @@
 require "spec_helper"
 
-def open_gardens
-  # add a long delay to make sure ember is done doing all it's black magic
-  # otherwise we get intermittent failures when looking around in a garden
-  sleep 3
-  all(".btn--toggle-show").each do |toggle_button|
-    toggle_button.click
-  end
-end
-
 describe "Integration '/:website_slug/:web_page_template_slug'",
          auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
