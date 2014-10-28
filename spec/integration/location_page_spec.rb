@@ -36,7 +36,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     it "hides unused themes" do
       page.should have_selector('.unused-theme', visible: false)
       page.should have_selector('.used-theme', visible: true)
-    end  
+    end
   end
 
   describe "Authorization" do
@@ -52,21 +52,21 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       it "hides navigation" do
         page.should have_selector('nav.g5-internal-feature', visible: false)
-      end  
+      end
 
       context "verticals" do
         it "multifamily" do
           expect(find("div.apartments-client")).to_not be_nil
           page.should have_selector('.builder.apartments-client .widget.self-storage-feature', visible: false)
           page.should have_selector('.builder.apartments-client .widget:not(.self-storage-feature)', visible: true)
-        end 
+        end
       end
-      
+
       context "widgets" do
         it "has classes" do
           page.should have_selector('.builder.apartments-client .widget.g5-internal-feature', visible: false)
           page.should have_selector('.builder.apartments-client .widget:not(.g5-internal-feature)', visible: true)
-        end 
+        end
       end
 
       context "layouts" do
@@ -75,33 +75,33 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           page.should have_selector('.unused-layout', visible: false)
           page.should have_selector('.used-layout', visible: true)
         end
-      end  
+      end
     end
-    
+
     context "g5 user" do
       let(:user) { FactoryGirl.create(:g5_authenticatable_user, email: "test@getg5.com") }
 
       it "has a body class" do
         expect(find("body.g5-user")).to_not be_nil
-      end 
+      end
 
       it "shows navigation" do
         page.should have_selector('nav.g5-internal-feature', visible: true)
-      end  
+      end
 
       context "verticals" do
         it "multifamily" do
           expect(find("div.apartments-client")).to_not be_nil
           page.should have_selector('.builder.apartments-client .widget.self-storage-feature', visible: true)
           page.should have_selector('.builder.apartments-client .widget:not(.self-storage-feature)', visible: true)
-        end 
+        end
       end
-      
+
       context "widgets" do
         it "has classes" do
           page.should have_selector('.builder.apartments-client .widget.g5-internal-feature', visible: true)
           page.should have_selector('.builder.apartments-client .widget:not(.g5-internal-feature)', visible: true)
-        end 
+        end
       end
 
       context "layouts" do
@@ -109,9 +109,9 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           page.should have_selector('.unused-layout', visible: true)
           page.should have_selector('.used-layout', visible: true)
         end
-      end 
+      end
     end
-  end  
+  end
 
   describe "dynamic vertical class" do
     context "storage" do
@@ -122,9 +122,9 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       it "storage" do
         expect(find("div.foo-client")).to_not be_nil
-      end 
-    end 
-  end  
+      end
+    end
+  end
 
   describe "Color picker" do
     before do
@@ -217,8 +217,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           sleep 1
           expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
         end
-      end  
-    end  
+      end
+    end
 
     describe "Are drag and drop removeable" do
       before do
@@ -354,8 +354,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           sleep 1
           expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
         end
-      end  
-    end  
+      end
+    end
 
     describe "Are drag and drop removeable" do
       before do
@@ -492,7 +492,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
         end
       end
-    end  
+    end
 
     describe "Are drag and drop removeable" do
       before do
