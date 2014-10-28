@@ -45,6 +45,9 @@ web_home_template:
         - slug: photo
         - slug: html
         - slug: meta-description
+          settings:
+            - name: meta_description
+              value: "Find out how great life is at our {{ store.neighborhood }} {{ store.city }} apartments; learn more about apartments for rent in {{ store.city }} {{ store.state }} from the {{ store.branded_name }} website today."
 
 web_page_templates:
   - name: Floor Plans
@@ -56,6 +59,9 @@ web_page_templates:
           - slug: floor-plans
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{ store.floorplans }} bedroom apartments in {{ store.city }}, {{ store.state }}; visit the {{ store.branded_name }} website to find the floor plan that will work for you."
 
   - name: Amenities
     title: "{{location_city}} Apartment Amenities at {{location_name}}"
@@ -64,6 +70,9 @@ web_page_templates:
         widgets:
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{ store.city }} {{ store.qualifier }} apartment amenities are designed to meet all your needs at {{ store.branded_name }}, near {{ store.landmark }}"
 
   - name: Photo Gallery
     title: "Photos of Our Apartments in {{location_city}} | {{location_name}}"
@@ -74,6 +83,9 @@ web_page_templates:
           - slug: gallery
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "For photos of our apartments in {{ store.city }}, {{ store.state }}, visit the {{ store.branded_name }} website."
 
   - name: Neighborhood
     title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}} | {{location_name}}"
@@ -82,6 +94,9 @@ web_page_templates:
         widgets:
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Life is great in {{ store.neighborhood }} {{ store.city }} apartments near {{ store.landmark }}; call {{ store.branded_name }} at {{ store.marketing_number }} today."
 
   - name: Map and Directions
     title: "Directions to Apartments for rent in {{location_city}}, {{location_state}} | {{location_name}}"
@@ -92,6 +107,9 @@ web_page_templates:
           - slug: map
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "For map & directions to apartments for rent in {{ store.city }}, {{ store.state }}; visit the {{ store.branded_name }} website."
 
   - name: Residents
     title: "Information for Current Residents at {{location_name}}"
@@ -144,6 +162,9 @@ web_page_templates:
                 value: grid
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{ store.branded_name }} in {{ store.city }}, {{ store.state }} offers apartment residents the resources to ensure your lifestyle is everything that you want it to be."
 
   - name: Apply
     title: "Apply to live at {{location_name}}"
@@ -157,6 +178,9 @@ web_page_templates:
                 value: apply
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you like what you've seen and want to apply to live at {{ store.branded_name }}? Do it from the comfort of your sofa on our website today."
 
   - name: Schedule Tour
     title: "Schedule a tour to view {{location_name}}"
@@ -170,6 +194,9 @@ web_page_templates:
                 value: tour
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Want to see more of {{ store.branded_name }}? Touch and feel our community by scheduling a tour."
 
   - name: Request Information
     title: "Request information from {{location_name}}"
@@ -183,6 +210,9 @@ web_page_templates:
                 value: request
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you like what you see on {{ store.branded_name }}'s website and want more information? Request information today!"
 
   - name: Contact Us
     title: "Contact {{location_name}} in {{location_city}}"
@@ -196,6 +226,9 @@ web_page_templates:
                 value: contact
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "At {{ store.branded_name }}  we are dedicated to your satisfaction. Contact us to learn more about our apartment rentals in {{ store.city }}."
 
   - name: Pet Friendly
     title: "Pet Friendly Apartments in {{location_city}} by {{location_name}}"
@@ -204,6 +237,9 @@ web_page_templates:
         widgets:
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{ store.branded_name }} offers pet friendly apartments in {{ store.city }}, {{ store.state }}; visit our website or call {{ store.marketing_number }} to learn more."
 
   - name: Community Events
     title: "Events at {{location_name}} in {{location_city}}"
@@ -212,6 +248,9 @@ web_page_templates:
         widgets:
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "There is always something going on at {{ store.branded_name }}; visit our calendar of events page and never miss anything."
 
   - name: Maintenance Request
     title: "Maintenance request at {{location_name}}"
@@ -225,6 +264,9 @@ web_page_templates:
                 value: maintenance
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you live at {{ store.branded_name }} and have noticed something not working properly on the property? Submit a maintenance request today!"
 
   - name: Suggestion Box
     title: "Suggestion box at {{location_name}}"
@@ -238,6 +280,9 @@ web_page_templates:
                 value: suggestion
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you live at {{ store.branded_name }} and have a suggestion that you'd like our management team to read? Submit your idea via our online suggestion box!"
 
   - name: Privacy Policy
     title: "{{location_name}}'s Privacy Policy"
@@ -246,3 +291,6 @@ web_page_templates:
         widgets:
           - slug: html
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{ store.branded_name }} collects only the information that you give in order to provide the best possible care, and we never share.  View our privacy policy at our website."
