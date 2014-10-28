@@ -23,6 +23,581 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
+      - Tue, 14 Oct 2014 17:13:29 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 13 Oct 2014 17:45:18 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '44'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |-
+        .html {
+          clear: both;
+          overflow: hidden;
+        }
+    http_version: 
+  recorded_at: Tue, 14 Oct 2014 17:13:31 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 14 Oct 2014 17:13:29 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 13 Oct 2014 17:45:18 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '5087'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
+        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
+        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
+        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
+        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
+        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
+        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
+        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
+        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
+        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
+        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
+        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
+        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
+        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
+        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
+        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
+        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
+        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
+        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
+        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
+        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
+        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
+        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
+        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
+        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
+        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
+        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
+        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
+        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
+        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
+        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
+        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
+        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
+        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
+        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
+        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
+        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
+        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
+        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
+        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
+        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
+        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
+        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
+        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
+        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
+        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
+        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
+        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
+        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
+        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
+        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
+        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
+        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
+        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
+        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
+        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
+        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
+        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
+        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
+    http_version: 
+  recorded_at: Tue, 14 Oct 2014 17:13:32 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 14 Oct 2014 17:13:30 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 13 Oct 2014 17:45:18 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '4121'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        /* FILTER STYLES =============================*/
+        .filters:after {
+          content: "";
+          display: table;
+          clear: both;
+        }
+        .filter-btn {
+          display: inline-block;
+        }
+        .filter-name {
+          margin-right: .25em;
+        }
+        .available-filter {
+          text-align: right;
+          font-size: 15px;
+          font-weight: bold;
+          padding: 1em 0;
+        }
+        .available-filter input {
+          display: inline;
+          margin-right: .5em;
+          vertical-align: .1em;
+        }
+        @media (min-width: 768px) {
+          .filter {
+            float: left;
+            margin-right: 2%;
+          }
+          .filter-name {
+            margin-right: .5em;
+          }
+        }
+        @media (min-width: 980px) {
+          .available-filter {
+            font-size: 18px;
+          }
+        }
+
+
+        /* SELECT FLOORPLAN STYLES =========================*/
+        .floorplans {
+          margin-bottom: 2em;
+        }
+        .floorplan-btn {
+          overflow: hidden;
+          border: 1px solid #cbcbcb;
+          border-radius: 5px;
+          background: #f0f0f0;
+          background: -webkit-linear-gradient(#fff, #f0f0f0);
+          background: -moz-linear-gradient(#fff, #f0f0f0);
+          background: -ms-linear-gradient(#fff, #f0f0f0);
+          background: -o-linear-gradient(#fff, #f0f0f0);
+          background: linear-gradient(#fff, #f0f0f0);
+          text-decoration: none;
+        }
+        .floorplans ul {
+          list-style-type: none;
+          margin: 0;
+          padding: 0;
+        }
+        .floorplan-box {
+          border: 1px solid #bcbcbc;
+          border-radius: 10px;
+          position: relative;
+        }
+        .floorplan-container {
+          padding: .625em 10px;
+        }
+        .floorplan-container.selected {
+          background: #f0f0f0;
+          background: -webkit-linear-gradient(#fff, #f0f0f0);
+          background: -moz-linear-gradient(#fff, #f0f0f0);
+          background: -ms-linear-gradient(#fff, #f0f0f0);
+          background: -o-linear-gradient(#fff, #f0f0f0);
+          background: linear-gradient(#fff, #f0f0f0);
+        }
+        .floorplans a {
+          color: #504e4e;
+        }
+        .floorplans h2 {
+          font-size: 24px;
+        }
+        .floorplans h3 {
+          font-size: 20px;
+        }
+        .floorplan {
+          position: relative;
+          border-top: 1px solid #ccc;
+          padding: .625em 10px;
+        }
+        .floorplan:after {
+          content: "";
+          display: table;
+          clear:both;
+        }
+        li.floorplan:first-child {
+          border-top: none;
+        }
+        li.floorplan:nth-child(even) {
+          background: #efeded;
+        }
+        .floorplan-heading {
+          overflow: hidden;
+          margin-bottom: 1em;
+        }
+        .floorplan-heading p {
+          float: left;
+          margin-top: 0;
+          font-size: 18px;
+          border-bottom: 1px solid #504e4e;
+        }
+        .choose-floorplan {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 100%;
+          padding: .5em 1em;
+          float: right;
+          font-size: 16px;
+          text-align: center;
+        }
+        .choose-floorplan span {
+          display: block;
+        }
+        .choose-floorplan .soon {
+          border-top: 1px solid #cbcbcb;
+          padding-top: .2em;
+          margin-top: .2em;
+        }
+        .selected .choose-floorplan {
+          display: none;
+        }
+        .floorplan-info {
+          position: relative;
+          min-height: 50px;
+        }
+        .floorplan-info div {
+          min-height: 1px;
+        }
+        .floorplan-info p {
+          font-size: 13px;
+          line-height: 1.5;
+          margin: 0;
+        }
+        .floorplan-img {
+          float: left;
+          margin-right: 2%;
+          width: 13%;
+        }
+        .floorplan-img .floorplan-btn {
+          padding: 2px;
+          display: block;
+        }
+        .floorplan-img img {
+          display: block;
+          margin: 0 auto;
+        }
+        .floorplan .floorplan-beds,
+        .floorplan .floorplan-size {
+          margin-left: 17%;
+          width: 35%;
+        }
+
+        @media (max-width: 979px) {
+          .floorplan-rent {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 45%;
+          }
+          .floorplan-beds p {
+            display: inline-block;
+          }
+          .floorplan-beds p:first-child:after {
+            padding-left: .5em;
+            content: '/';
+          }
+        }
+        @media (min-width: 768px) {
+          .floorplan-heading {
+            margin-bottom: 0;
+          }
+          .floorplan-heading p {
+            font-size: 20px;
+          }
+          .choose-floorplan {
+            width: auto;
+          }
+          .floorplan-info p {
+            font-size: 16px;
+          }
+        }
+        @media (min-width: 980px) {
+          .floorplans h2 {
+            font-size: 36px;
+          }
+          .choose-floorplan {
+            position: absolute;
+            right: 10px;
+            top: 2em;
+            z-index: 1;
+          }
+          .floorplan .floorplan-beds,
+          .floorplan .floorplan-size,
+          .floorplan .floorplan-rent {
+            float: left;
+            margin-left: 0;
+            width: 20%;
+          }
+        }
+
+        #loading-floorplans {
+          margin: 200px auto;
+          text-align: center;
+          width: 200px;
+        }
+        #loading-floorplans .loader {
+          background: url(http://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
+          height: 32px;
+          margin: 0 auto 1em;
+          width: 32px;
+        }
+        .filters .filter .disabled {
+          cursor: default;
+        }
+    http_version: 
+  recorded_at: Tue, 14 Oct 2014 17:13:32 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 14 Oct 2014 17:13:30 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 13 Oct 2014 17:45:18 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .button,
+        .button .btn-img,
+        .button a {
+          display: block;
+        }
+
+        .button-list {
+          overflow: hidden;
+        }
+        .button-list .btn-img {
+          float: left;
+          margin-right: 1em;
+        }
+        .button-grid {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        @media (min-width: 500px) {
+          .button-grid {
+            float: left;
+            padding: 0 1em;
+            width: 50%;
+          }
+          .button-grid:nth-of-type(2n+1) {
+            clear: left;
+          }
+        }
+        .button-grid .btn-img {
+          margin: 0 auto 1em;
+        }
+    http_version: 
+  recorded_at: Tue, 14 Oct 2014 17:13:33 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 14 Oct 2014 17:13:31 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 13 Oct 2014 17:45:18 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .contact-info .p-organization-name,
+        .contact-info .h-adr,
+        .contact-info .p-street-address,
+        .contact-info .p-tel,
+        .contact-info .p-url {
+          display: block;
+        }
+        .contact-info p {
+          margin-top: 0;
+        }
+    http_version: 
+  recorded_at: Tue, 14 Oct 2014 17:13:33 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 14 Oct 2014 17:13:31 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 13 Oct 2014 17:45:18 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
+    http_version: 
+  recorded_at: Tue, 14 Oct 2014 17:13:34 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
       - Thu, 23 Oct 2014 19:05:57 GMT
       Status:
       - 200 OK
@@ -480,6 +1055,82 @@ http_interactions:
   recorded_at: Thu, 23 Oct 2014 19:05:58 GMT
 - request:
     method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 23 Oct 2014 19:05:59 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:30 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '589'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        header[role=banner] .navigation {
+          overflow-y: auto;
+        }
+
+        .top-nav > li {
+          position: relative;
+        }
+
+        .subnav {
+          -webkit-transition: max-height 0.3s ease;
+          -moz-transition: max-height 0.3s ease;
+          transition: max-height 0.3s ease;
+          max-height: 0;
+          overflow: hidden;
+        }
+
+        @media (max-width: 979px) {
+          .show-subnav {
+            max-height: none;
+          }
+        }
+
+        @media (min-width: 980px) {
+          header[role=banner] .navigation {
+            overflow-y: visible;
+          }
+          .subnav {
+            width: 200px;
+            position: absolute;
+            left: 0;
+            top: 3.5em;
+            z-index: 9999;
+          }
+          .show-subnav {
+            max-height: 1000px;
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 23 Oct 2014 19:05:59 GMT
+- request:
+    method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
     body:
       encoding: US-ASCII
@@ -598,7 +1249,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 23 Oct 2014 19:06:00 GMT
+      - Mon, 27 Oct 2014 18:19:08 GMT
       Status:
       - 200 OK
       Last-Modified:
@@ -634,7 +1285,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 23 Oct 2014 19:06:00 GMT
+  recorded_at: Mon, 27 Oct 2014 18:19:08 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -658,7 +1309,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 23 Oct 2014 19:06:00 GMT
+      - Mon, 27 Oct 2014 18:19:08 GMT
       Status:
       - 200 OK
       Last-Modified:
@@ -1461,658 +2112,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 23 Oct 2014 19:06:01 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 24 Oct 2014 16:29:00 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 24 Oct 2014 15:08:46 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '44'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |-
-        .html {
-          clear: both;
-          overflow: hidden;
-        }
-    http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:00 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 24 Oct 2014 16:29:00 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 24 Oct 2014 15:08:46 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '5087'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
-        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
-        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
-        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
-        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
-        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
-        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
-        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
-        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
-        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
-        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
-        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
-        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
-        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
-        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
-        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
-        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
-        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
-        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
-        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
-        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
-        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
-        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
-        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
-        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
-        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
-        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
-        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
-        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
-        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
-        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
-        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
-        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
-        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
-        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
-        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
-        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
-        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
-        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
-        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
-        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
-        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
-        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
-        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
-        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
-        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
-        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
-        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
-        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
-        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
-        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
-        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
-        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
-        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
-        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
-        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
-        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
-        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
-        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
-    http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:00 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 24 Oct 2014 16:29:00 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 24 Oct 2014 15:08:46 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '4121'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        /* FILTER STYLES =============================*/
-        .filters:after {
-          content: "";
-          display: table;
-          clear: both;
-        }
-        .filter-btn {
-          display: inline-block;
-        }
-        .filter-name {
-          margin-right: .25em;
-        }
-        .available-filter {
-          text-align: right;
-          font-size: 15px;
-          font-weight: bold;
-          padding: 1em 0;
-        }
-        .available-filter input {
-          display: inline;
-          margin-right: .5em;
-          vertical-align: .1em;
-        }
-        @media (min-width: 768px) {
-          .filter {
-            float: left;
-            margin-right: 2%;
-          }
-          .filter-name {
-            margin-right: .5em;
-          }
-        }
-        @media (min-width: 980px) {
-          .available-filter {
-            font-size: 18px;
-          }
-        }
-
-
-        /* SELECT FLOORPLAN STYLES =========================*/
-        .floorplans {
-          margin-bottom: 2em;
-        }
-        .floorplan-btn {
-          overflow: hidden;
-          border: 1px solid #cbcbcb;
-          border-radius: 5px;
-          background: #f0f0f0;
-          background: -webkit-linear-gradient(#fff, #f0f0f0);
-          background: -moz-linear-gradient(#fff, #f0f0f0);
-          background: -ms-linear-gradient(#fff, #f0f0f0);
-          background: -o-linear-gradient(#fff, #f0f0f0);
-          background: linear-gradient(#fff, #f0f0f0);
-          text-decoration: none;
-        }
-        .floorplans ul {
-          list-style-type: none;
-          margin: 0;
-          padding: 0;
-        }
-        .floorplan-box {
-          border: 1px solid #bcbcbc;
-          border-radius: 10px;
-          position: relative;
-        }
-        .floorplan-container {
-          padding: .625em 10px;
-        }
-        .floorplan-container.selected {
-          background: #f0f0f0;
-          background: -webkit-linear-gradient(#fff, #f0f0f0);
-          background: -moz-linear-gradient(#fff, #f0f0f0);
-          background: -ms-linear-gradient(#fff, #f0f0f0);
-          background: -o-linear-gradient(#fff, #f0f0f0);
-          background: linear-gradient(#fff, #f0f0f0);
-        }
-        .floorplans a {
-          color: #504e4e;
-        }
-        .floorplans h2 {
-          font-size: 24px;
-        }
-        .floorplans h3 {
-          font-size: 20px;
-        }
-        .floorplan {
-          position: relative;
-          border-top: 1px solid #ccc;
-          padding: .625em 10px;
-        }
-        .floorplan:after {
-          content: "";
-          display: table;
-          clear:both;
-        }
-        li.floorplan:first-child {
-          border-top: none;
-        }
-        li.floorplan:nth-child(even) {
-          background: #efeded;
-        }
-        .floorplan-heading {
-          overflow: hidden;
-          margin-bottom: 1em;
-        }
-        .floorplan-heading p {
-          float: left;
-          margin-top: 0;
-          font-size: 18px;
-          border-bottom: 1px solid #504e4e;
-        }
-        .choose-floorplan {
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          width: 100%;
-          padding: .5em 1em;
-          float: right;
-          font-size: 16px;
-          text-align: center;
-        }
-        .choose-floorplan span {
-          display: block;
-        }
-        .choose-floorplan .soon {
-          border-top: 1px solid #cbcbcb;
-          padding-top: .2em;
-          margin-top: .2em;
-        }
-        .selected .choose-floorplan {
-          display: none;
-        }
-        .floorplan-info {
-          position: relative;
-          min-height: 50px;
-        }
-        .floorplan-info div {
-          min-height: 1px;
-        }
-        .floorplan-info p {
-          font-size: 13px;
-          line-height: 1.5;
-          margin: 0;
-        }
-        .floorplan-img {
-          float: left;
-          margin-right: 2%;
-          width: 13%;
-        }
-        .floorplan-img .floorplan-btn {
-          padding: 2px;
-          display: block;
-        }
-        .floorplan-img img {
-          display: block;
-          margin: 0 auto;
-        }
-        .floorplan .floorplan-beds,
-        .floorplan .floorplan-size {
-          margin-left: 17%;
-          width: 35%;
-        }
-
-        @media (max-width: 979px) {
-          .floorplan-rent {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 45%;
-          }
-          .floorplan-beds p {
-            display: inline-block;
-          }
-          .floorplan-beds p:first-child:after {
-            padding-left: .5em;
-            content: '/';
-          }
-        }
-        @media (min-width: 768px) {
-          .floorplan-heading {
-            margin-bottom: 0;
-          }
-          .floorplan-heading p {
-            font-size: 20px;
-          }
-          .choose-floorplan {
-            width: auto;
-          }
-          .floorplan-info p {
-            font-size: 16px;
-          }
-        }
-        @media (min-width: 980px) {
-          .floorplans h2 {
-            font-size: 36px;
-          }
-          .choose-floorplan {
-            position: absolute;
-            right: 10px;
-            top: 2em;
-            z-index: 1;
-          }
-          .floorplan .floorplan-beds,
-          .floorplan .floorplan-size,
-          .floorplan .floorplan-rent {
-            float: left;
-            margin-left: 0;
-            width: 20%;
-          }
-        }
-
-        #loading-floorplans {
-          margin: 200px auto;
-          text-align: center;
-          width: 200px;
-        }
-        #loading-floorplans .loader {
-          background: url(http://widgets.g5dxm.com/shared/loader.gif) center no-repeat;
-          height: 32px;
-          margin: 0 auto 1em;
-          width: 32px;
-        }
-        .filters .filter .disabled {
-          cursor: default;
-        }
-    http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:00 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 24 Oct 2014 16:29:01 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 24 Oct 2014 15:08:46 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '497'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        .button,
-        .button .btn-img,
-        .button a {
-          display: block;
-        }
-
-        .button-list {
-          overflow: hidden;
-        }
-        .button-list .btn-img {
-          float: left;
-          margin-right: 1em;
-        }
-        .button-grid {
-          -webkit-box-sizing: border-box;
-          -moz-box-sizing: border-box;
-          box-sizing: border-box;
-          text-align: center;
-        }
-        @media (min-width: 500px) {
-          .button-grid {
-            float: left;
-            padding: 0 1em;
-            width: 50%;
-          }
-          .button-grid:nth-of-type(2n+1) {
-            clear: left;
-          }
-        }
-        .button-grid .btn-img {
-          margin: 0 auto 1em;
-        }
-    http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:01 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 24 Oct 2014 16:29:01 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 24 Oct 2014 15:08:46 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '589'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        header[role=banner] .navigation {
-          overflow-y: auto;
-        }
-
-        .top-nav > li {
-          position: relative;
-        }
-
-        .subnav {
-          -webkit-transition: max-height 0.3s ease;
-          -moz-transition: max-height 0.3s ease;
-          transition: max-height 0.3s ease;
-          max-height: 0;
-          overflow: hidden;
-        }
-
-        @media (max-width: 979px) {
-          .show-subnav {
-            max-height: none;
-          }
-        }
-
-        @media (min-width: 980px) {
-          header[role=banner] .navigation {
-            overflow-y: visible;
-          }
-          .subnav {
-            width: 200px;
-            position: absolute;
-            left: 0;
-            top: 3.5em;
-            z-index: 9999;
-          }
-          .show-subnav {
-            max-height: 1000px;
-          }
-        }
-    http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:01 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 24 Oct 2014 16:29:01 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 24 Oct 2014 15:08:46 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '193'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        .contact-info .p-organization-name,
-        .contact-info .h-adr,
-        .contact-info .p-street-address,
-        .contact-info .p-tel,
-        .contact-info .p-url {
-          display: block;
-        }
-        .contact-info p {
-          margin-top: 0;
-        }
-    http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:02 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - "*/*"
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Date:
-      - Fri, 24 Oct 2014 16:29:02 GMT
-      Status:
-      - 200 OK
-      Last-Modified:
-      - Fri, 24 Oct 2014 15:08:46 GMT
-      Content-Type:
-      - text/css
-      Content-Length:
-      - '728'
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
-        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
-        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
-        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
-        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
-        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
-        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
-        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
-        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
-        200px;\n}\n"
-    http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:02 GMT
+  recorded_at: Mon, 27 Oct 2014 18:19:09 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
@@ -2136,7 +2136,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 24 Oct 2014 16:29:02 GMT
+      - Tue, 28 Oct 2014 04:08:51 GMT
       Status:
       - 200 OK
       Last-Modified:
@@ -2172,7 +2172,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:02 GMT
+  recorded_at: Tue, 28 Oct 2014 04:08:51 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -2196,7 +2196,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 24 Oct 2014 16:29:03 GMT
+      - Tue, 28 Oct 2014 04:08:52 GMT
       Status:
       - 200 OK
       Last-Modified:
@@ -2999,5 +2999,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 24 Oct 2014 16:29:03 GMT
+  recorded_at: Tue, 28 Oct 2014 04:08:52 GMT
 recorded_with: VCR 2.9.2

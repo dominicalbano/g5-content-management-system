@@ -1,3 +1,3 @@
 module ExcludedLayoutWidgets
-  WIDGETS = ["Analytics", "Row", "Typekit", "Meta", "Meta Description"]
+  WIDGETS = ["Analytics", "Content Stripe", "Typekit", "Meta", "Meta Description"]
 end
