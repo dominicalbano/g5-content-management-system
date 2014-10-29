@@ -111,6 +111,7 @@ describe ClientReader do
         its([:qualifier]) { should eq('Luxury')}
         its([:primary_landmark]) { should eq('Seattle Grace Hospital')}
         its([:status]) { should eq('Live')}
+        its([:thumb_url]) {should eq("http://g5-orion-clients.s3.amazonaws.com/g5-c-6hqll2d-client1/g5-cl-6hqll2d-client1location1/thumbnails/thumb/another_planet-wallpaper-2560x1440.jpg?1413915508")}
       end
     end
 

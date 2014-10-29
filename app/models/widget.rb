@@ -64,7 +64,7 @@ class Widget < ActiveRecord::Base
   end
 
   def render_show_html
-    return RowWidgetShowHtml.new(self).render if kind_of_widget?("Row")
+    return RowWidgetShowHtml.new(self).render if kind_of_widget?("Content Stripe")
     return ColumnWidgetShowHtml.new(self).render if kind_of_widget?("Column")
 
     Liquid::Template.parse(show_html).render(

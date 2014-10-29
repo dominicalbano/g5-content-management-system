@@ -22,10 +22,10 @@ gem "ranked-model"
 gem "aws-sdk"
 gem "httparty"
 gem "momentjs-rails"
-
 gem "ember-rails"
-
 gem 'g5_authenticatable', '~> 0.2'
+gem "pg"
+gem "font-awesome-rails"
 
 # Temporary fix
 gem "sprockets", "=2.11.0"
@@ -53,7 +53,6 @@ end
 group :production do
   gem "unicorn"
   gem "lograge"
-  gem "pg"
   gem "rails_12factor"
   gem "newrelic_rpm"
   gem "dalli"
