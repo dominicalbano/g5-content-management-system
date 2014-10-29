@@ -106,8 +106,9 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       context "layouts" do
         it "shows used and unused layouts" do
-          page.should have_selector('.unused-layout', visible: true)
-          page.should have_selector('.used-layout', visible: true)
+          # All layouts hidden until we are using more than just 1 
+          page.should have_selector('.unused-layout', visible: false)
+          page.should have_selector('.used-layout', visible: false)
         end
       end
     end
