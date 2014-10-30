@@ -83,3 +83,4 @@ describe StaticWebsite::Compiler::WebTemplate do
     end
   end
 end
+

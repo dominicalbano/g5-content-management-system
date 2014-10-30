@@ -11,3 +11,4 @@ class ClientUpdaterJob
     end
   end
 end
+

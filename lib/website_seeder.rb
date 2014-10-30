@@ -78,15 +78,19 @@ class WebsiteSeeder
   end
 
   def create_web_home_template(website, instruction)
+    Rails.logger.info("Creating web home template from instructions")
     if website && instruction
+      Rails.logger.info("Instruction: #{instruction}")
       web_home_template = website.create_web_home_template(web_template_params(instruction))
       create_drop_targets(web_home_template, instruction["drop_targets"])
     end
   end
 
   def create_web_page_templates(website, instructions)
+    Rails.logger.info("Creating web page templates from instructions")
     if website && instructions
       instructions.each do |instruction|
+        Rails.logger.info("Instruction: #{instruction}")
         web_page_template = website.web_page_templates.create(web_template_params(instruction))
         create_drop_targets(web_page_template, instruction["drop_targets"])
       end
@@ -94,8 +98,10 @@ class WebsiteSeeder
   end
 
   def create_drop_targets(web_template, instructions)
+    Rails.logger.info("Creating drop targets from instructions")
     if web_template && instructions
       instructions.each do |instruction|
+      Rails.logger.info("Instruction: #{instruction}")
         drop_target = web_template.drop_targets.create(drop_target_params(instruction))
         create_widgets(drop_target, instruction["widgets"])
       end
@@ -103,8 +109,10 @@ class WebsiteSeeder
   end
 
   def create_widgets(drop_target, instructions)
+    Rails.logger.info("Creating widgets from instructions")
     if drop_target && instructions
       instructions.each do |instruction|
+        Rails.logger.info("Instruction: #{instruction}")
         widget = drop_target.widgets.create(widget_params(instruction))
         set_default_widget_settings(widget, instruction["settings"])
       end
