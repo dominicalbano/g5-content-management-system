@@ -80,7 +80,6 @@ class WebsiteSeeder
   def create_web_home_template(website, instruction)
     Rails.logger.info("Creating web home template from instructions")
     if website && instruction
-      Rails.logger.info("Instruction: #{instruction}")
       web_home_template = website.create_web_home_template(web_template_params(instruction))
       create_drop_targets(web_home_template, instruction["drop_targets"])
     end
@@ -90,7 +89,6 @@ class WebsiteSeeder
     Rails.logger.info("Creating web page templates from instructions")
     if website && instructions
       instructions.each do |instruction|
-        Rails.logger.info("Instruction: #{instruction}")
         web_page_template = website.web_page_templates.create(web_template_params(instruction))
         create_drop_targets(web_page_template, instruction["drop_targets"])
       end
@@ -101,7 +99,6 @@ class WebsiteSeeder
     Rails.logger.info("Creating drop targets from instructions")
     if web_template && instructions
       instructions.each do |instruction|
-      Rails.logger.info("Instruction: #{instruction}")
         drop_target = web_template.drop_targets.create(drop_target_params(instruction))
         create_widgets(drop_target, instruction["widgets"])
       end
@@ -112,13 +109,8 @@ class WebsiteSeeder
     Rails.logger.info("Creating widgets from instructions")
     if drop_target && instructions
       instructions.each do |instruction|
-        Rails.logger.info("Instruction: #{instruction}")
         widget = drop_target.widgets.create(widget_params(instruction))
-        Rails.logger.info("Creating widget in drop target: ")
-        Rails.logger.info("#{drop_target.to_s} with params:")
-        Rails.logger.info("#{widget_params(instruction).to_s}")
-        Rails.logger.info("Widget valid? #{widget.valid?}")
-        Rails.logger.info("Widget errors: #{widget.errors.inspect}")
+        Rails.logger.info("Widget errors: #{widget.errors.inspect}") unless widget.valid?
         set_default_widget_settings(widget, instruction["settings"])
       end
     end
