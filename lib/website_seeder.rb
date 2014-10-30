@@ -114,7 +114,9 @@ class WebsiteSeeder
       instructions.each do |instruction|
         Rails.logger.info("Instruction: #{instruction}")
         widget = drop_target.widgets.create(widget_params(instruction))
-        Rails.logger.info("Creating widget in drop target: #{drop_target.to_s} with params #{widget_params(instructions).to_s}")
+        Rails.logger.info("Creating widget in drop target: ")
+        Rails.logger.info("#{drop_target.to_s} with params:")
+        Rails.logger.info("#{widget_params(instructions).to_s}")
         Rails.logger.info("Widget valid? #{widget.valid?}")
         Rails.logger.info("Widget errors: #{widget.errors.to_s}")
         set_default_widget_settings(widget, instruction["settings"])
