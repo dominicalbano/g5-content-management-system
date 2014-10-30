@@ -30,8 +30,8 @@ describe Widget, vcr: VCR_OPTIONS do
   end
 
   describe "#render_show_html" do
-    context "row widget" do
-      let(:garden_widget) { Fabricate.build(:garden_widget, name: "Row") }
+    context "content stripe widget" do
+      let(:garden_widget) { Fabricate.build(:garden_widget, name: "Content Stripe") }
       let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget) }
       let(:row_widget_show_html) { double(render: nil) }
 

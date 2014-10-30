@@ -28,3 +28,6 @@ App.TogglePanelView = Ember.View.extend
     toggleBtn.find('.toggle-panel-text').toggle()
     toggleBtn.siblings('.toggle-content').slideToggle()
     false
+
+  didInsertElement: ->
+    $("##{this.elementId}").trigger( "click" )

@@ -10,6 +10,7 @@ class GardenWidget < ActiveRecord::Base
   has_many :widgets, autosave: true, dependent: :destroy
 
   validates :name, presence: true
+  validates :widget_id, presence: true
   validates :slug, presence: true
   validates :url, presence: true
   validates :thumbnail, presence: true

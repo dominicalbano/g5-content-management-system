@@ -18,7 +18,7 @@ describe GardenWidgetUpdater do
                                   url: "http://widget-garden.com/foo")
       end
 
-      it "updates GardenWidget with same name" do
+      it "updates GardenWidget with same widget_id" do
         gardener.stub(:garden_url) { "spec/support/garden_widget_updater/updated.html" }
         expect { updater.update_all }.to change { garden_widget.reload.url }.to("http://widget-garden.com/widget-test")
       end
@@ -27,7 +27,7 @@ describe GardenWidgetUpdater do
     describe "when a widget is removed from the garden" do
       let!(:garden_widget) { Fabricate(:garden_widget, url: "http://widget-garden.com/widget-test") }
 
-      it "destroys GardenWidget with same URL" do
+      it "destroys GardenWidget with same widget_id" do
         gardener.stub(:garden_url) { "spec/support/garden_widget_updater/removed.html" }
         expect { updater.update_all }.to change { gardener.count }.by(-1)
       end
@@ -50,6 +50,10 @@ describe GardenWidgetUpdater do
 
       it "sets name" do
         expect(garden_widget.name).to eq "Updated Garden Widget"
+      end
+
+      it "sets widget_id" do
+        expect(garden_widget.widget_id).to eq 1
       end
 
       it "sets widget_type" do
