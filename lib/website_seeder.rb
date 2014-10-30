@@ -166,3 +166,4 @@ class WebsiteSeeder
     ActionController::Parameters.new(instructions).permit(parameter)
   end
 end
+
