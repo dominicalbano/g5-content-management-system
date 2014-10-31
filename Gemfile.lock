@@ -452,7 +452,6 @@ DEPENDENCIES
   sass-rails
   selenium-webdriver
   shoulda-matchers
-  sprockets (= 2.11.0)
   sqlite3
   timecop
   uglifier

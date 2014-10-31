@@ -26,9 +26,6 @@ gem "ember-rails"
 gem 'g5_authenticatable', '~> 0.2'
 gem "pg"
 gem "font-awesome-rails"
-
-# Temporary fix
-gem "sprockets", "=2.11.0"
 gem "sass-rails"
 gem "coffee-rails"
 gem "uglifier"
