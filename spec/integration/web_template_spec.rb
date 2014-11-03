@@ -66,21 +66,6 @@ describe "Integration '/web_template/:id'",
             expect(page).to have_content @web_page_template.name.upcase
           end
         end
-
-      end
-
-      describe "When settings are set" do
-        before do
-          set_setting(@web_page_template, "HTML", "text", "enter text here")
-          url = '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
-          visit url
-        end
-
-        it "has some text set in the HTML widget" do
-          within first("#drop-target-main .html.widget") do
-            page.should have_content "enter text here"
-          end
-        end
       end
 
       describe "Liquid parsing in settings" do
