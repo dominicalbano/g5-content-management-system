@@ -3,7 +3,7 @@ website_template:
   web_layout:
     slug: rows
   web_theme:
-    slug: cardboard
+    slug: luxe
   drop_targets:
     - html_id: drop-target-head
       widgets:
