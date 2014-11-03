@@ -42,9 +42,9 @@ web_home_template:
   drop_targets:
     - html_id: drop-target-main
       widgets:
-        - slug: photo
-        - slug: html
-        - slug: meta-description
+        - slug: content-stripe
+        - slug: content-stripe
+        - slug: content-stripe
 
 web_page_templates:
   - name: Floor Plans
@@ -52,197 +52,132 @@ web_page_templates:
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: floor-plans
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Amenities
     title: "{{location_city}} Apartment Amenities at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Photo Gallery
     title: "Photos of Our Apartments in {{location_city}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: gallery
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Neighborhood
     title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Map and Directions
     title: "Directions to Apartments for rent in {{location_city}}, {{location_state}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: map
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Residents
     title: "Information for Current Residents at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-            settings:
-              - name: text
-                value: <h1>Information for Current Residents</h1>
-          - slug: button
-            settings:
-              - name: button_label
-                value: Maintenance Request
-              - name: button_description
-                value: Send a request to our maintenance department day or night
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Pay Online
-              - name: button_description
-                value: Pay online using your checking account
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Pet Friendly
-              - name: button_description
-                value: Looking to bring a pet into your home? View our pet policy for more information
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Community Events
-              - name: button_description
-                value: Keep up with all the community events by viewing our events calendar
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Suggestion Box
-              - name: button_description
-                value: We would love to know how we're doing. Use this form to send our staff feedback about our service or property
-              - name: button_layout
-                value: grid
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Apply
     title: "Apply to live at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: apply
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Schedule Tour
     title: "Schedule a tour to view {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: tour
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Request Information
     title: "Request information from {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: request
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Contact Us
     title: "Contact {{location_name}} in {{location_city}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: contact
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Pet Friendly
     title: "Pet Friendly Apartments in {{location_city}} by {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Community Events
     title: "Events at {{location_name}} in {{location_city}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Maintenance Request
     title: "Maintenance request at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: maintenance
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Suggestion Box
     title: "Suggestion box at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: suggestion
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Privacy Policy
     title: "{{location_name}}'s Privacy Policy"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
