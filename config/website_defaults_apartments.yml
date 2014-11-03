@@ -1,7 +1,7 @@
 website_template:
   name: Website Template
   web_layout:
-    slug: main-first-sidebar-right
+    slug: rows
   web_theme:
     slug: high-rise
   drop_targets:
