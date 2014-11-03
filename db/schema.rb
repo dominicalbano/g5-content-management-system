@@ -11,13 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141022001046) do
+ActiveRecord::Schema.define(version: 20141029145959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "assets", force: true do |t|
     t.string   "url"
@@ -142,6 +140,7 @@ ActiveRecord::Schema.define(version: 20141022001046) do
     t.integer  "website_id"
   end
 
+  add_index "settings", ["owner_id"], name: "index_settings_on_owner_id", using: :btree
   add_index "settings", ["website_id"], name: "index_settings_on_website_id", using: :btree
 
   create_table "sibling_deploys", force: true do |t|

@@ -1,0 +1,11 @@
+.client-user {
+  .layout-picker,
+  .ember-view.unused-theme,
+  .ember-view.unused-layout,
+  .ember-view .g5-internal-feature,
+  .apartments-client .self-storage-feature{ display:none; }
+}
+
+.g5-user {
+  .layout-picker{ display:none; }
+}

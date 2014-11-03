@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "2.1.3"
 
-gem 'rails', "4.1.5"
+gem 'rails', "4.1.7"
 # Downgraded jquery-rails for Ember Views
 gem "jquery-rails", "~> 3.0.4"
 gem "jquery-ui-rails"
@@ -25,6 +25,7 @@ gem "momentjs-rails"
 gem "ember-rails"
 gem 'g5_authenticatable', '~> 0.2'
 gem "pg"
+gem "font-awesome-rails"
 
 # Temporary fix
 gem "sprockets", "=2.11.0"
