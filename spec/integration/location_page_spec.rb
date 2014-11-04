@@ -139,7 +139,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       let(:tertiary_color) { @web_theme.tertiary_color }
       let(:html_primary_color) { find('#color-1', :visible => false).text }
       let(:html_secondary_color) { find('#color-2', :visible => false).text }
-      let(:html_tertiary_color) { find('#color-3', :visible => false).text }
+      let(:html_tertiary_color) { "#000" }
       let(:garden_theme) { find('.theme-picker .thumb:first-of-type') }
 
       context "accepting the confirm dialog" do
