@@ -73,6 +73,12 @@ describe Api::V1::WebThemesController, :auth_controller, vcr: VCR_OPTIONS do
         expect(response.status).to eq 200
         expect(web_theme.reload.custom_secondary_color).to eq "#custom-color"
       end
+
+      it "tertiary_color" do
+        put :update, id: web_theme.id, web_theme: { tertiary_color: "#custom-color" }
+        expect(response.status).to eq 200
+        expect(web_theme.reload.custom_tertiary_color).to eq "#custom-color"
+      end
     end
   end
 end
