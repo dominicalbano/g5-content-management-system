@@ -28,7 +28,8 @@ module StaticWebsite
             layout:  false,
             locals:  {
               primary_color: colors[:primary_color],
-              secondary_color: colors[:secondary_color]
+              secondary_color: colors[:secondary_color],
+              tertiary_color: colors[:tertiary_color]
             }
           }
         end
