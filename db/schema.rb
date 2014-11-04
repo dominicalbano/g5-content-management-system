@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029145959) do
+ActiveRecord::Schema.define(version: 20141104152212) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141029145959) do
     t.string   "secondary_color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tertiary_color",  default: "#ffffff"
   end
 
   create_table "garden_widgets", force: true do |t|
