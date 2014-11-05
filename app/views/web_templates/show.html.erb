@@ -6,7 +6,13 @@
     </script>
   <% if mode == "preview" %>
     <base href="<%= request.protocol + [request.host_with_port, @location.urn].join('/') %>/">
-    <%= stylesheet_link_tag(*web_template.stylesheet_link_paths)%>
+    <STYLE type="text/css">
+      <% web_template.stylesheet_link_paths.each do |css| %>
+        <% css = css.prepend("public") %>
+        <%= render file: css %>
+      <% end %>
+    </STYLE>
+    <%#= stylesheet_link_tag(*web_template.stylesheet_link_paths)%>
   <% else %>
     <base href="/">
     <%= stylesheet_link_tag(web_template.application_min_css_path) %>
