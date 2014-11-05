@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029145959) do
+ActiveRecord::Schema.define(version: 20141105203531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -195,7 +195,7 @@ ActiveRecord::Schema.define(version: 20141029145959) do
     t.string   "type"
     t.boolean  "enabled"
     t.integer  "display_order"
-    t.string   "redirect_patterns"
+    t.text     "redirect_patterns"
     t.boolean  "in_trash"
     t.integer  "parent_id"
   end
