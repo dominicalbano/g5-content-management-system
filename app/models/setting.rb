@@ -77,7 +77,7 @@ class Setting < ActiveRecord::Base
   end
 
   def set_website_id
-    self.website ||= SettingWebsiteFinder.new(self).find
+    self.website ||= WebsiteFinder::Setting.new(self).find
     save
   end
 
