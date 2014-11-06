@@ -1,9 +1,9 @@
 website_template:
   name: Website Template
   web_layout:
-    slug: main-first-sidebar-left
+    slug: rows
   web_theme:
-    slug: cardboard
+    slug: luxe
   drop_targets:
     - html_id: drop-target-head
       widgets:
@@ -41,145 +41,127 @@ web_home_template:
   drop_targets:
     - html_id: drop-target-main
       widgets:
-        - slug: photo
-        - slug: html
-        - slug: meta-description
+        - slug: content-stripe
+        - slug: content-stripe
+        - slug: content-stripe
 
 web_page_templates:
+  - name: Floor Plans
+    drop_targets:
+      - html_id: drop-target-main
+        widgets:
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
+
   - name: Amenities
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Photo Gallery
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: gallery
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Neighborhood
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Map and Directions
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: map
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Residents
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: button
-          - slug: button
-          - slug: button
-          - slug: button
-          - slug: button
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Apply
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: apply
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Schedule Tour
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: tour
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Request Information
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: request
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Contact Us
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: contact
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Pet Friendly
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Community Events
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Maintenance Request
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: maintenance
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Suggestion Box
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: lead-form
-            settings:
-              - name: form_type
-                value: suggestion
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
 
   - name: Privacy Policy
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: meta-description
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
