@@ -3,10 +3,8 @@ class WebsiteFinder::Base
     @object = object
   end
 
-  private
-
-  def layout_setting
-    Setting.where("value = ?", @object.id.to_yaml).find do |setting|
+  def layout_setting_for(object_id)
+    Setting.where("value = ?", object_id.to_yaml).find do |setting|
       setting.name =~ /(?=(column|row))(?=.*widget_id).*/
     end
   end
