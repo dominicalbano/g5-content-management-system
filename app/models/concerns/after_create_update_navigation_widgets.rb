@@ -18,6 +18,6 @@ module AfterCreateUpdateNavigationWidgets
   end
 
   def website
-    WidgetWebsiteFinder.new(self).find
+    WebsiteFinder::Widget.new(self).find
   end
 end
