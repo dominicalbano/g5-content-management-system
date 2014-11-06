@@ -409,6 +409,7 @@ http_interactions:
   recorded_at: Thu, 23 Oct 2014 19:05:23 GMT
 - request:
     method: get
+<<<<<<< HEAD
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
     body:
       encoding: US-ASCII
@@ -578,6 +579,9 @@ http_interactions:
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+=======
+    uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
+>>>>>>> master
     body:
       encoding: US-ASCII
       string: ''
@@ -896,6 +900,7 @@ http_interactions:
             margin-top: 0;
           }
         }
+<<<<<<< HEAD
         [role=contentinfo] {
           @include clearfix;
           @include font-size(12);
@@ -1020,6 +1025,337 @@ http_interactions:
             padding-right: 2em;
           }
         }
+=======
+    http_version: 
+  recorded_at: Thu, 23 Oct 2014 19:05:23 GMT
+- request:
+    method: get
+    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 27 Oct 2014 18:19:20 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Tue, 21 Oct 2014 17:03:49 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @media (min-width: 980px) {
+          .wrapper:before,
+          .wrapper:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .wrapper:after {
+            clear: both;
+          }
+          .layout-side-right section[role=main] {
+            float: left;
+          }
+          .layout-side-right .aside-top,
+          .layout-side-right aside[role=complementary] {
+            float: right;
+          }
+          footer[role=contentinfo] {
+            clear: both;
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 18:19:20 GMT
+- request:
+    method: get
+    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 28 Oct 2014 04:08:40 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Tue, 21 Oct 2014 17:03:49 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @media (min-width: 980px) {
+          .wrapper:before,
+          .wrapper:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .wrapper:after {
+            clear: both;
+          }
+          .layout-side-right section[role=main] {
+            float: left;
+          }
+          .layout-side-right .aside-top,
+          .layout-side-right aside[role=complementary] {
+            float: right;
+          }
+          footer[role=contentinfo] {
+            clear: both;
+          }
+        }
+    http_version: 
+  recorded_at: Tue, 28 Oct 2014 04:08:40 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:29 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .button,
+        .button .btn-img,
+        .button a {
+          display: block;
+        }
+
+        .button-list {
+          overflow: hidden;
+        }
+        .button-list .btn-img {
+          float: left;
+          margin-right: 1em;
+        }
+        .button-grid {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        @media (min-width: 500px) {
+          .button-grid {
+            float: left;
+            padding: 0 1em;
+            width: 50%;
+          }
+          .button-grid:nth-of-type(2n+1) {
+            clear: left;
+          }
+        }
+        .button-grid .btn-img {
+          margin: 0 auto 1em;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:05:29 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:30 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .contact-info .p-organization-name,
+        .contact-info .h-adr,
+        .contact-info .p-street-address,
+        .contact-info .p-tel,
+        .contact-info .p-url {
+          display: block;
+        }
+        .contact-info p {
+          margin-top: 0;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:05:30 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:30 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:05:30 GMT
+- request:
+    method: get
+    uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:31 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:06:28 GMT
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '14170'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @import 'colors.scss';
+        @import 'bourbon/bourbon.scss';
+>>>>>>> master
 
         [role=complementary] .photo img {
           display: block;
@@ -1330,6 +1666,366 @@ http_interactions:
           }
         }
 
+
+        // SMALL DESKTOP AND LARGER =====================
+        @media (min-width: 980px) {
+          .layout {
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+          }
+          [role=main] {
+            padding-left: 5.1282051%; // 60/1170px
+            padding-right: 5.1282051%;
+          }
+          [role=banner] {
+            margin-bottom: 1em;
+            h1 {
+              float: left;
+              margin-bottom: .5em;
+            }
+            .navigation {
+              border-collapse: collapse;
+              border-left: none;
+              clear: both;
+              display: table;
+              text-align: center;
+              width: 100%;
+              ul {
+                display: table-row;
+              }
+              li {
+                box-shadow: -1px 0 0 #212121;
+                border-left: 1px solid #434343;
+                display: table-cell;
+                &:first-child {
+                  box-shadow: none;
+                  border-left: none;
+                }
+              }
+              a {
+                padding: 1.25em 0 .783em;
+                border-bottom: .467em solid $dark;
+                &:hover,
+                &:focus,
+                &.active {
+                  border-bottom-color: $secondaryColor;
+                }
+              }
+            }
+          }
+          .wrapper {
+            border-bottom: $border-width solid $secondaryColor;
+            margin-bottom: 2em;
+            overflow: hidden;
+          }
+          .aside-top {
+            @include box-sizing(border-box);
+            padding-top: 0;
+          }
+          // this is a trick to create equal height columns. the parent needs overflow: hidden
+          [role=main],
+          [role=complementary] {
+            @include box-sizing(border-box);
+            .web-home-template & {
+              margin-bottom: -2000px;
+              padding-bottom: 2000px;
+            }
+            .widget:last-child {
+              margin-bottom: 2em;
+            }
+          }
+          [role=main] {
+            border-right: 1px solid $light-grey;
+            width: 68.376068%; // 800/1170px
+          }
+          .aside-top,
+          [role=complementary] {
+            width: 31.623932%; // 370/1170px
+            .widget {
+              padding-left: 5.4054054%; // 20/370px
+              padding-right: 5.4054054%;
+            }
+            .action-calls {
+              padding-left: 0;
+              padding-right: 0;
+            }
+            .photo img {
+              width: 100%;
+            }
+          }
+          .buttons {
+            float: right;
+          }
+          .action-calls {
+            @include font-size(24);
+            a {
+              padding: .5em 1em;
+            }
+          }
+          .floorplans {
+            .floorplan-beds {
+              width: 15%;
+            }
+            .floorplan-rent {
+              width: 25%;
+            }
+          }
+          .page-home {
+            [role=main] {
+              padding-left: 0;
+              padding-right: 0;
+              padding-top: 0;
+              .html {
+                margin: 1em 5.1282051%;
+              }
+            }
+          }
+        }
+
+
+        // DESKTOP =====================
+        @media (min-width: 1200px) {
+          [role=complementary] .social-links {
+            text-align: left;
+            &:before {
+              @include font-size(32);
+              content: 'GET SOCIAL ///';
+              font-family: $alt-font;
+              font-weight: 100;
+              vertical-align: middle;
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:05:31 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/content-stripe/stylesheets/row.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:54 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '755'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .row:before,
+        .row:after,
+        .row-grid:before,
+        .row-grid:after {
+          content: " ";
+          display: table;
+        }
+        .row:after,
+        .row-grid:after {
+          clear: both;
+        }
+
+        .row-grid {
+          margin: 0 -15px;
+        }
+
+        .col {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 0 15px;
+        }
+
+        .row-halves .col,
+        .row-uneven-thirds-1 .col,
+        .row-uneven-thirds-2 .col,
+        .row-thirds .col,
+        .row-quarters .col {
+          float: left;
+        }
+
+        .row-halves .col {
+          width: 50%;
+        }
+
+        .row-thirds .col {
+          width: 33.33333%;
+        }
+
+        .row-uneven-thirds-1 .col-1 {
+          width: 33.33333%;
+        }
+
+        .row-uneven-thirds-1 .col-2 {
+          width: 66.66667%;
+        }
+
+        .row-uneven-thirds-2 .col-1 {
+          width: 66.66667%;
+        }
+
+        .row-uneven-thirds-2 .col-2 {
+          width: 33.33333%;
+        }
+
+        .row-quarters .col {
+          width: 25%;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:54 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:54 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .button,
+        .button .btn-img,
+        .button a {
+          display: block;
+        }
+
+        .button-list {
+          overflow: hidden;
+        }
+        .button-list .btn-img {
+          float: left;
+          margin-right: 1em;
+        }
+        .button-grid {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        @media (min-width: 500px) {
+          .button-grid {
+            float: left;
+            padding: 0 1em;
+            width: 50%;
+          }
+          .button-grid:nth-of-type(2n+1) {
+            clear: left;
+          }
+        }
+        .button-grid .btn-img {
+          margin: 0 auto 1em;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:54 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:54 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '589'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        header[role=banner] .navigation {
+          overflow-y: auto;
+        }
+
+        .top-nav > li {
+          position: relative;
+        }
+
+        .subnav {
+          -webkit-transition: max-height 0.3s ease;
+          -moz-transition: max-height 0.3s ease;
+          transition: max-height 0.3s ease;
+          max-height: 0;
+          overflow: hidden;
+        }
+
+        @media (max-width: 979px) {
+          .show-subnav {
+            max-height: none;
+          }
+        }
+
+<<<<<<< HEAD
 
         // SMALL DESKTOP AND LARGER =====================
         @media (min-width: 980px) {
@@ -2113,9 +2809,28 @@ http_interactions:
         200px;\n}\n"
     http_version: 
   recorded_at: Thu, 06 Nov 2014 17:41:06 GMT
+=======
+        @media (min-width: 980px) {
+          header[role=banner] .navigation {
+            overflow-y: visible;
+          }
+          .subnav {
+            width: 200px;
+            position: absolute;
+            left: 0;
+            top: 3.5em;
+            z-index: 9999;
+          }
+          .show-subnav {
+            max-height: 1000px;
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:55 GMT
+>>>>>>> master
 - request:
     method: get
-    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
     body:
       encoding: US-ASCII
       string: ''
@@ -2136,43 +2851,92 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
+<<<<<<< HEAD
       - Thu, 06 Nov 2014 17:41:05 GMT
       Status:
       - 200 OK
       Last-Modified:
       - Mon, 03 Nov 2014 16:59:32 GMT
+=======
+      - Mon, 03 Nov 2014 21:10:57 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+>>>>>>> master
       Content-Type:
       - text/css
       Content-Length:
-      - '386'
+      - '193'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: |
-        @media (min-width: 980px) {
-          .wrapper:before,
-          .wrapper:after {
-            display: table;
-            line-height: 0;
-            content: "";
-          }
-          .wrapper:after {
-            clear: both;
-          }
-          .layout-side-right section[role=main] {
-            float: left;
-          }
-          .layout-side-right .aside-top,
-          .layout-side-right aside[role=complementary] {
-            float: right;
-          }
-          footer[role=contentinfo] {
-            clear: both;
-          }
+        .contact-info .p-organization-name,
+        .contact-info .h-adr,
+        .contact-info .p-street-address,
+        .contact-info .p-tel,
+        .contact-info .p-url {
+          display: block;
+        }
+        .contact-info p {
+          margin-top: 0;
         }
     http_version: 
+<<<<<<< HEAD
   recorded_at: Thu, 06 Nov 2014 17:41:06 GMT
+=======
+  recorded_at: Mon, 03 Nov 2014 21:10:57 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:58 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:58 GMT
+>>>>>>> master
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -2196,11 +2960,19 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
+<<<<<<< HEAD
       - Thu, 06 Nov 2014 17:41:05 GMT
       Status:
       - 200 OK
       Last-Modified:
       - Wed, 05 Nov 2014 17:32:50 GMT
+=======
+      - Mon, 03 Nov 2014 21:10:58 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:06:28 GMT
+>>>>>>> master
       Content-Type:
       - text/plain
       Content-Length:
@@ -2999,5 +3771,9 @@ http_interactions:
           }
         }
     http_version: 
+<<<<<<< HEAD
   recorded_at: Thu, 06 Nov 2014 17:41:07 GMT
+=======
+  recorded_at: Mon, 03 Nov 2014 21:10:58 GMT
+>>>>>>> master
 recorded_with: VCR 2.9.2
