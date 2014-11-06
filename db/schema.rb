@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.string   "secondary_color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tertiary_color",  default: "#ffffff"
   end
 
   create_table "garden_widgets", force: true do |t|
@@ -210,6 +211,7 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.string   "custom_primary_color"
     t.string   "custom_secondary_color"
     t.integer  "garden_web_theme_id"
+    t.string   "custom_tertiary_color",  default: "#fff"
   end
 
   add_index "web_themes", ["garden_web_theme_id"], name: "index_web_themes_on_garden_web_theme_id", using: :btree
