@@ -134,8 +134,16 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def stylesheet_link_paths
+    Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
+    Rails.logger.info("sending compile to stylesheets_compiler")
     stylesheets_compiler.compile
+    Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
+    Rails.logger.info("sending link_paths to stylesheets_compiler")
     stylesheets_compiler.link_paths
+  end
+
+  def preview_stylesheet_link_paths
+    stylesheets
   end
 
   def javascripts_compiler
