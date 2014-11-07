@@ -8,5 +8,6 @@ CKEDITOR.config.toolbarGroups = [
 	{ name: 'styles' }
 ];
 CKEDITOR.config.removeButtons = 'Anchor,Underline,Strike,Subscript,Superscript,Copy,Cut,Styles,Flash,Table,Smiley,SpecialChar,PageBreak,Iframe,Save,NewPage,Preview,Print';
+CKEDITOR.config.removeButtons += ($('body').hasClass('g5-user') ? '' : 'Source')
 CKEDITOR.config.removeDialogTabs = 'link:advanced';
 CKEDITOR.config.dialog_backgroundCoverColor = 'transparent'
