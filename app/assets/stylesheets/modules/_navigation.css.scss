@@ -10,16 +10,28 @@
 }
 
 .nav-toggle {
-  position: absolute;
-  top: 0;
-  width: 24px;
-  height: 24px;
+  position: relative;
+  color:#fff;
+  float:right;
+  a {
+    cursor: pointer;
+    line-height: 30px;
+  }
+  &.show-nav {
+    background-color: #444;
+  }
 }
 
 .nav {
   @include clearfix;
   position:absolute;
   top:0;
+  &.hide-nav {
+    display:none;
+  }
+  &.show-nav {
+    display:block;
+  }
   a {
     @include font-size(12px);
     display: block;

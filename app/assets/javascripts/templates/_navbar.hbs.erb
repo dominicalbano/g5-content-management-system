@@ -1,10 +1,10 @@
-<div class="l-container">
-  <nav class="nav g5-internal-feature" role="navigation">
-    <ul>
-      <li><a {{bind-attr href="controllers.client.ch_url"}}>CMS</a></li>
-      <li><a {{bind-attr href="controllers.client.cpns_url"}}>Phone Numbers</a></li>
-      <li><a {{bind-attr href="controllers.client.cpas_url"}}>Pricing and Availability</a></li>
-      <li><a {{bind-attr href="controllers.client.cxm_url"}}>Customer Experience Management</a></li>
-    </ul>
-  </nav>
-</div>
+<div {{bind-attr class=":nav-toggle navMenuShowing:show-nav:hide-nav"}}><a {{action "toggleNavMenu"}}>Menu</a></div>
+
+<nav {{bind-attr class=":nav :g5-internal-feature navMenuShowing:show-nav:hide-nav"}} role="navigation">
+  <ul>
+    <li><a {{bind-attr href="controllers.client.ch_url"}}>CMS</a></li>
+    <li><a {{bind-attr href="controllers.client.cpns_url"}}>Phone Numbers</a></li>
+    <li><a {{bind-attr href="controllers.client.cpas_url"}}>Pricing and Availability</a></li>
+    <li><a {{bind-attr href="controllers.client.cxm_url"}}>Customer Experience Management</a></li>
+  </ul>
+</nav>

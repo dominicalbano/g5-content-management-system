@@ -1,5 +1,7 @@
 .builder {
-
+  &.page-editor {
+    display:none;
+  }
   .l-container {
     max-width: 1230px;
     padding-top: 0;
@@ -313,17 +315,18 @@
       margin-top: 1em;
     }
   }
+}
 
-  .preview {
-    display: block;
+.preview {
+  display: block;
+  width: 100%;
+  height: 100%;
+  top: 50px;
+  overflow: hidden;
+  position: absolute;
+  iframe {
     width: 100%;
-    height: 1000px;
-    overflow: hidden;
-    position: relative;
-    iframe {
-      width: 100%;
-      height: 100%;
-    }
+    height: 100%;
   }
 }
 

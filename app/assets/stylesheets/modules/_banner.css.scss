@@ -10,14 +10,15 @@
   @extend %c-shout;
   background: $base-color;
   margin-bottom: 1.25em;
-  padding-bottom: em(10px);
-  padding-top: em(10px);
   position: fixed;
   width: 100%;
   z-index: 1000;
   top: 0;
   left: 0;
   a {
+    display: inline-block;
+    padding-bottom: 10px;
+    padding-top: 10px;
     color: $c-color-b;
     text-decoration: none;
     &:hover {
@@ -33,9 +34,6 @@
   font-weight: $base-fontWeight;
   letter-spacing: em(1px);
   margin: 0;
-  a {
-    display: inline;
-  }
   @include respond-to($l-min-large) {
     @include font-size(20px);
   }
