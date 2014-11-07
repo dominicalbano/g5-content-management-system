@@ -47,7 +47,7 @@ describe CtaSettingsUpdater do
         Fabricate(:setting, name: "cta_link_1", value: "/foo/bar/baz", owner: widget)
       end
 
-      before { SettingWebsiteFinder.stub(new: website_finder) }
+      before { WebsiteFinder::Setting.stub(new: website_finder) }
 
       it "does nothing" do
         link_setting.should_not_receive(:update)

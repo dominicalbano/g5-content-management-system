@@ -152,7 +152,7 @@ describe WebsiteSeeder do
 
     before do
       web_template.stub(:update_navigation_settings)
-    end  
+    end
 
     subject { seeder.create_drop_targets(web_template, instructions) }
 
@@ -193,7 +193,7 @@ describe WebsiteSeeder do
       end
 
       it "sets defaults widget settings" do
-        seeder.should_receive(:set_default_widget_settings).exactly(4).times
+        seeder.should_receive(:set_default_widget_settings).exactly(3).times
       end
     end
 

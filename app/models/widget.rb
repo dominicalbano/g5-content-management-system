@@ -1,6 +1,7 @@
 class Widget < ActiveRecord::Base
   include RankedModel
   include HasManySettings
+  include AfterCreateUpdateNavigationWidgets
 
   validates :garden_widget_id, presence: true
 
