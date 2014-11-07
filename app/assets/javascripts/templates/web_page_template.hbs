@@ -1,3 +1,6 @@
+<div class="preview">
+  {{view App.IframeView contentBinding="this"}}
+</div>
 <div {{bind-attr class=":builder classNameForVertical"}}>
   <div class="l-container">
     <div class="page-title  builder-title">
@@ -20,10 +23,6 @@
     {{ render "asideBeforeMainWidgets" }}
     {{ render "asideAfterMainWidgets" }}
     {{ render "footerWidgets" }}
-  </div>
-
-  <div class="preview">
-    {{view App.IframeView contentBinding="this"}}
   </div>
 </div>
 

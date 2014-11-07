@@ -6,14 +6,20 @@
 // *************************************
 
 [role=navigation] {
-  margin-top: 60px;
   margin-bottom: 1.5em;
+}
+
+.nav-toggle {
+  position: absolute;
+  top: 0;
+  width: 24px;
+  height: 24px;
 }
 
 .nav {
   @include clearfix;
-  margin-left: -.5em;
-  margin-right: -.5em;
+  position:absolute;
+  top:0;
   a {
     @include font-size(12px);
     display: block;
