@@ -8,3 +8,4 @@ App.WebTheme = DS.Model.extend App.ReloadIframe,
   customColors: DS.attr("boolean")
   primaryColor: DS.attr("string")
   secondaryColor: DS.attr("string")
+  tertiaryColor: DS.attr("string")

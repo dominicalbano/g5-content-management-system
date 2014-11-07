@@ -64,6 +64,6 @@ module SettingNavigation
   end
 
   def setting_website
-    website ||= SettingWebsiteFinder.new(self).find
+    website ||= WebsiteFinder::Setting.new(self).find
   end
 end

@@ -26,6 +26,7 @@ class GardenWebThemeUpdater
     garden_web_theme.stylesheets = get_stylesheets(component)
     garden_web_theme.primary_color = get_primary_color(component)
     garden_web_theme.secondary_color = get_secondary_color(component)
+    garden_web_theme.tertiary_color = get_tertiary_color(component)
     garden_web_theme.save
   end
 
@@ -79,7 +80,13 @@ class GardenWebThemeUpdater
 
   def get_secondary_color(component)
     if component.respond_to?(:g5_colors)
-      component.g5_colors.try(:last).to_s
+      component.g5_colors.try(:second).to_s
+    end
+  end
+
+  def get_tertiary_color(component)
+    if component.respond_to?(:g5_colors)
+      component.g5_colors.try(:third).to_s
     end
   end
 end

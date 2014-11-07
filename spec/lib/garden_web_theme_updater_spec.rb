@@ -74,5 +74,6 @@ describe GardenWebThemeUpdater do
     it "sets secondary_color" do
       expect(garden_web_theme.secondary_color).to eq "#secondary"
     end
+
   end
 end

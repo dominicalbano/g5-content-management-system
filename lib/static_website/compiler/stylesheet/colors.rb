@@ -24,11 +24,13 @@ module StaticWebsite
         end
 
         def view_options
+          tertiary = colors[:tertiary_color].blank? ? "#ffffff" : colors[:tertiary_color]
           { formats: [:scss],
             layout:  false,
             locals:  {
               primary_color: colors[:primary_color],
-              secondary_color: colors[:secondary_color]
+              secondary_color: colors[:secondary_color],
+              tertiary_color: tertiary
             }
           }
         end

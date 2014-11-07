@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029145959) do
+ActiveRecord::Schema.define(version: 20141105203531) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,6 +81,7 @@ ActiveRecord::Schema.define(version: 20141029145959) do
     t.string   "secondary_color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tertiary_color",  default: "#ffffff"
   end
 
   create_table "garden_widgets", force: true do |t|
@@ -195,7 +196,7 @@ ActiveRecord::Schema.define(version: 20141029145959) do
     t.string   "type"
     t.boolean  "enabled"
     t.integer  "display_order"
-    t.string   "redirect_patterns"
+    t.text     "redirect_patterns"
     t.boolean  "in_trash"
     t.integer  "parent_id"
   end
@@ -210,6 +211,7 @@ ActiveRecord::Schema.define(version: 20141029145959) do
     t.string   "custom_primary_color"
     t.string   "custom_secondary_color"
     t.integer  "garden_web_theme_id"
+    t.string   "custom_tertiary_color",  default: "#fff"
   end
 
   add_index "web_themes", ["garden_web_theme_id"], name: "index_web_themes_on_garden_web_theme_id", using: :btree
