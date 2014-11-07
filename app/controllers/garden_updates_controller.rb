@@ -1,6 +1,7 @@
 class GardenUpdatesController < ApplicationController
   skip_before_filter :verify_authenticity_token
   skip_before_filter :authenticate_user!
+  before_filter :authenticate_api_user!
 
   GARDEN_UPDATE_JOBS = {
     garden_web_layout: GardenWebLayoutUpdaterJob,
