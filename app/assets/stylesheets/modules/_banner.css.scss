@@ -12,10 +12,17 @@
   margin-bottom: 1.25em;
   padding-bottom: em(10px);
   padding-top: em(10px);
-  position: relative;
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  top: 0;
+  left: 0;
   a {
     color: $c-color-b;
     text-decoration: none;
+    &:hover {
+      color: $c-color-a;
+    }
   }
 }
 
@@ -53,6 +60,12 @@
 .banner-subtitle {
   color: $c-color-b;
   font-weight: $base-fontWeight;
+}
+
+.banner a:hover {
+  .banner-subtitle {
+    color: $c-color-a;
+  }
 }
 
 .banner-navigation {

@@ -40,7 +40,7 @@
           </div>
           <div {{bind-attr class=":faux-table-cell single_domain"}}>
             {{#link-to "website" websiteSlug class="btn btn--a" }}Edit{{/link-to}}
-            <a {{bind-attr href="this.websiteHerokuUrl"}} class="btn btn--a">View</a>
+            <a {{bind-attr href="this.websiteHerokuUrl"}} target="_blank" class="btn btn--a">View</a>
             {{confirmation-link title="Deploy" action="deploy" param=this 
               message="You are about to deploy. Are you sure?" classes="btn btn--a deploy"}}
           </div>

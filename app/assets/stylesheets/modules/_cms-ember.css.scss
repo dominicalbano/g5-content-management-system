@@ -1,7 +1,7 @@
 .builder {
 
   .l-container {
-    width: 1230px;
+    max-width: 1230px;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 20px;
@@ -212,10 +212,15 @@
   .widget-drop-zone {
     @include box-sizing(border-box);
     float: left;
-    padding-right: 3%;
+    margin-right: 3%;
     width: 20%;
+    border: 1px solid $base-color;
     h2 {
       @include font-size(18px);
+      border: 1px solid 
+    }
+    @media (max-width: 677px){
+      width: 100%;
     }
   }
   .main-widgets,
@@ -232,6 +237,9 @@
         width: 20px;
         vertical-align: middle;
       }
+      &:hover {
+        color: $c-color-a;
+      }
     }
   }
 
@@ -246,6 +254,9 @@
   .remove-drop-zone {
     width: 50%;
     float: left;
+    @media (min-width:677px) and (max-width:1279px) {
+      width: 100%;
+    }
   }
   .drop-target-add,
   .drop-target-remove {
@@ -275,6 +286,7 @@
       font-size: 35px;
       position: absolute;
       left: 10px;
+      top:3px;
       line-height: 1;
     }
   }

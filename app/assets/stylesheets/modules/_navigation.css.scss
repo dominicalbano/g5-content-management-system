@@ -6,6 +6,7 @@
 // *************************************
 
 [role=navigation] {
+  margin-top: 60px;
   margin-bottom: 1.5em;
 }
 
@@ -22,6 +23,9 @@
     &.active {
       color: $c-color-c;
     }
+  }
+  li, a {
+    float: left;
   }
   @include respond-to($l-min-medium) {
     li, a {
