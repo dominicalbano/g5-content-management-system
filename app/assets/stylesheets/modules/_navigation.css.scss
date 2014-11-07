@@ -11,26 +11,31 @@
 
 .nav-toggle {
   position: relative;
-  color:#fff;
   float:right;
   a {
     cursor: pointer;
     line-height: 30px;
+    padding: 10px;
+    color: $c-color-b;
   }
   &.show-nav {
-    background-color: #444;
+    background: lighten($base-color, 20%);
   }
 }
 
 .nav {
   @include clearfix;
   position:absolute;
-  top:0;
-  &.hide-nav {
+  top:50px;
+  z-index: 1001;
+  .hide-nav & {
     display:none;
   }
-  &.show-nav {
+  .show-nav & {
     display:block;
+    right:0;
+    min-width: 200px;
+    background: lighten($base-color, 20%);
   }
   a {
     @include font-size(12px);
@@ -38,26 +43,13 @@
     padding: .5em;
     text-decoration: none;
     text-transform: uppercase;
+    line-height: 1.4rem;
     &.active {
       color: $c-color-c;
+      cursor: default;
     }
   }
   li, a {
-    float: left;
-  }
-  @include respond-to($l-min-medium) {
-    li, a {
-      float: left;
-      line-height: 1;
-    }
-    li {
-      border-left: 1px solid $base-color;
-      &:first-child {
-        border-left: none;
-      }
-    }
-    a {
-      padding: 0 .5em;
-    }
+    display:block;
   }
 }

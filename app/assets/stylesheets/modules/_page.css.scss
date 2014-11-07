@@ -13,6 +13,10 @@
 
 // ----- Submodules ----- //
 
+.page {
+  padding-top: 60px;
+}
+
 .page-section {
   @extend %group;
   margin-bottom: $base-whitespace;
