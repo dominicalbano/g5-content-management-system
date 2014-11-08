@@ -18,9 +18,21 @@
     padding-left: 1%;
     padding-right: 1%;
     text-align: center;
-    width: 20%;
-    &:nth-of-type(5n+1) {
-      clear: left;
+    width: 8%;
+    &:nth-of-type(n+9) {
+      display: none;
+    }
+    @media (max-width: 960px){
+      width: 10%;
+      &:nth-of-type(n+8){
+        display: none;
+      }
+    }
+    @media (max-width: 575px){
+      width: 12.5%;
+      &:nth-of-type(n+5){
+        display: none;
+      }
     }
     img {
       margin: 0 auto .25em;
@@ -32,7 +44,7 @@
 }
 
 // ----- Modifiers ----- //
-
+/*
 .widgets--small {
   li {
     @media screen and (min-width: $l-min-medium) and (max-width: $l-max-large) {
@@ -50,3 +62,4 @@
     width: 25%;
   }
 }
+*/

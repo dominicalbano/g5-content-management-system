@@ -1,7 +1,7 @@
 <div class="card-container back">
 
-  {{ partial "website/webPageTemplateHead" }}
-
+  {{ partial "website/webPageTemplateHeadBack" }}
+  
   <div class="card-body">
 
     <form class="form">
@@ -33,19 +33,6 @@
           <div class="switch switch-small" data-on="success" data-off="danger">
             {{input type="checkbox" checked=enabled}}
           </div>
-        {{/view}}
-      </div>
-
-      <div class="buttons">
-        {{#view App.CardAction}}
-          <button {{action cancel this}} class="cancel-link card-flip">
-            Cancel
-          </button>
-        {{/view}}
-        {{#view App.CardAction}}
-          <button {{action save this}} class="save btn btn--small" disabled>
-            Save
-          </button>
         {{/view}}
       </div>
     </form>

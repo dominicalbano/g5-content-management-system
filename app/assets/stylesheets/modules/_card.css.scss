@@ -19,33 +19,30 @@
   @include box-sizing(border-box);
   position: relative;
   float: left;
-  height: 320px;
+  height: 180px;
   margin-bottom: $base-whitespace;
   padding-left: 1%;
   padding-right: 1%;
   width: 100%;
   z-index: 1;
-  @media screen and (min-width: $l-min-medium) and (max-width: $l-max-large) {
-    width: 50%;
-  }
-  @media screen and (min-width: $l-min-large) and (max-width: $l-max-xlarge) {
-    width: 33.33333333333333%;
-  }
-  @include respond-to($l-min-xlarge) {
-    width: 25%;
-  }
   .widgets {
     @extend %group;
     margin-bottom: 1em;
   }
-  .buttons .btn {
-    @include respond-to($l-min-medium, min-width) {
-      width: 48%;
-    }
-    &[disabled] {
-      opacity: 0.5;
-      cursor: default;
-      pointer-events: none;
+  .buttons {
+    position: absolute;
+    top: .75em;
+    right: .75em;
+    .btn {
+      @include respond-to($l-min-medium, min-width) {
+        display: inline-block;
+        padding: .5em 1em;
+      }
+      &[disabled] {
+        opacity: 0.5;
+        cursor: default;
+        pointer-events: none;
+      }
     }
   }
   form {
@@ -85,16 +82,32 @@
     border: none;
     display: inline-block;
     text-align: left;
-    text-decoration: underline;
+    text-decoration: none;
     text-transform: uppercase;
-    width: 50%;
+    color: $c-color-b;
+    padding: .5em .5em;
+    &:hover {
+      text-decoration: underline;
+      color: $c-color-c;
+    }
+  }
+  .save {
+    display: inline-block;
+  }
+  &.flipped {
+    .buttons {
+      display: none;
+      &.buttons-back {
+        display: block;
+      }
+    }
   }
 }
 
 .card-container {
   @include box-sizing(border-box);
   background-color: $c-background-a;
-  height: 320px;
+  height: 180px;
   padding-bottom: 50px;
   width: 100%;
 }
@@ -118,5 +131,10 @@
 }
 
 .card-body {
-  padding: 25px 10px 0;
+  padding: 10px 10px 0;
+  .form-field {
+    width: 48%;
+    float: left;
+    margin-right: 1%;
+  }
 }

@@ -19,7 +19,7 @@
     color: $c-color-b;
   }
   &.show-nav {
-    background: $g5-grey;
+    background: darken($g5-grey, 15%);
   }
 }
 
@@ -35,7 +35,7 @@
     display:block;
     right:0;
     min-width: 200px;
-    background: $g5-grey;
+    background: darken($g5-grey, 15%);
   }
   a {
     @include font-size(12px);
@@ -47,6 +47,9 @@
     &.active {
       color: $c-color-c;
       cursor: default;
+    }
+    &:hover {
+      background: darken($g5-grey, 30%);
     }
   }
   li, a {

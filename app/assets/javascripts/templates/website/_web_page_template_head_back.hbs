@@ -1,0 +1,15 @@
+<div class="card-head">
+  <div class="buttons buttons-back">
+    {{#view App.CardAction}}
+      <a {{action cancel this}} class="cancel-link btn btn--small card-flip">
+        Cancel
+      </a>
+    {{/view}}
+    {{#view App.CardAction}}
+      <a {{action save this}} class="save btn btn--small" disabled>
+        Save
+      </a>
+    {{/view}}
+  </div>
+  <h3>{{ name }}</h3>
+</div>

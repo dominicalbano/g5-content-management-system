@@ -65,6 +65,10 @@
   &.page-toolbar {
     padding: 0.75em 0;
     background-color: $c-background-c;
+    h2 {
+      float: left;
+      font-size: 1.6rem;
+    }
   }
   h2 {
     @extend %c-shout;

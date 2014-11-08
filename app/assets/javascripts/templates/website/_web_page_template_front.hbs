@@ -8,14 +8,6 @@
         {{ partial "website/widget" }}
       {{/each}}
     </ul>
-    <div class="buttons">
-      {{#if isWebHomeTemplate}}
-        {{#link-to "webHomeTemplate" class="btn btn--small"}}Edit{{/link-to}}
-      {{else}}
-        {{#link-to "webPageTemplate" this class="btn btn--small"}}Edit{{/link-to}}
-      {{/if}}
-      <a {{bind-attr href="previewUrl"}} class="btn btn--small">Preview</a>
-    </div>
 
     {{ partial "website/webPageTemplateFlip" }}
   </div>
