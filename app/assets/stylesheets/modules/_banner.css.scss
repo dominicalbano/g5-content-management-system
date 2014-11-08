@@ -21,8 +21,10 @@
     padding-top: 10px;
     color: $c-color-b;
     text-decoration: none;
+    cursor: pointer;
     &:hover {
       color: $c-color-a;
+      cursor: pointer;
     }
   }
 }

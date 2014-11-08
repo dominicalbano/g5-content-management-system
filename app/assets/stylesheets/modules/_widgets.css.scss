@@ -41,6 +41,14 @@
       text-decoration: none;
     }
   }
+  .site-settings & {
+    li {
+      width: 14.5%;
+      &:nth-of-type(n+12){
+        display: none;
+      }
+    }
+  }
 }
 
 // ----- Modifiers ----- //

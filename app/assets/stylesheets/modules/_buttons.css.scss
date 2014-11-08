@@ -119,8 +119,9 @@
 
 .btn.save, .btn.btn--edit {
   background: #339933;
+  cursor: pointer;
   &:hover, &:focus {
-    background: #007700;
+    background: #009900;
     cursor: pointer;
   }
 }
