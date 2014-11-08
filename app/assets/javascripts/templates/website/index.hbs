@@ -1,5 +1,5 @@
-<div class="l-container">
-  <div class="page-title">
+<div class="page-title page-toolbar">
+  <div class="l-container">
     <span class="buttons l-pullLeft">
       {{#link-to "assets" this class="btn" }}Asset Manager{{/link-to}}
       {{#link-to "redirectManager" this class="btn" }}Redirects Manager{{/link-to}}
@@ -14,8 +14,11 @@
         message="You are about to deploy. Are you sure?" classes="btn l-pullRight"}}
     {{/if}}
   </div>
+</div>
 
+<div class="l-container">
   <div class="site-settings page-section l-grid">
+    <h2>Website Settings</h2>
     {{ render "website/websiteTemplate" websiteTemplate }}
   </div>
 

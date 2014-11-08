@@ -14,12 +14,15 @@
 // ----- Submodules ----- //
 
 .page {
-  padding-top: 60px;
+  padding-top: 50px;
 }
 
 .page-section {
   @extend %group;
   margin-bottom: $base-whitespace;
+  &.site-settings {
+    border-bottom: $base-border;
+  }
   .l-cell {
     width: 100%;
     margin-bottom: $base-whitespace;
@@ -58,8 +61,11 @@
 
 .page-title {
   @include clearfix;
-  border-bottom: $base-border;
   margin-bottom: 1.25em;
+  &.page-toolbar {
+    padding: 0.75em 0;
+    background-color: $c-background-c;
+  }
   h2 {
     @extend %c-shout;
     @extend %c-h3;

@@ -8,19 +8,21 @@
       </a>
 
       <a href="/">
-        CMS: <strong class="banner-subtitle">{{controllers.client.name}}</strong>
+        <span class="client-name">
+          CMS: <strong class="banner-subtitle">{{controllers.client.name}}</strong>
+        </span>
       </a>
 
       {{#if controllers.website}}
-        &raquo;
+        <span class="location-name">&raquo;
         {{#link-to "website" controllers.website}}
           <strong class="banner-subtitle">{{controllers.website.name}}</strong>
         {{/link-to}}
+        </span>
       {{/if}}
 
       {{#if controllers.webPageTemplate}}
-        <span class="page-name">
-          &raquo;
+        <span class="page-name">&raquo;
           <a><strong class="banner-subtitle">{{controllers.webPageTemplate.name}}</strong></a>
         </span>
       {{/if}}

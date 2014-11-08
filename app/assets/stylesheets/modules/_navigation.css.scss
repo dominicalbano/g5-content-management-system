@@ -19,7 +19,7 @@
     color: $c-color-b;
   }
   &.show-nav {
-    background: lighten($base-color, 20%);
+    background: $g5-grey;
   }
 }
 
@@ -35,7 +35,7 @@
     display:block;
     right:0;
     min-width: 200px;
-    background: lighten($base-color, 20%);
+    background: $g5-grey;
   }
   a {
     @include font-size(12px);
