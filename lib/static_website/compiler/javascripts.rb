@@ -9,7 +9,7 @@ module StaticWebsite
 
       def initialize(javascript_paths, compile_path, location_name="", preview=false)
         Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-        Rails.logger.info("Initializing StaticWebsite::Compiler::Javascript with javascript_paths: #{javascript_paths}, compile_path: #{compile_path}, location_name: #{location_name}, preview: #{preview}")
+        Rails.logger.info("Initializing StaticWebsite::Compiler::Javascript with javascript_paths: #{javascript_paths.join("\n").prepend("\n")}, compile_path: #{compile_path}, location_name: #{location_name}, preview: #{preview}")
         @javascript_paths = javascript_paths.try(:compact).try(:uniq)
         @compile_path = compile_path
         @location_name = location_name
