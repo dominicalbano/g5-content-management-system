@@ -8,7 +8,7 @@ module StaticWebsite
 
         def initialize(from_paths, location_name)
           Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-          Rails.logger.info("Initializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{puts from_paths}, location_name: #{location_name}")
+          Rails.logger.info("Initializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{from_paths.join("\n")}, location_name: #{location_name}")
           @from_paths = from_paths
           @location_name = location_name
           @s3 = AWS::S3.new(
