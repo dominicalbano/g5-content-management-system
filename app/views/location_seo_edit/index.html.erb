@@ -72,12 +72,16 @@
                 })
 
     };
-    
+
+    $.fn.editable.defaults.mode = 'inline';
     /**************************************************************/
     /* Functions to execute on loading the document               */
     /**************************************************************/
     $(document).ready( function() {
-        prepareList()
+        prepareList();
+        $('#widget').editable({
+            showbuttons: 'bottom'
+        });
     });
 
 </script>

@@ -26,6 +26,7 @@ gem "ember-rails"
 gem 'g5_authenticatable', '~> 0.2'
 gem "pg"
 gem "font-awesome-rails"
+gem 'bootstrap-editable-rails'
 
 # Temporary fix
 gem "sprockets", "=2.11.0"
