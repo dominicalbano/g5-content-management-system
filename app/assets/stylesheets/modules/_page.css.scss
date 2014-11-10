@@ -62,6 +62,10 @@
 .page-title {
   @include clearfix;
   margin-bottom: 1.25em;
+  .ember-view {
+    float: left;
+    margin-right: 5px;
+  }
   &.page-toolbar {
     padding: 0.75em 0;
     background-color: $c-background-c;

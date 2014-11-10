@@ -99,7 +99,7 @@
   }
 }
 
-.btn.btn--delete {
+.btn.btn--delete, .btn.deploy-btn {
   background: #ff6666;
   &:hover, &:focus {
     background: #ff4444;
@@ -117,7 +117,7 @@
   margin-bottom: -3px;
 }
 
-.btn.save, .btn.btn--edit {
+.btn.save, .btn.btn--edit, .btn.new-page-btn {
   background: #339933;
   cursor: pointer;
   &:hover, &:focus {

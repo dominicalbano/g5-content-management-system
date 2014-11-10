@@ -25,8 +25,9 @@
   <div class="site-pages page-section">
     <div class="page-title">
       {{#view App.NewPage}}
-        {{#link-to "webPageTemplates.new" class="new-page-btn btn" }}Create New Page{{/link-to}}
+        {{#link-to "webPageTemplates.new" class="btn new-page-btn" }}Create New Page{{/link-to}}
       {{/view}}
+      <a href="#trash-can" class="btn trash-btn">View Trash</a>
     </div>
     <div class="cards">
       {{ render "website/webHomeTemplate" webHomeTemplate }}
@@ -36,7 +37,7 @@
   </div>
 
   <div id="trash">
-    <a href="#" {{action confirmEmptyTrash}} id="trash-can">
+    <a href="#" name="trash-can" {{action confirmEmptyTrash}} id="trash-can">
       <div class="icon icon--trash"></div>
     </a>
 
