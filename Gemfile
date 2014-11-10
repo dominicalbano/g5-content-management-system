@@ -43,7 +43,8 @@ end
 
 group :development, :test do
   # secrets
-  gem "dotenv-rails", "~> 0.11.1"
+  gem "dotenv-rails"
+  gem "dotenv-deployment"
   # debugging
   gem "pry"
   # database
