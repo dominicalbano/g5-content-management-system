@@ -20,6 +20,7 @@
   }
   .builder-title {
     display: block;
+    display: none;
     margin: 0;
   }
   .thumbs {
@@ -49,6 +50,10 @@
   .theme-picker,
   .widget-list {
     position: relative;
+  }
+  .layout-picker,
+  .theme-picker {
+    display: none; // TODO: Remove later
   }
   .btn--toggle {
     @include box-sizing(border-box);
