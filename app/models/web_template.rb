@@ -134,11 +134,9 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def stylesheet_link_paths
-    Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-    Rails.logger.info("sending compile to stylesheets_compiler")
+    Rails.logger.info("\n#### sending compile to stylesheets_compiler\n")
     stylesheets_compiler.compile
-    Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-    Rails.logger.info("sending link_paths to stylesheets_compiler")
+    Rails.logger.info("\n#### sending link_paths to stylesheets_compiler\n")
     stylesheets_compiler.link_paths
   end
 
