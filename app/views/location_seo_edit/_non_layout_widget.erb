@@ -1,0 +1,12 @@
+<li><%= non_layout_widget.name %>
+  <ul><li>
+    <table width="75%" border="1">
+      <% non_layout_widget.settings.order("name").each do |s| %>
+      <tr>
+        <th><%= s.name %></th>
+        <td><%= s.value %></td>
+      </tr>
+      <% end %>
+    </table>
+  </li></ul>
+</li>
