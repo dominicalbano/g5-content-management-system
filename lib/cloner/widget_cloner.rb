@@ -67,6 +67,6 @@ class Cloner::WidgetCloner
   end
 
   def layout_setting?
-    setting.value == 'Row' || setting.value == 'Column'
+    setting.value == 'Content Stripe' || setting.value == 'Column'
   end
 end
