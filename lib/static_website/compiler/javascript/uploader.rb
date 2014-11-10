@@ -1,7 +1,5 @@
 require "aws-sdk"
 
-LOGGERS = [Rails.logger, Resque.logger]
-
 module StaticWebsite
   module Compiler
     class Javascript
@@ -29,7 +27,8 @@ module StaticWebsite
           @uploaded_paths = []
           LOGGERS.each{|logger| logger.info("Writing js assets to S3")}
           from_paths.each do |from_path|
-            s3_bucket_object(from_path).write(Pathname.new(from_path), write_options)
+            result = s3_bucket_object(from_path).write(Pathname.new(from_path), write_options)
+            LOGGERS.each{|logger| logger.info(result.inspect)}
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
           end
         end

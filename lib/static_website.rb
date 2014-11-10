@@ -1,8 +1,6 @@
 require "static_website/compiler"
 require "static_website/deployer"
 
-LOGGERS = [Rails.logger, Resque.logger]
-
 module StaticWebsite
   def self.compile_and_deploy(website, user_email)
     compile(website)

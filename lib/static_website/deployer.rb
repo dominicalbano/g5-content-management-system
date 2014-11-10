@@ -1,7 +1,5 @@
 require "static_website/compiler"
 
-LOGGERS = [Rails.logger, Resque.logger]
-
 module StaticWebsite
   class Deployer
     attr_reader :website, :compile_path, :retries

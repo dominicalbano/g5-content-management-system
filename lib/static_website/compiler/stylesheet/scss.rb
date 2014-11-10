@@ -1,7 +1,5 @@
 require "static_website/compiler/compile_directory"
 
-LOGGERS = [Rails.logger, Resque.logger]
-
 module StaticWebsite
   module Compiler
     class Stylesheet
