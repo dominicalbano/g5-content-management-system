@@ -86,9 +86,9 @@ module StaticWebsite
       LOGGERS.each{|logger| logger.info("Removing directory: #{@repo_dir} if exists")}
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
       LOGGERS.each{|logger| logger.info(puts Dir.glob("app/**/*/").join("\n"))}
-      LOGGERS.each{|logger| logger.info("Files in public:\n" + puts Dir.glob("app/public/**/*").join("\n"))}
+      LOGGERS.each{|logger| logger.info("Files in public:\n #{puts Dir.glob('app/public/**/*').join('\n')}")}
       LOGGERS.each{|logger| logger.info(puts Dir.glob("tmp/**/*/").join("\n"))}
-      LOGGERS.each{|logger| logger.info("Files in static_sites:\n" + puts Dir.glob("tmp/static_sites/**/*").join("\n"))}
+      LOGGERS.each{|logger| logger.info("Files in static_sites:\n #{puts Dir.glob('tmp/static_sites/**/*').join('\n')}")}
     end
 
     private
