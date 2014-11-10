@@ -151,7 +151,9 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascript_include_paths
+    Rails.logger.info("Calling compile on javascripts_compiler for web_template: #{self}")
     javascripts_compiler.compile
+    Rails.logger.info("Calling upload_paths on javascripts_compiler for web_template: #{self}")
     javascripts_compiler.uploaded_paths
   end
 

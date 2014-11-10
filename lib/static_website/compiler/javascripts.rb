@@ -8,6 +8,8 @@ module StaticWebsite
         :js_paths, :include_paths
 
       def initialize(javascript_paths, compile_path, location_name="", preview=false)
+        Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
+        Rails.logger.info("Initializing StaticWebsite::Compiler::Javascript with javascript_paths: #{javascript_paths}, compile_path: #{compile_path}, location_name: #{location_name}, preview: #{preview}")
         @javascript_paths = javascript_paths.try(:compact).try(:uniq)
         @compile_path = compile_path
         @location_name = location_name
@@ -25,6 +27,7 @@ module StaticWebsite
           end
 
           # javascript_compressor.compile unless preview
+          Rails.logger.info(("Calling compile on javascript_uploader unless preview")
           javascript_uploader.compile unless preview
         end
       end

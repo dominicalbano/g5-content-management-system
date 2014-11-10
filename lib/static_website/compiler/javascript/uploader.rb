@@ -7,6 +7,8 @@ module StaticWebsite
         attr_reader :from_paths, :s3, :bucket_name, :bucket_url, :uploaded_paths
 
         def initialize(from_paths, location_name)
+          Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
+          Rails.logger.info("Initializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{stylesheet_paths}, location_name: #{location_name}")
           @from_paths = from_paths
           @location_name = location_name
           @s3 = AWS::S3.new(
