@@ -1,5 +1,7 @@
 require "aws-sdk"
 
+LOGGERS = [Rails.logger, Resque.logger]
+
 module StaticWebsite
   module Compiler
     class Javascript
@@ -7,8 +9,8 @@ module StaticWebsite
         attr_reader :from_paths, :s3, :bucket_name, :bucket_url, :uploaded_paths
 
         def initialize(from_paths, location_name)
-          Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-          Rails.logger.info("Initializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{from_paths.join("\n").prepend("\n")}, location_name: #{location_name}")
+          LOGGERS.each{|logger| logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")}
+          LOGGERS.each{|logger| logger.info("Initializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{from_paths.join("\n").prepend("\n")}, location_name: #{location_name}")}
           @from_paths = from_paths
           @location_name = location_name
           @s3 = AWS::S3.new(
@@ -25,7 +27,7 @@ module StaticWebsite
 
         def compile
           @uploaded_paths = []
-          Rails.logger.info("Writing js assets to S3")
+          LOGGERS.each{|logger| logger.info("Writing js assets to S3")}
           from_paths.each do |from_path|
             s3_bucket_object(from_path).write(Pathname.new(from_path), write_options)
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)

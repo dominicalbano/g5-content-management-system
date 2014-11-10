@@ -3,6 +3,8 @@ class WebTemplate < ActiveRecord::Base
   include HasManySettings
   include AfterUpdateSetSettingNavigation
 
+  LOGGERS = [Rails.logger, Resque.logger]
+
   ranks :display_order, with_same: :website_id
 
   belongs_to :website
@@ -134,9 +136,9 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def stylesheet_link_paths
-    Rails.logger.info("\n#### sending compile to stylesheets_compiler for web_template #{name}\n")
+    LOGGERS.each{|logger| logger.info("\n#### sending compile to stylesheets_compiler for web_template #{name}\n")}
     stylesheets_compiler.compile
-    Rails.logger.info("\n#### sending link_paths to stylesheets_compiler for web_template #{name}\n")
+    LOGGERS.each{|logger| logger.info("\n#### sending link_paths to stylesheets_compiler for web_template #{name}\n")}
     stylesheets_compiler.link_paths
   end
 
@@ -151,9 +153,9 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascript_include_paths
-    Rails.logger.info("Calling compile on javascripts_compiler for web_template: #{name}")
+    LOGGERS.each{|logger| logger.info("Calling compile on javascripts_compiler for web_template: #{name}")}
     javascripts_compiler.compile
-    Rails.logger.info("Calling upload_paths on javascripts_compiler for web_template: #{name}")
+    LOGGERS.each{|logger| logger.info("Calling upload_paths on javascripts_compiler for web_template: #{name}")}
     javascripts_compiler.uploaded_paths
   end
 
