@@ -27,7 +27,7 @@ module StaticWebsite
           end
 
           # javascript_compressor.compile unless preview
-          Rails.logger.info(("Calling compile on javascript_uploader unless preview")
+          Rails.logger.info("Calling compile on javascript_uploader unless preview")
           javascript_uploader.compile unless preview
         end
       end
