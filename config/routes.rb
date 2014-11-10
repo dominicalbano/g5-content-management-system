@@ -73,6 +73,9 @@ G5CMS::Application.routes.draw do
   get "/location_cloner", to: "location_cloner#index"
   post "/location_cloner/clone_location", to: "location_cloner#clone_location"
 
+  get "/location_seo_edit", to: "location_seo_edit#index"
+  #post "/location_seo_edit/clone_location", to: "location_cloner#clone_location"
+
   # Widget edit modals
   resources :widgets, only: [:edit, :update]
 
