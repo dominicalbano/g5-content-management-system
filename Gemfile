@@ -1,7 +1,9 @@
 source "https://rubygems.org"
 ruby "2.1.3"
 
-gem 'rails', "4.1.7"
+gem "rails", "4.1.7"
+gem "active_model_serializers", "~> 0.8.2"
+
 # Downgraded jquery-rails for Ember Views
 gem "jquery-rails", "~> 3.0.4"
 gem "jquery-ui-rails"
