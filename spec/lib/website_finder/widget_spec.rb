@@ -18,15 +18,21 @@ describe WebsiteFinder::Widget do
     context "a widget with no drop target" do
       let(:widget) { Fabricate(:widget, drop_target: nil) }
       let!(:parent_widget) { Fabricate(:widget, drop_target: drop_target) }
-      let!(:setting) do
-        Fabricate(:setting,
-          owner: parent_widget,
-          name: "column_one_widget_id",
-          value: widget.id
-        )
+      context "an existing setting" do
+        let!(:setting) do
+          Fabricate(:setting,
+                    owner: parent_widget,
+                    name: "column_one_widget_id",
+                    value: widget.id
+                   )
+        end
+
+        specify { expect(subject).to eq(website)  }
       end
 
-      specify { expect(subject).to eq(website)  }
+      context "no existing setting" do
+        specify { expect(subject).to be_nil  }
+      end
     end
   end
 end

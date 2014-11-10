@@ -1,7 +1,9 @@
 class WebsiteFinder::Widget < WebsiteFinder::Base
   def find
     if @object.drop_target.nil?
-      layout_setting_for(@object.id).owner.drop_target.web_template.website
+      if setting = layout_setting_for(@object.id)
+        setting.owner.drop_target.web_template.website
+      end
     else
       @object.drop_target.web_template.website
     end
