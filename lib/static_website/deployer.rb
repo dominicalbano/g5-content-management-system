@@ -88,6 +88,7 @@ module StaticWebsite
       LOGGERS.each{|logger| logger.info(puts Dir.glob("app/**/*/").join("\n"))}
       LOGGERS.each{|logger| logger.info("Files in public:\n" + puts Dir.glob("app/public/**/*").join("\n"))}
       LOGGERS.each{|logger| logger.info(puts Dir.glob("tmp/**/*/").join("\n"))}
+      LOGGERS.each{|logger| logger.info("Files in static_sites:\n" + puts Dir.glob("tmp/static_sites/**/*").join("\n"))}
     end
 
     private
