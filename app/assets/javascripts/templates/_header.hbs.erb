@@ -1,6 +1,8 @@
 <header role="banner" class="banner">
   <div class="l-container">
-    {{ partial "navbar" }}
+    <div class="banner-options">
+      {{ partial "navbar" }}
+    </div>
 
     <h1 class="banner-title">
       <a {{bind-attr href="controllers.client.dsh_url"}}>
