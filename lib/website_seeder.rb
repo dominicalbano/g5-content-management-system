@@ -9,10 +9,16 @@ class WebsiteSeeder
   end
 
   def seed
+    Rails.logger.info("Performing Seed")
+    Rails.logger.info("Creating general settings")
     create_general_settings
+    Rails.logger.info("Creating services settings")
     create_services_settings
+    Rails.logger.info("Creating website template")
     create_website_template(website, instructions["website_template"])
+    Rails.logger.info("Creating web home template")
     create_web_home_template(website, instructions["web_home_template"])
+    Rails.logger.info("Creating web page templates")
     create_web_page_templates(website, instructions["web_page_templates"])
 
     website
