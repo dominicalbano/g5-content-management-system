@@ -11,3 +11,4 @@ CKEDITOR.config.removeButtons = 'Anchor,Underline,Strike,Subscript,Superscript,C
 CKEDITOR.config.removeButtons += ($('body').hasClass('g5-user') ? '' : ',Source')
 CKEDITOR.config.removeDialogTabs = 'link:advanced';
 CKEDITOR.config.dialog_backgroundCoverColor = 'transparent'
+CKEDITOR.config.extraAllowedContent = 'iframe[*]'
