@@ -1,9 +1,18 @@
 .builder {
   &.page-editor {
-    display:none;
+    //display:none;
+    position:absolute;
+    top: 50px;
+    right: 0px;
+    max-width: 320px;
+    border-left: 2px solid $base-color;
+    border-bottom: 2px solid $base-color;
+    background-color: $c-background-c;
+    overflow: auto;
+    height: 100%;
   }
   .l-container {
-    max-width: 1230px;
+    max-width: 320px;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 20px;
@@ -20,8 +29,7 @@
   }
   .builder-title {
     display: block;
-    display: none;
-    margin: 0;
+    margin: 1em 0;
   }
   .thumbs {
     @extend %group;
@@ -218,9 +226,9 @@
   }
   .widget-drop-zone {
     @include box-sizing(border-box);
-    float: left;
-    margin-right: 3%;
-    width: 20%;
+    //float: left;
+    //margin-right: 3%;
+    //width: 20%;
     h2 {
       @include font-size(18px);
     }
