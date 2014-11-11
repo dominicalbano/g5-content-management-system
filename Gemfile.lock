@@ -426,7 +426,7 @@ DEPENDENCIES
   faker
   font-awesome-rails
   foreman
-  g5_authenticatable (~> 0.2)
+  g5_authenticatable
   g5_sibling_deployer_engine
   github_heroku_deployer
   guard-rspec

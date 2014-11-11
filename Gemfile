@@ -25,7 +25,7 @@ gem "aws-sdk"
 gem "httparty"
 gem "momentjs-rails"
 gem "ember-rails"
-gem 'g5_authenticatable', '~> 0.2'
+gem "g5_authenticatable"
 gem "pg"
 gem "font-awesome-rails"
 
