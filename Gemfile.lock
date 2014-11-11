@@ -116,7 +116,7 @@ GEM
       handlebars-source (> 1.0.0)
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.8.1)
+    ember-source (1.7.1)
       handlebars-source (~> 1.0)
     erubis (2.7.0)
     excon (0.41.0)
@@ -421,6 +421,7 @@ DEPENDENCIES
   dotenv-rails
   draper
   ember-rails
+  ember-source (~> 1.7.0)
   fabrication
   factory_girl_rails
   faker
