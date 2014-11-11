@@ -21,7 +21,9 @@ module StaticWebsite
       def compile
         compile_directory.compile
         clean_up
+        LOGGERS.each{|logger| logger.info("starting javascripts.compile")}
         javascripts.compile
+        LOGGERS.each{|logger| logger.info("finished javascripts.compile")}
         stylesheets.compile
         web_home_template.compile
         web_page_templates.compile

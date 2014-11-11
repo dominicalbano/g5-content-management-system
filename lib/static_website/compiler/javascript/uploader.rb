@@ -27,7 +27,9 @@ module StaticWebsite
           @uploaded_paths = []
           LOGGERS.each{|logger| logger.info("Writing js assets to S3")}
           from_paths.each do |from_path|
-            result = s3_bucket_object(from_path).write(Pathname.new(from_path), write_options)
+            #write with a metadata flag of status: current
+            path = Pathname.new(from_path)
+            result = s3_bucket_object(from_path).write(path, write_options)
             LOGGERS.each{|logger| logger.info(result.inspect)}
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
           end
@@ -46,7 +48,8 @@ module StaticWebsite
         end
 
         def write_options
-          { acl: :public_read, content_type: "text/javascript" }
+          {:acl => :public_read, :content_type => "text/javascript",
+           metadata: {"x-amz-meta-freshness" => "current"}}
         end
 
         def to_path(from_path)
