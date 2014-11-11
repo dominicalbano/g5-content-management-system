@@ -27,6 +27,7 @@
   padding: .5em 2em;
   text-align: center;
   text-decoration: none;
+  border-radius: 2px;
   &:hover,
   &:focus {
     background-color: darken($c-color-a, 10%);
@@ -63,7 +64,6 @@
 
 .btn--a {
   background-color: $c-background-b;
-  border-radius: 2px;
   &:hover,
   &:focus {
     background-color: darken($c-background-b, 10%);
@@ -99,10 +99,10 @@
   }
 }
 
-.btn.btn--delete, .btn.deploy-btn {
+.btn.btn--delete, .btn.deploy-btn, .btn.btn--deploy {
   background: #ff6666;
   &:hover, &:focus {
-    background: #ff4444;
+    background: #ff3333;
     cursor: pointer;
   }
 }
@@ -121,7 +121,7 @@
   background: #339933;
   cursor: pointer;
   &:hover, &:focus {
-    background: #009900;
+    background: #007700;
     cursor: pointer;
   }
 }

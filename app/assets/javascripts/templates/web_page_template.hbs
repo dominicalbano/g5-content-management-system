@@ -6,10 +6,10 @@
     <div class="page-title  builder-title">
       {{#if controllers.client.single_domain}}
         {{confirmation-link title="Deploy All" action="deploy_all" param=this 
-          message="You are about to deploy. Are you sure?" classes="btn l-pullRight"}}
+          message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
       {{else}}
         {{confirmation-link title="Deploy" action="deploy" param=this 
-          message="You are about to deploy. Are you sure?" classes="btn l-pullRight"}}
+          message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
       {{/if}}
     </div>
   </div>
