@@ -65,6 +65,7 @@ module StaticWebsite
       # commit changes
       repo.add('.')
       Rails.logger.info("git committing all")
+      repo.config('user.name', ENV['HEROKU_APP_NAME']) 
       repo.commit_all "Add compiled site"
     end
 
