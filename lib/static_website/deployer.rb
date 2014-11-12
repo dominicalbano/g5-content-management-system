@@ -62,10 +62,13 @@ module StaticWebsite
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
 
+      Rails.logger.info("git config name, email")
+      repo.config('user.name', ENV['HEROKU_APP_NAME']) 
+      repo.config('user.email', ENV['HEROKU_APP_NAME']) 
+
       # commit changes
       repo.add('.')
       Rails.logger.info("git committing all")
-      repo.config('user.name', ENV['HEROKU_APP_NAME']) 
       repo.commit_all "Add compiled site"
     end
 
