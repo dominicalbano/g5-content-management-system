@@ -1,17 +1,6 @@
 <div class="widget-list">
   <div class="l-container">
-    {{#view App.TogglePanelView contentBinding="this"}}
-      <span class="toggle-panel-text btn--toggle-hide">Hide Widgets</span>
-      <span class="toggle-panel-text hide btn--toggle-show">Show Widgets</span>
-    {{/view}}
-
     <div class="toggle-content page-section">
-      {{#view App.GardenWidgetsToggleView contentBinding="this"}}
-        <span class="toggle-widget-text">Grid View</span>
-        <span class="toggle-widget-text hide">List View</span>
-      {{/view}}
-      <div class="page-title"><h2>Select Widgets</h2></div>
-      <span class="instructions">Drag widgets onto drop areas below</span>
       {{#if model.isUpdating}}
         <div class="loading">Loading...</div>
       {{else}}

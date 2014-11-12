@@ -4,15 +4,19 @@
     position:absolute;
     top: 50px;
     right: 0px;
-    max-width: 320px;
+    width: 300px;
     border-left: 2px solid $base-color;
     border-bottom: 2px solid $base-color;
     background-color: $c-background-c;
     overflow: auto;
     height: 100%;
+    padding-top: 0;
+    &.hide-page-editor {
+      display: none;
+    }
   }
   .l-container {
-    max-width: 320px;
+    width: 300px;
     padding-top: 0;
     padding-bottom: 0;
     padding-left: 20px;
@@ -179,7 +183,11 @@
     li {
       display: inline-block;
       margin-bottom: 5px;
-      width: 234px;
+      width: 100%;
+      padding: 2px;
+      &:hover{
+        background-color: lighten($c-background-c, 10%);
+      }
     }
     img {
       display: inline-block;
@@ -332,9 +340,11 @@
 
 .preview {
   display: block;
-  width: 100%;
+  max-width: 100%;
   height: 100%;
+  left: 0;
   top: 50px;
+  right: 300px;
   overflow: hidden;
   position: absolute;
   iframe {
@@ -343,6 +353,9 @@
     border: none;
     margin: 0;
     padding: 0;
+  }
+  &.hide-page-builder {
+    padding-right: 0;
   }
 }
 

@@ -18,6 +18,8 @@ App.WebPageTemplateController = Ember.ObjectController.extend
       ""
   ).property('controllers.client.vertical')
 
+  showWidgetPanel: true
+
   actions:
     deploy: (model) ->
       url = "/websites/" + model.get("website.id") + "/deploy"
@@ -28,4 +30,6 @@ App.WebPageTemplateController = Ember.ObjectController.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+    toggleWidgetPanel: ->
+      this.set('showWidgetPanel', !this.get('showWidgetPanel'))
 

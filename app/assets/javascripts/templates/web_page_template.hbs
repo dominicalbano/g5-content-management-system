@@ -1,27 +1,31 @@
-<div class="preview">
-  {{view App.IframeView contentBinding="this"}}
-</div>
-<div {{bind-attr class=":builder :page-editor classNameForVertical"}}>
-  <div class="l-container">
-    <div class="page-title  builder-title">
-      {{#if controllers.client.single_domain}}
-        {{confirmation-link title="Deploy All" action="deploy_all" param=this 
-          message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
-      {{else}}
-        {{confirmation-link title="Deploy" action="deploy" param=this 
-          message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
-      {{/if}}
-    </div>
+<div class="web-page-template">
+  <div class="preview">
+    {{view App.IframeView contentBinding="this"}}
   </div>
-  
-  {{ render "gardenWidgets" }}
+  <div {{bind-attr class=":builder :page-editor classNameForVertical"}}>
+    <div class="l-container">
+      <div class="page-title  builder-title">
+        {{#if controllers.client.single_domain}}
+          {{confirmation-link title="Deploy All" action="deploy_all" param=this 
+            message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
+        {{else}}
+          {{confirmation-link title="Deploy" action="deploy" param=this 
+            message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
+        {{/if}}
+      </div>
+    </div>
+    
+    {{ render "gardenWidgets" }}
 
-  <div class="l-container page-section">
-    {{ render "headerWidgets" }}
-    {{ render "mainWidgets" }}
-    {{ render "asideBeforeMainWidgets" }}
-    {{ render "asideAfterMainWidgets" }}
-    {{ render "footerWidgets" }}
+    {{!--
+    <div class="l-container page-section">
+      {{ render "headerWidgets" }}
+      {{ render "mainWidgets" }}
+      {{ render "asideBeforeMainWidgets" }}
+      {{ render "asideAfterMainWidgets" }}
+      {{ render "footerWidgets" }}
+    </div>
+    --}}
   </div>
 </div>
 
