@@ -1,6 +1,6 @@
 class ColumnWidgetShowHtml < LayoutWidgetShowHtml
   def render
-    widget_html = Liquid::Template.parse("<div class='widget-wrapper column-widget-wrapper' id='widget-#{widget.id}'>#{widget.show_html}</div>").render("widget" => widget)
+    widget_html = Liquid::Template.parse(widget.show_widget_html).render("widget" => widget)
     @nokogiri = Nokogiri.parse(widget_html)
     render_widgets
     @nokogiri.to_html

@@ -69,9 +69,12 @@ class Widget < ActiveRecord::Base
     return RowWidgetShowHtml.new(self).render if kind_of_widget?("Content Stripe")
     return ColumnWidgetShowHtml.new(self).render if kind_of_widget?("Column")
 
-    widget_html = type_of_widget?('G5 Internal') ? show_html : "<div class='widget-wrapper' id='widget-#{id}'>#{show_html}</div>"
-    Liquid::Template.parse(widget_html).render(
+    Liquid::Template.parse(show_widget_html).render(
       "widget" => WidgetDrop.new(self, client.try(:locations)))
+  end
+
+  def show_widget_html
+    type_of_widget?('G5 Internal') ? show_html : "<div class='widget-wrapper' data-widget-id='#{id}' data-widget-type='#{garden_widget.name}' data-widget-type-slug='#{garden_widget.slug}'>#{show_html}</div>"
   end
 
   def render_edit_html

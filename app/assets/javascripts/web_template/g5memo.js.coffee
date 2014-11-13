@@ -1,7 +1,9 @@
-g5memo =
+class G5Memo
   memo: null
   enabled: true
-  init: ->
+  _elem: null
+
+  constructor: (g5memo_data) ->
     @memo = $("<div id=\"g5memo\"><span class=\"g5memo-arrow\"></span><span class=\"g5memo-text\"></span></div>")
     @memo.css
       display: "none"
@@ -11,7 +13,7 @@ g5memo =
       color: "#000000"
       width: "254px"
       height: "auto"
-      "z-index": "99999"
+      "z-index": "100000"
       padding: "10px"
       "text-align": "center"
       "font-size": "14px"
@@ -34,63 +36,61 @@ g5memo =
       for key of memo_data
         if memo_data.hasOwnProperty(key)
           $(key).each ->
+            $(this).attr "data-has-memo", true
             $(this).attr "data-memo", memo_data[key]
             return
 
-    $("*").each ((index, elem) ->
-      if $(elem).attr("data-memo")
-        $(elem).hover ((e) ->
-          if @enabled
-            @show $(e.currentTarget)
-            e.preventDefault()
-            e.stopPropagation()
-            false
-        ).bind(this), ((e) ->
-          @hide()
-          e.preventDefault()
-          e.stopPropagation()
-          false
-        ).bind(this)
-      return
+    $("*[data-has-memo='true']").each ((index, elem) ->
+      $(elem).hover ((e) ->
+        if this.enabled
+          this._elem = $(e.currentTarget)
+          this.show()
+          return this.noEvent(e)
+      ).bind(this), ((e) ->
+        this.hide()
+        return this.noEvent(e)
+      ).bind(this)
     ).bind(this)
-    return
 
-  show: (elem) ->
-    memo_text = elem.attr("data-memo")
-    return  unless memo_text.length
+    $(document).on "resize orientationchange", =>
+      @adjust() if @memo.is(":visible")
+
+    $(window).on "scroll", =>
+      @adjust() if @memo.is(":visible")
+
+  noEvent: (e) ->
+    e.preventDefault()
+    e.stopPropagation()
+    false
+
+  show: ->
+    memo_text = @_elem.attr("data-memo") if @_elem
+    return unless @_elem && memo_text.length
     @clearActive()
-    @setActive elem, memo_text
+    @setActive memo_text
     @adjust()
     @memo.show()
-    return
 
   hide: ->
     @clearActive()
     @memo.hide()
-    return
 
   setEnabled: (enabled) ->
     @enabled = enabled
-    @clearActive()  unless enabled
-    return
+    @clearActive() unless enabled
 
   clearActive: ->
     $(".active-memo").each ->
       $(this).css "box-shadow": $(this).attr("data-shadow")
       $(this).removeClass "active-memo"
-      return
 
-    return
-
-  setActive: (elem, memo_text) ->
-    elem.addClass "active-memo"
-    elem.attr "data-shadow", elem.css("box-shadow")
-    elem.css "box-shadow": "0 0 20px #ff0, inset 0 0 20px #ff0"
+  setActive: (memo_text) ->
+    @_elem.addClass "active-memo"
+    @_elem.attr "data-shadow", @_elem.css("box-shadow")
+    @_elem.css "box-shadow": "0 0 20px #ff0, inset 0 0 20px #ff0"
     @memo.find(".g5memo-text").html memo_text
-    return
 
   adjust: ->
-    elem = $(".active-memo")
     buffer = 6
     
     # get window dimensions
@@ -110,11 +110,11 @@ g5memo =
     memoBufWidth = memoWidth + buffer
     
     # get elem dimensions
-    elemWidth = elem.outerWidth()
-    elemHeight = elem.outerHeight()
-    elemTop = elem.offset().top
+    elemWidth = @_elem.outerWidth()
+    elemHeight = @_elem.outerHeight()
+    elemTop = @_elem.offset().top
     elemBottom = elemTop + elemHeight
-    elemLeft = elem.offset().left
+    elemLeft = @_elem.offset().left
     elemRight = elemLeft + elemWidth
     
     # get deltas
@@ -154,7 +154,6 @@ g5memo =
       arrowDir = "right"
       arrowDir = "border-left-color: #444;top:0;right:0;margin-right:-20px;"
     else
-
     
     # show over top of element
     arrowClass = "position:absolute;display:block;width:0;height:0;border-width:10px;border-color:transparent;border-style:solid;" + arrowDir
@@ -163,82 +162,74 @@ g5memo =
       top: topOffset
       left: leftOffset
 
-    return
 
+G5MemoHandler = null
 $(document).ready ->
-  g5memo.init()
-  return
-
-$(document).on "resize orientationchange", ->
-  g5memo.adjust()  if g5memo.memo.is(":visible")
-  return
-
-$(window).on "scroll", ->
-  g5memo.adjust()  if g5memo.memo.is(":visible")
-  return
+  G5MemoHandler = new G5Memo()
 
 g5memo_defaults =
   ###*
   G5 Standards - These should be used across all G5 Orion Themes // MIGRATE TO THEME GARDEN! ***
   ###
-  "header": "Header"
-  "footer": "Footer"
-  "#drop-target-nav": "Drop Target: Nav"
-  "#drop-target-logo": "Drop Target: Logo"
-  "#drop-target-btn": "Drop Target: Button"
-  "#drop-target-aside-before-main": "Drop Target: Aside Before Main"
-  "#drop-target-main": "Drop Target: Main"
-  "#drop-target-aside-after-main": "Drop Target: Aside After Main"
-  "#drop-target-footer": "Drop Target: Footer"
-  ".row": "Content Stripe Widget"
-  ".row .col-1": "Content Stripe: Column 1"
-  ".row .col-2": "Content Stripe: Column 2"
-  ".row .col-3": "Content Stripe: Column 3"
-  ".row .col-4": "Content Stripe: Column 4"
-  ".column": "Column Widget"
-  ".column .row-1":"Column: Row 1"
-  ".column .row-2":"Column: Row 2"
-  ".column .row-3":"Column: Row 3"
-  ".column .row-4":"Column: Row 4"
-  ".footer-info.widget": "Footer Info Widget"
-  ".footer-info.widget .social-links": "Footer Info Widget: Social Link"
-  ".g5-enhanced-form.widget": "G5 Enhanced Lead Form Widget"
-  ".action-calls.widget": "Call To Action Widget"
-  ".action-calls.widget li": "Call To Action Widget: CTA"
-  ".apply-form.widget": "Apply Form Widget"
-  ".brochure-form.widget": "Brochure Form Widget"
-  ".button.widget": "Button Widget"
-  ".comarketing.widget": "Comarketing Widget"
-  ".contact-info.widget": "Contact Info Widget"
-  ".contact-form.widget": "Contact Form Widget"
-  ".corporate-map.widget": "Corporate Map Widget"
-  ".contact-info-sheet.widget": "Contact Info Sheet Widget"
-  ".coupon.widget": "Coupon Widget"
-  ".directions.widget": "Directions Widget"
-  ".floorplans.widget": "Floorplans Widget"
-  ".gallery.widget": "Gallery Widget"
-  ".gallery-basic.widget": "Gallery Basic Widget"
-  ".hold-unit-form.widget": "Hold Unit Form Widget"
-  ".home-multifamily-iui.widget": "Home Multifamily IUI Widget"
-  ".html.widget": "HTML Widget"
-  ".locations-navigation.widget": "Locations Navigation Widget"
-  ".logo.widget": "Logo Widget"
-  ".map.widget": "Map Widget"
-  ".multifamily-iui-cards.widget": "Multifamily IUI Cards Widget"
-  ".multifamily-mini-search.widget": "Multifamily Mini Search Widget"
-  ".multifamily-search.widget": "Multifamily Search Widget"
-  ".navigation.widget": "Navigation Widget"
-  ".phone.widget": "Phone Widget"
-  ".photo.widget": "Photo Widget"
-  ".photo-group.widget": "Photo Group Widget"
-  ".quote.widget": "Quote Widget"
-  ".request-info-form.widget": "Request Info Form Widget"
-  ".review-form.widget": "Review Form Widget"
-  ".self-storage-iui-filtered.widget": "Self Storage IUI Filtered Widget"
-  ".service-request-form.widget": "Service Request Form Widget"
-  ".social-feed.widget": "Social Feed Widget"
-  ".social-links.widget": "Social Links Widget"
-  ".suggestion-form.widget": "Suggestion Form Widget"
-  ".tell-friend-form.widget": "Tell Friend Form Widget"
-  ".tour-form.widget": "Tour Form Widget"
-  ".video.widget": "Video Widget"
+  "nothing": 'none'
+#  "header": "Header"
+#  "footer": "Footer"
+#  "#drop-target-nav": "Drop Target: Nav"
+#  "#drop-target-logo": "Drop Target: Logo"
+#  "#drop-target-btn": "Drop Target: Button"
+#  "#drop-target-aside-before-main": "Drop Target: Aside Before Main"
+#  "#drop-target-main": "Drop Target: Main"
+#  "#drop-target-aside-after-main": "Drop Target: Aside After Main"
+#  "#drop-target-footer": "Drop Target: Footer"
+#  ".row": "Content Stripe Widget"
+#  ".row .col-1": "Content Stripe: Column 1"
+#  ".row .col-2": "Content Stripe: Column 2"
+#  ".row .col-3": "Content Stripe: Column 3"
+#  ".row .col-4": "Content Stripe: Column 4"
+#  ".column": "Column Widget"
+#  ".column .row-1":"Column: Row 1"
+#  ".column .row-2":"Column: Row 2"
+#  ".column .row-3":"Column: Row 3"
+#  ".column .row-4":"Column: Row 4"
+#  ".footer-info.widget": "Footer Info Widget"
+#  ".footer-info.widget .social-links": "Footer Info Widget: Social Link"
+#  ".g5-enhanced-form.widget": "G5 Enhanced Lead Form Widget"
+#  ".action-calls.widget": "Call To Action Widget"
+#  ".action-calls.widget li": "Call To Action Widget: CTA"
+#  ".apply-form.widget": "Apply Form Widget"
+#  ".brochure-form.widget": "Brochure Form Widget"
+#  ".button.widget": "Button Widget"
+#  ".comarketing.widget": "Comarketing Widget"
+#  ".contact-info.widget": "Contact Info Widget"
+#  ".contact-form.widget": "Contact Form Widget"
+#  ".corporate-map.widget": "Corporate Map Widget"
+#  ".contact-info-sheet.widget": "Contact Info Sheet Widget"
+#  ".coupon.widget": "Coupon Widget"
+#  ".directions.widget": "Directions Widget"
+#  ".floorplans.widget": "Floorplans Widget"
+#  ".gallery.widget": "Gallery Widget"
+#  ".gallery-basic.widget": "Gallery Basic Widget"
+#  ".hold-unit-form.widget": "Hold Unit Form Widget"
+#  ".home-multifamily-iui.widget": "Home Multifamily IUI Widget"
+#  ".html.widget": "HTML Widget"
+#  ".locations-navigation.widget": "Locations Navigation Widget"
+#  ".logo.widget": "Logo Widget"
+#  ".map.widget": "Map Widget"
+#  ".multifamily-iui-cards.widget": "Multifamily IUI Cards Widget"
+#  ".multifamily-mini-search.widget": "Multifamily Mini Search Widget"
+#  ".multifamily-search.widget": "Multifamily Search Widget"
+#  ".navigation.widget": "Navigation Widget"
+#  ".phone.widget": "Phone Widget"
+#  ".photo.widget": "Photo Widget"
+#  ".photo-group.widget": "Photo Group Widget"
+#  ".quote.widget": "Quote Widget"
+#  ".request-info-form.widget": "Request Info Form Widget"
+#  ".review-form.widget": "Review Form Widget"
+#  ".self-storage-iui-filtered.widget": "Self Storage IUI Filtered Widget"
+#  ".service-request-form.widget": "Service Request Form Widget"
+#  ".social-feed.widget": "Social Feed Widget"
+#  ".social-links.widget": "Social Links Widget"
+#  ".suggestion-form.widget": "Suggestion Form Widget"
+#  ".tell-friend-form.widget": "Tell Friend Form Widget"
+#  ".tour-form.widget": "Tour Form Widget"
+#  ".video.widget": "Video Widget"
