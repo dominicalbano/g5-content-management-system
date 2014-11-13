@@ -1,7 +1,7 @@
 class RowWidgetShowHtml < LayoutWidgetShowHtml
   def render
-    show_html = Liquid::Template.parse(widget.show_html).render("widget" => widget)
-    @nokogiri = Nokogiri.parse(show_html)
+    widget_html = Liquid::Template.parse("<div class='widget-wrapper row-widget-wrapper' id='widget-#{widget.id}'>#{widget.show_html}</div>").render("widget" => widget)
+    @nokogiri = Nokogiri.parse(widget_html)
     render_widget("column_one_widget_id", "#drop-target-first-col")
     if two_columns? or three_columns? or four_columns?
       render_widget("column_two_widget_id", "#drop-target-second-col")

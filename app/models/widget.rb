@@ -57,6 +57,10 @@ class Widget < ActiveRecord::Base
     [child_widgets, more_widgets].flatten.compact
   end
 
+  def type_of_widget?(type)
+    garden_widget.widget_type == type
+  end
+
   def kind_of_widget?(kind)
     name == kind
   end
@@ -65,7 +69,8 @@ class Widget < ActiveRecord::Base
     return RowWidgetShowHtml.new(self).render if kind_of_widget?("Content Stripe")
     return ColumnWidgetShowHtml.new(self).render if kind_of_widget?("Column")
 
-    Liquid::Template.parse(show_html).render(
+    widget_html = type_of_widget?('G5 Internal') ? show_html : "<div class='widget-wrapper' id='widget-#{id}'>#{show_html}</div>"
+    Liquid::Template.parse(widget_html).render(
       "widget" => WidgetDrop.new(self, client.try(:locations)))
   end
 
