@@ -9,7 +9,7 @@
   margin-bottom: 1.5em;
 }
 
-.nav-toggle {
+.navbar {
   position: relative;
   float:right;
   a {
@@ -18,8 +18,35 @@
     padding: 10px;
     color: $c-color-b;
   }
-  &.show-nav {
-    background: darken($g5-grey, 15%);
+  .nav-toggle, .nav-widgets {
+    float: right;
+    display: block;
+    position: relative;
+    background-color: transparent;
+    > a {
+      text-indent: -9999em;
+      width: 50px;
+      height: 50px;
+      padding: 0;
+      display: block;
+      position: relative;
+    }
+    &.show-nav {
+      background-color: darken($g5-grey, 15%);
+    }
+    &:hover {
+      background-color: $g5-grey;
+    }
+  }
+  .nav-toggle {
+    background-image: url('icon-menu.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .nav-widgets {
+    background-image: url('icon-widgets.png');
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
