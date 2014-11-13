@@ -35,16 +35,22 @@ class G5WidgetButtons
     @editButton.css
       margin: '5px'
       color: '#ffffff'
-      background: '#339933';
-      cursor: 'pointer';
+      background: '#339933'
+      cursor: 'pointer'
+    @editButton.on 'click', (e) =>
+      @editWidget()
+      @noEvent(e)
 
     @removeButton = $("<button id=\"g5widgetbuttons-remove\" class=\"g5widgetbutton-btn\">Remove</button>")
     @removeButton.css
       margin: '5px'
       color: '#ffffff'
-      background: '#ff6666';
-      cursor: 'pointer';
-    
+      background: '#ff6666'
+      cursor: 'pointer'
+    @removeButton.on 'click', (e) =>
+      @removeWidget()
+      @noEvent(e)
+
     @buttons.append(@widgetTitle).append(@editButton).append(@removeButton)
 
     @buttons.hover ((e) ->
@@ -147,6 +153,64 @@ class G5WidgetButtons
     @buttons.css
       top: topOffset
       left: leftOffset
+
+  editWidget: ->
+    return unless @_widget
+    @getEditForm()
+
+  removeWidget: ->
+    return unless @_widget
+
+  getEditForm: ->
+    callback = (response) => @openModal response
+    $.get @editURL(), {}, callback, "json"
+
+  openModal: (response) ->
+    doc = parent.document
+    $('#modal .modal-body', doc).html(response["html"])
+    if($('#ckeditor', doc).length >= 1)
+      doc.CKEDITOR.replace('ckeditor')
+    parent.window.$('#modal').modal();
+    $('.modal-body .edit_widget', doc).submit =>
+      if($('#ckeditor', doc).length >= 1)
+        $('#ckeditor', doc).val(doc.CKEDITOR.instances.ckeditor.getData())
+      @saveEditForm()
+      false
+    false
+
+  editURL: ->
+    '/widgets/' + @_widget.attr("data-widget-id") + "/edit"
+
+  #  Submits the widget configuration to the widget controller
+  saveEditForm: ->
+    doc = parent.document
+    parent.window.$.ajax {
+      url: $('.modal-body .edit_widget', doc).prop('action'),
+      type: 'PUT',
+      dataType: 'json',
+      data: $('.modal-body .edit_widget', doc).serialize(),
+      # Hide the configuration form if the request is successful
+      success: =>
+        $('#modal', doc).modal('hide')
+        url = $('.preview iframe', doc).prop('src')
+        $('iframe', doc).prop('src', url)
+      error: (xhr) =>
+        # This is/was needed because of a bug in jQuery, it's actually successful
+        if xhr.status == 204
+          $('#modal', doc).modal('hide')
+        # Add validation errors
+        else if xhr.responseText.length
+          this.insertErrorMessages($.parseJSON(xhr.responseText))
+        # Add server errors
+        else
+          this.insertErrorMessages({errors: {base: ["There was a problem saving the widget"]}})
+    }
+
+  insertErrorMessages: (errors) ->
+    error = "<div class=\"alert alert-error\">" +
+      errors["errors"]["base"][0] +
+      "</div>"
+    $('#modal .modal-body', parent.document).prepend error
 
 
 G5WidgetsHandler = null
