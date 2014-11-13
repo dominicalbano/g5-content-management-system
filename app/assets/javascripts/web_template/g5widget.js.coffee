@@ -7,8 +7,13 @@ class G5WidgetButtons
   preventHide: false
   hideTimeout: null
   _widget: null
+  parentDoc: null
+  parentWin: null
 
   constructor: ->
+    @parentDoc = parent.document
+    @parentWin = parent.window
+
     @buttons = $("<div id=\"g5widgetbuttons\"></div>")
     @buttons.css
       display: "none"
@@ -166,14 +171,13 @@ class G5WidgetButtons
     $.get @editURL(), {}, callback, "json"
 
   openModal: (response) ->
-    doc = parent.document
-    $('#modal .modal-body', doc).html(response["html"])
-    if($('#ckeditor', doc).length >= 1)
-      doc.CKEDITOR.replace('ckeditor')
-    parent.window.$('#modal').modal();
-    $('.modal-body .edit_widget', doc).submit =>
-      if($('#ckeditor', doc).length >= 1)
-        $('#ckeditor', doc).val(doc.CKEDITOR.instances.ckeditor.getData())
+    $('#modal .modal-body', @parentDoc).html(response["html"])
+    if($('#ckeditor', @parentDoc).length >= 1)
+      @parentWin.CKEDITOR.replace('ckeditor')
+    @parentWin.$('#modal').modal();
+    $('.modal-body .edit_widget', @parentDoc).submit =>
+      if($('#ckeditor', @parentDoc).length >= 1)
+        $('#ckeditor', @parentDoc).val(@parentWin.CKEDITOR.instances.ckeditor.getData())
       @saveEditForm()
       false
     false
@@ -183,34 +187,33 @@ class G5WidgetButtons
 
   #  Submits the widget configuration to the widget controller
   saveEditForm: ->
-    doc = parent.document
-    parent.window.$.ajax {
-      url: $('.modal-body .edit_widget', doc).prop('action'),
+    @parentWin.$.ajax {
+      url: $('.modal-body .edit_widget', @parentDoc).prop('action'),
       type: 'PUT',
       dataType: 'json',
-      data: $('.modal-body .edit_widget', doc).serialize(),
+      data: $('.modal-body .edit_widget', @parentDoc).serialize(),
       # Hide the configuration form if the request is successful
       success: =>
-        $('#modal', doc).modal('hide')
-        url = $('.preview iframe', doc).prop('src')
-        $('iframe', doc).prop('src', url)
+        @parentWin.$('#modal').modal('hide')
+        url = $('.preview iframe', @parentDoc).prop('src')
+        $('iframe', @parentDoc).prop('src', url)
       error: (xhr) =>
         # This is/was needed because of a bug in jQuery, it's actually successful
         if xhr.status == 204
-          $('#modal', doc).modal('hide')
+          @parentWin.$('#modal').modal('hide')
         # Add validation errors
         else if xhr.responseText.length
-          this.insertErrorMessages($.parseJSON(xhr.responseText))
+          @insertErrorMessages($.parseJSON(xhr.responseText))
         # Add server errors
         else
-          this.insertErrorMessages({errors: {base: ["There was a problem saving the widget"]}})
+          @insertErrorMessages({errors: {base: ["There was a problem saving the widget"]}})
     }
 
   insertErrorMessages: (errors) ->
     error = "<div class=\"alert alert-error\">" +
       errors["errors"]["base"][0] +
       "</div>"
-    $('#modal .modal-body', parent.document).prepend error
+    $('#modal .modal-body', @parentDoc).prepend error
 
 
 G5WidgetsHandler = null
