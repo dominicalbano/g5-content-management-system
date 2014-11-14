@@ -1,12 +1,12 @@
 <div class="card-head">
   <div class="buttons buttons-front">
     {{#if isWebHomeTemplate}}
-      {{#link-to "webHomeTemplate" class="btn btn--small btn--edit"}}Edit{{/link-to}}
+      {{#link-to "webHomeTemplate" class="btn btn--small btn--edit fi-pencil"}}Edit{{/link-to}}
     {{else}}
-      {{#link-to "webPageTemplate" this class="btn btn--small btn--edit"}}Edit{{/link-to}}
+      {{#link-to "webPageTemplate" this class="btn btn--small btn--edit fi-pencil"}}Edit{{/link-to}}
     {{/if}}
-    <a {{bind-attr href="previewUrl"}} class="btn btn--small btn--preview" target="_blank">Preview</a>
-    <a class="btn btn--small btn--delete" target="_blank">Delete</a>
+    <a {{bind-attr href="previewUrl"}} class="btn btn--small btn--preview fi-magnifying-glass" target="_blank">Preview</a>
+    <a class="btn btn--small btn--delete fi-alert" target="_blank">Delete</a>
   </div>
   <h3>{{ name }}</h3>
 </div>

@@ -5,6 +5,10 @@
 //
 // *************************************
 
+.card-options-list {
+  float: right !important;
+}
+
 .cards {
   margin-left: -1%;
   margin-right: -1%;
@@ -20,6 +24,9 @@
   position: relative;
   float: left;
   height: 180px;
+  .cards-small & {
+    height: 50px;
+  }
   margin-bottom: $base-whitespace;
   padding-left: 1%;
   padding-right: 1%;
@@ -110,6 +117,9 @@
   height: 180px;
   padding-bottom: 50px;
   width: 100%;
+  .cards-small & {
+    height: 50px;
+  }
 }
 
 .card-head {
@@ -128,6 +138,9 @@
   .switch {
     @extend %l-pullRight;
   }
+  &:hover {
+    background-color: lighten($base-color, 10%);
+  }
 }
 
 .card-body {
@@ -136,5 +149,8 @@
     width: 48%;
     float: left;
     margin-right: 1%;
+  }
+  .cards-small & {
+    display: none;
   }
 }

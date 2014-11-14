@@ -1,6 +1,6 @@
 App.ChangeThemeButtonView = Ember.View.extend
   tagName: "button"
-  classNames: ["btn","btn--theme"]
+  classNames: ["btn","btn--theme","fi-layout"]
   _wrapper: null
   didInsertElement: ->
     @_wrapper = $('#garden-web-themes-wrapper')

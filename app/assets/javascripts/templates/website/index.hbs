@@ -1,17 +1,17 @@
 <div class="page-title page-toolbar">
   <div class="l-container">
     <span class="buttons l-pullLeft">
-      {{#link-to "assets" this class="btn" }}Asset Manager{{/link-to}}
-      {{#link-to "redirectManager" this class="btn" }}Redirects Manager{{/link-to}}
-      {{#link-to "releases" this class="btn" }}Recent Deploys{{/link-to}}
-      {{#link-to "docs" this class="btn" }}Docs{{/link-to}}
+      {{#link-to "assets" this class="btn fi-photo" }}Asset Manager{{/link-to}}
+      {{#link-to "redirectManager" this class="btn fi-shuffle" }}Redirects Manager{{/link-to}}
+      {{#link-to "releases" this class="btn fi-archive" }}Recent Deploys{{/link-to}}
+      {{#link-to "docs" this class="btn fi-folder fi-folder" }}Docs{{/link-to}}
     </span>
     {{#if controllers.client.single_domain}}
       {{confirmation-link title="Deploy All" action="deploy_all" param=this 
-        message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
+        message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight fi-flag"}}
     {{else}}
       {{confirmation-link title="Deploy" action="deploy" param=this 
-        message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight"}}
+        message="You are about to deploy. Are you sure?" classes="btn btn--deploy l-pullRight fi-flag"}}
     {{/if}}
   </div>
 </div>
@@ -25,10 +25,14 @@
   <div class="site-pages page-section">
     <div class="page-title">
       {{#view App.NewPage}}
-        {{#link-to "webPageTemplates.new" class="btn new-page-btn" }}Create New Page{{/link-to}}
+        {{#link-to "webPageTemplates.new" class="btn new-page-btn fi-plus" }}Create New Page{{/link-to}}
       {{/view}}
       {{#view App.WebsiteWebPageTemplatesViewTrashView}}
-        <a href="#" class="btn trash-btn"}>View Trash</a>
+        <a href="#" class="btn trash-btn fi-trash"}>View Trash</a>
+      {{/view}}
+      {{#view App.CardOptionsView}}
+        <a href="#" class="card-options" data-card-option="small">Small</a>
+        <a href="#" class="card-options" data-card-option="normal">Normal</a>
       {{/view}}
     </div>
     <div class="cards">

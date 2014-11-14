@@ -14,7 +14,7 @@ class LinkDisabler
       @disableLink()
 
   disableLink: ->
-    @_elem.unbind("click").bind "click", (e) ->
+    @_elem.unbind("click").bind "click", (e) =>
       @noEvent(e)
 
   getNewHref: ->

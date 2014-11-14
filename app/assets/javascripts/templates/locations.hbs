@@ -9,7 +9,7 @@
 
       {{#if controllers.client.single_domain}}
          {{confirmation-link title="Deploy All" action="deploy_all" param=this 
-          message="You are about to deploy. Are you sure?" classes="btn btn--deploy"}}
+          message="You are about to deploy. Are you sure?" classes="btn btn--deploy fi-flag"}}
       {{/if}}
     </div>
   </div>
@@ -41,10 +41,10 @@
             </div>
           </div>
           <div {{bind-attr class=":faux-table-cell single_domain"}}>
-            {{#link-to "website" websiteSlug class="btn btn--edit" }}Edit{{/link-to}}
-            <a {{bind-attr href="this.websiteHerokuUrl"}} target="_blank" class="btn btn--view">View</a>
+            {{#link-to "website" websiteSlug class="btn btn--edit fi-pencil" }}Edit{{/link-to}}
+            <a {{bind-attr href="this.websiteHerokuUrl"}} target="_blank" class="btn btn--view fi-magnifying-glass">View</a>
             {{confirmation-link title="Deploy" action="deploy" param=this 
-              message="You are about to deploy. Are you sure?" classes="btn deploy btn--deploy"}}
+              message="You are about to deploy. Are you sure?" classes="btn deploy btn--deploy fi-flag"}}
           </div>
         </li>
         {{/each}}

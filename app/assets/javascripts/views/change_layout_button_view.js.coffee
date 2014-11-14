@@ -1,6 +1,6 @@
 App.ChangeLayoutButtonView = Ember.View.extend
   tagName: "button"
-  classNames: ["btn","btn--layout"]
+  classNames: ["btn","btn--layout","fi-results"]
   _wrapper: null
   didInsertElement: ->
     @_wrapper = $('#garden-web-layouts-wrapper')
