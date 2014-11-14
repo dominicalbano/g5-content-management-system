@@ -17,8 +17,9 @@ module StaticWebsite
         compile_directory.compile
         LOGGERS.each{|logger| logger.info("done calling compile_directory.compile")}
         LOGGERS.each{|logger| logger.info("about to write_to_file")}
-        write_to_file
+        result = write_to_file
         LOGGERS.each{|logger| logger.info("done write_to_file")}
+        result
       end
 
       def compile_directory

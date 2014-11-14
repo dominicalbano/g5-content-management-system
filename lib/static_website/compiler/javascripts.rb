@@ -10,7 +10,7 @@ module StaticWebsite
         :js_paths, :include_paths
 
       def initialize(javascript_paths, compile_path, location_name="", preview=false)
-        LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascripts with javascript_paths: #{javascript_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path},\n\tlocation_name: #{location_name},\n\tpreview: #{preview}\n")}
+        LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascripts with javascript_paths: #{javascript_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path},\n\tlocation_name: #{location_name},\n\tpreview: #{preview}\n")} if javascript_paths
         @javascript_paths = javascript_paths.try(:compact).try(:uniq)
         @compile_path = compile_path
         @location_name = location_name
