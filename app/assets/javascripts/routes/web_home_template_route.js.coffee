@@ -1,4 +1,4 @@
-App.WebHomeTemplateRoute = Ember.Route.extend
+App.WebHomeTemplateRoute = Ember.Route.extend App.ResetScroll,
   model: ->
     this.modelFor("website").get("webHomeTemplate")
 

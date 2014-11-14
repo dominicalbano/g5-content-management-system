@@ -1,4 +1,4 @@
-App.WebsiteRoute = Ember.Route.extend
+App.WebsiteRoute = Ember.Route.extend App.ResetScroll,
   model: (params) ->
     @store.find("website", params.website_slug)
 

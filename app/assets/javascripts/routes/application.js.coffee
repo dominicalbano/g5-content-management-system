@@ -4,3 +4,7 @@ App.ApplicationRoute = Ember.Route.extend App.ResetScroll,
     @controllerFor("client").set("model", this.store.find("Client", 1))
   activate: ->
     this._super.apply this, arguments
+
+  hideMenuOnChange: (->
+    @controllerFor("application").set('navMenuShowing', false)
+  ).on('didTransition')

@@ -1,4 +1,4 @@
-App.WebPageTemplateRoute = Ember.Route.extend
+App.WebPageTemplateRoute = Ember.Route.extend App.ResetScroll,
   model: (params) ->
     @store.find("webPageTemplate").then (result) ->
       result.findBy("slug", params.web_page_template_slug)
