@@ -4,6 +4,7 @@ class G5WidgetButtons
   widgetTitle: null
   editButton: null
   removeButton: null
+  changeButton: null
   preventHide: false
   hideTimeout: null
   _widget: null
@@ -56,7 +57,17 @@ class G5WidgetButtons
       @removeWidget()
       @noEvent(e)
 
-    @buttons.append(@widgetTitle).append(@editButton).append(@removeButton)
+    @changeButton = $("<button id=\"g5widgetbuttons-change\" class=\"g5widgetbutton-btn\">Change</button>")
+    @changeButton.css
+      margin: '5px'
+      color: '#ffffff'
+      background: '#ff6666'
+      cursor: 'pointer'
+    @changeButton.on 'click', (e) =>
+      @changeWidget()
+      @noEvent(e)
+
+    @buttons.append(@widgetTitle).append(@editButton).append(@removeButton).append(@changeButton)
 
     @buttons.hover ((e) ->
       this.preventHide = true
@@ -121,7 +132,14 @@ class G5WidgetButtons
     w = @_widget.find('> .widget')
     @_widget.addClass "active-widget"
     w.attr("data-shadow", w.css("box-shadow")).css("box-shadow", "0 0 20px #ff0, inset 0 0 20px #ff0")
-    @widgetTitle.text @_widget.attr('data-widget-type')
+    @widgetTitle.text "#{@_widget.attr('data-widget-type')} Widget"
+    if @_widget.parents('.widget-wrapper').length
+      @removeButton.hide()
+      @changeButton.show()
+    else
+      @removeButton.show()
+      @changeButton.hide()
+    @removeButton.hide() unless @_widget.parents('#drop-target-main').length
 
   adjust: ->
     return unless @_widget
@@ -162,9 +180,6 @@ class G5WidgetButtons
   editWidget: ->
     return unless @_widget
     @getEditForm()
-
-  removeWidget: ->
-    return unless @_widget
 
   getEditForm: ->
     callback = (response) => @openModal response
@@ -208,6 +223,14 @@ class G5WidgetButtons
         else
           @insertErrorMessages({errors: {base: ["There was a problem saving the widget"]}})
     }
+
+  removeWidget: ->
+    return unless @_widget
+    #TODO: implement remove widget
+
+  changeWidget: ->
+    return unless @_widget
+    #TODO: implement change widget
 
   insertErrorMessages: (errors) ->
     error = "<div class=\"alert alert-error\">" +

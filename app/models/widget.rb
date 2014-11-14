@@ -74,7 +74,11 @@ class Widget < ActiveRecord::Base
   end
 
   def show_widget_html
-    type_of_widget?('G5 Internal') ? show_html : "<div class='widget-wrapper' data-widget-id='#{id}' data-widget-type='#{garden_widget.name}' data-widget-type-slug='#{garden_widget.slug}'>#{show_html}</div>"
+    if type_of_widget?('G5 Internal')
+      show_html 
+    else
+      "<div class='widget-wrapper' data-widget-id='#{id}' data-widget-type='#{garden_widget.name}' data-widget-type-slug='#{garden_widget.slug}'>#{show_html}</div>"
+    end
   end
 
   def render_edit_html
