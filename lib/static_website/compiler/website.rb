@@ -19,12 +19,15 @@ module StaticWebsite
       end
 
       def compile
+        LOGGERS.each{|logger| logger.info("\n\n########################################### Website ######\n")}
         compile_directory.compile
         clean_up
         LOGGERS.each{|logger| logger.info("Starting javascripts.compile for website")}
         javascripts.compile
         LOGGERS.each{|logger| logger.info("finished javascripts.compile")}
+        LOGGERS.each{|logger| logger.info("Starting stylesheets.compile for website")}
         stylesheets.compile
+        LOGGERS.each{|logger| logger.info("finished stylesheets.compile")}
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
