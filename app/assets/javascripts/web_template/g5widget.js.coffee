@@ -163,16 +163,14 @@ class G5WidgetButtons
     elemBottom = elemTop + elemHeight
     elemLeft = w.offset().left
     elemRight = elemLeft + elemWidth
-    
-    # get deltas
-    deltaTop = elemTop - winScrollTop
-    deltaBottom = docHeight - winScrollTop - elemBottom
-    deltaLeft = elemLeft - winScrollLeft
-    deltaRight = docWidth - winScrollLeft - elemRight
+
+    # get button container dimensions
+    buttonsWidth = @buttons.outerWidth()
+    buttonsHeight = @buttons.outerHeight()
     
     # detect and resolve collisions
-    topOffset = elemTop + buffer
-    leftOffset = elemLeft + buffer
+    topOffset = elemTop + 0.5*elemHeight - 0.5*buttonsHeight
+    leftOffset = elemLeft + 0.5*elemWidth - 0.5*buttonsWidth
     @buttons.css
       top: topOffset
       left: leftOffset
