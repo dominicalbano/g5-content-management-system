@@ -1,14 +1,14 @@
-<div>
+<div id="site-settings-wrapper">
   <div class="l-cell">
     <h3 class="template-heading">LAYOUT: {{webLayout.name}}</h3>
     <img alt="Thumbnail" class="thumb" {{ bind-attr src="webLayout.thumbnail" }} />
-    <button class="btn btn--layout">Change Layout</button>
+    {{#view App.ChangeLayoutButtonView}}Change Layout{{/view}}
   </div>
 
   <div class="l-cell">
     <h3 class="template-heading">THEME: {{webTheme.name}}</h3>
     <img alt="Thumbnail" class="thumb" {{ bind-attr src="webTheme.thumbnail" }} />
-    <button class="btn btn--theme">Change Theme</button>
+    {{#view App.ChangeThemeButtonView}}Change Theme{{/view}}
   </div>
 
   <div class="l-cell l-double-cell site-settings-widgets">
@@ -33,4 +33,11 @@
       </ul>
     </div>
   </div>
+</div>
+
+<div id="garden-web-layouts-wrapper" class="garden-web-wrapper">
+  {{ render "gardenWebLayouts" }}
+</div>
+<div id="garden-web-themes-wrapper" class="garden-web-wrapper">
+  {{ render "gardenWebThemes" }}
 </div>

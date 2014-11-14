@@ -1,11 +1,6 @@
 <div class="layout-picker thumbnail-field">
   <div class="l-container">
 
-    {{#view App.TogglePanelView contentBinding="this"}}
-      <span class="toggle-panel-text btn--toggle-hide">Hide Layouts</span>
-      <span class="toggle-panel-text hide btn--toggle-show">Show Layouts</span>
-    {{/view}}
-
     <div id="layouts" class="toggle-content page-section">
       <div class="page-title"><h2>Select a Layout</h2></div>
       {{#if model.isUpdating}}
