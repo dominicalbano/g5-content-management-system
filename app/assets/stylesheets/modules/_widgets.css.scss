@@ -51,6 +51,34 @@
   }
 }
 
+.site-settings-widgets {
+  @include clearfix;
+  .l-cell {
+    width: 31.33%;
+    margin-left: 3%;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  .widgets {
+    margin: 0;
+    li {
+      width: 50%;
+      clear: left;
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+      @media (max-width: 960px){
+        width: 30%;
+      }
+      @media (max-width: 480px){
+        width: 40%;
+      }
+    }
+  }
+}
+
 // ----- Modifiers ----- //
 /*
 .widgets--small {

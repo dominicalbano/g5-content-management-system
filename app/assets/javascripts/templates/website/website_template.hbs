@@ -1,34 +1,36 @@
 <div>
   <div class="l-cell">
+    <h3 class="template-heading">LAYOUT: {{webLayout.name}}</h3>
     <img alt="Thumbnail" class="thumb" {{ bind-attr src="webLayout.thumbnail" }} />
+    <button class="btn btn--layout">Change Layout</button>
   </div>
 
   <div class="l-cell">
+    <h3 class="template-heading">THEME: {{webTheme.name}}</h3>
     <img alt="Thumbnail" class="thumb" {{ bind-attr src="webTheme.thumbnail" }} />
+    <button class="btn btn--theme">Change Theme</button>
   </div>
 
-  <div class="l-cell l-double-cell">
-    <h3 class="template-heading">Widgets</h3>
-    <ul class="widgets widgets--small">
-      <!-- refactor this -->
-      {{#each logoWidgets}}
-        {{ partial "website/widget" }}
-      {{/each}}
-      {{#each btnWidgets}}
-        {{ partial "website/widget" }}
-      {{/each}}
-      {{#each navWidgets}}
-        {{ partial "website/widget" }}
-      {{/each}}
-      {{#each asideBeforeMainWidgets}}
-        {{ partial "website/widget" }}
-      {{/each}}
-      {{#each asideAfterMainWidgets}}
-        {{ partial "website/widget" }}
-      {{/each}}
-      {{#each footerWidgets}}
-        {{ partial "website/widget" }}
-      {{/each}}
-    </ul>
+  <div class="l-cell l-double-cell site-settings-widgets">
+    <div class="l-cell">
+      <h3 class="template-heading">HEAD</h3>
+      <ul class="widgets widgets--small">
+        {{view App.WidgetsListView contentBinding="headWidgets"}}
+      </ul>
+    </div>
+    <div class="l-cell">
+      <h3 class="template-heading">HEADER</h3>
+      <ul class="widgets widgets--small">
+        {{view App.WidgetsListView contentBinding="logoWidgets"}}
+        {{view App.WidgetsListView contentBinding="btnWidgets"}}
+        {{view App.WidgetsListView contentBinding="navWidgets"}}
+      </ul>
+    </div>
+    <div class="l-cell">
+      <h3 class="template-heading">FOOTER</h3>
+      <ul class="widgets widgets--small">
+        {{view App.WidgetsListView contentBinding="footerWidgets"}}
+      </ul>
+    </div>
   </div>
 </div>
