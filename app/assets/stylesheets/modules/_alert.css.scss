@@ -16,6 +16,10 @@
   p {
     margin: 0;
   }
+  .column-edit & {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
 }
 
 .alert-info, .alert-notice {

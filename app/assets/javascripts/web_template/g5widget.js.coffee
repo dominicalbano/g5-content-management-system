@@ -181,9 +181,9 @@ class G5WidgetButtons
     return unless @_widget
     @getEditForm()
 
-  getEditForm: ->
+  getEditForm: (widget_id) ->
     callback = (response) => @openModal response
-    $.get @editURL(), {}, callback, "json"
+    $.get @editURL(widget_id), {}, callback, "json"
 
   openModal: (response) ->
     $('#modal .modal-body', @parentDoc).html(response["html"])
@@ -197,8 +197,9 @@ class G5WidgetButtons
       false
     false
 
-  editURL: ->
-    '/widgets/' + @_widget.attr("data-widget-id") + "/edit"
+  editURL: (widget_id) ->
+    widget_id ||= @_widget.attr("data-widget-id")
+    "/widgets/#{widget_id}/edit"
 
   #  Submits the widget configuration to the widget controller
   saveEditForm: ->
@@ -230,7 +231,9 @@ class G5WidgetButtons
 
   changeWidget: ->
     return unless @_widget
-    #TODO: implement change widget
+    parentWidget = @_widget.parents('.widget-wrapper')
+    if parentWidget.length
+      @getEditForm parentWidget.attr('data-widget-id')
 
   insertErrorMessages: (errors) ->
     error = "<div class=\"alert alert-error\">" +
