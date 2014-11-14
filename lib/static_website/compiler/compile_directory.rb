@@ -4,8 +4,7 @@ module StaticWebsite
       attr_reader :path
 
       def initialize(path, directory=true)
-        LOGGERS.each{|logger| logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")}
-        LOGGERS.each{|logger| logger.info("Initializing StaticWebsite::Compiler::CompileDirectory with path: #{path}, directory: #{directory}")}
+        LOGGERS.each{|logger| logger.info("Initializing StaticWebsite::Compiler::CompileDirectory with path:\n #{path}, directory: #{directory}")}
         @path = directory ? path : directory_path(path)
       end
 
