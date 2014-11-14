@@ -27,7 +27,9 @@
       {{#view App.NewPage}}
         {{#link-to "webPageTemplates.new" class="btn new-page-btn" }}Create New Page{{/link-to}}
       {{/view}}
-      <a href="#trash-can" class="btn trash-btn">View Trash</a>
+      {{#view App.WebsiteWebPageTemplatesViewTrashView}}
+        <a href="#" class="btn trash-btn"}>View Trash</a>
+      {{/view}}
     </div>
     <div class="cards">
       {{ render "website/webHomeTemplate" webHomeTemplate }}

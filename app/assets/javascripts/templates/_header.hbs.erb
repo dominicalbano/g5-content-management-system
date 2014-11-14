@@ -1,35 +1,37 @@
-<header role="banner" class="banner">
-  <div class="l-container">
-    <div class="banner-options">
-      {{ partial "navbar" }}
-    </div>
+{{#view App.HeaderView}}
+  <header role="banner" class="banner">
+    <div class="l-container">
+      <div class="banner-options">
+        {{ partial "navbar" }}
+      </div>
 
-    <h1 class="banner-title">
-      <a {{bind-attr href="controllers.client.dsh_url"}}>
-        <img class="banner-logo" src="<%= asset_path("logo.png") %>" alt="G5" /><span class='banner-logo-text'>DXM</span>
-      </a>
+      <h1 class="banner-title">
+        <a {{bind-attr href="controllers.client.dsh_url"}}>
+          <img class="banner-logo" src="<%= asset_path("logo.png") %>" alt="G5" /><span class='banner-logo-text'>DXM</span>
+        </a>
 
-      <a href="/">
-        <span class="client-name">
-          CMS: <strong class="banner-subtitle">{{controllers.client.name}}</strong>
-        </span>
-      </a>
+        <a href="/">
+          <span class="client-name">
+            CMS: <strong class="banner-subtitle">{{controllers.client.name}}</strong>
+          </span>
+        </a>
 
-      {{#if controllers.website}}
-        <span class="location-name">&raquo;
-        {{#link-to "website" controllers.website}}
-          <strong class="banner-subtitle">{{controllers.website.name}}</strong>
-        {{/link-to}}
-        </span>
-      {{/if}}
+        {{#if controllers.website}}
+          <span class="location-name">&raquo;
+          {{#link-to "website" controllers.website}}
+            <strong class="banner-subtitle">{{controllers.website.name}}</strong>
+          {{/link-to}}
+          </span>
+        {{/if}}
 
-      {{#if controllers.webPageTemplate}}
-        <span class="page-name">&raquo;
-          <a><strong class="banner-subtitle">{{controllers.webPageTemplate.name}}</strong></a>
-        </span>
-      {{/if}}
-    </h1>
+        {{#if controllers.webPageTemplate}}
+          <span class="page-name">&raquo;
+            <a><strong class="banner-subtitle">{{controllers.webPageTemplate.name}}</strong></a>
+          </span>
+        {{/if}}
+      </h1>
 
-  </div> <!-- end .l-container -->
-</header>
+    </div> <!-- end .l-container -->
+  </header>
+{{/view}}
 

@@ -47,4 +47,3 @@ $ ->
   window.setTimeout (->
     $(".alert").remove()
   ), 3500
-
