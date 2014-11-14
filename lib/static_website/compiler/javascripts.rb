@@ -60,3 +60,4 @@ module StaticWebsite
     end
   end
 end
+
