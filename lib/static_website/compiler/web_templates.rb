@@ -11,10 +11,10 @@ module StaticWebsite
 
       def compile
         web_template_models.each do |web_template_model|
-          LOGGERS.each{|logger| logger.info("\n\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n\n")}
-          LOGGERS.each{|logger| logger.info("Starting compile on javascripts_compiler for web_template: #{web_template_model.name.to_s}")}
+          LOGGERS.each{|logger| logger.info("\n\n###########################################\n")}
+          LOGGERS.each{|logger| logger.info("Starting compile_web_template for web_template: #{web_template_model.name.to_s}")}
           compile_web_template(web_template_model)
-          LOGGERS.each{|logger| logger.info("\n\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n\n")}
+          LOGGERS.each{|logger| logger.info("\n\n############################################n\n")}
         end if web_template_models
       end
 
