@@ -9,7 +9,7 @@ module StaticWebsite
         :preview, :css_paths, :link_paths
 
       def initialize(stylesheet_paths, compile_path, colors={}, location_name="", preview=false)
-        LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Stylesheets with stylesheet_paths:\n #{stylesheet_paths.join("\n").prepend("\n")},\n\ncompile_path: #{compile_path},\ncolors: #{colors},\nlocation_name: #{location_name},\npreview: #{preview}")}
+        LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Stylesheets with stylesheet_paths:\n #{stylesheet_paths.join("\n\t").prepend("\t")},\n\n\tcompile_path: #{compile_path},\n\tcolors: #{colors},\n\tlocation_name: #{location_name},\n\tpreview: #{preview}\n")}
         @stylesheet_paths = stylesheet_paths.try(:compact).try(:uniq)
         @compile_path = compile_path
         @colors = colors

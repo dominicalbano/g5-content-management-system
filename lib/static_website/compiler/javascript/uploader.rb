@@ -7,7 +7,7 @@ module StaticWebsite
         attr_reader :from_paths, :s3, :bucket_name, :bucket_url, :uploaded_paths
 
         def initialize(from_paths, location_name)
-          LOGGERS.each{|logger| logger.info("Initializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{from_paths.join("\n").prepend("\n")}, location_name: #{location_name}")}
+          LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{from_paths.join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
           @from_paths = from_paths
           @location_name = location_name
           @s3 = AWS::S3.new(
