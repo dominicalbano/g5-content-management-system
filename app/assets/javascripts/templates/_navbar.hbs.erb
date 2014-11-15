@@ -1,6 +1,6 @@
 
 <div class="navbar">
-  <div {{bind-attr class=":nav-toggle navMenuShowing:show-nav:hide-nav"}}><a {{action "toggleNavMenu"}}>Menu</a>
+  <div {{bind-attr class=":nav-toggle navMenuShowing:show-nav:hide-nav"}}><a class="fi-list" title="Menu" {{action "toggleNavMenu"}}></a>
     <nav {{bind-attr class=":nav :g5-internal-feature"}} role="navigation">
       <ul>
         <li><a {{bind-attr href="controllers.client.ch_url"}}>CMS</a></li>
@@ -11,6 +11,6 @@
     </nav>
   </div>
   {{#if controllers.webPageTemplate}}
-    <div {{bind-attr class=":nav-widgets widgetMenuShowing:show-nav:hide-nav"}}><a {{action "toggleWidgetMenu"}}>Widgets</a></div>
+    <div {{bind-attr class=":nav-widgets widgetMenuShowing:show-nav:hide-nav"}}><a class="fi-widget" title="Widgets" {{action "toggleWidgetMenu"}}></a></div>
   {{/if}}
 </div>

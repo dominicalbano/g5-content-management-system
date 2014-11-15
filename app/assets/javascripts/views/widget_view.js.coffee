@@ -19,11 +19,13 @@ App.WidgetView = Ember.View.extend
     "#{type.dasherize()}-feature" if type
   ).property()
 
-  click: (event) ->
+  click: (e) ->
     if @get("content.id")
       #@set("controller.controllers.website.selectedWidgetName", this.get("content.name"))
       $('#myModalLabel').text("Edit #{this.get('content.name')}")
       @getEditForm()
+    e.preventDefault()
+    e.stopPropagation()
     false
 
   getEditForm: ->

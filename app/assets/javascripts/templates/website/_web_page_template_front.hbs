@@ -4,9 +4,7 @@
 
   <div class="card-body">
     <ul class="widgets">
-      {{#each mainWidgets}}
-        {{ partial "website/widget" }}
-      {{/each}}
+      {{view App.WidgetsListView contentBinding="mainWidgets"}}
     </ul>
 
     {{ partial "website/webPageTemplateFlip" }}

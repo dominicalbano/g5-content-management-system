@@ -24,29 +24,31 @@
     position: relative;
     background-color: transparent;
     > a {
-      text-indent: -9999em;
+      font-size: 32px;
       width: 50px;
       height: 50px;
       padding: 0;
       display: block;
       position: relative;
+      &:before {
+        margin: 0;
+      }
     }
     &.show-nav {
       background-color: darken($g5-grey, 15%);
     }
     &:hover {
       background-color: $g5-grey;
+      > a {
+        color: $c-color-b;
+      }
     }
   }
-  .nav-toggle {
-    background-image: url('icon-menu.png');
-    background-repeat: no-repeat;
-    background-position: center;
+  .nav-toggle > a:before {
+    margin: 8px 0 0 15px;
   }
-  .nav-widgets {
-    background-image: url('icon-widgets.png');
-    background-repeat: no-repeat;
-    background-position: center;
+  .nav-widgets > a:before {
+    margin: 8px 0 0 12px;
   }
 }
 

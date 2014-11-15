@@ -35,6 +35,12 @@
   .widgets {
     @extend %group;
     margin-bottom: 1em;
+    .widget {
+      cursor: pointer;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
   .buttons {
     position: absolute;
@@ -139,7 +145,7 @@
     @extend %l-pullRight;
   }
   &:hover {
-    background-color: lighten($base-color, 10%);
+    background-color: lighten($base-color, 4%);
   }
 }
 

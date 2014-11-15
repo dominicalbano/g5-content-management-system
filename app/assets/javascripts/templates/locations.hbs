@@ -2,10 +2,10 @@
   <div class="l-container">
     <h2>Locations</h2>
     <div class="buttons l-pullRight">
-      {{#link-to 'saves' class="btn"}}Saves{{/link-to}}
-      <a {{action updateGardenWidgets}} href="#" class="btn">Update Widgets</a>
-      <a {{action updateGardenWebThemes}} href="#" class="btn">Update Themes</a>
-      <a {{action updateGardenWebLayouts}} href="#" class="btn">Update Layouts</a>
+      {{#link-to 'saves' class="btn fi-save"}}Saves{{/link-to}}
+      <a {{action updateGardenWidgets}} href="#" class="btn fi-widget">Update Widgets</a>
+      <a {{action updateGardenWebThemes}} href="#" class="btn fi-layout">Update Themes</a>
+      <a {{action updateGardenWebLayouts}} href="#" class="btn fi-results">Update Layouts</a>
 
       {{#if controllers.client.single_domain}}
          {{confirmation-link title="Deploy All" action="deploy_all" param=this 
