@@ -74,14 +74,6 @@
     float: left;
     margin-right: 5px;
   }
-  &.page-toolbar {
-    padding: 0.75em 0;
-    background-color: $c-background-c;
-    h2 {
-      float: left;
-      font-size: 1.6rem;
-    }
-  }
   h2 {
     @extend %c-shout;
     @extend %c-h3;
@@ -108,6 +100,37 @@
       margin-left: 5px;
       &:first-of-type {
         margin-left: 0;
+      }
+    }
+  }
+}
+
+.page-toolbar {
+  padding: 0.75em 0;
+  background-color: $c-background-c;
+  h2 {
+    float: left;
+    font-size: 1.6rem;
+  }
+  @media (max-width: 840px){
+    h2 {
+      float: none;
+    }
+    .ember-view {
+      float: none;
+    }
+    .buttons {
+      float: none;
+    }
+    .btn {
+      width: 48%;
+      margin: 0 1% .5em 1%;
+      float: left;
+      &:first-of-type {
+        margin-left: 1%;
+      }
+      &.btn--deploy {
+        width: 98%;
       }
     }
   }

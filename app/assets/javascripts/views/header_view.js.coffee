@@ -12,7 +12,7 @@ App.HeaderView = Ember.View.extend
 
   didInsertElement: ->
     @_super()
-    @_header = @$().find('.header')
+    @_header = @$().find('header')
     @_resizeHandler = @resize.bind(this)
     $(window).on 'resize', @_resizeHandler
     @resize()
