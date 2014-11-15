@@ -12,26 +12,30 @@ module StaticWebsite
     end
 
     def deploy
-      Rails.logger.info("Deploy called with #{[@website, @compile_path, @user_email]}")
+      LOGGERS.each {|logger| logger.info("Deploy called with #{[@website, @compile_path, @user_email]}")}
       @retries = 0
       begin
-        Rails.logger.info("About to deploy with options:")
+        LOGGERS.each {|logger| logger.info("About to deploy with options")}
         deployer.deploy(deployer_options) do |repo|
-          Rails.logger.info("calling cp_r_compile_path(repo)")
+          LOGGERS.each{|logger| logger.info("calling cp_r_compile_path(repo)")}
           cp_r_compile_path(repo)
         end
       rescue GithubHerokuDeployer::CommandException,
              Heroku::API::Errors::ErrorWithResponse => e
-        Rails.logger.info("Try failed with: " + e.to_s)
+        LOGGERS.each{|logger| logger.info("Try failed with: " + e.to_s)}
         if should_retry?
           increment_retries
           retry
         else
           raise e
         end
+      rescue => e
+        LOGGERS.each{|logger| logger.info("Try failed with: " + e.to_s)}
       else
+        LOGGERS.each{|logger| logger.info("Taking db snapshot")}
         take_db_snapshot
       ensure
+        LOGGERS.each{|logger| logger.info("Cleaning up")}
         clean_up
       end
     end
@@ -53,10 +57,10 @@ module StaticWebsite
     def cp_r_compile_path(repo)
       # save repo dir so we can remove it later
       @repo_dir = repo.dir.to_s
-      Rails.logger.info("Repo dir: #{@repo_dir}")
+      LOGGERS.each{|logger| logger.info("Repo dir: #{@repo_dir}")}
 
       # copy static website into repo
-      Rails.logger.info("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")
+      LOGGERS.each{|logger| logger.info("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")}
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
@@ -81,7 +85,14 @@ module StaticWebsite
     end
 
     def clean_up
+      LOGGERS.each{|logger| logger.info("Removing directory: #{@repo_dir} if exists")}
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
+      LOGGERS.each{|logger| logger.info(puts Dir.glob("app/**/*/").join("\n"))}
+      LOGGERS.each{|logger| logger.info("Files in public:\n")}
+      LOGGERS.each{|logger| logger.info("#{puts Dir.glob('app/public/**/*').join('\n')}")}
+      LOGGERS.each{|logger| logger.info(puts Dir.glob("tmp/**/*/").join("\n"))}
+      LOGGERS.each{|logger| logger.info("Files in static_sites:\n")}
+      LOGGERS.each{|logger| logger.info("#{puts Dir.glob('tmp/static_sites/**/*').join("\n")}")}
     end
 
     private

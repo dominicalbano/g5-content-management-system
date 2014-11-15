@@ -7,6 +7,7 @@ module StaticWebsite
         attr_reader :from_paths, :s3, :bucket_name, :bucket_url, :uploaded_paths
 
         def initialize(from_paths, location_name)
+          LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{from_paths.join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
           @from_paths = from_paths
           @location_name = location_name
           @s3 = AWS::S3.new(
@@ -23,9 +24,12 @@ module StaticWebsite
 
         def compile
           @uploaded_paths = []
-          Rails.logger.info("Writing js assets to S3")
+          LOGGERS.each{|logger| logger.info("Writing js assets to S3")}
           from_paths.each do |from_path|
-            s3_bucket_object(from_path).write(Pathname.new(from_path), write_options)
+            #write with a metadata flag of status: current
+            path = Pathname.new(from_path)
+            result = s3_bucket_object(from_path).write(path, write_options)
+            LOGGERS.each{|logger| logger.info(result.inspect)}
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
           end
         end
@@ -43,7 +47,8 @@ module StaticWebsite
         end
 
         def write_options
-          { acl: :public_read, content_type: "text/javascript" }
+          {:acl => :public_read, :content_type => "text/javascript",
+           metadata: {"x-amz-meta-freshness" => "current"}}
         end
 
         def to_path(from_path)
