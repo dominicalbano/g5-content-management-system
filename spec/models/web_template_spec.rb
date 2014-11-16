@@ -189,11 +189,16 @@ describe WebTemplate do
     end
 
     context "with child templates" do
-      let!(:child_template) {Fabricate(:web_page_template, parent_id: web_template.id)}
+      let!(:child_template) do
+        Fabricate(:web_page_template, parent_id: web_template.id, display_order: 300)
+      end
+      let!(:child_template_two) do
+        Fabricate(:web_page_template, parent_id: web_template.id, display_order: 100)
+      end
       let!(:other_template) {Fabricate(:web_page_template, parent_id: nil)}
 
-      it "should return an array of child templates" do
-        expect(web_template.children).to eq([child_template])
+      it "should return an array of ordered child templates" do
+        expect(web_template.children).to eq([child_template_two, child_template])
       end
 
       describe ".top_level pages (with no parent references)" do
@@ -201,8 +206,6 @@ describe WebTemplate do
           expect(WebTemplate.top_level).to match_array [web_template, other_template]
         end
       end
-
     end
   end
 end
-
