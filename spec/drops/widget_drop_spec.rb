@@ -40,4 +40,20 @@ describe WidgetDrop do
     end
   end
 
+  describe "#corporate_navigation" do
+    let(:setting) { double(value: true) }
+
+    before do
+      CorporateNavigationSetting.stub(new: setting)
+      drop.corporate_navigation
+    end
+
+    it "instantiates the corporate navigation setting class" do
+      expect(CorporateNavigationSetting).to have_received(:new)
+    end
+
+    it "calls value on the setting class" do
+      expect(setting).to have_received(:value)
+    end
+  end
 end

@@ -39,3 +39,5 @@ doc/*.svg
 # Ignore environment specific env
 .env.*
 
+# Ignore swap files from vim
+*.swn
