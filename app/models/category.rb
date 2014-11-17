@@ -1,3 +1,12 @@
 class Category < ActiveRecord::Base
-  validates :name, presence: true
+  validates :name, :slug, presence: true
+  validates :slug, presence: true, unless: :new_record?
+
+  before_validation :set_slug_from_name
+
+  private
+
+  def set_slug_from_name
+    self.slug ||= name.parameterize
+  end
 end
