@@ -31,8 +31,6 @@ module StaticWebsite
             LOGGERS.each{|logger| logger.info("calling compressor.compile(concatenate)")}
             file.write compressor.compile(concatenate)
           end if compile_path
-          LOGGERS.each{|logger| logger.info("The compressed thing:\n#{compressed.to_s}")}
-          LOGGERS.each{|logger| logger.info("#{File.read(compile_path)}")}
           compile_path
         end
 
