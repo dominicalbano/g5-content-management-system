@@ -4,6 +4,8 @@ class Category < ActiveRecord::Base
 
   before_validation :set_slug_from_name
 
+  has_many :assets
+
   private
 
   def set_slug_from_name
