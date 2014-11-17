@@ -47,7 +47,7 @@ class Api::V1::AssetsController < Api::V1::ApplicationController
   private
 
   def asset_params
-    params.require(:asset).permit(:name, :url, :website_id)
+    params.require(:asset).permit(:name, :url, :website_id, :category_id)
   end
 end
 
