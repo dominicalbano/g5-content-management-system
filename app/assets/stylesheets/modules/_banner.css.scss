@@ -43,7 +43,11 @@
 }
 
 .banner-logo-text {
-  font-weight:bold;
+  font-weight:100;
+  font-size: 1.8em;
+  line-height: 0;
+  position: relative;
+  top: 0.34em;
   margin-right: $base-whitespace / 2;
   @include respond-to($l-min-xlarge) {
     margin-right: $base-whitespace;
