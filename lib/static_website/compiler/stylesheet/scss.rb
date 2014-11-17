@@ -33,8 +33,8 @@ module StaticWebsite
 
         def render_to_file
           open(compile_path, "wb") do |file|
-            Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-            Rails.logger.info("Compiling sass file from path: #{stylesheet_path} with options: #{options}")
+            LOGGERS.each{|logger| logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")}
+            LOGGERS.each{|logger| logger.info("Compiling sass file from path: \n#{stylesheet_path}\n with options: #{options}")}
             css = Sass.compile(open(stylesheet_path).read, options)
             file << css
           end if compile_path
