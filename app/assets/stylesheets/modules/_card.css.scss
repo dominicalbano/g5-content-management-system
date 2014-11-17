@@ -13,13 +13,16 @@
     &:hover {
       text-decoration: underline;
     }
+    &:before {
+      text-decoration: none;
+    }
     &.active {
       color: $base-color;
-      a {
+      text-decoration: underline;
+      cursor: default;
+      &:hover {
+        color: $base-color;
         cursor: default;
-        &:hover {
-          color: $base-color;
-        }
       }
     }
   }
