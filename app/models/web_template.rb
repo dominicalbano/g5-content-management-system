@@ -149,7 +149,7 @@ class WebTemplate < ActiveRecord::Base
   def javascripts_compiler
     @javascripts_compiler ||=
       StaticWebsite::Compiler::Javascripts.new(javascripts,
-        "#{Rails.root}/public", owner_name)
+        "#{Rails.root}/public", name, owner_name)
   end
 
   def javascript_include_paths

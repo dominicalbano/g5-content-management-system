@@ -56,7 +56,7 @@ class Website < ActiveRecord::Base
   end
 
   def javascripts
-    web_templates.map(&:javascripts).flatten.uniq
+    #web_templates.map(&:javascripts).flatten.uniq
   end
 
   def deploy(user_email)
