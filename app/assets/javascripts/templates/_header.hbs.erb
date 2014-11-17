@@ -6,25 +6,10 @@
         <img class="banner-logo" src="<%= asset_path("logo-large.png") %>" alt="G5" /><span class='banner-logo-text'>DXM</span>
       </a>
 
-      <a href="/">
-        CMS: <strong class="banner-subtitle">{{controllers.client.name}}</strong>
+      <a href="/" class="banner-subtitle">
+        Content Management System (CMS)
       </a>
-
-      {{#if controllers.website}}
-        &raquo;
-        {{#link-to "website" controllers.website}}
-          <strong class="banner-subtitle">{{controllers.website.name}}</strong>
-        {{/link-to}}
-      {{/if}}
-
-      {{#if controllers.webPageTemplate}}
-        <span class="page-name">
-          &raquo;
-          <a><strong class="banner-subtitle">{{controllers.webPageTemplate.name}}</strong></a>
-        </span>
-      {{/if}}
     </h1>
 
   </div> <!-- end .l-container -->
 </header>
-

@@ -1,10 +1,23 @@
-<div class="l-container">
-  <nav class="nav g5-internal-feature" role="navigation">
-    <ul>
-      <li><a {{bind-attr href="controllers.client.ch_url"}}>CMS</a></li>
-      <li><a {{bind-attr href="controllers.client.cpns_url"}}>Phone Numbers</a></li>
-      <li><a {{bind-attr href="controllers.client.cpas_url"}}>Pricing and Availability</a></li>
-      <li><a {{bind-attr href="controllers.client.cxm_url"}}>Customer Experience Management</a></li>
-    </ul>
-  </nav>
+<div class="breadcrumb">
+  <div class="l-container">
+    <nav class="nav" role="navigation">
+      <ul>
+        <li><a href="/">{{controllers.client.name}}</a></li>
+
+        {{#if controllers.website}}
+          <li>
+            &raquo;
+            {{#link-to "website" controllers.website}}
+              {{controllers.website.name}}
+            {{/link-to}}
+          </li>
+        {{/if}}
+
+        {{#if controllers.webPageTemplate}}
+            &raquo;
+            <a>{{controllers.webPageTemplate.name}}</a>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
 </div>

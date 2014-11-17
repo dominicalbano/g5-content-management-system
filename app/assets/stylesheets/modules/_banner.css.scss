@@ -9,7 +9,6 @@
   @extend %group;
   @extend %c-shout;
   background: $base-color-light;
-  margin-bottom: 1.25em;
   padding-bottom: em(18px);
   padding-top: em(18px);
   position: relative;
@@ -43,20 +42,23 @@
 }
 
 .banner-logo-text {
-  font-weight:100;
   font-size: 1.8em;
   line-height: 0;
   position: relative;
   top: 0.34em;
-  margin-right: $base-whitespace / 2;
+  margin-right: $base-whitespace / 4;
   @include respond-to($l-min-xlarge) {
-    margin-right: $base-whitespace;
+    margin-right: $base-whitespace / 2;
   }
 }
 
-.banner-subtitle {
-  color: $c-color-b;
+a.banner-subtitle {
+  text-transform: none;
+  font-size: 0.9em;
+  color: #c6f1fb;
   font-weight: $base-fontWeight;
+  position: relative;
+  top: 0.6em;
 }
 
 .banner-navigation {
