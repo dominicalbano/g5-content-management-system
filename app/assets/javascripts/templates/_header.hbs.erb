@@ -11,5 +11,32 @@
       </a>
     </h1>
 
+    <nav class="authentication">
+      <ul>
+        <li><a href="foo">Settings</a></li>
+        <li><a href="foo">Logout</a></li>
+
+        <li class="menu-trigger g5-internal-feature"><a href="#">Menu</a></li>
+      </ul>
+    </nav>
+
   </div> <!-- end .l-container -->
 </header>
+
+<nav class="menu">
+  <div class="l-container">
+    <ul>
+      <li><a {{bind-attr href="controllers.client.ch_url"}}>CMS</a></li>
+      <li><a {{bind-attr href="controllers.client.cpns_url"}}>Phone Numbers</a></li>
+      <li><a {{bind-attr href="controllers.client.cpas_url"}}>Pricing and Availability</a></li>
+      <li><a {{bind-attr href="controllers.client.cxm_url"}}>Customer Experience Management</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script type="text/javascript">
+  $(".menu-trigger").click(function() {
+    $(".menu").slideToggle();
+    return false;
+  });
+</script>

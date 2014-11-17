@@ -19,6 +19,7 @@
 }
 
 .banner-title {
+  float:left;
   @extend %group;
   @include font-size($base-fontSize);
   color: $c-color-b;
@@ -78,3 +79,31 @@ a.banner-subtitle {
   }
 }
 
+.authentication {
+  float:right;
+  padding-top: 24px;
+
+  li {
+    float:left;
+  }
+
+  a {
+    padding:0 10px;
+  }
+}
+
+.menu {
+  display:none;
+  background: $c-color-d;
+  padding-bottom: em(18px);
+  padding-top: em(18px);
+  position: relative;
+
+  li {
+    float:left;
+  }
+
+  a {
+    padding:0 20px;
+  }
+}
