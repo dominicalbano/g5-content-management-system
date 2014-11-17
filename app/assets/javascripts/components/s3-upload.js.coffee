@@ -1,7 +1,8 @@
 App.S3UploadComponent = Ember.FileField.extend
+  multiple: true
   url: ""
   websiteName: ""
-  
+
   # S3 will return XML with url
   # => http://yourbucket.s3.amazonaws.com/file.png
   # Uploader will send a sign request then upload to S3
