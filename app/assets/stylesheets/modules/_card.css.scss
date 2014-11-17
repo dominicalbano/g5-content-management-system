@@ -7,6 +7,22 @@
 
 .card-options-list {
   float: right !important;
+  a {
+    color: $g5-grey;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+    &.active {
+      color: $base-color;
+      a {
+        cursor: default;
+        &:hover {
+          color: $base-color;
+        }
+      }
+    }
+  }
 }
 
 .cards {
