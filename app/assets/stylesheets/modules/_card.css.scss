@@ -8,21 +8,26 @@
 .card-options-list {
   float: right !important;
   a {
-    color: $g5-grey;
+    color: $base-color;
     text-decoration: none;
+    padding: .2em .5em;
     &:hover {
       text-decoration: underline;
+      background-color: $base-background;
+      color: $base-color;
     }
     &:before {
       text-decoration: none;
     }
     &.active {
-      color: $base-color;
-      text-decoration: underline;
+      background-color: $g5-grey;
+      color: $base-background;
       cursor: default;
       &:hover {
-        color: $base-color;
+        background-color: $g5-grey;
+        color: $base-background;
         cursor: default;
+        text-decoration: none;
       }
     }
   }
