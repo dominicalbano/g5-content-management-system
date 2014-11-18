@@ -7,7 +7,7 @@
     width: 300px;
     border-left: 2px solid $base-color;
     border-bottom: 2px solid $base-color;
-    background-color: $c-background-c;
+    background-color: $base-background;
     overflow: auto;
     height: 100%;
     padding-top: 0;
@@ -31,9 +31,13 @@
   .page-title {
     display: inline-block;
   }
+  .builder-container {
+    background-color: $g5-grey;
+  }
   .builder-title {
     display: block;
-    margin: 1em 0;
+    margin: 0 0 1em 0;
+    padding-top: 1em;
   }
   .thumbs {
     @extend %group;

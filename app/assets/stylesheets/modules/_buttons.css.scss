@@ -99,14 +99,6 @@
   }
 }
 
-.btn.btn--delete, .btn.deploy-btn, .btn.btn--deploy {
-  background: #ff6666;
-  &:hover, &:focus {
-    background: #ff3333;
-    cursor: pointer;
-  }
-}
-
 .btn--toggle-hide:after {
   @include triangle(10px, $base-color, up);
   margin-bottom: 2px;
@@ -117,11 +109,28 @@
   margin-bottom: -3px;
 }
 
-.btn.save, .btn.btn--edit, .btn.new-page-btn {
+%btn-red, .btn-red {
+  background: #ff6666;
+  &:hover, &:focus {
+    background: #ff3333;
+    cursor: pointer;
+  }
+}
+
+%btn-green, .btn-green {
   background: #339933;
   cursor: pointer;
   &:hover, &:focus {
     background: #007700;
     cursor: pointer;
   }
+}
+
+.btn.btn--delete, .btn.deploy-btn, .btn.btn--deploy {
+  @extend %btn-red;
+}
+
+
+.btn.save, .btn.btn--edit, .btn.new-page-btn {
+  @extend %btn-green;
 }

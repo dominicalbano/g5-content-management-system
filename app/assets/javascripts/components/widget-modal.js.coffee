@@ -18,3 +18,8 @@ App.WidgetModalComponent = Ember.Component.extend
     @set("observableObject", observableObject)
     @$("#modal").data("component", observableObject)
   ).on("didInsertElement")
+
+  actions:
+    saveWidget: ->
+      hiddenSaveBtn = @$().find('.modal-body input[value~="Save"]')
+      hiddenSaveBtn.click() if hiddenSaveBtn.length

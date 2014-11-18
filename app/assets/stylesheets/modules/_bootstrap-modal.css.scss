@@ -145,6 +145,9 @@
   max-height: 400px;
   padding: 15px;
   overflow-y: auto;
+  input[value~="Save"] {
+    display: none;
+  }
 }
 
 .modal-form {
@@ -156,6 +159,14 @@
   border-top: $c-border-b;
   background: $base-color;
   color: $c-color-b;
+  a {
+    color: $base-background;
+    margin: 0 .5em;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .modal-footer:before,
