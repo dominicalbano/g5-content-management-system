@@ -1,12 +1,18 @@
 <div class="card-head">
   <div class="buttons buttons-front">
-    {{#if isWebHomeTemplate}}
-      {{#link-to "webHomeTemplate" class="btn btn--small btn--edit fi-pencil"}}Edit{{/link-to}}
+    {{#if inTrash}}
+      <a class="btn btn--small fi-refresh" {{action 'restore' this}}>Restore</a>
+      {{confirmation-link title="Delete" action="delete" param=this 
+          message="You are about to delete this page.\nTHIS IS IMMEDIATE AND PERMANENT. THERE IS NO UNDO.\nAre you sure?" classes="btn btn--small btn--delete fi-alert"}}
     {{else}}
-      {{#link-to "webPageTemplate" this class="btn btn--small btn--edit fi-pencil"}}Edit{{/link-to}}
+      {{#if isWebHomeTemplate}}
+        {{#link-to "webHomeTemplate" class="btn btn--small btn--edit fi-pencil"}}Edit{{/link-to}}
+      {{else}}
+        {{#link-to "webPageTemplate" this class="btn btn--small btn--edit fi-pencil"}}Edit{{/link-to}}
+      {{/if}}
+      <a {{bind-attr href="previewUrl"}} class="btn btn--small btn--preview fi-magnifying-glass" target="_blank">Preview</a>
+      <a class="btn btn--small btn--delete fi-trash" {{action 'trash' this}}>Trash</a>
     {{/if}}
-    <a {{bind-attr href="previewUrl"}} class="btn btn--small btn--preview fi-magnifying-glass" target="_blank">Preview</a>
-    <a class="btn btn--small btn--delete fi-alert" target="_blank">Delete</a>
   </div>
-  <h3>{{ name }}</h3>
+  <h3 {{bind-attr class="inTrash:fi-trash"}}>{{ name }}</h3>
 </div>

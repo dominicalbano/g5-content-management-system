@@ -46,6 +46,12 @@
   .cards-small & {
     height: 50px;
   }
+  #deleted-pages & {
+    opacity: 0.8;
+    &:hover {
+      opacity: 1.0;
+    }
+  }
   margin-bottom: $base-whitespace;
   padding-left: 1%;
   padding-right: 1%;
@@ -67,6 +73,10 @@
     right: .75em;
     .btn {
       @include respond-to($l-min-medium, min-width) {
+        display: inline-block;
+        padding: .5em 1em;
+      }
+      .cards-small & {
         display: inline-block;
         padding: .5em 1em;
       }

@@ -14,11 +14,13 @@ App.WebsiteIndexController = Ember.ObjectController.extend
       false
     confirmEmptyTrash: ->
       @set "confirmEmptyTrash", not @get("confirmEmptyTrash")
+    closeEmptyTrash: ->
+      @set "confirmEmptyTrash", false
     emptyTrash: ->
       @beginPropertyChanges()
       @get("webPageTemplates").filterBy("inTrash", true).forEach (item) ->
         item.deleteRecord()
         item.save()
       @endPropertyChanges()
-      @set "confirmEmptyTrash", false
+      @closeEmptyTrash()
 

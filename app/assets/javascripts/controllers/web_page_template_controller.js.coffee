@@ -35,4 +35,8 @@ App.WebPageTemplateController = Ember.ObjectController.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+    trash: (model) ->
+      model.set('inTrash', true)
+      model.save()
+      false
 
