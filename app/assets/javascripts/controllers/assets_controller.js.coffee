@@ -1,7 +1,15 @@
 App.AssetsController = Ember.ArrayController.extend
   needs: ['website']
   website: Ember.computed.alias("controllers.website.content")
+
+  categories: (->
+    debugger
+    @store.find("category")
+  ).property()
+
   actions:
+    save: (model) ->
+      model.save()
     saveAsset: (uploadedUrl) ->
       website = @get('website')
       asset = @get('store').createRecord('asset', {website_id: website.get('id'), url: uploadedUrl})

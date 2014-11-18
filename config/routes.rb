@@ -35,7 +35,7 @@ G5CMS::Application.routes.draw do
       resources :web_page_templates, only: [:index, :show, :create, :update, :destroy]
       resources :main_widgets, only: [:index, :show, :create, :update, :destroy]
       resources :assets, only: [:index, :show, :create, :update, :destroy]
-      resources :categories, only: [:index]
+      resources :categories, only: [:index, :show]
 
       resources :garden_web_layouts, only: [:index] do
         collection do

@@ -17,7 +17,7 @@ class Api::V1::AssetsController < Api::V1::ApplicationController
   end
 
   def update
-    @asset = asset.find(params[:id])
+    @asset = Asset.find(params[:id])
     if @asset.update_attributes(asset_params)
       render json: @asset, root: :asset
     else

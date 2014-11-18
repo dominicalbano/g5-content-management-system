@@ -1,4 +1,5 @@
 App.Asset = DS.Model.extend
   website: DS.belongsTo("website")
+  category: DS.belongsTo("category", { async: true })
   url: DS.attr("string")
-  category_id: DS.attr("number")
+  categoryId: DS.attr("number")
