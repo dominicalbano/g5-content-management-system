@@ -85,19 +85,42 @@
     }
   }
 
-  .assets-files {
-    ul {
-      margin:0;
-      list-style-type: none;
-    }
-
-    li {
-      float:left;
-      margin:0 15px 15px 0;
-    }
-
-    img {
-      width:200px;
-    }
+  .faux-table-head {
+    border-bottom:none;
+    text-transform:none;
   }
+}
+
+.asset-category {
+  width:360px;
+
+  label {
+    display:block;
+    margin-bottom:7px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: none;
+  }
+
+  select {
+    display: inline-block;
+    padding: 7px 20px;
+    border: none;
+    height: 38px;
+    width: 165px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+  }
+
+  .asset-save {
+    background: #6dbde2;
+    display: inline-block;
+    padding: 7px 20px;
+    margin-left:4px;
+    text-transform: none;
+  }
+}
+
+.asset-delete {
+  width:160px;
 }

@@ -30,7 +30,7 @@ App.S3UploadComponent = Ember.FileField.extend
         if files.length == index + 1
           loader.delay(2000).hide(0)
           success.delay(2000).show(0).delay(2000).hide(0)
-          label.delay(4100).fadeIn()
+          label.delay(4100).fadeIn("fast")
 
     return
   ).observes("files")
