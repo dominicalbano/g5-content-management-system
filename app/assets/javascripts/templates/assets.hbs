@@ -1,16 +1,38 @@
-<div class="redirects">
+<div class="assets">
   <div class="page-title">
     <h2>Asset Manager</h2>
   </div>
 
-  <div class="l-xspace">
-    {{s3-upload url="/api/v1/sign_upload" action='saveAsset' websiteName=website.name}}
+  <div class="assets-uploader">
+    <label>
+      <div class="upload-left"><i class="fa fa-upload fa-2x"></i></div>
+      <div class="upload-right">Upload New Files</div>
+
+      {{s3-upload url="/api/v1/sign_upload" action='saveAsset' websiteName=website.name}}
+    </label>
+
+    <div class="assets-loader">
+      <i class="fa fa-refresh fa-2x fa-spin"></i><br>
+      Uploading Assets
+    </div>
+
+    <div class="assets-success">
+      <i class="fa fa-check-circle-o fa-2x"></i><br>
+      Upload Complete
+    </div>
+  </div>
+
+  <div class="assets-files">
+    <ul>
+      {{#each controller}}
+        <li><img {{bind-attr src=url}}></li>
+      {{/each}}
+    </ul>
   </div>
 
   <div class="faux-table faux-table--striped">
     <div class="faux-table-head">
       <span class="faux-table-cell">Image</span>
-      <span class="faux-table-cell">Image Path</span>
       <span class="faux-table-cell">Category</span>
       <span class="faux-table-cell">Actions</span>
     </div>
@@ -18,8 +40,13 @@
     <ul class="faux-table-body">
       {{#each controller}}
         <li class="asset faux-table-row">
-          <div class="faux-table-cell"><a {{bind-attr href=url}} target='new'><img {{bind-attr src=url}} width='100'></a></div>
-          <div class="faux-table-cell">{{click-select url=url }}</div>
+          <div class="faux-table-cell">
+            <a {{bind-attr href=url}} target='new'>
+              <img {{bind-attr src=url}} width='100'>
+            </a>
+
+            <p>{{click-select url=url }}</p>
+          </div>
 
           <div class="faux-table-cell">
             <form class="form">

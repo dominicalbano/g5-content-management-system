@@ -3,7 +3,6 @@ App.AssetsController = Ember.ArrayController.extend
   website: Ember.computed.alias("controllers.website.content")
 
   categories: (->
-    debugger
     @store.find("category")
   ).property()
 
@@ -30,4 +29,3 @@ App.AssetsController = Ember.ArrayController.extend
         asset.save()
       ), (response) ->
         console.log('The delete failed: ' + response)
-
