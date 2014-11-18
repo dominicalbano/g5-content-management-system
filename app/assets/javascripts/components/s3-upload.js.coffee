@@ -10,12 +10,28 @@ App.S3UploadComponent = Ember.FileField.extend
     uploadUrl = @get("url") + "?locationName=" + @get('websiteName')
     files = @get("files")
     uploader = Ember.S3Uploader.create(url: uploadUrl)
+    label = $(".assets-uploader label")
+    loader = $(".assets-loader")
+    success = $(".assets-success")
+
     uploader.on "didUpload", (response) =>
       uploadedUrl = $(response).find("Location")[0].textContent
       uploadedUrl = unescape(uploadedUrl)
       this.sendAction('action', uploadedUrl)
       return
-    uploader.upload files[0] unless Ember.isEmpty(files)
+
+    unless Ember.isEmpty(files)
+      loader.show()
+      label.hide()
+
+      for file, index in files
+        uploader.upload file
+
+        if files.length == index + 1
+          loader.delay(2000).hide(0)
+          success.delay(2000).show(0).delay(2000).hide(0)
+          label.delay(4100).fadeIn()
+
     return
   ).observes("files")
 
