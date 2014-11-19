@@ -6,6 +6,22 @@
     border-bottom:none;
     text-transform:none;
   }
+
+  .page-title {
+    margin-bottom:0;
+    border-bottom:none;
+
+    h2 {
+      text-transform: none;
+      font-size: 30px;
+      margin-left: 15px;
+      font-weight:lighter;
+    }
+
+    i {
+      color:#000;
+    }
+  }
 }
 
 .assets-uploader {
@@ -14,7 +30,7 @@
   border:7px solid #eee;
   height:64px;
   padding:50px 0;
-  margin:40px 0 30px;
+  margin:20px 0 30px;
   position:relative;
   text-align:center;
 
@@ -82,7 +98,6 @@
   padding: 20px;
   background: #f8f8f8;
   border-radius: 4px;
-  border: 1px solid #e6e6e6;
 }
 
 .asset-url {
@@ -130,6 +145,10 @@
     padding: 7px 20px;
     margin-left:4px;
     text-transform: none;
+  }
+
+  .asset-save:hover {
+    background: #71C5EC;
   }
 }
 
