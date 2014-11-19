@@ -23,11 +23,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:58 GMT
+      - Wed, 19 Nov 2014 18:09:33 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 18 Nov 2014 18:15:35 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -96,7 +96,7 @@ http_interactions:
           width: 25%;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:30:00 GMT
+  recorded_at: Wed, 19 Nov 2014 18:09:34 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -120,11 +120,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:59 GMT
+      - Wed, 19 Nov 2014 18:09:34 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 18 Nov 2014 18:15:35 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -167,7 +167,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:30:00 GMT
+  recorded_at: Wed, 19 Nov 2014 18:09:34 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
@@ -191,15 +191,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:30:00 GMT
+      - Wed, 19 Nov 2014 18:09:34 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 18 Nov 2014 18:15:36 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '589'
+      - '618'
       Via:
       - 1.1 vegur
     body:
@@ -214,20 +214,21 @@ http_interactions:
         }
 
         .subnav {
-          -webkit-transition: max-height 0.3s ease;
-          -moz-transition: max-height 0.3s ease;
-          transition: max-height 0.3s ease;
           max-height: 0;
           overflow: hidden;
         }
 
         @media (max-width: 979px) {
+          .corporate-navigation.show-desktop {
+            display: none;
+          }
           .show-subnav {
             max-height: none;
           }
         }
 
         @media (min-width: 980px) {
+          header[role=banner] .corporate-navigation,
           header[role=banner] .navigation {
             overflow-y: visible;
           }
@@ -241,9 +242,12 @@ http_interactions:
           .show-subnav {
             max-height: 1000px;
           }
+          .corporate-home {
+            display: none;
+          }
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:30:01 GMT
+  recorded_at: Wed, 19 Nov 2014 18:09:34 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -267,11 +271,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:30:01 GMT
+      - Wed, 19 Nov 2014 18:09:35 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 18 Nov 2014 18:15:35 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -292,7 +296,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:30:02 GMT
+  recorded_at: Wed, 19 Nov 2014 18:09:35 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -316,11 +320,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:30:02 GMT
+      - Wed, 19 Nov 2014 18:09:35 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 18 Nov 2014 18:15:35 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -340,7 +344,7 @@ http_interactions:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
         200px;\n}\n"
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:30:03 GMT
+  recorded_at: Wed, 19 Nov 2014 18:09:35 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/luxe/stylesheets/luxe.scss
@@ -364,15 +368,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:30:03 GMT
+      - Wed, 19 Nov 2014 18:09:35 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 17:32:50 GMT
+      - Tue, 18 Nov 2014 17:26:48 GMT
       Content-Type:
       - text/plain
       Content-Length:
-      - '19471'
+      - '18974'
       Via:
       - 1.1 vegur
     body:
@@ -992,6 +996,8 @@ http_interactions:
         // *************************************
 
         .social-links {
+          background-color: $base-background;
+          padding: $half-whitespace $half-whitespace 0 $half-whitespace;
           a {
             @extend %ir;
             background: url('http://widgets.g5dxm.com/social-links/social-icons-alt.png') 0 0 no-repeat;
@@ -1060,65 +1066,6 @@ http_interactions:
             line-height: 1;
             text-align: center;
             text-decoration: none;
-          }
-        }
-
-        // *************************************
-        //
-        //   Map and Directions Widgets
-        //
-        // *************************************
-
-        .directions {
-          @extend %clearfix;
-          position: relative;
-          .canvas,
-          .text {
-            width: 100%;
-          }
-          .canvas {
-            position: relative;
-            top: 9em;
-          }
-          label,
-          input[type=text],
-          input[type=submit] {
-            position: absolute;
-          }
-          label {
-            left: 0;
-            top: 0;
-          }
-          input[type=text] {
-            padding: .4em;
-            width: 100%;
-            left: 0;
-            top: 2em;
-          }
-          input[type=submit] {
-            display: inline-block;
-            width: 100%;
-            right: 0;
-            top: 5em;
-          }
-          .panel {
-            margin-top: 10em;
-          }
-          @include at-least($min-small) {
-            .canvas {
-              top: 6em;
-            }
-            input[type=text] {
-              width: 75%;
-            }
-            input[type=submit] {
-              padding: .5em;
-              width: 25%;
-              top: 2em;
-            }
-            .panel {
-              margin-top: 7em;
-            }
           }
         }
 
@@ -1324,6 +1271,7 @@ http_interactions:
         .action-calls {
           text-align: center;
           width: 100%;
+          overflow: hidden;
           a {
             @extend .btn-alt;
             font-size: em(36);
@@ -1350,7 +1298,7 @@ http_interactions:
         //
         // *************************************
 
-        .page-home {
+        .web-home-template {
           [role=banner] {
             padding-top: 0;
             .logo-container {
@@ -1375,8 +1323,7 @@ http_interactions:
           }
           #drop-target-main .row:first-of-type {
             @extend %relative;
-            top: 10px;
-            padding: 0;
+            padding: 10px 0 0;
             overflow: hidden;
             @include at-least($min-medium) {
               margin-top: 5.25em;
@@ -1388,6 +1335,7 @@ http_interactions:
               margin: 0;
               padding: 0;
               max-width: none;
+              overflow: hidden;
             }
             figure {
               margin-bottom: 0;
@@ -1443,21 +1391,31 @@ http_interactions:
             @include at-least($min-small) {
               position: relative;
               margin-bottom: 5em;
-              li,
-              a {
-                display: inline-block;
+              li{
+                float: none;
+                width: 75%;
+                margin: 0 auto;
+                padding: 0 $half-whitespace $half-whitespace;
+                vertical-align: top;
               }
-              li {
-                padding: 0 $half-whitespace 1em;
+              a {
+                display: block;
               }
             }
             @include at-least($min-medium) {
               margin-top: 20em;
               margin-bottom: 10em;
+              li {
+                width: 50%;
+              }
+            }
+            @include at-least($min-large) {
+              li {
+                display: inline-block;
+                width: 33%;
+              }
             }
           }
-        }
-        .page-home {
           .row:nth-of-type(2n) {
             .photo,
             .html {
@@ -1522,5 +1480,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:30:04 GMT
+  recorded_at: Wed, 19 Nov 2014 18:09:36 GMT
 recorded_with: VCR 2.9.2
