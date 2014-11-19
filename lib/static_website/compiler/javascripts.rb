@@ -10,6 +10,7 @@ module StaticWebsite
         :js_paths, :include_paths
 
       def initialize(javascript_paths, compile_path, page_name, location_name="", preview=false)
+        javascript_paths = Array(javascript_paths)
         LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascripts with javascript_paths: #{javascript_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path},\n\tlocation_name: #{location_name},\n\tpreview: #{preview}\n")} if javascript_paths
         @javascript_paths = javascript_paths.try(:compact).try(:uniq)
         @compile_path = compile_path
@@ -23,14 +24,14 @@ module StaticWebsite
       def compile
         @js_paths = []
         @include_paths = []
-        if javascript_paths
+        unless javascript_paths.empty?
           javascript_paths.each do |javascript_path|
             compile_javascript(javascript_path)
           end
 
           
           LOGGERS.each{|logger| logger.info("About to call javascript_compressor.compile")}
-          @js_paths = javascript_compressor.compile unless preview
+          @js_paths = Array(javascript_compressor.compile) unless preview
           LOGGERS.each{|logger| logger.info("Done calling javascript_compressor.compile")}
           LOGGERS.each{|logger| logger.info("Calling compile on javascript_uploader unless preview")}
           javascript_uploader.compile unless preview

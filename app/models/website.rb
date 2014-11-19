@@ -55,10 +55,6 @@ class Website < ActiveRecord::Base
     website_template.try(:stylesheets)].flatten.uniq
   end
 
-  def javascripts
-    #web_templates.map(&:javascripts).flatten.uniq
-  end
-
   def deploy(user_email)
     StaticWebsiteDeployerJob.perform(urn, user_email)
   end

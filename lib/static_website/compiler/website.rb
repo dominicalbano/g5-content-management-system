@@ -23,7 +23,6 @@ module StaticWebsite
         compile_directory.compile
         clean_up
         LOGGERS.each{|logger| logger.info("Starting javascripts.compile for website")}
-        javascripts.compile
         LOGGERS.each{|logger| logger.info("finished javascripts.compile")}
         LOGGERS.each{|logger| logger.info("Starting stylesheets.compile for website")}
         stylesheets.compile

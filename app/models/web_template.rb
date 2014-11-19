@@ -154,7 +154,7 @@ class WebTemplate < ActiveRecord::Base
 
   def javascript_include_paths
     LOGGERS.each{|logger| logger.info("Starting compile on javascripts_compiler for web_template: #{name}")}
-    javascripts_compiler.compile
+    javascripts_compiler.compile unless javascripts.empty?
     LOGGERS.each{|logger| logger.info("Finished compile on javascripts_compiler for web_template: #{name}")}
     LOGGERS.each{|logger| logger.info("Calling upload_paths on javascripts_compiler for web_template:\n #{name}")}
     javascripts_compiler.uploaded_paths
