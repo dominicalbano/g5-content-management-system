@@ -11,7 +11,7 @@ App.AssetsController = Ember.ArrayController.extend
       model.save()
     saveAsset: (uploadedUrl) ->
       website = @get('website')
-      asset = @get('store').createRecord('asset', {website_id: website.get('id'), url: uploadedUrl})
+      asset = @get('store').createRecord('asset', {website_id: website.get('id'), url: uploadedUrl, category_id: 1})
       website.get('assets').addObject(asset)
       asset.save().then ((asset) =>
       ), (asset)=>

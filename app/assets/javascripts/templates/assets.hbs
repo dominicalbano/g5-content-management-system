@@ -12,12 +12,12 @@
     </label>
 
     <div class="assets-loader">
-      <i class="fa fa-refresh fa-2x fa-spin"></i><br>
-      Uploading Assets
+      <i class="fa fa-refresh fa-3x fa-spin"></i><br>
+      Uploaded <strong class="asset-count">0</strong> of <strong class="asset-total">0</strong>
     </div>
 
     <div class="assets-success">
-      <i class="fa fa-check-circle-o fa-2x"></i><br>
+      <i class="fa fa-check-circle-o fa-3x"></i><br>
       Upload Complete
     </div>
   </div>
@@ -26,24 +26,27 @@
     <ul class="faux-table-body">
       {{#each controller}}
         <li class="asset faux-table-row">
-          <div class="faux-table-cell">
+          {{categoryId}}
+          <div class="faux-table-cell asset-image">
             <a {{bind-attr href=url}} target='new'>
-              <img {{bind-attr src=url}} width='100'>
+              <img {{bind-attr src=url}}>
             </a>
           </div>
 
           <div class="faux-table-cell asset-category">
-            <form class="form">
-              {{view Ember.Select
-                     contentBinding="controller.categories"
-                     prompt="None"
-                     name="category"
-                     optionValuePath="content.id"
-                     optionLabelPath="content.name"
-                     selection=category }}
+            <div class="selected-category">
+              {{categoryId}}
+            </div>
 
-              <button {{action save this}} class="save btn btn--a asset-save">Save Category</button>
-            </form>
+            {{view Ember.Select
+                   contentBinding="controller.categories"
+                   name="category"
+                   prompt="Select New Category"
+                   optionValuePath="content.id"
+                   optionLabelPath="content.name"
+                   selection=category }}
+
+            <button {{action save this}} class="save btn btn--a asset-save">Save</button>
           </div>
 
           <div class="faux-table-cell">{{click-select url=url }}</div>

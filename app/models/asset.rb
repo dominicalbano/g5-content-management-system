@@ -6,4 +6,12 @@ class Asset < ActiveRecord::Base
   belongs_to :website
   belongs_to :category
 
+  before_validation :set_default_category
+
+  private
+
+  def set_default_category
+    self.category ||= Category.find_by_name("Photo Gallery")
+  end
+
 end

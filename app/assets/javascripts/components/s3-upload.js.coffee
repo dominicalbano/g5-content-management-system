@@ -20,9 +20,9 @@ App.S3UploadComponent = Ember.FileField.extend
       count = count + 1
       uploadedUrl = $(response).find("Location")[0].textContent
       uploadedUrl = unescape(uploadedUrl)
-      this.sendAction('action', uploadedUrl)
+      @sendAction('action', uploadedUrl)
 
-      countWrapper.text(e.percent)
+      countWrapper.text(count)
 
       if count == files.length
         loader.hide()
