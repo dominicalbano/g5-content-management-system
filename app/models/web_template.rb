@@ -199,7 +199,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def children
-    WebTemplate.where(parent_id: id)
+    WebTemplate.where(parent_id: id).order(:display_order)
   end
 
   def top_level?

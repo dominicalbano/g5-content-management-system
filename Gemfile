@@ -1,7 +1,9 @@
 source "https://rubygems.org"
 ruby "2.1.5"
 
-gem 'rails', "4.1.7"
+gem "rails", "4.1.7"
+gem "active_model_serializers", "~> 0.8.2"
+
 # Downgraded jquery-rails for Ember Views
 gem "jquery-rails", "~> 3.0.4"
 gem "jquery-ui-rails"
@@ -23,7 +25,8 @@ gem "aws-sdk"
 gem "httparty"
 gem "momentjs-rails"
 gem "ember-rails"
-gem 'g5_authenticatable', '~> 0.2'
+gem "ember-source", "~> 1.7.0"
+gem "g5_authenticatable"
 gem "pg"
 gem "font-awesome-rails"
 
@@ -41,7 +44,7 @@ end
 
 group :development, :test do
   # secrets
-  gem "dotenv-rails"
+  gem "dotenv-rails", "~> 0.11.1"
   # debugging
   gem "pry"
   # database
