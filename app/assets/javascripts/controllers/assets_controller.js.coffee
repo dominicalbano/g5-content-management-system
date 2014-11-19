@@ -1,4 +1,6 @@
 App.AssetsController = Ember.ArrayController.extend
+  sortProperties: ['created_at']
+  sortAscending: false
   needs: ['website']
   website: Ember.computed.alias("controllers.website.content")
 

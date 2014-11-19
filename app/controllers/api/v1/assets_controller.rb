@@ -1,6 +1,6 @@
 class Api::V1::AssetsController < Api::V1::ApplicationController
   def index
-    render json: Asset.all
+    render json: Asset.order(created_at: :desc).all
   end
 
   def show
