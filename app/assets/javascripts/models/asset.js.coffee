@@ -3,8 +3,4 @@ App.Asset = DS.Model.extend
   category: DS.belongsTo("category")
   url: DS.attr("string")
   categoryId: DS.attr("number")
-
-  #categoryName: (->
-    #@get("category", @get("categoryId")).then (category) ->
-      #return category.get("name")
-  #).property("categoryId")
+  categoryName: DS.attr("string")
