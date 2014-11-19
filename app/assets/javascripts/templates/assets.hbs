@@ -26,7 +26,6 @@
     <ul class="faux-table-body">
       {{#each controller}}
         <li class="asset faux-table-row">
-          {{categoryId}}
           <div class="faux-table-cell asset-image">
             <a {{bind-attr href=url}} target='new'>
               <img {{bind-attr src=url}}>
@@ -34,22 +33,26 @@
           </div>
 
           <div class="faux-table-cell asset-category">
-            <div class="selected-category">
-              {{categoryId}}
-            </div>
+            <form class="asset-element">
+              <div class="selected-category">
+                <i class="fa fa-tags"></i> {{categoryName}}
+              </div>
 
-            {{view Ember.Select
-                   contentBinding="controller.categories"
-                   name="category"
-                   prompt="Select New Category"
-                   optionValuePath="content.id"
-                   optionLabelPath="content.name"
-                   selection=category }}
+              {{view Ember.Select
+                     contentBinding="controller.categories"
+                     name="category"
+                     prompt="Select New Category"
+                     optionValuePath="content.id"
+                     optionLabelPath="content.name"
+                     selection=category }}
 
-            <button {{action save this}} class="save btn btn--a asset-save">Save</button>
+              <button {{action save this}} class="save btn btn--a asset-save">Save</button>
+            </form>
           </div>
 
-          <div class="faux-table-cell">{{click-select url=url }}</div>
+          <div class="faux-table-cell asset-url">
+            <div class="asset-element">{{click-select url=url }}</div>
+          </div>
           <div class="faux-table-cell asset-delete">{{confirm-button title='delete' action='deleteAsset' param=this}}</div>
         </li>
       {{/each}}

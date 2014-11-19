@@ -92,11 +92,38 @@
 }
 
 .asset-image {
-  width:125px;
+  img {
+    width:140px;
+    max-width:140px;
+  }
+}
+
+.asset-element {
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 4px;
+  border: 1px solid #e6e6e6;
+}
+
+.asset-url {
+  min-width: 200px;
+
+  .asset-element {
+    padding:31px 20px;
+  }
 }
 
 .asset-category {
   width:360px;
+
+  .selected-category {
+    margin-bottom:10px;
+    font-weight:bold;
+
+    i {
+      color:#6cc644;
+    }
+  }
 
   label {
     display:block;
