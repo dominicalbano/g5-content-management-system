@@ -13,24 +13,31 @@ App.S3UploadComponent = Ember.FileField.extend
     label = $(".assets-uploader label")
     loader = $(".assets-loader")
     success = $(".assets-success")
+    countWrapper = $(".asset-count")
+    count = 0
 
     uploader.on "didUpload", (response) =>
+      count = count + 1
       uploadedUrl = $(response).find("Location")[0].textContent
       uploadedUrl = unescape(uploadedUrl)
       this.sendAction('action', uploadedUrl)
+
+      countWrapper.text(e.percent)
+
+      if count == files.length
+        loader.hide()
+        success.show(0).delay(2000).fadeOut("fast")
+        label.delay(2200).fadeIn("fast")
+
       return
 
     unless Ember.isEmpty(files)
+      $(".asset-total").text(files.length)
       loader.show()
       label.hide()
 
       for file, index in files
         uploader.upload file
-
-        if files.length == index + 1
-          loader.delay(2000).hide(0)
-          success.delay(2000).show(0).delay(2000).hide(0)
-          label.delay(4100).fadeIn("fast")
 
     return
   ).observes("files")

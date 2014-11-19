@@ -72,7 +72,7 @@
       display:none;
 
       i {
-        color:#ddd;
+        color:#6dbde2;
       }
     }
 
@@ -91,6 +91,10 @@
   }
 }
 
+.asset-image {
+  width:150px;
+}
+
 .asset-category {
   width:360px;
 
@@ -107,9 +111,10 @@
     padding: 7px 20px;
     border: none;
     height: 38px;
-    width: 165px;
+    width: 225px;
     background: #fff;
     border: 1px solid #e6e6e6;
+    color:#555;
   }
 
   .asset-save {
