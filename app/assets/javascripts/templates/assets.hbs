@@ -46,7 +46,9 @@
                      optionLabelPath="content.name"
                      selection=category }}
 
-              <button {{action save this}} class="save btn btn--a asset-save">Save</button>
+              {{#view "asset-save"}}
+                <button {{action save this}} class="save btn btn--a asset-save">Save</button>
+              {{/view}}
             </form>
           </div>
 

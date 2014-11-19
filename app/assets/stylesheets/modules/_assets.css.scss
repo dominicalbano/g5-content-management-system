@@ -111,6 +111,10 @@
 .asset-category {
   width:360px;
 
+  .ember-view {
+    display:inline-block;
+  }
+
   .selected-category {
     margin-bottom:10px;
     font-weight:bold;
@@ -142,9 +146,11 @@
   .asset-save {
     background: #6dbde2;
     display: inline-block;
-    padding: 7px 20px;
+    padding: 7px;
+    text-align:center;
     margin-left:4px;
     text-transform: none;
+    width:75px;
   }
 
   .asset-save:hover {
