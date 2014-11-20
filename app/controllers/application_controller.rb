@@ -12,4 +12,8 @@ class ApplicationController < ActionController::Base
   def client_name
     @client_name ||= client.name if client
   end
+
+  def is_api_request?
+    !G5AuthenticatableApi::TokenValidator.new(params,headers).access_token.nil?
+  end
 end

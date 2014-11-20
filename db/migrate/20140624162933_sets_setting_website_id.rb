@@ -1,7 +1,7 @@
 class SetsSettingWebsiteId < ActiveRecord::Migration
   def up
     Setting.for_no_website.each do |setting|
-      setting.website = SettingWebsiteFinder.new(setting).find
+      setting.website = WebsiteFinder::Setting.new(setting).find
       setting.save
     end
   end

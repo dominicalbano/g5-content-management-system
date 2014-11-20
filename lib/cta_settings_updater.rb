@@ -1,7 +1,7 @@
 class CtaSettingsUpdater
   def update
     cta_link_settings.each do |setting|
-      website = SettingWebsiteFinder.new(setting).find
+      website = WebsiteFinder::Setting.new(setting).find
       next if skip_update?(setting, website)
 
       setting.update(value: build_url(setting, website))

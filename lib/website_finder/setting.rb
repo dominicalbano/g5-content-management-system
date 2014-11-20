@@ -1,4 +1,4 @@
-class SettingWebsiteFinder
+class WebsiteFinder::Setting < WebsiteFinder::Base
   def initialize(setting)
     @setting = setting
     @owner = @setting.owner
@@ -9,18 +9,12 @@ class SettingWebsiteFinder
     loop do
       @website = website_for(@owner)
       return @website if @website.present?
-      setting = find_layout_setting_by_value(@owner.id)
+      setting = layout_setting_for(@owner.id)
       return unless setting
 
       @owner = setting.owner
       @website = website_for(@owner)
       return @website if @website.present?
-    end
-  end
-
-  def find_layout_setting_by_value(owner_id)
-    Setting.where("value = ?", owner_id.to_yaml).find do |setting|
-      setting.name =~ /(?=(column|row))(?=.*widget_id).*/
     end
   end
 

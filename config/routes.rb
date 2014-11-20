@@ -79,6 +79,7 @@ G5CMS::Application.routes.draw do
   # WidgetEntry is published for new form widget
   resources :widget_entries, only: [:index, :show]
   resources :tags, only: [:show]
+  resources :garden_updates, only: :update
 
   post "update" => "webhooks#update"
 
