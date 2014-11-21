@@ -16,3 +16,4 @@ module AfterUpdateSetSettingLocationsNavigation
     Website.all.map(&:update_locations_navigation_setting)
   end
 end
+
