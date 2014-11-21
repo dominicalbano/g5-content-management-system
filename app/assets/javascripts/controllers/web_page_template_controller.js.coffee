@@ -39,4 +39,6 @@ App.WebPageTemplateController = Ember.ObjectController.extend
       model.set('inTrash', true)
       model.save()
       false
+    editSEO: (model) ->
+      alert "Coming soon!"
 
