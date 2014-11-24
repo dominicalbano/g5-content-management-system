@@ -2,6 +2,8 @@ require "spec_helper"
 
 describe Api::V1::WidgetsController, :auth_controller, vcr: VCR_OPTIONS do
   let(:widget) { Fabricate(:widget) }
+  let!(:garden_widget) { Fabricate(:garden_widget) }
+
   controller(Api::V1::WidgetsController) do
   end
   describe "#show" do
@@ -60,9 +62,9 @@ describe Api::V1::WidgetsController, :auth_controller, vcr: VCR_OPTIONS do
 
     context "allowed attributes" do
       it "garden_widget_id" do
-        put :update, id: widget.id, widget: { garden_widget_id: 333 }
+        put :update, id: widget.id, widget: { garden_widget_id: garden_widget.id }
         expect(response.status).to eq 200
-        expect(widget.reload.garden_widget_id).to eq 333
+        expect(widget.reload.garden_widget_id).to eq garden_widget.id
       end
     end
   end
