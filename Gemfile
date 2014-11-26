@@ -31,7 +31,7 @@ gem "pg"
 gem "font-awesome-rails"
 
 # Temporary fix
-gem "sprockets", "=2.11.0"
+gem "sprockets"
 gem "sass-rails"
 gem "coffee-rails"
 gem "uglifier"
