@@ -12,3 +12,7 @@ App.WebPageTemplate = DS.Model.extend
   inTrash: DS.attr("boolean")
   parent: DS.belongsTo("WebPageTemplate", {inverse:null})
   shouldUpdateNavigationSettings: DS.attr("boolean"), defaultValue: -> true
+  parentChanged: ( ->
+    this.set('shouldUpdateNavigationSettings', true)
+  ).observes('parent')
+
