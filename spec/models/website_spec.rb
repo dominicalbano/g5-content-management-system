@@ -110,14 +110,6 @@ describe Website, vcr: VCR_OPTIONS do
     end
   end
 
-  describe "#javascripts" do
-    let(:website) { Fabricate(:website) }
-
-    it "has a collection of javascripts" do
-      website.javascripts.should be_kind_of(Array)
-    end
-  end
-
   describe "#deploy" do
     let(:website) { Fabricate(:website) }
 

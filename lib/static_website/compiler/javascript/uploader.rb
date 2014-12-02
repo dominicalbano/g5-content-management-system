@@ -7,8 +7,8 @@ module StaticWebsite
         attr_reader :from_paths, :s3, :bucket_name, :bucket_url, :uploaded_paths
 
         def initialize(from_paths, location_name)
-          LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{from_paths.join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
-          @from_paths = from_paths
+          @from_paths = Array(from_paths)
+          LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{Array(from_paths).join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
           @location_name = location_name
           @s3 = AWS::S3.new(
             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
@@ -28,6 +28,10 @@ module StaticWebsite
           from_paths.each do |from_path|
             #write with a metadata flag of status: current
             path = Pathname.new(from_path)
+            LOGGERS.each{|logger| logger.info("writing to bucket")}
+            LOGGERS.each{|logger| logger.info("#{from_path.to_s}")}
+            LOGGERS.each{|logger| logger.info("#{path.to_s}")}
+            LOGGERS.each{|logger| logger.info("#{write_options.to_s}")}
             result = s3_bucket_object(from_path).write(path, write_options)
             LOGGERS.each{|logger| logger.info(result.inspect)}
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)

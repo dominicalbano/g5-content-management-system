@@ -8,6 +8,8 @@ module StaticWebsite
         attr_reader :file_paths, :compile_path, :compressor
 
         def initialize(file_paths, compile_path)
+          LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascript::Compressor with file_paths:#{file_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path}")} if file_paths
+
           @file_paths = file_paths
           @compile_path = compile_path
           @compressor ||= Uglifier.new(comments: :none)
@@ -24,20 +26,26 @@ module StaticWebsite
         end
 
         def compress
-          open(compile_path, "w") do |file|
+          LOGGERS.each{|logger| logger.info("compile_path:\n#{compile_path}")}
+          compressed = open(compile_path, "w") do |file|
+            LOGGERS.each{|logger| logger.info("calling compressor.compile(concatenate)")}
             file.write compressor.compile(concatenate)
           end if compile_path
+          compile_path
         end
 
         def concatenate
-          file_paths.map do |file_path|
+          result = file_paths.map do |file_path|
+            LOGGERS.each{|logger| logger.info("getting file_path:\n#{file_path.to_s}\n for concatenation")}
             if File.exists?(file_path)
               js = open(file_path).read
               File.delete(file_path)
               js
             end
           end.join("\n")
+          result
         end
+
       end
     end
   end
