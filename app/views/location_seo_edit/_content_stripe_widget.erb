@@ -20,8 +20,12 @@
   <% if content_stripe_widget.widgets.count > 0 %>
       <ul>
         <% children.each do |child_id| %>
-            <% child = Widget.find(child_id) %>
-            <%= render partial: "widget", object: child %>
+            <% child = Widget.find_by_id(child_id) %>
+            <% if child %>
+                <%= render partial: "widget", object: child %>
+            <% else %>
+            <li class="error">WIDGET NOT FOUND! Check configuration.</li>
+            <% end %>
         <% end %>
       </ul>
   <% end %>
