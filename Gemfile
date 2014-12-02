@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 ruby "2.1.5"
 
-gem "rails", "4.1.7"
+gem "rails", "4.2.0.rc1"
 gem "active_model_serializers", "~> 0.8.2"
 
 # Downgraded jquery-rails for Ember Views
@@ -14,7 +14,7 @@ gem "bourbon"
 gem "heroku_resque_autoscaler"
 gem "microformats2"
 gem "github_heroku_deployer"
-gem "g5_sibling_deployer_engine"
+#gem "g5_sibling_deployer_engine"
 gem "liquid"
 gem "ckeditor"
 gem "non-stupid-digest-assets"
