@@ -8,6 +8,7 @@ module StaticWebsite
 
       def compile
         states.each do |state|
+          LOGGERS.each {|logger| logger.info("compiling state #{state}")}
           compile_area_page(state, params(state))
           compile_cities_for(state)
         end
