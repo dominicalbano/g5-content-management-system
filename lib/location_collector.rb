@@ -1,5 +1,6 @@
 class LocationCollector
   def initialize(params)
+    LOGGERS.each {|logger| logger.info("initializing LocationCollector with: #{params}")}
     @params = params
   end
 
