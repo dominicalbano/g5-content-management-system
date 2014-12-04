@@ -5,6 +5,7 @@ class LocationCollector
   end
 
   def collect
+    LOGGERS.each {|logger| logger.info("foo")}
     LOGGERS.each {|logger| logger.info("params passed to LocationCollector: #{params}")}
     LOGGERS.each {|logger| logger.info("trying locations_by_neighborhood if params[:neighborhood]")}
     return locations_by_neighborhood if @params[:neighborhood]
