@@ -31,6 +31,7 @@ module StaticWebsite
       end
 
       def compile_area_page(path, params)
+        LOGGERS.each {|logger| logger.info("calling AreaPage.new().compile")}
         AreaPage.new(@base_path, path, params).compile
       end
 
