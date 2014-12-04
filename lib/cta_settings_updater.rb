@@ -23,7 +23,7 @@ class CtaSettingsUpdater
   end
 
   def build_url(setting, website)
-    "/#{vertical}/#{website.owner.state_slug}/#{website.owner.city_slug}/" \
+    "#{vertical}/#{website.owner.state_slug}/#{website.owner.city_slug}/" \
     "#{setting.value.split("/").last}"
   end
 end

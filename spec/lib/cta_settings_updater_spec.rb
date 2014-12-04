@@ -62,7 +62,7 @@ describe CtaSettingsUpdater do
 
       it "updates the setting value" do
         subject
-        expect(link_setting.reload.value).to eq("/fast-food/oregon/bend/baz")
+        expect(link_setting.reload.value).to eq("fast-food/oregon/bend/baz")
       end
     end
   end
