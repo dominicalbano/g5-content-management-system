@@ -19,7 +19,7 @@ module StaticWebsite
       end
 
       def render_to_file
-        LOGGERS.each {|logger| logger.info("opening compile_path")}
+        LOGGERS.each {|logger| logger.info("opening compile_path #{compile_path}")}
         open(compile_path, "wb") do |file|
           LOGGERS.each {|logger| logger.info("about to try to render to string from #{view_path} with options #{view_options}")}
           LOGGERS.each {|logger| logger.info("shoveling #{ApplicationController.new.render_to_string(view_path, view_options)} into file")}
