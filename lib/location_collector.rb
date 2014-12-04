@@ -4,6 +4,7 @@ class LocationCollector
   end
 
   def collect
+    LOGGERS.each {|logger| logger.info("params passed to LocationCollector: #{params}")}
     LOGGERS.each {|logger| logger.info("trying locations_by_neighborhood if params[:neighborhood]")}
     return locations_by_neighborhood if @params[:neighborhood]
     LOGGERS.each {|logger| logger.info("trying locations_by_city if params[:city]")}
@@ -25,6 +26,7 @@ private
   end
 
   def locations_by_state
+    LOGGERS.each {|logger| logger.info("getting Location.live.all.select by state: #{@params[:state]}")}
     Location.live.all.select { |location| location.state_slug == @params[:state] }
   end
 end
