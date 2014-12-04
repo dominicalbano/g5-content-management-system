@@ -12,6 +12,7 @@ module StaticWebsite
         compile_directory.compile
         LOGGERS.each {|logger| logger.info("calling render_to_file")}
         render_to_file
+        LOGGERS.each {|logger| logger.info("done render_to_file")}
       end
 
       def compile_directory
@@ -43,7 +44,7 @@ module StaticWebsite
         LOGGERS.each {|logger| logger.info("going to call LocationCollector.new with #{@params} and then .collect")}
         LOGGERS.each {|logger| logger.info("setting web_template to: #{Location.corporate.first.website.website_template.to_s}")}
         LOGGERS.each {|logger| logger.info("setting area to: #{area.to_s}")}
-        { layout: "web_template",
+        options = { layout: "web_template",
           locals: {
             locations: LocationCollector.new(@params).collect,
             web_template: Location.corporate.first.website.website_template,
@@ -52,6 +53,8 @@ module StaticWebsite
             mode: "deployed"
           }
         }
+        LOGGERS.each {|logger| logger.info("the options are: #{options}")}
+        options
       end
 
       def area

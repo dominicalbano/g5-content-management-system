@@ -23,6 +23,7 @@ private
   end
 
   def locations_by_city
+    LOGGERS.each {|logger| logger.info("trying to get locations by city from locations_by_state")}
     locations_by_state.select { |location| location.city_slug == @params[:city] }
   end
 
