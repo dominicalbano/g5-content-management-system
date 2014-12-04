@@ -4,8 +4,11 @@ class LocationCollector
   end
 
   def collect
+    LOGGERS.each {|logger| logger.info("trying locations_by_neighborhood if params[:neighborhood]")}
     return locations_by_neighborhood if @params[:neighborhood]
+    LOGGERS.each {|logger| logger.info("trying locations_by_city if params[:city]")}
     return locations_by_city if @params[:city]
+    LOGGERS.each {|logger| logger.info("last option of locations_by_state")}
     locations_by_state
   end
 

@@ -41,6 +41,8 @@ module StaticWebsite
       end
 
       def view_options
+        LOGGERS.each {|logger| logger.info("creating view_options hash")}
+        LOGGERS.each {|logger| logger.info("going to call LocationCollector.new with #{@params} and then .collect")}
         { layout: "web_template",
           locals: {
             locations: LocationCollector.new(@params).collect,
