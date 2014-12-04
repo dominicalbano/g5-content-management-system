@@ -29,6 +29,6 @@ private
   def locations_by_state
     LOGGERS.each {|logger| logger.info("getting Location.live.all.select by state: #{@params.to_s}")}
     locations = Location.live.all.select { |location| location.state_slug == @params[:state] }
-    LOGGERS.each {|logger| logger.info("got locations: #{locations.to_s}")}
+    LOGGERS.each {|logger| logger.info("got locations: #{locations.map(&:name)}")}
   end
 end

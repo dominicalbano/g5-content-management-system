@@ -46,7 +46,7 @@ module StaticWebsite
         { layout: "web_template",
           locals: {
             locations: LocationCollector.new(@params).collect,
-            web_template: Location.corporate.website.website_template,
+            web_template: Location.corporate.first.website.website_template,
             area: area,
             params: @params,
             mode: "deployed"
