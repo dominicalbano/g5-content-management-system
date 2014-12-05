@@ -10,6 +10,7 @@ module StaticWebsite
         states.each do |state|
           LOGGERS.each {|logger| logger.info("compiling state #{state}")}
           compile_area_page(state, params(state))
+          LOGGERS.each {|logger| logger.info("Done compile_area_page, calling compile_cities_for(#{state.to_s})")}
           compile_cities_for(state)
         end
       end
@@ -18,7 +19,9 @@ module StaticWebsite
 
       def compile_cities_for(state)
         cities_for(state).each do |city|
+          LOGGERS.each {|logger| logger.info("compiling city #{city.to_s}")}
           compile_area_page("#{state}/#{city}", params(state, city))
+          LOGGERS.each {|logger| logger.info("compiling neighborhoods for #{city.to_s} and #{state.to_s}")}
           compile_neighborhoods_for(city, state)
         end
       end
