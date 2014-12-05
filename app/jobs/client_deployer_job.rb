@@ -6,7 +6,11 @@ class ClientDeployerJob
     new(user_email).perform
   end
 
+  def initialize(user_email)
+    @user_email = user_email
+  end
+
   def perform
-    ClientDeployer.compile_and_deploy(Client.first, user_email)
+    ClientDeployer.compile_and_deploy(Client.first, @user_email)
   end
 end
