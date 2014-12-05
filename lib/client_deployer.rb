@@ -32,6 +32,8 @@ module ClientDeployer
   end
 
   def self.compile_location_websites
+    location_websites = Client.locations.map(&:website)
+    LOGGERS.each {|logger| logger.info("compile_location_websites")}
     LOGGERS.each {|logger| logger.info("calling compile on WebsiteCompiler for each of #{location_websites.to_s}")}
     location_websites.each { |website| WebsiteCompiler.new(website).compile }
   end
@@ -40,3 +42,4 @@ module ClientDeployer
     StaticWebsite::Compiler::CompileDirectory.new(compile_path, false).clean_up
   end
 end
+
