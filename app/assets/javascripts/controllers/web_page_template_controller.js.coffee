@@ -28,4 +28,6 @@ App.WebPageTemplateController = Ember.ObjectController.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+    save: (model) ->
+      model.save()
 

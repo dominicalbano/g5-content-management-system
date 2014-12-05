@@ -49,10 +49,10 @@ describe Client do
       end
 
       context "Assisted Living" do
-        let(:vertical) { "Assisted-Living" }
+        let(:vertical) { "senior-Living" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_yaml("website_defaults_assisted_living.yml")
+          expect(subject).to eq load_yaml("website_defaults_senior_living.yml")
         end
       end
 

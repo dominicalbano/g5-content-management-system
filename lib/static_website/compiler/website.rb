@@ -23,12 +23,13 @@ module StaticWebsite
         compile_directory.compile
         clean_up
         LOGGERS.each{|logger| logger.info("Starting javascripts.compile for website")}
-        javascripts.compile
         LOGGERS.each{|logger| logger.info("finished javascripts.compile")}
         LOGGERS.each{|logger| logger.info("Starting stylesheets.compile for website")}
         stylesheets.compile
         LOGGERS.each{|logger| logger.info("finished stylesheets.compile")}
+        LOGGERS.each{|logger| logger.info("########## Beginning WEB_HOME compile")}
         web_home_template.compile
+        LOGGERS.each{|logger| logger.info("########## Finished WEB_HOME compile")}
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
         htaccess.compile

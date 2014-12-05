@@ -1,14 +1,14 @@
 require "spec_helper"
 
 describe StaticWebsite::Compiler::Javascripts do
-  let(:javascripts_klass) { StaticWebsite::Compiler::Javascripts }
-  let(:javascript_klass) { StaticWebsite::Compiler::Javascript }
+  let(:javascripts_class) { StaticWebsite::Compiler::Javascripts }
+  let(:javascript_class) { StaticWebsite::Compiler::Javascript }
   let(:javascript_path) { "http://codeorigin.jquery.com/jquery-2.0.3.min.js" }
   let(:compile_directory) { File.join(Rails.root, "tmp", "spec") }
 
   describe "#compile" do
     context "when javascripts is blank" do
-      let(:subject) { javascripts_klass.new(nil, compile_directory) }
+      let(:subject) { javascripts_class.new(nil, compile_directory, "some-page") }
 
       it "does nothing" do
         expect(subject.compile).to be_nil
@@ -18,11 +18,11 @@ describe StaticWebsite::Compiler::Javascripts do
     context "when javascripts are present" do
       context "and previewing" do
         let(:preview) { true }
-        let(:subject) { javascripts_klass.new([javascript_path],
-          compile_directory, "", preview) }
+        let(:subject) { javascripts_class.new([javascript_path],
+          compile_directory, "some-page", "", preview) }
 
         before do
-          javascript_klass.any_instance.stub(:compile)
+          javascript_class.any_instance.stub(:compile)
         end
 
         it "compiles each one" do
@@ -43,11 +43,15 @@ describe StaticWebsite::Compiler::Javascripts do
 
       context "and deploying" do
         let(:preview) { false }
-        let(:subject) { javascripts_klass.new([javascript_path],
-          compile_directory, "", preview) }
+        let(:subject) { javascripts_class.new(javascript_path,
+                                              compile_directory, 
+                                              "some-page",
+                                              "",
+                                              preview) }
 
         before do
-          javascript_klass.any_instance.stub(:compile)
+          javascript_class.any_instance.stub(:compile)
+          StaticWebsite::Compiler::Javascript::Uploader.any_instance.stub(:compile) 
         end
 
         it "compiles each one" do
@@ -70,7 +74,7 @@ describe StaticWebsite::Compiler::Javascripts do
 
   describe "#compile_javascript" do
     context "when javascripts is blank" do
-      let(:subject) { javascripts_klass.new(nil, compile_directory) }
+      let(:subject) { javascripts_class.new(nil, compile_directory, "some-page") }
 
       it "does nothing" do
         expect(subject.compile_javascript(nil)).to be_nil
@@ -78,21 +82,21 @@ describe StaticWebsite::Compiler::Javascripts do
     end
 
     context "when javascript is present" do
-      let(:subject) { javascripts_klass.new(nil, compile_directory) }
+      let(:subject) { javascripts_class.new(nil, compile_directory, "some-page") }
 
       before do
-        javascript_klass.any_instance.stub(:compile)
+        javascript_class.any_instance.stub(:compile)
       end
 
       it "compile javascript" do
-        javascript_klass.any_instance.should_receive(:compile).once
+        javascript_class.any_instance.should_receive(:compile).once
         subject.compile_javascript(javascript_path)
       end
     end
   end
 
   describe "#location_name" do
-    let(:subject) { javascripts_klass.new(nil, compile_directory, "North Shore Oahu") }
+    let(:subject) { javascripts_class.new(nil, compile_directory, "some-page", "North Shore Oahu") }
 
     it "sets on initialize" do
       expect(subject.location_name).to eq "North Shore Oahu"
@@ -100,10 +104,10 @@ describe StaticWebsite::Compiler::Javascripts do
   end
 
   describe "#compressed_path" do
-    let(:subject) { javascripts_klass.new(nil, compile_directory) }
+    let(:subject) { javascripts_class.new(nil, compile_directory, "some-page") }
 
-    it "matches /javascripts/application.min.js" do
-      expect(subject.compressed_path).to match "/javascripts/application.min.js"
+    it "matches /javascripts/some-page.min.js" do
+      expect(subject.compressed_path).to match "/javascripts/some-page.min.js"
     end
   end
 end

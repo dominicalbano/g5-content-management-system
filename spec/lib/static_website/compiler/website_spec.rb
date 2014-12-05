@@ -17,11 +17,6 @@ describe StaticWebsite::Compiler::Website do
       subject.compile
     end
 
-    it "compiles javascripts" do
-      subject.javascripts.should_receive(:compile).once
-      subject.compile
-    end
-
     it "compiles stylesheets" do
       subject.stylesheets.should_receive(:compile).once
       subject.compile
@@ -43,14 +38,6 @@ describe StaticWebsite::Compiler::Website do
 
     it "is a compile directory object" do
       expect(subject.compile_directory).to be_a StaticWebsite::Compiler::CompileDirectory
-    end
-  end
-
-  describe "#javascripts" do
-    let(:subject) { StaticWebsite::Compiler::Website.new(website) }
-
-    it "is a javascripts object" do
-      expect(subject.javascripts).to be_a StaticWebsite::Compiler::Javascripts
     end
   end
 

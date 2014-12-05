@@ -6,8 +6,12 @@ describe "Integration assets", auth_request: true, integration: true, js: true, 
     visit "/#{@website.slug}/assets"
   end
 
-  it "shows the file select input" do
-    page.should have_css "input[type=file]"
+  it "hides the file select input" do
+    expect(page).to_not have_css "input[type=file]"
+  end
+
+  it "shows the file select label" do
+    expect(page).to have_content "UPLOAD NEW FILES"
   end
 
   context "has assets" do

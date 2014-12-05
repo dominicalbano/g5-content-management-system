@@ -1,6 +1,6 @@
 class Api::V1::AssetsController < Api::V1::ApplicationController
   def index
-    render json: Asset.all
+    render json: Asset.order(created_at: :desc).all
   end
 
   def show
@@ -17,7 +17,7 @@ class Api::V1::AssetsController < Api::V1::ApplicationController
   end
 
   def update
-    @asset = asset.find(params[:id])
+    @asset = Asset.find(params[:id])
     if @asset.update_attributes(asset_params)
       render json: @asset, root: :asset
     else
@@ -47,7 +47,7 @@ class Api::V1::AssetsController < Api::V1::ApplicationController
   private
 
   def asset_params
-    params.require(:asset).permit(:name, :url, :website_id)
+    params.require(:asset).permit(:name, :url, :website_id, :category_id)
   end
 end
 

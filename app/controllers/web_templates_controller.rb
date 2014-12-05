@@ -1,4 +1,6 @@
 class WebTemplatesController < ApplicationController
+  skip_before_filter :authenticate_user!
+
   def show
     @location = Location.where(
       "urn = ?", params[:urn]).first

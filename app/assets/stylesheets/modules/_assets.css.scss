@@ -1,0 +1,163 @@
+.assets {
+  padding:40px;
+  color:#555;
+
+  .faux-table-head {
+    border-bottom:none;
+    text-transform:none;
+  }
+
+  .page-title {
+    margin-bottom:0;
+    border-bottom:none;
+
+    h2 {
+      text-transform: none;
+      font-size: 30px;
+      margin-left: 15px;
+      font-weight:lighter;
+    }
+
+    i {
+      color:#000;
+    }
+  }
+}
+
+.assets-uploader {
+  background:#f6f6f6;
+  border-radius:4px;
+  border:7px solid #eee;
+  height:64px;
+  padding:50px 0;
+  margin:20px 0 30px;
+  position:relative;
+  text-align:center;
+
+  input,
+  .assets-loader,
+  .assets-success {
+    display:none;
+  }
+
+  label {
+    div {
+      display:inline-block;
+      color: #fff;
+      font-size:120%;
+      border:none;
+      background:$c-assets-green;
+      border-bottom:3px solid $c-assets-green-dark;
+      height:60px;
+      line-height:60px;
+    }
+
+    .upload-left {
+      border-top-left-radius:3px;
+      border-bottom-left-radius:3px;
+      border-right:1px solid $c-assets-green-dark;
+      width:80px;
+      margin-right:-4px;
+
+      i {
+        position:relative;
+        top:5px;
+      }
+    }
+
+    .upload-right {
+      border-bottom-right-radius:3px;
+      border-top-right-radius:3px;
+      border-left:1px solid #85D762;
+      width:200px;
+    }
+  }
+
+  label:hover {
+    .upload-left {
+      background: #64B83E;
+    }
+  }
+
+  .assets-loader i {
+    color:#6dbde2;
+  }
+
+  .assets-success i {
+    color:$c-assets-green;
+  }
+}
+
+
+.asset-image img {
+  width:140px;
+  max-width:140px;
+}
+
+.asset-element {
+  padding: 20px;
+  background: #f8f8f8;
+  border-radius: 4px;
+}
+
+.asset-url {
+  min-width: 200px;
+
+  .asset-element {
+    padding:31px 20px;
+  }
+}
+
+.asset-category {
+  width:360px;
+
+  .ember-view {
+    display:inline-block;
+  }
+
+  .selected-category {
+    margin-bottom:10px;
+    font-weight:bold;
+
+    i {
+      color:$c-assets-green;
+    }
+  }
+
+  label {
+    display:block;
+    margin-bottom:7px;
+    font-size: 0.9em;
+    font-weight: bold;
+    text-transform: none;
+  }
+
+  select {
+    display: inline-block;
+    padding: 7px 20px;
+    border: none;
+    height: 38px;
+    width: 225px;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    color:#555;
+  }
+
+  .asset-save {
+    background: #6dbde2;
+    display: inline-block;
+    padding: 7px;
+    text-align:center;
+    margin-left:4px;
+    text-transform: none;
+    width:75px;
+  }
+
+  .asset-save:hover {
+    background: #71C5EC;
+  }
+}
+
+.asset-delete {
+  width:160px;
+}

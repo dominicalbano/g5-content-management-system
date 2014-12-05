@@ -34,8 +34,11 @@ module ClientDeployer
                              @redirect_rules.flatten,
                              "\tRewriteCond %{REQUEST_FILENAME} !-d",
                              "\tRewriteCond %{REQUEST_FILENAME} !-f",
-                             "</IfModule>"]
-
+                             "</IfModule>",
+                             "SetEnvIfNoCase Referer semalt.com spammer=yes",
+                             "Order allow,deny",
+                             "Allow from all",
+                             "Deny from env=spammer"]
         htaccess_contents.flatten.join("\n")
       end
 

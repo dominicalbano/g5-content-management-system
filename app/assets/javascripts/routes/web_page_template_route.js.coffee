@@ -3,8 +3,6 @@ App.WebPageTemplateRoute = Ember.Route.extend
     @store.find("webPageTemplate").then (result) ->
       result.findBy("slug", params.web_page_template_slug)
 
-
-
   afterModel: (webPageTemplate, transition) ->
     if webPageTemplate.get("isWebHomeTemplate")?
       @transitionTo "webHomeTemplate", webPageTemplate

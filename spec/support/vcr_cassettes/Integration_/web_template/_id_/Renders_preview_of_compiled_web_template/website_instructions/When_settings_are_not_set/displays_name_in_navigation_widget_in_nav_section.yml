@@ -23,11 +23,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:15 GMT
+      - Mon, 01 Dec 2014 19:30:37 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Mon, 01 Dec 2014 17:47:19 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -96,7 +96,7 @@ http_interactions:
           width: 25%;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:29:17 GMT
+  recorded_at: Mon, 01 Dec 2014 19:30:37 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -120,11 +120,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:16 GMT
+      - Mon, 01 Dec 2014 19:30:37 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Mon, 01 Dec 2014 17:47:19 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -167,7 +167,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:29:17 GMT
+  recorded_at: Mon, 01 Dec 2014 19:30:37 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
@@ -191,15 +191,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:16 GMT
+      - Mon, 01 Dec 2014 19:30:38 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Mon, 01 Dec 2014 17:47:19 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '589'
+      - '618'
       Via:
       - 1.1 vegur
     body:
@@ -214,20 +214,21 @@ http_interactions:
         }
 
         .subnav {
-          -webkit-transition: max-height 0.3s ease;
-          -moz-transition: max-height 0.3s ease;
-          transition: max-height 0.3s ease;
           max-height: 0;
           overflow: hidden;
         }
 
         @media (max-width: 979px) {
+          .corporate-navigation.show-desktop {
+            display: none;
+          }
           .show-subnav {
             max-height: none;
           }
         }
 
         @media (min-width: 980px) {
+          header[role=banner] .corporate-navigation,
           header[role=banner] .navigation {
             overflow-y: visible;
           }
@@ -241,9 +242,12 @@ http_interactions:
           .show-subnav {
             max-height: 1000px;
           }
+          .corporate-home {
+            display: none;
+          }
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:29:17 GMT
+  recorded_at: Mon, 01 Dec 2014 19:30:38 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -267,11 +271,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:17 GMT
+      - Mon, 01 Dec 2014 19:30:38 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Mon, 01 Dec 2014 17:47:19 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -292,7 +296,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:29:18 GMT
+  recorded_at: Mon, 01 Dec 2014 19:30:38 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -316,11 +320,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:17 GMT
+      - Mon, 01 Dec 2014 19:30:38 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Mon, 01 Dec 2014 17:47:19 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -340,7 +344,7 @@ http_interactions:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
         200px;\n}\n"
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:29:18 GMT
+  recorded_at: Mon, 01 Dec 2014 19:30:39 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/luxe/stylesheets/luxe.scss
@@ -364,15 +368,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:29:17 GMT
+      - Mon, 01 Dec 2014 19:30:39 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 17:32:50 GMT
+      - Mon, 01 Dec 2014 17:47:15 GMT
       Content-Type:
       - text/plain
       Content-Length:
-      - '19471'
+      - '21374'
       Via:
       - 1.1 vegur
     body:
@@ -679,7 +683,7 @@ http_interactions:
             background-color: $primary-dark;
           }
           .widget {
-            margin-bottom: 1em;
+            margin-bottom: 2em;
           }
           @include until($max-medium) {
             .col {
@@ -992,6 +996,8 @@ http_interactions:
         // *************************************
 
         .social-links {
+          background-color: $base-background;
+          padding: $half-whitespace $half-whitespace 0 $half-whitespace;
           a {
             @extend %ir;
             background: url('http://widgets.g5dxm.com/social-links/social-icons-alt.png') 0 0 no-repeat;
@@ -1063,61 +1069,79 @@ http_interactions:
           }
         }
 
+
+        // -------------------------------------
+        //   IUI
+        // -------------------------------------
+
+        .home-multifamily-iui {
+          background-color: rgba($primary-dark, .80);
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 500px;
+          .iui-steps {
+            &:before {
+              background-color: $white;
+            }
+            span {
+              background-color: $white;
+              color: $secondaryColor;
+              &:first-child {
+                background-color: $primaryColor;
+                color: $white;
+              }
+            }
+          }
+          .iui-title {
+            @extend %shout;
+            font-size: em(32);
+          }
+          .btn {
+            background-color: $primaryColor;
+            display: block;
+            font-size: em(21);
+            &:hover {
+              background: lighten($primaryColor, 10%);
+            }
+          }
+        }
+
+
         // *************************************
         //
-        //   Map and Directions Widgets
+        //   City State Zip Search
         //
         // *************************************
 
-        .directions {
-          @extend %clearfix;
-          position: relative;
-          .canvas,
-          .text {
+        .city-state-zip-search {
+          .zip-search-heading {
+            @extend %shout;
+          }
+          .zip-search-top {
+            @include clearfix;
+            background-color: rgba($primary-dark, .80);
+            padding: 1em $base-whitespace;
+            margin: 0 auto;
+          }
+          .zip-search-button,
+          .zip-search-input {
             width: 100%;
           }
-          .canvas {
-            position: relative;
-            top: 9em;
-          }
-          label,
-          input[type=text],
-          input[type=submit] {
-            position: absolute;
-          }
-          label {
-            left: 0;
-            top: 0;
-          }
-          input[type=text] {
-            padding: .4em;
-            width: 100%;
-            left: 0;
-            top: 2em;
-          }
-          input[type=submit] {
-            display: inline-block;
-            width: 100%;
-            right: 0;
-            top: 5em;
-          }
-          .panel {
-            margin-top: 10em;
-          }
-          @include at-least($min-small) {
-            .canvas {
-              top: 6em;
+          .zip-search-input {
+            padding: 0;
+            input {
+              padding: .5em 20px;
             }
-            input[type=text] {
-              width: 75%;
-            }
-            input[type=submit] {
-              padding: .5em;
-              width: 25%;
-              top: 2em;
-            }
-            .panel {
-              margin-top: 7em;
+          }
+          .zip-search-button {
+            background-color: transparent;
+            padding: 0;
+            button {
+              @extend .btn;
+              margin-top: 10px;
+              &:after {
+                right: 15px;
+              }
             }
           }
         }
@@ -1188,7 +1212,7 @@ http_interactions:
           -o-transition: height 0.35s ease;
           transition: height 0.35s ease; }
         .collapse.in {
-          height: auto; }
+          height: auto !important; }
 
         @media (min-width: $min-medium) {
           .collapsable-btn {
@@ -1238,29 +1262,45 @@ http_interactions:
           font-family: $alt-fontFamily;
           text-align: center;
           a {
-            @extend %inline;
             @extend %inverse;
+            display: block;
             font-size: em(24);
+          }
+          .has-subnav > a:after {
+            content: ">";
+            margin-left: .5em;
+          }
+          .subnav {
+            li {
+              &:first-child {
+                border: none;
+              }
+            }
+            a {
+              font-size: em(18);
+            }
           }
           @include until($max-medium) {
             a {
               border-top: 1px solid $white-transparent;
-              display: block;
               padding: .5em;
             }
           }
           @include at-least($min-medium) {
             display: table;
             width: 100%;
-            ul {
+            .top-nav {
               display: table-row;
-            }
-            li {
-              display: table-cell;
-              vertical-align: middle;
+              > li {
+                display: table-cell;
+                vertical-align: middle;
+                > a {
+                  border-bottom: 10px solid transparent;
+                  display: inline-block;
+                }
+              }
             }
             a {
-              border-bottom: 10px solid transparent;
               padding: 1.25em 0 .75em;
               &:focus,
               &:hover {
@@ -1268,8 +1308,33 @@ http_interactions:
                 border-bottom-color: $white-transparent;
               }
             }
+            .subnav {
+              background-color: rgba($primary-dark, .75);
+              width: 200px;
+              max-height: 0;
+              position: absolute;
+              z-index: 9999;
+              left: 50%;
+              top: 5.8em;
+              margin-left: -100px;
+              li {
+                border-top: 1px solid $white-transparent;
+              }
+              a {
+                padding: .5em 10px;
+                &:hover,
+                &:focus {
+                  background-color: $primaryColor;
+                  color: $white;
+                }
+              }
+            }
+            .show-subnav {
+              max-height: 1000px;
+            }
           }
         }
+
 
         // *************************************
         //
@@ -1324,6 +1389,7 @@ http_interactions:
         .action-calls {
           text-align: center;
           width: 100%;
+          overflow: hidden;
           a {
             @extend .btn-alt;
             font-size: em(36);
@@ -1350,7 +1416,7 @@ http_interactions:
         //
         // *************************************
 
-        .page-home {
+        .web-home-template {
           [role=banner] {
             padding-top: 0;
             .logo-container {
@@ -1375,8 +1441,7 @@ http_interactions:
           }
           #drop-target-main .row:first-of-type {
             @extend %relative;
-            top: 10px;
-            padding: 0;
+            padding: 10px 0 0;
             overflow: hidden;
             @include at-least($min-medium) {
               margin-top: 5.25em;
@@ -1388,6 +1453,7 @@ http_interactions:
               margin: 0;
               padding: 0;
               max-width: none;
+              overflow: hidden;
             }
             figure {
               margin-bottom: 0;
@@ -1439,25 +1505,49 @@ http_interactions:
               }
             }
           }
+          .home-multifamily-iui,
+          .city-state-zip-search,
           .action-calls {
             @include at-least($min-small) {
               position: relative;
+              margin-top: 15em;
               margin-bottom: 5em;
-              li,
-              a {
-                display: inline-block;
-              }
-              li {
-                padding: 0 $half-whitespace 1em;
-              }
             }
             @include at-least($min-medium) {
               margin-top: 20em;
               margin-bottom: 10em;
             }
+            @include at-least($min-large) {
+            }
           }
-        }
-        .page-home {
+          .zip-search-top {
+            float: none;
+          }
+          .action-calls {
+            @include at-least($min-small) {
+              li {
+                float: none;
+                width: 75%;
+                margin: 0 auto;
+                padding: 0 $half-whitespace $half-whitespace;
+                vertical-align: top;
+              }
+              a {
+                display: block;
+              }
+            }
+            @include at-least($min-medium) {
+              li {
+                width: 50%;
+              }
+            }
+            @include at-least($min-large) {
+              li {
+                display: inline-block;
+                width: 33%;
+              }
+            }
+          }
           .row:nth-of-type(2n) {
             .photo,
             .html {
@@ -1522,5 +1612,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:29:19 GMT
-recorded_with: VCR 2.9.2
+  recorded_at: Mon, 01 Dec 2014 19:30:39 GMT
+recorded_with: VCR 2.9.3
