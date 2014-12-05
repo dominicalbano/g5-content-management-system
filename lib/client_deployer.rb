@@ -24,7 +24,7 @@ module ClientDeployer
   end
 
   def self.deployer(client)
-    LOGGERS.each {|logger| logger.info("creating ClientDeployer::Deployer with #{client.to_s}")}
+    LOGGERS.each {|logger| logger.info("creating ClientDeployer::Deployer with #{client.to_s}, user: #{user_email}")}
     ClientDeployer::Deployer.new(client, user_email)
   end
 
