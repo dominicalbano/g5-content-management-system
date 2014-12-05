@@ -24,7 +24,8 @@ module ClientDeployer
   end
 
   def self.deployer(client)
-    ClientDeployer::Deployer.new(client)
+    LOGGERS.each {|logger| logger.info("creating ClientDeployer::Deployer with #{client.to_s}")}
+    ClientDeployer::Deployer.new(client, user_email)
   end
 
   def self.area_pages(compile_path)
