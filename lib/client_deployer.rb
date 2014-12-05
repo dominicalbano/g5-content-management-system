@@ -7,15 +7,15 @@ LOGGERS = [Rails.logger, Resque.logger]
 
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
-    LOGGERS.each {|logger| logger.info("Sending compile to base_compiler")}
+    LOGGERS.each {|logger| logger.debug("Sending compile to base_compiler")}
     base_compiler(client).compile
-    LOGGERS.each {|logger| logger.info("Sending compile to area_pages")}
+    LOGGERS.each {|logger| logger.debug("Sending compile to area_pages")}
     area_pages(client.website.compile_path).compile
-    LOGGERS.each {|logger| logger.info("Calling compile_location_websites")}
+    LOGGERS.each {|logger| logger.debug("Calling compile_location_websites")}
     compile_location_websites
-    LOGGERS.each {|logger| logger.info("Sending client to deployer and sending deploy")}
+    LOGGERS.each {|logger| logger.debug("Sending client to deployer and sending deploy")}
     deployer(client, user_email).deploy
-    LOGGERS.each {|logger| logger.info("Calling cleanup with path: #{client.website.compile_path}")}
+    LOGGERS.each {|logger| logger.debug("Calling cleanup with path: #{client.website.compile_path}")}
     cleanup(client.website.compile_path)
   end
 
@@ -24,7 +24,7 @@ module ClientDeployer
   end
 
   def self.deployer(client, user_email)
-    LOGGERS.each {|logger| logger.info("creating ClientDeployer::Deployer with #{client.to_s}, user: #{user_email}")}
+    LOGGERS.each {|logger| logger.debug("creating ClientDeployer::Deployer with #{client.to_s}, user: #{user_email}")}
     ClientDeployer::Deployer.new(client, user_email)
   end
 
@@ -34,8 +34,8 @@ module ClientDeployer
 
   def self.compile_location_websites
     location_websites = Client.first.locations.map(&:website)
-    LOGGERS.each {|logger| logger.info("compile_location_websites")}
-    LOGGERS.each {|logger| logger.info("calling compile on WebsiteCompiler for each of #{location_websites.to_s}")}
+    LOGGERS.each {|logger| logger.debug("compile_location_websites")}
+    LOGGERS.each {|logger| logger.debug("calling compile on WebsiteCompiler for each of #{location_websites.to_s}")}
     location_websites.each { |website| WebsiteCompiler.new(website).compile }
   end
 

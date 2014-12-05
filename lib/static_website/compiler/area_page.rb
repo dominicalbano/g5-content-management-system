@@ -8,9 +8,9 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each {|logger| logger.info("calling compile_directory.compile with compile_path #{compile_path}")}
+        LOGGERS.each {|logger| logger.debug("calling compile_directory.compile with compile_path #{compile_path}")}
         compile_directory.compile
-        LOGGERS.each {|logger| logger.info("calling render_to_file")}
+        LOGGERS.each {|logger| logger.debug("calling render_to_file")}
         render_to_file
       end
 
@@ -19,11 +19,11 @@ module StaticWebsite
       end
 
       def render_to_file
-        LOGGERS.each {|logger| logger.info("opening compile_path #{compile_path}")}
+        LOGGERS.each {|logger| logger.debug("opening compile_path #{compile_path}")}
         open(compile_path, "wb") do |file|
-          LOGGERS.each {|logger| logger.info("foo")}
-          LOGGERS.each {|logger| logger.info("view path #{view_path}")}
-          LOGGERS.each {|logger| logger.info("about to try to render to string from #{view_path} with options")}
+          LOGGERS.each {|logger| logger.debug("foo")}
+          LOGGERS.each {|logger| logger.debug("view path #{view_path}")}
+          LOGGERS.each {|logger| logger.debug("about to try to render to string from #{view_path} with options")}
           file << ApplicationController.new.render_to_string(view_path, view_options)
         end if compile_path
       end
@@ -39,10 +39,10 @@ module StaticWebsite
       end
 
       def view_options
-        LOGGERS.each {|logger| logger.info("creating view_options hash")}
-        LOGGERS.each {|logger| logger.info("going to call LocationCollector.new with #{@params} and then .collect")}
-        LOGGERS.each {|logger| logger.info("setting web_template to: #{Location.corporate.first.website.website_template.to_s}")}
-        LOGGERS.each {|logger| logger.info("setting area to: #{area.to_s}")}
+        LOGGERS.each {|logger| logger.debug("creating view_options hash")}
+        LOGGERS.each {|logger| logger.debug("going to call LocationCollector.new with #{@params} and then .collect")}
+        LOGGERS.each {|logger| logger.debug("setting web_template to: #{Location.corporate.first.website.website_template.to_s}")}
+        LOGGERS.each {|logger| logger.debug("setting area to: #{area.to_s}")}
         options = { layout: "web_template",
           locals: {
             locations: LocationCollector.new(@params).collect,
@@ -52,7 +52,7 @@ module StaticWebsite
             mode: "deployed"
           }
         }
-        LOGGERS.each {|logger| logger.info("the options are: #{options}")}
+        LOGGERS.each {|logger| logger.debug("the options are: #{options}")}
         options
       end
 
