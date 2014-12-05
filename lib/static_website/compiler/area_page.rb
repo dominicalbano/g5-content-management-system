@@ -12,7 +12,6 @@ module StaticWebsite
         compile_directory.compile
         LOGGERS.each {|logger| logger.info("calling render_to_file")}
         render_to_file
-        LOGGERS.each {|logger| logger.info("done render_to_file")}
       end
 
       def compile_directory

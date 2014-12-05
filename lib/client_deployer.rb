@@ -32,6 +32,7 @@ module ClientDeployer
   end
 
   def self.compile_location_websites
+    LOGGERS.each {|logger| logger.info("calling compile on WebsiteCompiler for each of #{location_websites.to_s}")}
     location_websites.each { |website| WebsiteCompiler.new(website).compile }
   end
 
