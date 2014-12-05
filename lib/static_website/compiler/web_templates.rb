@@ -14,7 +14,6 @@ module StaticWebsite
           LOGGERS.each{|logger| logger.info("\n\n########################################### #{web_template_model.website.name.to_s} #{web_template_model.name.to_s} ######\n")}
           LOGGERS.each{|logger| logger.info("Starting compile_web_template for web_template: #{web_template_model.name.to_s}")}
           compile_web_template(web_template_model)
-          LOGGERS.each{|logger| logger.info("\n\n############################################\n")}
         end if web_template_models
       end
 
