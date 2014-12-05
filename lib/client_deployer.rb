@@ -6,7 +6,7 @@ require "client_deployer/website_compiler"
 LOGGERS = [Rails.logger, Resque.logger]
 
 module ClientDeployer
-  def self.compile_and_deploy(client)
+  def self.compile_and_deploy(client, user_email)
     LOGGERS.each {|logger| logger.info("Sending compile to base_compiler")}
     base_compiler(client).compile
     LOGGERS.each {|logger| logger.info("Sending compile to area_pages")}
@@ -14,7 +14,7 @@ module ClientDeployer
     LOGGERS.each {|logger| logger.info("Calling compile_location_websites")}
     compile_location_websites
     LOGGERS.each {|logger| logger.info("Sending client to deployer and sending deploy")}
-    deployer(client).deploy
+    deployer(client, user_email).deploy
     LOGGERS.each {|logger| logger.info("Calling cleanup with path: #{client.website.compile_path}")}
     cleanup(client.website.compile_path)
   end
@@ -23,7 +23,7 @@ module ClientDeployer
     ClientDeployer::BaseCompiler.new(client)
   end
 
-  def self.deployer(client)
+  def self.deployer(client, user_email)
     LOGGERS.each {|logger| logger.info("creating ClientDeployer::Deployer with #{client.to_s}, user: #{user_email}")}
     ClientDeployer::Deployer.new(client, user_email)
   end
