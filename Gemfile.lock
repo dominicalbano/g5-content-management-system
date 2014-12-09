@@ -150,7 +150,7 @@ GEM
       configlet (~> 2.1)
       modelish (~> 0.3)
       oauth2
-    g5_header (0.0.3)
+    g5_header (0.0.6)
       g5_heroku_app_name_formatter
       rails (~> 4.1.8)
       sass-rails
