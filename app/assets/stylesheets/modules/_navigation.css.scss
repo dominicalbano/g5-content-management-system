@@ -5,20 +5,28 @@
 //
 // *************************************
 
-[role=navigation] {
-  margin-bottom: 1.5em;
+.breadcrumb {
+  background: $c-background-d;
+  margin-bottom: 1.6em;
+  padding-bottom: em(18px);
+  padding-top: em(18px);
+  position: relative;
+
+  a {
+    color: $c-color-b;
+    text-decoration: none;
+  }
 }
 
 .nav {
   @include clearfix;
-  margin-left: -.5em;
-  margin-right: -.5em;
+
   a {
     @include font-size(12px);
     display: block;
     padding: .5em;
     text-decoration: none;
-    text-transform: uppercase;
+    font-size:1.1em;
     &.active {
       color: $c-color-c;
     }
