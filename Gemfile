@@ -31,7 +31,7 @@ gem "ember-source", "~> 1.7.0"
 gem "g5_authenticatable"
 gem "pg"
 gem "font-awesome-rails"
-gem "g5_header", git: "git@github.com:g5search/g5_header.git", branch: "master"
+gem "g5_header"
 
 # Temporary fix
 gem "sprockets"
