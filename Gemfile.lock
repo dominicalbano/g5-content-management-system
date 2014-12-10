@@ -1,3 +1,13 @@
+GIT
+  remote: git@github.com:g5search/g5_header.git
+  revision: 95e62ae61623efb92b333ad435009c5da0bc8d1c
+  branch: master
+  specs:
+    g5_header (0.0.7)
+      g5_heroku_app_name_formatter
+      rails (~> 4.1.8)
+      sass-rails
+
 GEM
   remote: https://rubygems.org/
   remote: https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/
@@ -150,10 +160,6 @@ GEM
       configlet (~> 2.1)
       modelish (~> 0.3)
       oauth2
-    g5_header (0.0.6)
-      g5_heroku_app_name_formatter
-      rails (~> 4.1.8)
-      sass-rails
     g5_heroku_app_name_formatter (0.0.2)
     g5_sibling_deployer_engine (0.6.2)
       github_heroku_deployer (~> 0.3.1)
@@ -433,7 +439,7 @@ DEPENDENCIES
   font-awesome-rails
   foreman
   g5_authenticatable
-  g5_header
+  g5_header!
   g5_sibling_deployer_engine
   github_heroku_deployer
   guard-rspec
