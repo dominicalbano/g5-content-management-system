@@ -50,10 +50,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         expect(find("body.client-user")).to_not be_nil
       end
 
-      it "hides navigation" do
-        page.should have_selector('nav.g5-internal-feature', visible: false)
-      end
-
       context "verticals" do
         it "multifamily" do
           expect(find("div.apartments-client")).to_not be_nil
@@ -83,10 +79,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       it "has a body class" do
         expect(find("body.g5-user")).to_not be_nil
-      end
-
-      it "shows navigation" do
-        page.should have_selector('nav.g5-internal-feature', visible: true)
       end
 
       context "verticals" do

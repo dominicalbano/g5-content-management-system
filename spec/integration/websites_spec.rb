@@ -17,9 +17,9 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "Displays client, location, and page names" do
-      within "header" do
-        page.should have_content @client.name.upcase
-        page.should have_content @location.name.upcase
+      within ".breadcrumb" do
+        page.should have_content @client.name
+        page.should have_content @location.name
       end
 
       within WEB_HOME_SELECTOR do
