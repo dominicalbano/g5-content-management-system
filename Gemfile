@@ -1,7 +1,9 @@
 source "https://rubygems.org"
+source "https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/"
+
 ruby "2.1.5"
 
-gem "rails", "4.1.7"
+gem "rails", "4.1.8"
 gem "active_model_serializers", "~> 0.8.2"
 
 # Downgraded jquery-rails for Ember Views
@@ -29,6 +31,7 @@ gem "ember-source", "~> 1.7.0"
 gem "g5_authenticatable"
 gem "pg"
 gem "font-awesome-rails"
+gem "g5_header"
 
 # Temporary fix
 gem "sprockets"

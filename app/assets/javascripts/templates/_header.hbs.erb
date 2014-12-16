@@ -1,30 +1,23 @@
-<header role="banner" class="banner">
+<div class="breadcrumb">
   <div class="l-container">
+    <nav class="nav" role="navigation">
+      <ul>
+        <li><a href="/">{{controllers.client.name}}</a></li>
 
-    <h1 class="banner-title">
-      <a {{bind-attr href="controllers.client.dsh_url"}}>
-        <img class="banner-logo" src="<%= asset_path("logo.png") %>" alt="G5" /><span class='banner-logo-text'>DXM</span>
-      </a>
+        {{#if controllers.website}}
+          <li>
+            &raquo;
+            {{#link-to "website" controllers.website}}
+              {{controllers.website.name}}
+            {{/link-to}}
+          </li>
+        {{/if}}
 
-      <a href="/">
-        CMS: <strong class="banner-subtitle">{{controllers.client.name}}</strong>
-      </a>
-
-      {{#if controllers.website}}
-        &raquo;
-        {{#link-to "website" controllers.website}}
-          <strong class="banner-subtitle">{{controllers.website.name}}</strong>
-        {{/link-to}}
-      {{/if}}
-
-      {{#if controllers.webPageTemplate}}
-        <span class="page-name">
-          &raquo;
-          <a><strong class="banner-subtitle">{{controllers.webPageTemplate.name}}</strong></a>
-        </span>
-      {{/if}}
-    </h1>
-
-  </div> <!-- end .l-container -->
-</header>
-
+        {{#if controllers.webPageTemplate}}
+            &raquo;
+            <a>{{controllers.webPageTemplate.name}}</a>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
+</div>

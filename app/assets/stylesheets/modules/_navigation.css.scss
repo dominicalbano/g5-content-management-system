@@ -5,35 +5,47 @@
 //
 // *************************************
 
-[role=navigation] {
-  margin-bottom: 1.5em;
+.breadcrumb {
+  background: $c-background-d;
+  margin-bottom: 1.6em;
+  padding-bottom: em(18px);
+  padding-top: em(18px);
+  position: relative;
+
+  a {
+    color: #555;
+    text-decoration: none;
+  }
 }
 
 .nav {
   @include clearfix;
-  margin-left: -.5em;
-  margin-right: -.5em;
+
   a {
     @include font-size(12px);
     display: block;
     padding: .5em;
     text-decoration: none;
-    text-transform: uppercase;
+    font-size:1.1em;
+
     &.active {
-      color: $c-color-c;
+      color: #999;
     }
   }
+
   @include respond-to($l-min-medium) {
     li, a {
       float: left;
       line-height: 1;
     }
+
     li {
       border-left: 1px solid $base-color;
       &:first-child {
         border-left: none;
       }
     }
+
     a {
       padding: 0 .5em;
     }
