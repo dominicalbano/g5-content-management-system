@@ -1,12 +1,13 @@
 class GardenWidgetUpdater
   def update_all
     updated_garden_widgets = []
+    components_data = components_microformats
 
-    components_microformats.map do |component|
+    components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
       update(garden_widget, component)
       updated_garden_widgets << garden_widget
-    end if components_microformats
+    end if components_data
 
     removed_garden_widgets = GardenWidget.all - updated_garden_widgets
     removed_garden_widgets.each do |removed_garden_widget|
