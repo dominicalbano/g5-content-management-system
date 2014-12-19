@@ -13,6 +13,7 @@ class GardenWidget < ActiveRecord::Base
   validates :widget_id, presence: true
   validates :slug, presence: true
   validates :url, presence: true
+  validates :widget_modified, presence: true
   validates :thumbnail, presence: true
   validates :edit_html, presence: true
   validates :show_html, presence: true
