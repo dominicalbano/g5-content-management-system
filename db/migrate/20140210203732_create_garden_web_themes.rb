@@ -9,6 +9,7 @@ class CreateGardenWebThemes < ActiveRecord::Migration
       t.text :stylesheets
       t.string :primary_color
       t.string :secondary_color
+      t.string   "tertiary_color", default: "#ffffff"
 
       t.timestamps
     end
