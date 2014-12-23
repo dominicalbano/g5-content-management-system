@@ -3,7 +3,7 @@ source "https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/"
 
 ruby "2.1.5"
 
-gem "rails", "4.1.8"
+gem "rails", "4.1.7"
 gem "active_model_serializers", "~> 0.8.2"
 
 # Downgraded jquery-rails for Ember Views
