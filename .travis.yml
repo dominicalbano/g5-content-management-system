@@ -1,6 +1,7 @@
 language: ruby
 bundler_args: --retry 3
 sudo: false
+cache: bundler
 rvm:
   - 2.1.5
 
