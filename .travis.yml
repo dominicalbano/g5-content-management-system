@@ -1,7 +1,7 @@
 language: ruby
 bundler_args: --retry 3
 rvm:
-  - 2.1.5
+  - 2.2.0
 
 install: "bin/wad -v"
 # Note that WAD doesn't clean up old bundles for you. If you change Gemfile.lock a lot and the bucket becomes very large, you probably want to clean out old bundles once in a while.
