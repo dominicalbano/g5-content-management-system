@@ -38,7 +38,7 @@ website_template:
 
 web_home_template:
   name: Home
-  title: "Apartments in {{location_neighborhood}} {{location_city}}"
+  title: "Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}} with {{location_primary_amenity}}"
   drop_targets:
     - html_id: drop-target-main
       widgets:
@@ -48,11 +48,11 @@ web_home_template:
         - slug: meta-description
           settings:
             - name: meta_description
-              value: "Find out how great life is at our {{ store.neighborhood }} {{ store.city }} apartments; learn more about apartments for rent in {{ store.city }} {{ store.state }} from the {{ store.branded_name }} website today."
+              value: "Find out how great life is at our {{location_neighborhood}} {{location_city}} apartments! To learn more about apartments for rent at {{location_name}} in {{location_city}}, {{location_state}}, please visit our website."
 
 web_page_templates:
   - name: Floor Plans
-    title: "{{location_floor_plans}} Apartments in {{location_city}} with {{location_primary_amenity}}"
+    title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
@@ -62,10 +62,10 @@ web_page_templates:
           - slug: meta-description
             settings:
               - name: meta_description
-                value: "{{ store.floorplans }} bedroom apartments in {{ store.city }}, {{ store.state }}; visit the {{ store.branded_name }} website to find the floor plan that will work for you."
+                value: "{{location_floor_plans}} bedroom apartments in {{location_city}}, {{location_state}}; visit our website to find the floor plan at {{location_name}} that will best work for you."
 
   - name: Amenities
-    title: "{{location_city}} Apartment Amenities at {{location_name}}"
+    title: "{{location_city}} {{location_qualifier}} Apartment Amenities at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
@@ -75,10 +75,10 @@ web_page_templates:
           - slug: meta-description
             settings:
               - name: meta_description
-                value: "{{ store.city }} {{ store.qualifier }} apartment amenities are designed to meet all your needs at {{ store.branded_name }}, near {{ store.landmark }}"
+                value: "{{{location_city}} {{location_qualifier}} apartment amenities are designed to meet all your needs at {{location_name}}. We are located near {{location_primary_landmark}} in {{location_city}}, {{location_state}}."
 
   - name: Photo Gallery
-    title: "Photos of Our Apartments in {{location_city}} | {{location_name}}"
+    title: "Photos of our Apartments in {{location_city}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
@@ -88,7 +88,7 @@ web_page_templates:
           - slug: meta-description
             settings:
               - name: meta_description
-                value: "For photos of our apartments in {{ store.city }}, {{ store.state }}, visit the {{ store.branded_name }} website."
+                value: "Want to see photos of our apartments in {{location_city}}, {{location_state}}? Visit our website and picture yourself at {{location_name}}."
 
   - name: Neighborhood
     title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}} | {{location_name}}"
@@ -101,10 +101,10 @@ web_page_templates:
           - slug: meta-description
             settings:
               - name: meta_description
-                value: "Life is great in {{ store.neighborhood }} {{ store.city }} apartments near {{ store.landmark }}; call {{ store.branded_name }} at {{ store.marketing_number }} today."
+                value: "Life is great at our {{location_neighborhood}} {{location_city}} apartments near {{location_primary_landmark}}; call {{location_name}} today at {{location_marketing_number}}."
 
   - name: Map and Directions
-    title: "Directions to Apartments for rent in {{location_city}}, {{location_state}} | {{location_name}}"
+    title: "Directions to Apartments for Rent in {{location_city}}, {{location_state}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
@@ -114,7 +114,7 @@ web_page_templates:
           - slug: meta-description
             settings:
               - name: meta_description
-                value: "For map & directions to apartments for rent in {{ store.city }}, {{ store.state }}; visit the {{ store.branded_name }} website."
+                value: "For map & directions to our apartments for rent in {{location_city}}, {{location_state}}, visit {{location_name}} at our website."
 
   - name: Residents
     title: "Information for Current Residents at {{location_name}}"
@@ -127,7 +127,7 @@ web_page_templates:
           - slug: meta-description
             settings:
               - name: meta_description
-                value: "{{ store.branded_name }} in {{ store.city }}, {{ store.state }} offers apartment residents the resources to ensure your lifestyle is everything that you want it to be."
+                value: "{{location_name}} in {{location_city}}, {{location_state}}, offers apartment residents the resources to ensure your lifestyle is everything that you want it to be."
 
   - name: Apply
     title: "Apply to live at {{location_name}}"
