@@ -7,28 +7,104 @@ describe GardenWidgetUpdater do
   describe "#update_all" do
     describe "when a new widget is added to the garden" do
       it "creates new GardenWidget" do
-        gardener.stub(:garden_url) { "spec/support/garden_widget_updater/new.html" }
+        allow(gardener).to receive(:garden_url).and_return("spec/support/garden_widget_updater/updated.html")
         expect { updater.update_all }.to change { gardener.count }.by(1)
       end
     end
 
     describe "when a widget is updated in the garden" do
-      let(:garden_widget) do
-        Fabricate(:garden_widget, name: "Updated Garden Widget",
-                                  url: "http://widget-garden.com/foo")
+      before do
+        allow(gardener).to receive(:garden_url).and_return("spec/support/garden_widget_updater/updated.html")
       end
 
-      it "updates GardenWidget with same widget_id" do
-        gardener.stub(:garden_url) { "spec/support/garden_widget_updater/updated.html" }
-        expect { updater.update_all }.to change { garden_widget.reload.url }.to("http://widget-garden.com/widget-test")
+      context "widget modified reference is AFTER incoming modified component" do
+        let(:garden_widget) do
+          Fabricate(:garden_widget, name: "Garden Widget",
+                    url: "http://widget-garden.com/widget-test", # incoming is equal
+                    widget_modified: Time.zone.parse("2010-12-10 00:00:00")) #incoming is after this date
+        end
+
+        it "updates GardenWidget name" do
+          expect { updater.update_all }.to change { garden_widget.reload.name }.to("Updated Garden Widget")
+        end
+
+        it "updates GardenWidget modified" do
+          expect { updater.update_all }.to change { garden_widget.reload.widget_modified }.to("2014-11-25 17:25:48 UTC")
+        end
       end
+
+      context "widget modified reference is BEFORE incoming modified component" do
+        let(:garden_widget) do
+          Fabricate(:garden_widget, name: "Garden Widget",
+                    url: "http://widget-garden.com/widget-test", # incoming is equal
+                    widget_modified: Time.zone.parse("2020-12-10 00:00:00")) # incoming is before this date
+        end
+
+        it "updates GardenWidget name" do
+          expect { updater.update_all }.to change { garden_widget.reload.name }.to("Updated Garden Widget")
+        end
+
+        it "updates GardenWidget modified" do
+          expect { updater.update_all }.to change { garden_widget.reload.widget_modified }.to("2014-11-25 17:25:48 UTC")
+        end
+      end
+
+      context "widget modified reference is EQUAL incoming modified component" do
+        let(:garden_widget) do
+          Fabricate(:garden_widget, name: "Not Updated Garden Widget",
+                    url: "http://widget-garden.com/widget-test", # incoming is equal
+                    widget_modified: Time.zone.parse("2014-11-25 17:25:48 UTC")) # incoming is equal
+        end
+
+        it "doesn't update GardenWidget name" do
+          expect { updater.update_all }.to_not change { garden_widget.reload.name }
+        end
+
+        it "doesn't update GardenWidget modified" do
+          expect { updater.update_all }.to_not change { garden_widget.reload.widget_modified }
+        end
+
+      end
+
+      context "widget url reference is EQUAL incoming component url" do
+        let(:garden_widget) do
+          Fabricate(:garden_widget, name: "Garden Widget",
+                    url: "http://widget-garden.com/widget-test", # incoming is equal
+                    widget_modified: Time.zone.parse("2014-11-25 17:25:48 UTC")) # incoming is equal
+        end
+
+        it "updates GardenWidget with new name" do
+          expect { updater.update_all }.to_not change { garden_widget.reload.name }
+        end
+
+        it "updates GardenWidget with new url" do
+          expect { updater.update_all }.to_not change { garden_widget.reload.url }
+        end
+      end
+
+      context "widget url reference is NOT EQUAL incoming component url" do
+        let(:garden_widget) do
+          Fabricate(:garden_widget, name: "Garden Widget",
+                    url: "http://widget-garden.com/staging-widget-test", # incoming is NOT equal
+                    widget_modified: Time.zone.parse("2010-12-10 00:00:00")) # incoming is after this date
+        end
+
+        it "updates GardenWidget with new name" do
+          expect { updater.update_all }.to change { garden_widget.reload.name }.to("Updated Garden Widget")
+        end
+
+        it "updates GardenWidget with new url" do
+          expect { updater.update_all }.to change { garden_widget.reload.url }.to("http://widget-garden.com/widget-test")
+        end
+      end
+
     end
 
     describe "when a widget is removed from the garden" do
       let!(:garden_widget) { Fabricate(:garden_widget, url: "http://widget-garden.com/widget-test") }
 
       it "destroys GardenWidget with same widget_id" do
-        gardener.stub(:garden_url) { "spec/support/garden_widget_updater/removed.html" }
+        allow(gardener).to receive(:garden_url).and_return("spec/support/garden_widget_updater/removed.html")
         expect { updater.update_all }.to change { gardener.count }.by(-1)
       end
     end
@@ -91,6 +167,10 @@ describe GardenWidgetUpdater do
       it "sets settings" do
         expect(garden_widget.settings).to eq [{:name=>"text", :editable=>"true",
           :default_value=>"Lorem ipsum.", :categories=>["Instance"]}]
+      end
+    
+      it "sets widget_modified" do
+        expect(garden_widget.widget_modified).to eq Time.zone.parse("2014-11-25 17:25:48 UTC")
       end
     end
 
