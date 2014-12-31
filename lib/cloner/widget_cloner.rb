@@ -29,12 +29,12 @@ class Cloner::WidgetCloner
             # Try your best
 
             widget_b = Widget.find(widget_b.id)
-            pp("widget_b is #{widget_b}")
+            pp("widget_b id is: #{widget_b.id}")
 
-            binding.pry
+            #binding.pry
 
             new_widget = Widget.find(widget_b.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
-            pp("new_widget is #{new_widget}")
+            pp("new_widget id is: #{new_widget.id}")
 
 
             orig_widget = Widget.find(widget_a.settings.where({name: s.name.gsub('_name', '_id')}).first.value)

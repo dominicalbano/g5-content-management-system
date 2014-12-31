@@ -1,41 +1,57 @@
 require "spec_helper"
 
 describe Cloner::WidgetCloner do
-  let(:widget_cloner) { described_class.new(widget, target_drop_target) }
+  let!(:widget_cloner) { described_class.new(widget_1, target_drop_target) }
   let!(:website) { Fabricate(:website) }
   let!(:template) { Fabricate(:web_template, website: website) }
   let!(:target_drop_target) { Fabricate(:drop_target, web_template: template) }
-  let!(:row_garden_widget) { Fabricate(:row_garden_widget) }
-
-  let!(:html_garden_widget) { Fabricate(:html_garden_widget) }
-  let!(:widget) { Fabricate(:widget, garden_widget: row_garden_widget) }
-  let!(:child_widget) { Fabricate(:widget, drop_target: nil, garden_widget: html_garden_widget) }
+  let!(:row_garden_widget_1) do
+    Fabricate(:row_garden_widget)
+  end
 
   let!(:widget_id_setting) do
-    Fabricate(:setting, owner: widget, name: "column_one_widget_id", value: child_widget.id )
+    Fabricate(:setting, owner: widget_1, name: "column_one_widget_id", value: child_widget.id )
   end
 
   let!(:widget_name_setting) do
-    Fabricate(:setting, owner: widget, name: "column_one_widget_name", value: child_widget.name )
+    Fabricate(:setting, owner: widget_1, name: "column_one_widget_name", value: child_widget.name )
   end
 
+  let!(:html_garden_widget) do
+    w = Fabricate(:html_garden_widget)
+    w.settings.clear
+    w.settings << Fabricate(:setting, name: "text" )
+    w
+  end
 
+  let!(:widget_1) do
+    Fabricate(:widget, garden_widget: row_garden_widget_1)
+  end
+
+  let!(:child_widget) do
+    binding.pry
+    Fabricate(:widget, drop_target: nil, garden_widget: html_garden_widget)
+    binding.pry
+  end
 
   describe "#clone" do
     context "before anything happens" do
-      specify { expect(Widget.all.size).to eq(2) }
+      specify do
+        #binding.pry
+        expect(Widget.all.size).to eq(2)
+      end
       specify { expect(Setting.all.size).to eq(2) }
     end
 
     context "after running clone" do
       before do
-        row_garden_widget.settings.clear
-        row_garden_widget.settings << widget_id_setting
-        row_garden_widget.settings << widget_name_setting
+        row_garden_widget_1.settings.clear
+        row_garden_widget_1.settings << widget_id_setting
+        row_garden_widget_1.settings << widget_name_setting
 
         widget.settings << widget_id_setting
         widget.settings << widget_name_setting
-        Cloner::WidgetCloner.new(widget, target_drop_target).clone
+        Cloner::WidgetCloner.new(widget_1, target_drop_target).clone
       end
 
       describe "widget cloning" do
