@@ -31,11 +31,8 @@ class Cloner::WidgetCloner
             widget_b = Widget.find(widget_b.id)
             pp("widget_b id is: #{widget_b.id}")
 
-            #binding.pry
-
             new_widget = Widget.find(widget_b.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
             pp("new_widget id is: #{new_widget.id}")
-
 
             orig_widget = Widget.find(widget_a.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
             pp("orig_widget is #{orig_widget}")
@@ -54,8 +51,8 @@ class Cloner::WidgetCloner
                 set_setting(new_widget, s1)
               end
             end
-          rescue
-            pp("Borked")
+          rescue => e
+            pp("Borked: #{e}")
 
             # Oh well
           end
