@@ -34,7 +34,6 @@ describe Cloner::WidgetCloner do
     context "after running clone" do
       describe "widget cloning" do
         it "clones a new widget" do
-          binding.pry
           expect(Widget.count).to eq(4)
         end
 
