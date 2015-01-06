@@ -1,12 +1,17 @@
 class GardenWidgetUpdater
   def update_all
     updated_garden_widgets = []
+    components_data = components_microformats
 
-    components_microformats.map do |component|
+    components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
-      update(garden_widget, component)
+      
+      if (get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
+        update(garden_widget, component)
+      end
+      
       updated_garden_widgets << garden_widget
-    end if components_microformats
+    end if components_data
 
     removed_garden_widgets = GardenWidget.all - updated_garden_widgets
     removed_garden_widgets.each do |removed_garden_widget|
@@ -29,6 +34,7 @@ class GardenWidgetUpdater
     garden_widget.lib_javascripts = get_lib_javascripts(component)
     garden_widget.show_stylesheets = get_show_stylesheets(component)
     garden_widget.settings = get_settings(component)
+    garden_widget.widget_modified = get_modified(component)
     garden_widget.save
     garden_widget.update_widgets_settings!
     update_row_widget_garden_widgets_setting
@@ -64,6 +70,12 @@ class GardenWidgetUpdater
   def get_name(component)
     if component.respond_to?(:name)
       component.name.to_s
+    end
+  end
+
+  def get_modified(component)
+    if component.respond_to?(:modified)
+      Time.zone.parse(component.modified.to_s)
     end
   end
 

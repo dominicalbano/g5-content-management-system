@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141117204111) do
+ActiveRecord::Schema.define(version: 20141219185207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -108,6 +108,7 @@ ActiveRecord::Schema.define(version: 20141117204111) do
     t.datetime "updated_at"
     t.string   "widget_type"
     t.integer  "widget_id"
+    t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
   end
 
   create_table "locations", force: true do |t|
