@@ -32,7 +32,7 @@ module ClientDeployer
   end
 
   def self.compile_location_websites
-    location_websites.each { |website| WebsiteCompiler.new(website).compile }
+    Website.location_websites.each { |website| WebsiteCompiler.new(website).compile }
   end
 
   def self.cleanup(compile_path)
