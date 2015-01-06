@@ -42,6 +42,35 @@
 <% content_for(:bottom_of_body) do %> 
   <% if mode == "preview" %>
     <%= javascript_include_tag(*web_template.javascripts) %>
+    <script>
+      var LinkJizz = "g5-cl-1slik9fn-villas-at-d-andrea/"
+      $(document).ready(function() {
+        var slugRegEx = /apartments\//i
+
+        $('body').delegate('a', 'click', function() { 
+          var linkHref = $( this ).attr('href');
+          if(typeof linkHref != 'undefined'){
+            previewHref = linkHref.replace("apartments/", "g5-cl-1slik9fn-villas-at-d-andrea/apartments/");
+            $( this ).attr('href', previewHref);
+          };   
+        });
+
+
+
+
+
+
+        // $( "a" ).each(function( index ) {
+        //   var linkHref = $( this ).attr('href');
+
+        //   if(typeof linkHref != 'undefined'){
+        //     previewHref = linkHref.replace("apartments/", "g5-cl-1slik9fn-villas-at-d-andrea/apartments/");
+        //     $( this ).attr('href', previewHref);
+        //   };   
+        // });
+      });
+
+    </script>
   <% else %>
     <%= javascript_include_tag(*web_template.javascript_include_paths) %>
   <% end %>
