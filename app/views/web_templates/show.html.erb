@@ -47,10 +47,13 @@
 
     <script>
       // Need to bust this out into its own js file
-       
-      var LinkJizz = "g5-cl-1slik9fn-villas-at-d-andrea/"
+      // Maybe move some variables into some json so we can get to it
+
+      var LinkJizz = "g5-cl-1slik9fn-villas-at-d-andrea/"  // Parameterize dis guy
       $(document).ready(function() {
-        var slugRegEx = /apartments\//i
+
+        var slugRegEx = /apartments\//i  // Parameterize dis guy 
+        //<% slugRegEx = web_template.website.single_domain_location_base_path %>
 
         $('body').delegate('a', 'click', function() { 
           var linkHref = $( this ).attr('href');
@@ -61,6 +64,7 @@
         });
       });
     </script>
+
 
 
   <% else %>
