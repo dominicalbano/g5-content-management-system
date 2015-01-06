@@ -26,8 +26,8 @@ class Client < ActiveRecord::Base
     ClientDeployerJob.perform
   end
 
-  def async_deploy
-    Resque.enqueue(ClientDeployerJob)
+  def async_deploy(user_email)
+    Resque.enqueue(ClientDeployerJob, user_email)
   end
 
   def website_defaults
