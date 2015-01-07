@@ -53,8 +53,8 @@
       var LinkJizz = "<%= link_jizz %>/";
       
       $(document).ready(function() {
-        <% slug_regex = web_template.website.client.vertical_slug %>
-        var slugRegEx = /<%= slug_regex %>\//i;
+        <% client_slug = web_template.website.client.vertical_slug %>
+        var slugRegEx = /<%= client_slug %>\//;
 
         $('body').delegate('a', 'click', function() { 
           var linkHref = $( this ).attr('href');
