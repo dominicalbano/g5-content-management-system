@@ -31,4 +31,15 @@ describe WebTemplatesHelper, vcr: VCR_OPTIONS do
       preview.should match /#{widget.name.parameterize}/
     end
   end
+
+  describe "preview_configs" do
+    let(:preview_configs) { helper.preview_configs(params, web_home_template) }
+
+    it "defines the location URN" do
+      JSON.parse(preview_configs)["urn"].should eq(params["urn"])
+    end
+    it "defines the website slug" do
+      JSON.parse(preview_configs)["slug"].should eq(web_home_template.website.client.vertical_slug)
+    end
+  end
 end
