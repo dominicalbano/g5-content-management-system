@@ -26,4 +26,10 @@ module WebTemplatesHelper
   def meta_description_widgets(web_template)
     web_template.meta_description_widgets.map(&:render_show_html).join
   end
+
+  def preview_configs(params, web_template)
+    { urn: params['urn'],
+      slug: web_template.website.client.vertical_slug }.to_json.html_safe
+  end
+
 end

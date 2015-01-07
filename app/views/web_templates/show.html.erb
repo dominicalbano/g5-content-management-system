@@ -42,13 +42,9 @@
 <% content_for(:bottom_of_body) do %> 
   <% if mode == "preview" %>
     <%= javascript_include_tag(*web_template.javascripts) %>
-
     <!-- We should probably bust this out into a helper or something -->
     <script id="preview-configs" type="application/json">
-      {
-        "urn": "<%= params['urn'] %>",
-        "slug": "<%= web_template.website.client.vertical_slug %>"
-      }
+      <%= preview_configs(params, web_template) %>
     </script>
 
   <% else %>
