@@ -27,3 +27,4 @@ class WebHomeTemplate < WebTemplate
     "/"
   end
 end
+
