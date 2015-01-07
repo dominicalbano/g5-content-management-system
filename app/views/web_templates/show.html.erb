@@ -44,13 +44,15 @@
     <%= javascript_include_tag(*web_template.javascripts) %>
 
 
-
+    <%= params.inspect %>
     <script>
       // Need to bust this out into its own js file
       // Maybe move some variables into some json so we can get to it
-      <%# link_jizz = web_template.website.client.urn %>
-      // var LinkJizz = <%# = link_jizz %> + "/";
-      var LinkJizz = "g5-cl-1slik9fn-villas-at-d-andrea/"  // Parameterize dis guy
+      // <%# link_jizz = web_template.website.client.urn %>
+      // <%= params.inspect %>
+      <% link_jizz = params["urn"] %>
+      var LinkJizz = "<%= link_jizz %>/";
+      // var LinkJizz = "g5-cl-1slik9fn-villas-at-d-andrea/"  // Parameterize dis guy
       $(document).ready(function() {
         <% slug_regex = web_template.website.client.vertical_slug %>
         var slugRegEx = /<%= slug_regex %>\//i;
