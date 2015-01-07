@@ -7,4 +7,4 @@ $ ->
     if typeof linkHref != 'undefined'
       previewHref = linkHref.replace("apartments/", previewConfigs.urn + "/apartments/")
       $( this ).attr('href', previewHref)
-  ) 
+  )

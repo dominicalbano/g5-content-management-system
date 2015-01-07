@@ -43,7 +43,7 @@
   <% if mode == "preview" %>
     <%= javascript_include_tag(*web_template.javascripts) %>
 
-    <!-- We should probably bust this out into a helper of something -->
+    <!-- We should probably bust this out into a helper or something -->
     <script id="preview-configs" type="application/json">
       {
         "urn": "<%= params['urn'] %>",
