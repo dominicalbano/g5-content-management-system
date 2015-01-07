@@ -43,23 +43,28 @@
   <% if mode == "preview" %>
     <%= javascript_include_tag(*web_template.javascripts) %>
 
+    <script id="preview-configs" type="application/json">
+      {
+        "urn": "<%= params['urn'] %>",
+        "slug": "<%= web_template.website.client.vertical_slug %>"
+      }
+    </script>
+
 
 
     <script>
       // Need to bust this out into its own js file
-      // Maybe move some variables into some json so we can get to it
-      
-      <% link_jizz = params["urn"] %>
-      var LinkJizz = "<%= link_jizz %>/";
-      
-      $(document).ready(function() {
-        <% client_slug = web_template.website.client.vertical_slug %>
-        var slugRegEx = /<%= client_slug %>\//;
 
+      // Maybe move these variables into some json so we can get to them
+    
+      
+      var previewConfigs = JSON.parse($('#preview-configs').html())
+
+      $(document).ready(function() {
         $('body').delegate('a', 'click', function() { 
           var linkHref = $( this ).attr('href');
           if(typeof linkHref != 'undefined'){
-            previewHref = linkHref.replace("apartments/", "g5-cl-1slik9fn-villas-at-d-andrea/apartments/");
+            previewHref = linkHref.replace("apartments/", previewConfigs.urn + "/apartments/");
             $( this ).attr('href', previewHref);
           };   
         });
