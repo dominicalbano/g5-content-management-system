@@ -6,16 +6,16 @@ require "client_deployer/website_compiler"
 LOGGERS = [Rails.logger, Resque.logger]
 
 module ClientDeployer
-  def self.compile_and_deploy(client)
-    LOGGERS.each {|logger| logger.info("Sending compile to base_compiler")}
+  def self.compile_and_deploy(client, user_email)
+    LOGGERS.each {|logger| logger.debug("Sending compile to base_compiler")}
     base_compiler(client).compile
     LOGGERS.each {|logger| logger.info("Sending compile to area_pages")}
     area_pages(client.website.compile_path).compile
     LOGGERS.each {|logger| logger.info("Calling compile_location_websites")}
     compile_location_websites
     LOGGERS.each {|logger| logger.info("Sending client to deployer and sending deploy")}
-    deployer(client).deploy
-    LOGGERS.each {|logger| logger.info("Calling cleanup with path: #{client.website.compile_path}")}
+    deployer(client, user_email).deploy
+    LOGGERS.each {|logger| logger.debug("Calling cleanup with path: #{client.website.compile_path}")}
     cleanup(client.website.compile_path)
   end
 
@@ -23,8 +23,9 @@ module ClientDeployer
     ClientDeployer::BaseCompiler.new(client)
   end
 
-  def self.deployer(client)
-    ClientDeployer::Deployer.new(client)
+  def self.deployer(client, user_email)
+    LOGGERS.each {|logger| logger.debug("creating ClientDeployer::Deployer with #{client.to_s}, user: #{user_email}")}
+    ClientDeployer::Deployer.new(client, user_email)
   end
 
   def self.area_pages(compile_path)
@@ -32,6 +33,9 @@ module ClientDeployer
   end
 
   def self.compile_location_websites
+    location_websites = Client.first.locations.map(&:website)
+    LOGGERS.each {|logger| logger.debug("compile_location_websites")}
+    LOGGERS.each {|logger| logger.debug("calling compile on WebsiteCompiler for each of #{location_websites.to_s}")}
     location_websites.each { |website| WebsiteCompiler.new(website).compile }
   end
 
@@ -39,3 +43,4 @@ module ClientDeployer
     StaticWebsite::Compiler::CompileDirectory.new(compile_path, false).clean_up
   end
 end
+

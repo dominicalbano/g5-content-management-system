@@ -8,7 +8,7 @@ module StaticWebsite
 
         def initialize(from_paths, location_name)
           @from_paths = Array(from_paths)
-          LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{Array(from_paths).join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
+          LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{Array(from_paths).join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
           @location_name = location_name
           @s3 = AWS::S3.new(
             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
@@ -24,16 +24,16 @@ module StaticWebsite
 
         def compile
           @uploaded_paths = []
-          LOGGERS.each{|logger| logger.info("Writing js assets to S3")}
+          LOGGERS.each{|logger| logger.debug("Writing js assets to S3")}
           from_paths.each do |from_path|
             #write with a metadata flag of status: current
             path = Pathname.new(from_path)
-            LOGGERS.each{|logger| logger.info("writing to bucket")}
-            LOGGERS.each{|logger| logger.info("#{from_path.to_s}")}
-            LOGGERS.each{|logger| logger.info("#{path.to_s}")}
-            LOGGERS.each{|logger| logger.info("#{write_options.to_s}")}
+            LOGGERS.each{|logger| logger.debug("writing to bucket")}
+            LOGGERS.each{|logger| logger.debug("#{from_path.to_s}")}
+            LOGGERS.each{|logger| logger.debug("#{path.to_s}")}
+            LOGGERS.each{|logger| logger.debug("#{write_options.to_s}")}
             result = s3_bucket_object(from_path).write(path, write_options)
-            LOGGERS.each{|logger| logger.info(result.inspect)}
+            LOGGERS.each{|logger| logger.debug(result.inspect)}
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
           end
         end
