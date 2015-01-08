@@ -1,4 +1,9 @@
-App.Router.map ->
+`import Ember from 'ember';`
+`import config from './config/environment';`
+
+Router = Ember.Router.extend(location: config.locationType)
+
+Router.map ->
   @route "redirectManager", path: "/:website_slug/redirects"
 
   @route "docs", path: "/:website_slug/docs"
@@ -15,5 +20,11 @@ App.Router.map ->
 
   @resource "locations", path: "/"
 
-App.Router.reopen
-  location: "history"
+`export default Router;`
+
+
+# TODO convert
+#
+# App.Router.reopen
+#  location: "history"
+
