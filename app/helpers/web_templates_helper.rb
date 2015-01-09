@@ -27,10 +27,10 @@ module WebTemplatesHelper
     web_template.meta_description_widgets.map(&:render_show_html).join
   end
 
-  def preview_configs(params, web_template, corp_check)
+  def preview_configs(params, web_template)
     { urn: params['urn'],
       slug: web_template.website.client.vertical_slug,
-      corporate: corp_check,
+      corporate: web_template.website.corporate?,
       slug_corporate: web_template.website.web_home_template.preview_url }.to_json.html_safe
   end
 

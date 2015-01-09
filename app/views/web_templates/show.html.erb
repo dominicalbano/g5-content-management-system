@@ -44,7 +44,7 @@
     <%= javascript_include_tag(*web_template.javascripts) %>
 
     <script id="preview-configs" type="application/json">
-      <%= preview_configs(params, web_template, website.corporate?) %>
+      <%= preview_configs(params, web_template) %>
     </script>
 
   <% else %>

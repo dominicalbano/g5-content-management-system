@@ -33,7 +33,7 @@ describe WebTemplatesHelper, vcr: VCR_OPTIONS do
   end
 
   describe "preview_configs" do
-    let(:preview_configs) { helper.preview_configs(params, web_home_template, website.corporate?) }
+    let(:preview_configs) { helper.preview_configs(params, web_home_template) }
 
     it "defines the location URN" do
       JSON.parse(preview_configs)["urn"].should eq(params["urn"])
