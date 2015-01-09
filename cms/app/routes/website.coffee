@@ -1,4 +1,6 @@
-App.WebsiteRoute = Ember.Route.extend
+`import Ember from 'ember'`
+
+WebsiteRoute = Ember.Route.extend
   model: (params) ->
     @store.find("website", params.website_slug)
 
@@ -12,3 +14,5 @@ App.WebsiteRoute = Ember.Route.extend
     @controllerFor("websiteWebHomeTemplate").set("model", model.get("webHomeTemplate"))
     @controllerFor("websiteWebPageTemplates").set("model", model.get("webPageTemplates"))
     @controllerFor("websiteWebPageTemplatesInTrash").set("model", model.get("webPageTemplates"))
+
+`export default WebsiteRoute`

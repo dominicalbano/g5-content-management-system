@@ -1,4 +1,6 @@
-App.WebPageTemplateRoute = Ember.Route.extend
+`import Ember from 'ember'`
+
+WebPageTemplateRoute = Ember.Route.extend
   model: (params) ->
     @store.find("webPageTemplate").then (result) ->
       result.findBy("slug", params.web_page_template_slug)
@@ -36,3 +38,5 @@ App.WebPageTemplateRoute = Ember.Route.extend
 
   deactivate: ->
     $('.page-name').hide()
+
+`export default WebPageTemplateRoute`

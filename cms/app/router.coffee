@@ -22,9 +22,3 @@ Router.map ->
 
 `export default Router;`
 
-
-# TODO convert
-#
-# App.Router.reopen
-#  location: "history"
-

@@ -1,4 +1,6 @@
-App.RedirectManagerRoute = Ember.Route.extend
+`import Ember from 'ember'`
+
+RedirectManagerRoute = Ember.Route.extend
   model: (params) ->
     slug = params["website_slug"]
     websites = this.store.find('website')
@@ -16,3 +18,5 @@ App.RedirectManagerRoute = Ember.Route.extend
 
   serialize: (model) ->
     website_slug: model.get "slug"
+
+`export default RedirectManagerRoute`

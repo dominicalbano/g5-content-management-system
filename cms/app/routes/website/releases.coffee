@@ -1,4 +1,6 @@
-App.ReleasesRoute = Ember.Route.extend
+`import Ember from 'ember'`
+
+ReleasesRoute = Ember.Route.extend
   model: ->
     slug = @modelFor("website").get("slug")
     @get('store').find('release', {website_slug: slug})
@@ -6,3 +8,4 @@ App.ReleasesRoute = Ember.Route.extend
   serialize: (model) ->
     website_slug: model.get("slug")
 
+`export default ReleasesRoute`

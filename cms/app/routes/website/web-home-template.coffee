@@ -1,4 +1,6 @@
-App.WebHomeTemplateRoute = Ember.Route.extend
+`import Ember from 'ember'`
+
+WebHomeTemplateRoute = Ember.Route.extend
   model: ->
     this.modelFor("website").get("webHomeTemplate")
 
@@ -30,3 +32,4 @@ App.WebHomeTemplateRoute = Ember.Route.extend
   deactivate: ->
     $('.page-name').hide()
 
+`export default WebHomeTemplateRoute`
