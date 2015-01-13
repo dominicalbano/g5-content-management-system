@@ -1,4 +1,6 @@
-App.LocationsController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+LocationsController = Ember.ArrayController.extend
   needs: ["client"]
   actions:
     deploy: (model) ->
@@ -26,3 +28,5 @@ App.LocationsController = Ember.ArrayController.extend
       $form = $("<form action='" + url + "' method='post'></form>")
       $form.appendTo("body").submit()
       false
+
+`export default LocationsController`

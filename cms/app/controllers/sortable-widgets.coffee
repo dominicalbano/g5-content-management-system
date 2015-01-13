@@ -1,4 +1,6 @@
-App.SortableWidgetsController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+SortableWidgetsController = Ember.ArrayController.extend
   needs: ["website"]
   sortProperties: ["displayOrder"]
 
@@ -21,3 +23,4 @@ App.SortableWidgetsController = Ember.ArrayController.extend
           item.save()
     @endPropertyChanges()
 
+`export default SortableWidgetsController`

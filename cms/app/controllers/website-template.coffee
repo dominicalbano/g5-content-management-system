@@ -1,1 +1,5 @@
-App.WebsiteTemplateController = Ember.ObjectController.extend()
+`import Ember from 'ember'`
+
+WebsiteTemplateController = Ember.Controller.extend()
+
+`export default WebsiteTemplateController`

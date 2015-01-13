@@ -1,1 +1,5 @@
-App.ClientController = Ember.ObjectController.extend()
+`import Ember from 'ember'`
+
+ClientController = Ember.Controller.extend()
+
+`export default ClientController`

@@ -1,4 +1,6 @@
-App.WebPageTemplatesNewController = Ember.ObjectController.extend
+`import Ember from 'ember'`
+
+WebPageTemplatesNewController = Ember.Controller.extend
   actions:
     save: ->
       @get('model').save()
@@ -7,3 +9,5 @@ App.WebPageTemplatesNewController = Ember.ObjectController.extend
     cancel: ->
       @get('model').deleteRecord()
       @transitionToRoute 'website.index'
+
+`export default WebPageTemplatesNewController`

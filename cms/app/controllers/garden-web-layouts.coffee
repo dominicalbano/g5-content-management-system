@@ -1,4 +1,6 @@
-App.GardenWebLayoutsController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+GardenWebLayoutsController = Ember.ArrayController.extend
   needs: ["webLayout", "gardenWebLayout"]
 
   selectedLayout: ( ->
@@ -16,3 +18,5 @@ App.GardenWebLayoutsController = Ember.ArrayController.extend
       webLayout = @get("controllers.webLayout.model")
       webLayout.set("gardenWebLayoutId", gardenWebLayout.get("id"))
       webLayout.save()
+
+`export default GardenWebLayoutsController`

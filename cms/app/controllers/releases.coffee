@@ -1,4 +1,6 @@
-App.ReleasesController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+ReleasesController = Ember.ArrayController.extend
   needs: ['website']
   actions:
     rollback: (id, slug) ->
@@ -8,3 +10,4 @@ App.ReleasesController = Ember.ArrayController.extend
       $form.appendTo("body").submit()
       false
 
+`export default ReleasesController`

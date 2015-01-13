@@ -1,4 +1,6 @@
-#= require ./sortable_widgets_controller
+`import Ember from 'ember'`
 
-App.AsideAfterMainWidgetsController = App.SortableWidgetsController.extend
+AsideAfterMainWidgetsController = Ember.Controller.extend
   needs: ["website"]
+  
+`export default AsideAfterMainWidgetsController`

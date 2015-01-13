@@ -1,4 +1,6 @@
-App.WebPageTemplateController = Ember.ObjectController.extend
+`import Ember from 'ember'`
+
+WebPageTemplateController = Ember.Controller.extend
   needs: ["client"]
   templates: (->
     # The content array from Ember Data is immutable, so i must create
@@ -31,3 +33,4 @@ App.WebPageTemplateController = Ember.ObjectController.extend
     save: (model) ->
       model.save()
 
+`export default WebPageTemplateController`

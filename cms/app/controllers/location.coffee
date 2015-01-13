@@ -1,1 +1,5 @@
-App.LocationController = Ember.ObjectController.extend()
+`import Ember from 'ember'`
+
+LocationController = Ember.Controller.extend()
+
+`export default LocationController`

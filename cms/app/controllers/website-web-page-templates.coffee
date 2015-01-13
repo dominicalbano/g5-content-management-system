@@ -1,4 +1,6 @@
-App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+WebsiteWebPageTemplatesController = Ember.Controller.extend
   itemController: 'WebPageTemplate'
   updateSortOrder: (indexes) ->
     @beginPropertyChanges()
@@ -24,3 +26,5 @@ App.WebsiteWebPageTemplatesController = Ember.ArrayController.extend
       model.save()
     cancel: (model) ->
       model.rollback()
+
+`export default WebsiteWebPageTemplatesController`

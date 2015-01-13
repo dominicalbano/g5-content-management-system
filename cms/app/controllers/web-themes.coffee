@@ -1,1 +1,5 @@
-App.WebThemesController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+WebThemesController = Ember.ArrayController.extend()
+
+`export default WebThemesController`

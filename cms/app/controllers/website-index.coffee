@@ -1,4 +1,6 @@
-App.WebsiteIndexController = Ember.ObjectController.extend
+`import Ember from 'ember'`
+
+WebsiteIndexController = Ember.Controller.extend
   confirmEmptyTrash: false
   needs: ["client"]
 
@@ -22,3 +24,4 @@ App.WebsiteIndexController = Ember.ObjectController.extend
       @endPropertyChanges()
       @set "confirmEmptyTrash", false
 
+`export default WebsiteIndexController`

@@ -1,4 +1,6 @@
-App.GardenWebThemesController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+GardenWebThemesController = Ember.ArrayController.extend
   needs: ["webTheme","webThemes","gardenWebThemes"]
 
   selectedTheme: ( ->
@@ -18,3 +20,5 @@ App.GardenWebThemesController = Ember.ArrayController.extend
         webTheme = @get("controllers.webTheme.model")
         webTheme.set("gardenWebThemeId", gardenWebTheme.get("id"))
         webTheme.save()
+
+`export default GardenWebThemesController`

@@ -1,4 +1,6 @@
-App.AssetsController = Ember.ArrayController.extend
+`import Ember from 'ember'`
+
+AssetsController = Ember.ArrayController.extend
   sortProperties: ['created_at']
   sortAscending: false
   needs: ['website']
@@ -31,3 +33,5 @@ App.AssetsController = Ember.ArrayController.extend
         asset.save()
       ), (response) ->
         console.log('The delete failed: ' + response)
+
+`export default AssetsController`
