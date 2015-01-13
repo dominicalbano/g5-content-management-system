@@ -17,6 +17,9 @@ class GardenWidgetUpdater
     removed_garden_widgets.each do |removed_garden_widget|
       removed_garden_widget.destroy
     end
+
+    update_row_widget_garden_widgets_setting
+    update_column_widget_garden_widgets_setting
   end
 
   def update(garden_widget, component=nil)
@@ -37,9 +40,9 @@ class GardenWidgetUpdater
     garden_widget.widget_modified = get_modified(component)
     garden_widget.save
     garden_widget.update_widgets_settings!
-    update_row_widget_garden_widgets_setting
-    update_column_widget_garden_widgets_setting
   end
+
+  private  
 
   def update_row_widget_garden_widgets_setting
     Website.all.each do |website|
@@ -54,8 +57,6 @@ class GardenWidgetUpdater
       setting.update_attributes!(value: ColumnWidgetGardenWidgetsSetting.new.value)
     end
   end
-
-  private
 
   def components_microformats
     GardenWidget.components_microformats
