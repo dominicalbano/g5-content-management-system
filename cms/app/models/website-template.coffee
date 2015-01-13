@@ -1,4 +1,6 @@
-App.WebsiteTemplate = DS.Model.extend
+`import DS from 'ember-data'`
+
+WebsiteTemplate = DS.Model.extend {
   website: DS.belongsTo("website")
   webLayout: DS.belongsTo("WebLayout")
   webTheme: DS.belongsTo("WebTheme")
@@ -9,3 +11,6 @@ App.WebsiteTemplate = DS.Model.extend
   asideBeforeMainWidgets: DS.hasMany("AsideBeforeMainWidget")
   asideAfterMainWidgets: DS.hasMany("AsideAfterMainWidget")
   footerWidgets: DS.hasMany("FooterWidget")
+}
+
+`export default WebsiteTemplate`

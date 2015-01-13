@@ -1,4 +1,6 @@
-App.WebPageTemplate = DS.Model.extend
+`import DS from 'ember-data'`
+
+WebPageTemplate = DS.Model.extend {
   website: DS.belongsTo("website")
   mainWidgets: DS.hasMany("mainWidget")
   previewUrl: DS.attr("string")
@@ -15,4 +17,6 @@ App.WebPageTemplate = DS.Model.extend
   parentChanged: ( ->
     this.set('shouldUpdateNavigationSettings', true)
   ).observes('parent')
+}
 
+`export default WebPageTemplate`

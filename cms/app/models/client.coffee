@@ -1,4 +1,6 @@
-App.Client = DS.Model.extend
+`import DS from 'ember-data'`
+
+Client = DS.Model.extend {
   locations:     DS.hasMany("location")
   websites:      DS.hasMany("website")
   urn:           DS.attr("string")
@@ -20,3 +22,6 @@ App.Client = DS.Model.extend
   dsh_url:       DS.attr("string")
   single_domain: DS.attr("boolean")
   vertical:       DS.attr("string")
+}
+
+`export default Client`

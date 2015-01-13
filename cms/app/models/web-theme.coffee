@@ -1,4 +1,6 @@
-App.WebTheme = DS.Model.extend App.ReloadIframe,
+`import DS from 'ember-data'`
+
+WebTheme = DS.Model.extend {
   # TODO: make a DS.belongsTo
   gardenWebThemeId: DS.attr("number")
   websiteTemplate: DS.belongsTo("websiteTemplate")
@@ -9,3 +11,6 @@ App.WebTheme = DS.Model.extend App.ReloadIframe,
   primaryColor: DS.attr("string")
   secondaryColor: DS.attr("string")
   tertiaryColor: DS.attr("string")
+}
+
+`export default WebTheme`
