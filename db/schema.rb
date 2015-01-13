@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219185207) do
+ActiveRecord::Schema.define(version: 20150113201727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "pg_stat_statements"
 
   create_table "assets", force: true do |t|
     t.string   "url"
@@ -90,6 +89,8 @@ ActiveRecord::Schema.define(version: 20141219185207) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "tertiary_color",  default: "#ffffff"
+    t.string   "primary_font",    default: "PT Sans"
+    t.string   "secondary_font",  default: "Georgia"
   end
 
   create_table "garden_widgets", force: true do |t|
@@ -221,6 +222,9 @@ ActiveRecord::Schema.define(version: 20141219185207) do
     t.string   "custom_secondary_color"
     t.integer  "garden_web_theme_id"
     t.string   "custom_tertiary_color",  default: "#fff"
+    t.boolean  "custom_fonts",           default: false
+    t.string   "custom_primary_font",    default: "PT Sans"
+    t.string   "custom_secondary_font",  default: "Georgia"
   end
 
   add_index "web_themes", ["garden_web_theme_id"], name: "index_web_themes_on_garden_web_theme_id", using: :btree

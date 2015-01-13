@@ -50,7 +50,7 @@ module StaticWebsite
       end
 
       def stylesheets
-        @stylesheets ||= Stylesheets.new(website.stylesheets, compile_path, website.colors, location_name)
+        @stylesheets ||= Stylesheets.new(website.stylesheets, compile_path, website.colors, website.fonts, location_name)
       end
 
       def location_name

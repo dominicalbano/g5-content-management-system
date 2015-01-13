@@ -67,10 +67,14 @@ class Website < ActiveRecord::Base
     website_template.try(:colors)
   end
 
+  def fonts
+    website_template.try(:fonts)
+  end
+
   def stylesheets_compiler
     @stylesheets_compiler ||=
       StaticWebsite::Compiler::Stylesheets.new(stylesheets,
-      "#{Rails.root}/public", colors, name)
+      "#{Rails.root}/public", colors, fonts, name)
   end
 
   def application_min_css_path

@@ -9,3 +9,8 @@ App.WebTheme = DS.Model.extend App.ReloadIframe,
   primaryColor: DS.attr("string")
   secondaryColor: DS.attr("string")
   tertiaryColor: DS.attr("string")
+  customFonts: DS.attr("boolean")
+  primaryFont: DS.attr("string")
+  secondaryFont: DS.attr("string")
+
+  noCustomFonts: Ember.computed.not('customFonts')

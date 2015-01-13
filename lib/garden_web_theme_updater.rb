@@ -27,6 +27,8 @@ class GardenWebThemeUpdater
     garden_web_theme.primary_color = get_primary_color(component)
     garden_web_theme.secondary_color = get_secondary_color(component)
     garden_web_theme.tertiary_color = get_tertiary_color(component)
+    garden_web_theme.primary_font = get_primary_font(component)
+    garden_web_theme.secondary_font = get_secondary_font(component)
     garden_web_theme.save
   end
 
@@ -87,6 +89,18 @@ class GardenWebThemeUpdater
   def get_tertiary_color(component)
     if component.respond_to?(:g5_colors)
       component.g5_colors.try(:third).to_s
+    end
+  end
+
+  def get_primary_font(component)
+    if component.respond_to?(:g5_fonts)
+      component.g5_fonts.try(:first).to_s
+    end
+  end
+
+  def get_secondary_font(component)
+    if component.respond_to?(:g5_fonts)
+      component.g5_fonts.try(:second).to_s
     end
   end
 end
