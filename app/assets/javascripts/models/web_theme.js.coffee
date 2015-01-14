@@ -14,3 +14,18 @@ App.WebTheme = DS.Model.extend App.ReloadIframe,
   secondaryFont: DS.attr("string")
 
   noCustomFonts: Ember.computed.not('customFonts')
+
+  primaryFontValue: ( ->
+    return if @get('customFonts') then @get('primaryFont') else ''
+  ).property('customFonts')
+
+  secondaryFontValue: ( ->
+    return if @get('customFonts') then @get('secondaryFont') else ''
+  ).property('customFonts')
+
+  defaultPrimaryFont: 
+    "PT Sans"
+
+  defaultSecondaryFont:
+    "Georgia"
+
