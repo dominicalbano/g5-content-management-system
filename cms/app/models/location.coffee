@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
 
-Location = DS.Model.extend {
+Location = DS.Model.extend
   urn: DS.attr("string")
   domain: DS.attr("string")
   name: DS.attr("string")
@@ -11,6 +11,5 @@ Location = DS.Model.extend {
   websiteId: DS.attr("string")
   status: DS.attr("string")
   status_class: DS.attr("string")
-}
 
 `export default Location`

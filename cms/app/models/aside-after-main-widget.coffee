@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
 
-AsideAfterMainWidget = DS.Model.extend {
+AsideAfterMainWidget = DS.Model.extend
   # TODO: make a DS.belongsTo
   gardenWidgetId: DS.attr("number")
   websiteTemplate: DS.belongsTo("websiteTemplate")
@@ -11,6 +11,5 @@ AsideAfterMainWidget = DS.Model.extend {
   displayOrder: DS.attr("number")
   displayOrderPosition: DS.attr("number")
   isRemoved: false
-}
 
 `export default AsideAfterMainWidget`

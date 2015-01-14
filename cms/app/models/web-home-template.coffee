@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
 
-WebHomeTemplate = DS.Model.extend {
+WebHomeTemplate = DS.Model.extend
   website: DS.belongsTo("website")
   mainWidgets: DS.hasMany("mainWidget")
   previewUrl: DS.attr("string")
@@ -10,6 +10,5 @@ WebHomeTemplate = DS.Model.extend {
   redirect_patterns: DS.attr("string")
   enabled: DS.attr("boolean")
   isWebHomeTemplate: true
-}
 
 `export default WebHomeTemplate`

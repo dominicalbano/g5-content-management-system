@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
 
-Website = DS.Model.extend {
+Website = DS.Model.extend
   location: DS.belongsTo("location")
   websiteTemplate: DS.belongsTo("websiteTemplate")
   webHomeTemplate: DS.belongsTo("webHomeTemplate")
@@ -12,6 +12,5 @@ Website = DS.Model.extend {
   slug: DS.attr("string")
   corporate: DS.attr("boolean")
   herokuUrl: DS.attr("string")
-}
 
 `export default Website`

@@ -1,6 +1,6 @@
 `import DS from 'ember-data'`
 
-MainWidget = DS.Model.extend {
+MainWidget = DS.Model.extend
   # TODO: make a DS.belongsTo
   gardenWidgetId: DS.attr("number")
   webHomeTemplate: DS.belongsTo("WebHomeTemplate")
@@ -13,6 +13,5 @@ MainWidget = DS.Model.extend {
   displayOrderPosition: DS.attr("number")
   widget_type: DS.attr("string")
   isRemoved: false
-}
 
 `export default MainWidget`
