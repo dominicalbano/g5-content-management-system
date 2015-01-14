@@ -1,7 +1,7 @@
 `import Ember from 'ember'`
 
 WebsiteWebPageTemplatesInTrashController = Ember.Controller.extend
-    actions:
+  actions:
     save: (model) ->
       model.save()
 
