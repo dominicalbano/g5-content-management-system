@@ -1,7 +1,9 @@
-`import ApplicationAdapter from './application'`
+`import Ember from 'ember'`
+`import DS from 'ember-data'`
+`import config from '../config/environment'`
 
-ApplicationAdapter = ApplicationAdapter.extend
-  host: 'http://localhost:3000'
-  namespace: '/api/v1'
+ApplicationAdapter = DS.ActiveModelAdapter.extend
+  host: config.APP.host
+  namespace: 'api/v1'
 
 `export default ApplicationAdapter`
