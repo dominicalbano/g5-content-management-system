@@ -15,7 +15,7 @@ website_template:
         - slug: logo
     - html_id: drop-target-phone
       widgets:
-        - slug: phone
+        - slug: phone-number
     - html_id: drop-target-btn
       widgets:
         - slug: button
