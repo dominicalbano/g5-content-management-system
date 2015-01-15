@@ -1,3 +1,6 @@
+`import Ember from 'ember'`
+
+# move this into component object
 SelectText = (element) ->
   doc = document
   text = doc.getElementById(element)
@@ -15,7 +18,8 @@ SelectText = (element) ->
     selection.addRange range
   return
 
-App.ClickSelectComponent = Ember.Component.extend
+ClickSelectComponent = Ember.Component.extend
   click: (evt) ->
-    SelectText(this.elementId)
+    SelectText(@elementId)
 
+`export default ClickSelectComponent`

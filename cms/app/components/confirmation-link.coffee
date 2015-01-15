@@ -1,4 +1,6 @@
-App.ConfirmationLinkComponent = Ember.Component.extend
+`import Ember from 'ember'`
+
+ConfirmationLinkComponent = Ember.Component.extend
   tagName: ""
   classes: ""
   actions:
@@ -12,3 +14,5 @@ App.ConfirmationLinkComponent = Ember.Component.extend
       @toggleProperty "isShowingConfirmation"
       @sendAction "action", @get("param")
       return
+
+`export default ConfirmationLinkComponent`

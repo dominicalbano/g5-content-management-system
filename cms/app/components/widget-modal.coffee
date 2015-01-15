@@ -1,5 +1,6 @@
-App.WidgetModalComponent = Ember.Component.extend
+`import Ember from 'ember'`
 
+WidgetModalComponent = Ember.Component.extend
   widgetNameForTitle: "WIDGET"
 
   setTitleFromGarden: ( ->
@@ -18,3 +19,5 @@ App.WidgetModalComponent = Ember.Component.extend
     @set("observableObject", observableObject)
     @$("#modal").data("component", observableObject)
   ).on("didInsertElement")
+
+`export default WidgetModalComponent`

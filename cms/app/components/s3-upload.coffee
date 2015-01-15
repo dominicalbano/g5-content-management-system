@@ -1,4 +1,6 @@
-App.S3UploadComponent = Ember.FileField.extend
+`import Ember from 'ember'`
+
+S3UploadComponent = Ember.Component.extend
   multiple: true
   url: ""
   websiteName: ""
@@ -42,3 +44,4 @@ App.S3UploadComponent = Ember.FileField.extend
     return
   ).observes("files")
 
+`export default S3UploadComponent`
