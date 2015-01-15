@@ -19,15 +19,21 @@ describe StaticWebsite::Compiler::Stylesheets do
       context "and previewing" do
         let(:preview) { true }
         let(:subject) { stylesheets_klass.new([stylesheet_path],
-          compile_directory, {}, "", preview) }
+          compile_directory, {}, {}, "", preview) }
 
         before do
           subject.colors_stylesheet.stub(:compile)
+          subject.fonts_stylesheet.stub(:compile)
           stylesheet_klass.any_instance.stub(:compile)
         end
 
         it "compiles colors stylesheet" do
           subject.colors_stylesheet.should_receive(:compile).once
+          subject.compile
+        end
+
+        it "compiles fonts stylesheet" do
+          subject.fonts_stylesheet.should_receive(:compile).once
           subject.compile
         end
 
@@ -50,10 +56,11 @@ describe StaticWebsite::Compiler::Stylesheets do
       context "and deploying" do
         let(:preview) { false }
         let(:subject) { stylesheets_klass.new([stylesheet_path],
-          compile_directory, {}, "", preview) }
+          compile_directory, {}, {}, "", preview) }
 
         before do
           subject.colors_stylesheet.stub(:compile)
+          subject.fonts_stylesheet.stub(:compile)
           stylesheet_klass.any_instance.stub(:compile)
           subject.stylesheet_compressor.stub(:compile)
           subject.stylesheet_uploader.stub(:compile)
@@ -61,6 +68,11 @@ describe StaticWebsite::Compiler::Stylesheets do
 
         it "compiles colors stylesheet" do
           subject.colors_stylesheet.should_receive(:compile).once
+          subject.compile
+        end
+
+        it "compiles fonts stylesheet" do
+          subject.fonts_stylesheet.should_receive(:compile).once
           subject.compile
         end
 
@@ -90,6 +102,14 @@ describe StaticWebsite::Compiler::Stylesheets do
     end
   end
 
+  describe "#fonts_stylesheet" do
+    let(:subject) { stylesheets_klass.new(nil, compile_directory) }
+
+    it "is a fonts stylesheet object" do
+      expect(subject.fonts_stylesheet).to be_a StaticWebsite::Compiler::Stylesheet::Fonts
+    end
+  end
+
   describe "#compile_stylesheet" do
     context "when stylesheets is blank" do
       let(:subject) { stylesheets_klass.new(nil, compile_directory) }
@@ -114,7 +134,7 @@ describe StaticWebsite::Compiler::Stylesheets do
   end
 
   describe "#location_name" do
-    let(:subject) { stylesheets_klass.new(nil, compile_directory, {}, "North Shore Oahu") }
+    let(:subject) { stylesheets_klass.new(nil, compile_directory, {}, {}, "North Shore Oahu") }
 
     it "sets on initialize" do
       expect(subject.location_name).to eq "North Shore Oahu"

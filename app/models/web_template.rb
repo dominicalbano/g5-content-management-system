@@ -129,10 +129,14 @@ class WebTemplate < ActiveRecord::Base
     website.colors if website
   end
 
+  def website_fonts
+    website.fonts if website
+  end
+
   def stylesheets_compiler
     @stylesheets_compiler ||=
       StaticWebsite::Compiler::Stylesheets.new(stylesheets,
-      "#{Rails.root}/public", website_colors, owner_name, true)
+      "#{Rails.root}/public", website_colors, website_fonts, owner_name, true)
   end
 
   def stylesheet_link_paths

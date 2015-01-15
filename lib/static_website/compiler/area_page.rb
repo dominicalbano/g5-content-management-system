@@ -41,12 +41,12 @@ module StaticWebsite
       def view_options
         LOGGERS.each {|logger| logger.debug("creating view_options hash")}
         LOGGERS.each {|logger| logger.debug("going to call LocationCollector.new with #{@params} and then .collect")}
-        LOGGERS.each {|logger| logger.debug("setting web_template to: #{Location.corporate.website.website_template.to_s}")}
+        LOGGERS.each {|logger| logger.debug("setting web_template to: #{Location.corporate.first.website.website_template.to_s}")}
         LOGGERS.each {|logger| logger.debug("setting area to: #{area.to_s}")}
         options = { layout: "web_template",
           locals: {
             locations: LocationCollector.new(@params).collect,
-            web_template: Location.corporate.website.website_template,
+            web_template: Location.corporate.first.website.website_template,
             area: area,
             params: @params,
             mode: "deployed"

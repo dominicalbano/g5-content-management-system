@@ -54,4 +54,50 @@ describe WebTheme, vcr: VCR_OPTIONS do
       end
     end
   end
+
+  describe "Fonts" do
+    describe "Default Fonts" do
+      describe "When custom fonts are nil" do
+        let(:web_theme) { Fabricate(:web_theme,
+          custom_fonts: nil,
+          custom_primary_font: nil,
+          custom_secondary_font: nil) }
+
+        it { web_theme.primary_font.should eq(web_theme.garden_web_theme_primary_font) }
+        it { web_theme.secondary_font.should eq(web_theme.garden_web_theme_secondary_font) }
+      end
+
+      describe "When custom fonts are present" do
+        let(:web_theme) { Fabricate(:web_theme,
+          custom_fonts: nil,
+          custom_primary_font: "#custom-primary",
+          custom_secondary_font: "#custom-secondary" ) }
+
+        it { web_theme.primary_font.should eq(web_theme.garden_web_theme_primary_font) }
+        it { web_theme.secondary_font.should eq(web_theme.garden_web_theme_secondary_font) }
+      end
+    end
+
+    describe "Custom Fonts" do
+      describe "When custom fonts are nil" do
+        let(:web_theme) { Fabricate(:web_theme,
+          custom_fonts: true,
+          custom_primary_font: nil,
+          custom_secondary_font: nil) }
+
+        it { web_theme.primary_font.should eq(web_theme.garden_web_theme_primary_font) }
+        it { web_theme.secondary_font.should eq(web_theme.garden_web_theme_secondary_font) }
+      end
+
+      describe "When custom fonts are present" do
+        let(:web_theme) { Fabricate(:web_theme,
+          custom_fonts: true,
+          custom_primary_font: "#custom-primary",
+          custom_secondary_font: "#custom-secondary" ) }
+
+        it { web_theme.primary_font.should eq "#custom-primary" }
+        it { web_theme.secondary_font.should eq "#custom-secondary" }
+      end
+    end
+  end
 end
