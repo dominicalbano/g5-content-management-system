@@ -1,6 +1,6 @@
-# Create a new mixin for jQuery UI widgets using the Ember
-# mixin syntax.
-JQ.Base = Ember.Mixin.create
+`import Ember from 'ember'`
+
+JqBaseMixin = Ember.Mixin.create
 
   # When Ember creates the view's DOM element, it will call this
   # method.
@@ -61,7 +61,7 @@ JQ.Base = Ember.Mixin.create
       # Insert the observer in a Hash so we can remove it later.
       @_observers = @_observers or {}
       @_observers[key] = observer
-    ), this
+    ), @
     options
 
 
@@ -74,6 +74,7 @@ JQ.Base = Ember.Mixin.create
   _gatherEvents: (options) ->
     uiEvents = @get("uiEvents") or []
     self = this
+    # use fat arrow syntax instead of self
     uiEvents.forEach (event) ->
       callback = self[event]
       if callback
@@ -83,3 +84,5 @@ JQ.Base = Ember.Mixin.create
         # to include any event callbacks.
         options[event] = (event, ui) ->
           callback.call self, event, ui
+
+`export default JqBaseMixin`

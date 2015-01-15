@@ -1,4 +1,7 @@
-JQ.Sortable = Ember.Mixin.create JQ.Base,
+`import Ember from 'ember'`
+`import JqBaseMixin from './jq-base'`
+
+JqSortableMixin = Ember.Mixin.create JqBaseMixin,
   uiType: "sortable"
   uiOptions: ["appendTo", "axis", "cancel", "connectWith", "containment",
   "cursor", "cursorAt", "delay", "disabled", "distance", "dropOnEmpty",
@@ -7,3 +10,5 @@ JQ.Sortable = Ember.Mixin.create JQ.Base,
   "scrollSpeed", "tolerance", "zIndex"]
   uiEvents: ["activate", "beforeStop", "change", "create", "deactivate", "out",
   "over", "receive", "remove", "sort", "start", "stop", "update"]
+
+`export default JqSortableMixin`
