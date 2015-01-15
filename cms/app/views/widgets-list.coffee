@@ -1,9 +1,11 @@
-#= require ./widget_view
+`import Ember from 'ember'`
+`import JqSortableMixin from '../mixins/jq-sortable'`
+`import WidgetView from './widget'`
 
-App.WidgetsListView = Ember.CollectionView.extend JQ.Sortable,
+WidgetsListView = Ember.View.extend JqSortableMixin,
   tagName: "ul"
   classNames: ["add-widgets"]
-  itemViewClass: App.WidgetView.extend()
+  itemViewClass: WidgetView.extend()
   # JQ.Sortable uiOptions
   revert: true
 
@@ -12,6 +14,8 @@ App.WidgetsListView = Ember.CollectionView.extend JQ.Sortable,
     # Save the new display order position
     indexes = {}
     @$(".widget").each (index) ->
-      indexes[$(this).data("id")] = index
+      indexes[$(@).data("id")] = index
     # Tell controller to update models with new positions
     @get("controller").updateSortOrder indexes
+
+`export default WidgetsListView`

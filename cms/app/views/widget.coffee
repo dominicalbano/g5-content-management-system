@@ -1,4 +1,6 @@
-App.WidgetView = Ember.View.extend
+`import Ember from 'ember'`
+
+WidgetView = Ember.View.extend
   tagName: "li"
   classNames: ["thumb", "widget", "existing-widget"]
   classNameBindings: ["dasherizedName","widgetType"]
@@ -21,7 +23,7 @@ App.WidgetView = Ember.View.extend
 
   click: (event) ->
     if @get("content.id")
-      @set("controller.controllers.website.selectedWidgetName", this.get("content.name"))
+      @set("controller.controllers.website.selectedWidgetName", @get("content.name"))
       @getEditForm()
     false
 
@@ -62,10 +64,10 @@ App.WidgetView = Ember.View.extend
           $('#modal').modal('hide')
         # Add validation errors
         else if xhr.responseText.length
-          this.insertErrorMessages($.parseJSON(xhr.responseText))
+          @insertErrorMessages($.parseJSON(xhr.responseText))
         # Add server errors
         else
-          this.insertErrorMessages({errors: {base: ["There was a problem saving the widget"]}})
+          @insertErrorMessages({errors: {base: ["There was a problem saving the widget"]}})
     }
 
   insertErrorMessages: (errors) ->
@@ -73,3 +75,5 @@ App.WidgetView = Ember.View.extend
       errors["errors"]["base"][0] +
       "</div>"
     $('#modal .modal-body').prepend error
+
+`export default WidgetView`

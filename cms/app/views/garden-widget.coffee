@@ -1,4 +1,7 @@
-App.GardenWidgetView = Ember.View.extend JQ.Draggable,
+`import Ember from 'ember'`
+`import JqDraggableMixin from '../mixins/jq-draggable'`
+
+GardenWidgetView = Ember.View.extend JqDraggableMixin,
   tagName: "li"
   classNames: ["thumb", "widget", "new-widget"]
   classNameBindings: ["dasherizedName","widgetType"]
@@ -24,3 +27,5 @@ App.GardenWidgetView = Ember.View.extend JQ.Draggable,
   # JQ.Draggable uiEvent
   stop: (event, ui) ->
     @set "content.isDragging", false
+
+`export default GardenWidgetView`

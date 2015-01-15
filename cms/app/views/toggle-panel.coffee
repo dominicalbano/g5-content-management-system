@@ -1,4 +1,6 @@
-App.TogglePanelView = Ember.View.extend
+`import Ember from 'ember'`
+
+TogglePanelView = Ember.View.extend
   tagName: "a"
   classNames: ["btn--toggle", "toggle-1"]
   attributeBindings: ['href']
@@ -9,7 +11,7 @@ App.TogglePanelView = Ember.View.extend
     toggleBtns = $('.btn--toggle')
 
     toggleBtns.each (i) ->
-      if (toggleBtn.is($(this)) && i != 0)
+      if (toggleBtn.is($(@)) && i != 0)
         if (toggleBtn.hasClass('toggle-closed'))
           toggleBtn.removeClass('toggle-closed')
           $(toggleBtns[i-1]).removeClass('toggle-2 toggle-3').addClass('toggle-1')
@@ -30,4 +32,6 @@ App.TogglePanelView = Ember.View.extend
     false
 
   didInsertElement: ->
-    $("##{this.elementId}").trigger( "click" )
+    $("##{@elementId}").trigger( "click" )
+
+`export default TogglePanelView`

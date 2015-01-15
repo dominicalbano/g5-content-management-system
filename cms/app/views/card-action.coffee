@@ -1,4 +1,6 @@
-App.CardAction = Ember.View.extend
+`import Ember from 'ember'`
+
+CardActionView = Ember.View.extend
   tagName: "span"
     
   click: (e) ->
@@ -22,3 +24,5 @@ App.CardAction = Ember.View.extend
     else
       allInputs.removeClass("error")
       $(e.currentTarget).parents(".flip-container").toggleClass "flipped"
+
+`export default CardActionView`

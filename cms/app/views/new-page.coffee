@@ -1,4 +1,6 @@
-App.NewPage = Ember.View.extend
+`import Ember from 'ember'`
+
+NewPageView = Ember.View.extend
   click: ->
     newPageBtn = $('.new-page-btn')
     btnHeight = newPageBtn.outerHeight()
@@ -9,3 +11,5 @@ App.NewPage = Ember.View.extend
       scrollTop: target.offset().top - newPageBtn.offset().top + targetHeight + btnHeight
 
     target.find('.ember-text-field').first().focus()
+
+`export default NewPageView`

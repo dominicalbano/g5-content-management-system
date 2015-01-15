@@ -1,4 +1,7 @@
-App.WidgetsAddView = Ember.View.extend JQ.Droppable,
+`import Ember from 'ember'`
+`import JqDroppableMixin from '../mixins/jq-droppable'`
+
+WidgetsAddView = Ember.View.extend JqDroppableMixin,
   tagName: "span"
   classNames: ["drop-target drop-target-add"]
   classNameBindings: ["dropTargetActive"]
@@ -21,3 +24,5 @@ App.WidgetsAddView = Ember.View.extend JQ.Droppable,
     @get("content").createRecord
       gardenWidgetId: gardenWidgetId
     .save()
+
+`export default WidgetsAddView`

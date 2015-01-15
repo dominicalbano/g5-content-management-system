@@ -1,3 +1,7 @@
-App.ToggleBtn = Ember.View.extend
+`import Ember from 'ember'`
+
+ToggleBtnView = Ember.View.extend
   didInsertElement: ->
-    this.$().find('.switch').bootstrapSwitch()
+    @$().find('.switch').bootstrapSwitch()
+
+`export default ToggleBtnView`

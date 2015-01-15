@@ -1,4 +1,6 @@
-App.CardFlipper = Ember.View.extend
+`import Ember from 'ember'`
+
+CardFlipperView = Ember.View.extend
   tagName: "a"
   classNames: ["card-corner", "card-flip"]
   attributeBindings: ['href']
@@ -12,3 +14,5 @@ App.CardFlipper = Ember.View.extend
     toggleBtn.parents(".flip-container").toggleClass "flipped"
     saveBtn.prop("disabled", false)
     false
+
+`export default CardFlipperView`

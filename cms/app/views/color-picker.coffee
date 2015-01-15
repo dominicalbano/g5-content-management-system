@@ -1,4 +1,6 @@
-App.ColorPickerView = Ember.View.extend
+`import Ember from 'ember'`
+
+ColorPickerView = Ember.View.extend
   tagName: "form"
 
   didInsertElement: ->
@@ -12,3 +14,5 @@ App.ColorPickerView = Ember.View.extend
         preferredFormat: "hex"
         showInput: true
   ).observes("controller.primaryColor")
+
+`export default ColorPickerView`

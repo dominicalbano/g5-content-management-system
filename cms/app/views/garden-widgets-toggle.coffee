@@ -1,4 +1,6 @@
-App.GardenWidgetsToggleView = Ember.View.extend
+`import Ember from 'ember'`
+
+GardenWidgetsToggleView = Ember.View.extend
   tagName: "a"
   classNames: ["toggle-widget-view", "btn", "btn--small"]
   attributeBindings: ['href']
@@ -10,3 +12,5 @@ App.GardenWidgetsToggleView = Ember.View.extend
     toggleBtn.find('.toggle-widget-text').toggle()
     widgetViews.toggleClass("visuallyhidden")
     false
+
+`export default GardenWidgetsToggleView`

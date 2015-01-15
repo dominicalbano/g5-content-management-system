@@ -1,4 +1,6 @@
-App.GardenWebLayoutView = Ember.View.extend
+`import Ember from 'ember'`
+
+GardenWebLayoutView = Ember.View.extend
   tagName: "span"
   classNameBindings: ['layoutRelevance']
 
@@ -15,3 +17,5 @@ App.GardenWebLayoutView = Ember.View.extend
       layoutClass = "unused-layout"
 
   ).property("controller.gardenWebLayout.model")
+
+`export default GardenWebLayoutView`

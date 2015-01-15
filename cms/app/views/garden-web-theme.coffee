@@ -1,4 +1,6 @@
-App.GardenWebThemeView = Ember.View.extend
+`import Ember from 'ember'`
+
+GardenWebThemeView = Ember.View.extend
   tagName: "span"
   classNameBindings: ['themeRelevance']
 
@@ -15,3 +17,5 @@ App.GardenWebThemeView = Ember.View.extend
       themeClass = "unused-theme"
   
   ).property("controller.gardenWebTheme.model")
+
+`export default GardenWebThemeView`

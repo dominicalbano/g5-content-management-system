@@ -1,4 +1,7 @@
-App.WebsiteWebPageTemplatesView = Ember.View.extend JQ.Sortable,
+`import Ember from 'ember'`
+`import JqSortableMixin from '../mixins/jq-sortable'`
+
+WebsiteWebPageTemplatesView = Ember.View.extend JqSortableMixin,
   classNames: ["web-page-templates", "ui-sortable-connected"]
   # JQ.Sortable uiOptions
   connectWith: ".ui-sortable-connected"
@@ -9,7 +12,7 @@ App.WebsiteWebPageTemplatesView = Ember.View.extend JQ.Sortable,
     # Save the new display order position
     indexes = {}
     @$(".web-page-template").each (index) ->
-      indexes[$(this).data("id")] = index
+      indexes[$(@).data("id")] = index
     # Tell controller to update models with new positions
     @get("controller").updateSortOrder indexes
 
@@ -23,3 +26,4 @@ App.WebsiteWebPageTemplatesView = Ember.View.extend JQ.Sortable,
       # Set view not in trash
       droppedView.content.set("inTrash", true)
 
+`export default WebsiteWebPageTemplatesView`

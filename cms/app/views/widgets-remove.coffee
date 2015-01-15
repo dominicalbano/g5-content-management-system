@@ -1,4 +1,7 @@
-App.WidgetsRemoveView = Ember.View.extend JQ.Droppable,
+`import Ember from 'ember'`
+`import JqDroppableMixin from '../mixins/jq-droppable'`
+
+WidgetsRemoveView = Ember.View.extend JqDroppableMixin,
   tagName: "span"
   classNames: ["drop-target drop-target-remove"]
   classNameBindings: ["dropTargetActive"]
@@ -25,3 +28,5 @@ App.WidgetsRemoveView = Ember.View.extend JQ.Droppable,
         @draggable.remove()
       # Set content to be removed, controller deletes the record.
       droppedView.set("content.isRemoved", true)
+
+`export default WidgetsRemoveView`

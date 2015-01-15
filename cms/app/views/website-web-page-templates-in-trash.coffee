@@ -1,4 +1,7 @@
-App.WebsiteWebPageTemplatesInTrashView = Ember.View.extend JQ.Sortable,
+`import Ember from 'ember'`
+`import JqSortableMixin from '../mixins/jq-sortable'`
+
+WebsiteWebPageTemplatesInTrashView = Ember.View.extend JqSortableMixin,
   classNames: ["web-page-templates-in-trash", "ui-sortable-connected"]
   # JQ.Sortable uiOptions
   connectWith: ".ui-sortable-connected"
@@ -14,3 +17,5 @@ App.WebsiteWebPageTemplatesInTrashView = Ember.View.extend JQ.Sortable,
       # Set view not in trash
       droppedView.content.set("inTrash", false)
       droppedView.content.save()
+
+`export default WebsiteWebPageTemplatesInTrashView`

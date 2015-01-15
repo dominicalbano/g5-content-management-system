@@ -1,4 +1,6 @@
-App.ValidateEmptyFormField = Ember.View.extend
+`import Ember from 'ember'`
+
+ValidateEmptyFormFieldView = Ember.View.extend
   classNames: ["form-field"]
 
   keyUp: (e) ->
@@ -16,8 +18,8 @@ App.ValidateEmptyFormField = Ember.View.extend
 
     updateEmptyInputs = ->
       allInputs.each ->
-        if $(this).val().trim().length is 0
-          $(this).addClass("error")
+        if $(@).val().trim().length is 0
+          $(@).addClass("error")
       false
 
     validateForm = ->
@@ -29,3 +31,5 @@ App.ValidateEmptyFormField = Ember.View.extend
         saveBtn.prop("disabled", false)
 
     updateCurrentInput()
+
+`export default ValidateEmptyFormFieldView`

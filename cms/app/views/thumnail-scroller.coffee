@@ -1,8 +1,10 @@
-App.ThumbnailScrollerView = Ember.View.extend
+`import Ember from 'ember'`
+
+ThumnailScrollerView = Ember.View.extend
   tagName: "div"
   classNames: ["jThumbnailScroller"]
   didInsertElement: ->
-    this.$().thumbnailScroller
+    @$().thumbnailScroller
       scrollerType:"clickButtons"
       scrollerOrientation:"horizontal"
       scrollEasing:"easeOutCirc"
@@ -15,3 +17,4 @@ App.ThumbnailScrollerView = Ember.View.extend
       autoScrollingEasing:"easeInOutQuad"
       autoScrollingDelay:500
 
+`export default ThumnailScrollerView`

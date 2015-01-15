@@ -1,4 +1,6 @@
-App.AssetSaveView = Ember.View.extend
+`import Ember from 'ember'`
+
+AssetSaveView = Ember.View.extend
   click: (e) ->
     target = $(e.target)
     target.html('  <i class="fa fa-refresh fa-spin">  ')
@@ -7,3 +9,5 @@ App.AssetSaveView = Ember.View.extend
       target.html("Save")
       return
     ), 500
+
+`export default AssetSaveView`
