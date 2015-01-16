@@ -13,5 +13,6 @@ MainWidget = DS.Model.extend
   displayOrderPosition: DS.attr("number")
   widget_type: DS.attr("string")
   isRemoved: false
+  drop_target_id: DS.attr()
 
 `export default MainWidget`

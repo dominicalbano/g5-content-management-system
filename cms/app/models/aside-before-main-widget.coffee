@@ -11,5 +11,8 @@ AsideBeforeMainWidget = DS.Model.extend
   displayOrder: DS.attr("number")
   displayOrderPosition: DS.attr("number")
   isRemoved: false
+  widget_type: DS.attr("string")
+  drop_target_id: DS.attr()
+  
 
 `export default AsideBeforeMainWidget`

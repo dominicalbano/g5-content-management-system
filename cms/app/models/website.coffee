@@ -12,5 +12,7 @@ Website = DS.Model.extend
   slug: DS.attr("string")
   corporate: DS.attr("boolean")
   herokuUrl: DS.attr("string")
+  owner_id: DS.attr()
+  owner_type: DS.attr()
 
 `export default Website`
