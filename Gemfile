@@ -30,7 +30,6 @@ gem "ember-rails"
 gem "ember-source", "~> 1.7.0"
 gem "g5_authenticatable"
 gem "pg"
-gem "font-awesome-rails"
 gem "g5_header"
 
 # Temporary fix
