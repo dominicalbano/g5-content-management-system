@@ -15,88 +15,58 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Server:
       - Cowboy
       Connection:
       - keep-alive
       Date:
-      - Mon, 01 Dec 2014 19:30:37 GMT
+      - Wed, 14 Jan 2015 19:06:17 GMT
       Status:
-      - 200 OK
-      Last-Modified:
-      - Mon, 01 Dec 2014 17:47:19 GMT
+      - 404 Not Found
       Content-Type:
-      - text/css
+      - text/html; charset=utf-8
       Content-Length:
-      - '755'
+      - '728'
+      X-Request-Id:
+      - fb767beb-803d-4fb8-8969-63f36d213b82
+      X-Runtime:
+      - '0.006070'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: |
-        .row:before,
-        .row:after,
-        .row-grid:before,
-        .row-grid:after {
-          content: " ";
-          display: table;
-        }
-        .row:after,
-        .row-grid:after {
-          clear: both;
-        }
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>The page you were looking for doesn't exist (404)</title>
+          <style type="text/css">
+            body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+            div.dialog {
+              width: 25em;
+              padding: 0 4em;
+              margin: 4em auto 0 auto;
+              border: 1px solid #ccc;
+              border-right-color: #999;
+              border-bottom-color: #999;
+            }
+            h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+          </style>
+        </head>
 
-        .row-grid {
-          margin: 0 -15px;
-        }
-
-        .col {
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          padding: 0 15px;
-        }
-
-        .row-halves .col,
-        .row-uneven-thirds-1 .col,
-        .row-uneven-thirds-2 .col,
-        .row-thirds .col,
-        .row-quarters .col {
-          float: left;
-        }
-
-        .row-halves .col {
-          width: 50%;
-        }
-
-        .row-thirds .col {
-          width: 33.33333%;
-        }
-
-        .row-uneven-thirds-1 .col-1 {
-          width: 33.33333%;
-        }
-
-        .row-uneven-thirds-1 .col-2 {
-          width: 66.66667%;
-        }
-
-        .row-uneven-thirds-2 .col-1 {
-          width: 66.66667%;
-        }
-
-        .row-uneven-thirds-2 .col-2 {
-          width: 33.33333%;
-        }
-
-        .row-quarters .col {
-          width: 25%;
-        }
+        <body>
+          <!-- This file lives in public/404.html -->
+          <div class="dialog">
+            <h1>The page you were looking for doesn't exist.</h1>
+            <p>You may have mistyped the address or the page may have moved.</p>
+          </div>
+        </body>
+        </html>
     http_version: 
-  recorded_at: Mon, 01 Dec 2014 19:30:37 GMT
+  recorded_at: Wed, 14 Jan 2015 19:06:17 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -120,15 +90,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 01 Dec 2014 19:30:37 GMT
+      - Wed, 14 Jan 2015 19:06:18 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Mon, 01 Dec 2014 17:47:19 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '497'
+      - '615'
       Via:
       - 1.1 vegur
     body:
@@ -153,13 +123,18 @@ http_interactions:
           box-sizing: border-box;
           text-align: center;
         }
+        .button-inline {
+          float: left;
+          margin-right: 15px;
+        }
         @media (min-width: 500px) {
           .button-grid {
             float: left;
             padding: 0 1em;
             width: 50%;
           }
-          .button-grid:nth-of-type(2n+1) {
+          section > .button-grid:nth-of-type(2n+1),
+          .row [class*=row]:nth-of-type(2n+1) .button-grid {
             clear: left;
           }
         }
@@ -167,7 +142,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Mon, 01 Dec 2014 19:30:37 GMT
+  recorded_at: Wed, 14 Jan 2015 19:06:18 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
@@ -191,11 +166,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 01 Dec 2014 19:30:38 GMT
+      - Wed, 14 Jan 2015 19:06:18 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Mon, 01 Dec 2014 17:47:19 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -247,7 +222,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Mon, 01 Dec 2014 19:30:38 GMT
+  recorded_at: Wed, 14 Jan 2015 19:06:19 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -271,11 +246,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 01 Dec 2014 19:30:38 GMT
+      - Wed, 14 Jan 2015 19:06:19 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Mon, 01 Dec 2014 17:47:19 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -296,7 +271,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Mon, 01 Dec 2014 19:30:38 GMT
+  recorded_at: Wed, 14 Jan 2015 19:06:19 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -320,15 +295,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Mon, 01 Dec 2014 19:30:38 GMT
+      - Wed, 14 Jan 2015 19:06:19 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Mon, 01 Dec 2014 17:47:19 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '728'
+      - '808'
       Via:
       - 1.1 vegur
     body:
@@ -337,14 +312,15 @@ http_interactions:
         .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
         .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
         \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
-        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(https://themes.g5dxm.com/shared/access-icons.png)
         0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
         hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
         .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
-        200px;\n}\n"
+        200px;\n}\n.footer-info .icon {\n  background-color: #000;\n  height: 40px;\n
+        \ width: 40px;\n}"
     http_version: 
-  recorded_at: Mon, 01 Dec 2014 19:30:39 GMT
+  recorded_at: Wed, 14 Jan 2015 19:06:19 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/luxe/stylesheets/luxe.scss
@@ -368,15 +344,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 19 Dec 2014 22:58:57 GMT
+      - Wed, 14 Jan 2015 19:06:20 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Fri, 19 Dec 2014 18:07:52 GMT
+      - Mon, 05 Jan 2015 22:18:33 GMT
       Content-Type:
       - text/plain
       Content-Length:
-      - '21182'
+      - '20627'
       Via:
       - 1.1 vegur
     body:
@@ -999,48 +975,19 @@ http_interactions:
           background-color: $base-background;
           padding: $half-whitespace $half-whitespace 0 $half-whitespace;
           a {
-            @extend %ir;
-            background: url('https://widgets.g5dxm.com/social-links/social-icons-alt.png') 0 0 no-repeat;
-            display: inline-block;
-            height: 45px;
-            width: 45px;
             margin: 0 $half-whitespace $half-whitespace 0;
             &:last-child {
               margin-right: 0;
             }
           }
-          .twitter {
-            background-position: 0 0;
-          }
-          .tumblr {
-            background-position: 0 -60px;
-          }
-          .facebook {
-            background-position: 0 -120px;
-          }
-          .instagram {
-            background-position: 0 -180px;
-          }
-          .vimeo {
-            background-position: 0 -240px;
-          }
-          .yelp {
-            background-position: 0 -300px;
-          }
-          .foursquare {
-            background-position: 0 -360px;
-          }
-          .pinterest {
-            background-position: 0 -420px;
-          }
-          .youtube {
-            background-position: 0 -480px;
-          }
-          .google-plus {
-            background-position: 0 -540px;
-          }
-          .linked-in {
-            background-position: 0 -600px;
+          .icon {
+            @include transition(background-color .2s ease);
+            background-color: $primaryColor;
+            height: 45px;
+            width: 45px;
+            &:hover {
+              background-color: $primary-alt;
+            }
           }
         }
 
@@ -1606,5 +1553,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 19 Dec 2014 22:58:57 GMT
+  recorded_at: Wed, 14 Jan 2015 19:06:20 GMT
 recorded_with: VCR 2.9.3

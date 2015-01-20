@@ -11,7 +11,7 @@ class Asset < ActiveRecord::Base
   private
 
   def set_default_category
-    self.category ||= Category.find_by_name("Photo Gallery")
+    self.category ||= Category.find_or_create_by_name("Photo Gallery")
   end
 
 end
