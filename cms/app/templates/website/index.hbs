@@ -21,7 +21,7 @@
 
   <div class="site-pages page-section">
     <div class="page-title">
-      {{#view App.NewPage}}
+      {{#view "new-page"}}
         {{#link-to "webPageTemplates.new" class="new-page-btn btn" }}Create New Page{{/link-to}}
       {{/view}}
     </div>
@@ -43,7 +43,7 @@
       </div>
     </div>
 
-    {{#view App.WebsiteWebPageTemplatesEmptyTrashView}}
+    {{#view "website-web-page-templates-empty-trash"}}
       <div class="lightbox-body">
         <h2>Empty the Trash</h2>
         <p>This is immediate and permanent. There is no undo.</p>

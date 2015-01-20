@@ -1,7 +1,7 @@
 {{#each}}
   {{#unless isNew}}
     {{#unless inTrash}}
-      {{view App.WebsiteWebPageTemplateView contentBinding="this"}}
+      {{view "website-web-page-template" contentBinding="this"}}
     {{/unless}}
   {{/unless}}
 {{/each}}

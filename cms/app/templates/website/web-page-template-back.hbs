@@ -5,12 +5,12 @@
   <div class="card-body">
 
     <form class="form">
-      {{#view App.ValidateEmptyFormField}}
+      {{#view "validate-empty-form-field"}}
         <label>Page Name (for CMS)</label>
         {{input value=name name="page_name"}}
       {{/view}}
 
-      {{#view App.ValidateEmptyFormField}}
+      {{#view "validate-empty-form-field"}}
         <label>Page Title</label>
         {{input value=title name="page_title"}}
       {{/view}}
@@ -29,7 +29,7 @@
 
       <div class="form-field">
         <label class="switch-label">Page Status</label>
-        {{#view App.ToggleBtn}}
+        {{#view "toggle-btn"}}
           <div class="switch switch-small" data-on="success" data-off="danger">
             {{input type="checkbox" checked=enabled}}
           </div>
@@ -37,12 +37,12 @@
       </div>
 
       <div class="buttons">
-        {{#view App.CardAction}}
+        {{#view "card-action"}}
           <button {{action cancel this}} class="cancel-link card-flip">
             Cancel
           </button>
         {{/view}}
-        {{#view App.CardAction}}
+        {{#view "card-action"}}
           <button {{action save this}} class="save btn btn--small" disabled>
             Save
           </button>

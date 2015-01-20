@@ -1,12 +1,12 @@
 <div class="widget-list">
   <div class="l-container">
-    {{#view App.TogglePanelView contentBinding="this"}}
+    {{#view "toggle-panel" contentBinding="this"}}
       <span class="toggle-panel-text btn--toggle-hide">Hide Widgets</span>
       <span class="toggle-panel-text hide btn--toggle-show">Show Widgets</span>
     {{/view}}
 
     <div class="toggle-content page-section">
-      {{#view App.GardenWidgetsToggleView contentBinding="this"}}
+      {{#view "garden-widgets-toggle" contentBinding="this"}}
         <span class="toggle-widget-text">Grid View</span>
         <span class="toggle-widget-text hide">List View</span>
       {{/view}}
@@ -17,16 +17,16 @@
       {{else}}
         <ul class="widgets--list-view widget-view">
           {{#each this}}
-            {{view App.GardenWidgetView contentBinding="this"}}
+            {{view "garden-widget" contentBinding="this"}}
           {{/each}}
         </ul>
 
         <div class="widget-view visuallyhidden">
-          {{#view App.ThumbnailScrollerView}}
+          {{#view "thumnail-scroller"}}
             <div class="jTscrollerContainer">
               <ul id="choose-widgets" class="jTscroller clearfix">
               {{#each this}}
-                {{view App.GardenWidgetView contentBinding="this"}}
+                {{view "garden-widget" contentBinding="this"}}
               {{/each}}
               </ul>
             </div>

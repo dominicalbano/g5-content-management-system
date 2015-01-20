@@ -1,26 +1,26 @@
-{{#view App.ColorPickerView}}
+{{#view "color-picker"}}
   <div class="colors clearfix">
     <h3>Customize Colors:</h3>
     <div class="color-fields">
       <div class="check-field">
         <label>
-          {{view App.Checkbox checkedBinding="customColors"
+          {{view "checkbox" checkedBinding="customColors"
             contentBinding="content"}}
           Use Custom Colors
         </label>
       </div>
       <div class="color-field">
-        {{view App.ColorField valueBinding="primaryColor"
+        {{view "color-field" valueBinding="primaryColor"
           contentBinding="content" id="color-1" class="color"}}
         <label for="color-1">Primary</label>
       </div>
       <div class="color-field">
-        {{view App.ColorField valueBinding="secondaryColor"
+        {{view "color-field" valueBinding="secondaryColor"
           contentBinding="content" id="color-2" class="color"}}
         <label for="color-2">Secondary</label>
       </div>
       <div class="color-field">
-        {{view App.ColorField valueBinding="tertiaryColor"
+        {{view "color-field" valueBinding="tertiaryColor"
           contentBinding="content" id="color-3" class="color"}}
         <label for="color-3">Tertiary</label>
       </div>
@@ -28,25 +28,25 @@
   </div>
 {{/view}}
 
-{{#view App.FontPickerView}}
+{{#view "font-picker"}}
   <div class="fonts clearfix">
     <h3>Customize Fonts:</h3>
     <div class="font-fields">
       <div class="check-field">
         <label>
-          {{view App.Checkbox checkedBinding="customFonts"
+          {{view "checkbox" checkedBinding="customFonts"
             contentBinding="content"}}
           Use Custom Fonts
         </label>
       </div>
       <div class="font-field">
         <label for="font-1">Primary</label>
-        {{view App.FontField valueBinding="primaryFont"
+        {{view "font-field" valueBinding="primaryFont"
           contentBinding="content" id="font-1" class="font" placeholderBinding="defaultPrimaryFont" disabledBinding="noCustomFonts" }}
       </div>
       <div class="font-field">
         <label for="font-2">Secondary</label>
-        {{view App.FontField valueBinding="secondaryFont"
+        {{view "font-field" valueBinding="secondaryFont"
           contentBinding="content" id="font-2" class="font" placeholderBinding="defaultSecondaryFont" disabledBinding="noCustomFonts" }}
       </div>
     </div>

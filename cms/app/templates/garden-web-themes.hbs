@@ -1,7 +1,7 @@
 <div class="theme-picker thumbnail-field clearfix">
   <div class="l-container">
 
-    {{#view App.TogglePanelView contentBinding="this"}}
+    {{#view "toggle-panel" contentBinding="this"}}
       <span class="toggle-panel-text btn--toggle-hide">Hide Themes</span>
       <span class="toggle-panel-text hide btn--toggle-show">Show Themes</span>
     {{/view}}
@@ -11,13 +11,13 @@
       {{#if model.isUpdating}}
         <div class="loading">Loading...</div>
       {{else}}
-        {{#view App.ThumbnailScrollerView}}
+        {{#view "thumnail-scroller"}}
           <div class="jTscrollerContainer">
             <div class="jTscroller thumbs clearfix" style="width:100%">
               {{#each model}}
                 <div class="thumb">
                   <a href="#" {{ action "update" this }}>
-                    {{#view App.GardenWebThemeView contentBinding="this"}}
+                    {{#view "garden-web-theme" contentBinding="this"}}
                     <img alt="Thumbnail" {{ bind-attr src="thumbnail" }} {{ bind-attr class="view.isSelected" }}>
                     {{ name }}
                     {{/view}}

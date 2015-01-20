@@ -1,10 +1,10 @@
 <div class="widget-drop-zone aside-widgets aside-after-main-widgets">
   <h2>Aside after main</h2>
-  {{view App.WidgetsListView contentBinding="content"}}
+  {{view "widgets-list" contentBinding="content"}}
   <div class="add-drop-zone">
-    {{view App.WidgetsAddView contentBinding="content"}}
+    {{view "widgets-add" contentBinding="content"}}
   </div>
   <div class="remove-drop-zone">
-    {{view App.WidgetsRemoveView contentBinding="content"}}
+    {{view "widgets-remove" contentBinding="content"}}
   </div>
 </div>

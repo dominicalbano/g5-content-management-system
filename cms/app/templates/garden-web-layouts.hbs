@@ -1,7 +1,7 @@
 <div class="layout-picker thumbnail-field">
   <div class="l-container">
 
-    {{#view App.TogglePanelView contentBinding="this"}}
+    {{#view "toggle-panel" contentBinding="this"}}
       <span class="toggle-panel-text btn--toggle-hide">Hide Layouts</span>
       <span class="toggle-panel-text hide btn--toggle-show">Show Layouts</span>
     {{/view}}
@@ -15,7 +15,7 @@
         {{#each model}}
           <div class="thumb">
             <a href="#" {{ action "update" this }}>
-              {{#view App.GardenWebLayoutView contentBinding="this"}}
+              {{#view "garden-web-layout" contentBinding="this"}}
                 <img alt="Thumbnail" {{ bind-attr src="thumbnail" class="view.isSelected" }}>
                 {{ name }}
               {{/view}}
