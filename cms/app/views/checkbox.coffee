@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-CheckboxView = Ember.View.extend
+CheckboxView = Ember.Checkbox.extend
   change: ->
     @get("content").save()
 

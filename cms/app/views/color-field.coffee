@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-ColorFieldView = Ember.View.extend
+ColorFieldView = Ember.TextField.extend
   type: "color"
 
   change: ->
