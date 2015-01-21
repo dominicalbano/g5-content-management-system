@@ -4,6 +4,10 @@ WebsiteIndexController = Ember.Controller.extend
   confirmEmptyTrash: false
   needs: ["client"]
 
+  websiteTemplate: (->
+    @get('model.websiteTemplate')
+  ).property()
+
   actions:
     deploy: (model) ->
       url = "/websites/" + model.get('id') + "/deploy"
