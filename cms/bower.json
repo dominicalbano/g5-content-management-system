@@ -14,6 +14,7 @@
     "ember-qunit-notifications": "0.0.4",
     "qunit": "~1.15.0",
     "bourbon": "3.2.1",
-    "font-awesome": "~4.2.0"
+    "font-awesome": "~4.2.0",
+    "bootstrap-switch": "~3.3.1"
   }
 }

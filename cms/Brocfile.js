@@ -28,4 +28,7 @@ app.import("bower_components/font-awesome/fonts/fontawesome-webfont.ttf", { dest
 app.import("bower_components/font-awesome/fonts/fontawesome-webfont.woff", { destDir: "fonts" });
 app.import("bower_components/font-awesome/fonts/FontAwesome.otf", { destDir: "fonts" });
 
+app.import("bower_components/bootstrap-switch/dist/css/bootstrap2/bootstrap-switch.min.css");
+app.import("bower_components/bootstrap-switch/dist/js/bootstrap-switch.min.js");
+
 module.exports = app.toTree();
