@@ -13,9 +13,6 @@ website_template:
     - html_id: drop-target-logo
       widgets:
         - slug: logo
-    - html_id: drop-target-phone
-      widgets:
-        - slug: phone
     - html_id: drop-target-btn
       widgets:
         - slug: button
