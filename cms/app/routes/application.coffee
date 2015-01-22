@@ -1,8 +1,11 @@
 `import Ember from 'ember'`
 
 ApplicationRoute = Ember.Route.extend
-  setupController: (controller, model)->
+  model: ->
+    @store.find("Client", 1)
+
+  setupController: (controller, model) ->
     # setup client controller - we need access to the client in the header on all pages
-    @controllerFor("client").set("model", this.store.find("Client", 1))
+    @controllerFor("client").set("model", model)
 
 `export default ApplicationRoute`
