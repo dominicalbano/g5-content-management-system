@@ -33,4 +33,16 @@ app.import("bower_components/bootstrap/stylesheets/bootstrapModal.css");
 app.import("bower_components/bootstrap/javascripts/bootstrap.js");
 app.import("bower_components/bootstrap/javascripts/bootstrapSwitch.js");
 
+app.import("bower_components/jquery.ui/ui/core.js");
+app.import("bower_components/jquery.ui/ui/widget.js");
+app.import("bower_components/jquery.ui/ui/mouse.js");
+app.import("bower_components/jquery.ui/ui/sortable.js");
+app.import("bower_components/jquery.ui/ui/draggable.js");
+app.import("bower_components/jquery.ui/ui/droppable.js");
+
+app.import("bower_components/jquery.thumbnailScroller/index.js");
+app.import("bower_components/spectrum/index.js");
+app.import("bower_components/ember-uploader/index.js");
+
+
 module.exports = app.toTree();
