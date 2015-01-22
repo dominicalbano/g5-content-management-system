@@ -15,6 +15,6 @@
     "qunit": "~1.15.0",
     "bourbon": "3.2.1",
     "font-awesome": "~4.2.0",
-    "bootstrap-switch": "~3.3.1"
+    "bootstrap": "./local_assets/bootstrap.zip"
   }
 }
