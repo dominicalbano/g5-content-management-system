@@ -14,8 +14,11 @@
         {{/if}}
 
         {{#if controllers.webPageTemplate.model}}
-            &raquo;
-            <a>{{controllers.webPageTemplate.model.name}}</a>
+          <a>{{controllers.webPageTemplate.model.name}}</a>
+        {{/if}}
+
+        {{#if controllers.webHomeTemplate.model}}
+          <a>{{controllers.webHomeTemplate.model.name}}</a>
         {{/if}}
       </ul>
     </nav>
