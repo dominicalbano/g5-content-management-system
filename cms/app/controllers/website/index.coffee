@@ -8,6 +8,14 @@ WebsiteIndexController = Ember.Controller.extend
     @get('model.websiteTemplate')
   ).property()
 
+  webHomeTemplate: (->
+    @get('model.webHomeTemplate')
+  ).property()
+
+  webPageTemplates: (->
+    @get('model.webPageTemplates')
+  ).property()
+
   actions:
     deploy: (model) ->
       url = "/websites/" + model.get('id') + "/deploy"
