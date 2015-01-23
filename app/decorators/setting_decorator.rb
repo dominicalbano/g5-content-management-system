@@ -36,9 +36,11 @@ class SettingDecorator < Draper::Decorator
   end
 
   def googus
-    #reach up through parent widgets to get web_template and location info
+    # reach up through parent widgets to get web_template and location info
 
-    #start with a parent ID
-    owner.parent_id
+    # going this route requires we set up a placeholder setting in index.html of the widget, and
+    # then call .googus on that placeholder within the liquid.
+
+    "Ole!... #{owner.parent_id}"
   end
 end
