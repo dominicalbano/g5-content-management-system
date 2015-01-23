@@ -102,6 +102,13 @@ class Widget < ActiveRecord::Base
     widgets.collect {|widget| widget.settings}.flatten
   end
 
+  def inherited_settings
+    #reach up through parent widgets to get web_template and location info
+
+    #start with a parent ID
+    self.parent_id
+  end
+
   private
 
   # TODO: Is this being used?
