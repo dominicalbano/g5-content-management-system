@@ -2,10 +2,10 @@
 `import JqSortableMixin from '../mixins/jq-sortable'`
 `import WidgetView from './widget'`
 
-WidgetsListView = Ember.View.extend JqSortableMixin,
+WidgetsListView = Ember.CollectionView.extend JqSortableMixin,
   tagName: "ul"
   classNames: ["add-widgets"]
-  itemViewClass: WidgetView.extend()
+  itemViewClass: WidgetView
   # JQ.Sortable uiOptions
   revert: true
 

@@ -5,7 +5,7 @@ WidgetView = Ember.View.extend
   classNames: ["thumb", "widget", "existing-widget"]
   classNameBindings: ["dasherizedName","widgetType"]
   attributeBindings: ["id:data-id"]
-  templateName: "website/widget"
+  templateName: "_widget"
 
   dasherizedName: ( ->
     name = @get("content.name")

@@ -1,4 +1,8 @@
-<li>
-  <img alt="Widget" {{ bind-attr src="thumbnail" }} />
+{{#if view.content.thumbnail }}
+  {{! thumbnails are set on the view if used, but name is inherited from controller}}
+  <img alt="Thumbnail" {{ bind-attr src="view.content.thumbnail" }} />
+  {{ view.content.name }}
+{{else}}
+  <img alt="Thumbnail" {{ bind-attr src="thumbnail" }} />
   {{ name }}
-</li>
+{{/if}}

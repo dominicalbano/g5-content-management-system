@@ -5,7 +5,7 @@ GardenWidgetView = Ember.View.extend JqDraggableMixin,
   tagName: "li"
   classNames: ["thumb", "widget", "new-widget"]
   classNameBindings: ["dasherizedName","widgetType"]
-  templateName: "garden-widget"
+  templateName: "website/widget"
   # JQ.Draggable uiOptions
   revert: true
   zIndex: 1000
