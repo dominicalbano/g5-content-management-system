@@ -65,9 +65,6 @@ G5CMS::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
 
-  # Configure Ember variant
-  config.ember.variant = :production
-
   config.eager_load = true
   Rails.application.default_url_options[:host] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
 end
