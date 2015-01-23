@@ -5,6 +5,6 @@ IframeView = Ember.View.extend
   attributeBindings: ["src"]
 
   didInsertElement: ->
-    @set("src", @get("content.previewUrl"))
+    @set("src", @get("content.model.previewUrl"))
 
 `export default IframeView`
