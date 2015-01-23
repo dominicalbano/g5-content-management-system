@@ -8,7 +8,8 @@ class SettingDecorator < Draper::Decorator
                   :value_field_name,
                   :value_field_id,
                   :value,
-                  :best_value
+                  :best_value,
+                  :googus
 
   def owner_name
     owner.name if owner && owner.respond_to?(:name)
@@ -32,5 +33,12 @@ class SettingDecorator < Draper::Decorator
 
   def value_field_id
     value_field_name.parameterize.gsub(/-/, "_")
+  end
+
+  def googus
+    #reach up through parent widgets to get web_template and location info
+
+    #start with a parent ID
+    owner.parent_id
   end
 end
