@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113201727) do
+ActiveRecord::Schema.define(version: 20150123151145) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -256,6 +256,7 @@ ActiveRecord::Schema.define(version: 20150113201727) do
     t.string   "section"
     t.boolean  "removeable"
     t.integer  "garden_widget_id"
+    t.integer  "parent_id"
   end
 
   add_index "widgets", ["drop_target_id"], name: "index_widgets_on_drop_target_id", using: :btree
