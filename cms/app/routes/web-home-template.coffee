@@ -2,7 +2,7 @@
 
 WebHomeTemplateRoute = Ember.Route.extend
   model: ->
-    this.modelFor("website").get("webHomeTemplate")
+    @modelFor("website").get("webHomeTemplate")
 
   setupController: (controller, model) ->
     controller.set("model", model)

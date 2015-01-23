@@ -28,9 +28,9 @@ WebPageTemplateRoute = Ember.Route.extend
     @controllerFor("asideAfterMainWidgets").set("model", model.get("website.websiteTemplate.asideAfterMainWidgets"))
     @controllerFor("footerWidgets").set("model", model.get("website.websiteTemplate.footerWidgets"))
     # setup garden controllers last
-    @controllerFor("gardenWebLayouts").set("model", this.store.find('gardenWebLayout'))
-    @controllerFor("gardenWebThemes").set("model", this.store.find('gardenWebTheme'))
-    @controllerFor("gardenWidgets").set("model", this.store.find('gardenWidget'))
+    @controllerFor("gardenWebLayouts").set("model", @store.find('gardenWebLayout'))
+    @controllerFor("gardenWebThemes").set("model", @store.find('gardenWebTheme'))
+    @controllerFor("gardenWidgets").set("model", @store.find('gardenWidget'))
 
   serialize: (model, params) ->
     website_slug: model.get("website.slug")
