@@ -40,7 +40,9 @@ app.import("bower_components/jquery.ui/ui/sortable.js");
 app.import("bower_components/jquery.ui/ui/draggable.js");
 app.import("bower_components/jquery.ui/ui/droppable.js");
 
-app.import("bower_components/jquery.thumbnailScroller/index.js");
+app.import("bower_components/jquery.scroller/jquery.mThumbnailScroller.js");
+app.import("bower_components/jquery.scroller/jquery.mThumbnailScroller.css");
+
 app.import("bower_components/spectrum/index.js");
 app.import("bower_components/ember-uploader/index.js");
 

@@ -4,7 +4,7 @@ ThumnailScrollerView = Ember.View.extend
   tagName: "div"
   classNames: ["jThumbnailScroller"]
   didInsertElement: ->
-    @$().thumbnailScroller
+    @$().mThumbnailScroller
       scrollerType:"clickButtons"
       scrollerOrientation:"horizontal"
       scrollEasing:"easeOutCirc"
