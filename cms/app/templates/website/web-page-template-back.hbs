@@ -1,6 +1,6 @@
 <div class="card-container back">
 
-  {{ partial "website/webPageTemplateHead" }}
+  {{ partial "website/web-page-template-head" }}
 
   <div class="card-body">
 
@@ -18,7 +18,7 @@
       <div class="form-field template-select">
         <label>Parent Page</label>
 
-        {{view Ember.Select
+        {{view 'select'
                contentBinding="templates"
                prompt="None"
                name="parent"
@@ -52,3 +52,4 @@
 
   </div>
 </div>
+

@@ -1,6 +1,6 @@
 <div class="card-container front">
 
-  {{ partial "website/webPageTemplateHead" }}
+  {{ partial "website/web-page-template-head" }}
 
   <div class="card-body">
     <ul class="widgets">
@@ -12,11 +12,11 @@
       {{#if isWebHomeTemplate}}
         {{#link-to "webHomeTemplate" class="btn btn--small"}}Edit{{/link-to}}
       {{else}}
-        {{#link-to "webPageTemplate" this class="btn btn--small"}}Edit{{/link-to}}
+        {{#link-to "webPageTemplate" this.slug class="btn btn--small"}}Edit{{/link-to}}
       {{/if}}
       <a {{bind-attr href="previewUrl"}} class="btn btn--small">Preview</a>
     </div>
 
-    {{ partial "website/webPageTemplateFlip" }}
+    {{ partial "website/web-page-template-flip" }}
   </div>
 </div>
