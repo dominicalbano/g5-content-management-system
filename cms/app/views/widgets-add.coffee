@@ -5,7 +5,7 @@ WidgetsAddView = Ember.View.extend JqDroppableMixin,
   tagName: "span"
   classNames: ["drop-target drop-target-add"]
   classNameBindings: ["dropTargetActive"]
-  templateName: ["_widgets_add"]
+  templateName: ["widgets_add"]
   # JQ.Droppable uiOptions
   accept: ".new-widget"
   activeClass: "drop-target-active"

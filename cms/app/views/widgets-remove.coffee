@@ -5,7 +5,7 @@ WidgetsRemoveView = Ember.View.extend JqDroppableMixin,
   tagName: "span"
   classNames: ["drop-target drop-target-remove"]
   classNameBindings: ["dropTargetActive"]
-  templateName: ["_widgets_remove"]
+  templateName: ["widgets_remove"]
   # JQ.Droppable uiOptions
   accept: ".existing-widget"
   activeClass: "drop-target-active"
