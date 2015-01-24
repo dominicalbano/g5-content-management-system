@@ -3,6 +3,6 @@
 LocationsRoute = Ember.Route.extend
   setupController: (controller, model)->
     # setup this controller
-    controller.set("model", this.store.find('location'))
+    controller.set("model", @store.find('location'))
 
 `export default LocationsRoute`
