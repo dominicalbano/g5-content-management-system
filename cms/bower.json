@@ -19,6 +19,7 @@
     "jquery.scroller": "./local_assets/thumbnail-scroller.zip",
     "spectrum": "./local_assets/spectrum.js",
     "ember-uploader": "./local_assets/ember-uploader.js",
-    "jquery.ui": "~1.11.2"
+    "jquery.ui": "~1.11.2",
+    "moment": "~2.9.0"
   }
 }

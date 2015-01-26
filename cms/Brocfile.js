@@ -46,5 +46,6 @@ app.import("bower_components/jquery.scroller/jquery.mThumbnailScroller.css");
 app.import("bower_components/spectrum/index.js");
 app.import("bower_components/ember-uploader/index.js");
 
+app.import("bower_components/moment/min/moment.min.js");
 
 module.exports = app.toTree();
