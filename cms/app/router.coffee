@@ -15,7 +15,7 @@ Router.map ->
     @resource "assets"
     @resource "webHomeTemplate", path: "home"
     @resource "webPageTemplate", path: ":web_page_template_slug"
-    @resource "webPageTemplates", ->
+    @resource "webPageTemplates", path: "web-page-template", ->
       @route "new"
 
   @resource "locations", path: "/"
