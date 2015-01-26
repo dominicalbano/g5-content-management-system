@@ -17,7 +17,6 @@
     "font-awesome": "~4.2.0",
     "bootstrap": "./local_assets/bootstrap.zip",
     "jquery.scroller": "./local_assets/thumbnail-scroller.zip",
-    "jquery.thumbnailScroller": "./local_assets/jquery.thumbnailScroller.js",
     "spectrum": "./local_assets/spectrum.js",
     "ember-uploader": "./local_assets/ember-uploader.js",
     "jquery.ui": "~1.11.2"
