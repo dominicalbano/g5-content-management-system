@@ -5,6 +5,7 @@ class WebsiteSerializer < ActiveModel::Serializer
   has_one :web_home_template
   has_many :web_page_templates
   has_many :assets
+  has_many :categories
 
   attributes  :id,
               :owner_id,
@@ -17,4 +18,6 @@ class WebsiteSerializer < ActiveModel::Serializer
   def heroku_url
     object.decorate.heroku_url
   end
+  
 end
+
