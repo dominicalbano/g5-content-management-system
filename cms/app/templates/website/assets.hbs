@@ -7,7 +7,6 @@
     <label>
       <div class="upload-left"><i class="fa fa-upload fa-2x"></i></div>
       <div class="upload-right">Upload New Files</div>
-
       {{s3-upload url="/api/v1/sign_upload" action='saveAsset' websiteName=website.name}}
     </label>
 
@@ -24,38 +23,39 @@
 
   <div class="faux-table faux-table--striped">
     <ul class="faux-table-body">
+
       {{#each controller}}
         <li class="asset faux-table-row">
           <div class="faux-table-cell asset-image">
-            <a {{bind-attr href=url}} target='new'>
-              <img {{bind-attr src=url}}>
+            <a {{bind-attr href=model.url}} target='new'>
+              <img {{bind-attr src=model.url}}>
             </a>
           </div>
 
           <div class="faux-table-cell asset-category">
             <form class="asset-element">
               <div class="selected-category">
-                <i class="fa fa-tags"></i> {{categoryName}}
+                <i class="fa fa-tags"></i> {{model.categoryName}}
               </div>
 
-              {{view Ember.Select
-                     contentBinding="controller.categories"
+              {{view "select"
+                     content=controller.categories
                      name="category"
                      prompt="Select New Category"
                      optionValuePath="content.id"
                      optionLabelPath="content.name"
-                     selection=category }}
+                     selection=model.category }}
 
               {{#view "asset-save"}}
-                <button {{action save this}} class="save btn btn--a asset-save">Save</button>
+                <button {{action 'save' controller.model}} class="save btn btn--a asset-save">Save</button>
               {{/view}}
             </form>
           </div>
 
           <div class="faux-table-cell asset-url">
-            <div class="asset-element">{{click-select url=url }}</div>
+            <div class="asset-element">{{click-select url=model.url }}</div>
           </div>
-          <div class="faux-table-cell asset-delete">{{confirm-button title='delete' action='deleteAsset' param=this}}</div>
+          <div class="faux-table-cell asset-delete">{{confirm-button title='delete' action='deleteAsset' param=model}}</div>
         </li>
       {{/each}}
     </ul>
