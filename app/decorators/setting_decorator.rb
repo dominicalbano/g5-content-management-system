@@ -9,7 +9,7 @@ class SettingDecorator < Draper::Decorator
                   :value_field_id,
                   :value,
                   :best_value,
-                  :googus
+                  :location_settings
 
   def owner_name
     owner.name if owner && owner.respond_to?(:name)
@@ -35,12 +35,15 @@ class SettingDecorator < Draper::Decorator
     value_field_name.parameterize.gsub(/-/, "_")
   end
 
-  def googus
+  def location_settings
     # reach up through parent widgets to get web_template and location info
 
     # going this route requires we set up a placeholder setting in index.html of the widget, and
-    # then call .googus on that placeholder within the liquid.
+    # then call .location_settings on that placeholder within the liquid.
+    parent = Widget.find owner.parent_id
 
-    "Ole!... #{owner.parent_id}"
+    { parent_id: owner.parent_id,
+      client_uid: parent.web_template.client.uid
+    }.to_json
   end
 end
