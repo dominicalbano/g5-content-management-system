@@ -5,3 +5,4 @@ AssetsRoute = Ember.Route.extend
     @modelFor('website').get('assets')
 
 `export default AssetsRoute`
+
