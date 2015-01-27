@@ -7,7 +7,7 @@ G5CMS::Application.routes.draw do
   mount Resque::Server, :at => "/resque"
 
   # API endpoints
-  namespace :api do
+  namespace :api, defaults: {format: :json} do
     namespace :v1 do
       get '/sign_upload', to: 'assets#sign_upload'
       get '/sign_delete', to: 'assets#sign_delete'
@@ -32,8 +32,12 @@ G5CMS::Application.routes.draw do
       resources :footer_widgets, only: [:index, :show, :create, :destroy]
 
       resources :web_home_templates, only: [:index, :show, :update]
-      resources :web_page_templates, only: [:index, :show, :create, :update, :destroy]
+      match "web_page_templates", to: 'web_page_templates#index', via: [:options]
+      resources :web_page_templates, only: [:index, :show, :create, :update, :destroy, :options]
+
       resources :main_widgets, only: [:index, :show, :create, :update, :destroy]
+      match "assets", to: 'assets#index', via: [:options]
+      match "assets/:id", to: 'assets#show', via: [:options]
       resources :assets, only: [:index, :show, :create, :update, :destroy]
       resources :categories, only: [:index, :show]
 
