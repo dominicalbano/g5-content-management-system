@@ -40,10 +40,13 @@ class SettingDecorator < Draper::Decorator
 
     # going this route requires we set up a placeholder setting in index.html of the widget, and
     # then call .location_settings on that placeholder within the liquid.
-    parent = Widget.find owner.parent_id
-
-    { parent_id: owner.parent_id,
-      client_uid: parent.web_template.client.uid
-    }.to_json
+    parent = Widget.find_by_id owner.parent_id
+    if parent
+      { parent_id: owner.parent_id,
+        client_uid: parent.web_template.client.uid
+      }.to_json
+    else
+      ""
+    end
   end
 end
