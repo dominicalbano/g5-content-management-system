@@ -44,7 +44,7 @@ class SettingDecorator < Draper::Decorator
     parent = Widget.find_by_id owner.parent_id
     if parent
       { parent_id: owner.parent_id,
-        client_uid: parent.web_template.client.uid
+        location_urn: parent.web_template.owner.urn
       }.to_json
     else
       "{}"
