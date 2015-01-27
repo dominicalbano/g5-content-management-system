@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-S3UploadComponent = Ember.Component.extend
+S3UploadComponent = Ember.FileField.extend
   multiple: true
   url: ""
   websiteName: ""
