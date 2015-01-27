@@ -14,5 +14,6 @@ Website = DS.Model.extend
   herokuUrl: DS.attr("string")
   owner_id: DS.attr()
   owner_type: DS.attr()
+  category_ids: DS.attr()
 
 `export default Website`
