@@ -11,8 +11,8 @@ Router.map ->
   @route "saves"
 
   @resource "website", path: "/:website_slug", ->
+    @route "assets"
     @resource "releases"
-    @resource "assets"
     @resource "webHomeTemplate", path: "home"
     @resource "webPageTemplate", path: ":web_page_template_slug"
     @resource "webPageTemplates", path: "web-page-template", ->
