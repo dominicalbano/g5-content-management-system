@@ -3,5 +3,6 @@ class GardenWidgetSerializer < ActiveModel::Serializer
               :name,
               :thumbnail,
               :url,
-              :widget_type
+              :widget_type,
+              :widget_popover
 end

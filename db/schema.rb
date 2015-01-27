@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113201727) do
+ActiveRecord::Schema.define(version: 20150117000058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "assets", force: true do |t|
     t.string   "url"
@@ -110,6 +111,7 @@ ActiveRecord::Schema.define(version: 20150113201727) do
     t.string   "widget_type"
     t.integer  "widget_id"
     t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
+    t.text     "widget_popover",   default: ""
   end
 
   create_table "locations", force: true do |t|

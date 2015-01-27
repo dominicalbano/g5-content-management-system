@@ -3,3 +3,4 @@ App.GardenWidget = DS.Model.extend App.ReloadIframe,
   thumbnail: DS.attr("string")
   url: DS.attr("string")
   widget_type: DS.attr("string")
+  widget_popover: DS.attr("string")
