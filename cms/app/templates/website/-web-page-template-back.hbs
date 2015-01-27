@@ -38,12 +38,12 @@
 
       <div class="buttons">
         {{#view "card-action"}}
-          <button {{action cancel this}} class="cancel-link card-flip">
+          <button {{action 'cancel' this}} class="cancel-link card-flip">
             Cancel
           </button>
         {{/view}}
         {{#view "card-action"}}
-          <button {{action save this}} class="save btn btn--small" disabled>
+          <button {{action 'save' this}} class="save btn btn--small" disabled>
             Save
           </button>
         {{/view}}
