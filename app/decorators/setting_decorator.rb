@@ -41,6 +41,8 @@ class SettingDecorator < Draper::Decorator
     # going this route requires we set up a placeholder setting in index.html of the widget, and
     # then call .location_settings on that placeholder within the liquid.
 
+    # also need to fine tune the migration that assigns the new parent_id attribute.
+
     parent = Widget.find_by_id owner.parent_id
     if parent
       { parent_id: owner.parent_id,
