@@ -8,6 +8,8 @@ var app = new EmberApp({
   }
 });
 
+var pickFiles = require('broccoli-static-compiler');
+
 // Use `app.import` to add additional libraries to the generated
 // output files.
 //
@@ -48,4 +50,18 @@ app.import("bower_components/ember-uploader/index.js");
 
 app.import("bower_components/moment/min/moment.min.js");
 
-module.exports = app.toTree();
+app.import("bower_components/ckeditor/ckeditor.js");
+
+var ckeditorAssets = pickFiles('bower_components/ckeditor', {
+  srcDir: '/',
+  files: ['styles.js', 'lang/en.js', 'contents.css', 'skins/moono/editor.css', 'skins/moono/dialog.css', 'plugins/image/dialogs/image.js', 'skins/moono/icons.png', 'skins/moono/images/close.png', 'skins/moono/images/lock.png', 'skins/moono/images/refresh.png'],
+  destDir: '/assets/ckeditor'
+});
+
+var ckeditorConfig = pickFiles('vendor/ckeditor', {
+  srcDir: '/',
+  files: ['config.js'],
+  destDir: '/assets/ckeditor'
+});
+
+module.exports = app.toTree([ckeditorAssets, ckeditorConfig]);
