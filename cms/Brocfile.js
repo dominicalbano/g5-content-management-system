@@ -54,7 +54,26 @@ app.import("bower_components/ckeditor/ckeditor.js");
 
 var ckeditorAssets = pickFiles('bower_components/ckeditor', {
   srcDir: '/',
-  files: ['styles.js', 'lang/en.js', 'contents.css', 'skins/moono/editor.css', 'skins/moono/dialog.css', 'plugins/image/dialogs/image.js', 'skins/moono/icons.png', 'skins/moono/images/close.png', 'skins/moono/images/lock.png', 'skins/moono/images/refresh.png'],
+  files: ['styles.js',
+          'lang/en.js',
+          'contents.css',
+          'skins/moono/editor.css',
+          'skins/moono/dialog.css',
+          'plugins/image/dialogs/image.js',
+          'plugins/font/plugin.js',
+          'plugins/font/lang/en.js',
+          'plugins/link/dialogs/link.js',
+          'plugins/magicline/images/icon.png',
+          'plugins/justify/plugin.js',
+          'plugins/justify/lang/en.js',
+          'plugins/justify/icons/hidpi/justifyblock.png',
+          'plugins/justify/icons/hidpi/justifycenter.png',
+          'plugins/justify/icons/hidpi/justifyleft.png',
+          'plugins/justify/icons/hidpi/justifyright.png',
+          'skins/moono/icons.png',
+          'skins/moono/images/close.png',
+          'skins/moono/images/lock.png',
+          'skins/moono/images/refresh.png'],
   destDir: '/assets/ckeditor'
 });
 

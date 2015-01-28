@@ -19,6 +19,7 @@ CKEDITOR.editorConfig = function( config ) {
     { name: 'styles' }
   ];
 
+  config.extraPlugins = ['justify', 'font'];
 	config.removeButtons = 'Anchor,Underline,Strike,Subscript,Superscript,Copy,Cut,Styles,Flash,Table,Smiley,SpecialChar,PageBreak,Iframe,Save,NewPage,Preview,Print';
 	config.removeDialogTabs = 'link:advanced';
   config.dialog_backgroundCoverColor = 'transparent';
