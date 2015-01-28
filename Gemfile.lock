@@ -233,8 +233,6 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    quiet_assets (1.0.3)
-      railties (>= 3.1, < 5.0)
     rack (1.5.2)
     rack-protection (1.5.3)
       rack
@@ -409,7 +407,6 @@ DEPENDENCIES
   non-stupid-digest-assets
   pg
   pry
-  quiet_assets
   railroady
   rails (= 4.1.7)
   rails_12factor
