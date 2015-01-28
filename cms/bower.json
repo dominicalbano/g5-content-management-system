@@ -20,6 +20,7 @@
     "spectrum": "./local_assets/spectrum.js",
     "ember-uploader": "./local_assets/ember-uploader.js",
     "jquery.ui": "~1.11.2",
-    "moment": "~2.9.0"
+    "moment": "~2.9.0",
+    "ckeditor": "~4.4.7"
   }
 }
