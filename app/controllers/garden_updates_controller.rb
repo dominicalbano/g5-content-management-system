@@ -1,7 +1,7 @@
 class GardenUpdatesController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_api_user!, if: :is_api_request?
-  before_filter :authenticate_user!, unless: :is_api_request?
+  # before_filter :authenticate_api_user!, if: :is_api_request?
+  # before_filter :authenticate_user!, unless: :is_api_request?
 
   GARDEN_UPDATE_JOBS = {
     garden_web_layout: GardenWebLayoutUpdaterJob,
