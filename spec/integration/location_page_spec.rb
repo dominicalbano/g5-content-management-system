@@ -176,50 +176,31 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
     end
 
-
-
-
-
-
-
-
-
-
-    describe "diz shit haz da tooltipz" do
+    describe "diz haz da tooltipz" do
       before do
-        @widget1 = @web_page_template.head_widgets.last
-        @widget1.update_attribute :display_order, :last
         visit "/#{@website.slug}/#{@web_page_template.slug}"
         open_gardens
-        puts current_url
-        require 'pry'; binding.pry
+        # puts current_url
+        # require 'pry'; binding.pry
       end
 
-      it "unfucks te fuckery" do
+      it "a popover gets inserted into the page when a widet item is clicked" do
         garden_widget = find(".widget-list .widget-view .widget:last-of-type")
         garden_widget.click
 
         page.should have_selector('h3.popover-title', visible: true)
       end
 
-      it "has other stufff" do
+      it "a popover title matches the name of the widget that was clicked" do
+        #find the last widget object above the main widget area.
         garden_widget = find(".widget-list .widget-view .new-widget:last-of-type")
+        @widget_text = garden_widget.text
         garden_widget.click
+        popover = find('h3.popover-title') 
 
-        popover = find('h3.popover-title')
-        #popover.should have_content("VIDEO")
-
-        popover.should have_content("#{@widget1.name}")
+        popover.should have_content("#{@widget_text}")
       end
     end
-
-
-
-
-
-
-
-
 
     describe "Are drag and drop sortable" do
       before do
