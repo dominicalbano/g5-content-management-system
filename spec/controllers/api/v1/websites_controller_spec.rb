@@ -33,13 +33,13 @@ describe Api::V1::WebsitesController, :auth_controller do
     let(:website) { Fabricate(:website) }
 
     before(:each) do
-      Website.stub(:find).and_return(website)
+      allow(Website).to receive(:find).and_return(website)
     end
 
-    it "redirects to root" do
-      Resque.stub(:enqueue).and_return(true)
+    it "queues deploy with async deploy" do
+      # add test for passing email to async_deploy
+      allow(website).to receive(:async_deploy)
       post :deploy, website_id: 1
-      response.should redirect_to root_path
     end
   end
 end
