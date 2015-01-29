@@ -5,6 +5,6 @@ class Api::V1::GardenWebThemesController < Api::V1::ApplicationController
 
   def update
     Resque.enqueue(GardenWebThemeUpdaterJob)
-    redirect_to root_path, notice: "Updating Themes. This may take a few minutes."
+    render json: {message: "Theme Garden Queued For Update."}
   end
 end
