@@ -23,7 +23,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Tue, 13 Jan 2015 23:04:12 GMT
+      - Wed, 14 Jan 2015 16:20:40 GMT
       Status:
       - 200 OK
       X-Frame-Options:
@@ -41,17 +41,17 @@ http_interactions:
       Content-Length:
       - '937621'
       Set-Cookie:
-      - _g5_layout_garden_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTc0N2EwYTEzMzg2OTc0NTQwZDE3MmUwZDNmNjEzMzk4BjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMVZRRU9DRjhBaVdrS0hSeDFEOTU3UFZLZ1J2Rm4xN2s2YjVDZHpHQXhvWEE9BjsARg%3D%3D--4ffec9c071f2dc2057348ec7ed3e28658ebf008f;
+      - _g5_layout_garden_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJWUxZDM3ODU4OTEzMWJlNmM3ODBhMjA0MDQzYzQ1ZDhiBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMTBFM3NqdzMyWGl2K1BLVmpFeHcybmt3V3c3TEs1ZW1kbjl0ZjU2UjJZTVk9BjsARg%3D%3D--59faaeb0da3efcdacec6fd1cfd12f15163d1eeaf;
         path=/; HttpOnly
       X-Request-Id:
-      - 3f2e8d35-8c0d-46b1-9d47-200f20cd8a86
+      - 51e68b95-24b1-4637-8df2-ebdb426e92f5
       X-Runtime:
-      - '1.448738'
+      - '1.439710'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: "<!DOCTYPE html>\n<html>\n  <head>\n<script type=\"text/javascript\">window.NREUM||(NREUM={});NREUM.info={\"beacon\":\"beacon-2.newrelic.com\",\"errorBeacon\":\"bam.nr-data.net\",\"licenseKey\":\"8df695e62d\",\"applicationID\":\"11616770\",\"transactionName\":\"d1YPTUcKXlhdE01TXFlJDldQC0ZHFwgMVFZM\",\"queueTime\":0,\"applicationTime\":1446,\"ttGuid\":\"\",\"agentToken\":null,\"agent\":\"js-agent.newrelic.com/nr-476.min.js\"}</script>\n<script
+      string: "<!DOCTYPE html>\n<html>\n  <head>\n<script type=\"text/javascript\">window.NREUM||(NREUM={});NREUM.info={\"beacon\":\"beacon-2.newrelic.com\",\"errorBeacon\":\"bam.nr-data.net\",\"licenseKey\":\"8df695e62d\",\"applicationID\":\"11616770\",\"transactionName\":\"d1YPTUcKXlhdE01TXFlJDldQC0ZHFwgMVFZM\",\"queueTime\":9,\"applicationTime\":1437,\"ttGuid\":\"\",\"agentToken\":null,\"agent\":\"js-agent.newrelic.com/nr-476.min.js\"}</script>\n<script
         type=\"text/javascript\">window.NREUM||(NREUM={}),__nr_require=function(t,e,n){function
         r(n){if(!e[n]){var o=e[n]={exports:{}};t[n][0].call(o.exports,function(e){var
         o=t[n][1][e];return r(o?o:e)},o,o.exports)}return e[n].exports}if(\"function\"==typeof
@@ -77,7 +77,7 @@ http_interactions:
         \   <script>\n//<![CDATA[\nhljs.initHighlightingOnLoad();\n//]]>\n</script>\n
         \   <link href=\"/assets/application-1315172bec56037430bea159e133636e.css\"
         media=\"screen\" rel=\"stylesheet\" />\n    <script src=\"/assets/application-0a0175db06e5f91535975f5d264923cb.js\"></script>\n
-        \   <meta content=\"authenticity_token\" name=\"csrf-param\" />\n<meta content=\"VQEOCF8AiWkKHRx1D957PVKgRvFn17k6b5CdzGAxoXA=\"
+        \   <meta content=\"authenticity_token\" name=\"csrf-param\" />\n<meta content=\"0E3sjw32Xiv+PKVjExw2nkwWw7LK5emdn9tf56R2YMY=\"
         name=\"csrf-token\" />\n    <meta charset=\"utf8\" />\n    \n    \n    \n
         \ </head>\n  <body>\n    <div class=\"container-fluid\">\n\n      <div class=\"navbar\">\n
         \       <div class=\"navbar-inner\">\n          <div class=\"container\">\n\n
@@ -11328,5 +11328,5 @@ http_interactions:
         mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;\n  {% endif %}\n&lt;/div&gt;\n\n&lt;!--
         END SHOW MARKUP --&gt;</code></pre>\n</article>\n\n\n\n    </div>\n  </body>\n</html>\n"
     http_version: 
-  recorded_at: Tue, 13 Jan 2015 23:04:13 GMT
+  recorded_at: Wed, 14 Jan 2015 16:20:41 GMT
 recorded_with: VCR 2.9.3
