@@ -6,11 +6,22 @@
     <title>G5 CMS: <%= @client_name %></title>
     <%= stylesheet_link_tag "application" %>
     <%# javascript_include_tag "application" %>
+
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
+
+    <meta name="cms/config/environment" content="%7B%22modulePrefix%22%3A%22cms%22%2C%22environment%22%3A%22development%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22host%22%3A%22http%3A//localhost%3A3000%22%7D%2C%22exportApplicationGlobal%22%3Atrue%7D" />
+    <script type="text/javascript">
+      var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+    </script>
+    <link rel="stylesheet" href="assets/vendor.css">
+    <link rel="stylesheet" href="assets/cms.css">
   </head>
   <body class="<%= user_class %>">
     <%= g5_header %>
     <%= yield %>
+    
+    <script src="assets/vendor.js"></script>
+    <script src="assets/cms.js"></script>
   </body>
 </html>
