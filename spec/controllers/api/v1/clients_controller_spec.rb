@@ -11,7 +11,7 @@ describe Api::V1::ClientsController, :auth_controller do
 
     it "queues deploy with async deploy" do
       allow(client).to receive(:async_deploy)
-      post :deploy_websites, 1
+      post :deploy_websites, :client_id => 1
     end
   end
 end
