@@ -35,6 +35,7 @@ G5CMS::Application.routes.draw do
       match "web_page_templates", to: 'web_page_templates#index', via: [:options]
       resources :web_page_templates, only: [:index, :show, :create, :update, :destroy, :options]
 
+      match "main_widgets", to: 'main_widgets#index', via: [:options]
       resources :main_widgets, only: [:index, :show, :create, :update, :destroy]
       match "assets", to: 'assets#index', via: [:options]
       match "assets/:id", to: 'assets#show', via: [:options]
