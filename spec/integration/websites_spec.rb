@@ -7,6 +7,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       @web_home_template = @website.web_home_template
       @web_page_template = @website.web_page_templates.first
       visit "/#{@website.slug}"
+      sleep 2
     end
     it "displays the website menu" do
       within TOP_NAV do
@@ -26,7 +27,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
         page.should have_content @web_home_template.name.upcase
       end
 
-      within WEB_PAGE_SELECTOR do
+      within all(WEB_PAGE_SELECTOR).first do
         page.should have_content @web_page_template.name.upcase
       end
     end
@@ -40,17 +41,17 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "Page 'Edit' link goes to '/:website_slug/:page_slug'" do
-      within WEB_PAGE_SELECTOR do
+      within all(WEB_PAGE_SELECTOR).first do
         click_link "Edit"
       end
 
       current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}"
     end
 
-    it "'create new page' link goes to '/:website_slug/web-page-templates/new'" do
+    it "'create new page' link goes to '/:website_slug/web-page-template/new'" do
       click_link "Create New Page"
 
-      current_path.should eq "/#{@website.slug}/web-page-templates/new"
+      current_path.should eq "/#{@website.slug}/web-page-template/new"
     end
 
   end
@@ -61,20 +62,21 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       @web_home_template = @website.web_home_template
       @web_page_template = @website.web_page_templates.first
       visit "/#{@website.slug}"
+      sleep 2
     end
 
     it "clicking on the gear should flip page card to reveal settings" do
-      within WEB_PAGE_SELECTOR do
+      within all(WEB_PAGE_SELECTOR).first do
         click_link "Page Settings"
         sleep 1
       end
-      expect(page).to have_css(".web-page-template.flipped:first-of-type")
+      expect(page).to have_css(".web-page-template.flipped")
       expect(page).to have_content("PAGE NAME (FOR CMS)")
       expect(page).to have_content("PAGE TITLE")
     end
 
     it "can update web page template name" do
-      within WEB_PAGE_SELECTOR do
+      within all(WEB_PAGE_SELECTOR).first do
         click_link "Page Settings"
         fill_in "page_name", with: "Hakuna Matata"
         page.execute_script('$(".save").click()')
@@ -83,7 +85,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "can update web page template title" do
-      within WEB_PAGE_SELECTOR do
+      within all(WEB_PAGE_SELECTOR).first do
         click_link "Page Settings"
         fill_in "page_title", with: "No Worries"
         page.execute_script('$(".save").click()')
@@ -93,7 +95,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "can update web page template title with liquid variables" do
-      within WEB_PAGE_SELECTOR do
+      within all(WEB_PAGE_SELECTOR).first do
         click_link "Page Settings"
         fill_in "page_title", with: "{{ location_name }}"
         page.execute_script('$(".save").click()')

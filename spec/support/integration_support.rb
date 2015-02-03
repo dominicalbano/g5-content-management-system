@@ -1,6 +1,6 @@
 LOCATION_SELECTOR = ".location:first-of-type"
-WEB_HOME_SELECTOR = ".web-home-template:first-of-type"
-WEB_PAGE_SELECTOR = ".web-page-template:first-of-type"
+WEB_HOME_SELECTOR = ".web-home-template"
+WEB_PAGE_SELECTOR = ".web-page-template"
 TOP_NAV          = ".page > .l-container > .page-title"
 
 def scroll_to(page, selector)
