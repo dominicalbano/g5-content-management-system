@@ -14,18 +14,18 @@
       var CKEDITOR_BASEPATH = '/assets/ckeditor/';
     </script>
 
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/cms.css">
+    <link rel="stylesheet" href="/assets/vendor.css">
+    <link rel="stylesheet" href="/assets/cms.css">
   </head>
 
   <body class="<%= user_class %>">
     <%# vendor.js needs to be above g5 header since it fulfills its jquery requirement 
         eventually this needs to be fixed in the g5 header gem possibly wiht a content for block
         or create an ember addon %>
-    <script src="assets/vendor.js"></script>
-    <%= g5_header %>
+    <script src="/assets/vendor.js"></script>
+    <%# g5_header %>
     <%= yield %>
-    <script src="assets/cms.js"></script>
+    <script src="/assets/cms.js"></script>
   </body>
 
 </html>
