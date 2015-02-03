@@ -1,4 +1,6 @@
 class LocationCollector
+  LOGGERS = [Rails.logger, Resque.logger]
+
   def initialize(params)
     LOGGERS.each {|logger| logger.debug("initializing LocationCollector with: #{params}")}
     @params = params
