@@ -6,8 +6,8 @@ class GardenWidgetUpdater
     components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
       
-      # if (get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
-      if get_name(component) != ''
+      if (get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
+      #if get_popover(component) != ''
         update(garden_widget, component)
       end
       
