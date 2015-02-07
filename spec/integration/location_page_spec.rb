@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Integration '/:website_slug/:web_page_template_slug'",
+describe "Integration '/:website_slug/:web_page_template_slug/edit'",
          auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
     VCR.use_cassette("Gardens") do
@@ -17,7 +17,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "initial page load" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
     end
 
     it "collapses all gardens" do
@@ -29,7 +29,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "themes" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -41,7 +41,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "Authorization" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -110,7 +110,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     context "storage" do
       before do
         @client.update_attribute(:vertical, "foo")
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "storage" do
@@ -121,7 +121,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "Color picker" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -158,7 +158,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Main widgets" do
     describe "Are drag and drop addable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -185,7 +185,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -203,7 +203,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @web_page_template.main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -218,7 +218,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
@@ -296,7 +296,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Aside before main widgets" do
     describe "Are drag and drop addable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
         open_gardens
       end
 
@@ -323,7 +323,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -341,7 +341,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @website_template.aside_before_main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -356,7 +356,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
@@ -435,7 +435,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Aside after main widgets" do
     describe "Are drag and drop addable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
         open_gardens
       end
 
@@ -462,7 +462,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -480,7 +480,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @website_template.aside_after_main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -495,7 +495,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
