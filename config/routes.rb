@@ -23,23 +23,49 @@ G5CMS::Application.routes.draw do
       resources :website_templates, only: [:show]
       resources :web_layouts, only: [:show, :update]
       resources :web_themes, only: [:show, :update]
+
+      match :head_widgets, to: 'head_widgets#options', via: [:options]
+      match "head_widgets/:id", to: 'head_widgets#options', via: [:options]
       resources :head_widgets, only: [:index, :show, :create, :destroy]
+
+      match :logo_widgets, to: 'logo_widgets#options', via: [:options]
+      match "logo_widgets/:id", to: 'logo_widgets#options', via: [:options]
       resources :logo_widgets, only: [:index, :show, :create, :destroy]
+
+      match :btn_widgets, to: 'btn_widgets#options', via: [:options]
+      match "btn_widgets/:id", to: 'btn_widgets#options', via: [:options]
       resources :btn_widgets, only: [:index, :show, :create, :destroy]
+
+      match :nav_widgets, to: 'nav_widgets#options', via: [:options]
+      match "nav_widgets/:id", to: 'nav_widgets#options', via: [:options]
       resources :nav_widgets, only: [:index, :show, :create, :destroy]
+
+      match :aside_before_main_widgets, to: 'aside_before_main_widgets#options', via: [:options]
+      match "aside_before_main_widgets/:id", to: 'aside_before_main_widgets#options', via: [:options]
       resources :aside_before_main_widgets, only: [:index, :show, :create, :update, :destroy]
+
+      match :aside_after_main_widgets, to: 'aside_after_main_widgets#options', via: [:options]
+      match "aside_after_main_widgets/:id", to: 'aside_after_main_widgets#options', via: [:options]
       resources :aside_after_main_widgets, only: [:index, :show, :create, :update, :destroy]
+
+      match :footer_widgets, to: 'footer_widgets#options', via: [:options]
+      match "footer_widgets/:id", to: 'footer_widgets#options', via: [:options]
       resources :footer_widgets, only: [:index, :show, :create, :destroy]
 
       resources :web_home_templates, only: [:index, :show, :update]
-      match "web_page_templates", to: 'web_page_templates#index', via: [:options]
+
+      match :web_page_templates, to: 'web_page_templates#options', via: [:options]
+      match "web_page_templates/:id", to: 'web_page_templates#options', via: [:options]
       resources :web_page_templates, only: [:index, :show, :create, :update, :destroy, :options]
 
-      match "main_widgets", to: 'main_widgets#index', via: [:options]
+      match :main_widgets, to: 'main_widgets#options', via: [:options]
+      match "main_widgets/:id", to: 'main_widgets#options', via: [:options]
       resources :main_widgets, only: [:index, :show, :create, :update, :destroy]
-      match "assets", to: 'assets#index', via: [:options]
-      match "assets/:id", to: 'assets#show', via: [:options]
+
+      match "assets", to: 'assets#options', via: [:options]
+      match "assets/:id", to: 'assets#options', via: [:options]
       resources :assets, only: [:index, :show, :create, :update, :destroy]
+
       resources :categories, only: [:index, :show]
 
       resources :garden_web_layouts, only: [:index] do
@@ -95,7 +121,7 @@ G5CMS::Application.routes.draw do
 
   # Ember.js application
   get "/:location_slug", to: "locations#index"
-  get "/:location_slug/:web_page_template_slug", to: "locations#index"
+  get "/:location_slug/:web_page_template_slug/edit", to: "locations#index"
   get "/:urn/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
   get "/:urn/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
   get "/:vertical_slug/:state_slug/:city_slug/:owner_urn/:web_template_slug", to: "web_templates#show"
