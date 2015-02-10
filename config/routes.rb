@@ -121,6 +121,7 @@ G5CMS::Application.routes.draw do
 
   # Ember.js application
   get "/:location_slug", to: "locations#index"
+  get "/:location_slug/assets", to: "locations#index"
   get "/:location_slug/:web_page_template_slug/edit", to: "locations#index"
   get "/:urn/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
   get "/:urn/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
