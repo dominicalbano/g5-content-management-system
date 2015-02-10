@@ -32,12 +32,12 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       end
     end
 
-    it "Home 'Edit' link goes to '/:website_slug/:home_slug'" do
+    it "Home 'Edit' link goes to '/:website_slug/:home_slug/edit'" do
       within WEB_HOME_SELECTOR do
         click_link "Edit"
       end
 
-      current_path.should eq "/#{@web_home_template.website.slug}/#{@web_home_template.slug}"
+      current_path.should eq "/#{@web_home_template.website.slug}/#{@web_home_template.slug}/edit"
     end
 
     it "Page 'Edit' link goes to '/:website_slug/:page_slug'" do
@@ -45,13 +45,13 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
         click_link "Edit"
       end
 
-      current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}"
+      current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}/edit"
     end
 
-    it "'create new page' link goes to '/:website_slug/web-page-template/new'" do
+    it "'create new page' link goes to '/:website_slug/web-page-templates/new'" do
       click_link "Create New Page"
 
-      current_path.should eq "/#{@website.slug}/web-page-template/new"
+      current_path.should eq "/#{@website.slug}/web-page-templates/new"
     end
 
   end
