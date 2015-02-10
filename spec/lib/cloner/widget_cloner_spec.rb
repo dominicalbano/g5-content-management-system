@@ -16,14 +16,14 @@ describe Cloner::WidgetCloner do
       html_garden_widget = Fabricate(:html_garden_widget)
 
       @row_widget = Fabricate(:widget, garden_widget: row_garden_widget)
-      child_widget = Fabricate(:widget, drop_target: nil, garden_widget: html_garden_widget)
+      #child_widget = Fabricate(:widget, drop_target: nil, garden_widget: html_garden_widget)
 
 
       #widget_id_setting = Fabricate(:setting, owner: @row_widget, name: "column_one_widget_id", value: child_widget.id )
       #widget_name_setting = Fabricate(:setting, owner: @row_widget, name: "column_one_widget_name", value: child_widget.name )
 
       #@row_widget.settings << widget_id_setting
-      @row_widget.settings.where(name: "column_one_widget_name").first.update_attribute(:value, child_widget.name)
+      @row_widget.settings.where(name: "column_one_widget_name").first.update_attribute(:value, html_garden_widget.name)
       @row_widget.reload
 
       #widget_cloner = described_class.new(widget, target_drop_target) 
