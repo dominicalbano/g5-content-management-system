@@ -42,6 +42,10 @@ class Setting < ActiveRecord::Base
   scope :for_website, ->(wid) { where(website_id: wid) }
   scope :for_no_website, -> { where("website_id IS NULL") }
 
+  def is_layout?
+    value == 'Content Stripe' || value == 'Column'
+  end
+
   # TODO: rename to best_value to value
   # TODO: rename value to my_value or something
   def best_value
