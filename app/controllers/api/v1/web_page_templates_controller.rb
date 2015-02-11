@@ -33,6 +33,10 @@ class Api::V1::WebPageTemplatesController < Api::V1::ApplicationController
     render json: nil, status: :ok
   end
 
+  def options
+    render json: {}
+  end
+
   private
 
   def web_page_template_params
