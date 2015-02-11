@@ -5,14 +5,15 @@ require "static_website/compiler/stylesheet/compressor"
 module StaticWebsite
   module Compiler
     class Stylesheets
-      attr_reader :stylesheet_paths, :compile_path, :colors, :location_name,
+      attr_reader :stylesheet_paths, :compile_path, :colors, :fonts, :location_name,
         :preview, :css_paths, :link_paths
 
-      def initialize(stylesheet_paths, compile_path, colors={}, location_name="", preview=false)
-        LOGGERS.each{|logger| logger.info("\n\nInitializing StaticWebsite::Compiler::Stylesheets with stylesheet_paths:\n #{stylesheet_paths.join("\n\t").prepend("\t")},\n\n\tcompile_path: #{compile_path},\n\tcolors: #{colors},\n\tlocation_name: #{location_name},\n\tpreview: #{preview}\n")} if stylesheet_paths
+      def initialize(stylesheet_paths, compile_path, colors={}, fonts={}, location_name="", preview=false)
+        LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::Stylesheets with stylesheet_paths:\n #{stylesheet_paths.join("\n\t").prepend("\t")},\n\n\tcompile_path: #{compile_path},\n\tcolors: #{colors},\n\tfonts: #{fonts},location_name: #{location_name},\n\tpreview: #{preview}\n")} if stylesheet_paths
         @stylesheet_paths = stylesheet_paths.try(:compact).try(:uniq)
         @compile_path = compile_path
         @colors = colors
+        @fonts = fonts
         @location_name = location_name
         @preview = preview
         @css_paths = []
@@ -24,6 +25,7 @@ module StaticWebsite
         @link_paths = []
         if stylesheet_paths
           colors_stylesheet.compile
+          fonts_stylesheet.compile
 
           stylesheet_paths.each do |stylesheet|
             compile_stylesheet(stylesheet)
@@ -36,6 +38,10 @@ module StaticWebsite
 
       def colors_stylesheet
         @colors_stylesheet ||= Stylesheet::Colors.new(colors, compile_path)
+      end
+
+      def fonts_stylesheet
+        @fonts_stylesheet ||= Stylesheet::Fonts.new(fonts, compile_path)
       end
 
       def compile_stylesheet(stylesheet_path)

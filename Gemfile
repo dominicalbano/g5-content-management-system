@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 source "https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/"
 
-ruby "2.1.5"
+ruby "2.2.0"
 
 gem "rails", "4.1.7"
 gem "active_model_serializers", "~> 0.8.2"

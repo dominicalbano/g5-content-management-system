@@ -74,9 +74,10 @@ describe Client do
 
     describe "#async_deploy" do
       it "enqueues StaticWebsiteDeployerJob with urn" do
+        user_email = "user@email.com"
         Resque.stub(:enqueue)
-        Resque.should_receive(:enqueue).with(ClientDeployerJob).once
-        client.async_deploy
+        Resque.should_receive(:enqueue).with(ClientDeployerJob, user_email).once
+        client.async_deploy(user_email)
       end
     end
 

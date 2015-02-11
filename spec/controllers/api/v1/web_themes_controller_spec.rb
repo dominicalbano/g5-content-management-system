@@ -79,6 +79,40 @@ describe Api::V1::WebThemesController, :auth_controller, vcr: VCR_OPTIONS do
         expect(response.status).to eq 200
         expect(web_theme.reload.custom_tertiary_color).to eq "#custom-color"
       end
+
+      it "custom_fonts" do
+        put :update, id: web_theme.id, web_theme: { custom_fonts: true }
+        expect(response.status).to eq 200
+        expect(web_theme.reload.custom_fonts).to eq true
+      end
+
+      context "primary_font" do
+        it "returns custom primary font when use custom fonts is true" do
+          put :update, id: web_theme.id, web_theme: { custom_fonts: true, primary_font: "#custom-font" }
+          expect(response.status).to eq 200
+          expect(web_theme.reload.primary_font).to eq "#custom-font"
+        end
+
+        it "returns default primary font when use custom fonts is false" do
+          put :update, id: web_theme.id, web_theme: { custom_fonts: false, primary_font: "#custom-font" }
+          expect(response.status).to eq 200
+          expect(web_theme.reload.primary_font).to eq "PT Sans"
+        end
+      end
+
+      context "secondary_font" do
+        it "returns custom secondary font when use custom fonts is true" do
+          put :update, id: web_theme.id, web_theme: { custom_fonts: true, secondary_font: "#custom-font" }
+          expect(response.status).to eq 200
+          expect(web_theme.reload.secondary_font).to eq "#custom-font"
+        end
+
+        it "returns default secondary font when use custom fonts is false" do
+          put :update, id: web_theme.id, web_theme: { custom_fonts: false, secondary_font: "#custom-font" }
+          expect(response.status).to eq 200
+          expect(web_theme.reload.secondary_font).to eq "Georgia"
+        end
+      end
     end
   end
 end
