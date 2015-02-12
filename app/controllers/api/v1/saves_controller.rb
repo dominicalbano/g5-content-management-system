@@ -17,7 +17,8 @@ class Api::V1::SavesController < Api::V1::ApplicationController
   private
 
   def saves_manager
-    SavesManager.new(current_user.email)
+    email = Rails.env.development? ? "foo@example.com" : current_user.email
+    SavesManager.new(email)
   end
 end
 
