@@ -12,6 +12,7 @@ module ApplicationHelper
   end
 
   def g5_user?
+    return true if Rails.env.development?
     emails_regex = /@getg5.|@g5platform.|@g5searchmarketing./
     current_user.email =~ emails_regex ? true : false
   end
