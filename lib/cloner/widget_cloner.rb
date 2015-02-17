@@ -14,8 +14,6 @@ class Cloner::WidgetCloner
     new_widget = @widget.dup
     new_widget.update(drop_target: @target_drop_target)
 
-    Resque.logger.debug(@widget.name + ' :excluded widget settings? ' + SETTINGS_EXCEPTIONS.any? {|s| @widget.slug.include?(s)}.to_s)
-
     dup_widget(@widget, new_widget) unless SETTINGS_EXCEPTIONS.any? {|s| @widget.slug.include?(s)}
     #
     # clone_settings(@widget.settings, new_widget)
