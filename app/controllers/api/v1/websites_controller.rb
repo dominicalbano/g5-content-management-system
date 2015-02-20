@@ -15,9 +15,9 @@ class Api::V1::WebsitesController < Api::V1::ApplicationController
 
   def deploy
     user_email = current_user.email
-    @website = Website.find(params[:website_id])
-    @website.async_deploy(user_email)
-    render json: {message: "Deploying website #{@website.name}. This may take few minutes."}
+    website = Website.find(params[:website_id])
+    website.async_deploy(user_email)
+    render json: {message: "Deploying website #{website.name}. This may take few minutes."}
   end
 end
 
