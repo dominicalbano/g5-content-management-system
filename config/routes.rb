@@ -62,6 +62,8 @@ G5CMS::Application.routes.draw do
         post "website/:website_slug", to: 'releases#rollback'
       end
 
+      post "websites/:website_id/navigation-settings/update", to: 'websites#update_navigation_settings'
+
       resources :saves, only: [:index, :show, :create] do
         post "restore"
       end
@@ -95,6 +97,7 @@ G5CMS::Application.routes.draw do
   # Ember.js application
   get "/:location_slug", to: "locations#index"
   get "/:location_slug/assets", to: "locations#index"
+  get "/:location_slug/redirect", to: "locations#index"
   get "/:location_slug/:web_page_template_slug/edit", to: "locations#index"
   get "/:urn/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
   get "/:urn/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
