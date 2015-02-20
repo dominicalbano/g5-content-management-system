@@ -27,7 +27,7 @@ class Cloner::WidgetCloner
     Rails.logger.debug("dup_widget(#{widget_a}, #{widget_b}")
     widget_a.settings.each do |s|
       Resque.logger.debug("for setting: #{s.name}")
-      unless /widget_id$/ =~ s.name # Never set the setting 'widget_id'
+      unless (/widget_id$/ =~ s.name) || (/parent_id$/ =~ s.name)  # Never set 'widget_id'/'parent_id'
         set_setting(widget_b, s)
         if /widget_name$/ =~ s.name # then we just created a new widget
           # Reload it so we can get the id that was created in the settings
