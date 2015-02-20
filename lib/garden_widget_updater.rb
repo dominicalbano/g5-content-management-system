@@ -40,6 +40,7 @@ class GardenWidgetUpdater
     garden_widget.show_stylesheets = get_show_stylesheets(component)
     garden_widget.settings = get_settings(component)
     garden_widget.widget_modified = get_modified(component)
+    garden_widget.widget_popover = get_popover(component)
     garden_widget.save
     garden_widget.update_widgets_settings!
   end
@@ -77,6 +78,12 @@ class GardenWidgetUpdater
   def get_modified(component)
     if component.respond_to?(:modified)
       Time.zone.parse(component.modified.to_s)
+    end
+  end
+
+  def get_popover(component)
+    if component.respond_to?(:popover)
+      component.popover.to_s
     end
   end
 
