@@ -1,0 +1,55 @@
+// *************************************
+//
+//  Classes
+//
+// *************************************
+
+// Available from other sections:
+// .clearfix
+// .hidden
+// .visually-hidden
+// .image-replace
+// .btn
+// .form-field
+// .form-instruction
+// .required
+// .center
+// .float-left, .float-right, .float-none
+// .clear-left, .clear-right, .clear-both
+
+
+// =====================================
+//  Colors and Fonts
+// =====================================
+
+%primary-color, .primary-color {
+  color: $primaryColor;
+}
+
+%primary-bg, .primary-bg {
+  background-color: $primaryColor;
+}
+
+%secondary-color, .secondary-color {
+  color: $secondaryColor;
+}
+
+%secondary-bg, .secondary-bg {
+  background-color: $secondaryColor;
+}
+
+%tertiary-color, .tertiary-color {
+  color: $tertiaryColor;
+}
+
+%tertiary-bg, .tertiary-bg {
+  background-color: $tertiaryColor;
+}
+
+%primary-font, .primary-font {
+  font-family: $primaryFont;
+}
+
+%secondary-font, .secondary-font {
+  font-family: $secondaryFont;
+}

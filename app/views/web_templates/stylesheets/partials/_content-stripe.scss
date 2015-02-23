@@ -1,0 +1,45 @@
+// *************************************
+//
+//  Content Stripe Overrides
+//
+// *************************************
+
+// =====================================
+//  Content stripe text color overrides
+// =====================================
+
+// Client has the option to change content stripe background to anything
+// If the default text color doesn't work with the new background
+// these classes on .content-stripe can be used to change text color
+// This is an option in the widget settings
+.text-light {
+  h1, h2, h3,
+  h4, h5, h6,
+  p, li, label,
+  blockquote,
+  legend {
+    color: $white !important;
+  }
+  a {
+    color: rgba($base-color, .8);
+    &:hover {
+      color: rgba($white, .6) !important;
+    }
+  }
+}
+
+.text-dark {
+  h1, h2, h3,
+  h4, h5, h6,
+  p, li, label,
+  blockquote,
+  legend {
+    color: $base-color !important;
+  }
+  a {
+    color: rgba($base-color, .8);
+    &:hover {
+      color: rgba($base-color, .5) !important;
+    }
+  }
+}
