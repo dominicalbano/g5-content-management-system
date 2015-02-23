@@ -1,0 +1,65 @@
+// *************************************
+//
+//  Base
+//
+// *************************************
+
+// =====================================
+//  General top level styles
+// =====================================
+
+// Set on all elements
+// Width now equals width
+// http://www.paulirish.com/2012/box-sizing-border-box-ftw
+*,
+*:before,
+*:after {
+  @include box-sizing(border-box);
+}
+
+html {
+  font-size: $base-font-size;
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  background: $base-background;
+  color: $base-color;
+  font-family: $base-font-family;
+  font-size: 100%;
+  line-height: $base-line-height;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+// Needed for responsive images
+img {
+  max-width: 100%;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+table {
+  width: 100%;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+textarea {
+  resize: vertical;
+}
