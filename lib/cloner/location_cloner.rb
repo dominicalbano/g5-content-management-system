@@ -26,3 +26,4 @@ class Cloner::LocationCloner
     end
   end
 end
+

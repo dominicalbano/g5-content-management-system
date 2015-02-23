@@ -1,14 +1,20 @@
 class Cloner::WidgetCloner
+
+  SETTINGS_EXCEPTIONS = %w(contact-info navigation)
+
   def initialize(widget, target_drop_target)
     @widget = widget
     @target_drop_target = target_drop_target
   end
 
   def clone
+    Rails.logger.debug "Cloning #{@widget.name}" \
+                      "to #{@target_drop_target.html_id}"
+
     new_widget = @widget.dup
     new_widget.update(drop_target: @target_drop_target)
 
-    dup_widget(@widget, new_widget)
+    dup_widget(@widget, new_widget) unless SETTINGS_EXCEPTIONS.any? {|s| @widget.slug.include?(s)}
     #
     # clone_settings(@widget.settings, new_widget)
     # process_widget(@widget, new_widget)
@@ -20,8 +26,8 @@ class Cloner::WidgetCloner
   def dup_widget(widget_a, widget_b)
     Rails.logger.debug("dup_widget(#{widget_a}, #{widget_b}")
     widget_a.settings.each do |s|
-      Rails.logger.debug("for setting: #{s}")
-      unless /widget_id$/ =~ s.name # Never set the setting 'widget_id'
+      Resque.logger.debug("for setting: #{s.name}")
+      unless (/widget_id$/ =~ s.name) || (/parent_id$/ =~ s.name)  # Never set 'widget_id'/'parent_id'
         set_setting(widget_b, s)
         if /widget_name$/ =~ s.name # then we just created a new widget
           # Reload it so we can get the id that was created in the settings
@@ -120,3 +126,4 @@ class Cloner::WidgetCloner
   #   setting.value == 'Content Stripe' || setting.value == 'Column'
   # end
 end
+
