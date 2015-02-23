@@ -41,6 +41,6 @@ class Api::V1::WebPageTemplatesController < Api::V1::ApplicationController
 
   def web_page_template_params
     params.require(:web_page_template).permit(:website_id, :name, :title,
-    :enabled, :display_order_position, :redirect_patterns, :in_trash, :parent_id, :should_update_navigation_settings)
+    :enabled, :display_order_position, :redirect_patterns, :in_trash, :parent_id)
   end
 end
