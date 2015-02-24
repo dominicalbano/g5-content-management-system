@@ -7,16 +7,11 @@ LOGGERS = [Rails.logger, Resque.logger]
 
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
-    LOGGERS.each {|logger| logger.debug("Sending compile to base_compiler")}
+    LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to base_compiler")}
     base_compiler(client).compile
-    LOGGERS.each {|logger| logger.info("Sending compile to area_pages(client.website.compile_path): #{client.website.compile_path}" )}
-    LOGGERS.each {|logger| logger.debug("failing on calling this with compile method: #{area_pages(client.website.compile_path)}")
     area_pages(client.website.compile_path).compile
-    LOGGERS.each {|logger| logger.info("Calling compile_location_websites")}
     compile_location_websites
-    LOGGERS.each {|logger| logger.info("Sending client to deployer and sending deploy")}
     deployer(client, user_email).deploy
-    LOGGERS.each {|logger| logger.debug("Calling cleanup with path: #{client.website.compile_path}")}
     cleanup(client.website.compile_path)
   end
 
