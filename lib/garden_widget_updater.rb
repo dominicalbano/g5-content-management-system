@@ -83,7 +83,7 @@ class GardenWidgetUpdater
 
   def get_popover(component)
     if component.respond_to?(:popover)
-      component.popover.to_s
+      CGI.unescapeHTML(component.popover.to_s)
     end
   end
 
