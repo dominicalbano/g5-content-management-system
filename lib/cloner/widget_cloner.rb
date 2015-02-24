@@ -1,6 +1,6 @@
 class Cloner::WidgetCloner
 
-  SETTINGS_EXCEPTIONS = %w(contact-info navigation)
+  SETTINGS_EXCEPTIONS = %w(contact-info navigation analytics)
 
   def initialize(widget, target_drop_target)
     @widget = widget
@@ -14,17 +14,18 @@ class Cloner::WidgetCloner
     new_widget = @widget.dup
     new_widget.update(drop_target: @target_drop_target)
 
-    dup_widget(@widget, new_widget) unless SETTINGS_EXCEPTIONS.any? {|s| @widget.slug.include?(s)}
+    clone_widget_settings(@widget, new_widget) unless SETTINGS_EXCEPTIONS.any? {|s| @widget.slug.include?(s)}
     #
     # clone_settings(@widget.settings, new_widget)
     # process_widget(@widget, new_widget)
+    new_widget
   end
 
   private
 
 
-  def dup_widget(widget_a, widget_b)
-    Rails.logger.debug("dup_widget(#{widget_a}, #{widget_b}")
+  def clone_widget_settings(widget_a, widget_b)
+    Rails.logger.debug("clone_widget_settings(#{widget_a}, #{widget_b}")
     widget_a.settings.each do |s|
       Resque.logger.debug("for setting: #{s.name}")
       unless (/widget_id$/ =~ s.name) || (/parent_id$/ =~ s.name)  # Never set 'widget_id'/'parent_id'
@@ -44,9 +45,10 @@ class Cloner::WidgetCloner
             Rails.logger.debug("orig_widget is #{orig_widget}")
 
             if s.is_layout?
-              Rails.logger.debug("is a layout widget, calling dup_widget(#{orig_widget}, #{new_widget}")
+              Rails.logger.debug("is a layout widget, 
+                                 calling clone_widget_settings(#{orig_widget}, #{new_widget}")
 
-              dup_widget(orig_widget, new_widget)
+              clone_widget_settings(orig_widget, new_widget)
             else
               Rails.logger.debug("not a layout widget, iterating over and setting settings")
 
