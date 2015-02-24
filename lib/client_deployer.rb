@@ -10,6 +10,7 @@ module ClientDeployer
     LOGGERS.each {|logger| logger.debug("Sending compile to base_compiler")}
     base_compiler(client).compile
     LOGGERS.each {|logger| logger.info("Sending compile to area_pages(client.website.compile_path): #{client.website.compile_path}" )}
+    LOGGERS.each {|logger| logger.debug("failing on calling this with compile method: #{area_pages(client.website.compile_path)}")
     area_pages(client.website.compile_path).compile
     LOGGERS.each {|logger| logger.info("Calling compile_location_websites")}
     compile_location_websites
