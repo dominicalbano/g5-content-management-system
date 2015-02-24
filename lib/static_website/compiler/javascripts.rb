@@ -52,7 +52,8 @@ module StaticWebsite
       end
 
       def compressed_path
-        @compressed_path ||= File.join(compile_path, "javascripts", "#{@page_name.parameterize}.min.js")
+        @compressed_path ||= File.join(compile_path, "javascripts", 
+                                       "#{@page_name.parameterize}-#{Time.now.to_i}.min.js")
       end
 
       def javascript_uploader
