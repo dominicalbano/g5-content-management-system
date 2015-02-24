@@ -24,7 +24,7 @@ class Location < ActiveRecord::Base
   before_validation :set_city_slug_from_city
 
   def self.corporate
-    where(status: "Live").first
+    where(corporate: true).first
   end
 
   def website_id
