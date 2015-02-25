@@ -1,5 +1,6 @@
 class WebPageTemplateSpinupSerializer < ActiveModel::Serializer
   attributes  :name,
+              :title,
               :drop_targets
 
   def drop_targets

@@ -3,9 +3,12 @@ class WidgetSpinupSerializer < ActiveModel::Serializer
      
   def as_json(options=nil)
     if object
-      return ContentStripeWidgetSpinupSerializer.new(object, {root: false}).as_json if object.kind_of_widget?('Content Stripe')
-      return ColumnWidgetSpinupSerializer.new(object, {root: false}).as_json if object.kind_of_widget?('Column')
-      return { slug: object.slug }
+      klass = "#{object.name.gsub(/\s/, '')}WidgetSpinupSerializer".safe_constantize if object.name
+      if klass
+        klass.new(object, {root: false}).as_json
+      else
+        { slug: object.slug }
+      end
     end
   end
 end
