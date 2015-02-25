@@ -12,7 +12,8 @@ class LayoutWidgetSpinupSerializer < ActiveModel::Serializer
 
   def nested_widgets(widget_ids)
     widget_ids.inject([]) do |arr, setting_name|
-      arr << WidgetSpinupSerializer.new(find_widget(setting_name), {root: false}).as_json unless widget_id(setting_name).blank?
+      w = find_widget(setting_name)
+      arr << WidgetSpinupSerializer.new(w, {root: false}).as_json if w
       arr
     end
   end  
