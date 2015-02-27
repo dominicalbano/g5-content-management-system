@@ -1,0 +1,3 @@
+class ContentStripeWidgetSeeder < ModelSeeder
+
+end

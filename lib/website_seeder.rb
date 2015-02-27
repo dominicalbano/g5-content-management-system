@@ -5,7 +5,7 @@ class WebsiteSeeder < ModelSeeder
     @location = location
     @client = Client.first
     @instructions = instructions || @client.website_defaults
-    @website = location.create_website
+    @website = @location.create_website
   end
 
   def seed
@@ -73,9 +73,9 @@ class WebsiteSeeder < ModelSeeder
   def create_website_template(website, instruction)
     Rails.logger.debug("Creating website template")
     if website && instruction
-      website_template = website.create_website_template(web_template_params(instruction))
-      web_layout = website_template.create_web_layout(layout_params(instruction["web_layout"]))
-      web_theme = website_template.create_web_theme(theme_params(instruction["web_theme"]))
+      website_template = WebsiteTemplateSeeder.new(website, instruction).seed
+      WebLayoutSeeder.new(website, website_template, instruction['web_layout']).seed
+      WebThemeSeeder.new(website, website_template, instruction['web_theme']).seed
       DropTargetSeeder.new(website, website_template, instruction["drop_targets"]).seed
     end
   end
@@ -100,14 +100,6 @@ class WebsiteSeeder < ModelSeeder
     website.settings.find_or_create_by(name: name) do |setting|
       setting.value = value
     end
-  end
-
-  def layout_params(instructions)
-    params_for(GardenWebLayout, instructions, :garden_web_layout_id)
-  end
-
-  def theme_params(instructions)
-    params_for(GardenWebTheme, instructions, :garden_web_theme_id)
   end
 end
 

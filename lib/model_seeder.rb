@@ -1,5 +1,11 @@
 class ModelSeeder
+  attr_reader :instructions
+
   protected
+
+  def template_params
+    ActionController::Parameters.new(@instructions).permit(:name, :title)
+  end
 
   def params_for(model, instructions, parameter)
     component = model.find_by_slug(instructions["slug"])

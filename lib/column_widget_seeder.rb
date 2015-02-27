@@ -1,0 +1,3 @@
+class ColumnWidgetSeeder < ModelSeeder
+
+end
