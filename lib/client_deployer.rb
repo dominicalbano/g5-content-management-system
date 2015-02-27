@@ -31,8 +31,7 @@ module ClientDeployer
 
   def self.compile_location_websites
     LOGGERS.each {|logger| logger.debug("compile_location_websites")}
-    LOGGERS.each {|logger| logger.debug("calling compile on WebsiteCompiler for each of #{Website.location_websites.to_s}")}
-    Website.location_websites.each { |website| WebsiteCompiler.new(website).compile }
+    Location.all.each {|location| WebsiteCompiler.new(location.website).compile }
   end
 
   def self.cleanup(compile_path)
