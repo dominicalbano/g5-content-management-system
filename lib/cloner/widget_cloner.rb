@@ -14,7 +14,7 @@ class Cloner::WidgetCloner
     new_widget = @widget.dup
     new_widget.update(drop_target: @target_drop_target)
 
-    clone_widget_settings(@widget, new_widget) unless SETTINGS_EXCEPTIONS.any? {|s| @widget.slug.include?(s)}
+    clone_widget_settings(@widget, new_widget) unless SETTINGS_EXCEPTIONS.any? {|s| @widget.slug.to_s.include?(s)}
     #
     # clone_settings(@widget.settings, new_widget)
     # process_widget(@widget, new_widget)
