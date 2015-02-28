@@ -15,6 +15,6 @@ class WebsiteSeederJob
   end
 
   def perform
-    WebsiteSeeder.new(@location).seed
+    Seeder::WebsiteSeeder.new(@location).seed
   end
 end
