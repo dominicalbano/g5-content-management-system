@@ -7,8 +7,10 @@ class WidgetSeeder < ModelSeeder
   end
 
   def seed
-    @widget = @drop_target.widgets.create(widget_params)
+    @widget = @drop_target ? @drop_target.widgets.create(widget_params) : Widget.create(widget_params)
     if @widget.valid?
+      return ContentStripeWidgetSeeder.new(@widget, @instructions).seed if @widget.kind_of_widget?("Content Stripe")
+      return ColumnWidgetSeeder.new(@widget, @instructions).seed if @widget.kind_of_widget?("Column")
       set_default_widget_settings(@instructions["settings"])
     else
       Rails.logger.debug("#{@instructions.to_s} Widget errors: #{@widget.errors.inspect}\n")
