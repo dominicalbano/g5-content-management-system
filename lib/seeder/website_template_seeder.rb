@@ -8,7 +8,13 @@ module Seeder
     end
 
     def seed
-      @website.create_website_template(template_params)
+      @website.create_website_template(website_template_params)
+    end
+
+    private
+
+    def website_template_params
+      ActionController::Parameters.new(@instructions).permit(:name, :title)
     end
   end
 end
