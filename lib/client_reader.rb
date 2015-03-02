@@ -67,7 +67,7 @@ private
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
     location.status           = uf2_location.g5_status.to_s
     location.thumb_url        = uf2_location.try(:photo).to_s
-    location.secure_domain    = uf2_location.secure_domain
+    location.secure_domain    = uf2_location.g5_secure_domain
 
     location.save
   end
