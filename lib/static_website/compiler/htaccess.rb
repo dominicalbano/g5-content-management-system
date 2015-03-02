@@ -3,6 +3,7 @@ module StaticWebsite
     class HTAccess
 
       def initialize(website)
+        @website = website
         @website_compile_path = website.compile_path
         @web_home_template = website.web_home_template
         @web_page_templates = website.web_page_templates
@@ -43,13 +44,20 @@ module StaticWebsite
         end
 
         htaccess_contents = ["DirectoryIndex index.html",
-                            "<IfModule mod_rewrite.c>",
-                            "\tRewriteEngine On",
-                            empty_folders,
-                            redirect_rules,
-                            "\tRewriteCond %{REQUEST_FILENAME} !-d",
-                            "\tRewriteCond %{REQUEST_FILENAME} !-f",
-                            "</IfModule>"]
+                             "<IfModule mod_rewrite.c>",
+                             "\tRewriteEngine On",
+                             empty_folders,
+                             redirect_rules]
+
+        if @website.owner.try(:secure_domain)
+          htaccess_contents << ["\tRewriteCond %{HTTPS} !=on",
+                                "\tRewriteCond %{HTTP:X-Forwarded-Proto} !https",
+                                "\tRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]"]
+        end
+
+        htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-d",
+                              "\tRewriteCond %{REQUEST_FILENAME} !-f",
+                              "</IfModule>"]
 
         return htaccess_contents.flatten.join("\n")
       end
