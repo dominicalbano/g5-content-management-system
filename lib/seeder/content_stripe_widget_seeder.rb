@@ -1,5 +1,5 @@
 module Seeder
-  class ContentStripeWidgetSeeder < Seeder::LayoutSeeder
+  class ContentStripeWidgetSeeder < Seeder::LayoutWidgetSeeder
     protected
 
      def layout_var

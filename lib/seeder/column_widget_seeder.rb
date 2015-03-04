@@ -1,5 +1,5 @@
 module Seeder
-  class ColumnWidgetSeeder < Seeder::LayoutSeeder
+  class ColumnWidgetSeeder < Seeder::LayoutWidgetSeeder
     protected 
 
     def layout_var

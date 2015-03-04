@@ -4,7 +4,7 @@ describe WebsiteSeeder do
   let!(:client) { Fabricate(:client) }
   let!(:location) { Fabricate(:location) }
   let(:website) { Fabricate(:website, owner: location) }
-  let(:defaults) { YAML.load_file("#{Rails.root}/config/defaults.yml") }
+  let(:defaults) { YAML.load_file("#{Rails.root}/config/defaults/defaults.yml") }
   let(:seeder) { WebsiteSeeder.new(location) }
 
   before do

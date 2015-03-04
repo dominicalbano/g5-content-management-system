@@ -15,7 +15,7 @@ module Seeder
       create_services_settings
       create_website_template(@website, @instructions["website_template"])
       create_web_home_template(@website, @instructions["web_home_template"])
-      create_web_page_templates(@website, @instructions["web_page_templates"])
+      #create_web_page_templates(@website, @instructions["web_page_templates"])
       @website
     end
 
