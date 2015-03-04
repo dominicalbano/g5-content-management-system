@@ -15,88 +15,58 @@ http_interactions:
       - Ruby
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Server:
       - Cowboy
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:28:27 GMT
+      - Wed, 14 Jan 2015 19:07:53 GMT
       Status:
-      - 200 OK
-      Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - 404 Not Found
       Content-Type:
-      - text/css
+      - text/html; charset=utf-8
       Content-Length:
-      - '755'
+      - '728'
+      X-Request-Id:
+      - 69e6d258-55aa-42b7-a35b-d092e13db120
+      X-Runtime:
+      - '0.005634'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: |
-        .row:before,
-        .row:after,
-        .row-grid:before,
-        .row-grid:after {
-          content: " ";
-          display: table;
-        }
-        .row:after,
-        .row-grid:after {
-          clear: both;
-        }
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>The page you were looking for doesn't exist (404)</title>
+          <style type="text/css">
+            body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+            div.dialog {
+              width: 25em;
+              padding: 0 4em;
+              margin: 4em auto 0 auto;
+              border: 1px solid #ccc;
+              border-right-color: #999;
+              border-bottom-color: #999;
+            }
+            h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+          </style>
+        </head>
 
-        .row-grid {
-          margin: 0 -15px;
-        }
-
-        .col {
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          padding: 0 15px;
-        }
-
-        .row-halves .col,
-        .row-uneven-thirds-1 .col,
-        .row-uneven-thirds-2 .col,
-        .row-thirds .col,
-        .row-quarters .col {
-          float: left;
-        }
-
-        .row-halves .col {
-          width: 50%;
-        }
-
-        .row-thirds .col {
-          width: 33.33333%;
-        }
-
-        .row-uneven-thirds-1 .col-1 {
-          width: 33.33333%;
-        }
-
-        .row-uneven-thirds-1 .col-2 {
-          width: 66.66667%;
-        }
-
-        .row-uneven-thirds-2 .col-1 {
-          width: 66.66667%;
-        }
-
-        .row-uneven-thirds-2 .col-2 {
-          width: 33.33333%;
-        }
-
-        .row-quarters .col {
-          width: 25%;
-        }
+        <body>
+          <!-- This file lives in public/404.html -->
+          <div class="dialog">
+            <h1>The page you were looking for doesn't exist.</h1>
+            <p>You may have mistyped the address or the page may have moved.</p>
+          </div>
+        </body>
+        </html>
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:28:28 GMT
+  recorded_at: Wed, 14 Jan 2015 19:07:53 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -120,15 +90,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:28:27 GMT
+      - Wed, 14 Jan 2015 19:07:53 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '497'
+      - '615'
       Via:
       - 1.1 vegur
     body:
@@ -153,13 +123,18 @@ http_interactions:
           box-sizing: border-box;
           text-align: center;
         }
+        .button-inline {
+          float: left;
+          margin-right: 15px;
+        }
         @media (min-width: 500px) {
           .button-grid {
             float: left;
             padding: 0 1em;
             width: 50%;
           }
-          .button-grid:nth-of-type(2n+1) {
+          section > .button-grid:nth-of-type(2n+1),
+          .row [class*=row]:nth-of-type(2n+1) .button-grid {
             clear: left;
           }
         }
@@ -167,7 +142,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:28:29 GMT
+  recorded_at: Wed, 14 Jan 2015 19:07:53 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
@@ -191,15 +166,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:28:28 GMT
+      - Wed, 14 Jan 2015 19:07:53 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '589'
+      - '618'
       Via:
       - 1.1 vegur
     body:
@@ -214,20 +189,21 @@ http_interactions:
         }
 
         .subnav {
-          -webkit-transition: max-height 0.3s ease;
-          -moz-transition: max-height 0.3s ease;
-          transition: max-height 0.3s ease;
           max-height: 0;
           overflow: hidden;
         }
 
         @media (max-width: 979px) {
+          .corporate-navigation.show-desktop {
+            display: none;
+          }
           .show-subnav {
             max-height: none;
           }
         }
 
         @media (min-width: 980px) {
+          header[role=banner] .corporate-navigation,
           header[role=banner] .navigation {
             overflow-y: visible;
           }
@@ -241,9 +217,12 @@ http_interactions:
           .show-subnav {
             max-height: 1000px;
           }
+          .corporate-home {
+            display: none;
+          }
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:28:30 GMT
+  recorded_at: Wed, 14 Jan 2015 19:07:54 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -267,11 +246,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:28:29 GMT
+      - Wed, 14 Jan 2015 19:07:54 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -292,7 +271,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:28:30 GMT
+  recorded_at: Wed, 14 Jan 2015 19:07:54 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -316,15 +295,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:28:30 GMT
+      - Wed, 14 Jan 2015 19:07:54 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 01:39:16 GMT
+      - Tue, 06 Jan 2015 17:32:56 GMT
       Content-Type:
       - text/css
       Content-Length:
-      - '728'
+      - '808'
       Via:
       - 1.1 vegur
     body:
@@ -333,14 +312,15 @@ http_interactions:
         .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
         .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
         \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
-        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(https://themes.g5dxm.com/shared/access-icons.png)
         0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
         hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
         .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
         20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
-        200px;\n}\n"
+        200px;\n}\n.footer-info .icon {\n  background-color: #000;\n  height: 40px;\n
+        \ width: 40px;\n}"
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:28:31 GMT
+  recorded_at: Wed, 14 Jan 2015 19:07:54 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/luxe/stylesheets/luxe.scss
@@ -364,15 +344,15 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Thu, 06 Nov 2014 18:28:31 GMT
+      - Wed, 14 Jan 2015 19:07:55 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Wed, 05 Nov 2014 17:32:50 GMT
+      - Mon, 05 Jan 2015 22:18:33 GMT
       Content-Type:
       - text/plain
       Content-Length:
-      - '19471'
+      - '20627'
       Via:
       - 1.1 vegur
     body:
@@ -679,7 +659,7 @@ http_interactions:
             background-color: $primary-dark;
           }
           .widget {
-            margin-bottom: 1em;
+            margin-bottom: 2em;
           }
           @include until($max-medium) {
             .col {
@@ -933,7 +913,7 @@ http_interactions:
           .tel,
           .email,
           .chat {
-            background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
+            background: url('https://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
             min-height: 35px;
             padding-left: 40px;
           }
@@ -992,49 +972,22 @@ http_interactions:
         // *************************************
 
         .social-links {
+          background-color: $base-background;
+          padding: $half-whitespace $half-whitespace 0 $half-whitespace;
           a {
-            @extend %ir;
-            background: url('http://widgets.g5dxm.com/social-links/social-icons-alt.png') 0 0 no-repeat;
-            display: inline-block;
-            height: 45px;
-            width: 45px;
             margin: 0 $half-whitespace $half-whitespace 0;
             &:last-child {
               margin-right: 0;
             }
           }
-          .twitter {
-            background-position: 0 0;
-          }
-          .tumblr {
-            background-position: 0 -60px;
-          }
-          .facebook {
-            background-position: 0 -120px;
-          }
-          .instagram {
-            background-position: 0 -180px;
-          }
-          .vimeo {
-            background-position: 0 -240px;
-          }
-          .yelp {
-            background-position: 0 -300px;
-          }
-          .foursquare {
-            background-position: 0 -360px;
-          }
-          .pinterest {
-            background-position: 0 -420px;
-          }
-          .youtube {
-            background-position: 0 -480px;
-          }
-          .google-plus {
-            background-position: 0 -540px;
-          }
-          .linked-in {
-            background-position: 0 -600px;
+          .icon {
+            @include transition(background-color .2s ease);
+            background-color: $primaryColor;
+            height: 45px;
+            width: 45px;
+            &:hover {
+              background-color: $primary-alt;
+            }
           }
         }
 
@@ -1063,61 +1016,79 @@ http_interactions:
           }
         }
 
+
+        // -------------------------------------
+        //   IUI
+        // -------------------------------------
+
+        .home-multifamily-iui {
+          background-color: rgba($primary-dark, .80);
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 500px;
+          .iui-steps {
+            &:before {
+              background-color: $white;
+            }
+            span {
+              background-color: $white;
+              color: $secondaryColor;
+              &:first-child {
+                background-color: $primaryColor;
+                color: $white;
+              }
+            }
+          }
+          .iui-title {
+            @extend %shout;
+            font-size: em(32);
+          }
+          .btn {
+            background-color: $primaryColor;
+            display: block;
+            font-size: em(21);
+            &:hover {
+              background: lighten($primaryColor, 10%);
+            }
+          }
+        }
+
+
         // *************************************
         //
-        //   Map and Directions Widgets
+        //   City State Zip Search
         //
         // *************************************
 
-        .directions {
-          @extend %clearfix;
-          position: relative;
-          .canvas,
-          .text {
+        .city-state-zip-search {
+          .zip-search-heading {
+            @extend %shout;
+          }
+          .zip-search-top {
+            @include clearfix;
+            background-color: rgba($primary-dark, .80);
+            padding: 1em $base-whitespace;
+            margin: 0 auto;
+          }
+          .zip-search-button,
+          .zip-search-input {
             width: 100%;
           }
-          .canvas {
-            position: relative;
-            top: 9em;
-          }
-          label,
-          input[type=text],
-          input[type=submit] {
-            position: absolute;
-          }
-          label {
-            left: 0;
-            top: 0;
-          }
-          input[type=text] {
-            padding: .4em;
-            width: 100%;
-            left: 0;
-            top: 2em;
-          }
-          input[type=submit] {
-            display: inline-block;
-            width: 100%;
-            right: 0;
-            top: 5em;
-          }
-          .panel {
-            margin-top: 10em;
-          }
-          @include at-least($min-small) {
-            .canvas {
-              top: 6em;
+          .zip-search-input {
+            padding: 0;
+            input {
+              padding: .5em 20px;
             }
-            input[type=text] {
-              width: 75%;
-            }
-            input[type=submit] {
-              padding: .5em;
-              width: 25%;
-              top: 2em;
-            }
-            .panel {
-              margin-top: 7em;
+          }
+          .zip-search-button {
+            background-color: transparent;
+            padding: 0;
+            button {
+              @extend .btn;
+              margin-top: 10px;
+              &:after {
+                right: 15px;
+              }
             }
           }
         }
@@ -1172,29 +1143,18 @@ http_interactions:
           overflow: hidden;
         }
 
-        .collapsable-btn {
-          display: inline-block;
-          cursor: pointer; }
-        .collapsable-content,
-        .collapsable-content.collapse {
-          height: 0;
-          overflow: hidden; }
-        .collapse {
-          position: relative;
-          height: 0;
-          overflow: hidden;
-          -webkit-transition: height 0.35s ease;
-          -moz-transition: height 0.35s ease;
-          -o-transition: height 0.35s ease;
-          transition: height 0.35s ease; }
-        .collapse.in {
-          height: auto; }
-
-        @media (min-width: $min-medium) {
-          .collapsable-btn {
-            display: none !important;
+        .collapsable-content {
+          &, &.collapse {
+            height: 0;
+            overflow: hidden;
           }
-          .collapsable-content {
+          &.collapse {
+            @include transition(height 0.35s ease);
+          }
+          &.collapse.in {
+            height: auto;
+          }
+          @include at-least($min-medium) {
             height: auto !important;
             overflow: visible !important;
           }
@@ -1203,6 +1163,8 @@ http_interactions:
         .collapsable-btn {
           background-color: transparent;
           border-left-color: $secondaryColor;
+          cursor: pointer;
+          display: inline-block;
           float: right;
           margin: .5em 0;
           padding: 2px 6px !important;
@@ -1232,35 +1194,54 @@ http_interactions:
           &:first-child {
             margin-top: 0;
           }
+          @include at-least($min-medium) {
+            display: none !important;
+          }
         }
 
         [role=banner] .navigation {
           font-family: $alt-fontFamily;
           text-align: center;
           a {
-            @extend %inline;
             @extend %inverse;
+            display: block;
             font-size: em(24);
+          }
+          .has-subnav > a:after {
+            content: ">";
+            margin-left: .5em;
+          }
+          .subnav {
+            li {
+              &:first-child {
+                border: none;
+              }
+            }
+            a {
+              font-size: em(18);
+            }
           }
           @include until($max-medium) {
             a {
               border-top: 1px solid $white-transparent;
-              display: block;
               padding: .5em;
             }
           }
           @include at-least($min-medium) {
             display: table;
             width: 100%;
-            ul {
+            .top-nav {
               display: table-row;
-            }
-            li {
-              display: table-cell;
-              vertical-align: middle;
+              > li {
+                display: table-cell;
+                vertical-align: middle;
+                > a {
+                  border-bottom: 10px solid transparent;
+                  display: inline-block;
+                }
+              }
             }
             a {
-              border-bottom: 10px solid transparent;
               padding: 1.25em 0 .75em;
               &:focus,
               &:hover {
@@ -1268,8 +1249,33 @@ http_interactions:
                 border-bottom-color: $white-transparent;
               }
             }
+            .subnav {
+              background-color: rgba($primary-dark, .75);
+              width: 200px;
+              max-height: 0;
+              position: absolute;
+              z-index: 9999;
+              left: 50%;
+              top: 5.8em;
+              margin-left: -100px;
+              li {
+                border-top: 1px solid $white-transparent;
+              }
+              a {
+                padding: .5em 10px;
+                &:hover,
+                &:focus {
+                  background-color: $primaryColor;
+                  color: $white;
+                }
+              }
+            }
+            .show-subnav {
+              max-height: 1000px;
+            }
           }
         }
+
 
         // *************************************
         //
@@ -1306,7 +1312,7 @@ http_interactions:
 
         footer .footer-info {
           .access {
-            background-image: url(http://themes.g5dxm.com/shared/access-icons-light.png);
+            background-image: url(https://themes.g5dxm.com/shared/access-icons-light.png);
           }
           @include until($max-small) {
             float: left;
@@ -1324,6 +1330,7 @@ http_interactions:
         .action-calls {
           text-align: center;
           width: 100%;
+          overflow: hidden;
           a {
             @extend .btn-alt;
             font-size: em(36);
@@ -1350,7 +1357,7 @@ http_interactions:
         //
         // *************************************
 
-        .page-home {
+        .web-home-template {
           [role=banner] {
             padding-top: 0;
             .logo-container {
@@ -1375,8 +1382,7 @@ http_interactions:
           }
           #drop-target-main .row:first-of-type {
             @extend %relative;
-            top: 10px;
-            padding: 0;
+            padding: 10px 0 0;
             overflow: hidden;
             @include at-least($min-medium) {
               margin-top: 5.25em;
@@ -1388,6 +1394,7 @@ http_interactions:
               margin: 0;
               padding: 0;
               max-width: none;
+              overflow: hidden;
             }
             figure {
               margin-bottom: 0;
@@ -1439,25 +1446,49 @@ http_interactions:
               }
             }
           }
+          .home-multifamily-iui,
+          .city-state-zip-search,
           .action-calls {
             @include at-least($min-small) {
               position: relative;
+              margin-top: 15em;
               margin-bottom: 5em;
-              li,
-              a {
-                display: inline-block;
-              }
-              li {
-                padding: 0 $half-whitespace 1em;
-              }
             }
             @include at-least($min-medium) {
               margin-top: 20em;
               margin-bottom: 10em;
             }
+            @include at-least($min-large) {
+            }
           }
-        }
-        .page-home {
+          .zip-search-top {
+            float: none;
+          }
+          .action-calls {
+            @include at-least($min-small) {
+              li {
+                float: none;
+                width: 75%;
+                margin: 0 auto;
+                padding: 0 $half-whitespace $half-whitespace;
+                vertical-align: top;
+              }
+              a {
+                display: block;
+              }
+            }
+            @include at-least($min-medium) {
+              li {
+                width: 50%;
+              }
+            }
+            @include at-least($min-large) {
+              li {
+                display: inline-block;
+                width: 33%;
+              }
+            }
+          }
           .row:nth-of-type(2n) {
             .photo,
             .html {
@@ -1495,7 +1526,7 @@ http_interactions:
             .adr,
             .tel,
             .email {
-              background-image: url('http://widgets.g5dxm.com/contact-info/contact-icons-light.png') !important;
+              background-image: url('https://widgets.g5dxm.com/contact-info/contact-icons-light.png') !important;
             }
           }
         }
@@ -1517,10 +1548,10 @@ http_interactions:
             .adr,
             .tel,
             .email {
-              background-image: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') !important;
+              background-image: url('https://widgets.g5dxm.com/contact-info/contact-icons.png') !important;
             }
           }
         }
     http_version: 
-  recorded_at: Thu, 06 Nov 2014 18:28:32 GMT
-recorded_with: VCR 2.9.2
+  recorded_at: Wed, 14 Jan 2015 19:07:55 GMT
+recorded_with: VCR 2.9.3

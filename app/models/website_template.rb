@@ -83,4 +83,8 @@ class WebsiteTemplate < WebTemplate
   def colors
     web_theme.try(:display_colors)
   end
+
+  def fonts
+    web_theme.try(:display_fonts)
+  end
 end

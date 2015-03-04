@@ -1,7 +1,11 @@
 source "https://rubygems.org"
-ruby "2.1.3"
+source "https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/"
 
-gem 'rails', "4.1.7"
+ruby "2.2.0"
+
+gem "rails", "4.1.7"
+gem "active_model_serializers", "~> 0.8.2"
+
 # Downgraded jquery-rails for Ember Views
 gem "jquery-rails", "~> 3.0.4"
 gem "jquery-ui-rails"
@@ -23,13 +27,14 @@ gem "aws-sdk"
 gem "httparty"
 gem "momentjs-rails"
 gem "ember-rails"
-gem 'g5_authenticatable', '~> 0.2'
+gem "ember-source", "~> 1.7.0"
+gem "g5_authenticatable"
 gem "pg"
 gem "font-awesome-rails"
-gem 'bootstrap-editable-rails'
+gem "g5_header"
 
 # Temporary fix
-gem "sprockets", "=2.11.0"
+gem "sprockets"
 gem "sass-rails"
 gem "coffee-rails"
 gem "uglifier"
@@ -42,7 +47,7 @@ end
 
 group :development, :test do
   # secrets
-  gem "dotenv-rails"
+  gem "dotenv-rails", "~> 0.11.1"
   # debugging
   gem "pry"
   # database

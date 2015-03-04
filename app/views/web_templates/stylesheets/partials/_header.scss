@@ -1,0 +1,69 @@
+// *************************************
+//
+//  Header
+//
+// *************************************
+
+// =====================================
+//  Site header
+// =====================================
+
+[role=banner] {
+  width: 100%;
+  z-index: 1000;
+
+  h1 {
+    @extend %text-center;
+    font-size: 1em;
+    margin: 0;
+  }
+
+  @include until($max-medium) {
+    .buttons {
+      min-height: em(50);
+    }
+  }
+}
+
+
+#drop-target-logo {
+  @include until($max-medium) {
+    position: static;
+  }
+}
+
+.logo {
+  @extend %block;
+  @extend %text-left;
+  @extend %absolute;
+  bottom: 0;
+  left: $half-whitespace;
+  height: em(50);
+  width: 50%;
+
+  img {
+    max-height: 100%;
+  }
+
+  @include until($max-medium) {
+    bottom: auto;
+    top: .5em;
+  }
+
+  @include at-least($min-medium) {
+    bottom: 0;
+    width: 20%;
+    height: em(95);
+  }
+}
+
+#drop-target-btn {
+
+  .btn {
+    font-size: em(12);
+  }
+
+  @include at-least($min-medium) {
+    float: right;
+  }
+}

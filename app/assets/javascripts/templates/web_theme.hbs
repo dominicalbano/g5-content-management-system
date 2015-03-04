@@ -27,3 +27,28 @@
     </div>
   </div>
 {{/view}}
+
+{{#view App.FontPickerView}}
+  <div class="fonts clearfix">
+    <h3>Customize Fonts:</h3>
+    <div class="font-fields">
+      <div class="check-field">
+        <label>
+          {{view App.Checkbox checkedBinding="customFonts"
+            contentBinding="content"}}
+          Use Custom Fonts
+        </label>
+      </div>
+      <div class="font-field">
+        <label for="font-1">Primary</label>
+        {{view App.FontField valueBinding="primaryFont"
+          contentBinding="content" id="font-1" class="font" placeholderBinding="defaultPrimaryFont" disabledBinding="noCustomFonts" }}
+      </div>
+      <div class="font-field">
+        <label for="font-2">Secondary</label>
+        {{view App.FontField valueBinding="secondaryFont"
+          contentBinding="content" id="font-2" class="font" placeholderBinding="defaultSecondaryFont" disabledBinding="noCustomFonts" }}
+      </div>
+    </div>
+  </div>
+{{/view}}

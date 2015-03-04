@@ -1,30 +1,39 @@
 require "static_website/compiler/javascript"
 require "static_website/compiler/javascript/compressor"
 
+LOGGERS = [Rails.logger, Resque.logger]
+
 module StaticWebsite
   module Compiler
     class Javascripts
       attr_reader :javascript_paths, :compile_path, :location_name, :preview,
         :js_paths, :include_paths
 
-      def initialize(javascript_paths, compile_path, location_name="", preview=false)
+      def initialize(javascript_paths, compile_path, page_name, location_name="", preview=false)
+        javascript_paths = Array(javascript_paths)
+        LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::Javascripts with javascript_paths: #{javascript_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path},\n\tlocation_name: #{location_name},\n\tpreview: #{preview}\n")} if javascript_paths
         @javascript_paths = javascript_paths.try(:compact).try(:uniq)
         @compile_path = compile_path
         @location_name = location_name
         @preview = preview
         @js_paths = []
         @include_paths = []
+        @page_name = page_name
       end
 
       def compile
         @js_paths = []
         @include_paths = []
-        if javascript_paths
+        unless javascript_paths.empty?
           javascript_paths.each do |javascript_path|
             compile_javascript(javascript_path)
           end
 
-          # javascript_compressor.compile unless preview
+          
+          LOGGERS.each{|logger| logger.debug("About to call javascript_compressor.compile")}
+          @js_paths = Array(javascript_compressor.compile) unless preview
+          LOGGERS.each{|logger| logger.debug("Done calling javascript_compressor.compile")}
+          LOGGERS.each{|logger| logger.debug("Calling compile on javascript_uploader unless preview")}
           javascript_uploader.compile unless preview
         end
       end
@@ -43,7 +52,8 @@ module StaticWebsite
       end
 
       def compressed_path
-        @compressed_path ||= File.join(compile_path, "javascripts", "application.min.js")
+        @compressed_path ||= File.join(compile_path, "javascripts",
+                                       "#{@page_name.parameterize}-#{Time.now.to_i}.min.js")
       end
 
       def javascript_uploader
@@ -56,3 +66,4 @@ module StaticWebsite
     end
   end
 end
+

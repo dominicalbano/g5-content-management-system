@@ -104,24 +104,26 @@
     }
   }
 
-  .colors {
-    border-top: 1px solid $c-color-a;
-    margin-top: .5em;
+  .colors, .fonts {
     padding-top: 1em;
     h3,
     .color-fields,
     .color-field,
+    .font-fields,
+    .font-field,
     .check-field,
     label {
       display: inline-block;
     }
     h3,
     .check-field,
-    .color-field {
+    .color-field,
+    .font-field {
       margin: 0 $base-whitespace 0 0;
     }
     h3 {
       font-weight: $c-semiBold;
+      min-width: 200px;
     }
     label {
       font-weight: $c-semiBold;
@@ -130,6 +132,13 @@
     input[type=color] {
       width: 60%;
     }
+    input[type=text] {
+      width: 97%;
+    }
+  }
+  .colors {
+    border-top: 1px solid $c-color-a;
+    margin-top: .5em;
   }
   .sp-replacer {
     background: transparent;

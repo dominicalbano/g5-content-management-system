@@ -1,0 +1,172 @@
+// *************************************
+//
+//  Navigation
+//
+// *************************************
+
+// =====================================
+//  Desktop and mobile navigation
+// =====================================
+
+// -------------------------------------
+//  Mobile Navigation Menu
+// -------------------------------------
+
+// This controls the showing/hiding of mobile navigation
+.collapsable-content {
+  clear:both;
+
+  &, &.collapse {
+    height: 0;
+    overflow: hidden;
+  }
+
+  &.collapse {
+    @include transition(height 0.35s ease);
+  }
+
+  &.collapse.in {
+    height: auto;
+  }
+
+  @include at-least($min-medium) {
+    height: auto !important;
+    overflow: visible !important;
+  }
+}
+
+// Button to show/hide navigation
+.collapsable-btn {
+  @extend %float-right;
+  background-color: transparent;
+  color: $base-color;
+  cursor: pointer;
+  padding: 0;
+  margin: 0 0 .5em;
+
+  &:hover {
+    background-color: transparent;
+    color: $base-color;
+  }
+
+  .text,
+  .bars {
+    @extend %inline;
+    vertical-align: middle;
+  }
+
+  .text {
+    margin-right: 5px;
+  }
+
+  .bars {
+    span {
+      @extend %block;
+      border-bottom: 3px solid $base-color;
+      margin: 3px 0;
+      width: $half-whitespace;
+    }
+  }
+
+  @include at-least($min-medium) {
+    display: none !important;
+  }
+}
+
+// TODO Make mobile nav fix to top on mobile
+
+
+// -------------------------------------
+//  Main Navigation
+// -------------------------------------
+
+[role=banner] {
+  .navigation {
+    @extend %text-center;
+
+    a {
+      @extend %block;
+      padding: .5em;
+    }
+  }
+
+  .has-subnav > a:after {
+    content: ">";
+    margin-left: .5em;
+  }
+
+  @include until($max-medium) {
+    padding: .5em 0;
+
+    .collapsable-content {
+      width: 100%;
+    }
+
+    .navigation {
+      a {
+        background: rgba($black, .75);
+      }
+    }
+  }
+
+  @include at-least($min-medium) {
+    .navigation-container {
+      padding: 2em 0 0;
+    }
+
+    .navigation {
+      float: right;
+      width: 80%;
+      overflow-y: visible;
+
+      .top-nav {
+        @include display(flex);
+        @include justify-content(space-between);
+      }
+
+      .no-flexbox & {
+        display: table;
+
+        .top-nav {
+          display: table-row;
+
+          > li {
+            display: table-cell;
+          }
+        }
+      }
+
+      a {
+        padding: 1em 0;
+      }
+    }
+
+    // Navigation drop down menu
+    .subnav {
+      background: rgba($black, .75);
+      text-align: left;
+      max-height: 0;
+      width: em(200);
+      position: absolute;
+      left: 0;
+      top: auto;
+      width: auto;
+      z-index: 9999;
+
+      a {
+        padding: .5em $half-whitespace;
+
+        &:hover{
+          background-color: $primaryColor;
+          color: $white;
+        }
+      }
+    }
+
+    // This is needed for mobile when the menu
+    // is taller than the screen to create scroll
+    .show-subnav {
+      max-height: 1000px;
+    }
+  }
+}

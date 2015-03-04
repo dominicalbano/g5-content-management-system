@@ -9,10 +9,16 @@ class WebsiteSeeder
   end
 
   def seed
+    Rails.logger.debug("Performing Seed")
+    Rails.logger.debug("Creating general settings")
     create_general_settings
+    Rails.logger.debug("Creating services settings")
     create_services_settings
+    Rails.logger.debug("Creating website template")
     create_website_template(website, instructions["website_template"])
+    Rails.logger.debug("Creating web home template")
     create_web_home_template(website, instructions["web_home_template"])
+    Rails.logger.debug("Creating web page templates")
     create_web_page_templates(website, instructions["web_page_templates"])
 
     website
@@ -78,7 +84,7 @@ class WebsiteSeeder
   end
 
   def create_web_home_template(website, instruction)
-    Rails.logger.info("Creating web home template from instructions")
+    Rails.logger.debug("Creating web home template from instructions")
     if website && instruction
       web_home_template = website.create_web_home_template(web_template_params(instruction))
       create_drop_targets(web_home_template, instruction["drop_targets"])
@@ -86,7 +92,7 @@ class WebsiteSeeder
   end
 
   def create_web_page_templates(website, instructions)
-    Rails.logger.info("Creating web page templates from instructions")
+    Rails.logger.debug("Creating web page templates from instructions")
     if website && instructions
       instructions.each do |instruction|
         web_page_template = website.web_page_templates.create(web_template_params(instruction))
@@ -96,7 +102,7 @@ class WebsiteSeeder
   end
 
   def create_drop_targets(web_template, instructions)
-    Rails.logger.info("Creating drop targets from instructions")
+    Rails.logger.debug("Creating drop targets from instructions")
     if web_template && instructions
       instructions.each do |instruction|
         drop_target = web_template.drop_targets.create(drop_target_params(instruction))
@@ -106,11 +112,13 @@ class WebsiteSeeder
   end
 
   def create_widgets(drop_target, instructions)
-    Rails.logger.info("Creating widgets from instructions")
+    Rails.logger.debug("Creating widgets from instructions")
     if drop_target && instructions
       instructions.each do |instruction|
         widget = drop_target.widgets.create(widget_params(instruction))
-        Rails.logger.info("Widget errors: #{widget.errors.inspect}") unless widget.valid?
+        unless widget.valid?
+          Rails.logger.debug("#{instruction.to_s} Widget errors: #{widget.errors.inspect}\n")
+        end
         set_default_widget_settings(widget, instruction["settings"])
       end
     end

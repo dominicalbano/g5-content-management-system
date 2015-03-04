@@ -3,6 +3,8 @@ class WebTemplate < ActiveRecord::Base
   include HasManySettings
   include AfterUpdateSetSettingNavigation
 
+  LOGGERS = [Rails.logger, Resque.logger]
+
   ranks :display_order, with_same: :website_id
 
   belongs_to :website
@@ -127,18 +129,20 @@ class WebTemplate < ActiveRecord::Base
     website.colors if website
   end
 
+  def website_fonts
+    website.fonts if website
+  end
+
   def stylesheets_compiler
     @stylesheets_compiler ||=
       StaticWebsite::Compiler::Stylesheets.new(stylesheets,
-      "#{Rails.root}/public", website_colors, owner_name, true)
+      "#{Rails.root}/public", website_colors, website_fonts, owner_name, true)
   end
 
   def stylesheet_link_paths
-    Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-    Rails.logger.info("sending compile to stylesheets_compiler")
+    LOGGERS.each{|logger| logger.debug("\n#### sending compile to stylesheets_compiler for web_template #{name}\n")}
     stylesheets_compiler.compile
-    Rails.logger.info("\n$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$\n")
-    Rails.logger.info("sending link_paths to stylesheets_compiler")
+    LOGGERS.each{|logger| logger.debug("\n#### sending link_paths to stylesheets_compiler for web_template #{name}\n")}
     stylesheets_compiler.link_paths
   end
 
@@ -149,11 +153,14 @@ class WebTemplate < ActiveRecord::Base
   def javascripts_compiler
     @javascripts_compiler ||=
       StaticWebsite::Compiler::Javascripts.new(javascripts,
-        "#{Rails.root}/public", owner_name)
+        "#{Rails.root}/public", name, owner_name)
   end
 
   def javascript_include_paths
-    javascripts_compiler.compile
+    LOGGERS.each{|logger| logger.debug("Starting compile on javascripts_compiler for web_template: #{name}")}
+    javascripts_compiler.compile unless javascripts.empty?
+    LOGGERS.each{|logger| logger.debug("Finished compile on javascripts_compiler for web_template: #{name}")}
+    LOGGERS.each{|logger| logger.debug("Calling upload_paths on javascripts_compiler for web_template:\n #{name}")}
     javascripts_compiler.uploaded_paths
   end
 
@@ -196,7 +203,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def children
-    WebTemplate.where(parent_id: id)
+    WebTemplate.where(parent_id: id).order(:display_order)
   end
 
   def top_level?

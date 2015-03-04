@@ -27,13 +27,16 @@ class WidgetDrop < Liquid::Drop
     parent_setting.owner.id if parent_setting
   end
 
-
   ClientServices::SERVICES.each do |service|
     delegate :"#{service}_url", to: :client_services
 
     define_method :"secure_#{service}_url" do
       client_services.send(:"#{service}_url", secure: true)
     end
+  end
+
+  def corporate_navigation
+    CorporateNavigationSetting.new.value
   end
 
 private
@@ -52,4 +55,3 @@ private
     @client_services ||= ClientServices.new
   end
 end
-

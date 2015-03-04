@@ -1,0 +1,588 @@
+// *************************************
+//
+//  Widgets
+//
+// *************************************
+
+// =====================================
+//  Default widget styles
+// =====================================
+
+// These are in addition to the widget css
+// that may come with the widget
+
+
+// -------------------------------------
+//  Buttons
+// -------------------------------------
+
+// This is the wrapper for button widget
+.button {
+  @extend %block;
+}
+
+.btn,
+button,
+input[type=submit] {
+  @extend %button;
+}
+
+// This is the DXM logo in the footer
+.dxm {
+  @extend %inline;
+  background: url(https://s3.amazonaws.com/themes.g5dxm.com/shared/dxm.png) no-repeat;
+  height: 23px;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+  width: 100px;
+}
+
+
+// -------------------------------------
+//  Contact Info Widget
+// -------------------------------------
+
+.contact-info {
+  @extend %clearfix;
+}
+
+// Styling within main to leave footer styles alone
+[role=main] .contact-info {
+
+  a {
+    color: $base-color;
+  }
+
+  .p-name {
+    border-bottom: 1px solid $base-color;
+    font-size: em(18);
+    margin-bottom: 1em;
+    padding-bottom: .25em;
+  }
+
+  .tel,
+  .adr,
+  .email,
+  .chat {
+    @extend %icon;
+
+    &:before {
+      @extend %inline;
+      margin-right: .5em;
+      vertical-align: middle;
+    }
+  }
+
+  .tel {
+    @extend .icn-phone;
+  }
+
+  .adr {
+    @extend .icn-location;
+
+    a {
+      @extend %inline;
+      vertical-align: middle;
+    }
+  }
+
+  .email {
+    @extend .icn-envelope;
+  }
+
+  .chat {
+    @extend .icn-comment;
+  }
+}
+
+
+// -------------------------------------
+// Contact Info Sheet
+// -------------------------------------
+
+.contact-info-sheet {
+  .info-sheet-content {
+    border: 1px solid $grey;
+  }
+
+  .info-sheet-phone {
+    font-size: em(24);
+    line-height: 1.2;
+  }
+}
+
+
+// -------------------------------------
+// Social Feed Widget
+// -------------------------------------
+
+.social-feed {
+  background-color: $white;
+  color: $base-color;
+  font-size: em(14);
+  line-height: 1.25;
+
+  .feed-switcher {
+    border-bottom: 1px solid $grey;
+  }
+
+  .feed-switch {
+    background-color: $white;
+    border-right-color: 1px solid $grey;
+  }
+
+  .p-summary,
+  .tweet-name,
+  .tweet-text {
+    font-style: italic;
+  }
+
+  .p-name,
+  .tweet-name {
+    font-weight: $bold-font-weight;
+  }
+
+  .btn {
+    width: 50%;
+  }
+}
+
+
+// -------------------------------------
+// Social Links
+// -------------------------------------
+
+.social-links {
+  @extend %clearfix;
+
+  a {
+    @extend %float-left;
+    margin: 0 $half-whitespace $half-whitespace 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .icon {
+    @include transition(background-color .2s ease);
+    background-color: $base-link-color;
+    // Add border radius to create circle icons
+    // border-radius: 50%;
+    height: 45px;
+    width: 45px;
+
+    &:hover {
+      background-color: $base-hover-color;
+    }
+  }
+}
+
+
+// -------------------------------------
+// Coupon Widget
+// -------------------------------------
+
+.coupon {
+  h2 {
+    border-bottom-color: $secondaryColor;
+    color: $secondaryColor;
+  }
+}
+
+
+// -------------------------------------
+// Calls to Action
+// -------------------------------------
+
+.action-calls {
+  a {
+    background-color: $secondaryColor;
+    color: $white;
+    font-size: em(22);
+    display: block;
+    padding: .5em $base-whitespace .4em $half-whitespace;
+
+    &:hover {
+      background-color: $secondary-light;
+    }
+  }
+
+  li {
+    margin-top: .5em;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    @include at-least($min-medium) {
+      margin-top: 1em;
+    }
+  }
+}
+
+
+// -------------------------------------
+// City State Zip Search
+// -------------------------------------
+
+.zip-search-top {
+  background-color: $primaryColor;
+}
+
+.zip-search-input {
+  padding: 0;
+}
+
+.zip-search-button {
+  @extend %button;
+
+  button {
+    line-height: 1;
+  }
+}
+
+
+// -------------------------------------
+// Corporate Locations Map
+// -------------------------------------
+
+
+// -------------------------------------
+// Directions
+// -------------------------------------
+
+
+// -------------------------------------
+// Floorplan Cards
+// -------------------------------------
+
+.floorplans-cards {
+  .unit-cta-button {
+    @extend %button;
+  }
+}
+
+
+// -------------------------------------
+// Footer Info
+// -------------------------------------
+
+.footer-info {
+  .social-links a {
+    @extend %float-none;
+    margin: 0 0 0 (em(11));
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  // Once widgets can use icon-font, update this css
+  .access {
+    @extend %icon;
+    background: transparent;
+
+    &:before {
+      @extend %block;
+      @extend %relative;
+      font-size: 21px;
+    }
+  }
+
+  .handicap-icon {
+    @extend .icn-handicap;
+    width: 21px;
+
+    &:before {
+      left: -21px
+    }
+  }
+
+  .housing-icon {
+    @extend .icn-housing;
+    width: 32px;
+
+    &:before {
+      left: -32px;
+    }
+  }
+}
+
+
+// -------------------------------------
+// Gallery
+// -------------------------------------
+
+.gallery {
+  h2 {
+    @extend %text-center;
+  }
+}
+
+// Normal default gallery or carousel
+.full-gallery {
+  .flex-caption {
+    @extend %text-center;
+    color: $black;
+    padding: 1em $half-whitespace;
+    width: 100%;
+  }
+
+  .slides li {
+    @extend %relative;
+  }
+}
+
+.mini-gallery {
+  .flex-direction-nav {
+    a {
+      background-size: auto;
+    }
+  }
+
+  .flex-prev {
+    background-position: -12px center;
+  }
+
+  .flex-next {
+    background-position: -64px center;
+  }
+
+  // This breakpoint is in the widget css
+  @include until(909px) {
+    .flex-title,
+    .flex-caption {
+      margin: .5em 15px 1em;
+    }
+  }
+
+  @include until($max-small) {
+
+    .flex-control-thumbs {
+      display: none;
+    }
+  }
+
+  @include at-least(910px) {
+    .flex-title,
+    .flex-caption {
+      padding: 0 15px;
+    }
+
+    .flex-prev {
+      background-position: left center;
+    }
+
+    .flex-next {
+      background-position: right center;
+    }
+
+    .flex-control-thumbs {
+      margin: 0;
+    }
+  }
+}
+
+
+// -------------------------------------
+// Home Page Multifamily IUI
+// -------------------------------------
+
+.home-multifamily-iui {
+  @extend %clearfix;
+  background-color: rgba($black, .5);
+  padding: $half-whitespace;
+
+  .iui-title {
+    color: $white;
+  }
+
+  .iui-steps {
+    @extend %hidden;
+
+    &:before {
+      background-color: $white;
+    }
+
+    span {
+      background-color: $white;
+      color: $secondaryColor;
+
+      &:first-child {
+        background-color: $primaryColor;
+        color: $white;
+      }
+    }
+  }
+
+  .iui-size {
+    @extend %block;
+    margin: 0;
+    padding: 0;
+    width: auto;
+  }
+
+  .btn {
+    @extend %block;
+    @extend %relative;
+    background-color: transparent;
+    border: 1px solid $white;
+    margin: em(5) em(5) .5em;
+  }
+
+  .iui-view-all .btn {
+    background-color: $secondaryColor;
+    border: none;
+    color: $white;
+  }
+
+  .btn:hover {
+    background-color: $white;
+    color: $secondaryColor;
+  }
+
+  @include at-least($min-xsmall) {
+    .iui-container {
+      display: table;
+      width: 100%;
+    }
+
+    .iui-size {
+      display: table-cell;
+    }
+  }
+
+  @include at-least($min-medium) {
+    .iui-title,
+    .iui-container {
+      float: left;
+    }
+
+    .iui-title {
+      width: 20%;
+    }
+
+    .iui-container {
+      width: 80%;
+    }
+  }
+}
+
+
+// -------------------------------------
+// Locations Navigation
+// -------------------------------------
+
+
+// -------------------------------------
+// Map
+// -------------------------------------
+
+
+// -------------------------------------
+// Multifamily IUI Cards
+// -------------------------------------
+
+.multifamily-iui-cards {
+  .iui-cards-nav {
+    a:first-of-type {
+      background-color: $primaryColor;
+    }
+  }
+
+  .iui-cards-units-categories {
+    .category-card-title {
+      background-color: $secondaryColor;
+    }
+
+    a {
+      &:hover,
+      &:hover .category-card-title {
+        background-color: $secondary-light;
+      }
+    }
+
+    .iui-cards-view-all {
+      background-color: $secondaryColor;
+
+      &:hover {
+        @extend %hover;
+      }
+    }
+  }
+}
+
+
+// -------------------------------------
+// Multifamily Search & Mini Search
+// -------------------------------------
+
+.corporate-search {
+  .search-form {
+    padding: 1em $half-whitespace;
+
+    .search-button {
+      @extend %button;
+      padding: 0;
+    }
+  }
+
+  .store-summary .resultAvailability {
+    @extend %button;
+    padding: 1em 0;
+  }
+
+  @include until($max-xsmall) {
+    .search-form  {
+      .search-form-center,
+      .search-form-inner {
+        width: 100%;
+      }
+
+      .city,
+      .state,
+      .neighborhood,
+      .bedrooms,
+      .bathrooms,
+      .square-feet-range,
+      .price-range,
+      .search-button {
+        display: block;
+        margin: .25em 0;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+// -------------------------------------
+// Photo
+// -------------------------------------
+
+
+// -------------------------------------
+// Photo Group
+// -------------------------------------
+
+
+// -------------------------------------
+// Quote
+// -------------------------------------
+
+
+// -------------------------------------
+// Self Storage IUI Cards
+// -------------------------------------
+
+
+// -------------------------------------
+// Self Storage IUI Filtered
+// -------------------------------------
+
+
+// -------------------------------------
+// Video
+// -------------------------------------

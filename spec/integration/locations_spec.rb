@@ -15,7 +15,7 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
 
     it "Client and location names are displayed" do
       # CSS upcases this name, so we also upcase
-      expect(page).to have_content(@client.name.upcase)
+      expect(page).to have_content(@client.name)
       expect(page).to have_content(@location.name)
     end
 
@@ -32,16 +32,12 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
         click_link "Edit"
       end
 
-      within "header" do
-        expect(page).to have_content(@client.name.upcase)
-        expect(page).to have_content(@location.name.upcase)
+      within ".breadcrumb" do
+        expect(page).to have_content(@client.name)
+        expect(page).to have_content(@location.name)
       end
 
       expect(current_path).to eq("/#{@website.slug}")
-    end
-
-    it 'adds a link to the DXM portal' do
-      expect(find("h1.banner-title a[href='http://g5-dsh-123abc-blah-blah-blah.herokuapp.com/']")).to_not be_nil
     end
 
     it "'View' link goes to Heroku App" do

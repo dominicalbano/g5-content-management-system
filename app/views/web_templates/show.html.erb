@@ -42,6 +42,11 @@
 <% content_for(:bottom_of_body) do %> 
   <% if mode == "preview" %>
     <%= javascript_include_tag(*web_template.javascripts) %>
+
+    <script id="preview-configs" type="application/json">
+      <%= preview_configs(params, web_template) %>
+    </script>
+
   <% else %>
     <%= javascript_include_tag(*web_template.javascript_include_paths) %>
   <% end %>

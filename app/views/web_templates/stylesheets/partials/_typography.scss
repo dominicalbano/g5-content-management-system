@@ -1,0 +1,138 @@
+// *************************************
+//
+//  Typography
+//
+// *************************************
+
+// =====================================
+//  Basic top level typography styles
+// =====================================
+
+// -------------------------------------
+// Headings
+// -------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+
+  // Removes bottom margin from headings when
+  // the heading is the only thing in the widget
+  .widget &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+// -------------------------------------
+//  Text
+// -------------------------------------
+
+strong {
+  font-weight: $bold-font-weight;
+}
+
+blockquote {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+
+// -------------------------------------
+//  Links
+// -------------------------------------
+
+a {
+  color: $base-link-color;
+  text-decoration: none;
+
+  &:hover {
+    color: $base-hover-color;
+  }
+
+  .html & {
+    text-decoration: underline;
+  }
+}
+
+
+// -------------------------------------
+//  Lists
+// -------------------------------------
+
+// Use default list styles
+.html,
+.directions,
+.coupon {
+  ul, ol {
+    padding-left: $base-whitespace;
+    margin-bottom: 1em;
+  }
+  ul {
+    list-style-type: disc;
+  }
+  ol {
+    list-style-type: decimal;
+  }
+  li {
+    display: list-item;
+  }
+}
+
+
+// -------------------------------------
+//  Forms
+// -------------------------------------
+
+// Wrapper of label/input group
+.form-field {
+  margin-bottom: .75em;
+}
+
+legend,
+label {
+  margin-bottom: .5em;
+}
+
+// Needed for inline groups of radio/checkbox and lables
+label {
+  margin-right: $half-whitespace;
+}
+
+// Placed on form label
+.required:after {
+  content: '*';
+  color: red;
+  margin-left: .25em;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  @extend %inline;
+  width: auto;
+}
+
+textarea,
+#{$all-text-inputs} {
+  border: 1px solid #aaa;
+  font-family: $base-font-family;
+  font-size: 1em;
+  padding: .75em;
+  width: 100%;
+}
+
+textarea {
+  height: 10em;
+}
+
+input[type=submit] {
+  font-weight: $bold-font-weight;
+  padding: .5em 2em;
+}
+
+// for end of form with required fields
+.form-instruction {
+  @extend %inline;
+  color: red;
+  font-style: italic;
+  margin: .5em 0 0 25px;
+}

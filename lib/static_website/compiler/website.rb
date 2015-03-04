@@ -19,11 +19,17 @@ module StaticWebsite
       end
 
       def compile
+        LOGGERS.each{|logger| logger.debug("\n\n########################################### Website ######\n")}
         compile_directory.compile
         clean_up
-        javascripts.compile
+        LOGGERS.each{|logger| logger.debug("Starting javascripts.compile for website")}
+        LOGGERS.each{|logger| logger.debug("finished javascripts.compile")}
+        LOGGERS.each{|logger| logger.debug("Starting stylesheets.compile for website")}
         stylesheets.compile
+        LOGGERS.each{|logger| logger.debug("finished stylesheets.compile")}
+        LOGGERS.each{|logger| logger.debug("########## Beginning WEB_HOME compile")}
         web_home_template.compile
+        LOGGERS.each{|logger| logger.debug("########## Finished WEB_HOME compile")}
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
         htaccess.compile
@@ -44,7 +50,7 @@ module StaticWebsite
       end
 
       def stylesheets
-        @stylesheets ||= Stylesheets.new(website.stylesheets, compile_path, website.colors, location_name)
+        @stylesheets ||= Stylesheets.new(website.stylesheets, compile_path, website.colors, website.fonts, location_name)
       end
 
       def location_name

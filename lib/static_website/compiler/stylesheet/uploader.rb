@@ -7,6 +7,7 @@ module StaticWebsite
         attr_reader :from_path, :s3, :bucket_name, :bucket_url
 
         def initialize(from_path, location_name)
+          LOGGERS.each{|logger| logger.debug("Initializing StaticWebsite::Compiler::Stylesheet::Uploader with from_path: \n#{from_path}\n, location_name: #{location_name}")}
           @from_path = from_path
           @location_name = location_name
           @s3 = AWS::S3.new(
@@ -22,8 +23,10 @@ module StaticWebsite
         end
 
         def compile
-          Rails.logger.info("Writing style assets to S3")
-          s3_bucket_object.write(Pathname.new(from_path), write_options)
+          LOGGERS.each{|logger| logger.debug("Writing style assets to S3")}
+          #write with a metadata flag of status: current
+          result = s3_bucket_object.write(Pathname.new(from_path), write_options)
+          LOGGERS.each{|logger| logger.debug(result.inspect)}
         end
 
         def uploaded_path
@@ -43,7 +46,8 @@ module StaticWebsite
         end
 
         def write_options
-          { acl: :public_read, content_type: "text/css" }
+          {:acl => :public_read, :content_type => "text/css",
+           metadata: {"x-amz-meta-freshness" => "current"}}
         end
 
         def to_path

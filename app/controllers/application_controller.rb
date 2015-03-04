@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   helper_method :client
   prepend_before_filter :authenticate_user!
 
+  helper G5Header::ApplicationHelper
+
   def client
     @client ||= Client.first
   end

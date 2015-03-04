@@ -35,6 +35,7 @@ G5CMS::Application.routes.draw do
       resources :web_page_templates, only: [:index, :show, :create, :update, :destroy]
       resources :main_widgets, only: [:index, :show, :create, :update, :destroy]
       resources :assets, only: [:index, :show, :create, :update, :destroy]
+      resources :categories, only: [:index, :show]
 
       resources :garden_web_layouts, only: [:index] do
         collection do
@@ -96,7 +97,9 @@ G5CMS::Application.routes.draw do
   get "/:urn/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
   get "/:urn/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
   get "/:vertical_slug/:state_slug/:city_slug/:owner_urn/:web_template_slug", to: "web_templates#show"
+  get "/:urn/:vertical_slug/:state_slug/:city_slug/:owner_urn/:web_template_slug", to: "web_templates#show"
 
   # Root to Ember.js application
   root to: "locations#index"
 end
+

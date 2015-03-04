@@ -8,13 +8,18 @@ module StaticWebsite
       attr_reader :javascript_path, :compile_path
 
       def initialize(javascript_path, compile_path)
+        LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::Javascript with javascript_path:\n\t#{javascript_path},\n\n\tcompile_path: #{compile_path}\n")}
         @javascript_path = javascript_path
         @compile_path = File.join(compile_path, "javascripts", filename) if compile_path
       end
 
       def compile
+        LOGGERS.each{|logger| logger.debug("about to call compile_directory.compile")}
         compile_directory.compile
+        LOGGERS.each{|logger| logger.debug("done calling compile_directory.compile")}
+        LOGGERS.each{|logger| logger.debug("about to call remote_javascript.compile")}
         remote_javascript.compile
+        LOGGERS.each{|logger| logger.debug("done calling remote_javascript.compile")}
         # coffee_javascript.compile
       end
 

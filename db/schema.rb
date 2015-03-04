@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105203531) do
+ActiveRecord::Schema.define(version: 20150302193955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.integer  "website_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id", default: 1
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "clients", force: true do |t|
@@ -33,6 +41,7 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.string   "type"
     t.string   "domain"
     t.string   "organization"
+    t.boolean  "secure_domain", default: false
   end
 
   create_table "drop_targets", force: true do |t|
@@ -82,6 +91,8 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "tertiary_color",  default: "#ffffff"
+    t.string   "primary_font",    default: "PT Sans"
+    t.string   "secondary_font",  default: "Georgia"
   end
 
   create_table "garden_widgets", force: true do |t|
@@ -100,6 +111,7 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.datetime "updated_at"
     t.string   "widget_type"
     t.integer  "widget_id"
+    t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
   end
 
   create_table "locations", force: true do |t|
@@ -123,6 +135,7 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.string   "floor_plans"
     t.string   "status",           default: "Pending"
     t.string   "thumb_url"
+    t.boolean  "secure_domain",    default: false
   end
 
   add_index "locations", ["urn"], name: "index_locations_on_urn", using: :btree
@@ -212,6 +225,9 @@ ActiveRecord::Schema.define(version: 20141105203531) do
     t.string   "custom_secondary_color"
     t.integer  "garden_web_theme_id"
     t.string   "custom_tertiary_color",  default: "#fff"
+    t.boolean  "custom_fonts",           default: false
+    t.string   "custom_primary_font",    default: "PT Sans"
+    t.string   "custom_secondary_font",  default: "Georgia"
   end
 
   add_index "web_themes", ["garden_web_theme_id"], name: "index_web_themes_on_garden_web_theme_id", using: :btree

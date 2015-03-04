@@ -5,6 +5,9 @@ class Cloner::WebTemplateCloner
   end
 
   def clone
+    Rails.logger.debug "Cloning #{@template.name}" \
+                      "to #{@target_website.name}"
+
     new_template = @template.dup
     new_template.update(website: @target_website)
 
@@ -40,3 +43,4 @@ class Cloner::WebTemplateCloner
     widgets.each { |widget| Cloner::WidgetCloner.new(widget, drop_target).clone }
   end
 end
+

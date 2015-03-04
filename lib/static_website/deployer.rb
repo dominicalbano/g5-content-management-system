@@ -12,26 +12,30 @@ module StaticWebsite
     end
 
     def deploy
-      Rails.logger.info("Deploy called with #{[@website, @compile_path, @user_email]}")
+      LOGGERS.each {|logger| logger.debug("Deploy called with #{[@website, @compile_path, @user_email]}")}
       @retries = 0
       begin
-        Rails.logger.info("About to deploy with options:")
+        LOGGERS.each {|logger| logger.debug("About to deploy with options")}
         deployer.deploy(deployer_options) do |repo|
-          Rails.logger.info("calling cp_r_compile_path(repo)")
+          LOGGERS.each{|logger| logger.debug("calling cp_r_compile_path(repo)")}
           cp_r_compile_path(repo)
         end
       rescue GithubHerokuDeployer::CommandException,
              Heroku::API::Errors::ErrorWithResponse => e
-        Rails.logger.info("Try failed with: " + e.to_s)
+        LOGGERS.each{|logger| logger.debug("Try failed with: " + e.to_s)}
         if should_retry?
           increment_retries
           retry
         else
           raise e
         end
+      rescue => e
+        LOGGERS.each{|logger| logger.debug("Try failed with: " + e.to_s)}
       else
+        LOGGERS.each{|logger| logger.debug("Taking db snapshot")}
         take_db_snapshot
       ensure
+        LOGGERS.each{|logger| logger.debug("Cleaning up")}
         clean_up
       end
     end
@@ -53,18 +57,22 @@ module StaticWebsite
     def cp_r_compile_path(repo)
       # save repo dir so we can remove it later
       @repo_dir = repo.dir.to_s
-      Rails.logger.info("Repo dir: #{@repo_dir}")
+      LOGGERS.each{|logger| logger.debug("Repo dir: #{@repo_dir}")}
 
       # copy static website into repo
-      Rails.logger.info("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")
+      LOGGERS.each{|logger| logger.debug("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")}
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
 
+      Rails.logger.debug("git config name, email")
+      repo.config('user.name', ENV['HEROKU_APP_NAME']) 
+      repo.config('user.email', ENV['HEROKU_APP_NAME']) 
+
       # commit changes
       repo.add('.')
-      Rails.logger.info("git committing all")
+      Rails.logger.debug("git committing all")
       repo.commit_all "Add compiled site"
     end
 
@@ -77,6 +85,7 @@ module StaticWebsite
     end
 
     def clean_up
+      LOGGERS.each{|logger| logger.debug("Removing directory: #{@repo_dir} if exists")}
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
     end
 
