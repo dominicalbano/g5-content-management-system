@@ -1,4 +1,4 @@
-class NavigationWidgetSpinupSerializer < ExtendedWidgetSpinupSerializer
+class NavigationWidgetSeederSerializer < ExtendedWidgetSeederSerializer
   protected
 
   def settings_list

@@ -13,7 +13,7 @@ module Seeder
       if @template && @instructions
         @instructions.each do |instruction|
           drop_target = @template.drop_targets.create(drop_target_params(instruction))
-          create_widgets(drop_target, instruction["widgets"])
+          create_widgets(drop_target, instruction[:widgets])
         end
       end
     end

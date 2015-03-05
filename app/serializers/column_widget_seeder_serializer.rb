@@ -1,4 +1,4 @@
-class ColumnWidgetSpinupSerializer < LayoutWidgetSpinupSerializer
+class ColumnWidgetSeederSerializer < LayoutWidgetSeederSerializer
 
   attributes  :slug,
               :row_count,

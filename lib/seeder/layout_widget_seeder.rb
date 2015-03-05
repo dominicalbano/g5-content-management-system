@@ -22,6 +22,7 @@ module Seeder
     end
 
     def set_default_widget_settings(layout, widgets)
+      return unless layout && widgets
       @widget.settings.find_by_name(layout_var).update_attributes(layout)
       widgets.each_with_index(1) do |instruction, idx|
         w = WidgetSeeder.new(nil, instruction)

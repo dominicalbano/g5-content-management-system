@@ -1,4 +1,4 @@
-class LayoutWidgetSpinupSerializer < ActiveModel::Serializer
+class LayoutWidgetSeederSerializer < ActiveModel::Serializer
   protected
 
   def widget_id(setting_name)
@@ -13,7 +13,7 @@ class LayoutWidgetSpinupSerializer < ActiveModel::Serializer
   def nested_widgets(widget_ids)
     widget_ids.inject([]) do |arr, setting_name|
       w = find_widget(setting_name)
-      arr << WidgetSpinupSerializer.new(w, {root: false}).as_json if w
+      arr << WidgetSeederSerializer.new(w, {root: false}).as_json if w
       arr
     end
   end  

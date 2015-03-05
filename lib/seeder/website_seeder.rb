@@ -11,11 +11,12 @@ module Seeder
 
     def seed
       Rails.logger.debug("Performing Seed")
+      raise SyntaxError unless has_valid_instructions?
       create_general_settings
       create_services_settings
-      create_website_template(@website, @instructions["website_template"])
-      create_web_home_template(@website, @instructions["web_home_template"])
-      #create_web_page_templates(@website, @instructions["web_page_templates"])
+      create_website_template(@website, @instructions[:website_template])
+      #create_web_home_template(@website, @instructions[:web_home_template])
+      #create_web_page_templates(@website, @instructions[:web_page_templates])
       @website
     end
 
@@ -73,16 +74,12 @@ module Seeder
 
     def create_website_template(website, instruction)
       Rails.logger.debug("Creating website template")
-      if website && instruction
-        website_template = WebsiteTemplateSeeder.new(website, instruction).seed
-        WebLayoutSeeder.new(website, website_template, instruction['web_layout']).seed
-        WebThemeSeeder.new(website, website_template, instruction['web_theme']).seed
-        DropTargetSeeder.new(website, website_template, instruction["drop_targets"]).seed
-      end
+      WebsiteTemplateSeeder.new(website, instruction).seed
     end
 
     def create_web_home_template(website, instruction)
       Rails.logger.debug("Creating web home template")
+      binding.pry
       WebPageTemplateSeeder.new(website, instruction, true).seed
     end
 
@@ -96,6 +93,12 @@ module Seeder
     end
 
     private
+
+    def has_valid_instructions?
+      @instructions.has_key?(:website_template) && 
+      @instructions.has_key?(:web_home_template) &&
+      @instructions.has_key?(:web_page_templates)
+    end
 
     def create_setting!(name, value)
       website.settings.find_or_create_by(name: name) do |setting|

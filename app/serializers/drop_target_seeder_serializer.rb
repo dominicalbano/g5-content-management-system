@@ -1,10 +1,10 @@
-class DropTargetSpinupSerializer < ActiveModel::Serializer
+class DropTargetSeederSerializer < ActiveModel::Serializer
   attributes  :html_id,
               :widgets
 
   def widgets
     object.widgets.inject([]) do |arr, w|
-      arr << WidgetSpinupSerializer.new(w, {root: false}).as_json
+      arr << WidgetSeederSerializer.new(w, {root: false}).as_json
       arr
     end
   end

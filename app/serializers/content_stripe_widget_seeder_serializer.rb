@@ -1,4 +1,4 @@
-class ContentStripeWidgetSpinupSerializer < LayoutWidgetSpinupSerializer
+class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
 
   attributes  :slug,
               :row_layout,

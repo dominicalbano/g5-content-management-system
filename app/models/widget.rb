@@ -61,9 +61,17 @@ class Widget < ActiveRecord::Base
     name == kind
   end
 
+  def is_content_stripe?
+    kind_of_widget?("Content Stripe")
+  end
+
+  def is_column?
+    kind_of_widget?("Column")
+  end
+
   def render_show_html
-    return RowWidgetShowHtml.new(self).render if kind_of_widget?("Content Stripe")
-    return ColumnWidgetShowHtml.new(self).render if kind_of_widget?("Column")
+    return RowWidgetShowHtml.new(self).render if is_content_stripe?
+    return ColumnWidgetShowHtml.new(self).render if is_column?
 
     Liquid::Template.parse(show_html).render(
       "widget" => WidgetDrop.new(self, client.try(:locations)))

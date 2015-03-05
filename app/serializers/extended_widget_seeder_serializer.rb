@@ -1,4 +1,4 @@
-class ExtendedWidgetSpinupSerializer < ActiveModel::Serializer
+class ExtendedWidgetSeederSerializer < ActiveModel::Serializer
   attributes  :slug,
               :settings
 
