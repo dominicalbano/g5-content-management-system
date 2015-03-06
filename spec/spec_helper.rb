@@ -44,7 +44,7 @@ RSpec.configure do |config|
   # (`--tag` is `-t` for short)
   # likewise the integration tests can be run with:
   # rspec --tag integration
-  config.filter_run_excluding :integration, :deployment
+  # config.filter_run_excluding :integration, :deployment
   config.infer_spec_type_from_file_location!
 
   config.before(:suite) do

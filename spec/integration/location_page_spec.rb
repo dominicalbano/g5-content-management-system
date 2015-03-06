@@ -243,6 +243,8 @@ describe "Integration '/:website_slug/:web_page_template_slug/edit'",
             2.times do
               existing_widget = find(".main-widgets .widget:first-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
+              iframe= find("iframe")
+              sleep 5
               accept_confirm(page)
               sleep 1
             end
