@@ -39,7 +39,7 @@ module Seeder
     end
 
     def widget_seeder_error(error)
-      Rails.logger.debug("ERROR: #{e} - Instructions: #{@instructions}\n")
+      Rails.logger.debug("ERROR: #{error} - Instructions: #{@instructions}\n")
     end
   end
 end

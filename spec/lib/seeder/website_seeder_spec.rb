@@ -1,11 +1,11 @@
 require "spec_helper"
 
-describe WebsiteSeeder do
+describe Seeder::WebsiteSeeder do
   let!(:client) { Fabricate(:client) }
   let!(:location) { Fabricate(:location) }
   let(:website) { Fabricate(:website, owner: location) }
-  let(:defaults) { YAML.load_file("#{Rails.root}/config/defaults/defaults.yml") }
-  let(:seeder) { WebsiteSeeder.new(location) }
+  let(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/defaults/websites/defaults.yml")) }
+  let(:seeder) { Seeder::WebsiteSeeder.new(location) }
 
   before do
     WebTemplate.any_instance.stub(:update_navigation_settings)
@@ -205,7 +205,7 @@ describe WebsiteSeeder do
   end
 
   describe "#set_default_widget_settings" do
-    let(:defaults) { YAML.load_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml") }
+    let(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml")) }
     let(:instructions) { defaults["website_template"]["drop_targets"].first["widgets"].first["settings"] }
     let!(:widget) { Fabricate(:widget) }
 
