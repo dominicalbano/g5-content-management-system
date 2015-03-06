@@ -74,19 +74,19 @@ module Seeder
 
     def create_website_template(website, instruction)
       Rails.logger.debug("Creating website template")
-      WebsiteTemplateSeeder.new(website, instruction).seed
+      WebsiteTemplateSeeder.new(website, instruction).seed if website
     end
 
     def create_web_home_template(website, instruction)
       Rails.logger.debug("Creating web home template")
-      WebPageTemplateSeeder.new(website, instruction, true).seed
+      WebPageTemplateSeeder.new(website, instruction, true).seed if website
     end
 
     def create_web_page_templates(website, instructions)
       Rails.logger.debug("Creating web page templates from instructions")
       if website && instructions
         instructions.each do |instruction|
-          WebPageTemplateSeeder.new(website, instruction, false).seed
+          WebPageTemplateSeeder.new(website, instruction, false).seed if website
         end
       end
     end
