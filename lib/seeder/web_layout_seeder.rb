@@ -10,6 +10,7 @@ module Seeder
 
     def seed
       @template.create_web_layout(layout_params)
+      @template
     end
 
     private

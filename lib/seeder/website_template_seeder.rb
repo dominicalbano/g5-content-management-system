@@ -1,6 +1,6 @@
 module Seeder
   class WebsiteTemplateSeeder < Seeder::ModelSeeder
-    attr_reader :instructions, :template, :website
+    attr_reader :instructions, :website, :website_template
 
     def initialize(website, instructions)
       @website = website
@@ -9,11 +9,11 @@ module Seeder
 
     def seed
       raise SyntaxError unless has_valid_instructions?
-      website_template = @website.create_website_template(website_template_params)
-      WebLayoutSeeder.new(@website, website_template, @instructions[:web_layout]).seed
-      WebThemeSeeder.new(@website, website_template, @instructions[:web_theme]).seed
-      DropTargetSeeder.new(@website, website_template, @instructions[:drop_targets]).seed
-      website_template
+      @website_template = @website.create_website_template(website_template_params)
+      WebLayoutSeeder.new(@website, @website_template, @instructions[:web_layout]).seed
+      WebThemeSeeder.new(@website, @website_template, @instructions[:web_theme]).seed
+      DropTargetSeeder.new(@website, @website_template, @instructions[:drop_targets]).seed
+      @website_template
     end
 
     private

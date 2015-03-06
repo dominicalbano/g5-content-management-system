@@ -11,6 +11,7 @@ module Seeder
 
     def seed
       @template.create_web_theme(theme_params)
+      @template
     end
     
     private

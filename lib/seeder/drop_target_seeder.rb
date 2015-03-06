@@ -10,12 +10,15 @@ module Seeder
 
     def seed
       Rails.logger.debug("Creating drop targets from instructions")
+      @drop_targets = []
       if @template && @instructions
         @instructions.each do |instruction|
           drop_target = @template.drop_targets.create(drop_target_params(instruction))
           create_widgets(drop_target, instruction[:widgets])
+          @drop_targets << drop_target
         end
       end
+      @drop_targets
     end
 
     def create_widgets(drop_target, instructions)
@@ -25,6 +28,7 @@ module Seeder
           WidgetSeeder.new(drop_target, instruction).seed
         end
       end
+      drop_target
     end
 
     private

@@ -1,5 +1,5 @@
 ---
-web_page_template:
+web_page_templates:
   :name: Home
   :title: Apartments in {{location_city}}, {{location_state}} | {{location_name}}
   :drop_targets:

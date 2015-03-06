@@ -14,6 +14,7 @@ module Seeder
         template = @is_home ? @website.create_web_home_template(web_page_template_params) : @website.web_page_templates.create(web_page_template_params)
         DropTargetSeeder.new(@website, template, @instructions[:drop_targets]).seed
       end
+      self
     end
 
     private

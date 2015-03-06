@@ -8,4 +8,4 @@ WEBSITE_DEFAULTS_SENIOR_LIVING = HashWithIndifferentAccess.new(YAML.load_file("#
 WEBSITE_DEFAULTS_SELF_STORAGE = HashWithIndifferentAccess.new(YAML.load_file("#{WEBSITE_DEFAULTS_PATH}/website_defaults_self_storage.yml"))
 
 ##TODO: delete this when done testing
-CHATHAM_WOOD_APTS = HashWithIndifferentAccess.new(YAML.load_file("#{WEBSITE_DEFAULTS_PATH}/g5-cl-1sv8k4zu-chatham-wood-apartments.yml"))
+CHATHAM_WOOD_APTS = HashWithIndifferentAccess.new(YAML.load_file("#{WEBSITE_DEFAULTS_PATH}/g5_cl_1sv8k4zu_chatham_wood_apartments.yml"))

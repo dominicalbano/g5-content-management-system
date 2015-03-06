@@ -1,6 +1,6 @@
 module Seeder
   class WidgetSeeder < Seeder::ModelSeeder
-    attr_reader :instructions, :widget
+    attr_reader :instructions, :drop_target, :widget
 
     def initialize(drop_target, instructions)
       @instructions = instructions
@@ -15,8 +15,11 @@ module Seeder
         return ColumnWidgetSeeder.new(@widget, @instructions).seed if @widget.is_column?
         set_default_widget_settings(@instructions[:settings])
       rescue => e
+        ##TODO: remove this binding.pry
+        binding.pry
         widget_seeder_error
       end
+      @widget
     end
 
     private
