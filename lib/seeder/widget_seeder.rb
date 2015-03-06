@@ -9,15 +9,13 @@ module Seeder
 
     def seed
       @widget = @drop_target ? @drop_target.widgets.create(widget_params) : Widget.create(widget_params)
-      return widget_seeder_error unless @widget.valid?
+      return widget_seeder_error("Invalid widget params") unless @widget.valid?
       begin
         return ContentStripeWidgetSeeder.new(@widget, @instructions).seed if @widget.is_content_stripe?
         return ColumnWidgetSeeder.new(@widget, @instructions).seed if @widget.is_column?
         set_default_widget_settings(@instructions[:settings])
       rescue => e
-        ##TODO: remove this binding.pry
-        binding.pry
-        widget_seeder_error
+        widget_seeder_error(e)
       end
       @widget
     end
@@ -40,8 +38,8 @@ module Seeder
       params_for(GardenWidget, @instructions, :garden_widget_id)
     end
 
-    def widget_seeder_error
-      Rails.logger.debug("#{@instructions.to_s} Widget errors: #{@widget.errors.inspect}\n")
+    def widget_seeder_error(error)
+      Rails.logger.debug("ERROR: #{e} - Instructions: #{@instructions}\n")
     end
   end
 end
