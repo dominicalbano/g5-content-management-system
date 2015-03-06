@@ -4,6 +4,7 @@ module ClientDeployer
   module BaseCompiler
     class HTAccess
       def initialize(client)
+        LOGGERS.each{|logger| logger.debug("Initializing ClientDeployer::BaseCompiler::HTAccess with client:\n #{client}")}
         @client = client
         @redirect_rules = []
         @empty_folders  = []

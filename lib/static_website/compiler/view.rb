@@ -12,6 +12,8 @@ module StaticWebsite
       end
 
       def compile
+        LOGGERS.each {|logger| logger.debug("4444444444444444444444444444444444444444444")}
+        LOGGERS.each {|logger| logger.debug("StaticWebsite::Compiler::View.compile\nAbout to create directory and render to file with compile_path\n #{compile_path}")}
         compile_directory.compile
         render_to_file
       end

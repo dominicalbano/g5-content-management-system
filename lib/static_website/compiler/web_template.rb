@@ -11,6 +11,8 @@ module StaticWebsite
       end
 
       def compile
+        LOGGERS.each {|logger| logger.debug("3333333333333333333333333333333333333333333")}
+        LOGGERS.each {|logger| logger.debug("WebTemplate.compile - about to call view.compile with options\n #{view_options}")}
         view.compile
       end
 

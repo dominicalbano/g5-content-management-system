@@ -7,6 +7,7 @@ module StaticWebsite
         attr_reader :colors, :compile_path
 
         def initialize(colors, compile_path)
+          LOGGERS.each {|logger| logger.debug("initialized StaticWebsite::Compiler::Stylesheet::Colors with #{colors}, #{compile_path}")}
           @colors = colors || {}
           @compile_path = File.join(compile_path, "stylesheets", "colors.scss") if compile_path
         end

@@ -120,7 +120,12 @@ class GardenWidgetUpdater
   def get_show_html(component)
     if component.respond_to?(:g5_show_template)
       url = component.g5_show_template.to_s
-      open(url).read if url
+      Resque.logger.debug("attempting to connect to #{url}")
+      begin
+        open(url).read if url
+      rescue Errno::ETIMEDOUT
+        get_show_html(component)
+      end
     end
   end
 
