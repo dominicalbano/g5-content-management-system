@@ -79,7 +79,6 @@ module Seeder
 
     def create_web_home_template(website, instruction)
       Rails.logger.debug("Creating web home template")
-      binding.pry
       WebPageTemplateSeeder.new(website, instruction, true).seed
     end
 

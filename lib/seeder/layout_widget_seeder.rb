@@ -9,7 +9,6 @@ module Seeder
 
     def seed
       set_default_widget_settings(@instructions[layout_var], @instructions['widgets'])
-      @widget
     end
 
     protected
@@ -30,14 +29,14 @@ module Seeder
       return unless layout && widgets
       @widget.settings.find_by_name(layout_var).update_attribute('value', layout)
       widgets.each.with_index(1) do |instruction, idx|
-        w = WidgetSeeder.new(nil, instruction)
-        w.seed
-        if w.widget.valid?
+        widget = WidgetSeeder.new(nil, instruction).seed
+        if widget.valid?
           pos = position_name[idx]
-          @widget.settings.find_by_name("#{position_var}_#{pos}_widget_name").update_attribute('value', w.widget.name)
-          @widget.settings.find_by_name("#{position_var}_#{pos}_widget_id").update_attribute('value', w.widget.id)
+          @widget.settings.find_by_name("#{position_var}_#{pos}_widget_name").update_attribute('value', widget.name)
+          @widget.settings.find_by_name("#{position_var}_#{pos}_widget_id").update_attribute('value', widget.id)
         end
       end
+      @widget.reload
     end
   end
 end
