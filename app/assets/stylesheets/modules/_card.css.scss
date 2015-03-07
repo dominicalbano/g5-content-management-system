@@ -19,7 +19,7 @@
   @include box-sizing(border-box);
   position: relative;
   float: left;
-  height: 320px;
+  height: 480px;
   margin-bottom: $base-whitespace;
   padding-left: 1%;
   padding-right: 1%;
@@ -94,7 +94,7 @@
 .card-container {
   @include box-sizing(border-box);
   background-color: $c-background-a;
-  height: 320px;
+  height: 480px;
   padding-bottom: 50px;
   width: 100%;
 }
