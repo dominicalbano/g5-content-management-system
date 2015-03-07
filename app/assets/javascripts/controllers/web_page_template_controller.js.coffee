@@ -20,7 +20,7 @@ App.WebPageTemplateController = Ember.ObjectController.extend
 
   actions:
     deploy: (model) ->
-      url = "/websites/" + model.get("website.id") + "/deploy"
+      url = "/api/v1/websites/" + model.get("website.id") + "/deploy"
       $("<form action='" + url + "' method='post'></form>").appendTo("body").submit()
       false
     deploy_all: (model) ->
