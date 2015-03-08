@@ -1,12 +1,12 @@
 class GardenWidgetUpdater
-  def update_all
+  def update_all(force_all=false)
     updated_garden_widgets = []
     components_data = components_microformats
 
     components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
       
-      if (get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
+      if (force_all || get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
         update(garden_widget, component)
       end
       
@@ -32,6 +32,7 @@ class GardenWidgetUpdater
     garden_widget.widget_type = get_widget_type(component)
     garden_widget.slug = get_slug(component)
     garden_widget.thumbnail = get_thumbnail(component)
+    garden_widget.liquid = get_liquid(component)
     garden_widget.edit_html = get_edit_html(component)
     garden_widget.edit_javascript = get_edit_javascript(component)
     garden_widget.show_html = get_show_html(component)
@@ -101,6 +102,12 @@ class GardenWidgetUpdater
   def get_thumbnail(component)
     if component.respond_to?(:photo)
       component.photo.to_s
+    end
+  end
+
+  def get_liquid(component)
+    if component.respond_to?(:liquid)
+      ActiveRecord::ConnectionAdapters::Column.value_to_boolean(component.liquid.to_s)
     end
   end
 

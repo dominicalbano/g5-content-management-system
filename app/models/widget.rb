@@ -18,7 +18,7 @@ class Widget < ActiveRecord::Base
   delegate :html_id,
     to: :drop_target, allow_nil: true
 
-  delegate :name, :slug, :url, :thumbnail, :edit_html, :edit_javascript, :show_html, :widget_type,
+  delegate :name, :slug, :url, :thumbnail, :liquid, :edit_html, :edit_javascript, :show_html, :widget_type,
     to: :garden_widget, allow_nil: true
 
   # prefix means access with `garden_widget_settings` not `settings`
@@ -35,6 +35,13 @@ class Widget < ActiveRecord::Base
     joins(:garden_widget).where("garden_widgets.name = ?", "Meta Description") }
   scope :not_meta_description, -> {
     joins(:garden_widget).where("garden_widgets.name != ?", "Meta Description") }
+  scope :content_stripe, -> {
+    joins(:garden_widget).where("garden_widgets.name = ?", "Content Stripe") }
+  scope :column, -> {
+    joins(:garden_widget).where("garden_widgets.name = ?", "Column") }
+  scope :layout, -> {
+    joins(:garden_widget).where("garden_widgets.name = ? OR garden_widgets.name = ?", "Content Stripe", "Column") }
+
   
   def show_stylesheets
     [garden_widget.try(:show_stylesheets), 
@@ -72,9 +79,10 @@ class Widget < ActiveRecord::Base
   def render_show_html
     return RowWidgetShowHtml.new(self).render if is_content_stripe?
     return ColumnWidgetShowHtml.new(self).render if is_column?
-
-    Liquid::Template.parse(show_html).render(
+    html = Liquid::Template.parse(show_html).render(
       "widget" => WidgetDrop.new(self, client.try(:locations)))
+    html = Liquid::Template.parse(html).render(liquid_parameters) if liquid
+    html
   end
 
   def render_edit_html
@@ -110,7 +118,24 @@ class Widget < ActiveRecord::Base
     widgets.collect {|widget| widget.settings}.flatten
   end
 
-  private
+  def liquid_parameters
+    template = web_template || parent_widget.web_template || parent_widget.parent_widget.web_template
+    client = template.client
+    location = template.owner
+    {
+      "web_template_name"         => template.name,
+      "client_name"               => client.name,
+      "client_vertical"           => client.vertical,
+      "location_name"             => location.name,
+      "location_city"             => location.city,
+      "location_state"            => location.state,
+      "location_neighborhood"     => location.neighborhood,
+      "location_floor_plans"      => location.floor_plans,
+      "location_primary_amenity"  => location.primary_amenity,
+      "location_qualifier"        => location.qualifier,
+      "location_primary_landmark" => location.primary_landmark
+    }
+  end
 
   # TODO: Is this being used?
   def set_defaults
@@ -126,5 +151,15 @@ class Widget < ActiveRecord::Base
     widget_settings.map(&:value).map do |id|
       Widget.find(id) if Widget.exists?(id)
     end
+  end
+
+  def has_child_widget?(widget)
+    widget_settings.map(&:value).map.include?(widget.id)
+  end
+
+  ##TODO: this is terribly slow - add parent_widget_id and write migration
+  def parent_widget
+    return nil if drop_target
+    Widget.layout.detect { |w| w.has_child_widget?(self) }
   end
 end

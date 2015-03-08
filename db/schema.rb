@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150113201727) do
+ActiveRecord::Schema.define(version: 20150308210234) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "assets", force: true do |t|
     t.string   "url"
@@ -40,6 +41,7 @@ ActiveRecord::Schema.define(version: 20150113201727) do
     t.string   "type"
     t.string   "domain"
     t.string   "organization"
+    t.boolean  "secure_domain", default: false
   end
 
   create_table "drop_targets", force: true do |t|
@@ -110,6 +112,7 @@ ActiveRecord::Schema.define(version: 20150113201727) do
     t.string   "widget_type"
     t.integer  "widget_id"
     t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
+    t.boolean  "liquid",           default: false
   end
 
   create_table "locations", force: true do |t|
@@ -133,6 +136,7 @@ ActiveRecord::Schema.define(version: 20150113201727) do
     t.string   "floor_plans"
     t.string   "status",           default: "Pending"
     t.string   "thumb_url"
+    t.boolean  "secure_domain",    default: false
   end
 
   add_index "locations", ["urn"], name: "index_locations_on_urn", using: :btree
