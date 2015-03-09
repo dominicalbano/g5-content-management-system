@@ -1,0 +1,10 @@
+<% unless @widget_list.include?(widget.id) %>
+<% @widget_list.push widget.id %>
+    <% if widget.name == "Content Stripe" then %>
+        <%= render partial: "content_stripe_widget", object: widget %>
+    <% elsif widget.name == "Column" then %>
+        <%= render partial: "column_widget", object: widget, locals: {zone: "In the ZONE"} %>
+    <% else %>
+        <%= render partial: "non_layout_widget", object: widget %>
+    <% end %>
+<% end %>
