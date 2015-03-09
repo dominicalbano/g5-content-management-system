@@ -5,8 +5,6 @@
 #= require jquery-ui/effect-slide
 #= require jquery_ujs
 #= require bootstrap
-#= require bootstrap-editable
-#= require bootstrap-editable-rails
 #= require spectrum
 #= require bootstrapSwitch
 #= require jquery.thumbnailScroller

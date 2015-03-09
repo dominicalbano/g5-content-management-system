@@ -1,17 +1,16 @@
 <div class="rows-layout layout">
   <div class="cloner">
-    <% loc_id = params[:id] ||= 8 %>
+    <% loc_id = params[:source_location] ||= 8 %>
     <% @loc = Location.find(loc_id) %>
     <% @widget_list = Array.new %>
     <h1><%= fa_icon "copy" %>Location Map</h1>
-    <%= form_tag "/location/map_location" do %>
+    <%= form_tag '', :method => :get, :url => {:action => :show} do %>
         <div class="clone-location">
           <span class="clone-step">1.</span>
           <label for="source_location"><%= fa_icon "code" %>Select Location</label>
-          <%= select_tag "source_location", options_for_select(@locations) %>
-        </div>
-        <div class="clone-actions">
-          <%= submit_tag "Map", id: "map", class: "clone-link clone-link-green" %>
+          <%= select_tag 'source_location',
+                         options_for_select(@locations, loc_id),
+                         :onchange => 'this.form.submit();' %>
         </div>
     <% end %>
     <div class="clone-location target-location">
