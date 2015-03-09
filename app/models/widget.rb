@@ -119,13 +119,12 @@ class Widget < ActiveRecord::Base
   end
 
   def liquid_parameters
+    return {} unless liquid
     template = get_web_template
     client = template.client
     location = template.owner
     {
       "web_template_name"         => template.name,
-      "client_name"               => client.name,
-      "client_vertical"           => client.vertical,
       "location_name"             => location.name,
       "location_city"             => location.city,
       "location_state"            => location.state,
@@ -133,15 +132,30 @@ class Widget < ActiveRecord::Base
       "location_floor_plans"      => location.floor_plans,
       "location_primary_amenity"  => location.primary_amenity,
       "location_qualifier"        => location.qualifier,
-      "location_primary_landmark" => location.primary_landmark
+      "location_primary_landmark" => location.primary_landmark,
+      "client_name"               => client.name,
+      "client_vertical"           => client.vertical
     }
   end
-
-  private
 
   def get_web_template(widget=self)
     widget.web_template || get_web_template(widget.parent_widget)
   end
+
+  def parent_widget
+    setting = parent_setting
+    Widget.find(setting.owner_id) if setting
+  end
+
+  def child_widgets
+    widget_settings.map(&:value).map { |id| Widget.find(id) if Widget.exists?(id) }.compact
+  end
+
+  def has_child_widget?(widget)
+    widget_settings.map(&:value).include?(widget.id)
+  end
+
+  private
 
   # TODO: Is this being used?
   def set_defaults
@@ -153,19 +167,9 @@ class Widget < ActiveRecord::Base
     settings.select { |setting| setting.name =~ pattern && setting.value != nil }
   end
 
-  def child_widgets
-    widget_settings.map(&:value).map { |id| Widget.find(id) if Widget.exists?(id) }.compact
-  end
-
-  def has_child_widget?(widget)
-    widget_settings.map(&:value).include?(widget.id)
-  end
-
-  def parent_widget
-    return nil if drop_target
-    parent_setting = Setting.where("value = ?", id.to_yaml).find do |setting|
+  def parent_setting
+    Setting.where("value = ?", id.to_yaml).find do |setting|
       setting.name =~ /(?=(column|row))(?=.*widget_id).*/
-    end
-    Widget.find(parent_setting.owner_id) if parent_setting
+    end unless drop_target
   end
 end

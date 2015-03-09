@@ -31,7 +31,6 @@
   - :html_id: drop-target-aside-before-main
     :widgets:
     - :slug: contact-info-sheet
-    - :slug: promoted-reviews
   - :html_id: drop-target-aside-after-main
     :widgets: []
   - :html_id: drop-target-footer
@@ -47,8 +46,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{location_name}} in Chatham Woods {{location_city}}
-          by visiting our website today. '
+        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
+          website today. '
     - :slug: content-stripe
       :row_layout: single
       :widgets:
@@ -62,22 +61,20 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: contact-info
         - :slug: social-links
     - :slug: content-stripe
-      :row_layout: halves
-      :widgets:
-      - :slug: html
-        :settings: []
-      - :slug: map
-    - :slug: content-stripe
       :row_layout: single
       :widgets:
       - :slug: gallery
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: map
     - :slug: content-stripe
       :row_layout: halves
       :widgets:
@@ -93,13 +90,12 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Are you looking for spacious 1 & 2 bedroom apartments in {{location_city}}?
-          Visit {{location_name}}'s website for more information.
+        :value: Are you looking for spacious 1,2, & 3 bedroom apartments in {{location_city}}?
+          Visit {{location_name}}' website for more information.
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -109,7 +105,6 @@
         :widgets:
         - :slug: multifamily-iui-cards
         - :slug: html
-          :settings: []
       - :slug: column
         :row_count: two
         :widgets:
@@ -124,12 +119,11 @@
       :settings:
       - :name: meta_description
         :value: "{{location_name}} offers some of the nicest {{location_city}} apartments
-          near Andrews High School and {{location_city}} University."
+          near Chapman Elementary and {{location_city}} Regional Hospital."
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -139,7 +133,6 @@
         :widgets:
         - :slug: photo
         - :slug: html
-          :settings: []
       - :slug: column
         :row_count: two
         :widgets:
@@ -149,6 +142,7 @@
       :row_layout: thirds
       :widgets:
       - :slug: photo
+      - :slug: html
 - :name: Photos
   :title: Photos of Our Apartments in {{location_city}}, {{location_state}} | {{location_name}}
   :drop_targets:
@@ -157,14 +151,12 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: For photos of Garden Style apartments in {{location_city}} or to see
-          your new apartment home visit the {{location_name}} website today for more
-          information.
+        :value: For photos of apartments in {{location_city}} or to see your new apartment
+          home visit the {{location_name}} website today for more information.
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -174,16 +166,11 @@
         :widgets:
         - :slug: gallery
         - :slug: html
-          :settings: []
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: contact-info
         - :slug: social-links
-    - :slug: content-stripe
-      :row_layout: single
-      :widgets:
-      - :slug: photo
 - :name: Neighborhood
   :title: "{{location_neighborhood}} {{location_city}}, {{location_state}} Apartments
     near {{location_primary_landmark}} | {{location_name}}"
@@ -193,14 +180,13 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{location_name}} provides apartments near {{location_city}} University
-          in Chatham Wood {{location_city}}. Learn more about our units with Washer
-          & Dryer Connections by visiting our website today."
+        :value: "{{location_name}} provides apartments near {{location_city}} Regional
+          Hospital in {{location_city}}. Learn more about our units with Central Heat
+          & Air by visiting our website today."
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -210,7 +196,6 @@
         :widgets:
         - :slug: photo
         - :slug: html
-          :settings: []
       - :slug: column
         :row_count: two
         :widgets:
@@ -231,7 +216,6 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -241,7 +225,6 @@
         :widgets:
         - :slug: map
         - :slug: html
-          :settings: []
       - :slug: column
         :row_count: two
         :widgets:
@@ -261,17 +244,15 @@
       :row_layout: single
       :widgets:
       - :slug: html
-        :settings: []
     - :slug: content-stripe
       :row_layout: thirds
       :widgets:
       - :slug: html
-        :settings: []
+      - :slug: html
     - :slug: content-stripe
       :row_layout: thirds
       :widgets:
       - :slug: html
-        :settings: []
 - :name: Apply
   :title: Apply to Live at {{location_name}}
   :drop_targets:
@@ -286,7 +267,6 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -307,7 +287,6 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -322,7 +301,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Do you like what you see on {{location_name}}'s website and want more
+        :value: Do you like what you see on {{location_name}}' website and want more
           information? You can request it here.
     - :slug: content-stripe
       :row_layout: 
@@ -340,7 +319,6 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -361,7 +339,6 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -371,7 +348,6 @@
         :widgets:
         - :slug: photo
         - :slug: html
-          :settings: []
       - :slug: column
         :row_count: two
         :widgets:
@@ -391,7 +367,6 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
 - :name: Maintenance Request
   :title: Maintenance Request at {{location_name}}
@@ -399,10 +374,8 @@
   - :html_id: drop-target-main
     :widgets:
     - :slug: html
-      :settings: []
     - :slug: service-request-form
     - :slug: html
-      :settings: []
     - :slug: meta-description
       :settings:
       - :name: meta_description
@@ -422,7 +395,6 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -437,76 +409,13 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{ client_name }} collects only the information that you give in
+        :value: "{{location_name}} collects only the information that you give in
           order to provide the best possible care, and we never share. View our privacy
           policy at our website."
     - :slug: content-stripe
       :row_layout: single
       :widgets:
       - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>{{web_template_name}}</h1>\r\n\r\n<h2>What Information Do You
-            Gather About Me?</h2>\r\n\r\n<p>We collect from you only the personal
-            information you voluntarily provide in order to deliver the best possible
-            service. If you choose to process an online payment or reservation we
-            ask you to provide us with information necessary to process your order
-            which may include, but not be limited to, name, physical address, telephone
-            number, facsimile number, email address, company name, title, credit card
-            number, and expiration date. The credit card information that is collected
-            is used strictly for billing purposes.</p>\r\n\r\n<p>We collect your email
-            address so we can send you information about your transaction and its
-            status. We may use your email address to inform you about current offers
-            or events. We will never share, sell, or rent individual personal information
-            with anyone without your advance permission or unless ordered by a court
-            of law.</p>\r\n\r\n<h2>Sharing Your Personal Information</h2>\r\n\r\n<p>{{
-            client_name }} does not sell information to unrelated third parties. {{
-            client_name }} does send your contact and order information to the facility
-            that you selected for purposes of completing your payment or reservation.</p>\r\n\r\n<h2>Changes
-            to This Online {{web_template_name}}</h2>\r\n\r\n<p>{{ client_name }}
-            reserves the right, at its sole discretion, to change, modify, add or
-            remove portions of this Online {{web_template_name}} at any time. Accordingly,
-            {{ client_name }} recommends that you revisit this Online {{web_template_name}}
-            from time to time to ensure that you are aware of the current privacy
-            practices. Your continued use of the web site following any changes signifies
-            your acceptance of these changes.</p>\r\n\r\n<h2>{{ client_name }} and
-            Session Cookies</h2>\r\n\r\n<p>The {{ client_name }} web site uses session
-            cookies to enable making transactions on our site. A session cookie is
-            a small file placed on your computer which acts as a unique identifier
-            to keep track of the information you have entered. Without the session
-            cookie, our site cannot track the information you are entering, and you
-            will be unable to complete your transaction.</p>\r\n\r\n<p>A session cookie
-            does not remain on your machine after you close your web browser window.
-            Our session cookie contains none of your personal information, and cannot
-            be used to track you around the web. It can only be used by our web site
-            to identify the information you have entered during the transaction process
-            which is required to complete the transaction.</p>\r\n\r\n<h2>How to Enable
-            Cookies on your Browser</h2>\r\n\r\n<p>Your web browser is the primary
-            way you can control cookies.</p>\r\n\r\n<p>The method for changing your
-            cookie settings will vary depending on the browser you use, but options
-            should be similar regardless of your browser choice.</p>\r\n\r\n<h3>Internet
-            Explorer</h3>\r\n\r\n<p>If you are using Internet Explorer, your cookies
-            will be automatically controlled based on your privacy settings. If you
-            would like to override automatic cookie control, choose Tools -&gt; Internet
-            Options -&gt; Privacy -&gt; Advanced. From this panel you can choose to
-            override automatic cookie handling, and specify how you would like to
-            deal with First Party and Third Party cookies.</p>\r\n\r\n<p>First party
-            cookies come from the owner of the website you are visiting, third party
-            cookies come from a different company (for instance, an advertising company).
-            You can select &quot;Accept&quot;, &quot;Block&quot;, or &quot;Prompt&quot;
-            - if you choose &quot;Prompt&quot;, your browser will notify you each
-            time a web site attempts to set a cookie on your machine, and you can
-            choose to accept or reject the cookie. If you would like to accept session
-            cookies, but not persistent cookies, check the box to &quot;Always Allow
-            Session Cookies.&quot; Please note that session cookies are required to
-            enable shopping on many web sites.</p>\r\n\r\n<h3>Firefox</h3>\r\n\r\n<p>Cookie
-            options are available at Tools -&gt; Options -&gt; Privacy -&gt; Cookies.</p>\r\n\r\n<h3>Chrome</h3>\r\n\r\n<p>Cookie
-            options are available under Tools -&gt; Options -&gt; Under the Hood -&gt;
-            Content Settings -&gt; Cookies.</p>\r\n\r\n<h3>Safari</h3>\r\n\r\n<p>Cookie
-            options are available under Safari -&gt; Preferences -&gt; Security.</p>\r\n\r\n<p>Other
-            web browsers provide similar options. Alternatively, you can also control
-            cookies with a number of internet security packages. If you use one of
-            these packages, please refer to the software documentation for more information.</p>\r\n"
     - :slug: column
       :row_count: 
       :widgets: []
@@ -521,37 +430,9 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
-        :settings: []
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: lead-form
       - :slug: contact-info
-- :name: Reviews
-  :title: Customer Reviews of {{ location_name }} in {{ location_city }}, {{ location_state
-    }}
-  :drop_targets:
-  - :html_id: drop-target-main
-    :widgets:
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: html
-        :settings: []
-      - :slug: calls-to-action
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: column
-        :row_count: two
-        :widgets:
-        - :slug: html
-          :settings: []
-        - :slug: promoted-reviews
-      - :slug: contact-info
-    - :slug: meta-description
-      :settings:
-      - :name: meta_description
-        :value: Read what our customers are saying about us! Visit our site to read
-          customer reviews.

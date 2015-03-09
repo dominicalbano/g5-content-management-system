@@ -3,7 +3,7 @@ class WidgetSeederSerializer < ActiveModel::Serializer
      
   def as_json(options=nil)
     if object
-      klass = "#{object.name.gsub(/\s/, '')}WidgetSeederSerializer".safe_constantize if object.name
+      klass = "#{object.slug.underscore.classify}WidgetSeederSerializer".safe_constantize if object.name
       if klass
         klass.new(object, {root: false}).as_json
       else
