@@ -19,6 +19,7 @@ def drag_and_drop(element, target)
   target = target.native
 
   builder.click_and_hold(element)
+  sleep 1
   builder.move_to(target)
   builder.release
   builder.perform
@@ -30,6 +31,7 @@ def drag_and_drop_below(source, target)
   target = target.native
 
   builder.click_and_hold source
+  sleep 1
   builder.move_to        target, (target.size.width)/2+1, (target.size.height)/2+1
   builder.release
   builder.perform
@@ -41,6 +43,7 @@ def drag_and_drop_add(element, target)
   target = target.native
 
   builder.click_and_hold(element)
+  sleep 1
   builder.move_to(target, 5, 5)
   builder.release
   builder.perform
