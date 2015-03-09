@@ -101,3 +101,4 @@ end
 # By default specs will run in a headless webkit browser.
 # Set CI=true if you want to run integration specs with Firefox.
 Capybara.javascript_driver = :selenium_with_long_timeout
+

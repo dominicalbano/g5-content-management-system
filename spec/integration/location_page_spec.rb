@@ -299,7 +299,7 @@ describe "Integration '/:website_slug/:web_page_template_slug/edit'",
     describe "Are drag and drop addable" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
-        open_gardens
+        open_widget_garden
       end
 
       it "Creates a new widget in the database and displays in DOM" do
