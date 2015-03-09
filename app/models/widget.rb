@@ -119,7 +119,7 @@ class Widget < ActiveRecord::Base
   end
 
   def liquid_parameters
-    template = web_template || parent_widget.web_template || parent_widget.parent_widget.web_template
+    template = get_web_template
     client = template.client
     location = template.owner
     {
@@ -137,6 +137,10 @@ class Widget < ActiveRecord::Base
     }
   end
 
+  def get_web_template(widget=self)
+    web_template || get_web_template(parent_widget)
+  end
+
   # TODO: Is this being used?
   def set_defaults
     self.removeable = true
@@ -148,13 +152,11 @@ class Widget < ActiveRecord::Base
   end
 
   def child_widgets
-    widget_settings.map(&:value).map do |id|
-      Widget.find(id) if Widget.exists?(id)
-    end
+    widget_settings.map(&:value).map { |id| Widget.find(id) if Widget.exists?(id) }.compact
   end
 
   def has_child_widget?(widget)
-    widget_settings.map(&:value).map.include?(widget.id)
+    widget_settings.map(&:value).include?(widget.id)
   end
 
   ##TODO: this is terribly slow - add parent_widget_id and write migration
