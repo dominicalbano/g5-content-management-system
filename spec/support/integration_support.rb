@@ -29,10 +29,10 @@ def drag_and_drop_below(source, target)
   builder = page.driver.browser.action
   source = source.native
   target = target.native
-
   builder.click_and_hold source
-  sleep 1
-  builder.move_to        target, (target.size.width)/2+1, (target.size.height)/2+1
+  builder.move_to(target, 
+                  (target.size.width)/2+1, 
+                  (target.size.height)/2+10)
   builder.release
   builder.perform
 end
