@@ -137,8 +137,10 @@ class Widget < ActiveRecord::Base
     }
   end
 
+  private
+
   def get_web_template(widget=self)
-    web_template || get_web_template(parent_widget)
+    widget.web_template || get_web_template(widget.parent_widget)
   end
 
   # TODO: Is this being used?
@@ -159,9 +161,11 @@ class Widget < ActiveRecord::Base
     widget_settings.map(&:value).include?(widget.id)
   end
 
-  ##TODO: this is terribly slow - add parent_widget_id and write migration
   def parent_widget
     return nil if drop_target
-    Widget.layout.detect { |w| w.has_child_widget?(self) }
+    parent_setting = Setting.where("value = ?", id.to_yaml).find do |setting|
+      setting.name =~ /(?=(column|row))(?=.*widget_id).*/
+    end
+    Widget.find(parent_setting.owner_id) if parent_setting
   end
 end
