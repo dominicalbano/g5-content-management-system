@@ -1,0 +1,73 @@
+// ********************************************
+//
+//  Hero Image
+//
+// ********************************************
+
+// ============================================
+//  Home page large hero image
+// ============================================
+
+// Use this for large photo on home page at the top
+//
+// Import under .web-home-template
+// @import .web-home-template { @include hero-image; }
+//
+// Use this widget configruation in the CMS:
+// Content Stripe (single col) > Column > (.row-1 > photo ) + .row-2 + .row-3...
+@mixin hero-image {
+  [role=banner] {
+    @include at-least($min-medium) {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  .row:first-of-type {
+    @extend %relative;
+    overflow: hidden;
+
+    .content {
+      position: static;
+    }
+
+    img {
+      border: none;
+      width: 100%;
+    }
+
+    @include at-least($min-xsmall) {
+      padding: 4em 0;
+
+      .photo {
+        margin-bottom: 0;
+
+        img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          max-width: none;
+          min-height: 100%;
+          min-width: 100%;
+          width: auto;
+
+          .csstransforms & {
+            @include transform(translateX(-50%) translateY(-50%));
+            left: 50%;
+            top: 50%;
+          }
+        }
+      }
+
+      @include at-least($min-medium) {
+        padding: em(200) 0;
+      }
+
+      // Make sure other widgets within the row appear above photo
+      .widget:not(.photo) {
+        position: relative;
+      }
+    }
+  }
+}

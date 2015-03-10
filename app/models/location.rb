@@ -18,11 +18,14 @@ class Location < ActiveRecord::Base
 
   default_scope { order("corporate DESC") }
 
-  scope :corporate, -> { where(corporate: true).first }
   scope :live, -> { where(status: "Live") }
   scope :live_websites, -> { live.map(&:website) }
 
   before_validation :set_city_slug_from_city
+
+  def self.corporate
+    where(corporate: true).first
+  end
 
   def website_id
     website.try(:id)

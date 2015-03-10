@@ -1,0 +1,81 @@
+// *************************************
+//
+//  Layout
+//
+// *************************************
+
+// =====================================
+//  Basic site layout
+// =====================================
+
+// Rows come from the Content Stripe widget
+// .row is used for setting full width backgrounds
+.row,
+.row-grid {
+  @extend %clearfix;
+}
+
+// .row-grid sets the width of the content to site-width
+.row-grid {
+  @include grid-row;
+}
+
+.col {
+  @include grid-col-defaults;
+  @include grid-col-12;
+
+  // Stack columns on small screens
+  //
+  // TODO:
+  // Remove this when content-stripe widget css
+  // is removed from the widget
+  @include until($max-small) {
+    width: 100% !important;
+  }
+
+  // Columns are 100% until this breakpoint
+  @include at-least($min-small) {
+    .row-halves & {
+      @include grid-col-6;
+    }
+
+    .row-thirds &,
+    .row-uneven-thirds-1 &.col-1,
+    .row-uneven-thirds-2 &.col-2 {
+      @include grid-col-4;
+    }
+
+    .row-uneven-thirds-1 &.col-2,
+    .row-uneven-thirds-2 &.col-1 {
+      @include grid-col-8;
+    }
+
+    .row-quarters & {
+      @include grid-col-3;
+    }
+  }
+}
+
+
+// Container
+// Sets the site width and centers it
+.content {
+  @extend %clearfix;
+  @extend %center;
+  @extend %relative;
+  @include box-sizing(content-box);
+  max-width: $site-width;
+  padding: 0 $half-whitespace;
+}
+
+// Main Section
+[role=main] {}
+
+// Content Stripes
+.row {
+  padding: 2em 0;
+
+  .widget {
+    margin-bottom: 2em;
+  }
+}

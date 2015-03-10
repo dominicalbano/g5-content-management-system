@@ -1,0 +1,113 @@
+// *************************************
+//
+//  Extends
+//
+// *************************************
+
+// =====================================
+//  http://sass-lang.com/guide#topic-7
+//
+//  HOW TO USE:
+//  @extend %name-of-extend;
+//
+//  Do not extend within a media query
+// =====================================
+
+.clearfix, %clearfix {
+  @include clearfix;
+}
+
+.hidden, %hidden {
+  display: none !important;
+}
+
+// For hiding but keeping available for screen readers
+.visually-hidden, %visually-hidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px; width: 1px;
+  margin: -1px; padding: 0; border: 0;
+}
+
+// For replacing text with an image
+.image-replace, %image-replace {
+  text-indent: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+%no-selection { @include user-select(none); }
+
+%overflow { overflow: hidden; }
+
+%relative { position: relative; }
+
+%absolute { position: absolute; }
+
+%block { display: block; }
+
+%inline { display: inline-block; }
+
+.center, %center { margin: 0 auto; }
+
+%text-shout { text-transform: uppercase; }
+
+%text-whisper { text-transform: lowercase; }
+
+.text-center, %text-center { text-align: center; }
+
+.text-left, %text-left { text-align: left; }
+
+.text-right, %text-right { text-align: right; }
+
+.float-left, %float-left { float: left; }
+
+.float-right, %float-right { float: right; }
+
+.float-none, %float-none { float: none; }
+
+.clear-right, %clear-right { clear: right; }
+
+.clear-left, %clear-left { clear: left; }
+
+.clear-both, %clear-both { clear: both; }
+
+.clear-none, %clear-none { clear: none; }
+
+%no-transition { @include transition(none); }
+
+%transition { @include transition(0.2s all ease); }
+
+%hover { background-color: $secondary-light; }
+
+%focus { background-color: $secondary-light; }
+
+%button {
+  @extend %inline;
+  @extend %text-center;
+  @include transition(background-color 0.2s ease);
+  background-color: $secondaryColor;
+  border: none;
+  color: $white;
+  font-family: $primary-font;
+  font-size: 1em;
+  text-decoration: none;
+  outline: none;
+  padding: .5em 1em;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+
+  &:hover {
+    @extend %hover;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  &:focus {
+    @extend %focus;
+  }
+}
