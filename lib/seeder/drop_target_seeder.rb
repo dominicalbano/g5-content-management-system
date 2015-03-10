@@ -8,9 +8,10 @@ module Seeder
     end
 
     def seed
-      raise SyntaxError unless @template && @instructions
       Rails.logger.debug("Creating drop targets from instructions")
+      raise SyntaxError unless @template && @instructions
       @drop_targets = @instructions.inject([]) do |targets, instruction|
+        raise SyntaxError unless is_valid_instructions?(instruction)
         drop_target = @template.drop_targets.create(drop_target_params(instruction))
         targets << create_widgets(drop_target, instruction[:widgets])
         targets
@@ -28,6 +29,12 @@ module Seeder
     end
 
     private
+
+    def is_valid_instructions?(instructions)
+      instructions && 
+      instructions.has_key?(:html_id) &&
+      instructions.has_key?(:widgets)
+    end
 
     def drop_target_params(instructions)
       ActionController::Parameters.new(instructions).permit(:html_id)
