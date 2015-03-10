@@ -77,3 +77,12 @@ def open_widget_garden
   # otherwise we get intermittent failures when looking around in a garden
   find(".widget-list .toggle-panel-text").click
 end
+
+def wait_until
+  require "timeout"
+  Timeout.timeout(Capybara.default_wait_time) do
+    sleep(0.1) until value = yield
+    value
+  end
+end 
+
