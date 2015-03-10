@@ -19,6 +19,7 @@ module Seeder
     private
 
     def has_valid_instructions?
+      @website && @instructions &&
       @instructions.has_key?(:web_layout) &&
       @instructions.has_key?(:web_theme) &&
       @instructions.has_key?(:drop_targets)
