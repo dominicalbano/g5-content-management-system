@@ -16,7 +16,7 @@ module Seeder
     private
 
     def has_valid_instructions?
-      @website_template && @instructions &&
+      @template && @instructions &&
       @instructions.has_key?(:slug)
     end
 
