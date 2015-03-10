@@ -2,23 +2,19 @@ module Seeder
   class DropTargetSeeder
     attr_reader :instructions, :website, :template
 
-    def initialize(website, template, instructions)
+    def initialize(template, instructions)
       @instructions = instructions
-      @website = website
       @template = template
     end
 
     def seed
+      raise SyntaxError unless @template && @instructions
       Rails.logger.debug("Creating drop targets from instructions")
-      @drop_targets = []
-      if @template && @instructions
-        @instructions.each do |instruction|
-          drop_target = @template.drop_targets.create(drop_target_params(instruction))
-          create_widgets(drop_target, instruction[:widgets])
-          @drop_targets << drop_target
-        end
+      @drop_targets = @instructions.inject([]) do |targets, instruction|
+        drop_target = @template.drop_targets.create(drop_target_params(instruction))
+        targets << create_widgets(drop_target, instruction[:widgets])
+        targets
       end
-      @drop_targets
     end
 
     def create_widgets(drop_target, instructions)

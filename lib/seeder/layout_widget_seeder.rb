@@ -9,6 +9,7 @@ module Seeder
 
     def seed
       set_default_widget_settings(@instructions[layout_var], @instructions['widgets'])
+      @widget
     end
 
     protected
