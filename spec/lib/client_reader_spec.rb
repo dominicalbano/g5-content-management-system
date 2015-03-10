@@ -99,6 +99,7 @@ describe ClientReader do
         its([:urn]) { should eq("g5-cl-1qrcyt46-hollywood") }
         its([:name]) { should eq("Hollywood") }
         its([:domain]) { should eq("http://www.hollywood.com/") }
+        its([:secure_domain]) { should be_truthy }
         its([:street_address]) { should eq("4567 Storage Drive Unit 5") }
         its([:state]) { should eq("CA") }
         its([:city]) { should eq("Hollywood") }

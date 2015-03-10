@@ -1,0 +1,12 @@
+<li><%= non_layout_widget.name %>
+  <ul><li>
+    <table  id="user" class="table table-bordered table-striped" style="clear: both">
+      <% non_layout_widget.settings.order("name").each do |s| %>
+      <tr>
+        <th><%= s.name %></th>
+        <td><a href="#" id="setting-<%= s.id %>" data-type="textarea" data-pk="<%= s.id %>" data-url="/settings" data-resource="post" data-placeholder="Your comments here..." data-title="Enter comments"><%= s.value %></a></td>
+      </tr>
+      <% end %>
+    </table>
+  </li></ul>
+</li>

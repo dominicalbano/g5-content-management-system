@@ -10,8 +10,8 @@ module Seeder
     def seed
       raise SyntaxError unless has_valid_instructions?
       @website_template = @website.create_website_template(website_template_params)
-      WebLayoutSeeder.new(@website, @website_template, @instructions[:web_layout]).seed
-      WebThemeSeeder.new(@website, @website_template, @instructions[:web_theme]).seed
+      WebLayoutSeeder.new(@website_template, @instructions[:web_layout]).seed
+      WebThemeSeeder.new(@website_template, @instructions[:web_theme]).seed
       DropTargetSeeder.new(@website, @website_template, @instructions[:drop_targets]).seed
       @website_template
     end

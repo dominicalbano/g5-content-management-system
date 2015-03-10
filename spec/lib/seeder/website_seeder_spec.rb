@@ -71,10 +71,6 @@ describe Seeder::WebsiteSeeder do
       it "creates a web theme for the template" do
         website_template.should_receive(:create_web_theme)
       end
-
-#      it "creates drop targets" do
-#        seeder.should_receive(:create_drop_targets).with(website_template, instructions["drop_targets"])
-#      end
     end
 
     context "no website" do
@@ -101,10 +97,6 @@ describe Seeder::WebsiteSeeder do
       it "creates a web home template for the website" do
         website.should_receive(:create_web_home_template)
       end
-
-#      it "creates drop targets" do
-#        seeder.should_receive(:create_drop_targets).with(web_home_template, instructions["drop_targets"])
-#      end
     end
 
     context "no website" do
@@ -131,11 +123,6 @@ describe Seeder::WebsiteSeeder do
       it "creates a web page template for each instruction" do
         website.web_page_templates.should_receive(:create)
       end
-
-#     it "creates drop targets" do
-#       seeder.should_receive(:create_drop_targets).
-#         with(web_page_template, instructions.first["drop_targets"])
-#     end
     end
 
     context "no website" do

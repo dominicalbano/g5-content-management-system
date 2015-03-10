@@ -21,7 +21,6 @@
   @include until($max-medium) {
     .buttons {
       min-height: em(50);
-      text-align: right;
     }
   }
 }
