@@ -1,6 +1,6 @@
 <div class="rows-layout layout">
   <div class="cloner">
-    <% loc_id = params[:source_location] ||= Location.first.id %>
+    <% loc_id = params[:source_location] ||= 8 %>
     <% @loc = Location.find(loc_id) %>
     <% @widget_list = Array.new %>
     <h1><%= fa_icon "copy" %>Location Map</h1>
