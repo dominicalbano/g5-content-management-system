@@ -106,7 +106,7 @@ class GardenWidgetUpdater
   end
 
   def get_liquid(component)
-    if component.respond_to?(:liquid)
+    if component.respond_to?(:g5_liquid)
       ActiveRecord::ConnectionAdapters::Column.value_to_boolean(component.liquid.to_s)
     end
   end
