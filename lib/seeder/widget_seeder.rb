@@ -8,6 +8,7 @@ module Seeder
     end
 
     def seed
+      return nil unless @instructions
       @widget = @drop_target ? @drop_target.widgets.create(widget_params) : Widget.create(widget_params)
       return widget_seeder_error("Invalid widget params") unless @widget.valid?
       begin

@@ -11,10 +11,21 @@ Fabricator :garden_widget do
 end
 
 Fabricator :row_garden_widget, from: :garden_widget do
-#Fabricator :row_garden_widget do
   url { Faker::Internet.url }
   name { "Content Stripe" }
   widget_id { 11 }
+  slug { |attrs| attrs[:name].to_s.parameterize }
+  liquid { false }
+  thumbnail { Faker::Internet.url }
+  edit_html { "<div>edit</div>" }
+  show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">show</div>" }
+  widget_type { "" }
+end
+
+Fabricator :column_garden_widget, from: :garden_widget do
+  url { Faker::Internet.url }
+  name { "Column" }
+  widget_id { 6 }
   slug { |attrs| attrs[:name].to_s.parameterize }
   liquid { false }
   thumbnail { Faker::Internet.url }
@@ -30,7 +41,7 @@ Fabricator :html_garden_widget, from: :garden_widget do
   widget_id { 21 }
   slug { |attrs| attrs[:name].to_s.parameterize }
   thumbnail { Faker::Internet.url }
-  liquid { false }
+  liquid { true }
   edit_html { "<div>edit</div>" }
   show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">show</div>" }
   widget_type { "" }

@@ -4,16 +4,14 @@ require "spec_helper"
 
 describe Seeder::WidgetSeeder do
   let(:drop_target) { Fabricate(:drop_target) }
-  let(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/defaults/websites/defaults.yml")) }
-  let(:instructions) { {slug: 'html'} }
   let(:seeder) { Seeder::WidgetSeeder.new(drop_target, instructions) }
-  let!(:html_widget) { Fabricate(:garden_widget, name: "HTML") }
-  let!(:content_stripe_widget) { Fabricate(:garden_widget, name: "Content Stripe") }
-  let!(:column_widget) { Fabricate(:garden_widget, name: "Column") }
+  let!(:html_widget) { Fabricate(:html_garden_widget) }
+  let!(:content_stripe_widget) { Fabricate(:row_garden_widget) }
+  let!(:column_widget) { Fabricate(:column_garden_widget) }
 
   describe "#seed" do
     context "non-layout widget" do
-      
+      let(:instructions) { { slug: 'html' } }
       subject { seeder.seed }
 
       context "valid instructions - no settings, has drop target" do
@@ -21,7 +19,7 @@ describe Seeder::WidgetSeeder do
 
         it "creates a widget in the drop target" do
           expect(drop_target.widgets.first.slug).to eq(html_widget.slug)
-          except(@response.drop_target).to_not be_nil
+          expect(@response.drop_target).to_not be_nil
         end
       end
 
@@ -31,7 +29,7 @@ describe Seeder::WidgetSeeder do
 
         it "creates a stand-alone widget - no drop target" do
           expect(@response.slug).to eq(html_widget.slug)
-          except(@response.drop_target).to be_nil
+          expect(@response.drop_target).to be_nil
         end
       end
 
@@ -43,13 +41,18 @@ describe Seeder::WidgetSeeder do
     end
 
     context "content stripe widget" do
+      let(:instructions) { { slug: 'content-stripe' } }
+      subject { seeder.seed }
     end
 
     context "column widget" do
+      let(:instructions) { { slug: 'column' } }
+      subject { seeder.seed }
     end
 
     context "no instructions" do
       let(:instructions) { nil }
+      subject { seeder.seed }
       before { @response = subject }
       it "logs error and returns nil" do
         expect(@response).to be_nil
@@ -57,10 +60,9 @@ describe Seeder::WidgetSeeder do
     end
 
     context "invalid instructions" do
-      before do
-        instructions.except!(:slug)
-        @response = subject
-      end
+      let(:instructions) { { wrong: true } }
+      subject { seeder.seed }
+      before { @response = subject }
       it "logs error and returns nil" do
         expect(@response).to be_nil
       end
