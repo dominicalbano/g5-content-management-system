@@ -30,6 +30,10 @@ module StaticWebsite
 
     private
 
+      def corporate_location
+        Location.corporate || Location.first
+      end
+
       def compile_path
         File.join(@base_path.to_s, @slug, "index.html")
       end
@@ -41,12 +45,12 @@ module StaticWebsite
       def view_options
         LOGGERS.each {|logger| logger.debug("creating view_options hash")}
         LOGGERS.each {|logger| logger.debug("going to call LocationCollector.new with #{@params} and then .collect")}
-        LOGGERS.each {|logger| logger.debug("setting web_template to: #{Location.corporate.website.website_template.to_s}")}
+        LOGGERS.each {|logger| logger.debug("setting web_template to: #{corporate_location.website.website_template.to_s}")}
         LOGGERS.each {|logger| logger.debug("setting area to: #{area.to_s}")}
         options = { layout: "web_template",
           locals: {
             locations: LocationCollector.new(@params).collect,
-            web_template: Location.corporate.website.website_template,
+            web_template: corporate_location.website.website_template,
             area: area,
             params: @params,
             mode: "deployed"

@@ -2,6 +2,7 @@ module StaticWebsite
   module Compiler
     class AreaPages
       def initialize(base_path, websites)
+        LOGGERS.each {|logger| logger.debug("initializing Compiler::AreaPages with (base_path, websites): #{base_path} #{websites}")}
         @base_path = base_path
         @websites = websites
       end

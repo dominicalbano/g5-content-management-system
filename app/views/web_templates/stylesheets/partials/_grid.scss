@@ -1,0 +1,132 @@
+// *************************************
+//
+//  Grid
+//
+// *************************************
+
+// =====================================
+//  Simple 12 column grid system
+// =====================================
+
+// Sets grid row styles
+// Use on container of columns
+@mixin grid-row {
+  @include clearfix;
+  clear: both;
+  margin-left: -$half-whitespace;
+  margin-right: -$half-whitespace;
+  overflow: hidden;
+}
+
+// Use on row to create flexbox layout
+// http://css-tricks.com/snippets/css/a-guide-to-flexbox
+@mixin grid-row-flex {
+  @include display(flex);
+  @include flex-wrap(wrap);
+}
+
+// Use on row to create table layout
+@mixin grid-table-row {
+  display: table;
+  width: 100%;
+}
+
+// Use on columns within table row
+@mixin grid-table-col {
+  display: table-cell;
+}
+
+// Sets grid column defaults
+@mixin grid-col-defaults {
+  float: left;
+  padding-left: $half-whitespace;
+  padding-right: $half-whitespace;
+}
+
+// When you want inline elements not floated
+@mixin grid-col-inline {
+  float: none;
+  display: inline-block;
+  margin-left: -4px; // Takes care of extra space added to inline elements
+  padding-left: $half-whitespace - 4;
+}
+
+// Sets grid column size; based on 12 columns
+@mixin grid-col($n: 1) {
+  width: #{$n/12*100}#{"%"};
+}
+
+// sets column offset size; based on 12 columns
+@mixin grid-offset($n: 1) {
+  margin-left: #{$n/12*100}#{"%"};
+}
+
+// 12 Column Grid.
+// col-# indicates number of columns
+@mixin grid-col-1 {
+  width: 8.3333333%;
+}
+
+// Sixths
+@mixin grid-col-2 {
+  width: 16.66666667%;
+}
+
+// Exception to col-# rule
+// Fifths
+@mixin grid-col-fifth {
+  width: 20%;
+}
+
+// Quarters
+@mixin grid-col-3 {
+  width: 25%;
+}
+
+// Thirds
+@mixin grid-col-4 {
+  width: 33.33333333%;
+}
+
+// Halves
+@mixin grid-col-6 {
+  width: 50%;
+}
+
+// Two thirds
+@mixin grid-col-8 {
+  width: 66.66666667%;
+}
+
+// Full width
+@mixin grid-col-12 {
+  width: 100%;
+}
+
+@mixin grid-offset-1 {
+  margin-left: 8.3333333%;
+}
+
+@mixin grid-offset-2 {
+  margin-left: 16.66666667%;
+}
+
+@mixin grid-offset-fifth {
+  margin-left: 20%;
+}
+
+@mixin grid-offset-3 {
+  margin-left: 25%;
+}
+
+@mixin grid-offset-4 {
+  margin-left: 33.33333333%;
+}
+
+@mixin grid-offset-6 {
+  margin-left: 50%;
+}
+
+@mixin grid-offset-8 {
+  margin-left: 66.66666667%;
+}

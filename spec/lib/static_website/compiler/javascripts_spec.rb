@@ -107,7 +107,8 @@ describe StaticWebsite::Compiler::Javascripts do
     let(:subject) { javascripts_class.new(nil, compile_directory, "some-page") }
 
     it "matches /javascripts/some-page.min.js" do
-      expect(subject.compressed_path).to match "/javascripts/some-page.min.js"
+      allow(Time).to receive(:now).and_return "123"
+      expect(subject.compressed_path).to match "/javascripts/some-page-123.min.js"
     end
   end
 end

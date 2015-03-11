@@ -170,7 +170,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
         expect do
           drag_and_drop_add(garden_widget, drop_target_add)
-          sleep 1
+          wait_until{@web_page_template.reload.main_widgets.count == existing_widget_count + 1}
         end.to change{ @web_page_template.reload.main_widgets.count }.by(1)
         expect(all(".main-widgets .widget").length).to eq existing_widget_count + 1
       end
@@ -220,7 +220,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           widget2 = find(".widget:last-of-type")
           expect(@widget2.display_order > @widget1.display_order).to be_truthy
           drag_and_drop_below(widget1, widget2)
-          sleep 1
+          wait_until{@widget2.reload.display_order < @widget1.reload.display_order}
           expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_truthy
         end
       end
@@ -236,8 +236,9 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         within ".main-widgets" do
           widget1 = find(".widget:first-of-type")
           widget1.click
-          sleep 1
-          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+          expected_title = "Edit #{@widget1.name}".upcase
+          wait_until{ page.driver.find_css('#myModalLabel').first.visible_text == expected_title}
+          expect(page.driver.find_css('#myModalLabel').first.visible_text).to eq(expected_title)
         end
       end
     end
@@ -256,7 +257,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
             accept_confirm(page)
-            sleep 1
+            wait_until{@web_page_template.reload.main_widgets.count == existing_widget_count -1}
           end.to change{ @web_page_template.reload.main_widgets.count }.by(-1)
           expect(all(".main-widgets .widget").length).to eq existing_widget_count-1
         end
@@ -264,27 +265,27 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         it "Destroys multiple existing widgets in the database and updates DOM" do
           drop_target_remove = find(".main-widgets .drop-target-remove:first-of-type")
           existing_widget_count = all(".main-widgets .widget").length
+          first_widget = find(".main-widgets .widget:first-of-type")
+          second_widget = find(".main-widgets .widget:last-of-type")
 
-          expect do
-            2.times do
-              existing_widget = find(".main-widgets .widget:first-of-type")
-              drag_and_drop(existing_widget, drop_target_remove)
-              accept_confirm(page)
-              sleep 1
-            end
-          end.to change{ @web_page_template.reload.main_widgets.count }.by(-2)
+          drag_and_drop(first_widget, drop_target_remove)
+          accept_confirm(page)
+          drag_and_drop(second_widget, drop_target_remove)
+          accept_confirm(page)
+
+          wait_until{@web_page_template.reload.main_widgets.count == 0}
+          expect(@web_page_template.reload.main_widgets.count).to eq(0)
           expect(all(".main-widgets .widget").length).to eq existing_widget_count-2
         end
       end
 
       describe "When widgets are added after page load" do
         before do
-          open_gardens
+          open_widget_garden
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".main-widgets .drop-target-add:first-of-type")
           2.times do
             drag_and_drop(garden_widget, drop_target_add)
-            sleep 1
           end
         end
 
@@ -294,9 +295,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           existing_widget_count = all(".main-widgets .widget").length
 
           expect do
+            count = @web_page_template.main_widgets.count
             drag_and_drop(existing_widget, drop_target_remove)
             accept_confirm(page)
-            sleep 1
+            wait_until{@web_page_template.reload.main_widgets.count < count}
           end.to change{ @web_page_template.reload.main_widgets.count }.by(-1)
           expect(all(".main-widgets .widget").length).to eq existing_widget_count-1
         end
@@ -310,8 +312,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
               existing_widget = find(".main-widgets .widget:last-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
               accept_confirm(page)
-              sleep 1
             end
+            wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count - 2)}
           end.to change{ @web_page_template.reload.main_widgets.count }.by(-2)
           expect(all(".main-widgets .widget").length).to eq existing_widget_count-2
         end
@@ -322,8 +324,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Aside before main widgets" do
     describe "Are drag and drop addable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
-        open_gardens
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
+        open_widget_garden
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -333,7 +335,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
         expect do
           drag_and_drop_add(garden_widget, drop_target_add)
-          sleep 1
+          wait_until{@website_template.reload.aside_before_main_widgets.count == (existing_widget_count + 1)}
         end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(1)
         expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count + 1
       end
@@ -357,7 +359,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           widget2 = find(".widget:last-of-type")
           expect(@widget2.display_order > @widget1.display_order).to be_truthy
           drag_and_drop_below(widget1, widget2)
-          sleep 1
+          wait_until{@widget2.reload.display_order < @widget1.reload.display_order}
           expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_truthy
         end
       end
@@ -371,10 +373,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       it "has a dynamic heading" do
         within ".aside-before-main-widgets" do
+          expected_title = "Edit #{@widget1.name}".upcase
           widget1 = find(".widget:first-of-type")
           widget1.click
-          sleep 1
-          expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
+          wait_until{ page.driver.find_css('#myModalLabel').first.visible_text == expected_title}
+          expect(page.driver.find_css('#myModalLabel').first.visible_text).to eq(expected_title)
         end
       end
     end
@@ -393,7 +396,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
             accept_confirm(page)
-            sleep 1
+            wait_until{@website_template.reload.aside_before_main_widgets.count == existing_widget_count -1}
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-1)
           expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count-1
         end
@@ -401,14 +404,15 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         it "Destroys multiple existing widgets in the database and updates DOM" do
           drop_target_remove = find(".aside-before-main-widgets .drop-target-remove:first-of-type")
           existing_widget_count = all(".aside-before-main-widgets .widget").length
+          first_widget = find(".aside-before-main-widgets .widget:first-of-type")
+          second_widget = find(".aside-before-main-widgets .widget:last-of-type")
 
           expect do
-            2.times do
-              existing_widget = find(".aside-before-main-widgets .widget:first-of-type")
-              drag_and_drop(existing_widget, drop_target_remove)
-              accept_confirm(page)
-              sleep 1
-            end
+            drag_and_drop(first_widget, drop_target_remove)
+            accept_confirm(page)
+            drag_and_drop(second_widget, drop_target_remove)
+            accept_confirm(page)
+            wait_until{@website_template.reload.aside_before_main_widgets.count == existing_widget_count - 2}
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-2)
           expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count-2
         end
@@ -416,12 +420,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       describe "When widgets are added after page load" do
         before do
-          open_gardens
+          open_widget_garden
           garden_widget = find(".widget-list .widget-view .widget:last-of-type")
           drop_target_add = find(".aside-before-main-widgets .drop-target-add:first-of-type")
           2.times do
             drag_and_drop(garden_widget, drop_target_add)
-            sleep 1
           end
         end
 
@@ -433,7 +436,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           expect do
             drag_and_drop(existing_widget, drop_target_remove)
             accept_confirm(page)
-            sleep 1
+            wait_until{@website_template.reload.aside_before_main_widgets.count == existing_widget_count -1}
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-1)
           expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count-1
         end
@@ -447,8 +450,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
               existing_widget = find(".aside-before-main-widgets .widget:last-of-type")
               drag_and_drop(existing_widget, drop_target_remove)
               accept_confirm(page)
-              sleep 1
             end
+            wait_until{@website_template.reload.aside_before_main_widgets.count == existing_widget_count -2}
           end.to change{ @website_template.reload.aside_before_main_widgets.count }.by(-2)
           expect(all(".aside-before-main-widgets .widget").length).to eq existing_widget_count-2
         end
@@ -459,8 +462,8 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Aside after main widgets" do
     describe "Are drag and drop addable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
-        open_gardens
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
+        open_widget_garden
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -470,7 +473,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
         expect do
           drag_and_drop_add(garden_widget, drop_target_add)
-          sleep 1
+          wait_until{@website_template.reload.aside_after_main_widgets.count == existing_widget_count + 1}
         end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(1)
         expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count + 1
       end
@@ -494,7 +497,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           widget2 = find(".widget:last-of-type")
           expect(@widget2.display_order > @widget1.display_order).to be_truthy
           drag_and_drop_below(widget1, widget2)
-          sleep 1
+          wait_until{@widget2.reload.display_order < @widget1.reload.display_order}
           expect(@widget2.reload.display_order < @widget1.reload.display_order).to be_truthy
         end
       end
@@ -511,6 +514,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           widget1 = find(".widget:first-of-type")
           widget1.click
           sleep 1
+              #USE WAIT_UNTIL INSTEAD
           expect(page.driver.find_css("#myModalLabel").first.visible_text).to eq("Edit #{@widget1.name}".upcase)
         end
       end
@@ -531,6 +535,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
             drag_and_drop(existing_widget, drop_target_remove)
             accept_confirm(page)
             sleep 1
+              #USE WAIT_UNTIL INSTEAD
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-1)
           expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count-1
         end
@@ -545,6 +550,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
               drag_and_drop(existing_widget, drop_target_remove)
               accept_confirm(page)
               sleep 1
+              #USE WAIT_UNTIL INSTEAD
             end
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-2)
           expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count-2
@@ -559,6 +565,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           2.times do
             drag_and_drop(garden_widget, drop_target_add)
             sleep 1
+              #USE WAIT_UNTIL INSTEAD
           end
         end
 
@@ -571,6 +578,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
             drag_and_drop(existing_widget, drop_target_remove)
             accept_confirm(page)
             sleep 1
+              #USE WAIT_UNTIL INSTEAD
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-1)
           expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count-1
         end
@@ -585,6 +593,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
               drag_and_drop(existing_widget, drop_target_remove)
               accept_confirm(page)
               sleep 1
+              #USE WAIT_UNTIL INSTEAD
             end
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-2)
           expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count-2
