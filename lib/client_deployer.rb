@@ -7,6 +7,7 @@ LOGGERS = [Rails.logger, Resque.logger] unless defined? LOGGERS
 
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
+    Resque.logger.debug("WHY DOESNT THIS SHOW UP")
     LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to base_compiler")}
     base_compiler(client).compile
     LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to AreaPages.new")}
