@@ -3,12 +3,13 @@ require "static_website/compiler/area_pages"
 require "client_deployer/base_compiler"
 require "client_deployer/website_compiler"
 
-LOGGERS = [Rails.logger, Resque.logger]
+LOGGERS = [Rails.logger, Resque.logger] unless defined? LOGGERS
 
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
     LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to base_compiler")}
     base_compiler(client).compile
+    LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to AreaPages.new")}
     area_pages(client.website.compile_path).compile
     compile_location_websites
     deployer(client, user_email).deploy
