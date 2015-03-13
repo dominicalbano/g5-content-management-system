@@ -39,7 +39,36 @@ class WidgetDrop < Liquid::Drop
     CorporateNavigationSetting.new.value
   end
 
+  def navigateable_pages
+    pages = [WebsiteFinder::Widget.new(widget).find.web_page_templates.navigateable.rank(:display_order).all,
+             WebsiteFinder::Widget.new(widget).find.web_home_template].flatten
+    pages.map {|page| template_to_liquid(page)}
+  end
+
+  def generated_url_1
+    WebTemplate.where(slug: widget.page_slug_1.value).first.url
+  end
+
+  def generated_url_2
+    WebTemplate.where(slug: widget.page_slug_2.value).first.url
+  end
+
+  def generated_url_3
+    WebTemplate.where(slug: widget.page_slug_3.value).first.url
+  end
+
+  def generated_url_4
+    WebTemplate.where(slug: widget.page_slug_4.value).first.url
+  end
+
 private
+
+  def template_to_liquid(web_template)
+    liquid_hash = HashWithToLiquid.new
+    liquid_hash["url"] = web_template.url
+    liquid_hash["slug"] = web_template.slug
+    liquid_hash
+  end
 
   def selected_location_ids
     widget.included_locations.best_value.map(&:to_i)
