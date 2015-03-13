@@ -31,7 +31,7 @@ module Seeder
 
     def set_default_widget_setting(setting)
       if widget_setting = @widget.settings.find_by_name(setting[:name])
-        widget_setting.update_attributes(setting)
+        widget_setting.update_attribute(setting[:name], setting[:value])
       end
     end
 
@@ -41,7 +41,7 @@ module Seeder
 
     def widget_seeder_error(error)
       Rails.logger.debug("ERROR: #{error} - Instructions: #{@instructions}\n")
-      @widget.destroy
+      @widget.try(:destroy)
       @widget = nil
     end
   end
