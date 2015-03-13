@@ -17,7 +17,7 @@ module AfterUpdateSetPathSettings
   end
 
   def update_cta_settings
-    CtaSettingsUpdater.new.update
+    CtaSettingsUpdater.new(self).update
   end
 
   def update_nav_settings

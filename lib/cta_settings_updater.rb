@@ -1,4 +1,10 @@
 class CtaSettingsUpdater
+  attr_accessor :location
+
+  def initialize(location)
+    @location = location
+  end
+
   def update
     cta_link_settings.each do |setting|
       website = WebsiteFinder::Setting.new(setting).find
@@ -23,7 +29,12 @@ class CtaSettingsUpdater
   end
 
   def build_url(setting, website)
-    "/#{vertical}/#{website.owner.state_slug}/#{website.owner.city_slug}/" \
-    "#{setting.value.split("/").last}"
+    if Client.first.type == "SingleDomainClient"
+      "/#{vertical}/#{website.owner.state_slug}/#{website.owner.city_slug}/#{location.slug}" \
+      "#{setting.value.split("/").last}"
+    else
+      "/#{vertical}/#{website.owner.state_slug}/#{website.owner.city_slug}/" \
+      "#{setting.value.split("/").last}"
+    end
   end
 end
