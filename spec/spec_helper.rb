@@ -55,7 +55,6 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
-    set_selenium_window_size(1250, 800) if Capybara.current_driver == :selenium
   end
 
   config.before(:each, :js => true) do
@@ -84,20 +83,5 @@ RSpec.configure do |config|
   end
 end
 
-def set_selenium_window_size(width, height)
-  window = Capybara.current_session.driver.browser.manage.window
-  window.resize_to(width, height)
-end
-
-# We need this to fix the random timeout error that we were seeing in CI.
-# May be related to: http://code.google.com/p/selenium/issues/detail?id=1439
- 
-Capybara.register_driver :selenium_with_long_timeout do |app|
-  client = Selenium::WebDriver::Remote::Http::Default.new
-  client.timeout = 120
-  Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => client)
-end
- 
-# By default specs will run in a headless webkit browser.
-# Set CI=true if you want to run integration specs with Firefox.
-Capybara.javascript_driver = :selenium_with_long_timeout
+require 'capybara/poltergeist'
+Capybara.javascript_driver = :poltergeist

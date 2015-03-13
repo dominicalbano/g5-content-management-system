@@ -74,9 +74,9 @@ group :test do
   gem "rspec-its"
   gem "shoulda-matchers"
   # ruby request specs
-  gem "capybara", "2.3.0"
+  gem "capybara"
   gem "launchy"
-  gem "selenium-webdriver"
+  gem "poltergeist"
   gem "database_cleaner"
   # ruby spec support
   gem 'factory_girl_rails'
