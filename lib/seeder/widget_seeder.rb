@@ -10,12 +10,13 @@ module Seeder
     def seed
       return nil unless @instructions
       @widget = @drop_target ? @drop_target.widgets.create(widget_params) : Widget.create(widget_params)
-      return widget_seeder_error("Invalid widget params") unless @widget.valid?
+      return widget_seeder_error("Invalid widget params") unless @widget.try(:valid?)
       begin
         return ContentStripeWidgetSeeder.new(@widget, @instructions).seed if @widget.is_content_stripe?
         return ColumnWidgetSeeder.new(@widget, @instructions).seed if @widget.is_column?
         set_default_widget_settings(@instructions[:settings])
       rescue => e
+        binding.pry
         widget_seeder_error(e)
       end
       @widget
@@ -24,15 +25,12 @@ module Seeder
     private
 
     def set_default_widget_settings(instructions)
-      instructions.try(:each) do |setting|
-        set_default_widget_setting(setting)
-      end
+      instructions.try(:each) { |setting| set_default_widget_setting(setting) }
     end
 
     def set_default_widget_setting(setting)
-      if widget_setting = @widget.settings.find_by_name(setting[:name])
-        widget_setting.update_attribute(setting[:name], setting[:value])
-      end
+      widget_setting = @widget.settings.find_by_name(setting[:name])
+      widget_setting.update_attribute('value', setting[:value]) if widget_setting
     end
 
     def widget_params

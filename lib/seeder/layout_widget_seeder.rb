@@ -8,8 +8,7 @@ module Seeder
     end
 
     def seed
-      set_default_widget_settings(@instructions[layout_var], @instructions['widgets'])
-      @widget
+      set_default_widget_settings(@instructions[layout_var], @instructions[:widgets])
     end
 
     protected
@@ -27,17 +26,20 @@ module Seeder
     end
 
     def set_default_widget_settings(layout, widgets)
-      return unless layout && widgets
-      @widget.settings.find_by_name(layout_var).update_attribute('value', layout)
+      return @widget unless layout && widgets
+      @widget.settings.find_by_name(layout_var).try(:update_attribute, 'value', layout)
       widgets.each.with_index(1) do |instruction, idx|
-        widget = WidgetSeeder.new(nil, instruction).seed
-        if widget.valid?
-          pos = position_name[idx]
-          @widget.settings.find_by_name("#{position_var}_#{pos}_widget_name").update_attribute('value', widget.name)
-          @widget.settings.find_by_name("#{position_var}_#{pos}_widget_id").update_attribute('value', widget.id)
-        end
+        set_nested_widget_settings(WidgetSeeder.new(nil, instruction).seed, idx)
       end
       @widget.reload
+    end
+
+    def set_nested_widget_settings(widget, index)
+      if widget.try(:valid?)
+        pos = position_name[index]
+        @widget.settings.find_by_name("#{position_var}_#{pos}_widget_name").try(:update_attribute, 'value', widget.name)
+        @widget.settings.find_by_name("#{position_var}_#{pos}_widget_id").try(:update_attribute, 'value', widget.id)
+      end
     end
   end
 end
