@@ -39,7 +39,6 @@
 
 <%= raw preview(web_template.website_layout, web_template) %>
 
-<% binding.pry %>
 <% content_for(:bottom_of_body) do %> 
   <% if is_preview %>
     <%= javascript_include_tag(*web_template.javascripts) %>
