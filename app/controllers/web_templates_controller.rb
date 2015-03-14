@@ -21,7 +21,8 @@ class WebTemplatesController < ApplicationController
         location: @location,
         website: @website,
         web_template: @web_template,
-        mode: "preview"
+        mode: "preview",
+        is_preview: true
       }
   end
 end
