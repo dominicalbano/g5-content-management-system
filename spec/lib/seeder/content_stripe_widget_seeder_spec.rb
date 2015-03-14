@@ -50,8 +50,8 @@ describe Seeder::ContentStripeWidgetSeeder do
         context "has drop target" do
           before do
             @response = subject
-            @first_col = @response.child_widgets.first
-            @second_col = @response.child_widgets.second
+            @first_col = @response.reload.child_widgets.first
+            @second_col = @response.reload.child_widgets.second
           end
 
           it "creates a content stripe widget in the drop target" do
