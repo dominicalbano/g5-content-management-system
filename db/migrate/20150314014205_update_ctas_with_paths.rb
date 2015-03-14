@@ -10,7 +10,12 @@ class UpdateCtasWithPaths < ActiveRecord::Migration
         else
           new_setting_value = old_setting_value.split('/').last
         end
-        widget.settings.where(name: "page_slug_#{n}").first.update(:value => new_setting_value)
+        setting = widget.settings.where(name: "page_slug_#{n}").first
+        if setting
+          setting.update(:value => new_setting_value) if setting
+        else
+          Rails.logger.error("Could not find setting for widget: #{widget}")
+        end
       end
     end
 
