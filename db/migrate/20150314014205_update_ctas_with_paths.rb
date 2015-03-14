@@ -14,7 +14,8 @@ class UpdateCtasWithPaths < ActiveRecord::Migration
         if setting
           setting.update(:value => new_setting_value) if setting
         else
-          Rails.logger.error("Could not find setting for widget: #{widget}")
+          Rails.logger.error("Could not find setting for widget: #{widget.inspect}")
+          Rails.logger.error("widget settings: #{widget.settings.each{|s| s.inspect}}")
         end
       end
     end
