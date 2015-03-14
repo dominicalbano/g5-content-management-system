@@ -36,8 +36,8 @@ describe Widget, vcr: VCR_OPTIONS do
 
   describe "#render_show_html" do
     context "content stripe widget" do
-      let(:garden_widget) { Fabricate.build(:garden_widget, name: "Content Stripe") }
-      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+      let(:garden_widget) { Fabricate(:row_garden_widget) }
+      let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:row_widget_show_html) { double(render: nil) }
 
       before { RowWidgetShowHtml.stub(new: row_widget_show_html) }
@@ -49,8 +49,8 @@ describe Widget, vcr: VCR_OPTIONS do
     end
 
     context "column widget" do
-      let(:garden_widget) { Fabricate.build(:garden_widget, name: "Column") }
-      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+      let(:garden_widget) { Fabricate(:column_garden_widget) }
+      let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:column_widget_show_html) { double(render: nil) }
 
       before { ColumnWidgetShowHtml.stub(new: column_widget_show_html) }
@@ -62,13 +62,12 @@ describe Widget, vcr: VCR_OPTIONS do
     end
 
     context "liquid widgets" do
-      let(:garden_widget) { Fabricate.build(:html_garden_widget) }
-      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+      let(:garden_widget) { Fabricate(:html_garden_widget) }
+      let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:liquid_text) { "{{client_name}}" }
-      before do
-        garden_widget.save
-        widget.save
-        widget.reload.settings.find_by_name('text').update_attribute(:value, liquid_text)
+
+      before do 
+        widget.settings.find_by_name('text').update_attribute(:value, liquid_text)
       end
 
       it "does not escape funky characters" do
@@ -87,8 +86,8 @@ describe Widget, vcr: VCR_OPTIONS do
     end
 
     context "all other widgets" do
-      let(:garden_widget) { Fabricate.build(:garden_widget) }
-      let(:widget) { Fabricate.build(:widget) }
+      let(:garden_widget) { Fabricate(:garden_widget) }
+      let(:widget) { Fabricate(:widget) }
       
       it "does not escape funky characters" do
         widget.stub(:show_html) { "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" }
@@ -138,7 +137,7 @@ describe Widget, vcr: VCR_OPTIONS do
   describe "instance methods" do
     let(:widget) {Fabricate.create(:widget,
                                    {garden_widget: garden_widget})}
-    let(:garden_widget) {Fabricate(:garden_widget,
+    let(:garden_widget) {Fabricate.create(:garden_widget,
                                  {  show_stylesheets: ["foo.css", "bar.css"],
                                     show_javascript: "show.js",
                                     lib_javascripts: ["a.js", "b.js"] })}
@@ -185,8 +184,8 @@ describe Widget, vcr: VCR_OPTIONS do
       end
 
       context "liquid widget" do
-        let(:garden_widget) { Fabricate.build(:html_garden_widget) }
-        let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+        let(:html_widget) { Fabricate(:html_garden_widget) }
+        let(:widget) { Fabricate(:widget, garden_widget: html_widget, drop_target: drop_target) }
         it "returns array of liquid parameters if liquid" do
           expect(widget.liquid_parameters).to_not be_empty
         end
@@ -212,6 +211,100 @@ describe Widget, vcr: VCR_OPTIONS do
         end
       end
     end 
+
+    describe "#parent_widget" do
+      let(:garden_widget) { Fabricate(:garden_widget) }
+      let(:cs_garden_widget) { Fabricate(:row_garden_widget) }
+      let(:col_garden_widget) { Fabricate(:column_garden_widget) }
+
+      before { setting.destroy } #remove faux setting
+      
+      context "has no parent" do
+        let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+
+        it "returns nil as parent" do
+          expect(widget.parent_widget).to be_nil
+        end
+      end
+
+      context "has parent" do
+        let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: nil) }
+        let(:parent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
+        before do
+          parent.settings.find_by_name('column_one_widget_name').update_attribute(:value, widget.name)
+          parent.settings.find_by_name('column_one_widget_id').update_attribute(:value, widget.id)
+        end
+
+        it "returns correct parent widget" do
+          expect(widget.parent_widget).to_not be_nil
+          expect(widget.parent_widget.id).to eq parent.id
+          expect(widget.parent_widget.parent_widget).to be_nil
+        end
+      end
+
+      context "has parent and grandparent" do
+        let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: nil) }
+        let(:parent) { Fabricate(:widget, garden_widget: col_garden_widget, drop_target: nil) }
+        let(:grandparent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
+        before do
+          parent.settings.find_by_name('row_one_widget_name').update_attribute(:value, widget.name)
+          parent.settings.find_by_name('row_one_widget_id').update_attribute(:value, widget.id)
+          grandparent.settings.find_by_name('column_one_widget_name').update_attribute(:value, parent.name)
+          grandparent.settings.find_by_name('column_one_widget_id').update_attribute(:value, parent.id)
+        end
+
+        it "returns correct parent and grandparent widgets" do
+          expect(widget.parent_widget).to_not be_nil
+          expect(widget.parent_widget.id).to eq parent.id
+          expect(widget.parent_widget.parent_widget.id).to eq grandparent.id
+        end
+      end
+    end
+
+    describe "#get_web_template" do
+      let(:garden_widget) { Fabricate(:garden_widget) }
+      let(:cs_garden_widget) { Fabricate(:row_garden_widget) }
+      let(:col_garden_widget) { Fabricate(:column_garden_widget) }
+
+      before { setting.destroy } #remove faux setting - use WidgetFabricator defaults only
+      
+      context "has no parent" do
+        let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+
+        it "returns drop target web template" do
+          expect(widget.get_web_template).to eq web_template
+        end
+      end
+
+      context "has parent" do
+        let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: nil) }
+        let(:parent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
+        before do
+          parent.settings.find_by_name('column_one_widget_name').update_attribute(:value, widget.name)
+          parent.settings.find_by_name('column_one_widget_id').update_attribute(:value, widget.id)
+        end
+
+        it "returns drop target web template" do
+          expect(widget.get_web_template).to eq web_template
+        end
+      end
+
+      context "has parent and grandparent" do
+        let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: nil) }
+        let(:parent) { Fabricate(:widget, garden_widget: col_garden_widget, drop_target: nil) }
+        let(:grandparent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
+        before do
+          parent.settings.find_by_name('row_one_widget_name').update_attribute(:value, widget.name)
+          parent.settings.find_by_name('row_one_widget_id').update_attribute(:value, widget.id)
+          grandparent.settings.find_by_name('column_one_widget_name').update_attribute(:value, parent.name)
+          grandparent.settings.find_by_name('column_one_widget_id').update_attribute(:value, parent.id)
+        end
+
+        it "returns correct parent and grandparent widgets" do
+          expect(widget.get_web_template).to eq web_template
+        end
+      end
+    end
   end
 end
 
