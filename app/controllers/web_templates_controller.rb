@@ -10,7 +10,7 @@ class WebTemplatesController < ApplicationController
     if @website
       if params[:web_template_slug]
         @web_template = @website.web_page_templates.where(
-          "lower(slug) = ?", params[:web_template_slug].to_s.downcase).first
+          "lower(slug) = ?", params[:web_template_slug].to_s.downcase).first || @website.web_home_template
       else
         @web_template = @website.web_home_template
       end

@@ -32,8 +32,8 @@
 
 <% content_for(:head) { raw web_template.decorate.canonical_link_element } %>
 
-<% content_for(:head_widgets) { raw meta_description_widgets(web_template) } %>
-<% content_for(:head_widgets) { raw head_widgets(web_template) } %>
+<% content_for(:head_widgets) { raw meta_description_widgets(web_template, (mode == 'preview')) } %>
+<% content_for(:head_widgets) { raw head_widgets(web_template, (mode == 'preview')) } %>
 
 <% content_for(:body_classes) { "page-#{web_template.name.parameterize} #{web_template.body_class} #{web_template.location_body_class}" } %>
 
