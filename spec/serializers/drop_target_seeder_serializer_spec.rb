@@ -31,8 +31,4 @@ describe DropTargetSeederSerializer do
       end
     end
   end
-
-  describe "#to_yaml_file" do
-    ## TODO: write this spec
-  end
 end
