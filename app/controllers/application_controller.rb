@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_filter :client_name
   helper_method :client
-  prepend_before_filter :authenticate_user!, unless: ENV['G5_AUTH_OFFLINE']
+  prepend_before_filter :authenticate_user!
 
   helper G5Header::ApplicationHelper
 
