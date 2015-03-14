@@ -69,7 +69,6 @@ describe Seeder::ColumnWidgetSeeder do
         it "creates a content stripe widget in the drop target" do
           expect(drop_target.widgets.first.slug).to eq(content_stripe_widget.slug)
           expect(@response.drop_target).to_not be_nil
-          binding.pry
         end
       end
     end

@@ -16,7 +16,6 @@ module Seeder
         return ColumnWidgetSeeder.new(@widget, @instructions).seed if @widget.is_column?
         set_default_widget_settings(@instructions[:settings])
       rescue => e
-        binding.pry
         widget_seeder_error(e)
       end
       @widget
@@ -29,8 +28,7 @@ module Seeder
     end
 
     def set_default_widget_setting(setting)
-      widget_setting = @widget.settings.find_by_name(setting[:name])
-      widget_setting.update_attribute('value', setting[:value]) if widget_setting
+      @widget.set_setting(setting[:name], setting[:value])
     end
 
     def widget_params

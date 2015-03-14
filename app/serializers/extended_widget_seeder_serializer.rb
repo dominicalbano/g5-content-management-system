@@ -13,13 +13,17 @@ class ExtendedWidgetSeederSerializer < ActiveModel::Serializer
   protected
 
   def settings_list
-    []
+    [] ## abstract
+  end
+
+  def use_reverse_liquid?
+    false ## abstract
   end
 
   def reverse_liquid(value)
     object.liquid_parameters.each do |key, val|
-      value.gsub!(val, "{{#{key}}}") unless val.strip.blank?
-    end
+      value.gsub!(val, "{{#{key}}}") unless val.blank?
+    end if use_reverse_liquid?
     value
   end
 end

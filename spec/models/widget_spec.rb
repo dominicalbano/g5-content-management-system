@@ -67,7 +67,7 @@ describe Widget, vcr: VCR_OPTIONS do
       let(:liquid_text) { "{{client_name}}" }
 
       before do 
-        widget.settings.find_by_name('text').update_attribute(:value, liquid_text)
+        widget.set_setting('text', liquid_text)
       end
 
       it "does not escape funky characters" do

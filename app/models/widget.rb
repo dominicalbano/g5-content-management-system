@@ -58,6 +58,15 @@ class Widget < ActiveRecord::Base
      widgets.collect(&:lib_javascripts)].flatten.compact.uniq
   end
 
+  def get_setting(name)
+    settings.try(:find_by_name, name)
+  end
+
+  def set_setting(name, value)
+    setting = get_setting(name)
+    setting.update_attribute(:value, value) if setting
+  end
+
   def widgets
     more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
 
