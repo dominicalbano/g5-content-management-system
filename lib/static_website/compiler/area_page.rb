@@ -53,7 +53,8 @@ module StaticWebsite
             web_template: corporate_location.website.website_template,
             area: area,
             params: @params,
-            mode: "deployed"
+            mode: "deployed",
+            is_preview: false
           }
         }
         LOGGERS.each {|logger| logger.debug("the options are: #{options}")}
