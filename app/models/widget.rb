@@ -79,8 +79,7 @@ class Widget < ActiveRecord::Base
   def render_show_html
     return RowWidgetShowHtml.new(self).render if is_content_stripe?
     return ColumnWidgetShowHtml.new(self).render if is_column?
-    html = Liquid::Template.parse(show_html).render(
-      "widget" => WidgetDrop.new(self, client.try(:locations)))
+    html = Liquid::Template.parse(show_html).render("widget" => WidgetDrop.new(self, client.try(:locations)))
     html = Liquid::Template.parse(html).render(liquid_parameters) if liquid
     html
   end

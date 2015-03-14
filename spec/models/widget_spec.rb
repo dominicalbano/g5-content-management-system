@@ -1,6 +1,11 @@
 require "spec_helper"
 
 describe Widget, vcr: VCR_OPTIONS do
+  let!(:client) { Fabricate(:client) }
+  let!(:location) { Fabricate(:location) }
+  let(:website) { Fabricate(:website, owner: location) }
+  let(:web_template) { Fabricate(:web_page_template, website: website)}
+  let(:drop_target) { Fabricate(:drop_target, web_template: web_template) }
 
   describe "validations" do
     let(:widget){Fabricate(:widget)}
@@ -32,7 +37,7 @@ describe Widget, vcr: VCR_OPTIONS do
   describe "#render_show_html" do
     context "content stripe widget" do
       let(:garden_widget) { Fabricate.build(:garden_widget, name: "Content Stripe") }
-      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget) }
+      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:row_widget_show_html) { double(render: nil) }
 
       before { RowWidgetShowHtml.stub(new: row_widget_show_html) }
@@ -45,7 +50,7 @@ describe Widget, vcr: VCR_OPTIONS do
 
     context "column widget" do
       let(:garden_widget) { Fabricate.build(:garden_widget, name: "Column") }
-      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget) }
+      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:column_widget_show_html) { double(render: nil) }
 
       before { ColumnWidgetShowHtml.stub(new: column_widget_show_html) }
@@ -56,9 +61,35 @@ describe Widget, vcr: VCR_OPTIONS do
       end
     end
 
-    context "all other widgets" do
-      let(:widget) { Fabricate.build(:widget) }
+    context "liquid widgets" do
+      let(:garden_widget) { Fabricate.build(:html_garden_widget) }
+      let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+      let(:liquid_text) { "{{client_name}}" }
+      before do
+        garden_widget.save
+        widget.save
+        widget.reload.settings.find_by_name('text').update_attribute(:value, liquid_text)
+      end
 
+      it "does not escape funky characters" do
+        widget.stub(:show_html) { "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" }
+        expect(widget.render_show_html).to eq widget.show_html
+      end
+
+      it "supports liquid - processes liquid variables" do  
+        expect(widget.render_show_html).to include client.name
+      end
+
+      it "no liquid - does not process liquid variables" do
+        widget.stub(:liquid) { false }
+        expect(widget.render_show_html).to include liquid_text
+      end
+    end
+
+    context "all other widgets" do
+      let(:garden_widget) { Fabricate.build(:garden_widget) }
+      let(:widget) { Fabricate.build(:widget) }
+      
       it "does not escape funky characters" do
         widget.stub(:show_html) { "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" }
         expect(widget.render_show_html).to eq widget.show_html
@@ -144,7 +175,43 @@ describe Widget, vcr: VCR_OPTIONS do
 
     it "#widget_type" do
       expect(widget.widget_type).to eq(garden_widget.widget_type)
-    end  
+    end 
+
+    describe "#liquid_parameters" do
+      context "non-liquid widget" do
+        it "returns empty if not liquid" do
+          expect(widget.liquid_parameters).to be_empty
+        end
+      end
+
+      context "liquid widget" do
+        let(:garden_widget) { Fabricate.build(:html_garden_widget) }
+        let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
+        it "returns array of liquid parameters if liquid" do
+          expect(widget.liquid_parameters).to_not be_empty
+        end
+
+        it "gets correct client info" do
+          expect(widget.liquid_parameters['client_name']).to eq(client.name)
+          expect(widget.liquid_parameters['client_vertical']).to eq(client.vertical)
+        end
+
+        it "gets correct web template info" do
+          expect(widget.liquid_parameters['web_template_name']).to eq(web_template.name)
+        end
+
+        it "gets correct location info" do
+          expect(widget.liquid_parameters['location_name']).to eq(location.name)
+          expect(widget.liquid_parameters['location_city']).to eq(location.city)
+          expect(widget.liquid_parameters['location_state']).to eq(location.state)
+          expect(widget.liquid_parameters['location_neighborhood']).to eq(location.neighborhood)
+          expect(widget.liquid_parameters['location_floor_plans']).to eq(location.floor_plans)
+          expect(widget.liquid_parameters['location_primary_amenity']).to eq(location.primary_amenity)
+          expect(widget.liquid_parameters['location_qualifier']).to eq(location.qualifier)
+          expect(widget.liquid_parameters['location_primary_landmark']).to eq(location.primary_landmark)
+        end
+      end
+    end 
   end
 end
 

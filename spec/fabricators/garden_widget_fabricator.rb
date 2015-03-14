@@ -73,7 +73,7 @@ Fabricator :html_garden_widget, from: :garden_widget do
   thumbnail { Faker::Internet.url }
   liquid { true }
   edit_html { "<div>edit</div>" }
-  show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">show</div>" }
+  show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">{{ widget.text.value }}</div>" }
   widget_type { "" }
   settings do
     [
