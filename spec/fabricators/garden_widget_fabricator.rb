@@ -109,5 +109,12 @@ Fabricator :analytics_garden_widget, from: :garden_widget do
   edit_html { "<div>edit</div>" }
   show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">show</div>" }
   widget_type { "" }
+  settings do
+    [
+      {:name=>"tracking_code", :editable=>"true", :default_value=>"", :categories=>["Instance"]}, 
+      {:name=>"go_squared_client_code", :editable=>"true", :default_value=>"", :categories=>["Instance"]}, 
+      {:name=>"go_squared_code", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
+    ]
+  end
 end
 
