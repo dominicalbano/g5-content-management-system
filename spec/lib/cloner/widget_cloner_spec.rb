@@ -16,7 +16,7 @@ describe Cloner::WidgetCloner do
       subject { Cloner::WidgetCloner.new(content_stripe_widget, target_drop_target).clone }
 
       before do
-        content_stripe_widget.set_nested_widget(1, html_garden_widget)
+        content_stripe_widget.set_child_widget(1, html_garden_widget)
         content_stripe_widget.reload
         subject
       end

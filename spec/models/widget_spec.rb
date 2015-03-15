@@ -231,7 +231,7 @@ describe Widget, vcr: VCR_OPTIONS do
         let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: nil) }
         let(:parent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
         before do
-          parent.set_nested_widget(1, widget)
+          parent.set_child_widget(1, widget)
         end 
 
         it "returns correct parent widget" do
@@ -246,8 +246,8 @@ describe Widget, vcr: VCR_OPTIONS do
         let(:parent) { Fabricate(:widget, garden_widget: col_garden_widget, drop_target: nil) }
         let(:grandparent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
         before do
-          parent.set_nested_widget(1, widget)
-          grandparent.set_nested_widget(1, parent)
+          parent.set_child_widget(1, widget)
+          grandparent.set_child_widget(1, parent)
         end
 
         it "returns correct parent and grandparent widgets" do

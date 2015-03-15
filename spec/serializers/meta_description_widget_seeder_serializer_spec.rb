@@ -29,7 +29,7 @@ describe MetaDescriptionWidgetSeederSerializer do
 
         it "serializes the meta_description setting" do
           expect(subject[:settings]).to_not be_empty
-          expect(subject[:settings].first[:value]).to eq(widget.get_setting('meta_description').value)
+          expect(subject[:settings].first[:value]).to eq(widget.get_setting_value('meta_description'))
         end
       end
 

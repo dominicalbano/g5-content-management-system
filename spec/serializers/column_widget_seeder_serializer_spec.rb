@@ -32,10 +32,8 @@ describe ColumnWidgetSeederSerializer do
       let(:widget_1) { Fabricate(:widget, garden_widget: garden_widget) }
       let(:widget_2) { Fabricate(:widget, garden_widget: other_garden_widget) }
       before do
-        column_widget.set_setting('row_one_widget_name', widget_1.name)
-        column_widget.set_setting('row_one_widget_id', widget_1.id)
-        column_widget.set_setting('row_two_widget_name', widget_2.name)
-        column_widget.set_setting('row_two_widget_id', widget_2.id)
+        column_widget.set_child_widget(1, widget_1)
+        column_widget.set_child_widget(2, widget_2)
         column_widget.reload
       end
       it "serializes widgets array" do

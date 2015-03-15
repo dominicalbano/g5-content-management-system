@@ -29,15 +29,10 @@ module Seeder
       return @widget unless layout && widgets
       @widget.set_setting(layout_var, layout)
       widgets.each.with_index(1) do |instruction, idx|
-        set_nested_widget_settings(WidgetSeeder.new(nil, instruction).seed, idx)
+        w = WidgetSeeder.new(nil, instruction).seed
+        @widget.set_child_widget(idx, w) if w.valid?
       end
       @widget.reload
-    end
-
-    def set_nested_widget_settings(widget, index)
-      if widget.try(:valid?)
-        @widget.set_nested_widget(index, widget)
-      end
     end
   end
 end

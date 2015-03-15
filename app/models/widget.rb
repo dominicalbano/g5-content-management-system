@@ -73,7 +73,7 @@ class Widget < ActiveRecord::Base
   end
 
   ## TODO: this needs to be part of refactored CS/Col widget classes
-  def set_nested_widget(position, widget)
+  def set_child_widget(position, widget)
     return unless is_layout? && widget
     prefix = "#{position_var}_#{position_name(position)}_widget_"
     set_setting("#{prefix}name", widget.name)

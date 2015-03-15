@@ -39,8 +39,8 @@ describe Seeder::ContentStripeWidgetSeeder do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
             expect(@response.child_widgets.second.slug).to eq(instructions[:widgets].second[:slug])
-            expect(@response.get_setting('column_one_widget_name').value).to eq(html_widget.name)
-            expect(@response.get_setting('column_two_widget_name').value).to eq(map_widget.name)
+            expect(@response.get_setting_value('column_one_widget_name')).to eq(html_widget.name)
+            expect(@response.get_setting_value('column_two_widget_name')).to eq(map_widget.name)
           end
         end
       end
@@ -60,15 +60,15 @@ describe Seeder::ContentStripeWidgetSeeder do
           end
 
           it "creates correct layout setting for content stripe widget" do
-            expect(@response.get_setting('row_layout').value).to eq(instructions[:row_layout])
+            expect(@response.get_setting_value('row_layout')).to eq(instructions[:row_layout])
           end
 
           it "creates correct nested column widget settings for content stripe widget" do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@first_col.slug).to eq(instructions[:widgets].first[:slug])
             expect(@second_col.slug).to eq(instructions[:widgets].second[:slug])
-            expect(@response.get_setting('column_one_widget_name').value).to eq(column_widget.name)
-            expect(@response.get_setting('column_two_widget_name').value).to eq(column_widget.name)
+            expect(@response.get_setting_value('column_one_widget_name')).to eq(column_widget.name)
+            expect(@response.get_setting_value('column_two_widget_name')).to eq(column_widget.name)
           end
 
           it "creates correct nested widget settings for nested column widgets inside content stripe widget" do
