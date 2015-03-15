@@ -56,7 +56,7 @@ describe Seeder::WidgetSeeder do
             expect(drop_target.widgets.first.slug).to eq(meta_desc_widget.slug)
             expect(@response.slug).to eq(meta_desc_widget.slug)
             expect(@response.drop_target).to_not be_nil
-            expect(@response.settings.find_by_name('meta_description').value).to eq(instructions[:settings].first[:value])
+            expect(@response.get_setting('meta_description').value).to eq(instructions[:settings].first[:value])
           end
         end
 
@@ -67,7 +67,7 @@ describe Seeder::WidgetSeeder do
           it "creates a standalone widget - no drop target - with settings" do
             expect(@response.slug).to eq(meta_desc_widget.slug)
             expect(@response.drop_target).to be_nil
-            expect(@response.settings.find_by_name('meta_description').value).to eq(instructions[:settings].first[:value])
+            expect(@response.get_setting('meta_description').value).to eq(instructions[:settings].first[:value])
           end
         end
       end

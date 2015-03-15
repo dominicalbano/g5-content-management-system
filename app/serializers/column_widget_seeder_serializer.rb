@@ -5,7 +5,7 @@ class ColumnWidgetSeederSerializer < LayoutWidgetSeederSerializer
               :widgets
 
   def row_count
-    object.settings.find_by_name('row_count').try(:value)
+    object.get_setting('row_count').try(:value)
   end
 
   def widgets

@@ -31,15 +31,15 @@ describe Seeder::ColumnWidgetSeeder do
           end
 
           it "creates correct layout setting for column widget" do
-            expect(@response.settings.find_by_name('row_count').value).to eq(instructions[:row_count])
+            expect(@response.get_setting('row_count').value).to eq(instructions[:row_count])
           end
 
           it "creates correct nested widget settings for column widget" do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
             expect(@response.child_widgets.second.slug).to eq(instructions[:widgets].second[:slug])
-            expect(@response.settings.find_by_name('row_one_widget_name').value).to eq(gallery_widget.name)
-            expect(@response.settings.find_by_name('row_two_widget_name').value).to eq(html_widget.name)
+            expect(@response.get_setting('row_one_widget_name').value).to eq(gallery_widget.name)
+            expect(@response.get_setting('row_two_widget_name').value).to eq(html_widget.name)
           end
         end
 
@@ -53,15 +53,15 @@ describe Seeder::ColumnWidgetSeeder do
           end
 
           it "creates correct layout setting for column widget" do
-            expect(@response.settings.find_by_name('row_count').value).to eq(instructions[:row_count])
+            expect(@response.get_setting('row_count').value).to eq(instructions[:row_count])
           end
 
           it "creates correct nested widget settings for column widget" do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
             expect(@response.child_widgets.second.slug).to eq(instructions[:widgets].second[:slug])
-            expect(@response.settings.find_by_name('row_one_widget_name').value).to eq(gallery_widget.name)
-            expect(@response.settings.find_by_name('row_two_widget_name').value).to eq(html_widget.name)
+            expect(@response.get_setting('row_one_widget_name').value).to eq(gallery_widget.name)
+            expect(@response.get_setting('row_two_widget_name').value).to eq(html_widget.name)
           end
         end
       end

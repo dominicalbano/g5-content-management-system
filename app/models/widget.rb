@@ -62,19 +62,35 @@ class Widget < ActiveRecord::Base
     settings.try(:find_by_name, name)
   end
 
+  def get_setting_value(name)
+    setting = get_setting(name)
+    setting.value if setting
+  end
+
   def set_setting(name, value)
     setting = get_setting(name)
     setting.update_attribute(:value, value) if setting
   end
 
+  ## TODO: this needs to be part of refactored CS/Col widget classes
+  def set_nested_widget(position, widget)
+    return unless is_layout? && widget
+    prefix = "#{position_var}_#{position_name(position)}_widget_"
+    set_setting("#{prefix}name", widget.name)
+    set_setting("#{prefix}id", widget.id)
+  end
+
   def widgets
     more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
-
     [child_widgets, more_widgets].flatten.compact
   end
 
   def kind_of_widget?(kind)
     name == kind
+  end
+
+  def is_layout?
+    is_content_stripe? || is_column?
   end
 
   def is_content_stripe?
@@ -86,16 +102,16 @@ class Widget < ActiveRecord::Base
   end
 
   def render_show_html
+    # this is smelly - needs refactor
     return RowWidgetShowHtml.new(self).render if is_content_stripe?
     return ColumnWidgetShowHtml.new(self).render if is_column?
-    html = Liquid::Template.parse(show_html).render("widget" => WidgetDrop.new(self, client.try(:locations)))
-    html = Liquid::Template.parse(html).render(liquid_parameters) if liquid
+    html = liquid_render(show_html, "widget" => liquid_widget_drop)
+    html = liquid_render(html, liquid_parameters) if liquid
     html
   end
 
   def render_edit_html
-    Liquid::Template.parse(edit_html).render(
-      "widget" => WidgetDrop.new(self, client.try(:locations)))
+    liquid_render(edit_html, "widget" => liquid_widget_drop)
   end
 
   def create_widget_entry_if_updated
@@ -165,6 +181,14 @@ class Widget < ActiveRecord::Base
 
   private
 
+  def liquid_render(html, params)
+    Liquid::Template.parse(html).render(params)
+  end
+
+  def liquid_widget_drop
+    WidgetDrop.new(self, client.try(:locations))
+  end
+
   # TODO: Is this being used?
   def set_defaults
     self.removeable = true
@@ -179,5 +203,16 @@ class Widget < ActiveRecord::Base
     Setting.where("value = ?", id.to_yaml).find do |setting|
       setting.name =~ /(?=(column|row))(?=.*widget_id).*/
     end unless drop_target
+  end
+
+  def position_var
+    # smelly, needs to be refactored
+    return "" unless is_layout?
+    is_content_stripe? ? "column" : "row"
+  end
+
+  def position_name(index)
+    positions = { 1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four', 5 => 'five', 6 => 'six' }
+    positions[index]
   end
 end

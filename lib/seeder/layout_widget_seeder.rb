@@ -36,9 +36,7 @@ module Seeder
 
     def set_nested_widget_settings(widget, index)
       if widget.try(:valid?)
-        pos = position_name[index]
-        @widget.set_setting("#{position_var}_#{pos}_widget_name", widget.name)
-        @widget.set_setting("#{position_var}_#{pos}_widget_id", widget.id)
+        @widget.set_nested_widget(index, widget)
       end
     end
   end

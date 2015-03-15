@@ -29,4 +29,8 @@ describe WebPageTemplateSeederSerializer do
       expect(subject[:drop_targets].first[:html_id]).to eq(drop_targets.first.html_id)
     end
   end
+
+  describe "#to_yaml_file" do
+    ## TODO: write this spec
+  end
 end

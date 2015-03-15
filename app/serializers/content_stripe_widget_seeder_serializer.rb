@@ -5,7 +5,7 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
               :widgets
 
   def row_layout
-    object.settings.find_by_name('row_layout').try(:value)
+    object.get_setting('row_layout').try(:value)
   end
 
   def widgets
