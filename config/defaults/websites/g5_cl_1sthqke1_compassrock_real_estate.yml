@@ -1,0 +1,1636 @@
+---
+:website_template:
+  :name: Website Template
+  :web_layout:
+    :slug: rows
+  :web_theme:
+    :slug: compass-rock-corporate
+  :drop_targets:
+  - :html_id: drop-target-head
+    :widgets:
+    - :slug: meta
+    - :slug: typekit
+    - :slug: analytics
+  - :html_id: drop-target-logo
+    :widgets:
+    - :slug: logo
+  - :html_id: drop-target-phone
+    :widgets: []
+  - :html_id: drop-target-btn
+    :widgets: []
+  - :html_id: drop-target-nav
+    :widgets:
+    - :slug: navigation
+      :settings:
+      - :name: display_navigation
+        :value: 'true'
+      - :name: display_as_calls_to_action
+        :value: 'false'
+      - :name: display_corporate_navigation
+        :value: 'false'
+  - :html_id: drop-target-aside-before-main
+    :widgets:
+    - :slug: contact-info-sheet
+  - :html_id: drop-target-aside-after-main
+    :widgets: []
+  - :html_id: drop-target-footer
+    :widgets:
+    - :slug: contact-info
+    - :slug: footer-info
+:web_home_template:
+  :name: Home
+  :title: 'CompassRock Real Estate Offering Property Management & Construction Services '
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: At {{location_name}} we are dedicated to providing the best in apartment
+          homes. To learn more about our apartment communities, please visit our website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: gallery-basic
+        - :slug: multi-family-mini-search
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: six
+        :widgets:
+        - :slug: html
+        - :slug: button
+        - :slug: button
+        - :slug: button
+        - :slug: button
+        - :slug: button
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: corporate-locations-map
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: gallery
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: featured-property-gallery
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: video
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: photo
+:web_page_templates:
+- :name: Our Services
+  :title: Our Services | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn more about the services {{location_name}} offers while visiting
+          our services page.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+- :name: Multifamily Property Management
+  :title: Multifamily Property Management by CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} provides property management services in the multifamily
+          space. Learn more by visiting our website."
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+- :name: Commercial Real Estate
+  :title: Commercial Real Estate by CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Visit {{location_name}}'s website to learn more about our commercial
+          real estate services.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+- :name: Construction and Project Management
+  :title: Construction and Project Management | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} can help you construct and manage your next commercial
+          or multifamily build. Visit our website to learn more."
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Investments
+  :title: CompassRock Real Estate's Investments
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn about {{location_name}}'s investments by visiting our corporate
+          website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Real Estate Consulting
+  :title: Real Estate Consulting by CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: For real estate consulting information visit {{location_name}}'s website
+          for the information you're looking for.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: About Us
+  :title: About Us | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn what sets {{location_name}} apart by visiting our website today.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+- :name: Our Business
+  :title: Our Business | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn more about our business model today by visiting {{location_name}}'s
+          website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+- :name: Sustainability
+  :title: Sustainability | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} runs a sustainable company. Visit our website for
+          more information."
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Leveraging Technology
+  :title: Leveraging Technology | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn how {{location_name}} leverages technology while visiting our
+          website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+- :name: Mission, Vision and Core Values
+  :title: Mission, Vision and Core Values | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn about {{location_name}}'s mission, vision and core values today
+          while visiting our website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: photo
+- :name: Achievements
+  :title: Achievements
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: View {{location_name}}'s achievements and awards by visiting our website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Careers
+  :title: Careers at CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Looking for a Career at {{location_name}}? Visit our website to find
+          out more information.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+- :name: News
+  :title: News about CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Find news about {{location_name}} by visiting our website today.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Contact
+  :title: Contact CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings: []
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: lead-form
+- :name: Co-Marketing
+  :title: CompassRock Real Estate Locations
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: comarketing
+- :name: Apartment Search
+  :title: Apartment Search
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: multifamily-search
+- :name: Commercial Search
+  :title: Commercial Search
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: multifamily-search
+- :name: Contact Us
+  :title: Contact Us | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Looking for contact information for {{location_name}} - visit our
+          site and find it here!
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Our Communities
+  :title: Our Communities | CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: locations-navigation
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: html
+- :name: Management Team
+  :title: CompassRock Real Estate's Management Team
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn about the team that sets {{location_name}} apart from the rest
+          while visiting our website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Client Services
+  :title: Client Services by CompassRock Real Estate
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: For {{location_name}}'s client services, visit our website.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: html
+      - :slug: photo
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: photo
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Brandywine Corporate Center
+  :title: Brandywine Corporate Center
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings: []
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Concord Station
+  :title: Concord Station
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Scottland Crossing
+  :title: Scottland Crossing
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Laurinburg, NC"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Perryville Station Retail
+  :title: Perryville Station Retail
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Perryville, MD"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Clayton Town Center
+  :title: Clayton Town Center
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Raleigh, NC"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Crofton II
+  :title: Crofton II
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Crofton Maryland"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Computer Science Bldg (CSC)
+  :title: Computer Science Bldg (CSC)
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Lanham MD"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: St. Charles I
+  :title: St. Charles I
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Waldorf, MD"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Bristol Commons
+  :title: Bristol Commons
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Bristol VA"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Eaton Place
+  :title: Eaton Place
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Fairfax, VA"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Plantation Crossing
+  :title: Plantation Crossing
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Fredericksburg, VA"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Sudley North Business Center
+  :title: Sudley North Business Center
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Manassas, VA"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: GSA Building (Social Security)
+  :title: GSA Building (Social Security)
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Petersburg, VA"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Turning Basin
+  :title: Turning Basin
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Richmond, VA"
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Countryside Professional Center
+  :title: Countryside Professional Center
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Sterling VA"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Aabacus Industrial
+  :title: Aabacus Industrial
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Las Vegas, NV"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Centennial Plaza
+  :title: Centennial Plaza
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Las Vegas, NV"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Kimco PNP Rainbow Promenade
+  :title: Kimco PNP Rainbow Promenade
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Las Vegas, NV"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Las Vegas Tech Center
+  :title: Las Vegas Tech Center
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Nevada"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Sunset Ridge Professional Park
+  :title: Sunset Ridge Professional Park
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Henderson, NV"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Valley View Phase V
+  :title: Valley View Phase V
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{web_template_name}} in Las Vegas"
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: commercial-de
+  :title: commercial-de
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+- :name: commercial-md
+  :title: commercial-md
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+- :name: commercial-nc
+  :title: commercial-nc
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+- :name: commercial-nv
+  :title: commercial-nv
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+- :name: commercial-va
+  :title: commercial-va
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+- :name: 72 Moody Court
+  :title: 72 Moody Court
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Eaton Canyon Tech Center
+  :title: Eaton Canyon Tech Center
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Cameron Brown
+  :title: Cameron Brown
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: West Ashley Shoppes
+  :title: West Ashley Shoppes
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: NBSC Building
+  :title: NBSC Building
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Patriot Greenville
+  :title: Patriot Greenville
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Seven Farms Square
+  :title: Seven Farms Square
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Manhattan Towers
+  :title: Manhattan Towers
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Culver Medical Plaza
+  :title: Culver Medical Plaza
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Creekside Place
+  :title: Creekside Place
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: 20 Technology Park
+  :title: 20 Technology Park
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: 21800 Burbank
+  :title: 21800 Burbank
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: 14 Piedmont Center
+  :title: 14 Piedmont Center
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Peachtree Dunwoody
+  :title: Peachtree Dunwoody
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Northlake Business Park
+  :title: Northlake Business Park
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Randstad Building
+  :title: Randstad Building
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Bank of America
+  :title: Bank of America
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: html

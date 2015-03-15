@@ -86,7 +86,7 @@ class Widget < ActiveRecord::Base
 
   def get_child_widget(position)
     child_id = get_setting_value("#{child_widget_setting_prefix(position)}id")
-    Widget.find(child_id) if child_id
+    Widget.find_by_id(child_id) if child_id
   end
 
   def widgets
