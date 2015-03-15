@@ -73,11 +73,20 @@ class Widget < ActiveRecord::Base
   end
 
   ## TODO: this needs to be part of refactored CS/Col widget classes
+  def child_widget_setting_prefix(position)
+    "#{position_var}_#{position_name(position)}_widget_"
+  end
+
   def set_child_widget(position, widget)
     return unless is_layout? && widget
-    prefix = "#{position_var}_#{position_name(position)}_widget_"
+    prefix = child_widget_setting_prefix(position)
     set_setting("#{prefix}name", widget.name)
     set_setting("#{prefix}id", widget.id)
+  end
+
+  def get_child_widget(position)
+    child_id = get_setting_value("#{child_widget_setting_prefix(position)}id")
+    Widget.find(child_id) if child_id
   end
 
   def widgets

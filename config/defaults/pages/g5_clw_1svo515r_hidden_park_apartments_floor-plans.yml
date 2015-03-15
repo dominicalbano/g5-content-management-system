@@ -1,0 +1,31 @@
+---
+web_page_templates:
+  :name: Floor Plans
+  :title: "{{location_floor_plans}} in {{location_city}}, {{location_state}} with
+    {{location_primary_amenity}}"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Are you looking for spacious 1,2, & 3 bedroom apartments in {{location_city}}?
+          Visit {{location_name}}' website for more information.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: multifamily-iui-cards
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links

@@ -35,16 +35,30 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
 
   def nested_widget_list
     [1,2,3,4].inject([]) do |arr,pos| 
-      arr << nested_widget(pos) if nested_widget(pos)
+      nested = nested_widget(pos)
+      arr << nested if nested
       arr
     end
   end
 
   def nested_widget(position)
-    return object.widgets.first if position == 1
-    return (two_columns? ? object.widgets.second : nil) if position == 2
-    return (three_columns? ? object.widgets.third : nil) if position == 3
-    return (four_columns? ? object.widgets.fourth : nil) if position == 4
+    child = object.get_child_widget(position)
+    return child if position == 1
+    return (display_two? ? child : nil) if position == 2
+    return (display_three? ? child : nil) if position == 3
+    return (display_four? ? child : nil) if position == 4
+  end
+
+  def display_two?
+    two_columns? || three_columns? || four_columns?
+  end
+
+  def display_three?
+    three_columns? || four_columns?
+  end
+
+  def display_four?
+    four_columns?
   end
 
   def two_columns?

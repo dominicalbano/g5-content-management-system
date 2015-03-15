@@ -1,7 +1,0 @@
----
-content_stripe:
-  :slug: content-stripe
-  :row_layout: uneven-thirds-1
-  :widgets:
-  - :slug: html
-  - :slug: lead-form

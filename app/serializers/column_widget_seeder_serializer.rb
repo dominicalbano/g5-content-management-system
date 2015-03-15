@@ -34,12 +34,13 @@ class ColumnWidgetSeederSerializer < LayoutWidgetSeederSerializer
   end
 
   def nested_widget(position)
-    return object.widgets.first if position == 1
-    return (display_two? ? object.widgets.second : nil) if position == 2
-    return (display_three? ? object.widgets.third : nil) if position == 3
-    return (display_four? ? object.widgets.fourth : nil) if position == 4
-    return (display_five? ? object.widgets.fifth : nil) if position == 5
-    return (count?(6) ? object.widgets.sixth : nil) if position == 6
+    child = object.get_child_widget(position)
+    return child if position == 1
+    return (display_two? ? child : nil) if position == 2
+    return (display_three? ? child : nil) if position == 3
+    return (display_four? ? child : nil) if position == 4
+    return (display_five? ? child : nil) if position == 5
+    return (count?(6) ? child : nil) if position == 6
   end
 
   def display_two?
