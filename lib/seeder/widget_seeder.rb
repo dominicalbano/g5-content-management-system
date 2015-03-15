@@ -12,8 +12,7 @@ module Seeder
       @widget = @drop_target ? @drop_target.widgets.create(widget_params) : Widget.create(widget_params)
       return widget_seeder_error("Invalid widget params") unless @widget.try(:valid?)
       begin
-        return ContentStripeWidgetSeeder.new(@widget, @instructions).seed if @widget.is_content_stripe?
-        return ColumnWidgetSeeder.new(@widget, @instructions).seed if @widget.is_column?
+        return LayoutWidgetSeeder.new(@widget, @instructions).seed if @widget.is_layout?
         set_default_widget_settings(@instructions[:settings])
       rescue => e
         widget_seeder_error(e)

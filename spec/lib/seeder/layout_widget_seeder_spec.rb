@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe Seeder::ContentStripeWidgetSeeder do
+describe Seeder::LayoutWidgetSeeder do
   let!(:client) { Fabricate(:client) }
   let!(:location) { Fabricate(:location) }
   let(:website) { Fabricate(:website, owner: location) }
@@ -16,10 +16,13 @@ describe Seeder::ContentStripeWidgetSeeder do
   let!(:content_stripe_widget) { Fabricate(:row_garden_widget) }
 
   let!(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml")) }
-  let(:instructions) { defaults[:web_page_templates].second[:drop_targets].first[:widgets].first }
+  let!(:cs_instructions) { defaults[:web_page_templates].second[:drop_targets].first[:widgets].first }
+  let!(:col_instructions) { defaults[:web_page_templates].third[:drop_targets].first[:widgets].first }
+  let!(:complex_instructions) { defaults[:web_page_templates].fourth[:drop_targets].first[:widgets].first }
 
   describe "#seed" do
     context "content stripe widget" do
+      let(:instructions) { cs_instructions  }
       subject { seeder.seed }
       
       context "valid instructions - single content stripe with widgets" do
@@ -46,7 +49,7 @@ describe Seeder::ContentStripeWidgetSeeder do
       end
 
       context "valid instructions - content stripe with nested columns with widgets" do
-        let(:instructions) { defaults[:web_page_templates].fourth[:drop_targets].first[:widgets].first }
+        let(:instructions) { complex_instructions  }
         context "has drop target" do
           before do
             @response = subject
@@ -77,6 +80,57 @@ describe Seeder::ContentStripeWidgetSeeder do
             expect(@first_col.child_widgets.first.slug).to eq(instructions[:widgets].first[:widgets].first[:slug])
             expect(@first_col.child_widgets.second.slug).to eq(instructions[:widgets].first[:widgets].second[:slug])
             expect(@second_col.child_widgets.first.slug).to eq(instructions[:widgets].second[:widgets].first[:slug])
+          end
+        end
+      end
+    end
+
+    context "column widget" do
+      let(:instructions) { col_instructions }
+      subject { seeder.seed }
+      
+      context "valid instructions - single column with widgets" do
+        context "has drop target" do
+          before { @response = subject }
+
+          it "creates a column widget in the drop target" do
+            expect(drop_target.widgets.first.slug).to eq(column_widget.slug)
+            expect(@response.slug).to eq(column_widget.slug)
+            expect(@response.drop_target).to_not be_nil
+          end
+
+          it "creates correct layout setting for column widget" do
+            expect(@response.get_setting_value('row_count')).to eq(instructions[:row_count])
+          end
+
+          it "creates correct nested widget settings for column widget" do
+            expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
+            expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
+            expect(@response.child_widgets.second.slug).to eq(instructions[:widgets].second[:slug])
+            expect(@response.get_setting_value('row_one_widget_name')).to eq(gallery_widget.name)
+            expect(@response.get_setting_value('row_two_widget_name')).to eq(html_widget.name)
+          end
+        end
+
+        context "has no drop target" do
+          let(:drop_target) { nil }
+          before { @response = subject }
+
+          it "creates a standalone column widget - no drop target" do
+            expect(@response.slug).to eq(column_widget.slug)
+            expect(@response.drop_target).to be_nil
+          end
+
+          it "creates correct layout setting for column widget" do
+            expect(@response.get_setting('row_count').value).to eq(instructions[:row_count])
+          end
+
+          it "creates correct nested widget settings for column widget" do
+            expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
+            expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
+            expect(@response.child_widgets.second.slug).to eq(instructions[:widgets].second[:slug])
+            expect(@response.get_setting_value('row_one_widget_name')).to eq(gallery_widget.name)
+            expect(@response.get_setting_value('row_two_widget_name')).to eq(html_widget.name)
           end
         end
       end

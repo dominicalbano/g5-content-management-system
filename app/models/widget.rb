@@ -179,6 +179,18 @@ class Widget < ActiveRecord::Base
     widget_settings.map(&:value).include?(widget.id)
   end
 
+  def position_var
+    # smelly, needs to be refactored
+    return "" unless is_layout?
+    is_content_stripe? ? "column" : "row"
+  end
+
+  def layout_var
+    # smelly, needs to be refactored
+    return "" unless is_layout?
+    is_content_stripe? ? "row_layout" : "row_count"
+  end
+
   private
 
   def liquid_render(html, params)
@@ -205,13 +217,8 @@ class Widget < ActiveRecord::Base
     end unless drop_target
   end
 
-  def position_var
-    # smelly, needs to be refactored
-    return "" unless is_layout?
-    is_content_stripe? ? "column" : "row"
-  end
-
   def position_name(index)
+    # smelly, needs to be refactored
     positions = { 1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four', 5 => 'five', 6 => 'six' }
     positions[index]
   end
