@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe Client do
   def load_yaml(file)
-    YAML.load_file("#{Rails.root}/config/defaults/websites/#{file}")
+    HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/defaults/websites/#{file}"))
   end
 
   describe "validations" do
