@@ -46,12 +46,14 @@ def drag_and_drop_add(element, target)
   builder.perform
 end
 
-def accept_confirm(page)
-  page.driver.browser.switch_to.alert.accept
-end
-
-def dismiss_confirm(page)
-  page.driver.browser.switch_to.alert.dismiss
+# Capybara 2.4.1 introduced a model API that is currently not supported by
+# poltergeist, but probably will be in the near future (there was already
+# an abortive attempt: https://github.com/teampoltergeist/poltergeist/pull/516)
+# In the meantime, we'll mock out the capybara accept_confirm method to
+# take advantage of poltergeist's default behavior of returning true from
+# any call to window.confirm()
+def accept_confirm(text_or_options=nil, options={}, &block)
+  block.call
 end
 
 def seed(file="example.yml")
