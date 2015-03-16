@@ -25,6 +25,8 @@ module StaticWebsite
       def render_htaccess
         # array of redirect patterns after being formatted for htaccess
         redirect_rules = []
+        ENV['SITE_REDIRECTS'].to_s.split("\n").each {|redirect| redirect_rules << redirect}
+
         templates = (@web_page_templates + [@web_home_template]).compact
 
         templates.each do |template|
