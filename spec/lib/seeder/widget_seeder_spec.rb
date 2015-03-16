@@ -13,7 +13,7 @@ describe Seeder::WidgetSeeder do
   let!(:content_stripe_widget) { Fabricate(:row_garden_widget) }
   let!(:column_widget) { Fabricate(:column_garden_widget) }
 
-  let!(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml")) }
+  let!(:defaults) { load_yaml_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml") }
   let(:meta_desc_instructions) { defaults[:web_home_template][:drop_targets].first[:widgets].first }
   let(:html_instructions) { defaults[:web_page_templates].first[:drop_targets].first[:widgets].first }
   let(:content_stripe_instructions) { defaults[:web_page_templates].second[:drop_targets].first[:widgets].first }

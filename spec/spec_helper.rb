@@ -84,6 +84,14 @@ RSpec.configure do |config|
   end
 end
 
+def load_yaml_file(path)
+  HashWithIndifferentAccess.new(YAML.load_file(path)) if File.exists?(path)
+end
+
+def load_website_yaml_file(file)
+  load_yaml_file("#{Rails.root}/config/defaults/websites/#{file}.yml")
+end
+
 def set_selenium_window_size(width, height)
   window = Capybara.current_session.driver.browser.manage.window
   window.resize_to(width, height)

@@ -15,7 +15,7 @@ describe Seeder::LayoutWidgetSeeder do
   let!(:column_widget) { Fabricate(:column_garden_widget) }
   let!(:content_stripe_widget) { Fabricate(:row_garden_widget) }
 
-  let!(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml")) }
+  let!(:defaults) { load_yaml_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml") }
   let!(:cs_instructions) { defaults[:web_page_templates].second[:drop_targets].first[:widgets].first }
   let!(:col_instructions) { defaults[:web_page_templates].third[:drop_targets].first[:widgets].first }
   let!(:complex_instructions) { defaults[:web_page_templates].fourth[:drop_targets].first[:widgets].first }

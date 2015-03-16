@@ -5,7 +5,7 @@ describe Seeder::DropTargetSeeder do
   let!(:location) { Fabricate(:location) }
   let(:website) { Fabricate(:website, owner: location) }
   let(:website_template) { Fabricate(:website_template, website: website) }
-  let(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/defaults/websites/defaults.yml")) }
+  let(:defaults) { load_website_yaml_file("defaults") }
   let(:instructions) { defaults[:website_template][:drop_targets] }
   let(:seeder) { Seeder::DropTargetSeeder.new(website_template, instructions) }
 

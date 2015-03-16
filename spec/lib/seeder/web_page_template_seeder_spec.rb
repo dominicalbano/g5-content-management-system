@@ -4,7 +4,7 @@ describe Seeder::WebPageTemplateSeeder do
   let!(:client) { Fabricate(:client) }
   let!(:location) { Fabricate(:location) }
   let(:website) { Fabricate(:website, owner: location) }
-  let(:defaults) { HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/defaults/websites/defaults.yml")) }
+  let(:defaults) { load_website_yaml_file("defaults") }
   let(:web_home_instructions) { defaults[:web_home_template] }
   let(:web_page_instructions) { defaults[:web_page_templates].first }
 

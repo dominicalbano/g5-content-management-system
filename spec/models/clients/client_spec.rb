@@ -1,10 +1,6 @@
 require "spec_helper"
 
 describe Client do
-  def load_yaml(file)
-    HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/config/defaults/websites/#{file}"))
-  end
-
   describe "validations" do
     it "should have a valid fabricator" do
       Fabricate.build(:client).should be_valid
@@ -36,7 +32,7 @@ describe Client do
         let(:vertical) { "Self-Storage" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_yaml("website_defaults_self_storage.yml")
+          expect(subject).to eq load_website_yaml_file("website_defaults_self_storage")
         end
       end
 
@@ -44,7 +40,7 @@ describe Client do
         let(:vertical) { "Apartments" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_yaml("website_defaults_apartments.yml")
+          expect(subject).to eq load_website_yaml_file("website_defaults_apartments")
         end
       end
 
@@ -52,7 +48,7 @@ describe Client do
         let(:vertical) { "senior-Living" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_yaml("website_defaults_senior_living.yml")
+          expect(subject).to eq load_website_yaml_file("website_defaults_senior_living")
         end
       end
 
@@ -60,7 +56,7 @@ describe Client do
         let(:vertical) { "foo" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_yaml("defaults.yml")
+          expect(subject).to eq load_website_yaml_file("defaults")
         end
       end
     end
