@@ -1,0 +1,23 @@
+---
+content_stripe:
+  :slug: content-stripe
+  :row_layout: uneven-thirds-2
+  :widgets:
+  - :slug: column
+    :row_count: two
+    :widgets:
+    - :slug: html
+    - :slug: map
+  - :slug: column
+    :row_count: three
+    :widgets:
+    - :slug: navigation
+      :settings:
+      - :name: display_navigation
+        :value: 'true'
+      - :name: display_as_calls_to_action
+        :value: 'true'
+      - :name: display_corporate_navigation
+        :value: 'false'
+    - :slug: contact-info
+    - :slug: html

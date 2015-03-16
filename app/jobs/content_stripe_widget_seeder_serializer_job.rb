@@ -8,7 +8,7 @@ class ContentStripeWidgetSeederSerializerJob
         p.widgets.content_stripe.each do |cs|
           ContentStripeWidgetSeederSerializer.new(cs).to_yaml_file
         end
-      end if l
+      end if l && l.website
     end
   end
 end

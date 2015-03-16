@@ -3,9 +3,14 @@ content_stripe:
   :slug: content-stripe
   :row_layout: uneven-thirds-2
   :widgets:
-  - :slug: html
   - :slug: column
-    :row_count: two
+    :row_count: three
+    :widgets:
+    - :slug: html
+    - :slug: directions
+  - :slug: column
+    :row_count: three
     :widgets:
     - :slug: calls-to-action
     - :slug: contact-info
+    - :slug: html
