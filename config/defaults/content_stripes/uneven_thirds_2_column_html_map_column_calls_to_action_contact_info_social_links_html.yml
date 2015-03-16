@@ -1,0 +1,17 @@
+---
+content_stripe:
+  :slug: content-stripe
+  :row_layout: uneven-thirds-2
+  :widgets:
+  - :slug: column
+    :row_count: two
+    :widgets:
+    - :slug: html
+    - :slug: map
+  - :slug: column
+    :row_count: four
+    :widgets:
+    - :slug: calls-to-action
+    - :slug: contact-info
+    - :slug: social-links
+    - :slug: html

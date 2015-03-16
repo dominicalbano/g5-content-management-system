@@ -4,4 +4,4 @@ content_stripe:
   :row_layout: thirds
   :widgets:
   - :slug: html
-  - :slug: html
+  - :slug: map

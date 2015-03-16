@@ -1,7 +1,6 @@
 ---
 content_stripe:
   :slug: content-stripe
-  :row_layout: thirds
+  :row_layout: single
   :widgets:
-  - :slug: html
-  - :slug: html
+  - :slug: self-storage-iui-cards

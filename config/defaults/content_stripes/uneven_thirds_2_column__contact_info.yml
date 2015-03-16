@@ -1,0 +1,9 @@
+---
+content_stripe:
+  :slug: content-stripe
+  :row_layout: uneven-thirds-2
+  :widgets:
+  - :slug: column
+    :row_count: 
+    :widgets: []
+  - :slug: contact-info
