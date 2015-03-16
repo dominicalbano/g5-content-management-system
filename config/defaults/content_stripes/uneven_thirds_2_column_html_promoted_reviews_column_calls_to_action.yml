@@ -7,9 +7,8 @@ content_stripe:
     :row_count: two
     :widgets:
     - :slug: html
-    - :slug: lead-form
+    - :slug: promoted-reviews
   - :slug: column
-    :row_count: three
+    :row_count: two
     :widgets:
-    - :slug: contact-info
-    - :slug: social-links
+    - :slug: calls-to-action

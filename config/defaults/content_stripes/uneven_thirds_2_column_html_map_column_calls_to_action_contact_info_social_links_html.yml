@@ -4,7 +4,7 @@ content_stripe:
   :row_layout: uneven-thirds-2
   :widgets:
   - :slug: column
-    :row_count: two
+    :row_count: three
     :widgets:
     - :slug: html
     - :slug: map

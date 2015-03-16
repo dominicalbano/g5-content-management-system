@@ -21,8 +21,10 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
   end
 
   def to_yaml_file
-    file_name = "#{row_layout}_#{nested_widget_slugs.join('_')}".downcase.underscore.gsub(' ','_')
-    File.write("#{CONTENT_STRIPE_DEFAULTS_PATH}/#{file_name}.yml", self.as_json({root: "content_stripe"}).to_yaml)
+    if row_layout && !nested_widget_slugs.empty?
+      file_name = "#{row_layout}_#{nested_widget_slugs.join('_')}".downcase.underscore.gsub(' ','_')
+      File.write("#{CONTENT_STRIPE_DEFAULTS_PATH}/#{file_name}.yml", self.as_json({root: "content_stripe"}).to_yaml)
+    end
   end
 
   def nested_widget_slugs

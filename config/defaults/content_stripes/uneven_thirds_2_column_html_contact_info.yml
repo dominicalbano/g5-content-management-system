@@ -7,9 +7,4 @@ content_stripe:
     :row_count: two
     :widgets:
     - :slug: html
-    - :slug: lead-form
-  - :slug: column
-    :row_count: three
-    :widgets:
-    - :slug: contact-info
-    - :slug: social-links
+  - :slug: contact-info

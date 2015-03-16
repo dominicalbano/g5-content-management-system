@@ -5,7 +5,5 @@ content_stripe:
   :widgets:
   - :slug: html
   - :slug: column
-    :row_count: three
-    :widgets:
-    - :slug: contact-info
-    - :slug: social-links
+    :row_count: 
+    :widgets: []
