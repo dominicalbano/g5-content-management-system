@@ -42,7 +42,7 @@ describe "Integration '/web_template/:id'",
 
         @client = Fabricate(:client)
         @location = Fabricate(:location)
-        @website = WebsiteSeeder.new(@location).seed
+        @website = Seeder::WebsiteSeeder.new(@location).seed
         @web_page_template = @website.web_page_templates.first
       end
 
