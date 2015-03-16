@@ -47,7 +47,7 @@
             :widgets:
               - :slug: gallery
               - :slug: html
-  - :name: Columns inside Content Stripe
+  - :name: Complex
     :drop_targets:
       - :html_id: drop-target-main
         :widgets:

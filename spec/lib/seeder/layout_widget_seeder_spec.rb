@@ -16,9 +16,13 @@ describe Seeder::LayoutWidgetSeeder do
   let!(:content_stripe_widget) { Fabricate(:row_garden_widget) }
 
   let!(:defaults) { load_yaml_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml") }
-  let!(:cs_instructions) { defaults[:web_page_templates].second[:drop_targets].first[:widgets].first }
-  let!(:col_instructions) { defaults[:web_page_templates].third[:drop_targets].first[:widgets].first }
-  let!(:complex_instructions) { defaults[:web_page_templates].fourth[:drop_targets].first[:widgets].first }
+  let!(:cs_page) { defaults[:web_page_templates].find { |wt| wt[:name] == 'Content Stripe' } }
+  let!(:col_page) { defaults[:web_page_templates].find { |wt| wt[:name] == 'Column' } }
+  let!(:complex_page) { defaults[:web_page_templates].find { |wt| wt[:name] == 'Complex' } }
+
+  let!(:cs_instructions) { cs_page[:drop_targets].first[:widgets].first }
+  let!(:col_instructions) { col_page[:drop_targets].first[:widgets].first }
+  let!(:complex_instructions) { complex_page[:drop_targets].first[:widgets].first }
 
   describe "#seed" do
     context "content stripe widget" do
@@ -37,7 +41,7 @@ describe Seeder::LayoutWidgetSeeder do
           it "creates correct layout setting for content stripe widget" do
             expect(@response.get_setting('row_layout').value).to eq(instructions[:row_layout])
           end
-        ##TODO: figure out why this doesn't work!
+        
           it "creates correct nested widget settings for content stripe widget" do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
@@ -66,8 +70,6 @@ describe Seeder::LayoutWidgetSeeder do
             expect(@response.get_setting_value('row_layout')).to eq(instructions[:row_layout])
           end
 
-        ##TODO: figure out why this doesn't work!
-        #
           it "creates correct nested column widget settings for content stripe widget" do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@first_col.slug).to eq(instructions[:widgets].first[:slug])
@@ -75,14 +77,14 @@ describe Seeder::LayoutWidgetSeeder do
             expect(@response.get_setting_value('column_one_widget_name')).to eq(column_widget.name)
             expect(@response.get_setting_value('column_two_widget_name')).to eq(column_widget.name)
           end
-#
-        #  it "creates correct nested widget settings for nested column widgets inside content stripe widget" do
-        #    expect(@first_col.child_widgets.size).to eq(instructions[:widgets].first[:widgets].size)
-        #    expect(@second_col.child_widgets.size).to eq(instructions[:widgets].second[:widgets].size)
-        #    expect(@first_col.child_widgets.first.slug).to eq(instructions[:widgets].first[:widgets].first[:slug])
-        #    expect(@first_col.child_widgets.second.slug).to eq(instructions[:widgets].first[:widgets].second[:slug])
-        #    expect(@second_col.child_widgets.first.slug).to eq(instructions[:widgets].second[:widgets].first[:slug])
-        #  end
+
+          it "creates correct nested widget settings for nested column widgets inside content stripe widget" do
+            expect(@first_col.child_widgets.size).to eq(instructions[:widgets].first[:widgets].size)
+            expect(@second_col.child_widgets.size).to eq(instructions[:widgets].second[:widgets].size)
+            expect(@first_col.child_widgets.first.slug).to eq(instructions[:widgets].first[:widgets].first[:slug])
+            expect(@first_col.child_widgets.second.slug).to eq(instructions[:widgets].first[:widgets].second[:slug])
+            expect(@second_col.child_widgets.first.slug).to eq(instructions[:widgets].second[:widgets].first[:slug])
+          end
         end
       end
     end
@@ -104,7 +106,7 @@ describe Seeder::LayoutWidgetSeeder do
           it "creates correct layout setting for column widget" do
             expect(@response.get_setting_value('row_count')).to eq(instructions[:row_count])
           end
-        ##TODO: figure out why this doesn't work!
+        
           it "creates correct nested widget settings for column widget" do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
@@ -126,7 +128,7 @@ describe Seeder::LayoutWidgetSeeder do
           it "creates correct layout setting for column widget" do
             expect(@response.get_setting('row_count').value).to eq(instructions[:row_count])
           end
-        ##TODO: figure out why this doesn't work!
+        
           it "creates correct nested widget settings for column widget" do
             expect(@response.child_widgets.size).to eq(instructions[:widgets].size)
             expect(@response.child_widgets.first.slug).to eq(instructions[:widgets].first[:slug])
