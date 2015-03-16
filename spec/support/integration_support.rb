@@ -13,37 +13,43 @@ def scroll_to(page, selector)
   EOS
 end
 
-def drag_and_drop(element, target)
-  builder = page.driver.browser.action
-  element = element.native
-  target = target.native
-
-  builder.click_and_hold(element)
-  builder.move_to(target)
-  builder.release
-  builder.perform
+def position(selector)
+  coordinates = page.evaluate_script("$('#{selector}').position()")
+  OpenStruct.new(coordinates)
 end
 
-def drag_and_drop_below(source, target)
-  builder = page.driver.browser.action
-  source = source.native
-  target = target.native
-
-  builder.click_and_hold source
-  builder.move_to        target, (target.size.width)/2+1, (target.size.height)/2+1
-  builder.release
-  builder.perform
+def height(selector)
+  page.evaluate_script("$('#{selector}').height()")
 end
 
-def drag_and_drop_add(element, target)
-  builder = page.driver.browser.action
-  element = element.native
-  target = target.native
+def width(selector)
+  page.evaluate_script("$('#{selector}').width()")
+end
 
-  builder.click_and_hold(element)
-  builder.move_to(target, 5, 5)
-  builder.release
-  builder.perform
+def drag_and_drop(source_selector, target_selector)
+  source = find(source_selector)
+  target = find(target_selector)
+  source.drag_to(target)
+end
+
+def drag_and_drop_below(source_selector, target_selector)
+  source_pos = position(source_selector)
+  target_pos = position(target_selector)
+
+  offset_x = target_pos.left - source_pos.left + width(target_selector)/2 + 1
+  offset_y = target_pos.top - source_pos.top + height(target_selector)/2 + 1
+
+  find(source_selector).native.drag_by(offset_x, offset_y)
+end
+
+def drag_and_drop_add(source_selector, target_selector)
+  source_pos = position(source_selector)
+  target_pos = position(target_selector)
+
+  offset_x = target_pos.left - source_pos.left + 5
+  offset_y = target_pos.top - source_pos.top + 5
+
+  find(source_selector).native.drag_by(offset_x, offset_y)
 end
 
 # Capybara 2.4.1 introduced a model API that is currently not supported by

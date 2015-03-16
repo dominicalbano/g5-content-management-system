@@ -76,7 +76,10 @@ group :test do
   # ruby request specs
   gem "capybara"
   gem "launchy"
-  gem "poltergeist"
+  # We need drag_by support on native elements:
+  # https://github.com/teampoltergeist/poltergeist/pull/552
+  # This should be released with v1.6.1 or v1.7.0
+  gem "poltergeist", github: "teampoltergeist/poltergeist", ref: "f826d135dd54a91f674992e2b5cab60a081e39c"
   gem "database_cleaner"
   # ruby spec support
   gem 'factory_girl_rails'

@@ -1,3 +1,14 @@
+GIT
+  remote: git://github.com/teampoltergeist/poltergeist.git
+  revision: f826d135dd54a91f674992e2b5cab60a081e39c4
+  ref: f826d135dd54a91f674992e2b5cab60a081e39c
+  specs:
+    poltergeist (1.6.0)
+      capybara (~> 2.1)
+      cliver (~> 0.3.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
+
 GEM
   remote: https://rubygems.org/
   remote: https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/
@@ -270,11 +281,6 @@ GEM
     pg (0.17.1)
     platform-api (0.2.0)
       heroics (~> 0.0.10)
-    poltergeist (1.6.0)
-      capybara (~> 2.1)
-      cliver (~> 0.3.1)
-      multi_json (~> 1.0)
-      websocket-driver (>= 0.2.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -462,7 +468,7 @@ DEPENDENCIES
   newrelic_rpm
   non-stupid-digest-assets
   pg
-  poltergeist
+  poltergeist!
   pry-byebug
   quiet_assets
   railroady
