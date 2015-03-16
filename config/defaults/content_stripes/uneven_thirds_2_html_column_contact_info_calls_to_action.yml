@@ -5,6 +5,7 @@ content_stripe:
   :widgets:
   - :slug: html
   - :slug: column
-    :row_count: one
+    :row_count: two
     :widgets:
     - :slug: contact-info
+    - :slug: calls-to-action

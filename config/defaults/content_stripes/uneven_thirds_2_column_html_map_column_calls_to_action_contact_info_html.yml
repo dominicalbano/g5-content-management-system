@@ -9,7 +9,7 @@ content_stripe:
     - :slug: html
     - :slug: map
   - :slug: column
-    :row_count: four
+    :row_count: three
     :widgets:
     - :slug: calls-to-action
     - :slug: contact-info

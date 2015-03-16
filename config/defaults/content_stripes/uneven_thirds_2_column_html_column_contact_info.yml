@@ -8,6 +8,6 @@ content_stripe:
     :widgets:
     - :slug: html
   - :slug: column
-    :row_count: two
+    :row_count: one
     :widgets:
     - :slug: contact-info

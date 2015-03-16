@@ -1,0 +1,10 @@
+---
+content_stripe:
+  :slug: content-stripe
+  :row_layout: single
+  :widgets:
+  - :slug: column
+    :row_count: two
+    :widgets:
+    - :slug: html
+    - :slug: city-state-zip-search

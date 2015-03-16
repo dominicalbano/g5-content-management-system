@@ -3,8 +3,9 @@ content_stripe:
   :slug: content-stripe
   :row_layout: uneven-thirds-2
   :widgets:
-  - :slug: html
+  - :slug: lead-form
   - :slug: column
-    :row_count: one
+    :row_count: two
     :widgets:
     - :slug: contact-info
+    - :slug: html
