@@ -79,6 +79,7 @@ describe Seeder::LayoutWidgetSeeder do
           end
 
           it "creates correct nested widget settings for nested column widgets inside content stripe widget" do
+            binding.pry
             expect(@first_col.reload.child_widgets.size).to eq(complex_instructions[:widgets].first[:widgets].size)
             expect(@second_col.reload.child_widgets.size).to eq(complex_instructions[:widgets].second[:widgets].size)
             expect(@first_col.get_child_widget(1).slug).to eq(complex_instructions[:widgets].first[:widgets].first[:slug])
@@ -130,7 +131,7 @@ describe Seeder::LayoutWidgetSeeder do
           end
         
           it "creates correct nested widget settings for column widget" do
-            expect(@response.realod.child_widgets.size).to eq(col_instructions[:widgets].size)
+            expect(@response.reload.child_widgets.size).to eq(col_instructions[:widgets].size)
             expect(@response.get_child_widget(1).slug).to eq(col_instructions[:widgets].first[:slug])
             expect(@response.get_child_widget(2).slug).to eq(col_instructions[:widgets].second[:slug])
             expect(@response.get_setting_value('row_one_widget_name')).to eq(gallery_widget.name)
