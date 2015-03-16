@@ -1,0 +1,6 @@
+---
+content_stripe:
+  :slug: content-stripe
+  :row_layout: single
+  :widgets:
+  - :slug: lead-form
