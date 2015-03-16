@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("language","ar",{button:"Set language",remove:"Remove language"});
