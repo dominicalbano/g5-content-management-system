@@ -67,6 +67,7 @@ module StaticWebsite
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
+      FileUtils.mkdir(File.join(@repo_dir, "assets"))
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
 
       FileUtils.cp_r(File.join(Rails.root, 'public', ActionController::Base.helpers.asset_path("area_page.css")), @repo_dir + ActionController::Base.helpers.asset_path('area_page.css'))
