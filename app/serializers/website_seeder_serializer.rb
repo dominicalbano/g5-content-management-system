@@ -1,6 +1,6 @@
 class WebsiteSeederSerializer < ActiveModel::Serializer
   def as_json(options=nil)
-    { 
+    {
       website_template: website_template,
       web_home_template: web_home_template,
       web_page_templates: web_page_templates

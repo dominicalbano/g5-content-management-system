@@ -2,6 +2,7 @@ class Widget < ActiveRecord::Base
   include RankedModel
   include HasManySettings
   include UpdateNavSettings
+  include LiquidParameters
 
   validates :garden_widget_id, presence: true
 
@@ -151,28 +152,8 @@ class Widget < ActiveRecord::Base
     widgets.collect {|widget| widget.settings}.flatten
   end
 
-  def liquid_parameters
-    return {} unless liquid
-    template = get_web_template
-    client = template.client
-    location = template.owner
-    {
-      "web_template_name"         => template.name,
-      "location_name"             => location.name,
-      "location_city"             => location.city,
-      "location_state"            => location.state,
-      "location_neighborhood"     => location.neighborhood,
-      "location_floor_plans"      => location.floor_plans,
-      "location_primary_amenity"  => location.primary_amenity,
-      "location_qualifier"        => location.qualifier,
-      "location_primary_landmark" => location.primary_landmark,
-      "client_name"               => client.name,
-      "client_vertical"           => client.vertical
-    }
-  end
-
-  def get_web_template(widget=self)
-    widget.web_template || get_web_template(widget.parent_widget)
+  def get_web_template(object=self)
+    (object.web_template || get_web_template(object.parent_widget)) if object
   end
 
   def parent_widget

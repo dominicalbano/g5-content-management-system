@@ -23,7 +23,7 @@ class ExtendedWidgetSeederSerializer < ActiveModel::Serializer
   def reverse_liquid(value)
     object.liquid_parameters.each do |key, val|
       value.gsub!(val, "{{#{key}}}") unless val.blank?
-    end if use_reverse_liquid?
+    end if object.liquid && use_reverse_liquid?
     value
   end
 end
