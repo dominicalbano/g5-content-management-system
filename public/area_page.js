@@ -4,7 +4,7 @@ function app() {
     loadScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js");
   }
 
-  loadScript("http://maps.googleapis.com/maps/api/js?sensor=false&callback=initialize");
+  loadScript("//maps.googleapis.com/maps/api/js?sensor=false&callback=initialize");
 
   function loadScript(url) {
     var script = document.createElement("script");
