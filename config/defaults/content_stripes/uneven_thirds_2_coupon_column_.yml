@@ -1,9 +1,0 @@
----
-content_stripe:
-  :slug: content-stripe
-  :row_layout: uneven-thirds-2
-  :widgets:
-  - :slug: coupon
-  - :slug: column
-    :row_count: 
-    :widgets: []

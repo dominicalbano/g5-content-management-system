@@ -1,7 +1,0 @@
----
-content_stripe:
-  :slug: content-stripe
-  :row_layout: halves
-  :widgets:
-  - :slug: request-info-form
-  - :slug: contact-info
