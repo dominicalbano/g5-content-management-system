@@ -68,7 +68,7 @@ module StaticWebsite
 
       LOGGERS.each{|logger| logger.debug("copying area page styles from: #{File.join(Rails.root, asset_path('area_page.css'))} to: #{@repo_dir + asset_path('area_page.css')}")}
 
-      FileUtils.cp(File.join(Rails.root, asset_path('area_page.css')), @repo_dir + asset_path('area_page.css'))
+      FileUtils.cp(File.join(Rails.root, ActionController::Base.helpers.asset_path("area_page.css")), @repo_dir + asset_path('area_page.css'))
 
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME']) 
