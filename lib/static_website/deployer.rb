@@ -65,6 +65,9 @@ module StaticWebsite
       # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
+
+      LOGGERS.each{|logger| logger.debug("copying area page styles from: #{File.join(Rails.root, asset_path('area_page.css'))} to: #{@repo_dir + asset_path('area_page.css')}")}
+
       FileUtils.cp(File.join(Rails.root, asset_path('area_page.css')), @repo_dir + asset_path('area_page.css'))
 
       Rails.logger.debug("git config name, email")
