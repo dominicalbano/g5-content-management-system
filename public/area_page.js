@@ -1,7 +1,7 @@
 function app() {
   // If <= IE 9
   if (window.XDomainRequest) {
-    loadScript("http://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js");
+    loadScript("//g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js");
   }
 
   loadScript("//maps.googleapis.com/maps/api/js?sensor=false&callback=initialize");
@@ -17,7 +17,7 @@ function app() {
 
 function initialize() {
   setMapMarker = function(address, formattedAddress){
-    $.getJSON("http://maps.googleapis.com/maps/api/geocode/json", {
+    $.getJSON("//maps.googleapis.com/maps/api/geocode/json", {
       address: address,
       sensor: "false"
     }).done(function(data) {
@@ -62,4 +62,7 @@ function initialize() {
   }
 }
 
-$(document).ready(app);
+$(document).ready(function(){
+  app();
+});
+
