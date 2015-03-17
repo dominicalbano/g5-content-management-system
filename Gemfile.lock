@@ -10,8 +10,8 @@ GIT
       websocket-driver (>= 0.2.0)
 
 GEM
-  remote: https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/
   remote: https://rubygems.org/
+  remote: https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/
   specs:
     actionmailer (4.1.7)
       actionpack (= 4.1.7)
