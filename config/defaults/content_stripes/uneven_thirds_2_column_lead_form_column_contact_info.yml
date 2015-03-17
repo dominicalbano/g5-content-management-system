@@ -1,0 +1,12 @@
+---
+:slug: content-stripe
+:row_layout: uneven-thirds-2
+:widgets:
+- :slug: column
+  :row_count: three
+  :widgets:
+  - :slug: lead-form
+- :slug: column
+  :row_count: three
+  :widgets:
+  - :slug: contact-info

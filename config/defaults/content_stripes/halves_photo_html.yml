@@ -1,0 +1,6 @@
+---
+:slug: content-stripe
+:row_layout: halves
+:widgets:
+- :slug: photo
+- :slug: html

@@ -14,9 +14,9 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
 
   def widget_list
     list = ['column_one_widget_id']
-    list << 'column_two_widget_id' if two_columns?
-    list << 'column_three_widget_id' if three_columns?
-    list << 'column_four_widget_id' if four_columns?
+    list << 'column_two_widget_id' if display_two?
+    list << 'column_three_widget_id' if display_three?
+    list << 'column_four_widget_id' if display_four?
     list
   end
 

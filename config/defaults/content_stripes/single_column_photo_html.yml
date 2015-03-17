@@ -1,0 +1,9 @@
+---
+:slug: content-stripe
+:row_layout: single
+:widgets:
+- :slug: column
+  :row_count: two
+  :widgets:
+  - :slug: photo
+  - :slug: html

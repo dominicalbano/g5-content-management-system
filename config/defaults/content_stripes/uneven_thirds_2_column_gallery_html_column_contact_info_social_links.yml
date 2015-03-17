@@ -1,0 +1,14 @@
+---
+:slug: content-stripe
+:row_layout: uneven-thirds-2
+:widgets:
+- :slug: column
+  :row_count: two
+  :widgets:
+  - :slug: gallery
+  - :slug: html
+- :slug: column
+  :row_count: two
+  :widgets:
+  - :slug: contact-info
+  - :slug: social-links
