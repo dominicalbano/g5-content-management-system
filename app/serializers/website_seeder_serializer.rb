@@ -23,6 +23,8 @@ class WebsiteSeederSerializer < ActiveModel::Serializer
   end
 
   def to_yaml_file
-    File.write("#{WEBSITE_DEFAULTS_PATH}/#{object.urn.downcase.underscore}.yml", self.as_json.to_yaml)
+    file_name = object.urn.downcase.underscore
+    File.write("#{WEBSITE_DEFAULTS_PATH}/#{file_name}.yml", self.as_json.to_yaml)
+    file_name
   end
 end

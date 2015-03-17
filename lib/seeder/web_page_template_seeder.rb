@@ -3,7 +3,7 @@ module Seeder
     attr_reader :instructions, :website, :is_home
 
     def initialize(website, instructions, is_home=false)
-      @instructions = instructions
+      load_instructions(instructions)
       @website = website
       @is_home = is_home
     end
@@ -14,6 +14,12 @@ module Seeder
       template = @is_home ? @website.create_web_home_template(web_page_template_params) : @website.web_page_templates.create(web_page_template_params)
       DropTargetSeeder.new(template, @instructions[:drop_targets]).seed
       template
+    end
+
+    protected
+
+    def yaml_file_path
+      WEB_PAGE_DEFAULTS_PATH
     end
 
     private

@@ -5,7 +5,7 @@ module Seeder
     def initialize(location, instructions=nil)
       @location = location
       @client = Client.first
-      @instructions = instructions || @client.website_defaults
+      load_instructions(instructions || @client.website_defaults)
       @website = @location.create_website
     end
 
@@ -89,6 +89,12 @@ module Seeder
           WebPageTemplateSeeder.new(website, instruction, false).seed if website
         end
       end
+    end
+
+    protected
+
+    def yaml_file_path
+      WEBSITE_DEFAULTS_PATH
     end
 
     private
