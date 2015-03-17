@@ -3,7 +3,7 @@ module Seeder
     attr_reader :instructions, :drop_target, :widget
 
     def initialize(drop_target, instructions)
-      @instructions = instructions
+      @instructions = load_instructions(instructions)
       @drop_target = drop_target
     end
 
@@ -18,6 +18,13 @@ module Seeder
         widget_seeder_error(e)
       end
       @widget
+    end
+
+
+    protected
+
+    def yaml_file_path
+      CONTENT_STRIPE_DEFAULTS_PATH
     end
 
     private
