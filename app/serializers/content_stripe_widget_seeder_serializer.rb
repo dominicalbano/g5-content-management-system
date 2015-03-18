@@ -8,17 +8,6 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
     object.get_setting('row_layout').try(:value)
   end
 
-  def widgets
-    nested_widgets(widget_list)
-  end
-
-  def widget_list
-    list = ['column_1_widget_id']
-    list << 'column_2_widget_id' if display_two?
-    list << 'column_3_widget_id' if display_three?
-    list << 'column_4_widget_id' if display_four?
-    list
-  end
 
   def to_yaml_file
     if row_layout && !nested_widget_slugs.empty?
@@ -36,43 +25,17 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
     end
   end
 
-  def nested_widget_list
-    [1,2,3,4].inject([]) do |arr,pos| 
-      nested = nested_widget(pos)
-      arr << nested if nested
-      arr
-    end
+  def widget_setting_id(index)
+    "column_#{index}_widget_id"
   end
 
-  def nested_widget(position)
-    child = object.get_child_widget(position)
-    return child if position == 1
-    return (display_two? ? child : nil) if position == 2
-    return (display_three? ? child : nil) if position == 3
-    return (display_four? ? child : nil) if position == 4
-  end
-
-  def display_two?
-    two_columns? || three_columns? || four_columns?
-  end
-
-  def display_three?
-    three_columns? || four_columns?
-  end
-
-  def display_four?
-    four_columns?
-  end
-
-  def two_columns?
-    row_layout == "halves"|| row_layout == "uneven-thirds-1" || row_layout == "uneven-thirds-2"
-  end
-
-  def three_columns?
-    row_layout == "thirds"
-  end
-
-  def four_columns?
-    row_layout == "quarters"
+  def count
+    vals = {single: 1, 
+            halves: 2, 
+            uneven_thirds_1: 2, 
+            uneven_thirds_2: 2, 
+            thirds: 3,
+            quarters: 4}
+    vals[row_layout.to_sym] if vals.has_key?(row_layout.to_sym)
   end
 end

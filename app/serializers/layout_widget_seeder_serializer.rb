@@ -16,5 +16,29 @@ class LayoutWidgetSeederSerializer < ActiveModel::Serializer
       arr << WidgetSeederSerializer.new(w, {root: false}).as_json if w
       arr
     end
-  end  
+  end
+
+  def widgets
+    nested_widgets(widget_list)
+  end
+
+  def widget_list
+    (1..count).map { |idx| widget_setting_id(idx) }
+  end
+
+  def nested_widget_slugs
+    nested_widget_list.map(&:slug)
+  end
+
+  def nested_widget_list
+    (1..count).inject([]) do |arr,pos| 
+      arr << nested_widget(pos) if nested_widget(pos)
+      arr
+    end
+  end
+
+  def nested_widget(position)
+    child = object.get_child_widget(position)
+    return count >= position ? child : nil
+  end
 end
