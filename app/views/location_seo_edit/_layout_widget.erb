@@ -5,7 +5,7 @@
       <li><%= tag %>=<%= get_val(column_widget, tag) %></li>
     <% end %>
 
-    <% cols = %w(one two three four five six) %>
+    <% cols = %w(1 2 3 4 5 6) %>
     <% children = Array.new %>
     <% for i in 0..(number_of_widgets(get_val(column_widget, "row_count")) - 1) %>
         <li><%= "row_#{cols[i]}_widget_name" %>=<%= get_val(column_widget, "row_#{cols[i]}_widget_name") %></li>

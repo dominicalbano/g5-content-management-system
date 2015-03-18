@@ -9,12 +9,12 @@ class ColumnWidgetShowHtml < LayoutWidgetShowHtml
   private
 
   def render_widgets
-    render_widget("row_one_widget_id", "#drop-target-first-row")
-    render_widget("row_two_widget_id", "#drop-target-second-row")  if display_two?
-    render_widget("row_three_widget_id", "#drop-target-third-row") if display_three?
-    render_widget("row_four_widget_id", "#drop-target-fourth-row") if display_four?
-    render_widget("row_five_widget_id", "#drop-target-fifth-row")  if display_five?
-    render_widget("row_six_widget_id", "#drop-target-sixth-row")  if count?("six")
+    render_widget("row_1_widget_id", "#drop-target-first-row")
+    render_widget("row_2_widget_id", "#drop-target-second-row")  if display_two?
+    render_widget("row_3_widget_id", "#drop-target-third-row") if display_three?
+    render_widget("row_4_widget_id", "#drop-target-fourth-row") if display_four?
+    render_widget("row_5_widget_id", "#drop-target-fifth-row")  if display_five?
+    render_widget("row_6_widget_id", "#drop-target-sixth-row")  if count?("six")
   end
 
   def row_count

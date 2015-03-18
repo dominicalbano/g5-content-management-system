@@ -13,12 +13,12 @@ class ColumnWidgetSeederSerializer < LayoutWidgetSeederSerializer
   end
 
   def widget_list
-    list = ['row_one_widget_id']
-    list << 'row_two_widget_id' if display_two?
-    list << 'row_three_widget_id' if display_three?
-    list << 'row_four_widget_id' if display_four?
-    list << 'row_five_widget_id' if display_five?
-    list << 'row_six_widget_id' if count?("six")
+    list = ['row_1_widget_id']
+    list << 'row_2_widget_id' if display_two?
+    list << 'row_3_widget_id' if display_three?
+    list << 'row_4_widget_id' if display_four?
+    list << 'row_5_widget_id' if display_five?
+    list << 'row_6_widget_id' if count?("six")
     list
   end
 
