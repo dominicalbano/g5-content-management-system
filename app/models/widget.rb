@@ -75,7 +75,7 @@ class Widget < ActiveRecord::Base
 
   ## TODO: this needs to be part of refactored CS/Col widget classes
   def child_widget_setting_prefix(position)
-    "#{position_var}_#{position_name(position)}_widget_"
+    "#{position_var}_#{position}_widget_"
   end
 
   def set_child_widget(position, widget)
@@ -205,11 +205,5 @@ class Widget < ActiveRecord::Base
     Setting.where("value = ?", id.to_yaml).find do |setting|
       setting.name =~ /(?=(column|row))(?=.*widget_id).*/
     end unless drop_target
-  end
-
-  def position_name(index)
-    # smelly, needs to be refactored
-    positions = { 1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four', 5 => 'five', 6 => 'six' }
-    positions[index]
   end
 end

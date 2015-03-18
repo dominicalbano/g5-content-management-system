@@ -42,7 +42,7 @@ describe RowWidgetShowHtml do
         after { subject }
 
         context "single column" do
-          let(:name) { "column_one_widget_id" }
+          let(:name) { "column_1_widget_id" }
 
           it "calls render_widget once" do
             expect(row_widget_show_html).to receive(:render_widget).once
@@ -50,7 +50,7 @@ describe RowWidgetShowHtml do
         end
 
         context "two columns" do
-          let(:name) { "column_two_widget_id" }
+          let(:name) { "column_2_widget_id" }
           let(:value) { "halves" }
 
           it "calls render_widget twice" do
@@ -59,7 +59,7 @@ describe RowWidgetShowHtml do
         end
 
         context "two columns" do
-          let(:name) { "column_two_widget_id" }
+          let(:name) { "column_2_widget_id" }
           let(:value) { "uneven-thirds-1" }
 
           it "calls render_widget twice" do
@@ -68,7 +68,7 @@ describe RowWidgetShowHtml do
         end
 
         context "two columns" do
-          let(:name) { "column_two_widget_id" }
+          let(:name) { "column_2_widget_id" }
           let(:value) { "uneven-thirds-2" }
 
           it "calls render_widget twice" do
@@ -77,7 +77,7 @@ describe RowWidgetShowHtml do
         end
 
         context "three columns" do
-          let(:name) { "column_three_widget_id" }
+          let(:name) { "column_3_widget_id" }
           let(:value) { "thirds" }
 
           it "calls render_widget three times" do
@@ -86,7 +86,7 @@ describe RowWidgetShowHtml do
         end
 
         context "four columns" do
-          let(:name) { "column_four_widget_id" }
+          let(:name) { "column_4_widget_id" }
           let(:value) { "quarters" }
 
           it "calls render_widget four times" do

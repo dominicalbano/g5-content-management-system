@@ -277,8 +277,7 @@ describe Widget, vcr: VCR_OPTIONS do
         let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: nil) }
         let(:parent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
         before do
-          parent.set_setting('column_one_widget_name', widget.name)
-          parent.set_setting('column_one_widget_id', widget.id)
+          parent.set_child_widget(1, widget)
         end
 
         it "returns drop target web template" do
@@ -291,10 +290,8 @@ describe Widget, vcr: VCR_OPTIONS do
         let(:parent) { Fabricate(:widget, garden_widget: col_garden_widget, drop_target: nil) }
         let(:grandparent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
         before do
-          parent.set_setting('row_one_widget_name', widget.name)
-          parent.set_setting('row_one_widget_id', widget.id)
-          grandparent.set_setting('column_one_widget_name', parent.name)
-          grandparent.set_setting('column_one_widget_id', parent.id)
+          parent.set_child_widget(1, widget)
+          grandparent.set_child_widget(1, parent)
         end
 
         it "returns correct parent and grandparent widgets" do

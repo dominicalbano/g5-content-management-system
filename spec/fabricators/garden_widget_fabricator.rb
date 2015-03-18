@@ -23,14 +23,14 @@ Fabricator :row_garden_widget, from: :garden_widget do
   settings do
     [
       {:name=>"row_layout", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_one_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_one_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_two_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_two_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_three_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_three_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_four_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"column_four_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
+      {:name=>"column_1_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"column_1_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"column_2_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"column_2_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"column_3_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"column_3_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"column_4_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"column_4_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
     ]
   end
 end
@@ -48,18 +48,18 @@ Fabricator :column_garden_widget, from: :garden_widget do
   settings do
     [
       {:name=>"row_count", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_one_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_one_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_two_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_two_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_three_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_three_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_four_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_four_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_five_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_five_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_six_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
-      {:name=>"row_six_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
+      {:name=>"row_1_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_1_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_2_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_2_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_3_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_3_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_4_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_4_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_5_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_5_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_6_widget_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"row_6_widget_id", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
     ]
   end
 end

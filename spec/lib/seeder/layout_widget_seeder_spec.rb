@@ -46,8 +46,8 @@ describe Seeder::LayoutWidgetSeeder do
             expect(@response.reload.child_widgets.size).to eq(cs_instructions[:widgets].size)
             expect(@response.get_child_widget(1).slug).to eq(html_widget.slug)
             expect(@response.get_child_widget(2).slug).to eq(map_widget.slug)
-            expect(@response.get_setting_value('column_one_widget_name')).to eq(html_widget.name)
-            expect(@response.get_setting_value('column_two_widget_name')).to eq(map_widget.name)
+            expect(@response.get_setting_value('column_1_widget_name')).to eq(html_widget.name)
+            expect(@response.get_setting_value('column_2_widget_name')).to eq(map_widget.name)
           end
         end
       end
@@ -73,8 +73,8 @@ describe Seeder::LayoutWidgetSeeder do
           it "creates correct child column widget settings for content stripe widget" do
             expect(@first_col.slug).to eq(complex_instructions[:widgets].first[:slug])
             expect(@second_col.slug).to eq(complex_instructions[:widgets].second[:slug])
-            expect(@response.get_setting_value('column_one_widget_name')).to eq(column_widget.name)
-            expect(@response.get_setting_value('column_two_widget_name')).to eq(column_widget.name)
+            expect(@response.get_setting_value('column_1_widget_name')).to eq(column_widget.name)
+            expect(@response.get_setting_value('column_2_widget_name')).to eq(column_widget.name)
           end
 
           it "creates correct settings for child column widgets inside content stripe widget" do
@@ -110,8 +110,8 @@ describe Seeder::LayoutWidgetSeeder do
             expect(@response.reload.child_widgets.size).to eq(col_instructions[:widgets].size)
             expect(@response.get_child_widget(1).slug).to eq(col_instructions[:widgets].first[:slug])
             expect(@response.get_child_widget(2).slug).to eq(col_instructions[:widgets].second[:slug])
-            expect(@response.get_setting_value('row_one_widget_name')).to eq(gallery_widget.name)
-            expect(@response.get_setting_value('row_two_widget_name')).to eq(html_widget.name)
+            expect(@response.get_setting_value('row_1_widget_name')).to eq(gallery_widget.name)
+            expect(@response.get_setting_value('row_2_widget_name')).to eq(html_widget.name)
           end
         end
 
@@ -132,8 +132,8 @@ describe Seeder::LayoutWidgetSeeder do
             expect(@response.reload.child_widgets.size).to eq(col_instructions[:widgets].size)
             expect(@response.get_child_widget(1).slug).to eq(col_instructions[:widgets].first[:slug])
             expect(@response.get_child_widget(2).slug).to eq(col_instructions[:widgets].second[:slug])
-            expect(@response.get_setting_value('row_one_widget_name')).to eq(gallery_widget.name)
-            expect(@response.get_setting_value('row_two_widget_name')).to eq(html_widget.name)
+            expect(@response.get_setting_value('row_1_widget_name')).to eq(gallery_widget.name)
+            expect(@response.get_setting_value('row_2_widget_name')).to eq(html_widget.name)
           end
         end
       end

@@ -42,7 +42,7 @@ describe ColumnWidgetShowHtml do
         after { subject }
 
         context "single row" do
-          let(:name) { "row_one_widget_id" }
+          let(:name) { "row_1_widget_id" }
 
           it "calls render_widget once" do
             expect(column_widget_show_html).to receive(:render_widget).once
@@ -50,7 +50,7 @@ describe ColumnWidgetShowHtml do
         end
 
         context "two rows" do
-          let(:name) { "row_two_widget_id" }
+          let(:name) { "row_2_widget_id" }
           let(:value) { "two" }
 
           it "calls render_widget twice" do
@@ -59,7 +59,7 @@ describe ColumnWidgetShowHtml do
         end
 
         context "three rows" do
-          let(:name) { "row_three_widget_id" }
+          let(:name) { "row_3_widget_id" }
           let(:value) { "three" }
 
           it "calls render_widget three times" do
@@ -68,7 +68,7 @@ describe ColumnWidgetShowHtml do
         end
 
         context "four rows" do
-          let(:name) { "row_four_widget_id" }
+          let(:name) { "row_4_widget_id" }
           let(:value) { "four" }
 
           it "calls render_widget four times" do
@@ -77,7 +77,7 @@ describe ColumnWidgetShowHtml do
         end
 
         context "five rows" do
-          let(:name) { "row_five_widget_id" }
+          let(:name) { "row_5_widget_id" }
           let(:value) { "five" }
 
           it "calls render_widget five times" do
@@ -86,7 +86,7 @@ describe ColumnWidgetShowHtml do
         end
 
         context "six rows" do
-          let(:name) { "row_six_widget_id" }
+          let(:name) { "row_6_widget_id" }
           let(:value) { "six" }
 
           it "calls render_widget six times" do

@@ -7,7 +7,7 @@ describe LayoutWidgetDestroyer do
   describe "#destroy" do
     context "a child widget id setting" do
       let!(:setting) do
-        Fabricate(:setting, name: "row_one_widget_id", value: widget.id)
+        Fabricate(:setting, name: "row_1_widget_id", value: widget.id)
       end
 
       it "destroys the setting's widget" do

@@ -14,7 +14,7 @@ module LiquidParameters
       "location_name"             => location.name,
       "location_city"             => location.city,
       "location_state"            => location.state,
-      "location_street_address"   => location.street_address
+      "location_street_address"   => location.street_address,
       "location_neighborhood"     => location.neighborhood,
       "location_postal_code"      => location.postal_code,
       "location_phone_number"     => location.phone_number,
