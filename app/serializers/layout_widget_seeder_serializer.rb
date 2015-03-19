@@ -2,7 +2,7 @@ class LayoutWidgetSeederSerializer < ActiveModel::Serializer
   protected
 
   def widget_id(setting_name)
-    object.settings.where(name: setting_name).first.try(:value)
+    object.get_setting_value(setting_name)
   end
 
   def find_widget(setting_name)
@@ -23,7 +23,9 @@ class LayoutWidgetSeederSerializer < ActiveModel::Serializer
   end
 
   def widget_list
-    (1..count).map { |idx| widget_setting_id(idx) }
+    (1..object.max_widgets).map do |idx| 
+      "#{object.child_widget_setting_prefix(idx)}id"
+    end
   end
 
   def nested_widget_slugs
@@ -31,14 +33,10 @@ class LayoutWidgetSeederSerializer < ActiveModel::Serializer
   end
 
   def nested_widget_list
-    (1..count).inject([]) do |arr,pos| 
-      arr << nested_widget(pos) if nested_widget(pos)
+    (1..object.max_widgets).inject([]) do |arr,pos| 
+      child = object.get_child_widget(pos)
+      arr << child if child 
       arr
     end
-  end
-
-  def nested_widget(position)
-    child = object.get_child_widget(position)
-    return count >= position ? child : nil
   end
 end

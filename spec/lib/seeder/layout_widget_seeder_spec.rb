@@ -59,7 +59,6 @@ describe Seeder::LayoutWidgetSeeder do
             @response = subject
             @first_col = @response.get_child_widget(1)
             @second_col = @response.get_child_widget(2)
-            binding.pry
           end
 
           it "creates a content stripe widget in the drop target" do
