@@ -64,7 +64,6 @@ class Cloner::WidgetCloner
             end
           rescue => e
             Rails.logger.debug("Borked: #{e}")
-            #binding.pry
             # Oh well
           end
         end

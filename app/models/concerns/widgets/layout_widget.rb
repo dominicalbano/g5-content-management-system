@@ -48,7 +48,7 @@ module Widgets
     end
 
     def max_widgets
-      layout_sym = get_setting_value(layout_var).try(:to_sym)
+      layout_sym = get_setting_value(layout_var).try(:underscore).try(:to_sym)
       layout_count_values.has_key?(layout_sym) ? layout_count_values[layout_sym] : 1
     end
 

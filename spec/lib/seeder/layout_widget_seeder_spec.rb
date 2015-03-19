@@ -39,15 +39,15 @@ describe Seeder::LayoutWidgetSeeder do
           end
 
           it "creates correct layout setting for content stripe widget" do
-            expect(@response.get_setting('row_layout').value).to eq(cs_instructions[:row_layout])
+            expect(@response.get_setting_value('row_layout')).to eq(cs_instructions[:row_layout])
           end
         
           it "creates correct child widget settings for content stripe widget" do
-            expect(@response.reload.child_widgets.size).to eq(cs_instructions[:widgets].size)
+            expect(@response.child_widgets.size).to eq(cs_instructions[:widgets].size)
             expect(@response.get_child_widget(1).slug).to eq(html_widget.slug)
             expect(@response.get_child_widget(2).slug).to eq(map_widget.slug)
-            expect(@response.get_setting_value('column_1_widget_name')).to eq(html_widget.name)
-            expect(@response.get_setting_value('column_2_widget_name')).to eq(map_widget.name)
+            expect(@response.get_child_widget(1).name).to eq(html_widget.name)
+            expect(@response.get_child_widget(2).name).to eq(map_widget.name)
           end
         end
       end
@@ -59,6 +59,7 @@ describe Seeder::LayoutWidgetSeeder do
             @response = subject
             @first_col = @response.get_child_widget(1)
             @second_col = @response.get_child_widget(2)
+            binding.pry
           end
 
           it "creates a content stripe widget in the drop target" do
@@ -78,8 +79,8 @@ describe Seeder::LayoutWidgetSeeder do
           end
 
           it "creates correct settings for child column widgets inside content stripe widget" do
-            expect(@first_col.reload.child_widgets.size).to eq(complex_instructions[:widgets].first[:widgets].size)
-            expect(@second_col.reload.child_widgets.size).to eq(complex_instructions[:widgets].second[:widgets].size)
+            expect(@first_col.child_widgets.size).to eq(complex_instructions[:widgets].first[:widgets].size)
+            expect(@second_col.child_widgets.size).to eq(complex_instructions[:widgets].second[:widgets].size)
             expect(@first_col.get_child_widget(1).slug).to eq(complex_instructions[:widgets].first[:widgets].first[:slug])
             expect(@first_col.get_child_widget(2).slug).to eq(complex_instructions[:widgets].first[:widgets].second[:slug])
             expect(@second_col.get_child_widget(1).slug).to eq(complex_instructions[:widgets].second[:widgets].first[:slug])
@@ -107,7 +108,7 @@ describe Seeder::LayoutWidgetSeeder do
           end
         
           it "creates correct child widget settings for column widget" do
-            expect(@response.reload.child_widgets.size).to eq(col_instructions[:widgets].size)
+            expect(@response.child_widgets.size).to eq(col_instructions[:widgets].size)
             expect(@response.get_child_widget(1).slug).to eq(col_instructions[:widgets].first[:slug])
             expect(@response.get_child_widget(2).slug).to eq(col_instructions[:widgets].second[:slug])
             expect(@response.get_setting_value('row_1_widget_name')).to eq(gallery_widget.name)
@@ -129,7 +130,7 @@ describe Seeder::LayoutWidgetSeeder do
           end
         
           it "creates correct child widget settings for column widget" do
-            expect(@response.reload.child_widgets.size).to eq(col_instructions[:widgets].size)
+            expect(@response.child_widgets.size).to eq(col_instructions[:widgets].size)
             expect(@response.get_child_widget(1).slug).to eq(col_instructions[:widgets].first[:slug])
             expect(@response.get_child_widget(2).slug).to eq(col_instructions[:widgets].second[:slug])
             expect(@response.get_setting_value('row_1_widget_name')).to eq(gallery_widget.name)
