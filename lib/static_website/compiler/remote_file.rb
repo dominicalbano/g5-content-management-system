@@ -43,19 +43,17 @@ module StaticWebsite
       end
 
       def read_remote(remote_path)
-        retry_count = 0
-        s = ''
-        while s == ''
-          begin
-            s = open(remote_path).read
-          rescue OpenURI::HTTPError => e
-            retry_count += 1
-            if retry_count > 3
-              raise e
-            end
+        retries = [3, 5, 10]
+        begin
+          open(remote_path).read
+        rescue OpenURI::HTTPError
+          if delay = retries.shift
+            sleep delay
+            retry
+          else
+            raise
           end
         end
-        return s
       end
 
     end
