@@ -1,4 +1,4 @@
-class RowWidgetShowHtml < LayoutWidgetShowHtml
+class ContentStripeWidgetShowHtml < LayoutWidgetShowHtml
   def render
     show_html = Liquid::Template.parse(widget.show_html).render("widget" => widget)
     @nokogiri = Nokogiri.parse(show_html)

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe RowWidgetShowHtml do
+describe ContentStripeWidgetShowHtml do
   let!(:setting) { Fabricate(:setting, name: name, owner: row_widget, value: widget.id) }
   let!(:row_layout) { Fabricate(:setting, name: "row_layout", owner: row_widget, value: value) }
   let!(:garden_widget) { Fabricate(:garden_widget, name: "Content Stripe", widget_id: 11) }

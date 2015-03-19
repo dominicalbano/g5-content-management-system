@@ -11,7 +11,7 @@ module Widgets
     end
 
     def render_show_html
-      RowWidgetShowHtml.new(self).render
+      ContentStripeWidgetShowHtml.new(self).render
     end
 
     def layout_count_values

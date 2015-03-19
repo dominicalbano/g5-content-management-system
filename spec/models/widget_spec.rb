@@ -42,9 +42,9 @@ describe Widget, vcr: VCR_OPTIONS do
       let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:row_widget_show_html) { double(render: nil) }
 
-      before { RowWidgetShowHtml.stub(new: row_widget_show_html) }
+      before { ContentStripeWidgetShowHtml.stub(new: row_widget_show_html) }
 
-      it "calls render on RowWidgetShowHtml" do
+      it "calls render on ContentStripeWidgetShowHtml" do
         widget.render_show_html
         expect(row_widget_show_html).to have_received(:render)
       end
