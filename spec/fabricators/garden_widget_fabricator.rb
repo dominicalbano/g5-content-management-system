@@ -10,7 +10,7 @@ Fabricator :garden_widget do
   widget_type { "" }
 end
 
-Fabricator :row_garden_widget, from: :garden_widget do
+Fabricator :content_stripe_garden_widget, from: :garden_widget do
   url { Faker::Internet.url }
   name { "Content Stripe" }
   widget_id { 11 }

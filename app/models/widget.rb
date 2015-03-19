@@ -43,9 +43,8 @@ class Widget < ActiveRecord::Base
   scope :layout, -> {
     joins(:garden_widget).where("garden_widgets.name = ? OR garden_widgets.name = ?", "Content Stripe", "Column") }
 
-  
   def show_stylesheets
-    [garden_widget.try(:show_stylesheets), 
+    [garden_widget.try(:show_stylesheets),
      widgets.collect(&:show_stylesheets)].flatten.compact.uniq
   end
 
@@ -55,12 +54,12 @@ class Widget < ActiveRecord::Base
   end
 
   def lib_javascripts
-    [garden_widget.try(:lib_javascripts), 
+    [garden_widget.try(:lib_javascripts),
      widgets.collect(&:lib_javascripts)].flatten.compact.uniq
   end
 
   def get_setting(name)
-    settings.try(:find_by_name, name)
+    settings.detect { |s| s.name == name }
   end
 
   def get_setting_value(name)
@@ -73,26 +72,8 @@ class Widget < ActiveRecord::Base
     setting.update_attribute(:value, value) if setting
   end
 
-  ## TODO: this needs to be part of refactored CS/Col widget classes
-  def child_widget_setting_prefix(position)
-    "#{position_var}_#{position}_widget_"
-  end
-
-  def set_child_widget(position, widget)
-    return unless is_layout? && widget
-    prefix = child_widget_setting_prefix(position)
-    set_setting("#{prefix}name", widget.name)
-    set_setting("#{prefix}id", widget.id)
-  end
-
-  def get_child_widget(position)
-    child_id = get_setting_value("#{child_widget_setting_prefix(position)}id")
-    Widget.find_by_id(child_id) if child_id
-  end
-
   def widgets
-    more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
-    [child_widgets, more_widgets].flatten.compact
+    [] # non-layout widgets don't have child widgets
   end
 
   def kind_of_widget?(kind)
@@ -100,21 +81,18 @@ class Widget < ActiveRecord::Base
   end
 
   def is_layout?
-    is_content_stripe? || is_column?
-  end
-
-  def is_content_stripe?
-    kind_of_widget?("Content Stripe")
+    false
   end
 
   def is_column?
-    kind_of_widget?("Column")
+    false
+  end
+
+  def is_content_stripe?
+    false
   end
 
   def render_show_html
-    # this is smelly - needs refactor
-    return RowWidgetShowHtml.new(self).render if is_content_stripe?
-    return ColumnWidgetShowHtml.new(self).render if is_column?
     html = liquid_render(show_html, "widget" => liquid_widget_drop)
     html = liquid_render(html, liquid_parameters) if liquid
     html
@@ -137,19 +115,19 @@ class Widget < ActiveRecord::Base
     return unless garden_widget_settings
     updated_settings = []
     garden_widget_settings.each do |garden_widget_setting|
-      setting = settings.find_or_initialize_by(name: garden_widget_setting[:name])
-      setting.editable = garden_widget_setting[:editable]
-      setting.default_value = garden_widget_setting[:default_value]
-      setting.categories = garden_widget_setting[:categories]
-      setting.save
-      updated_settings << setting
+      updated_settings << update_setting(garden_widget_setting)
     end
     removed_settings = settings - updated_settings
     removed_settings.map(&:destroy)
   end
 
-  def nested_settings
-    widgets.collect {|widget| widget.settings}.flatten
+  def update_setting(widget_settings)
+    setting = settings.find_or_initialize_by(name: widget_settings[:name])
+    setting.editable = widget_settings[:editable]
+    setting.default_value = widget_settings[:default_value]
+    setting.categories = widget_settings[:categories]
+    setting.save
+    setting
   end
 
   def get_web_template(object=self)
@@ -162,26 +140,37 @@ class Widget < ActiveRecord::Base
   end
 
   def child_widgets
-    widget_settings.map(&:value).map { |id| Widget.find(id) if Widget.exists?(id) }.compact
+    []
   end
 
   def has_child_widget?(widget)
-    widget_settings.map(&:value).include?(widget.id)
+    false
   end
 
-  def position_var
-    # smelly, needs to be refactored
-    return "" unless is_layout?
-    is_content_stripe? ? "column" : "row"
+  def get_child_widget(position)
+    nil
   end
 
-  def layout_var
-    # smelly, needs to be refactored
-    return "" unless is_layout?
-    is_content_stripe? ? "row_layout" : "row_count"
+  def set_child_widget(position, widget)
+    nil
   end
 
   private
+
+  def set_defaults
+    self.removeable = true
+    extend_widget
+  end
+
+  def extend_widget
+    begin
+      mod = "Widgets::#{name.gsub(' ','').classify}Widget"
+      mod = mod.constantize
+      extend mod if mod.is_a?(Module)
+    rescue => e
+      # do nothing - this is normal
+    end
+  end
 
   def liquid_render(html, params)
     Liquid::Template.parse(html).render(params)
@@ -189,11 +178,6 @@ class Widget < ActiveRecord::Base
 
   def liquid_widget_drop
     WidgetDrop.new(self, client.try(:locations))
-  end
-
-  # TODO: Is this being used?
-  def set_defaults
-    self.removeable = true
   end
 
   def widget_settings

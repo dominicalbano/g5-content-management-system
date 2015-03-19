@@ -7,7 +7,7 @@ describe Cloner::WidgetCloner do
     let(:target_drop_target) { Fabricate(:drop_target, web_template: template) }
     
     context "with row widget" do
-      let(:content_stripe_garden_widget) { Fabricate(:row_garden_widget) }
+      let(:content_stripe_garden_widget) { Fabricate(:content_stripe_garden_widget) }
       let(:html_garden_widget) { Fabricate(:html_garden_widget) }
       let(:content_stripe_widget) { Fabricate(:widget, garden_widget: content_stripe_garden_widget) }
       let(:widget_count) { 2 }

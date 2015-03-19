@@ -2,7 +2,7 @@ require "spec_helper"
 
 shared_examples_for SettingLayoutWidgetGardenWidgets do
   before do
-    @row_garden_widget = Fabricate(:row_garden_widget)
+    @row_garden_widget = Fabricate(:content_stripe_garden_widget)
   end
 
   describe "When availble_garden_widgets setting" do

@@ -13,7 +13,7 @@ describe Seeder::LayoutWidgetSeeder do
   let!(:map_widget) { Fabricate(:garden_widget, name: 'map') }
   let!(:gallery_widget) { Fabricate(:garden_widget, name: 'gallery') }
   let!(:column_widget) { Fabricate(:column_garden_widget) }
-  let!(:content_stripe_widget) { Fabricate(:row_garden_widget) }
+  let!(:content_stripe_widget) { Fabricate(:content_stripe_garden_widget) }
 
   let!(:defaults) { load_yaml_file("#{Rails.root}/spec/support/website_instructions/defaults_with_settings.yml") }
   let!(:cs_page) { defaults[:web_page_templates].find { |wt| wt[:name] == 'Content Stripe' } }

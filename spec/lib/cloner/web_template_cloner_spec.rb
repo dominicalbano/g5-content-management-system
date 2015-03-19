@@ -7,13 +7,13 @@ describe Cloner::WebTemplateCloner do
   let!(:source_layout) { Fabricate(:web_layout, web_template: source_template) }
   let!(:source_theme) { Fabricate(:web_theme, web_template: source_template) }
   let!(:source_drop_target) { Fabricate(:drop_target, web_template: source_template) }
-  let!(:row_garden_widget) { Fabricate(:row_garden_widget) }
+  let!(:content_stripe_garden_widget) { Fabricate(:content_stripe_garden_widget) }
   let!(:source_widget) do
-    Fabricate(:widget, drop_target: source_drop_target, garden_widget: row_garden_widget)
+    Fabricate(:widget, drop_target: source_drop_target, garden_widget: content_stripe_garden_widget)
   end
 
   let!(:source_widget_2) do
-    Fabricate(:widget, drop_target: source_drop_target, garden_widget: row_garden_widget)
+    Fabricate(:widget, drop_target: source_drop_target, garden_widget: content_stripe_garden_widget)
   end
 
   describe "#clone" do

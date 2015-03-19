@@ -27,7 +27,7 @@ describe WidgetDrop do
       webtemplate = Fabricate(:web_template)
       website.web_templates << webtemplate
       webtemplate.drop_targets << Fabricate(:drop_target)
-      row_garden_widget = Fabricate(:row_garden_widget)
+      row_garden_widget = Fabricate(:content_stripe_garden_widget)
       garden_widget = Fabricate(:garden_widget)
       @row_widget = Fabricate(:widget, garden_widget: row_garden_widget, drop_target: webtemplate.drop_targets.first)
       @child_widget = Fabricate(:widget, garden_widget: garden_widget )

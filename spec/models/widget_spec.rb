@@ -21,22 +21,24 @@ describe Widget, vcr: VCR_OPTIONS do
   end
 
   describe "#update_attributes" do
-    let(:garden_widget) { Fabricate(:garden_widget, settings: [name: "foo"]) }
+    let(:garden_widget) { Fabricate(:garden_widget) }
     let(:widget) { Fabricate(:widget, garden_widget: garden_widget) }
-    let(:setting) { widget.settings.first }
+    let(:setting) { Fabricate(:setting, owner: widget) }
+
+    before { widget.reload }
 
     it "accepts nested attributes for settings" do
       widget.update_attributes(settings_attributes: {
         id: setting.id,
         name: "TEST"
       })
-      expect(setting.name).to eq "TEST"
+      expect(setting.reload.name).to eq "TEST"
     end
   end
 
   describe "#render_show_html" do
     context "content stripe widget" do
-      let(:garden_widget) { Fabricate(:row_garden_widget) }
+      let(:garden_widget) { Fabricate(:content_stripe_garden_widget) }
       let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:row_widget_show_html) { double(render: nil) }
 
@@ -66,7 +68,7 @@ describe Widget, vcr: VCR_OPTIONS do
       let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:liquid_text) { "{{client_name}}" }
 
-      before do 
+      before do
         widget.set_setting('text', liquid_text)
       end
 
@@ -135,17 +137,11 @@ describe Widget, vcr: VCR_OPTIONS do
     end
   end
   describe "instance methods" do
-    let(:widget) {Fabricate.create(:widget,
-                                   {garden_widget: garden_widget})}
+    let(:widget) {Fabricate.create(:widget, garden_widget: garden_widget)}
     let(:garden_widget) {Fabricate.create(:garden_widget,
                                  {  show_stylesheets: ["foo.css", "bar.css"],
                                     show_javascript: "show.js",
                                     lib_javascripts: ["a.js", "b.js"] })}
-    let!(:setting) { Fabricate.create(:setting,
-                                     {name: 'row_1_widget_id',
-                                      value: widget.id,
-                                      owner: row_widget}) }
-    let(:row_widget) {Fabricate.create(:widget).reload}
 
 
     describe "#show_stylesheets" do
@@ -166,15 +162,11 @@ describe Widget, vcr: VCR_OPTIONS do
       end
     end
 
-    describe "#widgets" do
-      it "returns associated child widgets" do
-        expect(row_widget.widgets).to eq([widget])
+    describe "#widget_type" do
+      it "returns the Garden Widget type" do
+        expect(widget.widget_type).to eq(garden_widget.widget_type)
       end
     end
-
-    it "#widget_type" do
-      expect(widget.widget_type).to eq(garden_widget.widget_type)
-    end 
 
     describe "#liquid_parameters" do
       context "non-liquid widget" do
@@ -214,11 +206,10 @@ describe Widget, vcr: VCR_OPTIONS do
 
     describe "#parent_widget" do
       let(:garden_widget) { Fabricate(:garden_widget) }
-      let(:cs_garden_widget) { Fabricate(:row_garden_widget) }
+      let(:cs_garden_widget) { Fabricate(:content_stripe_garden_widget) }
       let(:col_garden_widget) { Fabricate(:column_garden_widget) }
 
-      before { setting.destroy } #remove faux setting
-      
+
       context "has no parent" do
         let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
 
@@ -232,7 +223,7 @@ describe Widget, vcr: VCR_OPTIONS do
         let(:parent) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
         before do
           parent.set_child_widget(1, widget)
-        end 
+        end
 
         it "returns correct parent widget" do
           expect(widget.parent_widget).to_not be_nil
@@ -260,11 +251,9 @@ describe Widget, vcr: VCR_OPTIONS do
 
     describe "#get_web_template" do
       let(:garden_widget) { Fabricate(:garden_widget) }
-      let(:cs_garden_widget) { Fabricate(:row_garden_widget) }
+      let(:cs_garden_widget) { Fabricate(:content_stripe_garden_widget) }
       let(:col_garden_widget) { Fabricate(:column_garden_widget) }
 
-      before { setting.destroy } #remove faux setting - use WidgetFabricator defaults only
-      
       context "has no parent" do
         let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
 

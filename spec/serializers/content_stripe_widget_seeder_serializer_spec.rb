@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe ContentStripeWidgetSeederSerializer do
-  let(:cs_garden_widget) { Fabricate(:row_garden_widget) }
+  let(:cs_garden_widget) { Fabricate(:content_stripe_garden_widget) }
   let(:col_garden_widget) { Fabricate(:column_garden_widget) }
   let(:garden_widget) { Fabricate(:garden_widget) }
   let(:other_garden_widget) { Fabricate(:html_garden_widget) }
