@@ -44,15 +44,23 @@ module SettingNavigation
 
   def create_new_value(website_value, widget_value)
     new_value = {}
-    website_value.each_pair do |key, website_partial_value|
-      widget_partial_value = widget_value[key]
-      # widget_partial_value could be false, so can't check presence
-      unless widget_partial_value.nil?
-        website_partial_value["display"] = widget_partial_value["display"]
+    website_value.each_pair do |key, website_page_value|
+      widget_page_value = widget_value[key]
+      # widget_page_value could be false, so can't check presence
+      unless widget_page_value.nil?
+        website_page_value["display"] = widget_page_value["display"]
+        website_page_value["child_templates"].each_pair do |key, child_template_value|
+          child_template_value["display"] = widget_page_value["child_templates"][key]["display"]
+        end
+        website_page_value["sub_nav"] = true if show_sub_nav?(website_page_value)
       end
-      new_value[key] = HashWithToLiquid[website_partial_value]
+      new_value[key] = HashWithToLiquid[website_page_value]
     end
     new_value
+  end
+  
+  def show_sub_nav?(website_page_value)
+    website_page_value["child_templates"].any? {|child| child[1]["display"] == "true"}
   end
 
   def orphaned_drop_target?
