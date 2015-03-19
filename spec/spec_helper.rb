@@ -89,7 +89,7 @@ Capybara.register_driver :poltergeist do |app|
   # on the CI server
   Capybara::Poltergeist::Driver.new(app, timeout: 120,
                                          debug: true,
-                                         phantomjs_options: ['--debug=true'])
+                                         phantomjs_options: ['--load-images=no', '--debug=true'])
 end
 Capybara.javascript_driver = :poltergeist
 Capybara.default_wait_time = 5
