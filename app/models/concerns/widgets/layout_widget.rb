@@ -22,7 +22,7 @@ module Widgets
     end
 
     def get_child_widget(position)
-      child_id = get_setting_value("#{child_widget_setting_prefix(position)}id")
+      child_id = get_setting_value("#{child_widget_setting_prefix(position)}id") if position <= max_widgets
       Widget.find_by_id(child_id) if child_id
     end
 
@@ -49,7 +49,7 @@ module Widgets
 
     def max_widgets
       layout_sym = get_setting_value(layout_var).try(:to_sym)
-      layout_count_values[layout_sym] if layout_count_values.has_key?(layout_sym)
+      layout_count_values.has_key?(layout_sym) ? layout_count_values[layout_sym] : 1
     end
 
     def layout_count_values

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe RowWidgetGardenWidgetsSetting do
+describe ContentStripeWidgetGardenWidgetsSetting do
   let!(:legit_widget) { Fabricate(:garden_widget, name: "Legit") }
   let!(:content_stripe_widget) { Fabricate(:garden_widget, name: "Content Stripe") }
   let!(:analytics_widget) { Fabricate(:garden_widget, name: "Analytics") }

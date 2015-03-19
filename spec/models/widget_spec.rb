@@ -168,6 +168,27 @@ describe Widget, vcr: VCR_OPTIONS do
       end
     end
 
+    describe "#get_setting" do
+    end
+
+    describe "#get_setting_value" do
+    end
+
+    describe "#set_setting" do
+    end
+
+    describe "#widgets" do
+      it "returns empty array by default" do
+        expect(widget.widgets).to be_empty
+      end
+
+      it "returns all nested widgets for content stripe" do
+      end
+
+      it "returns all nested widget for column" do
+      end
+    end
+
     describe "#liquid_parameters" do
       context "non-liquid widget" do
         it "returns empty if not liquid" do
@@ -285,6 +306,108 @@ describe Widget, vcr: VCR_OPTIONS do
 
         it "returns correct parent and grandparent widgets" do
           expect(widget.get_web_template).to eq web_template
+        end
+      end
+    end
+
+    context "child widgets" do
+      let(:garden_widget) { Fabricate(:garden_widget) }
+      let(:cs_garden_widget) { Fabricate(:content_stripe_garden_widget) }
+      let(:col_garden_widget) { Fabricate(:column_garden_widget) }
+      let(:widget) { Fabricate(:widget, garden_widget: garden_widget)}
+      let(:other_widget) { Fabricate(:widget, garden_widget: garden_widget) }
+
+      context "default widget" do
+        describe "#child_widgets" do
+          it "returns empty array by default" do
+            expect(widget.child_widgets).to be_empty
+          end
+        end
+
+        describe "#has_child_widget" do
+          it "returns false by default" do
+            expect(widget.has_child_widget?(other_widget)).to be_falsey
+          end
+        end
+
+        describe "#get_child_widget" do
+          it "returns nil by default" do
+            expect(widget.get_child_widget(1)).to be_nil
+          end
+        end
+
+        describe "#set_child_widget" do
+          it "does nothing by default" do
+            expect(widget.set_child_widget(1, other_widget)).to be_nil
+          end
+        end
+      end
+
+      context "content stripe" do
+        let(:cs_widget) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
+        before { cs_widget.set_child_widget(1, other_widget) }
+
+        describe "#child_widgets" do
+          it "returns child widgets for content stripe" do
+            expect(cs_widget.child_widgets).to eq [other_widget]
+          end
+        end
+
+        describe "#has_child_widget" do
+          it "returns true if content stripe has child widget" do
+            expect(cs_widget.has_child_widget?(other_widget)).to be_truthy
+          end
+        end
+
+        describe "#get_child_widget" do
+          it "returns child widget for content stripe" do
+            expect(cs_widget.get_child_widget(1)).to eq other_widget
+          end
+        end
+
+        describe "#set_child_widget" do
+          before do
+            cs_widget.set_setting(cs_widget.layout_var, 'halves')
+            cs_widget.set_child_widget(2, widget)
+          end
+          it "sets child widget for content stripe" do
+            expect(cs_widget.get_child_widget(1)).to eq other_widget
+            expect(cs_widget.get_child_widget(2)).to eq widget
+          end
+        end
+      end
+
+      context "column" do
+        let(:col_widget) { Fabricate(:widget, garden_widget: col_garden_widget, drop_target: drop_target) }
+        before { col_widget.set_child_widget(1, other_widget) }
+
+        describe "#child_widgets" do
+          it "returns child widgets for content stripe" do
+            expect(col_widget.child_widgets).to eq [other_widget]
+          end
+        end
+
+        describe "#has_child_widget" do
+          it "returns true if content stripe has child widget" do
+            expect(col_widget.has_child_widget?(other_widget)).to be_truthy
+          end
+        end
+
+        describe "#get_child_widget" do
+          it "returns child widget for content stripe" do
+            expect(col_widget.get_child_widget(1)).to eq other_widget
+          end
+        end
+
+        describe "#set_child_widget" do
+          before do
+            col_widget.set_setting(col_widget.layout_var, 'two')
+            col_widget.set_child_widget(2, widget)
+          end
+          it "sets child widget for content stripe" do
+            expect(col_widget.get_child_widget(1)).to eq other_widget
+            expect(col_widget.get_child_widget(2)).to eq widget
+          end
         end
       end
     end

@@ -56,7 +56,7 @@ module Seeder
 
     def other_settings
       {
-        "row_widget_garden_widgets" => RowWidgetGardenWidgetsSetting.new.value,
+        "row_widget_garden_widgets" => ContentStripeWidgetGardenWidgetsSetting.new.value,
         "locations_navigation"      => LocationsNavigationSetting.new.value,
         "corporate_map"             => CorporateMapSetting.new.value
       }

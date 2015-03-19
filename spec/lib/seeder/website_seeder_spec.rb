@@ -37,7 +37,7 @@ describe Seeder::WebsiteSeeder do
       expect(setting_value_for("location_state")).to eq(location.state)
       expect(setting_value_for("location_postal_code")).to eq(location.postal_code)
       expect(setting_value_for("phone_number")).to eq(location.phone_number)
-      expect(setting_value_for("row_widget_garden_widgets")).to eq(RowWidgetGardenWidgetsSetting.new.value)
+      expect(setting_value_for("row_widget_garden_widgets")).to eq(ContentStripeWidgetGardenWidgetsSetting.new.value)
       expect(setting_value_for("locations_navigation")).to eq(LocationsNavigationSetting.new.value)
       expect(setting_value_for("corporate_map")).to eq(CorporateMapSetting.new.value)
     end
