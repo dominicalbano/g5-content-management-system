@@ -38,8 +38,7 @@ class ClientServices
     end
 
     define_method("#{service}_url") do |secure: false|
-      protocol = secure ? "https" : "http"
-      ENV["#{service.upcase}_URL"] || ("#{protocol}://" + send(:"#{service}_app_name") + ".herokuapp.com/")
+      ENV["#{service.upcase}_URL"] || ("//" + send(:"#{service}_app_name") + ".herokuapp.com/")
     end
   end
 end

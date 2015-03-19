@@ -17,8 +17,8 @@ describe WidgetDrop do
   end
 
   describe "service URL helpers" do
-    its(:cpns_url) { should eq("http://g5-cpns-12345-test.herokuapp.com/") }
-    its(:secure_cpns_url) { should eq("https://g5-cpns-12345-test.herokuapp.com/") }
+    its(:cpns_url) { should eq("//g5-cpns-12345-test.herokuapp.com/") }
+    its(:secure_cpns_url) { should eq("//g5-cpns-12345-test.herokuapp.com/") }
   end
 
   describe "parent_widget_id" do
