@@ -37,6 +37,12 @@ G5CMS::Application.routes.draw do
       resources :assets, only: [:index, :show, :create, :update, :destroy]
       resources :categories, only: [:index, :show]
 
+      namespace :seeders do
+        resources :websites, only: [:index, :update]
+        resources :web_page_templates, only: [:index, :update]
+        resources :content_stripes, only: [:index, :update]
+      end
+
       resources :garden_web_layouts, only: [:index] do
         collection do
           post "update"

@@ -3,6 +3,8 @@ class WebPageTemplateSeederSerializer < ActiveModel::Serializer
               :title,
               :drop_targets
 
+  include SeederSerializerToYamlFile
+
   def drop_targets
     object.drop_targets.inject([]) do |arr, dt|
       arr << DropTargetSeederSerializer.new(dt, {root: false}).as_json
@@ -10,9 +12,11 @@ class WebPageTemplateSeederSerializer < ActiveModel::Serializer
     end
   end
 
-  def to_yaml_file
-    file_name = "#{object.website.urn}_#{object.name}".downcase.underscore.gsub(' ','_')
-    File.write("#{WEB_PAGE_DEFAULTS_PATH}/#{file_name}.yml", self.as_json({root: false}).to_yaml)
-    file_name
+  def file_name
+    "#{object.website.urn}_#{object.name}".downcase.underscore.gsub(' ','_')
+  end
+
+  def file_path
+    WEB_PAGE_DEFAULTS_PATH
   end
 end
