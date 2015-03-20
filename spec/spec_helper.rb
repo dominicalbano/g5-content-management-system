@@ -87,9 +87,7 @@ require 'capybara/poltergeist'
 Capybara.register_driver :poltergeist do |app|
   # Default timeout is 30, but that causes sporadic timeout errors
   # on the CI server
-  Capybara::Poltergeist::Driver.new(app, timeout: 120,
-                                         debug: true,
-                                         phantomjs_options: ['--load-images=no', '--debug=true'])
+  Capybara::Poltergeist::Driver.new(app, timeout: 180)
 end
 Capybara.javascript_driver = :poltergeist
 Capybara.default_wait_time = 5
