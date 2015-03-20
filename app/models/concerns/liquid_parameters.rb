@@ -31,6 +31,7 @@ module LiquidParameters
 
   # override to extend behavior
   def get_web_template(object=self)
+    return object if object.is_a?(WebTemplate)
     object.try(:web_template)
   end
 end
