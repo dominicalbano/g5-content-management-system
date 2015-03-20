@@ -155,6 +155,14 @@ class Widget < ActiveRecord::Base
     nil
   end
 
+  def liquid_render(html, params)
+    Liquid::Template.parse(html).render(params)
+  end
+
+  def liquid_widget_drop
+    WidgetDrop.new(self, client.try(:locations))
+  end
+
   private
 
   def set_defaults
@@ -170,14 +178,6 @@ class Widget < ActiveRecord::Base
     rescue => e
       # do nothing - this is normal
     end
-  end
-
-  def liquid_render(html, params)
-    Liquid::Template.parse(html).render(params)
-  end
-
-  def liquid_widget_drop
-    WidgetDrop.new(self, client.try(:locations))
   end
 
   def widget_settings

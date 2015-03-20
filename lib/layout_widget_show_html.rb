@@ -7,7 +7,7 @@ class LayoutWidgetShowHtml
 
   def render
     return unless widget.is_layout?
-    show_html = Liquid::Template.parse(widget.show_html).render("widget" => widget)
+    show_html = Liquid::Template.parse(widget.show_html).render("widget" => widget.liquid_widget_drop)
     @nokogiri = Nokogiri.parse(show_html)
     render_widgets
     @nokogiri.to_html
@@ -22,7 +22,7 @@ class LayoutWidgetShowHtml
 
   def render_widgets
     (1..widget.max_widgets).each do |idx|
-      render_widget("#{widget.child_widget_setting_prefix(idx)}id", "#drop-target-#{idx}-#{widget.layout_var}-{widget.id}")
+      render_widget("#{widget.child_widget_setting_prefix(idx)}id", "#drop-target-#{idx}-#{widget.position_var}-#{widget.id}")
     end
   end
 
