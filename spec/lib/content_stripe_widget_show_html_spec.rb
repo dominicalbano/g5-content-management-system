@@ -21,7 +21,7 @@ describe ContentStripeWidgetShowHtml do
       end
 
       it "parses widget as a liquid template" do
-        expect(liquid_parse).to have_received(:render).with("widget" => cs_widget)
+        expect(liquid_parse).to have_received(:render).with("widget" => cs_widget.liquid_widget_drop)
       end
 
       it "parses the liquid template with Nokogiri" do
@@ -30,7 +30,7 @@ describe ContentStripeWidgetShowHtml do
     end
 
     describe "rendering" do
-      let(:show) { Liquid::Template.parse(cs_widget.show_html).render("widget" => cs_widget) }
+      let(:show) { Liquid::Template.parse(cs_widget.show_html).render("widget" => cs_widget.liquid_widget_drop) }
       let(:parsed) { Nokogiri.parse(show) }
 
       before { Nokogiri.stub(parse: parsed) }
