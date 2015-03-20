@@ -5,11 +5,25 @@ class LayoutWidgetShowHtml
     @widget = widget
   end
 
+  def render
+    return unless widget.is_layout?
+    show_html = Liquid::Template.parse(widget.show_html).render("widget" => widget)
+    @nokogiri = Nokogiri.parse(show_html)
+    render_widgets
+    @nokogiri.to_html
+  end
+
   protected
 
   def find_widget(setting_name)
-    id = widget.settings.where(name: setting_name).first.try(:value)
-    Widget.where(id: id).first if id
+    id = widget.get_setting_value(setting_name)
+    Widget.find(id) if id
+  end
+
+  def render_widgets
+    (1..widget.max_widgets).each do |idx|
+      render_widget("#{widget.layout_var}_#{idx}_widget_id", "#drop-target-#{idx}-#{widget.layout_var}-{widget.id}")
+    end
   end
 
   def render_widget(setting_name, html_id)

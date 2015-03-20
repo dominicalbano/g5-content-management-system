@@ -9,8 +9,11 @@ module LiquidParameters
     location = template.owner
     {
       "web_template_name"         => template.name,
+      "website_urn"               => location.website.urn,
+      "location_uid"              => location.uid,
       "location_urn"              => location.urn,
       "location_domain"           => location.domain,
+      "location_corporate"        => location.corporate,
       "location_name"             => location.name,
       "location_city"             => location.city,
       "location_state"            => location.state,
@@ -25,7 +28,9 @@ module LiquidParameters
       "client_name"               => client.name,
       "client_domain"             => client.domain,
       "client_vertical"           => client.vertical,
-      "client_urn"                => client.urn
+      "client_urn"                => client.urn,
+      "client_uid"                => client.uid,
+      "client_type"               => client.type
     }
   end
 

@@ -43,6 +43,7 @@ describe ColumnWidgetShowHtml do
 
         context "single row" do
           let(:name) { "row_1_widget_id" }
+          before { column_widget.reload }
 
           it "calls render_widget once" do
             expect(column_widget_show_html).to receive(:render_widget).once
@@ -52,6 +53,7 @@ describe ColumnWidgetShowHtml do
         context "two rows" do
           let(:name) { "row_2_widget_id" }
           let(:value) { "two" }
+          before { column_widget.reload }
 
           it "calls render_widget twice" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(2).times
@@ -61,6 +63,7 @@ describe ColumnWidgetShowHtml do
         context "three rows" do
           let(:name) { "row_3_widget_id" }
           let(:value) { "three" }
+          before { column_widget.reload }
 
           it "calls render_widget three times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(3).times
@@ -70,6 +73,7 @@ describe ColumnWidgetShowHtml do
         context "four rows" do
           let(:name) { "row_4_widget_id" }
           let(:value) { "four" }
+          before { column_widget.reload }
 
           it "calls render_widget four times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(4).times
@@ -79,6 +83,7 @@ describe ColumnWidgetShowHtml do
         context "five rows" do
           let(:name) { "row_5_widget_id" }
           let(:value) { "five" }
+          before { column_widget.reload }
 
           it "calls render_widget five times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(5).times
@@ -88,6 +93,7 @@ describe ColumnWidgetShowHtml do
         context "six rows" do
           let(:name) { "row_6_widget_id" }
           let(:value) { "six" }
+          before { column_widget.reload }
 
           it "calls render_widget six times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(6).times
