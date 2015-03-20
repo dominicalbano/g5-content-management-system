@@ -32,7 +32,7 @@ module StaticWebsite
         LOGGERS.each{|logger| logger.debug("opening #{compile_path}")}
         open(compile_path, "wb") do |file|
           LOGGERS.each{|logger| logger.debug("shoveling contents of #{remote_path} into #{compile_path}")}
-          file << open(remote_path).read
+          file << read_remote(remote_path)
         end if compile_path
       rescue OpenURI::HTTPError => e
         if e.message.include?("404")
@@ -41,7 +41,21 @@ module StaticWebsite
           raise e
         end
       end
+
+      def read_remote(remote_path)
+        retries = [3, 5, 10]
+        begin
+          open(remote_path).read
+        rescue OpenURI::HTTPError
+          if delay = retries.shift
+            sleep delay
+            retry
+          else
+            raise
+          end
+        end
+      end
+
     end
   end
 end
-
