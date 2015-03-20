@@ -1,7 +1,8 @@
 ---
-:slug: content-stripe
-:row_layout: thirds
-:widgets:
-- :slug: html
-- :slug: calls-to-action
-- :slug: html
+:content_stripe_widget_seeder:
+  :slug: content-stripe
+  :row_layout: thirds
+  :widgets:
+  - :slug: html
+  - :slug: calls-to-action
+  - :slug: html

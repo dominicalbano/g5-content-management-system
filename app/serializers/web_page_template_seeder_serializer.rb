@@ -13,7 +13,10 @@ class WebPageTemplateSeederSerializer < ActiveModel::Serializer
   end
 
   def file_name
-    "#{object.website.urn}_#{object.name}".downcase.underscore.gsub(' ','_')
+    page = object.name
+    name = object.website.name
+    vert = object.website.client.vertical
+    "#{vert}_#{name}_#{page}"
   end
 
   def file_path

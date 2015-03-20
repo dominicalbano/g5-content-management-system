@@ -1,9 +1,10 @@
 ---
-:slug: content-stripe
-:row_layout: single
-:widgets:
-- :slug: column
-  :row_count: two
+:content_stripe_widget_seeder:
+  :slug: content-stripe
+  :row_layout: single
   :widgets:
-  - :slug: gallery-basic
-  - :slug: multi-family-mini-search
+  - :slug: column
+    :row_count: two
+    :widgets:
+    - :slug: gallery-basic
+    - :slug: multi-family-mini-search

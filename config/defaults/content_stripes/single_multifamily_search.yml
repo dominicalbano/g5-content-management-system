@@ -1,5 +1,6 @@
 ---
-:slug: content-stripe
-:row_layout: single
-:widgets:
-- :slug: multifamily-search
+:content_stripe_widget_seeder:
+  :slug: content-stripe
+  :row_layout: single
+  :widgets:
+  - :slug: multifamily-search

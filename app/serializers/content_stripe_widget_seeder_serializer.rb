@@ -12,7 +12,7 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
   def file_name
     layout = row_layout
     slugs = nested_widget_slugs
-    "#{layout}_#{slugs.join('_')}".downcase.underscore.gsub(' ','_') unless layout.blank? || slugs.blank?
+    "#{layout}_#{slugs.join('_')}" unless layout.blank? || slugs.blank?
   end
 
   def file_path
@@ -25,5 +25,9 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
       arr = arr.push(ColumnWidgetSeederSerializer.new(widget).nested_widget_slugs) if widget.is_column?
       arr
     end
+  end
+
+  def valid_yaml_file?
+    object.well_formed?
   end
 end

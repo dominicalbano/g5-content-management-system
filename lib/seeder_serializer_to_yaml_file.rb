@@ -8,8 +8,10 @@ module SeederSerializerToYamlFile
   end
 
   def to_yaml_file
-    File.write("#{file_path}/#{file_name}.yml", self.as_json.to_yaml) unless file_name.blank? || file_path.blank?
-    file_name
+    return unless valid_yaml_file?
+    fname = sanitize_file_name
+    File.write("#{file_path}/#{fname}.yml", self.as_json.to_yaml) unless fname.blank? || file_path.blank?
+    fname
   end
 
   def get_yaml_files
@@ -18,5 +20,13 @@ module SeederSerializerToYamlFile
       arr << file unless file[0] == '.'
       arr
     end
+  end
+
+  def sanitize_file_name
+    file_name.downcase.gsub(' ','_').underscore if file_name
+  end
+
+  def valid_yaml_file?
+    true
   end
 end

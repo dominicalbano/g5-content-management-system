@@ -1,6 +1,10 @@
-class Api::V1::Seeders::ContentStripesController < Api::V1::ApplicationController
-  def index
-    #render json: Location.all
+class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederController
+  def serializer
+    ContentStripeWidgetSeederSerializer
+  end
+
+  def create
+    # create cs from params
   end
   def update
     #render json: Location.find(params[:id])

@@ -29,6 +29,8 @@ class WebsiteSeederSerializer < ActiveModel::Serializer
   end
 
   def file_name
-    object.urn.downcase.underscore
+    name = object.name
+    vert = object.website.client.vertical.downcase
+    "#{vert}_#{name}"
   end
 end

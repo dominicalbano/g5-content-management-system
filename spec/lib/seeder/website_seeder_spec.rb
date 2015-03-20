@@ -12,7 +12,8 @@ describe Seeder::WebsiteSeeder do
   end  
 
   def setting_value_for(name)
-    website.settings.where(name: name).first.value
+    setting = website.settings.detect { |w| w.name == name }
+    setting.value unless setting.blank?
   end
 
   describe "#seed" do

@@ -38,9 +38,9 @@ G5CMS::Application.routes.draw do
       resources :categories, only: [:index, :show]
 
       namespace :seeders do
-        resources :websites, only: [:index, :update]
-        resources :web_page_templates, only: [:index, :update]
-        resources :content_stripes, only: [:index, :update]
+        resources :websites, only: [:index, :show, :create, :update]
+        resources :web_page_templates, only: [:index, :show, :create, :update]
+        resources :content_stripes, only: [:index, :show, :create, :update]
       end
 
       resources :garden_web_layouts, only: [:index] do

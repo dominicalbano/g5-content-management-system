@@ -1,6 +1,7 @@
 ---
-:slug: content-stripe
-:row_layout: uneven-thirds-1
-:widgets:
-- :slug: html
-- :slug: photo
+:content_stripe_widget_seeder:
+  :slug: content-stripe
+  :row_layout: uneven-thirds-1
+  :widgets:
+  - :slug: html
+  - :slug: photo

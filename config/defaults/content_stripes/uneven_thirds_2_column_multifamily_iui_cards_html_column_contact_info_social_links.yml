@@ -1,14 +1,15 @@
 ---
-:slug: content-stripe
-:row_layout: uneven-thirds-2
-:widgets:
-- :slug: column
-  :row_count: two
+:content_stripe_widget_seeder:
+  :slug: content-stripe
+  :row_layout: uneven-thirds-2
   :widgets:
-  - :slug: multifamily-iui-cards
-  - :slug: html
-- :slug: column
-  :row_count: two
-  :widgets:
-  - :slug: contact-info
-  - :slug: social-links
+  - :slug: column
+    :row_count: two
+    :widgets:
+    - :slug: multifamily-iui-cards
+    - :slug: html
+  - :slug: column
+    :row_count: two
+    :widgets:
+    - :slug: contact-info
+    - :slug: social-links
