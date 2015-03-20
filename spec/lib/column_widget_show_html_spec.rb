@@ -21,7 +21,7 @@ describe ColumnWidgetShowHtml do
       end
 
       it "parses widget as a liquid template" do
-        expect(liquid_parse).to have_received(:render).with("widget" => column_widget.liquid_widget_drop)
+        expect(liquid_parse).to have_received(:render)
       end
 
       it "parses the liquid template with Nokogiri" do
