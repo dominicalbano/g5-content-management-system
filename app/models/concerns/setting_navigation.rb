@@ -56,7 +56,7 @@ module SettingNavigation
             Resque.logger.info("key: " + key.inspect + "child_template_value: " + child_template_value.inspect)
             Rails.logger.info("key: " + key.inspect + "child_template_value: " + child_template_value.inspect)
             Rails.logger.info("\nwidget_page_value: " + widget_page_value.inspect)
-            child_template_value["display"] = widget_page_value["child_templates"][key]["display"]
+            child_template_value["display"] = widget_page_value["child_templates"][key]["display"] unless widget_page_value["child_templates"].empty?
           end
           website_page_value["sub_nav"] = true if show_sub_nav?(website_page_value)
         end
