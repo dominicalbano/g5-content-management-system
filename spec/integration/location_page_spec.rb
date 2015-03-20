@@ -162,14 +162,13 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       it "Creates a new widget in the database and displays in DOM" do
-        pending("TODO: Fix intermittent failure")
-
+        open_gardens
         garden_widget = ".widget-list .widgets--list-view .widget:last-of-type"
         drop_target_add = ".main-widgets .drop-target-add:first-of-type"
         existing_widget_count = all(".main-widgets .widget").length
 
         expect do
-          drag_and_drop_add(garden_widget, drop_target_add)
+          drag_and_drop(garden_widget, drop_target_add)
           sleep 1
         end.to change{ @web_page_template.reload.main_widgets.count }.by(1)
         expect(all(".main-widgets .widget").length).to eq existing_widget_count + 1
