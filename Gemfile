@@ -92,4 +92,5 @@ group :test do
   # guard specs
   gem "guard-rspec", require: false
   gem "rb-fsevent"
+  gem "rspec-retry"
 end  

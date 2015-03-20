@@ -71,7 +71,7 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     puts "\n\nReminder: \033[1;31m\Don't forget to run integration specs with rspec -t integration\e[0m"
-  end
+    end
   config.mock_with :rspec do |mocks|
 
     # This option should be set when all dependencies are being loaded
@@ -81,6 +81,9 @@ RSpec.configure do |config|
     mocks.verify_doubled_constant_names = true
 
   end
+
+  # Config for rspec retry
+  config.verbose_retry = true # show retry status in spec process
 end
 
 require 'capybara/poltergeist'
