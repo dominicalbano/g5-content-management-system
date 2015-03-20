@@ -49,10 +49,12 @@ module SettingNavigation
       # widget_page_value could be false, so can't check presence
       unless widget_page_value.nil?
         website_page_value["display"] = widget_page_value["display"]
-        website_page_value["child_templates"].each_pair do |key, child_template_value|
-          child_template_value["display"] = widget_page_value["child_templates"][key]["display"]
+        if child_templates = website_page_value.fetch("child_templates", false)
+          child_templates.each_pair do |key, child_template_value|
+            child_template_value["display"] = widget_page_value["child_templates"][key]["display"]
+          end
+          website_page_value["sub_nav"] = true if show_sub_nav?(website_page_value)
         end
-        website_page_value["sub_nav"] = true if show_sub_nav?(website_page_value)
       end
       new_value[key] = HashWithToLiquid[website_page_value]
     end
