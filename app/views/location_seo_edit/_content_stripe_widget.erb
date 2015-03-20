@@ -5,16 +5,16 @@
     <% tags.each do |tag| %>
       <tr>
         <th><%= tag %></th>
-        <td><%= get_val(content_stripe_widget, tag) %></td>
+        <td><%= content_stripe_widget.get_setting_value(tag) %></td>
       </tr>
     <% end %>
     </table>
 
-    <% cols = %w(1 2 3 4) %>
     <% children = Array.new %>
-    <% for i in 0..(number_of_widgets(get_val(content_stripe_widget, "row_layout")) - 1) %>
-        <!--<li><%= "column_#{cols[i]}_widget_name" %>=<%= get_val(content_stripe_widget, "column_#{cols[i]}_widget_name") %></li>-->
-        <% children.push(get_val(content_stripe_widget, "column_#{cols[i]}_widget_id")) %>
+    <% (1..content_stripe_widget.max_widgets).each do |i| %>
+      <% cs_name = "#{content_stripe_widget.child_widget_setting_prefix(i)}name" %>
+      <li><%= cs_name %>=<%=content_stripe_widget.get_setting_value(cs_name) %></li>
+      <% children.push(content_stripe_widget.get_setting_value("#{column_widget.child_widget_setting_prefix(i)}id")) %>
     <% end %>
   </ul>
   <% if content_stripe_widget.widgets.count > 0 %>

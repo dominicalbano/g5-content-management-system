@@ -5,15 +5,13 @@
       <% tags.each do |tag| %>
           <tr>
             <th><%= tag %></th>
-            <td><%= get_val(column_widget, tag) %></td>
+            <td><%= column_widget.get_setting_value(tag) %></td>
           </tr>
       <% end %>
     </table>
-    <% cols = %w(1 2 3 4 5 6) %>
     <% children = Array.new %>
-    <% for i in 0..(number_of_widgets(get_val(column_widget, "row_count")) - 1) %>
-        <!--<li><%= "row_#{cols[i]}_widget_name" %>=<%= get_val(column_widget, "row_#{cols[i]}_widget_name") %></li>-->
-        <% children.push(get_val(column_widget, "row_#{cols[i]}_widget_id")) %>
+    <% (1..column_widget.max_widgets).each do |i| %>
+      <% children.push(column_widget.get_setting_value("#{column_widget.child_widget_setting_prefix(i)}id")) %>
     <% end %>
   </ul>
   <% if column_widget.widgets.count > 0 %>
