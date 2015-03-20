@@ -22,7 +22,7 @@ class LayoutWidgetShowHtml
 
   def render_widgets
     (1..widget.max_widgets).each do |idx|
-      render_widget("#{widget.layout_var}_#{idx}_widget_id", "#drop-target-#{idx}-#{widget.layout_var}-{widget.id}")
+      render_widget("#{widget.child_widget_setting_prefix(idx)}id", "#drop-target-#{idx}-#{widget.layout_var}-{widget.id}")
     end
   end
 
