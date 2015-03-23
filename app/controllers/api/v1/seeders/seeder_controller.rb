@@ -1,7 +1,8 @@
 class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
   def index
     response = serializer.new(nil).get_yaml_files unless serializer.blank?
-    render json: response, status: (response.blank? ? 500 : 200)
+    json = response.to_json({root: false}) if response
+    render json: json.gsub('.yml',''), status: (json.blank? ? 500 : 200)
   end
   
   def show
@@ -10,7 +11,8 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
       arr << file unless prefix.match(file).blank?
       arr
     end unless serializer.blank?
-    render json: response, status: (response.blank? ? 500 : 200)
+    json = response.to_json({root: false}) if response
+    render json: json.gsub('.yml',''), status: (json.blank? ? 500 : 200)
   end
 
   def serialize

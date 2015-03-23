@@ -21,7 +21,10 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
   private
 
   def widget
-    w = Widget.find(params[:id]) if params[:id]
+    w = Widget.find(params[:id]) if params[:id].try(:to_i) > 0
     return w if w.try(:is_content_stripe?)
+    index = params[:index].try(:to_i) || 1
+    cs = web_template.widgets.select { |w| w.is_content_stripe? } if web_template
+    return cs[index] if (cs && cs.size > index)
   end
 end
