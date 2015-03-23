@@ -24,7 +24,7 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
   def seed
     return if seeder.blank?
     if seeder_object && !params[:yml].blank?
-      Resque.enqueue(seeder, @object, params[:yml])
+      Resque.enqueue(seeder, { urn: @object.get_web_template.owner.urn, slug: @object.slug }, params[:yml])
       render json: { message: "Seeder enqueued" }, status: 202
     else
       render json: { message: "Invalid seeder object" }, status: (response.blank? ? 500 : 200)

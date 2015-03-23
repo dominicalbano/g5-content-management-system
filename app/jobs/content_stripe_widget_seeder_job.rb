@@ -3,9 +3,9 @@ class ContentStripeWidgetSeederJob
   @queue = :content_stripe_seeder
 
   def self.perform(params, instructions=nil)
-    site = Location.find_by_urn(urn).try(:website)
-    web_template = site.web_templates.find_by_slug(template_slug) if site
-    self.new(web_template, is_home).perform if web_template
+    site = Location.find_by_urn(params['urn']).try(:website) unless params['urn'].blank?
+    web_template = site.web_templates.find_by_slug(params['slug']) if (site && !params['slug'].blank?)
+    self.new(web_template, instructions).perform if web_template
   end
 
   def initialize(web_template, instructions)
@@ -15,6 +15,6 @@ class ContentStripeWidgetSeederJob
   end
 
   def perform
-    Seeder::ContentStripeWidgetSeeder.new(@drop_target, @instructions).seed
+    Seeder::WidgetSeeder.new(@drop_target, @instructions).seed
   end
 end
