@@ -46,7 +46,8 @@ module SettingNavigation extend ActiveSupport::Concern
     merged_value.keys.each do |key|
       merged_value[key]["sub_nav"] = "true" if show_sub_nav?(merged_value[key])
     end
-    merged_value
+    cleaned_merged_value = remove_children_from_top(merged_value)
+    HashWithToLiquid[cleaned_merged_value]
   end
 
 
@@ -63,6 +64,11 @@ module SettingNavigation extend ActiveSupport::Concern
   end
 
   private
+
+  #needed to handle when CMS is updated but widget garden navigation is not
+  def remove_children_from_top(hash)
+    hash.slice(*owner.drop_target.web_template.website.navigateable_web_templates.map{|wt| wt.id.to_s})
+  end
 
   def deep_merge_without_title_url(old, new)
     old.deep_merge(new) do |key, old, new|
