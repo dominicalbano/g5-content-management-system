@@ -35,10 +35,6 @@ module Widgets
       [child_widgets, more_widgets].flatten.compact
     end
 
-    def nested_settings
-      widgets.collect {|widget| widget.settings}.flatten
-    end
-
     def layout
       get_setting_value(layout_var) unless layout_var.blank?
     end

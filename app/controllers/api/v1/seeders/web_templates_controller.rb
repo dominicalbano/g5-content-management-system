@@ -7,7 +7,7 @@ class Api::V1::Seeders::WebTemplatesController < Api::V1::Seeders::SeederControl
   end
 
   def seeder
-    WebPageTemplateSeeder
+    Seeder::WebPageTemplateSeeder
   end
 
   def serializer_object

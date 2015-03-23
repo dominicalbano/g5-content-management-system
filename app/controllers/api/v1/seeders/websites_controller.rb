@@ -7,7 +7,7 @@ class Api::V1::Seeders::WebsitesController < Api::V1::Seeders::SeederController
   end
 
   def seeder
-    WebsiteSeeder
+    Seeder::WebsiteSeeder
   end
 
   def serializer_object

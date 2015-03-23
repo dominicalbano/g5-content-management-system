@@ -7,7 +7,7 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
   end
 
   def seeder
-    ContentStripeWidgetSeeder
+    Seeder::ContentStripeWidgetSeeder
   end
 
   def serializer_object
@@ -21,6 +21,7 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
   private
 
   def widget
-    Widget.find_by_urn(params[:id]) if params[:id]
+    w = Widget.find(params[:id]) if params[:id]
+    return w if w.try(:is_content_stripe?)
   end
 end

@@ -6,7 +6,7 @@ class Widget < ActiveRecord::Base
 
   validates :garden_widget_id, presence: true
 
-  ranks :display_order, with_same: :drop_target_id
+  ranks :display_order, with_same: :drop_target_id, scope: :has_drop_target
 
   belongs_to :garden_widget
   belongs_to :drop_target
@@ -30,6 +30,8 @@ class Widget < ActiveRecord::Base
   after_initialize :set_defaults
   after_create :update_settings!
 
+  scope :has_drop_target, -> {
+    where("drop_target_id IS NOT NULL") }
   scope :name_like_form, -> {
     joins(:garden_widget).where("garden_widgets.name LIKE '%Form'") }
   scope :meta_description, -> {
@@ -161,6 +163,10 @@ class Widget < ActiveRecord::Base
 
   def liquid_widget_drop
     WidgetDrop.new(self, client.try(:locations))
+  end
+
+  def nested_settings
+    widgets.collect {|widget| widget.settings}.flatten
   end
 
   private

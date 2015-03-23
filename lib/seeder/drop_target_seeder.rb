@@ -19,7 +19,7 @@ module Seeder
     end
 
     def create_widgets(drop_target, instructions)
-      Rails.logger.debug("Creating widgets from instructions")
+      Rails.logger.debug("Creating drop target widgets from instructions")
       if drop_target && instructions
         instructions.each do |instruction|
           WidgetSeeder.new(drop_target, instruction).seed
