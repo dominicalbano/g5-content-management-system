@@ -43,7 +43,6 @@ module SettingNavigation extend ActiveSupport::Concern
 
   def create_new_value(website_value, widget_value)
     website_value.deep_merge!(widget_value)
-    website_value["sub_nav"] = true if show_sub_nav?(website_value)
     website_value.keys.each do |key|
       website_value[key]["sub_nav"] = "true" if show_sub_nav?(website_value[key])
     end
