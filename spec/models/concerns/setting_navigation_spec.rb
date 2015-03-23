@@ -1,7 +1,16 @@
 require "spec_helper"
 
 shared_examples_for SettingNavigation do
-  let(:described_instance) { described_class.new }
+  before do
+    allow(Website).to receive(:find).and_return(OpenStruct.new("navigateable_web_templates" => 
+                                      [OpenStruct.new("id" => "1"), OpenStruct.new("id" => "2")]))
+  end
+ 
+  let(:described_instance) do 
+    described = described_class.new
+    allow(described).to receive(:owner).and_return(Fabricate(:widget))
+    described
+  end
 
   describe "When display changes on widget" do
     let(:website_value) {{
