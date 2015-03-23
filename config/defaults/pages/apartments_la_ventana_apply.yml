@@ -1,0 +1,21 @@
+---
+:name: Apply
+:title: Apply to Live at {{location_name}}
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: Do you like what you've seen and want to apply to live at {{location_name}}?
+        Do it from the comfort of your sofa on our website today.
+  - :slug: content-stripe
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: html
+    - :slug: calls-to-action
+  - :slug: content-stripe
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: lead-form
+    - :slug: contact-info

@@ -10,7 +10,7 @@ module SeederSerializerToYamlFile
   def to_yaml_file
     return unless valid_yaml_file?
     fname = sanitize_file_name
-    File.write("#{file_path}/#{fname}.yml", self.as_json.to_yaml) unless fname.blank? || file_path.blank?
+    File.write("#{file_path}/#{fname}.yml", self.as_json({root: false}).to_yaml) unless fname.blank? || file_path.blank?
     fname
   end
 

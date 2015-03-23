@@ -21,8 +21,12 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
 
   def seed
     return if seeder.blank?
-    response = seeder.new(@object, params[:yml]).seed if (seeder_object && !params[:yml].blank?)
-    render json: { object: response }, status: (response.blank? ? 500 : 200)
+    if seeder_object && !params[:yml].blank?
+      Resque.enqueue(seeder, @object, params[:yml])
+      render json: { message: "Seeder enqueued" }, status: 202
+    else
+      render json: { message: "Invalid seeder object" }, status: (response.blank? ? 500 : 200)
+    end
   end
 
   def serializer
@@ -39,5 +43,23 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
 
   def seeder_object
     @object = nil # abstract
+  end
+
+  protected
+
+  def location
+    Location.find_by_urn(params[:id]) if params[:id]
+  end
+
+  def website
+    location.website if location
+  end
+
+  def web_template
+    website.web_templates.find_by_slug(@slug) if website && !slug.blank?
+  end
+
+  def slug
+    @slug ||= params[:slug] if params[:slug]
   end
 end

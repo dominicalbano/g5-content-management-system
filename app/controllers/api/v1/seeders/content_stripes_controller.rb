@@ -7,7 +7,7 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
   end
 
   def seeder
-    Seeder::ContentStripeWidgetSeeder
+    ContentStripeWidgetSeederJob
   end
 
   def serializer_object
@@ -15,7 +15,7 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
   end
 
   def seeder_object
-    ##TODO
+    @object ||= web_template
   end
 
   private

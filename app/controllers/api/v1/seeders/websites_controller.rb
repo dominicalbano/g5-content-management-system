@@ -7,7 +7,7 @@ class Api::V1::Seeders::WebsitesController < Api::V1::Seeders::SeederController
   end
 
   def seeder
-    Seeder::WebsiteSeeder
+    WebsiteSeederJob
   end
 
   def serializer_object
@@ -15,12 +15,6 @@ class Api::V1::Seeders::WebsitesController < Api::V1::Seeders::SeederController
   end
 
   def seeder_object
-    @object ||= location
-  end
-
-  private
-
-  def location
-    Location.find_by_urn(params[:id]) if params[:id]
+    @object ||= params[:id]
   end
 end
