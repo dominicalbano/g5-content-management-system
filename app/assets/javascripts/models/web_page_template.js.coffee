@@ -1,6 +1,6 @@
 App.WebPageTemplate = DS.Model.extend
-  website: DS.belongsTo("App.Website")
-  mainWidgets: DS.hasMany("App.MainWidget")
+  website: DS.belongsTo("website")
+  mainWidgets: DS.hasMany("mainWidget")
   previewUrl: DS.attr("string")
   name: DS.attr("string")
   slug: DS.attr("string")
@@ -10,3 +10,9 @@ App.WebPageTemplate = DS.Model.extend
   displayOrder: DS.attr("number")
   displayOrderPosition: DS.attr("number")
   inTrash: DS.attr("boolean")
+  parent: DS.belongsTo("WebPageTemplate", {inverse:null})
+  shouldUpdateNavigationSettings: DS.attr("boolean"), defaultValue: -> true
+  parentChanged: ( ->
+    this.set('shouldUpdateNavigationSettings', true)
+  ).observes('parent')
+

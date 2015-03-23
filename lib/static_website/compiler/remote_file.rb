@@ -7,13 +7,19 @@ module StaticWebsite
       attr_reader :remote_path, :compile_path
 
       def initialize(remote_path, compile_path)
+        LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::RemoteFile with remote_path: #{remote_path},\n\n\tcompile_path: #{compile_path}")}
         @remote_path = remote_path
         @compile_path = compile_path
       end
 
       def compile
+        LOGGERS.each{|logger| logger.debug("about to call compile_directory.compile")}
         compile_directory.compile
-        write_to_file
+        LOGGERS.each{|logger| logger.debug("done calling compile_directory.compile")}
+        LOGGERS.each{|logger| logger.debug("about to write_to_file")}
+        result = write_to_file
+        LOGGERS.each{|logger| logger.debug("done write_to_file")}
+        result
       end
 
       def compile_directory
@@ -23,8 +29,10 @@ module StaticWebsite
       private
 
       def write_to_file
+        LOGGERS.each{|logger| logger.debug("opening #{compile_path}")}
         open(compile_path, "wb") do |file|
-          file << open(remote_path).read
+          LOGGERS.each{|logger| logger.debug("shoveling contents of #{remote_path} into #{compile_path}")}
+          file << read_remote(remote_path)
         end if compile_path
       rescue OpenURI::HTTPError => e
         if e.message.include?("404")
@@ -33,6 +41,21 @@ module StaticWebsite
           raise e
         end
       end
+
+      def read_remote(remote_path)
+        retries = [3, 5, 10]
+        begin
+          open(remote_path).read
+        rescue OpenURI::HTTPError
+          if delay = retries.shift
+            sleep delay
+            retry
+          else
+            raise
+          end
+        end
+      end
+
     end
   end
 end

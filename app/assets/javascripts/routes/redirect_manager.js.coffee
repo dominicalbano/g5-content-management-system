@@ -1,7 +1,7 @@
 App.RedirectManagerRoute = Ember.Route.extend
   model: (params) ->
     slug = params["website_slug"]
-    websites = App.Website.find({})
+    websites = this.store.find('website')
     websites.one "didLoad", ->
       website = null
       websites.forEach (x) -> website = x if x.get("slug") is slug

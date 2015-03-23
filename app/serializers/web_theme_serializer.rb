@@ -7,7 +7,11 @@ class WebThemeSerializer < ActiveModel::Serializer
               :url,
               :custom_colors,
               :primary_color,
-              :secondary_color
+              :secondary_color,
+              :tertiary_color,
+              :custom_fonts,
+              :primary_font,
+              :secondary_font
 
   def website_template_id
     object.web_template_id

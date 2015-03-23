@@ -17,6 +17,10 @@ describe WebPageTemplate do
     let(:web_page_template) { Fabricate(:web_page_template, website_id: website.id) }
     let!(:client) { Fabricate(:client) }
 
+    before do
+      web_page_template.stub(:update_navigation_settings)
+    end  
+
     it "includes slug" do
       web_page_template.compile_path.should include web_page_template.slug
     end

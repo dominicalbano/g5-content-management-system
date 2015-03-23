@@ -32,9 +32,10 @@ private
     client.vertical = uf2_client.g5_vertical.to_s
     client.domain   = uf2_client.g5_domain.to_s
     client.type     = uf2_client.g5_domain_type.to_s
+    client.organization = uf2_client.g5_organization.to_s
     client.save
 
-    create_client_website(client) if client.type == "SingleDomainClient"
+    find_or_create_client_website(client) if client.type == "SingleDomainClient"
   end
 
   def process_client
@@ -64,6 +65,10 @@ private
     location.primary_amenity  = uf2_location.g5_aparment_amenity_1.to_s
     location.qualifier        = uf2_location.g5_aparment_feature_1.to_s
     location.primary_landmark = uf2_location.g5_landmark_1.to_s
+    location.status           = uf2_location.g5_status.to_s
+    location.thumb_url        = uf2_location.try(:photo).to_s
+    location.secure_domain    = uf2_location.g5_secure_domain.to_s
+
     location.save
   end
 
@@ -85,7 +90,11 @@ private
     @uf2_client ||= Microformats2.parse(@client_uid).first
   end
 
-  def create_client_website(client)
-    Website.create(owner_id: client.id, owner_type: "Client")
+  def find_or_create_client_website(client)
+    Website.where(owner_id: client.id, owner_type: "Client").first_or_create
+  end
+
+  def production?
+    Rails.env.production?
   end
 end

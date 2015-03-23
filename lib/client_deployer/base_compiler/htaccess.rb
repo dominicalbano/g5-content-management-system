@@ -27,14 +27,18 @@ module ClientDeployer
       def render_htaccess
         Website.location_websites.each { |website| process_website(website.decorate) }
 
-        htaccess_contents = ["<IfModule mod_rewrite.c>",
+        htaccess_contents = ["DirectoryIndex index.html",
+                             "<IfModule mod_rewrite.c>",
                              "\tRewriteEngine On",
                              @empty_folders.flatten,
                              @redirect_rules.flatten,
                              "\tRewriteCond %{REQUEST_FILENAME} !-d",
                              "\tRewriteCond %{REQUEST_FILENAME} !-f",
-                             "</IfModule>"]
-
+                             "</IfModule>",
+                             "SetEnvIfNoCase Referer semalt.com spammer=yes",
+                             "Order allow,deny",
+                             "Allow from all",
+                             "Deny from env=spammer"]
         htaccess_contents.flatten.join("\n")
       end
 

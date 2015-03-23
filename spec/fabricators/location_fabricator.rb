@@ -6,4 +6,5 @@ Fabricator :location do
   city { Faker::Address.city }
   domain { Faker::Internet.url }
   corporate { false }
+  status { "Pending" }
 end

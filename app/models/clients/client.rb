@@ -10,6 +10,10 @@ class Client < ActiveRecord::Base
     uid.split("/").last
   end
 
+  def bucket_asset_key_prefix
+    urn
+  end
+
   def locations
     Location.all
   end
@@ -22,14 +26,14 @@ class Client < ActiveRecord::Base
     ClientDeployerJob.perform
   end
 
-  def async_deploy
-    Resque.enqueue(ClientDeployerJob)
+  def async_deploy(user_email)
+    Resque.enqueue(ClientDeployerJob, user_email)
   end
 
   def website_defaults
     case vertical
-    when 'Assisted-Living'
-      WEBSITE_DEFAULTS_ASSISTED_LIVING
+    when 'Senior-Living'
+      WEBSITE_DEFAULTS_SENIOR_LIVING
     when 'Apartments'
       WEBSITE_DEFAULTS_APARTMENTS
     when 'Self-Storage'
@@ -38,4 +42,10 @@ class Client < ActiveRecord::Base
       WEBSITE_DEFAULTS
     end
   end
+
+  def create_bucket
+    BucketCreator.new(self).create
+  end
+
 end
+

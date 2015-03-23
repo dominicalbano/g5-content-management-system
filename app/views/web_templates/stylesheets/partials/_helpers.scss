@@ -1,0 +1,49 @@
+// *************************************
+//
+//  Helpers
+//
+// *************************************
+
+// =====================================
+//  Additional mixins
+// =====================================
+
+// -------------------------------------
+//  Media Queries
+// -------------------------------------
+
+// Use these with the breakpoint variables or custom breakpoint
+@mixin at-least($query) {
+  @media screen and (min-width: $query) {
+    @content;
+  }
+}
+
+@mixin until($query) {
+  @media screen and (max-width: $query) {
+    @content;
+  }
+}
+
+@mixin between($min-query, $max-query) {
+  @media screen and (min-width: $min-query) and (max-width: $max-query) {
+    @content;
+  }
+}
+
+// EXAMPLE:
+// header {
+//   @include at-least($min-medium) {
+//     background: white;
+//   }
+// }
+
+
+// -------------------------------------
+//  Functions
+// -------------------------------------
+
+// Create a percent value using target/context formula
+@function percent($target, $context: $site-width) {
+  @return #{$target / $context * 100}#{"%"};
+}

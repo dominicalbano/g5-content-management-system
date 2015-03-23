@@ -1,0 +1,226 @@
+// *****************************************************
+//
+//  Icons
+//
+// *****************************************************
+
+// =====================================================
+//  Font icon system
+//  Go here for list of icons:
+//  http://g5-theme-garden.herokuapp.com/static/g5-icons
+// =====================================================
+
+@font-face {
+  font-family: 'g5-icomoon';
+  src:url('https://themes.g5dxm.com/shared/fonts/g5-icomoon.eot?o6u9vb');
+  src:url('https://themes.g5dxm.com/shared/fonts/g5-icomoon.eot?#iefixo6u9vb') format('embedded-opentype'),
+    url('https://themes.g5dxm.com/shared/fonts/g5-icomoon.woff?o6u9vb') format('woff'),
+    url('https://themes.g5dxm.com/shared/fonts/g5-icomoon.ttf?o6u9vb') format('truetype'),
+    url('https://themes.g5dxm.com/shared/fonts/g5-icomoon.svg?o6u9vb#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Extend %icon and the icon class
+//
+// EXAMPLE:
+// @extend %icon;
+// @extend .icn-home;
+
+%icon:before,
+[class^="icn-"],
+[class*=" icn-"] {
+  font-family: 'g5-icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icn-handicap:before {
+  content: "\e60b";
+}
+
+.icn-housing:before {
+  content: "\e60c";
+}
+
+.icn-facebook:before {
+  content: "\e600";
+}
+
+.icn-foursquare:before {
+  content: "\e601";
+}
+
+.icn-google-plus:before {
+  content: "\e602";
+}
+
+.icn-instagram:before {
+  content: "\e603";
+}
+
+.icn-linked-in:before {
+  content: "\e604";
+}
+
+.icn-pinterest:before {
+  content: "\e605";
+}
+
+.icn-tumblr:before {
+  content: "\e606";
+}
+
+.icn-twitter:before {
+  content: "\e607";
+}
+
+.icn-vimeo:before {
+  content: "\e608";
+}
+
+.icn-yelp:before {
+  content: "\e609";
+}
+
+.icn-youtube:before {
+  content: "\e60a";
+}
+
+.icn-search:before {
+  content: "\f002";
+}
+
+.icn-envelope-o:before {
+  content: "\f003";
+}
+
+.icn-check:before {
+  content: "\f00c";
+}
+
+.icn-close:before {
+  content: "\f00d";
+}
+
+.icn-cog:before {
+  content: "\f013";
+}
+
+.icn-home:before {
+  content: "\f015";
+}
+
+.icn-play-circle-o:before {
+  content: "\f01d";
+}
+
+.icn-camera:before {
+  content: "\f030";
+}
+
+.icn-chevron-left:before {
+  content: "\f053";
+}
+
+.icn-chevron-right:before {
+  content: "\f054";
+}
+
+.icn-question-circle:before {
+  content: "\f059";
+}
+
+.icn-info-circle:before {
+  content: "\f05a";
+}
+
+.icn-calendar:before {
+  content: "\f073";
+}
+
+.icn-comment:before {
+  content: "\f075";
+}
+
+.icn-envelope:before {
+  content: "\f0e0";
+}
+
+.icn-angle-left:before {
+  content: "\f104";
+}
+
+.icn-angle-right:before {
+  content: "\f105";
+}
+
+.icn-angle-up:before {
+  content: "\f106";
+}
+
+.icn-angle-down:before {
+  content: "\f107";
+}
+
+.icn-quote-left:before {
+  content: "\f10d";
+}
+
+.icn-quote-right:before {
+  content: "\f10e";
+}
+
+.icn-dollar:before {
+  content: "\f155";
+}
+
+.icn-youtube-play:before {
+  content: "\f16a";
+}
+
+.icn-long-arrow-down:before {
+  content: "\f175";
+}
+
+.icn-long-arrow-up:before {
+  content: "\f176";
+}
+
+.icn-long-arrow-left:before {
+  content: "\f177";
+}
+
+.icn-long-arrow-right:before {
+  content: "\f178";
+}
+
+.icn-phone:before {
+  content: "\e942";
+}
+
+.icn-location:before {
+  content: "\e947";
+}
+
+.icn-location2:before {
+  content: "\e948";
+}
+
+.icn-spinner:before {
+  content: "\e97a";
+}
+
+.icn-spinner2:before {
+  content: "\e97b";
+}
+
+.icn-spinner3:before {
+  content: "\e97c";
+}

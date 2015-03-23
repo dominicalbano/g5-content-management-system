@@ -7,19 +7,26 @@ module StaticWebsite
         attr_reader :from_path, :s3, :bucket_name, :bucket_url
 
         def initialize(from_path, location_name)
+          LOGGERS.each{|logger| logger.debug("Initializing StaticWebsite::Compiler::Stylesheet::Uploader with from_path: \n#{from_path}\n, location_name: #{location_name}")}
           @from_path = from_path
+          @location_name = location_name
           @s3 = AWS::S3.new(
             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
             secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
             region: ENV["AWS_REGION"] || "us-west-2"
           )
-          location_name = location_name.to_s.underscore.upcase.gsub(/ /, "_")
-          @bucket_name = ENV["AWS_S3_BUCKET_NAME_#{location_name}"]
-          @bucket_url = ENV["AWS_S3_BUCKET_URL_#{location_name}"]
+
+          unless @location_name.empty?
+            @bucket_name = s3_bucket_name_manager.bucket_name
+            @bucket_url = s3_bucket_name_manager.bucket_url
+          end
         end
 
         def compile
-          s3_bucket_object.write(Pathname.new(from_path), write_options)
+          LOGGERS.each{|logger| logger.debug("Writing style assets to S3")}
+          #write with a metadata flag of status: current
+          result = s3_bucket_object.write(Pathname.new(from_path), write_options)
+          LOGGERS.each{|logger| logger.debug(result.inspect)}
         end
 
         def uploaded_path
@@ -39,12 +46,23 @@ module StaticWebsite
         end
 
         def write_options
-          { acl: :public_read, content_type: "text/css" }
+          {:acl => :public_read, :content_type => "text/css",
+           metadata: {"x-amz-meta-freshness" => "current"}}
         end
 
         def to_path
           @filename ||= File.basename(from_path)
-          @to_path ||= File.join("stylesheets", @filename)
+          @to_path ||= File.join("#{location.bucket_asset_key_prefix}/stylesheets", @filename)
+        end
+
+        private
+
+        def s3_bucket_name_manager
+          @s3_bucket_name_manager ||= S3BucketNameManager.new(location)
+        end
+
+        def location
+          Location.where(name: @location_name).first
         end
       end
     end

@@ -1,23 +1,35 @@
 class GardenWidgetUpdater
   def update_all
     updated_garden_widgets = []
+    components_data = components_microformats
 
-    components_microformats.map do |component|
-      garden_widget = GardenWidget.find_or_initialize_by(name: get_name(component))
-      update(garden_widget, component)
+    components_data.map do |component|
+      garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
+      
+      if (get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
+        update(garden_widget, component)
+      end
+      
       updated_garden_widgets << garden_widget
-    end if components_microformats
+    end if components_data
 
     removed_garden_widgets = GardenWidget.all - updated_garden_widgets
     removed_garden_widgets.each do |removed_garden_widget|
       removed_garden_widget.destroy
     end
+
+    update_row_widget_garden_widgets_setting
+    update_column_widget_garden_widgets_setting
   end
 
+  private  
+  
   def update(garden_widget, component=nil)
     component ||= garden_widget.component_microformat
     garden_widget.url = get_url(component)
     garden_widget.name = get_name(component)
+    garden_widget.widget_id = get_widget_id(component)
+    garden_widget.widget_type = get_widget_type(component)
     garden_widget.slug = get_slug(component)
     garden_widget.thumbnail = get_thumbnail(component)
     garden_widget.edit_html = get_edit_html(component)
@@ -27,10 +39,9 @@ class GardenWidgetUpdater
     garden_widget.lib_javascripts = get_lib_javascripts(component)
     garden_widget.show_stylesheets = get_show_stylesheets(component)
     garden_widget.settings = get_settings(component)
+    garden_widget.widget_modified = get_modified(component)
     garden_widget.save
     garden_widget.update_widgets_settings!
-    update_row_widget_garden_widgets_setting
-    update_column_widget_garden_widgets_setting
   end
 
   def update_row_widget_garden_widgets_setting
@@ -47,8 +58,6 @@ class GardenWidgetUpdater
     end
   end
 
-  private
-
   def components_microformats
     GardenWidget.components_microformats
   end
@@ -62,6 +71,24 @@ class GardenWidgetUpdater
   def get_name(component)
     if component.respond_to?(:name)
       component.name.to_s
+    end
+  end
+
+  def get_modified(component)
+    if component.respond_to?(:modified)
+      Time.zone.parse(component.modified.to_s)
+    end
+  end
+
+  def get_widget_id(component)
+    if component.respond_to?(:widget_id)
+      component.widget_id.to_s.to_i
+    end
+  end
+
+  def get_widget_type(component)
+    if component.respond_to?(:widget_type)
+      component.widget_type.to_s
     end
   end
 

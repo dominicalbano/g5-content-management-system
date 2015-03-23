@@ -17,7 +17,9 @@ G5CMS::Application.routes.draw do
       end
 
       resources :locations, only: [:index, :show]
-      resources :websites, only: [:index, :show]
+      resources :websites, only: [:index, :show] do
+        post "deploy"
+      end
       resources :website_templates, only: [:show]
       resources :web_layouts, only: [:show, :update]
       resources :web_themes, only: [:show, :update]
@@ -33,6 +35,7 @@ G5CMS::Application.routes.draw do
       resources :web_page_templates, only: [:index, :show, :create, :update, :destroy]
       resources :main_widgets, only: [:index, :show, :create, :update, :destroy]
       resources :assets, only: [:index, :show, :create, :update, :destroy]
+      resources :categories, only: [:index, :show]
 
       resources :garden_web_layouts, only: [:index] do
         collection do
@@ -55,6 +58,9 @@ G5CMS::Application.routes.draw do
       resources :releases, only: [:index, :show] do
         post "website/:website_slug", to: 'releases#rollback'
       end
+      resources :saves, only: [:index, :show, :create] do
+        post "restore"
+      end
     end
   end
 
@@ -65,12 +71,18 @@ G5CMS::Application.routes.draw do
     end
   end
 
+  get "/location_cloner", to: "location_cloner#index"
+  post "/location_cloner/clone_location", to: "location_cloner#clone_location"
+
   # Widget edit modals
   resources :widgets, only: [:edit, :update]
 
   # WidgetEntry is published for new form widget
   resources :widget_entries, only: [:index, :show]
   resources :tags, only: [:show]
+  resources :garden_updates, only: :update
+
+  post "update" => "webhooks#update"
 
   get "/areas/:state", to: "area_pages#show"
   get "/areas/:state/:city", to: "area_pages#show"
@@ -79,10 +91,12 @@ G5CMS::Application.routes.draw do
   # Ember.js application
   get "/:location_slug", to: "locations#index"
   get "/:location_slug/:web_page_template_slug", to: "locations#index"
-  get "/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
-  get "/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
+  get "/:urn/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
+  get "/:urn/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
   get "/:vertical_slug/:state_slug/:city_slug/:owner_urn/:web_template_slug", to: "web_templates#show"
+  get "/:urn/:vertical_slug/:state_slug/:city_slug/:owner_urn/:web_template_slug", to: "web_templates#show"
 
   # Root to Ember.js application
   root to: "locations#index"
 end
+

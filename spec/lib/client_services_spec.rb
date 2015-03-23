@@ -49,7 +49,7 @@ describe ClientServices do
 
   describe "#client_location_urls" do
     it "grabs the client_location_urls" do
-      @client_services.client_location_urls.should == [location1.domain, location2.domain]
+      @client_services.client_location_urls.should =~ [location1.domain, location2.domain]
     end
   end
 
@@ -72,6 +72,18 @@ describe ClientServices do
           service_app_name = "g5-#{service}-irrelevant-clientname"[0...@heroku_app_max_length]
           @client_services.send(:"#{service}_url").should == "http://#{service_app_name}.herokuapp.com/"
         end
+      end
+    end
+
+    describe "service URL" do
+      context "by default" do
+        subject { @client_services.cls_url }
+        it { should eq("http://g5-cls-irrelevant-clientname.herokuapp.com/") }
+      end
+
+      context "passed secure: true" do
+        subject { @client_services.cls_url(secure: true) }
+        it { should eq("https://g5-cls-irrelevant-clientname.herokuapp.com/") }
       end
     end
   end

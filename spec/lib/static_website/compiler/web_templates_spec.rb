@@ -11,9 +11,14 @@ describe StaticWebsite::Compiler::WebTemplates do
     end
 
     context "when web templates are present" do
+      let(:website) {Fabricate(:website)}
       let(:model_one) { Fabricate(:web_template) }
       let(:model_two) { Fabricate(:web_template) }
       let(:subject) { StaticWebsite::Compiler::WebTemplates.new([model_one, model_two]) }
+
+      before do
+        website.web_templates << [model_one, model_two]
+      end
 
       it "compiles each one" do
         StaticWebsite::Compiler::WebTemplate.any_instance.stub(:compile)

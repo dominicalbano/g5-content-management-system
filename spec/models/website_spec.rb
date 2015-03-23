@@ -23,14 +23,16 @@ describe Website, vcr: VCR_OPTIONS do
     end
   end
 
-  describe "#location_websites" do
+  describe "location scopes" do
     let(:client) { Fabricate(:client) }
-    let(:location) { Fabricate(:location) }
+    let(:location) { Fabricate(:location, status: "Suspended") }
     let!(:client_website) { Fabricate(:website, owner: client) }
     let!(:location_website) { Fabricate(:website, owner: location) }
 
-    it "returns location websites only" do
-      expect(Website.location_websites).to eq([location_website])
+    describe "#location_websites" do
+      it "returns location websites only" do
+        expect(Website.location_websites).to eq([location_website])
+      end
     end
   end
 
@@ -108,20 +110,13 @@ describe Website, vcr: VCR_OPTIONS do
     end
   end
 
-  describe "#javascripts" do
-    let(:website) { Fabricate(:website) }
-
-    it "has a collection of javascripts" do
-      website.javascripts.should be_kind_of(Array)
-    end
-  end
-
   describe "#deploy" do
     let(:website) { Fabricate(:website) }
 
     it "calls StaticWebsiteDeployerJob with urn" do
-      StaticWebsiteDeployerJob.should_receive(:perform).with(website.urn).once
-      website.deploy
+      user_email = "user@email.com"
+      StaticWebsiteDeployerJob.should_receive(:perform).with(website.urn, user_email).once
+      website.deploy(user_email)
     end
   end
 
@@ -130,8 +125,8 @@ describe Website, vcr: VCR_OPTIONS do
 
     it "enqueues StaticWebsiteDeployerJob with urn" do
       Resque.stub(:enqueue)
-      Resque.should_receive(:enqueue).with(StaticWebsiteDeployerJob, website.urn).once
-      website.async_deploy
+      Resque.should_receive(:enqueue).with(StaticWebsiteDeployerJob, website.urn, "user@email.com").once
+      website.async_deploy("user@email.com")
     end
   end
 

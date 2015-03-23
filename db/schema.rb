@@ -11,13 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606191126) do
+ActiveRecord::Schema.define(version: 20150302193955) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+  enable_extension "pg_stat_statements"
 
   create_table "assets", force: true do |t|
     t.string   "url"
     t.integer  "website_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "category_id", default: 1
+  end
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slug"
   end
 
   create_table "clients", force: true do |t|
@@ -28,6 +40,8 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.string   "vertical"
     t.string   "type"
     t.string   "domain"
+    t.string   "organization"
+    t.boolean  "secure_domain", default: false
   end
 
   create_table "drop_targets", force: true do |t|
@@ -51,8 +65,8 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.datetime "updated_at"
   end
 
-  add_index "g5_authenticatable_users", ["email"], name: "index_g5_authenticatable_users_on_email", unique: true
-  add_index "g5_authenticatable_users", ["provider", "uid"], name: "index_g5_authenticatable_users_on_provider_and_uid", unique: true
+  add_index "g5_authenticatable_users", ["email"], name: "index_g5_authenticatable_users_on_email", unique: true, using: :btree
+  add_index "g5_authenticatable_users", ["provider", "uid"], name: "index_g5_authenticatable_users_on_provider_and_uid", unique: true, using: :btree
 
   create_table "garden_web_layouts", force: true do |t|
     t.string   "name"
@@ -76,6 +90,9 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.string   "secondary_color"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "tertiary_color",  default: "#ffffff"
+    t.string   "primary_font",    default: "PT Sans"
+    t.string   "secondary_font",  default: "Georgia"
   end
 
   create_table "garden_widgets", force: true do |t|
@@ -92,6 +109,9 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.text     "settings"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "widget_type"
+    t.integer  "widget_id"
+    t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
   end
 
   create_table "locations", force: true do |t|
@@ -113,9 +133,12 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.string   "primary_landmark"
     t.string   "qualifier"
     t.string   "floor_plans"
+    t.string   "status",           default: "Pending"
+    t.string   "thumb_url"
+    t.boolean  "secure_domain",    default: false
   end
 
-  add_index "locations", ["urn"], name: "index_locations_on_urn"
+  add_index "locations", ["urn"], name: "index_locations_on_urn", using: :btree
 
   create_table "settings", force: true do |t|
     t.string   "name"
@@ -131,7 +154,8 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.integer  "website_id"
   end
 
-  add_index "settings", ["website_id"], name: "index_settings_on_website_id"
+  add_index "settings", ["owner_id"], name: "index_settings_on_owner_id", using: :btree
+  add_index "settings", ["website_id"], name: "index_settings_on_website_id", using: :btree
 
   create_table "sibling_deploys", force: true do |t|
     t.integer  "sibling_id"
@@ -171,8 +195,8 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.integer  "garden_web_layout_id"
   end
 
-  add_index "web_layouts", ["garden_web_layout_id"], name: "index_web_layouts_on_garden_web_layout_id"
-  add_index "web_layouts", ["web_template_id"], name: "index_web_layouts_on_web_template_id"
+  add_index "web_layouts", ["garden_web_layout_id"], name: "index_web_layouts_on_garden_web_layout_id", using: :btree
+  add_index "web_layouts", ["web_template_id"], name: "index_web_layouts_on_web_template_id", using: :btree
 
   create_table "web_templates", force: true do |t|
     t.integer  "website_id"
@@ -185,11 +209,12 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.string   "type"
     t.boolean  "enabled"
     t.integer  "display_order"
-    t.string   "redirect_patterns"
+    t.text     "redirect_patterns"
     t.boolean  "in_trash"
+    t.integer  "parent_id"
   end
 
-  add_index "web_templates", ["website_id"], name: "index_web_templates_on_website_id"
+  add_index "web_templates", ["website_id"], name: "index_web_templates_on_website_id", using: :btree
 
   create_table "web_themes", force: true do |t|
     t.integer  "web_template_id"
@@ -199,10 +224,14 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.string   "custom_primary_color"
     t.string   "custom_secondary_color"
     t.integer  "garden_web_theme_id"
+    t.string   "custom_tertiary_color",  default: "#fff"
+    t.boolean  "custom_fonts",           default: false
+    t.string   "custom_primary_font",    default: "PT Sans"
+    t.string   "custom_secondary_font",  default: "Georgia"
   end
 
-  add_index "web_themes", ["garden_web_theme_id"], name: "index_web_themes_on_garden_web_theme_id"
-  add_index "web_themes", ["web_template_id"], name: "index_web_themes_on_web_template_id"
+  add_index "web_themes", ["garden_web_theme_id"], name: "index_web_themes_on_garden_web_theme_id", using: :btree
+  add_index "web_themes", ["web_template_id"], name: "index_web_themes_on_web_template_id", using: :btree
 
   create_table "websites", force: true do |t|
     t.integer  "owner_id"
@@ -212,7 +241,7 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.string   "owner_type"
   end
 
-  add_index "websites", ["owner_id"], name: "index_websites_on_owner_id"
+  add_index "websites", ["owner_id"], name: "index_websites_on_owner_id", using: :btree
 
   create_table "widget_entries", force: true do |t|
     t.integer  "widget_id"
@@ -231,7 +260,7 @@ ActiveRecord::Schema.define(version: 20140606191126) do
     t.integer  "garden_widget_id"
   end
 
-  add_index "widgets", ["drop_target_id"], name: "index_widgets_on_drop_target_id"
-  add_index "widgets", ["garden_widget_id"], name: "index_widgets_on_garden_widget_id"
+  add_index "widgets", ["drop_target_id"], name: "index_widgets_on_drop_target_id", using: :btree
+  add_index "widgets", ["garden_widget_id"], name: "index_widgets_on_garden_widget_id", using: :btree
 
 end

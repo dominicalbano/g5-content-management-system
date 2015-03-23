@@ -10,7 +10,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -22,16 +22,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '44'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 23 Oct 2014 19:05:22 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:14:56 GMT
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:30 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '44'
       Via:
       - 1.1 vegur
     body:
@@ -42,10 +42,10 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:14:57 GMT
+  recorded_at: Thu, 23 Oct 2014 19:05:22 GMT
 - request:
     method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
+    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
     body:
       encoding: US-ASCII
       string: ''
@@ -53,7 +53,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -65,16 +65,116 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '4121'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 23 Oct 2014 19:05:23 GMT
       Status:
       - 200 OK
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:30 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '5087'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
+        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
+        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
+        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
+        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
+        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
+        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
+        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
+        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
+        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
+        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
+        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
+        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
+        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
+        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
+        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
+        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
+        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
+        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
+        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
+        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
+        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
+        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
+        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
+        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
+        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
+        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
+        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
+        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
+        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
+        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
+        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
+        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
+        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
+        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
+        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
+        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
+        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
+        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
+        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
+        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
+        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
+        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
+        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
+        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
+        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
+        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
+        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
+        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
+        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
+        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
+        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
+        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
+        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
+        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
+        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
+        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
+        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
+        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
+        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
+    http_version: 
+  recorded_at: Thu, 23 Oct 2014 19:05:23 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
       Date:
-      - Fri, 20 Jun 2014 18:14:57 GMT
+      - Thu, 23 Oct 2014 19:05:23 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:30 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '4121'
       Via:
       - 1.1 vegur
     body:
@@ -306,109 +406,10 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:14:57 GMT
+  recorded_at: Thu, 23 Oct 2014 19:05:23 GMT
 - request:
     method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '5087'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
-      Status:
-      - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:14:57 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: "/*! fancyBox v2.1.5 fancyapps.com | fancyapps.com/fancybox/#license
-        */\n.fancybox-wrap,\n.fancybox-skin,\n.fancybox-outer,\n.fancybox-inner,\n.fancybox-image,\n.fancybox-wrap
-        iframe,\n.fancybox-wrap object,\n.fancybox-nav,\n.fancybox-nav span,\n.fancybox-tmp\n{\n\tpadding:
-        0;\n\tmargin: 0;\n\tborder: 0;\n\toutline: none;\n\tvertical-align: top;\n}\n\n.fancybox-wrap
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\tz-index: 8020;\n}\n\n.fancybox-skin
-        {\n\tposition: relative;\n\tbackground: #f9f9f9;\n\tcolor: #444;\n\ttext-shadow:
-        none;\n\t-webkit-border-radius: 4px;\n\t   -moz-border-radius: 4px;\n\t        border-radius:
-        4px;\n}\n.fancybox-opened {\n\tz-index: 8030;\n}\n\n.fancybox-opened .fancybox-skin
-        {\n\t-webkit-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);\n\t   -moz-box-shadow:
-        0 10px 25px rgba(0, 0, 0, 0.5);\n\t        box-shadow: 0 10px 25px rgba(0,
-        0, 0, 0.5);\n}\n\n.fancybox-outer, .fancybox-inner {\n\tposition: relative;\n}\n\n.fancybox-inner
-        {\n\toverflow: hidden;\n}\n\n.fancybox-type-iframe .fancybox-inner {\n\t-webkit-overflow-scrolling:
-        touch;\n}\n\n.fancybox-error {\n\tcolor: #444;\n\tfont: 14px/20px \"Helvetica
-        Neue\",Helvetica,Arial,sans-serif;\n\tmargin: 0;\n\tpadding: 15px;\n\twhite-space:
-        nowrap;\n}\n\n.fancybox-image, .fancybox-iframe {\n\tdisplay: block;\n\twidth:
-        100%;\n\theight: 100%;\n}\n\n.fancybox-image {\n\tmax-width: 100%;\n\tmax-height:
-        100%;\n}\n\n#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next
-        span {\n\tbackground-image: url('http://widgets.g5dxm.com/shared//fancybox_sprite.png');\n}\n\n#fancybox-loading
-        {\n\tposition: fixed;\n\ttop: 50%;\n\tleft: 50%;\n\tmargin-top: -22px;\n\tmargin-left:
-        -22px;\n\tbackground-position: 0 -108px;\n\topacity: 0.8;\n\tcursor: pointer;\n\tz-index:
-        8060;\n}\n\n#fancybox-loading div {\n\twidth: 44px;\n\theight: 44px;\n\tbackground:
-        url('http://widgets.g5dxm.com/shared/fancybox_loading.gif') center center
-        no-repeat;\n}\n\n.fancybox-close {\n\tposition: absolute;\n\ttop: -18px;\n\tright:
-        -18px;\n\twidth: 36px;\n\theight: 36px;\n\tcursor: pointer;\n\tz-index: 8040;\n}\n\n.fancybox-nav
-        {\n\tposition: absolute;\n\ttop: 0;\n\twidth: 40%;\n\theight: 100%;\n\tcursor:
-        pointer;\n\ttext-decoration: none;\n\tbackground: transparent url('http://widgets.g5dxm.com/shared/blank.gif');
-        /* helps IE */\n\t-webkit-tap-highlight-color: rgba(0,0,0,0);\n\tz-index:
-        8040;\n}\n\n.fancybox-prev {\n\tleft: 0;\n}\n\n.fancybox-next {\n\tright:
-        0;\n}\n\n.fancybox-nav span {\n\tposition: absolute;\n\ttop: 50%;\n\twidth:
-        36px;\n\theight: 34px;\n\tmargin-top: -18px;\n\tcursor: pointer;\n\tz-index:
-        8040;\n\tvisibility: hidden;\n}\n\n.fancybox-prev span {\n\tleft: 10px;\n\tbackground-position:
-        0 -36px;\n}\n\n.fancybox-next span {\n\tright: 10px;\n\tbackground-position:
-        0 -72px;\n}\n\n.fancybox-nav:hover span {\n\tvisibility: visible;\n}\n\n.fancybox-tmp
-        {\n\tposition: absolute;\n\ttop: -99999px;\n\tleft: -99999px;\n\tvisibility:
-        hidden;\n\tmax-width: 99999px;\n\tmax-height: 99999px;\n\toverflow: visible
-        !important;\n}\n\n/* Overlay helper */\n\n.fancybox-lock {\n    overflow:
-        hidden !important;\n    width: auto;\n}\n\n.fancybox-lock body {\n    overflow:
-        hidden !important;\n}\n\n.fancybox-lock-test {\n    overflow-y: hidden !important;\n}\n\n.fancybox-overlay
-        {\n\tposition: absolute;\n\ttop: 0;\n\tleft: 0;\n\toverflow: hidden;\n\tdisplay:
-        none;\n\tz-index: 8010;\n\tbackground: url('http://widgets.g5dxm.com/shared/fancybox_overlay.png');\n}\n\n.fancybox-overlay-fixed
-        {\n\tposition: fixed;\n\tbottom: 0;\n\tright: 0;\n}\n\n.fancybox-lock .fancybox-overlay
-        {\n\toverflow: auto;\n\toverflow-y: scroll;\n}\n\n/* Title helper */\n\n.fancybox-title
-        {\n\tvisibility: hidden;\n\tfont: normal 13px/20px \"Helvetica Neue\",Helvetica,Arial,sans-serif;\n\tposition:
-        relative;\n\ttext-shadow: none;\n\tz-index: 8050;\n}\n\n.fancybox-opened .fancybox-title
-        {\n\tvisibility: visible;\n}\n\n.fancybox-title-float-wrap {\n\tposition:
-        absolute;\n\tbottom: 0;\n\tright: 50%;\n\tmargin-bottom: -35px;\n\tz-index:
-        8050;\n\ttext-align: center;\n}\n\n.fancybox-title-float-wrap .child {\n\tdisplay:
-        inline-block;\n\tmargin-right: -100%;\n\tpadding: 2px 20px;\n\tbackground:
-        transparent; /* Fallback for web browsers that doesn't support RGBa */\n\tbackground:
-        rgba(0, 0, 0, 0.8);\n\t-webkit-border-radius: 15px;\n\t   -moz-border-radius:
-        15px;\n\t        border-radius: 15px;\n\ttext-shadow: 0 1px 2px #222;\n\tcolor:
-        #FFF;\n\tfont-weight: bold;\n\tline-height: 24px;\n\twhite-space: nowrap;\n}\n\n.fancybox-title-outside-wrap
-        {\n\tposition: relative;\n\tmargin-top: 10px;\n\tcolor: #fff;\n}\n\n.fancybox-title-inside-wrap
-        {\n\tpadding-top: 10px;\n}\n\n.fancybox-title-over-wrap {\n\tposition: absolute;\n\tbottom:
-        0;\n\tleft: 0;\n\tcolor: #fff;\n\tpadding: 10px;\n\tbackground: #000;\n\tbackground:
-        rgba(0, 0, 0, .8);\n}\n\n/*Retina graphics!*/\n@media only screen and (-webkit-min-device-pixel-ratio:
-        1.5),\n\t   only screen and (min--moz-device-pixel-ratio: 1.5),\n\t   only
-        screen and (min-device-pixel-ratio: 1.5){\n\n\t#fancybox-loading, .fancybox-close,
-        .fancybox-prev span, .fancybox-next span {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_sprite@2x.png');\n\t\tbackground-size:
-        44px 152px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n\n\t#fancybox-loading
-        div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
-        24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
-    http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:14:58 GMT
-- request:
-    method: get
+<<<<<<< HEAD
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
     body:
       encoding: US-ASCII
@@ -417,7 +418,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -429,16 +430,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '497'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 23 Oct 2014 19:05:24 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:14:58 GMT
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:30 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
       Via:
       - 1.1 vegur
     body:
@@ -477,7 +478,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:14:59 GMT
+  recorded_at: Thu, 23 Oct 2014 19:05:24 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -488,7 +489,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -500,16 +501,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '193'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 23 Oct 2014 19:05:25 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:14:59 GMT
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:30 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
       Via:
       - 1.1 vegur
     body:
@@ -526,49 +527,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:14:59 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '30'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
-      Status:
-      - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:14:59 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        .hours p {
-          margin-top: 0;
-        }
-    http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:14:59 GMT
+  recorded_at: Thu, 23 Oct 2014 19:05:25 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -579,7 +538,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -591,33 +550,38 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '597'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 23 Oct 2014 19:05:25 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:00 GMT
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:30 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
-        .copyright {\n  margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n
-        \ margin-left: 10px;\n  vertical-align: top;\n}\n.footer-info .access {\n
-        \ background: url(http://themes.g5dxm.com/shared/access-icons.png) 0 0 no-repeat;\n
-        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n.footer-info
-        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info .handicap-icon
-        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
-        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:00 GMT
+  recorded_at: Thu, 23 Oct 2014 19:05:25 GMT
 - request:
     method: get
     uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+=======
+    uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
+>>>>>>> master
     body:
       encoding: US-ASCII
       string: ''
@@ -625,7 +589,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -637,16 +601,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '386'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 04 Jun 2014 18:42:31 GMT
+      Date:
+      - Tue, 28 Oct 2014 04:08:40 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:00 GMT
+      Last-Modified:
+      - Tue, 21 Oct 2014 17:03:49 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
       Via:
       - 1.1 vegur
     body:
@@ -674,7 +638,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:01 GMT
+  recorded_at: Tue, 28 Oct 2014 04:08:40 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -685,7 +649,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -697,16 +661,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '14297'
-      Content-Type:
-      - text/plain
-      Last-Modified:
-      - Wed, 18 Jun 2014 18:01:57 GMT
+      Date:
+      - Tue, 28 Oct 2014 04:08:40 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:01 GMT
+      Last-Modified:
+      - Thu, 23 Oct 2014 17:53:33 GMT
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '14170'
       Via:
       - 1.1 vegur
     body:
@@ -890,6 +854,34 @@ http_interactions:
           }
         }
         .collapsable-btn {
+          display: inline-block;
+          cursor: pointer; }
+        .collapsable-content,
+        .collapsable-content.collapse {
+          height: 0;
+          overflow: hidden; }
+        .collapse {
+          position: relative;
+          height: 0;
+          overflow: hidden;
+          -webkit-transition: height 0.35s ease;
+          -moz-transition: height 0.35s ease;
+          -o-transition: height 0.35s ease;
+          transition: height 0.35s ease; }
+        .collapse.in {
+          height: auto; }
+
+        @media (min-width: 980px) {
+          .collapsable-btn {
+            display: none !important;
+          }
+          .collapsable-content {
+            height: auto !important;
+            overflow: visible !important;
+          }
+        }
+
+        .collapsable-btn {
           border-left-color: $secondaryColor;
           padding: 2px 6px !important;
           .text {
@@ -908,6 +900,7 @@ http_interactions:
             margin-top: 0;
           }
         }
+<<<<<<< HEAD
         [role=contentinfo] {
           @include clearfix;
           @include font-size(12);
@@ -1011,80 +1004,361 @@ http_interactions:
           }
         }
         .coupon {
-          @include clearfix;
           h2 {
             @include font-size(18);
             border-bottom-color: $secondaryColor;
             color: $secondaryColor;
-            margin-bottom: 2em;
-            padding-bottom: .5em;
-            text-align: center;
           }
-          .coupon-logo {
-            display: block;
-            max-width: 60%;
-            margin: 1em auto 2em;
-          }
-          .p-name {
+          .p-name,
+          .btn {
             @include font-size(14);
-          }
-          .p-street-address,
-          .p-tel {
-            display: block;
           }
           .btn {
-            @include box-sizing(border-box);
-            @include font-size(14);
-            margin: 0;
-            padding: .4em;
+            cursor: pointer;
+            padding: .65em;
+            line-height: 1;
             text-align: center;
             text-decoration: none;
           }
-          .coupon-print {
-            margin-bottom: 1%;
-            width: 100%;
-          }
-          .coupon-email,
-          .coupon-text {
-            width: 49.5%;
-          }
-          .coupon-email {
-            margin-right: 1%;
+          input[type=submit] {
+            padding-left: 2em;
+            padding-right: 2em;
           }
         }
-        [role=complementary] .photo img {
+=======
+    http_version: 
+  recorded_at: Thu, 23 Oct 2014 19:05:23 GMT
+- request:
+    method: get
+    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 27 Oct 2014 18:19:20 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Tue, 21 Oct 2014 17:03:49 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @media (min-width: 980px) {
+          .wrapper:before,
+          .wrapper:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .wrapper:after {
+            clear: both;
+          }
+          .layout-side-right section[role=main] {
+            float: left;
+          }
+          .layout-side-right .aside-top,
+          .layout-side-right aside[role=complementary] {
+            float: right;
+          }
+          footer[role=contentinfo] {
+            clear: both;
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 27 Oct 2014 18:19:20 GMT
+- request:
+    method: get
+    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Tue, 28 Oct 2014 04:08:40 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Tue, 21 Oct 2014 17:03:49 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '386'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @media (min-width: 980px) {
+          .wrapper:before,
+          .wrapper:after {
+            display: table;
+            line-height: 0;
+            content: "";
+          }
+          .wrapper:after {
+            clear: both;
+          }
+          .layout-side-right section[role=main] {
+            float: left;
+          }
+          .layout-side-right .aside-top,
+          .layout-side-right aside[role=complementary] {
+            float: right;
+          }
+          footer[role=contentinfo] {
+            clear: both;
+          }
+        }
+    http_version: 
+  recorded_at: Tue, 28 Oct 2014 04:08:40 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:29 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .button,
+        .button .btn-img,
+        .button a {
           display: block;
         }
 
-        @media (min-width: 768px) and (max-width: 980px) {
-          .coupon-info,
-          .coupon-map {
-            @include box-sizing(border-box);
+        .button-list {
+          overflow: hidden;
+        }
+        .button-list .btn-img {
+          float: left;
+          margin-right: 1em;
+        }
+        .button-grid {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        @media (min-width: 500px) {
+          .button-grid {
             float: left;
+            padding: 0 1em;
             width: 50%;
           }
-        }
-        @media (min-width: 1200px) {
-          [role=main] {
-            .coupon {
-              @include clearfix;
-              .coupon-info {
-                padding-right: 1%;
-              }
-              .coupon-map {
-                padding-left: 1%;
-              }
-              .btn {
-                @include font-size(16);
-              }
-            }
-            .coupon-info,
-            .coupon-map {
-              @include box-sizing(border-box);
-              float: left;
-              width: 50%;
-            }
+          .button-grid:nth-of-type(2n+1) {
+            clear: left;
           }
+        }
+        .button-grid .btn-img {
+          margin: 0 auto 1em;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:05:29 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:30 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .contact-info .p-organization-name,
+        .contact-info .h-adr,
+        .contact-info .p-street-address,
+        .contact-info .p-tel,
+        .contact-info .p-url {
+          display: block;
+        }
+        .contact-info p {
+          margin-top: 0;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:05:30 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:30 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:05:30 GMT
+- request:
+    method: get
+    uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:05:31 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:06:28 GMT
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '14170'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        @import 'colors.scss';
+        @import 'bourbon/bourbon.scss';
+>>>>>>> master
+
+        [role=complementary] .photo img {
+          display: block;
         }
 
         .social-links {
@@ -1092,10 +1366,11 @@ http_interactions:
             background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
             background-size: 100%;
             height: 33px;
-            overflow: hidden;
-            text-indent: -999em;
             width: 32px;
             vertical-align: middle;
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
             &:last-child {
               margin-right: 0;
             }
@@ -1126,6 +1401,9 @@ http_interactions:
           }
           .youtube {
             background-position: 0 -349px;
+          }
+          .google-plus {
+            background-position: 0 -392px;
           }
         }
 
@@ -1263,7 +1541,8 @@ http_interactions:
             }
             .adr,
             .tel,
-            .email {
+            .email,
+            .chat {
               @include font-size(18);
               background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
               min-height: 35px;
@@ -1278,6 +1557,9 @@ http_interactions:
             }
             .email {
               background-position: 0 -150px;
+            }
+            .chat {
+              background-position: 0 -225px;
             }
           }
         }
@@ -1444,8 +1726,10 @@ http_interactions:
           [role=main],
           [role=complementary] {
             @include box-sizing(border-box);
-            margin-bottom: -2000px;
-            padding-bottom: 2000px;
+            .web-home-template & {
+              margin-bottom: -2000px;
+              padding-bottom: 2000px;
+            }
             .widget:last-child {
               margin-bottom: 2em;
             }
@@ -1513,7 +1797,367 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:01 GMT
+  recorded_at: Mon, 03 Nov 2014 21:05:31 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/content-stripe/stylesheets/row.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:54 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '755'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .row:before,
+        .row:after,
+        .row-grid:before,
+        .row-grid:after {
+          content: " ";
+          display: table;
+        }
+        .row:after,
+        .row-grid:after {
+          clear: both;
+        }
+
+        .row-grid {
+          margin: 0 -15px;
+        }
+
+        .col {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 0 15px;
+        }
+
+        .row-halves .col,
+        .row-uneven-thirds-1 .col,
+        .row-uneven-thirds-2 .col,
+        .row-thirds .col,
+        .row-quarters .col {
+          float: left;
+        }
+
+        .row-halves .col {
+          width: 50%;
+        }
+
+        .row-thirds .col {
+          width: 33.33333%;
+        }
+
+        .row-uneven-thirds-1 .col-1 {
+          width: 33.33333%;
+        }
+
+        .row-uneven-thirds-1 .col-2 {
+          width: 66.66667%;
+        }
+
+        .row-uneven-thirds-2 .col-1 {
+          width: 66.66667%;
+        }
+
+        .row-uneven-thirds-2 .col-2 {
+          width: 33.33333%;
+        }
+
+        .row-quarters .col {
+          width: 25%;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:54 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:54 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        .button,
+        .button .btn-img,
+        .button a {
+          display: block;
+        }
+
+        .button-list {
+          overflow: hidden;
+        }
+        .button-list .btn-img {
+          float: left;
+          margin-right: 1em;
+        }
+        .button-grid {
+          -webkit-box-sizing: border-box;
+          -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          text-align: center;
+        }
+        @media (min-width: 500px) {
+          .button-grid {
+            float: left;
+            padding: 0 1em;
+            width: 50%;
+          }
+          .button-grid:nth-of-type(2n+1) {
+            clear: left;
+          }
+        }
+        .button-grid .btn-img {
+          margin: 0 auto 1em;
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:54 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:54 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '589'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        header[role=banner] .navigation {
+          overflow-y: auto;
+        }
+
+        .top-nav > li {
+          position: relative;
+        }
+
+        .subnav {
+          -webkit-transition: max-height 0.3s ease;
+          -moz-transition: max-height 0.3s ease;
+          transition: max-height 0.3s ease;
+          max-height: 0;
+          overflow: hidden;
+        }
+
+        @media (max-width: 979px) {
+          .show-subnav {
+            max-height: none;
+          }
+        }
+
+<<<<<<< HEAD
+
+        // SMALL DESKTOP AND LARGER =====================
+        @media (min-width: 980px) {
+          .layout {
+            padding-left: 2.5%;
+            padding-right: 2.5%;
+          }
+          [role=main] {
+            padding-left: 5.1282051%; // 60/1170px
+            padding-right: 5.1282051%;
+          }
+          [role=banner] {
+            margin-bottom: 1em;
+            h1 {
+              float: left;
+              margin-bottom: .5em;
+            }
+            .navigation {
+              border-collapse: collapse;
+              border-left: none;
+              clear: both;
+              display: table;
+              text-align: center;
+              width: 100%;
+              ul {
+                display: table-row;
+              }
+              li {
+                box-shadow: -1px 0 0 #212121;
+                border-left: 1px solid #434343;
+                display: table-cell;
+                &:first-child {
+                  box-shadow: none;
+                  border-left: none;
+                }
+              }
+              a {
+                padding: 1.25em 0 .783em;
+                border-bottom: .467em solid $dark;
+                &:hover,
+                &:focus,
+                &.active {
+                  border-bottom-color: $secondaryColor;
+                }
+              }
+            }
+          }
+          .wrapper {
+            border-bottom: $border-width solid $secondaryColor;
+            margin-bottom: 2em;
+            overflow: hidden;
+          }
+          .aside-top {
+            @include box-sizing(border-box);
+            padding-top: 0;
+          }
+          // this is a trick to create equal height columns. the parent needs overflow: hidden
+          [role=main],
+          [role=complementary] {
+            @include box-sizing(border-box);
+            .web-home-template & {
+              margin-bottom: -2000px;
+              padding-bottom: 2000px;
+            }
+            .widget:last-child {
+              margin-bottom: 2em;
+            }
+          }
+          [role=main] {
+            border-right: 1px solid $light-grey;
+            width: 68.376068%; // 800/1170px
+          }
+          .aside-top,
+          [role=complementary] {
+            width: 31.623932%; // 370/1170px
+            .widget {
+              padding-left: 5.4054054%; // 20/370px
+              padding-right: 5.4054054%;
+            }
+            .action-calls {
+              padding-left: 0;
+              padding-right: 0;
+            }
+            .photo img {
+              width: 100%;
+            }
+          }
+          .buttons {
+            float: right;
+          }
+          .action-calls {
+            @include font-size(24);
+            a {
+              padding: .5em 1em;
+            }
+          }
+          .floorplans {
+            .floorplan-beds {
+              width: 15%;
+            }
+            .floorplan-rent {
+              width: 25%;
+            }
+          }
+          .page-home {
+            [role=main] {
+              padding-left: 0;
+              padding-right: 0;
+              padding-top: 0;
+              .html {
+                margin: 1em 5.1282051%;
+              }
+            }
+          }
+        }
+
+
+        // DESKTOP =====================
+        @media (min-width: 1200px) {
+          [role=complementary] .social-links {
+            text-align: left;
+            &:before {
+              @include font-size(32);
+              content: 'GET SOCIAL ///';
+              font-family: $alt-font;
+              font-weight: 100;
+              vertical-align: middle;
+            }
+          }
+        }
+    http_version: 
+  recorded_at: Tue, 28 Oct 2014 04:08:40 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/html/stylesheets/html.css
@@ -1524,7 +2168,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -1536,16 +2180,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '44'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 06 Nov 2014 17:41:02 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:02 GMT
+      Last-Modified:
+      - Wed, 05 Nov 2014 01:39:16 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '44'
       Via:
       - 1.1 vegur
     body:
@@ -1556,7 +2200,7 @@ http_interactions:
           overflow: hidden;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:02 GMT
+  recorded_at: Thu, 06 Nov 2014 17:41:03 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css
@@ -1567,7 +2211,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -1579,16 +2223,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '4121'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 06 Nov 2014 17:41:02 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:02 GMT
+      Last-Modified:
+      - Wed, 05 Nov 2014 01:39:16 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '4121'
       Via:
       - 1.1 vegur
     body:
@@ -1820,7 +2464,7 @@ http_interactions:
           cursor: default;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:02 GMT
+  recorded_at: Thu, 06 Nov 2014 17:41:04 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css
@@ -1831,7 +2475,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -1843,16 +2487,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '5087'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 06 Nov 2014 17:41:03 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:03 GMT
+      Last-Modified:
+      - Wed, 05 Nov 2014 01:39:16 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '5087'
       Via:
       - 1.1 vegur
     body:
@@ -1920,7 +2564,7 @@ http_interactions:
         div {\n\t\tbackground-image: url('http://widgets.g5dxm.com/shared/fancybox_loading@2x.gif');\n\t\tbackground-size:
         24px 24px; /*The size of the normal image, half the size of the hi-res image*/\n\t}\n}"
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:03 GMT
+  recorded_at: Thu, 06 Nov 2014 17:41:04 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -1931,7 +2575,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -1943,16 +2587,16 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '497'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 06 Nov 2014 17:41:03 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:03 GMT
+      Last-Modified:
+      - Wed, 05 Nov 2014 01:39:16 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '497'
       Via:
       - 1.1 vegur
     body:
@@ -1991,10 +2635,10 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:03 GMT
+  recorded_at: Thu, 06 Nov 2014 17:41:05 GMT
 - request:
     method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
+    uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
     body:
       encoding: US-ASCII
       string: ''
@@ -2002,7 +2646,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -2014,16 +2658,92 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '193'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 06 Nov 2014 17:41:04 GMT
       Status:
       - 200 OK
+      Last-Modified:
+      - Wed, 05 Nov 2014 01:39:16 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '589'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        header[role=banner] .navigation {
+          overflow-y: auto;
+        }
+
+        .top-nav > li {
+          position: relative;
+        }
+
+        .subnav {
+          -webkit-transition: max-height 0.3s ease;
+          -moz-transition: max-height 0.3s ease;
+          transition: max-height 0.3s ease;
+          max-height: 0;
+          overflow: hidden;
+        }
+
+        @media (max-width: 979px) {
+          .show-subnav {
+            max-height: none;
+          }
+        }
+
+        @media (min-width: 980px) {
+          header[role=banner] .navigation {
+            overflow-y: visible;
+          }
+          .subnav {
+            width: 200px;
+            position: absolute;
+            left: 0;
+            top: 3.5em;
+            z-index: 9999;
+          }
+          .show-subnav {
+            max-height: 1000px;
+          }
+        }
+    http_version: 
+  recorded_at: Thu, 06 Nov 2014 17:41:05 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
       Date:
-      - Fri, 20 Jun 2014 18:15:04 GMT
+      - Thu, 06 Nov 2014 17:41:04 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Wed, 05 Nov 2014 01:39:16 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
       Via:
       - 1.1 vegur
     body:
@@ -2040,49 +2760,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:04 GMT
-- request:
-    method: get
-    uri: https://g5-widget-garden.herokuapp.com/static/components/hours/stylesheets/hours.css
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      Accept-Encoding:
-      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
-      Accept:
-      - '*/*'
-      User-Agent:
-      - Ruby
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Server:
-      - Cowboy
-      Connection:
-      - keep-alive
-      Content-Length:
-      - '30'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
-      Status:
-      - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:04 GMT
-      Via:
-      - 1.1 vegur
-    body:
-      encoding: UTF-8
-      string: |
-        .hours p {
-          margin-top: 0;
-        }
-    http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:04 GMT
+  recorded_at: Thu, 06 Nov 2014 17:41:05 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -2093,7 +2771,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -2105,33 +2783,54 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '597'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 18 Jun 2014 17:05:44 GMT
+      Date:
+      - Thu, 06 Nov 2014 17:41:04 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:05 GMT
+      Last-Modified:
+      - Wed, 05 Nov 2014 01:39:16 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
-        .copyright {\n  margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n
-        \ margin-left: 10px;\n  vertical-align: top;\n}\n.footer-info .access {\n
-        \ background: url(http://themes.g5dxm.com/shared/access-icons.png) 0 0 no-repeat;\n
-        \ text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow: hidden;\n}\n.footer-info
-        .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info .handicap-icon
-        {\n  background-position: -43px 0;\n  height: 23px;\n  width: 20px;\n}\n.footer-info
-        .corporate-logo {\n  display: inline-block;\n  max-width: 200px;\n}\n"
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:05 GMT
+  recorded_at: Thu, 06 Nov 2014 17:41:06 GMT
+=======
+        @media (min-width: 980px) {
+          header[role=banner] .navigation {
+            overflow-y: visible;
+          }
+          .subnav {
+            width: 200px;
+            position: absolute;
+            left: 0;
+            top: 3.5em;
+            z-index: 9999;
+          }
+          .show-subnav {
+            max-height: 1000px;
+          }
+        }
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:55 GMT
+>>>>>>> master
 - request:
     method: get
-    uri: https://g5-layout-garden.herokuapp.com/static/components/main-first-sidebar-right/stylesheets/layout-side-right.css
+    uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
     body:
       encoding: US-ASCII
       string: ''
@@ -2139,7 +2838,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -2151,44 +2850,93 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '386'
-      Content-Type:
-      - text/css
-      Last-Modified:
-      - Wed, 04 Jun 2014 18:42:31 GMT
+      Date:
+<<<<<<< HEAD
+      - Thu, 06 Nov 2014 17:41:05 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:05 GMT
+      Last-Modified:
+      - Mon, 03 Nov 2014 16:59:32 GMT
+=======
+      - Mon, 03 Nov 2014 21:10:57 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+>>>>>>> master
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '193'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
       string: |
-        @media (min-width: 980px) {
-          .wrapper:before,
-          .wrapper:after {
-            display: table;
-            line-height: 0;
-            content: "";
-          }
-          .wrapper:after {
-            clear: both;
-          }
-          .layout-side-right section[role=main] {
-            float: left;
-          }
-          .layout-side-right .aside-top,
-          .layout-side-right aside[role=complementary] {
-            float: right;
-          }
-          footer[role=contentinfo] {
-            clear: both;
-          }
+        .contact-info .p-organization-name,
+        .contact-info .h-adr,
+        .contact-info .p-street-address,
+        .contact-info .p-tel,
+        .contact-info .p-url {
+          display: block;
+        }
+        .contact-info p {
+          margin-top: 0;
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:06 GMT
+<<<<<<< HEAD
+  recorded_at: Thu, 06 Nov 2014 17:41:06 GMT
+=======
+  recorded_at: Mon, 03 Nov 2014 21:10:57 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 03 Nov 2014 21:10:58 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:00:42 GMT
+      Content-Type:
+      - text/css
+      Content-Length:
+      - '728'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: ".footer-info {\n  float: right;\n  text-align: right;\n}\n.footer-info
+        .social-links,\n.footer-info .nav {\n  margin-bottom: .5em;\n}\n.footer-info
+        .social-links a {\n  display: inline-block;\n}\n.footer-info .copyright {\n
+        \ margin-top: 0;\n}\n.footer-info .access {\n  display: inline-block;\n  margin-left:
+        10px;\n  vertical-align: top;\n}\n.footer-info .access {\n  background: url(http://themes.g5dxm.com/shared/access-icons.png)
+        0 0 no-repeat;\n  text-indent: 100%;\n\twhite-space: nowrap;\n\toverflow:
+        hidden;\n}\n.footer-info .housing-icon {\n  height: 23px;\n  width: 31px;\n}\n.footer-info
+        .handicap-icon {\n  background-position: -43px 0;\n  height: 23px;\n  width:
+        20px;\n}\n.footer-info .corporate-logo {\n  display: inline-block;\n  max-width:
+        200px;\n}\n"
+    http_version: 
+  recorded_at: Mon, 03 Nov 2014 21:10:58 GMT
+>>>>>>> master
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/high-rise/stylesheets/high-rise.scss
@@ -2199,7 +2947,7 @@ http_interactions:
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
       Accept:
-      - '*/*'
+      - "*/*"
       User-Agent:
       - Ruby
   response:
@@ -2211,16 +2959,24 @@ http_interactions:
       - Cowboy
       Connection:
       - keep-alive
-      Content-Length:
-      - '14297'
-      Content-Type:
-      - text/plain
-      Last-Modified:
-      - Wed, 18 Jun 2014 18:01:57 GMT
+      Date:
+<<<<<<< HEAD
+      - Thu, 06 Nov 2014 17:41:05 GMT
       Status:
       - 200 OK
-      Date:
-      - Fri, 20 Jun 2014 18:15:06 GMT
+      Last-Modified:
+      - Wed, 05 Nov 2014 17:32:50 GMT
+=======
+      - Mon, 03 Nov 2014 21:10:58 GMT
+      Status:
+      - 200 OK
+      Last-Modified:
+      - Mon, 03 Nov 2014 17:06:28 GMT
+>>>>>>> master
+      Content-Type:
+      - text/plain
+      Content-Length:
+      - '14170'
       Via:
       - 1.1 vegur
     body:
@@ -2404,6 +3160,34 @@ http_interactions:
           }
         }
         .collapsable-btn {
+          display: inline-block;
+          cursor: pointer; }
+        .collapsable-content,
+        .collapsable-content.collapse {
+          height: 0;
+          overflow: hidden; }
+        .collapse {
+          position: relative;
+          height: 0;
+          overflow: hidden;
+          -webkit-transition: height 0.35s ease;
+          -moz-transition: height 0.35s ease;
+          -o-transition: height 0.35s ease;
+          transition: height 0.35s ease; }
+        .collapse.in {
+          height: auto; }
+
+        @media (min-width: 980px) {
+          .collapsable-btn {
+            display: none !important;
+          }
+          .collapsable-content {
+            height: auto !important;
+            overflow: visible !important;
+          }
+        }
+
+        .collapsable-btn {
           border-left-color: $secondaryColor;
           padding: 2px 6px !important;
           .text {
@@ -2525,80 +3309,30 @@ http_interactions:
           }
         }
         .coupon {
-          @include clearfix;
           h2 {
             @include font-size(18);
             border-bottom-color: $secondaryColor;
             color: $secondaryColor;
-            margin-bottom: 2em;
-            padding-bottom: .5em;
-            text-align: center;
           }
-          .coupon-logo {
-            display: block;
-            max-width: 60%;
-            margin: 1em auto 2em;
-          }
-          .p-name {
+          .p-name,
+          .btn {
             @include font-size(14);
-          }
-          .p-street-address,
-          .p-tel {
-            display: block;
           }
           .btn {
-            @include box-sizing(border-box);
-            @include font-size(14);
-            margin: 0;
-            padding: .4em;
+            cursor: pointer;
+            padding: .65em;
+            line-height: 1;
             text-align: center;
             text-decoration: none;
           }
-          .coupon-print {
-            margin-bottom: 1%;
-            width: 100%;
+          input[type=submit] {
+            padding-left: 2em;
+            padding-right: 2em;
           }
-          .coupon-email,
-          .coupon-text {
-            width: 49.5%;
-          }
-          .coupon-email {
-            margin-right: 1%;
-          }
-        }
-        [role=complementary] .photo img {
-          display: block;
         }
 
-        @media (min-width: 768px) and (max-width: 980px) {
-          .coupon-info,
-          .coupon-map {
-            @include box-sizing(border-box);
-            float: left;
-            width: 50%;
-          }
-        }
-        @media (min-width: 1200px) {
-          [role=main] {
-            .coupon {
-              @include clearfix;
-              .coupon-info {
-                padding-right: 1%;
-              }
-              .coupon-map {
-                padding-left: 1%;
-              }
-              .btn {
-                @include font-size(16);
-              }
-            }
-            .coupon-info,
-            .coupon-map {
-              @include box-sizing(border-box);
-              float: left;
-              width: 50%;
-            }
-          }
+        [role=complementary] .photo img {
+          display: block;
         }
 
         .social-links {
@@ -2606,10 +3340,11 @@ http_interactions:
             background: url('http://widgets.g5dxm.com/social-links/social-icons.png') no-repeat;
             background-size: 100%;
             height: 33px;
-            overflow: hidden;
-            text-indent: -999em;
             width: 32px;
             vertical-align: middle;
+            text-indent: 100%;
+            white-space: nowrap;
+            overflow: hidden;
             &:last-child {
               margin-right: 0;
             }
@@ -2640,6 +3375,9 @@ http_interactions:
           }
           .youtube {
             background-position: 0 -349px;
+          }
+          .google-plus {
+            background-position: 0 -392px;
           }
         }
 
@@ -2777,7 +3515,8 @@ http_interactions:
             }
             .adr,
             .tel,
-            .email {
+            .email,
+            .chat {
               @include font-size(18);
               background: url('http://widgets.g5dxm.com/contact-info/contact-icons.png') no-repeat;
               min-height: 35px;
@@ -2792,6 +3531,9 @@ http_interactions:
             }
             .email {
               background-position: 0 -150px;
+            }
+            .chat {
+              background-position: 0 -225px;
             }
           }
         }
@@ -2958,8 +3700,10 @@ http_interactions:
           [role=main],
           [role=complementary] {
             @include box-sizing(border-box);
-            margin-bottom: -2000px;
-            padding-bottom: 2000px;
+            .web-home-template & {
+              margin-bottom: -2000px;
+              padding-bottom: 2000px;
+            }
             .widget:last-child {
               margin-bottom: 2em;
             }
@@ -3027,5 +3771,9 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Fri, 20 Jun 2014 18:15:06 GMT
-recorded_with: VCR 2.9.0
+<<<<<<< HEAD
+  recorded_at: Thu, 06 Nov 2014 17:41:07 GMT
+=======
+  recorded_at: Mon, 03 Nov 2014 21:10:58 GMT
+>>>>>>> master
+recorded_with: VCR 2.9.2

@@ -7,6 +7,7 @@ describe Api::V1::WebPageTemplatesController, :auth_controller do
   let(:main_drop_target) { Fabricate(:drop_target) }
 
   before do
+    web_page_template.stub(:update_navigation_settings)
     web_page_template.drop_targets << main_drop_target
   end
 
@@ -18,7 +19,7 @@ describe Api::V1::WebPageTemplatesController, :auth_controller do
     it "renders websites as json" do
       get :index
       expect(response.status).to eq 200
-      pending("response.body JSON equals WebPageTemplate.all (after ran through the serializer and as JSON)")
+      skip("response.body JSON equals WebPageTemplate.all (after ran through the serializer and as JSON)")
     end
   end
 
@@ -37,7 +38,7 @@ describe Api::V1::WebPageTemplatesController, :auth_controller do
   describe "#create" do
     context "when create succeeds" do
       it "responds 200 OK" do
-        post :create, web_page_template: { name: "name" }
+        post :create, web_page_template: { name: "name", website_id: website.id}
         expect(response.status).to eq 200
       end
 
@@ -73,7 +74,7 @@ describe Api::V1::WebPageTemplatesController, :auth_controller do
       end
 
       it "responds 200 OK" do
-        put :update, id: web_page_template.id, web_page_template: { name: "name" }
+        put :update, id: web_page_template.id, web_page_template: { name: "name", should_skip_update_navigation_settings: true }
         expect(response.status).to eq 200
       end
 

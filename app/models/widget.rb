@@ -1,6 +1,9 @@
 class Widget < ActiveRecord::Base
   include RankedModel
   include HasManySettings
+  include UpdateNavSettings
+
+  validates :garden_widget_id, presence: true
 
   ranks :display_order, with_same: :drop_target_id
 
@@ -15,7 +18,7 @@ class Widget < ActiveRecord::Base
   delegate :html_id,
     to: :drop_target, allow_nil: true
 
-  delegate :name, :url, :thumbnail, :edit_html, :edit_javascript, :show_html,
+  delegate :name, :slug, :url, :thumbnail, :edit_html, :edit_javascript, :show_html, :widget_type,
     to: :garden_widget, allow_nil: true
 
   # prefix means access with `garden_widget_settings` not `settings`
@@ -49,7 +52,6 @@ class Widget < ActiveRecord::Base
   end
 
   def widgets
-    child_widgets = find_child_widgets
     more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
 
     [child_widgets, more_widgets].flatten.compact
@@ -60,7 +62,7 @@ class Widget < ActiveRecord::Base
   end
 
   def render_show_html
-    return RowWidgetShowHtml.new(self).render if kind_of_widget?("Row")
+    return RowWidgetShowHtml.new(self).render if kind_of_widget?("Content Stripe")
     return ColumnWidgetShowHtml.new(self).render if kind_of_widget?("Column")
 
     Liquid::Template.parse(show_html).render(
@@ -96,6 +98,10 @@ class Widget < ActiveRecord::Base
     removed_settings.map(&:destroy)
   end
 
+  def nested_settings
+    widgets.collect {|widget| widget.settings}.flatten
+  end
+
   private
 
   # TODO: Is this being used?
@@ -108,7 +114,7 @@ class Widget < ActiveRecord::Base
     settings.select { |setting| setting.name =~ pattern && setting.value != nil }
   end
 
-  def find_child_widgets
+  def child_widgets
     widget_settings.map(&:value).map do |id|
       Widget.find(id) if Widget.exists?(id)
     end

@@ -3,6 +3,8 @@ class WebTemplate < ActiveRecord::Base
   include HasManySettings
   include AfterUpdateSetSettingNavigation
 
+  LOGGERS = [Rails.logger, Resque.logger]
+
   ranks :display_order, with_same: :website_id
 
   belongs_to :website
@@ -34,6 +36,7 @@ class WebTemplate < ActiveRecord::Base
   scope :not_trash, -> { where(in_trash: false) }
   scope :navigateable, -> { not_trash.enabled.where("type != ?", "WebsiteTemplate") }
   scope :created_at_asc, -> { order("created_at ASC") }
+  scope :top_level, -> { where(parent_id: nil)}
 
   before_validation :default_enabled_to_true
   before_validation :default_in_trash_to_false
@@ -41,6 +44,8 @@ class WebTemplate < ActiveRecord::Base
   before_validation :default_slug_from_title
 
   before_save :format_redirect_patterns
+
+  attr_accessor :should_update_navigation_settings
 
   # TODO: remove when Ember App implements DropTarget
   def main_widgets
@@ -113,9 +118,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascripts
-    widgets.map(&:show_javascripts).flatten.compact +
-    widgets.map(&:lib_javascripts).flatten.compact +
-    website.try(:website_template).try(:javascripts).to_a.flatten.compact
+    show_javascripts + lib_javascripts + website_template_javascripts
   end
 
   def website_compile_path
@@ -126,28 +129,40 @@ class WebTemplate < ActiveRecord::Base
     website.colors if website
   end
 
+  def website_fonts
+    website.fonts if website
+  end
+
   def stylesheets_compiler
     @stylesheets_compiler ||=
       StaticWebsite::Compiler::Stylesheets.new(stylesheets,
-      "#{Rails.root}/public", website_colors, owner_name, true)
+      "#{Rails.root}/public", website_colors, website_fonts, owner_name, true)
   end
 
   def stylesheet_link_paths
+    LOGGERS.each{|logger| logger.debug("\n#### sending compile to stylesheets_compiler for web_template #{name}\n")}
     stylesheets_compiler.compile
+    LOGGERS.each{|logger| logger.debug("\n#### sending link_paths to stylesheets_compiler for web_template #{name}\n")}
     stylesheets_compiler.link_paths
+  end
+
+  def preview_stylesheet_link_paths
+    stylesheets
   end
 
   def javascripts_compiler
     @javascripts_compiler ||=
       StaticWebsite::Compiler::Javascripts.new(javascripts,
-        "#{Rails.root}/public", owner_name)
+        "#{Rails.root}/public", name, owner_name)
   end
 
   def javascript_include_paths
-    javascripts_compiler.compile
+    LOGGERS.each{|logger| logger.debug("Starting compile on javascripts_compiler for web_template: #{name}")}
+    javascripts_compiler.compile unless javascripts.empty?
+    LOGGERS.each{|logger| logger.debug("Finished compile on javascripts_compiler for web_template: #{name}")}
+    LOGGERS.each{|logger| logger.debug("Calling upload_paths on javascripts_compiler for web_template:\n #{name}")}
     javascripts_compiler.uploaded_paths
   end
-
 
   def owner_domain
     owner.domain if owner
@@ -167,17 +182,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def render_title
-    Liquid::Template.parse(title).render(
-      "web_template_name" => name,
-      "location_name" => owner.name,
-      "location_city" => owner.city,
-      "location_state" => owner.state,
-      "location_neighborhood" => owner.neighborhood,
-      "location_floor_plans" => owner.floor_plans,
-      "location_primary_amenity" => owner.primary_amenity,
-      "location_qualifier" => owner.qualifier,
-      "location_primary_landmark" => owner.primary_landmark
-    )
+    Liquid::Template.parse(title).render(title_parameters)
   end
 
   def base_path
@@ -188,7 +193,54 @@ class WebTemplate < ActiveRecord::Base
     end
   end
 
+  def body_class
+    type.titleize.parameterize
+  end
+
+  def location_body_class
+    corporate = website.owner.try(:corporate)
+    corporate ? "site-corporate" : "site-location"
+  end
+
+  def children
+    WebTemplate.where(parent_id: id).order(:display_order)
+  end
+
+  def top_level?
+    !child_template?
+  end
+
+  def child_template?
+    parent_id.present?
+  end
+
   private
+
+  def title_parameters
+    {
+      "web_template_name"         => name,
+      "location_name"             => owner.name,
+      "location_city"             => owner.city,
+      "location_state"            => owner.state,
+      "location_neighborhood"     => owner.neighborhood,
+      "location_floor_plans"      => owner.floor_plans,
+      "location_primary_amenity"  => owner.primary_amenity,
+      "location_qualifier"        => owner.qualifier,
+      "location_primary_landmark" => owner.primary_landmark
+    }
+  end
+
+  def show_javascripts
+    widgets.map(&:show_javascripts).flatten.compact
+  end
+
+  def lib_javascripts
+    widgets.map(&:lib_javascripts).flatten.compact
+  end
+
+  def website_template_javascripts
+    website.try(:website_template).try(:javascripts).to_a.flatten.compact
+  end
 
   def default_enabled_to_true
     # ||= does not work here because enabled is a boolean
@@ -221,8 +273,5 @@ class WebTemplate < ActiveRecord::Base
   def single_domain_internal_page?
     web_page_template? && single_domain? && !website.corporate?
   end
-
-  def row_widget_asset_collector
-    @row_widget_asset_collector ||= RowWidgetAssetCollector.new(self)
-  end
 end
+

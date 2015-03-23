@@ -1,0 +1,49 @@
+// *************************************
+//
+//  Footer
+//
+// *************************************
+
+// =====================================
+//  Site footer
+// =====================================
+
+[role=contentinfo] {
+  @extend %clearfix;
+  background-color: $primaryColor;
+  padding: 2em 0;
+  margin-top: 0;
+
+  .widget {
+    font-size: em(14);
+    margin-bottom: 1em;
+  }
+
+  &,
+  a {
+    color: $base-color;
+  }
+
+  .contact-info {
+    .p-name,
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  @include at-least($min-small) {
+    .contact-info {
+      float: left;
+      margin-right: $base-whitespace;
+    }
+  }
+}
+
+// This widget contains social icons,
+// links, copyright, logo, housing icons
+.footer-info {
+  @include until($max-small) {
+    float: none;
+    text-align: left;
+  }
+}

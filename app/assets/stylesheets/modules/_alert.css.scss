@@ -6,7 +6,7 @@
 // *************************************
 
 .alert {
-  padding: .5em;
+  padding: .6em;
   text-align: center;
   text-transform: uppercase;
   p {
@@ -14,7 +14,7 @@
   }
 }
 
-.alert-info {
+.alert-info, .alert-notice {
   background: $c-alert-info;
   color: darken($c-alert-info, 50%);
 }

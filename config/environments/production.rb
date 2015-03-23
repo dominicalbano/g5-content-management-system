@@ -38,7 +38,7 @@ G5CMS::Application.configure do
   # config.log_level = :debug
 
   # Prepend all log lines with the following tags
-  # config.log_tags = [ :subdomain, :uuid ]
+  config.log_tags = [ :uuid ]
 
   # Use a different logger for distributed setups
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
@@ -50,7 +50,7 @@ G5CMS::Application.configure do
   # config.action_controller.asset_host = "http://assets.example.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
-  config.assets.precompile += %w( web_template.js web_template.css ember_app.js )
+  config.assets.precompile += %w( web_template.js web_template.css ckeditor/*)
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
@@ -69,4 +69,6 @@ G5CMS::Application.configure do
   config.ember.variant = :production
 
   config.eager_load = true
+  Rails.application.default_url_options[:host] = "#{ENV['HEROKU_APP_NAME']}.herokuapp.com"
 end
+

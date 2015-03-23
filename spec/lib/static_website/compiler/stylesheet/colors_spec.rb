@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe StaticWebsite::Compiler::Stylesheet::Colors do
   let(:compile_path) { File.join(Rails.root, "tmp", "spec", "static_website_compiler", "javascripts") }
-  let(:colors) { { primary_color: "#FF0000", secondary_color: "#00FFFF" } }
+  let(:colors) { { primary_color: "#FF0000", secondary_color: "#00FFFF", tertiary_color: "#FFFFFF" } }
 
   describe "#compile" do
     let(:subject) { StaticWebsite::Compiler::Stylesheet::Colors.new(colors, compile_path) }
@@ -42,9 +42,9 @@ describe StaticWebsite::Compiler::Stylesheet::Colors do
       end
 
       it "writes file to compile path" do
-        expect(File.exists?(subject.compile_path)).to be_false
+        expect(File.exists?(subject.compile_path)).to be_falsey
         subject.view.compile
-        expect(File.exists?(subject.compile_path)).to be_true
+        expect(File.exists?(subject.compile_path)).to be_truthy
       end
 
       it "renders erb with colors" do
@@ -52,6 +52,7 @@ describe StaticWebsite::Compiler::Stylesheet::Colors do
         expect(File.open(subject.compile_path).read).to eq <<-EOS.strip_heredoc
           $primaryColor: #{colors[:primary_color]};
           $secondaryColor: #{colors[:secondary_color]};
+          $tertiaryColor: #{colors[:tertiary_color]};
         EOS
       end
     end
@@ -82,6 +83,10 @@ describe StaticWebsite::Compiler::Stylesheet::Colors do
 
     it "sets local secondary_color" do
       expect(subject.view_options[:locals]).to include(secondary_color: subject.colors[:secondary_color])
+    end
+
+    it "sets local tertiary_color" do
+      expect(subject.view_options[:locals]).to include(tertiary_color: subject.colors[:tertiary_color])
     end
   end
 end

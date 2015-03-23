@@ -104,24 +104,26 @@
     }
   }
 
-  .colors {
-    border-top: 1px solid $c-color-a;
-    margin-top: .5em;
+  .colors, .fonts {
     padding-top: 1em;
     h3,
     .color-fields,
     .color-field,
+    .font-fields,
+    .font-field,
     .check-field,
     label {
       display: inline-block;
     }
     h3,
     .check-field,
-    .color-field {
+    .color-field,
+    .font-field {
       margin: 0 $base-whitespace 0 0;
     }
     h3 {
       font-weight: $c-semiBold;
+      min-width: 200px;
     }
     label {
       font-weight: $c-semiBold;
@@ -130,6 +132,13 @@
     input[type=color] {
       width: 60%;
     }
+    input[type=text] {
+      width: 97%;
+    }
+  }
+  .colors {
+    border-top: 1px solid $c-color-a;
+    margin-top: .5em;
   }
   .sp-replacer {
     background: transparent;
@@ -200,6 +209,10 @@
   }
   .ui-draggable {
     cursor: move;
+  }
+  .add-drop-zone .hovering,
+  .remove-drop-zone .hovering{
+    background-color:#ddd;
   }
   .widget-list,
   .add-widgets {
@@ -324,4 +337,37 @@
   .deploy {
     display:none;
   }
+}
+
+.template-select {
+  float:right;
+
+  select {
+    max-width: 135px;
+  }
+}
+
+.status {
+  width: 95px;
+}
+
+.status-label {
+  padding:4px 10px;
+  text-align:center;
+  border-radius:2px;
+}
+
+.status-live .status-label {
+  background:#6cc644;
+  color:#fff;
+}
+
+.status-pending .status-label {
+  background:#D2E5EE;
+  color:#629AB6;
+}
+
+.status-suspended .status-label {
+  background:#f2dede;
+  color:#a94442;
 }

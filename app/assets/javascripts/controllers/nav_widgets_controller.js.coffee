@@ -1,1 +1,2 @@
-App.NavWidgetsController = Ember.ArrayController.extend()
+App.NavWidgetsController = Ember.ArrayController.extend
+  needs: ["website"]

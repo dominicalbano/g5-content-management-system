@@ -14,6 +14,58 @@ describe Location do
     it "should require urn" do
       Fabricate.build(:location, urn: "").should_not be_valid
     end
+
+    describe "status" do
+      it "should require status" do
+        Fabricate.build(:location, status: "").should_not be_valid
+      end
+
+      it "rejects invalid status types" do
+        Fabricate.build(:location, status: "Foo").should_not be_valid
+      end
+
+      it "accepts Pending status type" do
+        Fabricate.build(:location, status: "Pending").should be_valid
+      end
+
+      it "accepts Live status type" do
+        Fabricate.build(:location, status: "Live").should be_valid
+      end
+
+      it "accepts Suspended status type" do
+        Fabricate.build(:location, status: "Suspended").should be_valid
+      end
+    end
+  end
+
+  describe "scopes" do
+    let!(:live_location) { Fabricate(:location, status: "Live") }
+    let!(:corp_location) { Fabricate(:location, status: "Pending", corporate: true) }
+    let!(:live_website) { Fabricate(:website, owner: live_location) }
+
+    describe "#default_scope" do
+      subject { Location.all }
+
+      it { is_expected.to eq([corp_location, live_location]) }
+    end
+
+    describe "#corporate" do
+      subject { Location.corporate }
+
+      it { is_expected.to eq(corp_location) }
+    end
+
+    describe "#live" do
+      subject { Location.live }
+
+      it { is_expected.to eq([live_location]) }
+    end
+
+    describe "#live_websites" do
+      subject { Location.live_websites }
+
+      it { is_expected.to eq([live_website]) }
+    end
   end
 
   describe "#urn" do
@@ -21,6 +73,14 @@ describe Location do
 
     it "sets on create" do
       location.urn.should match /g5-cl-\d+-/
+    end
+  end
+  describe "#bucket_asset_key_prefix" do
+    let(:location) { Fabricate(:location) }
+    let!(:client) {Fabricate(:client)}
+
+    it "prepends its urn with the client prefix" do
+      expect(location.bucket_asset_key_prefix).to eq("#{client.bucket_asset_key_prefix}/#{location.urn}")
     end
   end
 
@@ -58,4 +118,21 @@ describe Location do
       end
     end
   end
+
+  describe "#create_bucket" do
+    let(:location) { Fabricate(:location) }
+    let(:location_bucket_creator) { double(create: nil) }
+
+    before { BucketCreator.stub(new: location_bucket_creator) }
+    after { location.create_bucket }
+
+    it "instantiates a new BucketCreator class" do
+      BucketCreator.should_receive(:new).with(location)
+    end
+
+    it "calls create on the bucket creator" do
+      location_bucket_creator.should_receive(:create)
+    end
+  end
 end
+

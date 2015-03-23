@@ -10,13 +10,14 @@ class WebPageTemplateSerializer < WebTemplateSerializer
              :slug,
              :display_order,
              :redirect_patterns,
-             :in_trash
+             :in_trash,
+             :parent_id
 
   def preview_url
     if corporate?
-      File.join(root_url, object.client.vertical_slug, location.state_slug, location.city_slug, object.slug)
+      File.join(root_url, location.urn, object.client.vertical_slug, location.state_slug, location.city_slug, object.slug)
     else
-      File.join(root_url, object.url)
+      File.join(root_url, location.urn, object.url)
     end
   end
 

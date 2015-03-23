@@ -1,1 +1,2 @@
-App.FooterWidgetsController = Ember.ArrayController.extend()
+App.FooterWidgetsController = Ember.ArrayController.extend
+  needs: ["website"]

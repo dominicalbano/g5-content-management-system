@@ -1,9 +1,9 @@
 website_template:
   name: Website Template
   web_layout:
-    slug: main-first-sidebar-right
+    slug: rows
   web_theme:
-    slug: high-rise
+    slug: luxe
   drop_targets:
     - html_id: drop-target-head
       widgets:
@@ -13,9 +13,6 @@ website_template:
     - html_id: drop-target-logo
       widgets:
         - slug: logo
-    - html_id: drop-target-phone
-      widgets:
-        - slug: phone
     - html_id: drop-target-btn
       widgets:
         - slug: button
@@ -34,198 +31,214 @@ website_template:
     - html_id: drop-target-footer
       widgets:
         - slug: contact-info
-        - slug: hours
         - slug: footer-info
 
 web_home_template:
   name: Home
-  title: "Apartments in {{location_neighborhood}} {{location_city}}"
+  title: "Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}} with {{location_primary_amenity}}"
   drop_targets:
     - html_id: drop-target-main
       widgets:
-        - slug: photo
-        - slug: html
+        - slug: content-stripe
+        - slug: content-stripe
+        - slug: content-stripe
         - slug: meta-description
+          settings:
+            - name: meta_description
+              value: "Find out how great life is at our {{location_neighborhood}} {{location_city}} apartments! To learn more about apartments for rent at {{location_name}} in {{location_city}}, {{location_state}}, please visit our website."
 
 web_page_templates:
   - name: Floor Plans
-    title: "{{location_floor_plans}} Apartments in {{location_city}} with {{location_primary_amenity}}"
+    title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: floor-plans
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{location_floor_plans}} bedroom apartments in {{location_city}}, {{location_state}}; visit our website to find the floor plan at {{location_name}} that will best work for you."
 
   - name: Amenities
-    title: "{{location_city}} Apartment Amenities at {{location_name}}"
+    title: "{{location_city}} {{location_qualifier}} Apartment Amenities at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{{location_city}} {{location_qualifier}} apartment amenities are designed to meet all your needs at {{location_name}}. We are located near {{location_primary_landmark}} in {{location_city}}, {{location_state}}."
 
   - name: Photo Gallery
-    title: "Photos of Our Apartments in {{location_city}} | {{location_name}}"
+    title: "Photos of our Apartments in {{location_city}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: gallery
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Want to see photos of our apartments in {{location_city}}, {{location_state}}? Visit our website and picture yourself at {{location_name}}."
 
   - name: Neighborhood
     title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Life is great at our {{location_neighborhood}} {{location_city}} apartments near {{location_primary_landmark}}; call {{location_name}} today at {{location_marketing_number}}."
 
   - name: Map and Directions
-    title: "Directions to Apartments for rent in {{location_city}}, {{location_state}} | {{location_name}}"
+    title: "Directions to Apartments for Rent in {{location_city}}, {{location_state}} | {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: map
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "For map & directions to our apartments for rent in {{location_city}}, {{location_state}}, visit {{location_name}} at our website."
 
   - name: Residents
     title: "Information for Current Residents at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-            settings:
-              - name: text
-                value: <h1>Information for Current Residents</h1>
-          - slug: button
-            settings:
-              - name: button_label
-                value: Maintenance Request
-              - name: button_description
-                value: Send a request to our maintenance department day or night
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Pay Online
-              - name: button_description
-                value: Pay online using your checking account
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Pet Friendly
-              - name: button_description
-                value: Looking to bring a pet into your home? View our pet policy for more information
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Community Events
-              - name: button_description
-                value: Keep up with all the community events by viewing our events calendar
-              - name: button_layout
-                value: grid
-          - slug: button
-            settings:
-              - name: button_label
-                value: Suggestion Box
-              - name: button_description
-                value: We would love to know how we're doing. Use this form to send our staff feedback about our service or property
-              - name: button_layout
-                value: grid
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{location_name}} in {{location_city}}, {{location_state}}, offers apartment residents the resources to ensure your lifestyle is everything that you want it to be."
 
   - name: Apply
     title: "Apply to live at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: apply-form
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you like what you've seen and want to apply to live at {{ store.branded_name }}? Do it from the comfort of your sofa on our website today."
 
   - name: Schedule Tour
     title: "Schedule a tour to view {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: tour-form
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Want to see more of {{ store.branded_name }}? Touch and feel our community by scheduling a tour."
 
   - name: Request Information
     title: "Request information from {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: request-info-form
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you like what you see on {{ store.branded_name }}'s website and want more information? Request information today!"
 
   - name: Contact Us
     title: "Contact {{location_name}} in {{location_city}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: contact-form
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "At {{ store.branded_name }}  we are dedicated to your satisfaction. Contact us to learn more about our apartment rentals in {{ store.city }}."
 
   - name: Pet Friendly
     title: "Pet Friendly Apartments in {{location_city}} by {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{ store.branded_name }} offers pet friendly apartments in {{ store.city }}, {{ store.state }}; visit our website or call {{ store.marketing_number }} to learn more."
 
   - name: Community Events
     title: "Events at {{location_name}} in {{location_city}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "There is always something going on at {{ store.branded_name }}; visit our calendar of events page and never miss anything."
 
   - name: Maintenance Request
     title: "Maintenance request at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: service-request-form
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you live at {{ store.branded_name }} and have noticed something not working properly on the property? Submit a maintenance request today!"
 
   - name: Suggestion Box
     title: "Suggestion box at {{location_name}}"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
-          - slug: suggestion-form
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "Do you live at {{ store.branded_name }} and have a suggestion that you'd like our management team to read? Submit your idea via our online suggestion box!"
 
   - name: Privacy Policy
     title: "{{location_name}}'s Privacy Policy"
     drop_targets:
       - html_id: drop-target-main
         widgets:
-          - slug: html
+          - slug: content-stripe
+          - slug: content-stripe
+          - slug: content-stripe
           - slug: meta-description
+            settings:
+              - name: meta_description
+                value: "{{ store.branded_name }} collects only the information that you give in order to provide the best possible care, and we never share.  View our privacy policy at our website."

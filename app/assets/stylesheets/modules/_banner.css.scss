@@ -36,6 +36,14 @@
 
 .banner-logo {
   vertical-align: middle;
+  margin-right: 5px;
+  @include respond-to($l-min-xlarge) {
+    margin-right: 10px;
+  }
+}
+
+.banner-logo-text {
+  font-weight:bold;
   margin-right: $base-whitespace / 2;
   @include respond-to($l-min-xlarge) {
     margin-right: $base-whitespace;
@@ -43,7 +51,7 @@
 }
 
 .banner-subtitle {
-  color: $c-color-a;
+  color: $c-color-b;
   font-weight: $base-fontWeight;
 }
 
@@ -64,6 +72,3 @@
   }
 }
 
-.page-name {
-  display: none;
-}

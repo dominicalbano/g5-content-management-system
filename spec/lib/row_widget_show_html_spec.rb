@@ -3,7 +3,7 @@ require "spec_helper"
 describe RowWidgetShowHtml do
   let!(:setting) { Fabricate(:setting, name: name, owner: row_widget, value: widget.id) }
   let!(:row_layout) { Fabricate(:setting, name: "row_layout", owner: row_widget, value: value) }
-  let!(:garden_widget) { Fabricate(:garden_widget, name: "row") }
+  let!(:garden_widget) { Fabricate(:garden_widget, name: "Content Slice", widget_id: 11) }
   let!(:row_widget) { Fabricate(:widget, garden_widget: garden_widget) }
   let(:row_widget_show_html) { described_class.new(row_widget) }
   let(:widget) { Fabricate(:widget) }

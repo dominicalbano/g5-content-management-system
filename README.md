@@ -1,9 +1,7 @@
 # G5 Content Management System (CMS)
 
-[![Build
-Status](https://travis-ci.org/G5/g5-content-management-system.svg)](https://travis-ci.org/G5/g5-content-management-system)
-[![Code
-Climate](https://codeclimate.com/repos/5114447913d6374d5000e638/badges/065a0ae50d3b8277ebb2/gpa.png)](https://codeclimate.com/repos/5114447913d6374d5000e638/feed)
+[![Build Status](https://travis-ci.org/G5/g5-content-management-system.svg?branch=master)](https://travis-ci.org/G5/g5-content-management-system)
+[![Code Climate](https://codeclimate.com/repos/5114447913d6374d5000e638/badges/065a0ae50d3b8277ebb2/gpa.png)](https://codeclimate.com/repos/5114447913d6374d5000e638/feed)
 
 - Seeds client from client uid
 - Seeds default website for each location
@@ -110,6 +108,8 @@ of CSS. To create a new module do the following:
   * Michael Mitchell / [@variousred](https://github.com/variousred)
   * Jessica Dillon / [@jessicard](https://github.com/jessicard)
   * Chad Crissman / [@crissmancd](https://github.com/crissmancd)
+  * Brian Bauer / [@bbauer](https://github.com/bbauer)
+  * Levi Brown / [@levibrown](https://github.com/levibrown)
 
 
 ## Contributing

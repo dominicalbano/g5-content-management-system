@@ -10,6 +10,8 @@ describe ClientReaderJob, vcr: VCR_OPTIONS do
     before do
       Client.destroy_all
       Location.destroy_all
+      Client.any_instance.stub(:create_bucket)
+      Location.any_instance.stub(:create_bucket)
     end
 
     describe "creates clients" do
@@ -57,3 +59,4 @@ describe ClientReaderJob, vcr: VCR_OPTIONS do
     end
   end
 end
+

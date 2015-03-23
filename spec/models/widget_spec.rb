@@ -2,6 +2,19 @@ require "spec_helper"
 
 describe Widget, vcr: VCR_OPTIONS do
 
+  describe "validations" do
+    let(:widget){Fabricate(:widget)}
+    let(:no_garden_widget){Fabricate.build(:widget, {garden_widget: nil})}
+
+    it "builds a valid widget" do
+      expect(widget).to be_valid
+    end
+
+    it "requires a garden_widget_id" do
+      expect(no_garden_widget).to_not be_valid
+    end
+  end
+
   describe "#update_attributes" do
     let(:garden_widget) { Fabricate(:garden_widget, settings: [name: "foo"]) }
     let(:widget) { Fabricate(:widget, garden_widget: garden_widget) }
@@ -17,8 +30,8 @@ describe Widget, vcr: VCR_OPTIONS do
   end
 
   describe "#render_show_html" do
-    context "row widget" do
-      let(:garden_widget) { Fabricate.build(:garden_widget, name: "Row") }
+    context "content stripe widget" do
+      let(:garden_widget) { Fabricate.build(:garden_widget, name: "Content Stripe") }
       let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget) }
       let(:row_widget_show_html) { double(render: nil) }
 
@@ -110,20 +123,28 @@ describe Widget, vcr: VCR_OPTIONS do
         expect(widget.show_stylesheets).to eq(["foo.css","bar.css"])
       end
     end
+
     describe "#show_javascripts" do
       it "returns associated javascripts" do
         expect(widget.show_javascripts).to eq(["show.js"])
       end
     end
+
     describe "#lib_javascripts" do
       it "returns associated lib javascripts" do
         expect(widget.lib_javascripts).to eq(["a.js","b.js"])
       end
     end
+
     describe "#widgets" do
       it "returns associated child widgets" do
         expect(row_widget.widgets).to eq([widget])
       end
     end
+
+    it "#widget_type" do
+      expect(widget.widget_type).to eq(garden_widget.widget_type)
+    end  
   end
 end
+

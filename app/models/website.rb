@@ -2,6 +2,7 @@ class Website < ActiveRecord::Base
   include HasManySettings
   include HasSettingNavigation
   include HasSettingLocationsNavigation
+  include HasSettingCorporateMap
   include AfterCreateUpdateUrn
   include ToParamUrn
 
@@ -17,11 +18,15 @@ class Website < ActiveRecord::Base
   has_many :web_templates
   has_many :assets, dependent: :destroy
   has_many :widgets, through: :web_templates
-  has_many :widget_settings, through: :widgets, source: :settings
 
   validates :urn, presence: true, uniqueness: true, unless: :new_record?
 
   scope :location_websites, -> { where(owner_type: "Location") }
+
+  def widget_settings
+    widgets.collect {|widget| widget.settings}.flatten +
+    widgets.collect {|widget| widget.nested_settings}.flatten
+  end
 
   def website_id
     id
@@ -50,26 +55,26 @@ class Website < ActiveRecord::Base
     website_template.try(:stylesheets)].flatten.uniq
   end
 
-  def javascripts
-    web_templates.map(&:javascripts).flatten.uniq
+  def deploy(user_email)
+    StaticWebsiteDeployerJob.perform(urn, user_email)
   end
 
-  def deploy
-    StaticWebsiteDeployerJob.perform(urn)
-  end
-
-  def async_deploy
-    Resque.enqueue(StaticWebsiteDeployerJob, urn)
+  def async_deploy(user_email)
+    Resque.enqueue(StaticWebsiteDeployerJob, urn, user_email)
   end
 
   def colors
     website_template.try(:colors)
   end
 
+  def fonts
+    website_template.try(:fonts)
+  end
+
   def stylesheets_compiler
     @stylesheets_compiler ||=
       StaticWebsite::Compiler::Stylesheets.new(stylesheets,
-      "#{Rails.root}/public", colors, name)
+      "#{Rails.root}/public", colors, fonts, name)
   end
 
   def application_min_css_path

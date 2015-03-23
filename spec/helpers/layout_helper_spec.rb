@@ -9,18 +9,18 @@ describe LayoutHelper do
     
     it "says the title should show" do
       helper.title "Title"
-      helper.show_title?.should be_true
+      helper.show_title?.should be_truthy
     end
   end
   
   describe "#show_title?" do
     it "defaults to nil" do
-      helper.show_title?.should be_false
+      helper.show_title?.should be_falsey
     end
     
     it "is true" do
       assign(:show_title, true)
-      helper.show_title?.should be_true
+      helper.show_title?.should be_truthy
     end
   end
 
@@ -32,23 +32,23 @@ describe LayoutHelper do
     
     it "says the header_right should show" do
       helper.header_right "Header Right"
-      helper.show_header_right?.should be_true
+      helper.show_header_right?.should be_truthy
     end
 
     it "says the header_right should not show" do
       helper.header_right "Header Right", false
-      helper.show_header_right?.should be_false
+      helper.show_header_right?.should be_falsey
     end
   end
   
   describe "#show_header_right?" do
     it "defaults to nil" do
-      helper.show_header_right?.should be_false
+      helper.show_header_right?.should be_falsey
     end
     
     it "is true" do
       assign(:show_header_right, true)
-      helper.show_header_right?.should be_true
+      helper.show_header_right?.should be_truthy
     end
   end
   

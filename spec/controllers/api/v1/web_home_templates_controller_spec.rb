@@ -6,6 +6,7 @@ describe Api::V1::WebHomeTemplatesController, :auth_controller do
   let(:main_drop_target) { Fabricate(:drop_target) }
 
   before do
+    web_home_template.stub(:update_navigation_settings)
     web_home_template.drop_targets << main_drop_target
   end
 
@@ -17,7 +18,7 @@ describe Api::V1::WebHomeTemplatesController, :auth_controller do
     it "renders websites as json" do
       get :index
       expect(response.status).to eq 200
-      pending("response.body JSON equals WebHomeTemplate.all (after ran through the serializer and as JSON)")
+      skip("response.body JSON equals WebHomeTemplate.all (after ran through the serializer and as JSON)")
     end
   end
 

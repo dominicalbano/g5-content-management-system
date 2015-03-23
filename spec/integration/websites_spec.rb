@@ -17,9 +17,9 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "Displays client, location, and page names" do
-      within "header" do
-        page.should have_content @client.name.upcase
-        page.should have_content @location.name.upcase
+      within ".breadcrumb" do
+        page.should have_content @client.name
+        page.should have_content @location.name
       end
 
       within WEB_HOME_SELECTOR do
@@ -47,6 +47,12 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}"
     end
 
+    it "'create new page' link goes to '/:website_slug/webPageTemplates/new'" do
+      click_link "Create New Page"
+
+      current_path.should eq "/#{@website.slug}/webPageTemplates/new"
+    end
+
   end
 
   describe "Web page templates have settings" do
@@ -60,6 +66,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     it "clicking on the gear should flip page card to reveal settings" do
       within WEB_PAGE_SELECTOR do
         click_link "Page Settings"
+        sleep 1
       end
       expect(page).to have_css(".web-page-template.flipped:first-of-type")
       expect(page).to have_content("PAGE NAME (FOR CMS)")
@@ -114,10 +121,10 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       within ".web-page-templates" do
         web_page_template1 = find(".web-page-template:first-of-type")
         web_page_template2 = find(".web-page-template:last-of-type")
-        expect(@web_page_template2.display_order > @web_page_template1.display_order).to be_true
+        expect(@web_page_template2.display_order > @web_page_template1.display_order).to be_truthy
         drag_and_drop(web_page_template1, web_page_template2)
         sleep 1
-        expect(@web_page_template2.reload.display_order < @web_page_template1.reload.display_order).to be_true
+        expect(@web_page_template2.reload.display_order < @web_page_template1.reload.display_order).to be_truthy
       end
     end
   end
@@ -148,6 +155,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "Updates database" do
+      pending("Drag and drop specs fail intermittently.")
       web_page_template = find(".web-page-templates-in-trash .web-page-template:first-of-type")
       not_trash = find(".web-page-templates")
       expect do
@@ -174,15 +182,6 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
           sleep 1
         end
       end.not_to change { WebPageTemplate.count }
-    end
-
-    it "Empties trash if yes is clicked" do
-      expect do
-        within ".empty-trash" do
-          click_link "empty-trash-yes"
-          sleep 1
-        end
-      end.to change { WebPageTemplate.count }.by(-1)
     end
   end
 end

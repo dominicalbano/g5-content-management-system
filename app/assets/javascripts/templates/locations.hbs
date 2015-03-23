@@ -2,6 +2,7 @@
   <div class="page-title">
     <h2>Locations</h2>
     <div class="buttons l-pullRight">
+      {{#link-to 'saves' class="btn"}}Saves{{/link-to}}
       <a {{action updateGardenWidgets}} href="#" class="btn">Update Widgets</a>
       <a {{action updateGardenWebThemes}} href="#" class="btn">Update Themes</a>
       <a {{action updateGardenWebLayouts}} href="#" class="btn">Update Layouts</a>
@@ -16,6 +17,7 @@
   <div class="faux-table faux-table--striped">
     <div class="faux-table-head">
       <span class="faux-table-cell">Name</span>
+      <span class="faux-table-cell">Status</span>
       <span class="faux-table-cell">Actions</span>
     </div> <!-- end .faux-table-head -->
 
@@ -24,16 +26,21 @@
     {{else}}
       <ul class="faux-table-body">
         {{#each model}}
-        <li {{bindAttr class=":faux-table-row :location corporate"}}>
+        <li {{bind-attr class=":faux-table-row :location corporate status_class"}}>
           <div class="faux-table-cell">
             {{#if corporate}}
             <strong>Corporate:</strong>
             {{/if}}
             {{name}}
           </div>
-          <div {{bindAttr class=":faux-table-cell single_domain"}}>
-            {{#link-to "website" this.website class="btn btn--a" }}Edit{{/link-to}}
-            <a {{bindAttr href="this.website.herokuUrl"}} class="btn btn--a">View</a>
+          <div class="faux-table-cell status">
+            <div class="status-label">
+              {{status}}
+            </div>
+          </div>
+          <div {{bind-attr class=":faux-table-cell single_domain"}}>
+            {{#link-to "website" websiteSlug class="btn btn--a" }}Edit{{/link-to}}
+            <a {{bind-attr href="this.websiteHerokuUrl"}} class="btn btn--a">View</a>
             {{confirmation-link title="Deploy" action="deploy" param=this 
               message="You are about to deploy. Are you sure?" classes="btn btn--a deploy"}}
           </div>

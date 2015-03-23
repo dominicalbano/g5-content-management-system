@@ -1,17 +1,22 @@
 class AreaPageRenderer
   def initialize(locations, area)
+    Resque.logger.debug("Intitializing AreaPageRenderer with(locations,area): #{locations}, #{area}")
     @locations = locations
     @area = area
   end
 
   def render
-    "<div class='area_page map'>#{title + locations + map}</div>"
+    "<div class='area-page map'>#{title + locations_markup + map + footer}</div>"
   end
 
 private
 
   def title
-    "<h1>Locations in #{@area}</h1>"
+    "<h1>Locations in #{formatted_area}</h1>"
+  end
+
+  def locations_markup
+    "<div class='area-page-locations'>#{locations}</div>"
   end
 
   def locations
@@ -33,6 +38,10 @@ private
     )
   end
 
+  def footer
+    "<div class='area-page-footer'></div>"
+  end
+
   def location_markup(location)
     ActionController::Base.new.render_to_string(
       partial: "area_pages/location",
@@ -50,5 +59,11 @@ private
   def address_for(location)
     "#{location.street_address}, #{location.city}, " \
     "#{location.state} #{location.postal_code}"
+  end
+
+  def formatted_area
+    components = @area.split(",")
+    components.last.upcase!
+    components.join(",")
   end
 end

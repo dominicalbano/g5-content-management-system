@@ -6,6 +6,9 @@ describe ClientReader do
   let(:uf2_client) { Microformats2.parse(client_uid) }
   let(:parsed) { double(first: uf2_client.first) }
 
+  before { Location.any_instance.stub(:create_bucket) }
+  before { Client.any_instance.stub(:create_bucket) }
+
   describe "#perform" do
     before { Microformats2.stub(parse: parsed) }
 
@@ -39,20 +42,47 @@ describe ClientReader do
       end
     end
 
-    describe "client creation" do
-      it "saves the client" do
-        expect { subject }.to change { Client.all.size }.from(0).to(1)
+    describe "client create/update" do
+      context "an existing client" do
+        let!(:client) { Fabricate(:client, uid: client_uid) }
+
+        it "does not create a website for the client" do
+          expect { subject }.not_to change { Website.all.size }
+        end
       end
 
-      describe "specific client data" do
-        subject(:client) { Client.first }
+      context "a new client" do
+        it "saves the client" do
+          expect { subject }.to change { Client.all.size }.from(0).to(1)
+        end
 
-        before { client_reader.perform }
+        describe "specific client data" do
+          subject(:client) { Client.first }
 
-        its([:name]) { should eq("Farmhouse") }
-        its([:vertical]) { should eq("Apartments") }
-        its([:type]) { should eq("MultiDomainClient") }
-        its([:domain]) { should eq("http://farmhouseapartments.com/") }
+          before { client_reader.perform }
+
+          its([:name]) { should eq("Farmhouse") }
+          its([:vertical]) { should eq("Apartments") }
+          its([:type]) { should eq("MultiDomainClient") }
+          its([:domain]) { should eq("http://farmhouseapartments.com/") }
+        end
+
+        describe "client website creation" do
+          context "single domain client" do
+            let(:client_uid) { "#{Rails.root}/spec/support/single_domain_client.html" }
+            let!(:client) { Fabricate(:client, type: "SingleDomainClient", uid: client_uid) }
+
+            it "creates a website for the client" do
+              expect { subject }.to change { Website.all.size }.from(0).to(1)
+            end
+          end
+
+          context "multi domain client" do
+            it "does not create a website for the client" do
+              expect { subject }.to_not change { Website.all.size }
+            end
+          end
+        end
       end
     end
 
@@ -69,17 +99,20 @@ describe ClientReader do
         its([:urn]) { should eq("g5-cl-1qrcyt46-hollywood") }
         its([:name]) { should eq("Hollywood") }
         its([:domain]) { should eq("http://www.hollywood.com/") }
+        its([:secure_domain]) { should be_truthy }
         its([:street_address]) { should eq("4567 Storage Drive Unit 5") }
         its([:state]) { should eq("CA") }
         its([:city]) { should eq("Hollywood") }
         its([:postal_code]) { should eq("80229") }
         its([:phone_number]) { should eq("555-555-5555") }
-        its([:corporate]) { should be_false }
+        its([:corporate]) { should be_falsey }
         its([:neighborhood]) { should eq('Westwood')}
         its([:floor_plans]) { should eq('2 Bedroom 2 Bath, Studio')}
         its([:primary_amenity]) { should eq('Secret Passages')}
         its([:qualifier]) { should eq('Luxury')}
         its([:primary_landmark]) { should eq('Seattle Grace Hospital')}
+        its([:status]) { should eq('Live')}
+        its([:thumb_url]) {should eq("http://g5-orion-clients.s3.amazonaws.com/g5-c-6hqll2d-client1/g5-cl-6hqll2d-client1location1/thumbnails/thumb/another_planet-wallpaper-2560x1440.jpg?1413915508")}
       end
     end
 
@@ -98,3 +131,4 @@ describe ClientReader do
     end
   end
 end
+

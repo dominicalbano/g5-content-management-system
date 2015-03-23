@@ -1,27 +1,23 @@
-<header role="banner" class="banner">
+<div class="breadcrumb">
   <div class="l-container">
+    <nav class="nav" role="navigation">
+      <ul>
+        <li><a href="/">{{controllers.client.name}}</a></li>
 
-    <h1 class="banner-title">
-      <a href="/">
-        <img class="banner-logo" src="<%= asset_path("logo.png") %>" alt="G5" /> CMS:
-      </a>
+        {{#if controllers.website}}
+          <li>
+            &raquo;
+            {{#link-to "website" controllers.website}}
+              {{controllers.website.name}}
+            {{/link-to}}
+          </li>
+        {{/if}}
 
-      <a href="/">
-        <strong class="banner-subtitle">{{controllers.client.name}}</strong>
-      </a>
-
-      {{#if controllers.websiteIndex}}
-        &raquo;
-        {{#link-to "website" controllers.websiteIndex}}
-          <strong class="banner-subtitle">{{controllers.websiteIndex.name}}</strong>
-        {{/link-to}}
-      {{/if}}
-
-      <span class="page-name">
-        &raquo;
-        <a><strong class="banner-subtitle"></strong></a>
-      </span>
-    </h1>
-
-  </div> <!-- end .l-container -->
-</header>
+        {{#if controllers.webPageTemplate}}
+            &raquo;
+            <a>{{controllers.webPageTemplate.name}}</a>
+        {{/if}}
+      </ul>
+    </nav>
+  </div>
+</div>

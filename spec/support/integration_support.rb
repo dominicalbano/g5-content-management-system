@@ -13,30 +13,45 @@ def scroll_to(page, selector)
   EOS
 end
 
-def drag_and_drop(source, target)
-  if ENV["CI"]
-    builder = page.driver.browser.action
-    source = source.native
-    target = target.native
+def drag_and_drop(element, target)
+  builder = page.driver.browser.action
+  element = element.native
+  target = target.native
 
-    builder.click_and_hold source
-    builder.move_to        target, 1, 11
-    builder.move_to        target
-    builder.release        target
-    builder.perform
-  else
-    source.drag_to(target)
-  end
+  builder.click_and_hold(element)
+  builder.move_to(target)
+  builder.release
+  builder.perform
+end
+
+def drag_and_drop_below(source, target)
+  builder = page.driver.browser.action
+  source = source.native
+  target = target.native
+
+  builder.click_and_hold source
+  builder.move_to        target, (target.size.width)/2+1, (target.size.height)/2+1
+  builder.release
+  builder.perform
+end
+
+def drag_and_drop_add(element, target)
+  builder = page.driver.browser.action
+  element = element.native
+  target = target.native
+
+  builder.click_and_hold(element)
+  builder.move_to(target, 5, 5)
+  builder.release
+  builder.perform
 end
 
 def accept_confirm(page)
-  return page.driver.browser.switch_to.alert.accept if ENV["CI"]
-  page.driver.accept_js_confirms!
+  page.driver.browser.switch_to.alert.accept
 end
 
 def dismiss_confirm(page)
-  return page.driver.browser.switch_to.alert.dismiss if ENV["CI"]
-  page.driver.dismiss_js_confirms!
+  page.driver.browser.switch_to.alert.dismiss
 end
 
 def seed(file="example.yml")
@@ -46,4 +61,13 @@ def seed(file="example.yml")
   website = WebsiteSeeder.new(location, instructions).seed
   website.assets << Fabricate(:asset)
   [client, location, website]
+end
+
+def open_gardens
+  # add a long delay to make sure ember is done doing all it's black magic
+  # otherwise we get intermittent failures when looking around in a garden
+  sleep 3
+  all(".btn--toggle-show").each do |toggle_button|
+    toggle_button.click
+  end
 end

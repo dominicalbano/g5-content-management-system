@@ -12,7 +12,7 @@ class AWSSigner
       bucket: bucket,
       region: region,
       expires: @now + 10.hours,
-      key: "uploads/#{sluggify_filename}",
+      key: "#{bucket_asset_key_prefix}/uploads/#{sluggify_filename}",
       policy: policy,
       signature: upload_signature,
       success_action_status: '201',
@@ -55,7 +55,7 @@ private
 
   def canonical_request(datetime)
     "DELETE\n"\
-    "/#{bucket}/uploads/#{sluggify_filename}\n"\
+    "/#{bucket}/#{bucket_asset_key_prefix}/uploads/#{sluggify_filename}\n"\
     "\n"\
     "host:s3-#{region}.amazonaws.com\n"\
     "x-amz-date:#{iso8601_datetime(datetime)}\n"\
@@ -106,8 +106,17 @@ private
     ).gsub(/\n|\r/, '')
   end
 
+
+  def bucket_manager
+    @bucket ||= S3BucketNameManager.new(location)
+  end
+
   def bucket
-    ENV["AWS_S3_BUCKET_NAME_#{@params[:locationName].gsub(' ','_').upcase}"]
+    bucket_manager.bucket_name
+  end
+
+  def bucket_asset_key_prefix
+    bucket_manager.asset_key_prefix
   end
 
   def upload_signature
@@ -122,6 +131,10 @@ private
 
   def sluggify_filename
     @params[:name].split('.').map {|part| part.parameterize}.join('.')
+  end
+
+  def location
+    Location.where(name: @params[:locationName]).first
   end
 end
 

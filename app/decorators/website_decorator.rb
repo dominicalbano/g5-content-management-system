@@ -10,13 +10,13 @@ class WebsiteDecorator < Draper::Decorator
   end
 
   def heroku_app_name
-    return model.urn[0..29] unless single_domain_location?
+    return model.urn[0..29].gsub(/\A[-\.]+|[-\.]+\z/, "") unless single_domain_location?
 
-    client.website.urn[0..29]
+    client.website.urn[0..29].gsub(/\A[-\.]+|[-\.]+\z/, "")
   end
 
   def domain
-    location.domain if location
+    owner.domain if owner
   end
 
   def heroku_repo
@@ -33,5 +33,9 @@ class WebsiteDecorator < Draper::Decorator
 
   def heroku_url_base
     "http://#{heroku_app_name}.herokuapp.com"
+  end
+
+  def url
+    domain || heroku_url
   end
 end

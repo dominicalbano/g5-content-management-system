@@ -7,7 +7,10 @@ describe StaticWebsite::Compiler::WebTemplate do
   let(:web_template) { Fabricate(:web_home_template, website_id: website.id) }
   let(:web_layout) { Fabricate(:web_layout) }
 
-  before { web_template.stub(:website_layout).and_return(web_layout) }
+  before do
+    web_template.stub(:update_navigation_settings)
+    web_template.stub(:website_layout).and_return(web_layout)
+  end 
 
   describe "#compile" do
     let(:subject) { StaticWebsite::Compiler::WebTemplate.new(web_template) }
@@ -49,9 +52,9 @@ describe StaticWebsite::Compiler::WebTemplate do
       end
 
       it "writes file to compile path" do
-        expect(File.exists?(subject.compile_path)).to be_false
+        expect(File.exists?(subject.compile_path)).to be_falsey
         subject.view.compile
-        expect(File.exists?(subject.compile_path)).to be_true
+        expect(File.exists?(subject.compile_path)).to be_truthy
       end
     end
   end
@@ -80,3 +83,4 @@ describe StaticWebsite::Compiler::WebTemplate do
     end
   end
 end
+

@@ -3,12 +3,13 @@ require "spec_helper"
 describe StaticWebsite::Deployer do
   let!(:client) { Fabricate(:client) }
   let(:website) { Fabricate(:website).decorate }
-  let(:subject) { StaticWebsite::Deployer.new(website) }
+  let(:subject) { StaticWebsite::Deployer.new(website, "user@email.com") }
 
   describe "#deploy" do
     it "asks the deployer website" do
+      expect_any_instance_of(SavesManager).to receive(:save).and_return(true)
       subject.deployer.stub(:deploy)
-      subject.deployer.should_receive(:deploy).with(subject.deployer_options).once
+      expect(subject.deployer).to receive(:deploy).with(subject.deployer_options).once
       subject.deploy
     end
 
@@ -26,7 +27,7 @@ describe StaticWebsite::Deployer do
       end
 
       it "retries 3 times when Heroku::API::Errors::ErrorWithResponse" do
-        pending ("Not sure how to raise Heroku::API::Errors::ErrorWithResponse due to change in heroku-api gem") do
+        skip("Not sure how to raise Heroku::API::Errors::ErrorWithResponse due to change in heroku-api gem") do
           subject.deployer.stub(:deploy).and_raise(Heroku::API::Errors::ErrorWithResponse.new(nil, nil))
           expect { subject.deploy }.to raise_error(Heroku::API::Errors::ErrorWithResponse)
           expect(subject.retries).to eq 3

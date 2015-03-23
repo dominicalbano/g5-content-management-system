@@ -1,9 +1,9 @@
 language: ruby
+bundler_args: --retry 3
+sudo: false
+cache: bundler
 rvm:
-  - 2.0.0
-
-install: "bin/wad -v"
-# Note that WAD doesn't clean up old bundles for you. If you change Gemfile.lock a lot and the bucket becomes very large, you probably want to clean out old bundles once in a while.
+  - 2.2.0
 
 script:
   - RAILS_ENV=test bundle exec rake db:schema:load --trace
@@ -16,7 +16,7 @@ before_script:
 notifications:
   campfire:
     rooms:
-      secure: kp3AoXOS91YPScPGF/i4fWOKlG3HiMEdW4fJZKlAiQsKIBTjh5R4VnvwbSAfG62bb2LaERlgq3G3uKE5X1ayRA0BG7hMYXmK1pK8KMQfQF2iOo9FgLn8qW9bdFrg/e0KWNtFimjL+oBoT7zOlCQEXWfMoMbMeaICiSxnFdIg6U0=
+      secure: "CSoJcsijaW8+9XoQbXlP8WIv0pZGUs7JEFhyDMglVPlROms7Qe/hA/OB65wjinoC/33rsaNaxEgpOq8w1G8SJkFMUrI7QlevXD0qeDxS7puhvu/StBHY6YMohiSbVc1G+4ubI5RxBoVf1/5CakcDIouUxXXSMbkcgncFFGrB5/M="
     template:
       - "%{repository}#%{build_number} %{message} (%{branch} - %{commit} : %{author}) Change view : %{compare_url} Build details : %{build_url}"
     on_success: change
@@ -29,3 +29,4 @@ env:
   matrix:
     - RSPEC_TAG=~integration
     - RSPEC_TAG=integration
+

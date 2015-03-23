@@ -1,1 +1,5 @@
-App.WebsiteController = Ember.ObjectController.extend {}
+App.WebsiteController = Ember.ObjectController.extend
+
+  selectedWidgetName: null
+
+

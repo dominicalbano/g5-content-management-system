@@ -2,27 +2,27 @@ require 'spec_helper'
 
 describe LocationCollector do
   let(:location_collector) { described_class.new(params) }
-  let!(:state_location) { Fabricate(:location, state: "Oregon") }
-  let!(:city_location) { Fabricate(:location, state: "Oregon", city: "Bend") }
-  let!(:neighborhood_location) { Fabricate(:location, state: "Oregon", city: "Bend", neighborhood: "Foo") }
+  let!(:state_location) { Fabricate(:location, state: "OR", status: "Live") }
+  let!(:city_location) { Fabricate(:location, state: "OR", city: "Bend", status: "Live") }
+  let!(:neighborhood_location) { Fabricate(:location, state: "OR", city: "Bend", neighborhood: "Foo", status: "Live") }
 
   describe "#collect" do
     subject { location_collector.collect }
 
     context "state level params" do
-      let(:params) { { state: "oregon" } }
+      let(:params) { { state: "or" } }
 
       it { should eq([state_location, city_location, neighborhood_location]) }
     end
 
     context "city level params" do
-      let(:params) { { state: "oregon", city: "bend" } }
+      let(:params) { { state: "or", city: "bend" } }
 
-      it { should eq([city_location, neighborhood_location]) }
+      it { is_expected.to match_array([city_location, neighborhood_location]) }
     end
 
     context "neighborhood level params" do
-      let(:params) { { state: "oregon", city: "bend", neighborhood: "foo" } }
+      let(:params) { { state: "or", city: "bend", neighborhood: "foo" } }
 
       it { should eq([neighborhood_location]) }
     end

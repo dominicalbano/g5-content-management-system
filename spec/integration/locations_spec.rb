@@ -5,7 +5,7 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
     before do
       Resque.stub(:enqueue)
 
-      @client = Fabricate(:client)
+      @client = Fabricate(:client, uid: "http://g5-hub.herokuapp.com/clients/g5-c-123abc-blah-blah-blah")
       @location = Fabricate(:location)
       @website = Fabricate(:website, owner: @location)
       @location.reload
@@ -15,7 +15,7 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
 
     it "Client and location names are displayed" do
       # CSS upcases this name, so we also upcase
-      expect(page).to have_content(@client.name.upcase)
+      expect(page).to have_content(@client.name)
       expect(page).to have_content(@location.name)
     end
 
@@ -32,10 +32,9 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
         click_link "Edit"
       end
 
-      within "header" do
-        # CSS upcases these names, so we also upcase
-        expect(page).to have_content(@client.name.upcase)
-        expect(page).to have_content(@location.name.upcase)
+      within ".breadcrumb" do
+        expect(page).to have_content(@client.name)
+        expect(page).to have_content(@location.name)
       end
 
       expect(current_path).to eq("/#{@website.slug}")
