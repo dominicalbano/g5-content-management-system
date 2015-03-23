@@ -42,16 +42,13 @@ module SettingNavigation extend ActiveSupport::Concern
   end
 
   def create_new_value(website_value, widget_value)
-    website_value.deep_merge!(widget_value)
-    website_value.keys.each do |key|
-      website_value[key]["sub_nav"] = "true" if show_sub_nav?(website_value[key])
+    merged_value = deep_merge_without_title_url(website_value, widget_value)
+    merged_value.keys.each do |key|
+      merged_value[key]["sub_nav"] = "true" if show_sub_nav?(merged_value[key])
     end
-    website_value
+    merged_value
   end
-  
-  def show_sub_nav?(website_value)
-    website_value.fetch("child_templates",[]).any? {|child| child[1]["display"] == "true"}
-  end
+
 
   def orphaned_drop_target?
     owner.kind_of?(Widget) && owner.drop_target_id.present? && owner.drop_target.blank?
@@ -63,6 +60,18 @@ module SettingNavigation extend ActiveSupport::Concern
 
   def setting_website
     website ||= WebsiteFinder::Setting.new(self).find
+  end
+
+  private
+
+  def deep_merge_without_title_url(old, new)
+    old.deep_merge(new) do |key, old, new|
+      (key == "title" || key == "url") ? old : new
+    end
+  end
+  
+  def show_sub_nav?(website_value)
+    website_value.fetch("child_templates",[]).any? {|child| child[1]["display"] == "true"}
   end
 
 end

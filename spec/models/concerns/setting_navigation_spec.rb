@@ -25,16 +25,16 @@ shared_examples_for SettingNavigation do
   end
 
   describe "When the title changes on website" do
-    let(:widget_value) {{
-        "1"=>{"display"=>false, "title"=>"Old Title", "url"=>"/old-title"},
-      }}
-    let(:website_value) {{
-        "1"=>{"display"=>true, "title"=>"New Title", "url"=>"/new-title"},
-        "2"=>{"display"=>true, "title"=>"New Page", "url"=>"/new-page"}
-      }}
+    let(:widget_value) {
+      {"1"=>{"display"=>"false", "title"=>"Old Title", "url"=>"/old-title"}}
+    }
+    let(:website_value) {
+      {"1"=>{"display"=>"true", "title"=>"New Title", "url"=>"/new-title"},
+       "2"=>{"display"=>"true", "title"=>"New Page", "url"=>"/new-page"}}
+    }
     let(:expected_value) {{
-      "1"=>{"display"=>false, "title"=>"New Title", "url"=>"/new-title"},
-      "2"=>{"display"=>true, "title"=>"New Page", "url"=>"/new-page"}
+      "1"=>{"display"=>"false", "title"=>"New Title", "url"=>"/new-title"},
+      "2"=>{"display"=>"true", "title"=>"New Page", "url"=>"/new-page"}
       }}
 
     it "Keeps new title and old display value" do
@@ -66,7 +66,7 @@ shared_examples_for SettingNavigation do
       let(:expected_value) {
         {
           "1"=>{"display"=>"true", "title"=>"about", "url"=>"/about"},
-          "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "sub_nav" => true, "child_templates" => {
+          "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "sub_nav" => "true", "child_templates" => {
             "3"=>{"display"=>"true", "title"=>"child page", "url"=>"/old-title"}
             }
           }
