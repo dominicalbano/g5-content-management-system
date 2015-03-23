@@ -1,4 +1,4 @@
-# G5 CMS
+# G5 Content Management System (CMS)
 
 [![Build Status](https://travis-ci.org/G5/g5-content-management-system.svg?branch=master)](https://travis-ci.org/G5/g5-content-management-system)
 [![Code Climate](https://codeclimate.com/repos/5114447913d6374d5000e638/badges/065a0ae50d3b8277ebb2/gpa.png)](https://codeclimate.com/repos/5114447913d6374d5000e638/feed)
@@ -19,18 +19,21 @@
     $ bundle
     ```
 
-1. Customize client ENV variable __or don't__. Format is shown.
+1. Set environment variables.
 
-    ```bash
-    $ export G5_CLIENT_UID=http://g5-hub.herokuapp.com/clients/:client-urn
-    ```
+    - For local development defaults in `.env` can be overriden by setting
+      the variable in `.env.development`. For example:
 
-    Default is `spec/support/client.html` and is set in
-    `config/initializers/env.rb`.
+          ```bash
+          $ echo HEROKU_APP_NAME=my-heroku-app > .env.development
+          ```
 
-    __ProTip™:__ The client uid will be used to seed the database so it must
-    to point to an html file that uses microformats to mark up a client and
-    their locations.
+    - For deployment all variables in `.env` should be set in the deployed
+      environment. For example:
+
+          ```bash
+          $ heroku config:set HEROKU_APP_NAME=my-heroku-app
+          ```
 
 1. Set up your database.
 
@@ -39,20 +42,9 @@
     $ rake db:setup
     ```
 
-1. Customize garden ENV variables __or don't__. Defaults are shown.
-
-    ```bash
-    $ export LAYOUT_GARDEN_URL=https://g5-layout-garden.herokuapp.com
-    $ export THEME_GARDEN_URL=https://g5-theme-garden.herokuapp.com
-    $ export WIDGET_GARDEN_URL=https://g5-widget-garden.herokuapp.com
-    ```
-
-    Defaults are set in `config/initializers/env.rb`.
-
 1. Run the specs.
 
     ```bash
-    $ rake db:test:prepare
     $ rspec
     ```
 
@@ -60,34 +52,24 @@
 
 1. [Set oAuth Enviroment Variables](https://github.com/G5/g5_authenticatable#environment-variables)
 
+1. Ensure you have [redis](http://redis.io/) in stalled and started.
+
 1. Start the application.
 
     ```bash
-    $ rails s
+    $ foreman start -f Procfile.dev
     ```
 
 
 ### Client Location Deployment
 
-1. [Create a new private key and add it to
-   GitHub.](https://help.github.com/articles/generating-ssh-keys)
-
-1. [Also add your private key to
-   Heroku.](https://devcenter.heroku.com/articles/keys)
-
 1. [Get your AWS S3 credentials ready — for the client's assets](https://console.aws.amazon.com/s3)
 
 1. Set ENV variables. See `.env`.
 
-  * if you have issues connecting to S3 (SocketError: getaddrinfo: nodename nor servname provided, or not known) make sure [your region is correct](http://docs.aws.amazon.com/general/latest/gr/rande.html)
-
-1. Install [redis](http://redis.io/) and start it.
-
-1. Start the job queue.
-
-    ```bash
-    $ rake jobs:work
-    ```
+  * if you have issues connecting to S3 (SocketError: getaddrinfo: nodename nor
+    servname provided, or not known) make sure [your region is
+    correct](http://docs.aws.amazon.com/general/latest/gr/rande.html)
 
 
 ## CSS Naming Conventions
@@ -127,6 +109,7 @@ of CSS. To create a new module do the following:
   * Jessica Dillon / [@jessicard](https://github.com/jessicard)
   * Chad Crissman / [@crissmancd](https://github.com/crissmancd)
   * Brian Bauer / [@bbauer](https://github.com/bbauer)
+  * Levi Brown / [@levibrown](https://github.com/levibrown)
 
 
 ## Contributing
@@ -140,48 +123,32 @@ of CSS. To create a new module do the following:
 1. Create new Pull Request
 
 If you find bugs, have feature requests or questions, please
-[file an issue](https://github.com/g5search/g5-content-management-system/issues).
+[file an issue](https://github.com/G5/g5-content-management-system/issues).
 
 
 ## Specs
-
-Run once.
 
 ```bash
 $ rspec
 ```
 
 
-## Deployment Specs
+### Deployment Specs
 
-1. Set deployment ENV variables in `.env.test`. Deploy to your personal Heroku
-   account, not G5's.
+1. Set deployment ENV variables in `.env.test` to your personal account.
+   Account must be
+   [verified](https://devcenter.heroku.com/articles/account-verification).
+
+    - `HEROKU_API_KEY`
+    - `HEROKU_USERNAME`
+    - `ID_RSA` - See [this dotenv
+      issue](https://github.com/bkeepers/dotenv/issues/21) for formatting.
+
+1. Deployment specs do not run by default. To run them:
 
     ```bash
-    HEROKU_USERNAME=your-username
-    HEROKU_API_KEY=your-api-key
-    ID_RSA=your-private-key
+    $ rspec -t type:deployment
     ```
-
-    __ProTip™:__ See [this dotenv issue](https://github.com/bkeepers/dotenv/issues/21) if you're having issues formatting your ID_RSA.
-
-1. By default deployment specs are not run, you have to specifically run them
-   with `rspec -t type:deployment`
-
-   __ProTip™:__ If you're getting a 422 on the Heroku deploy, try [verifying your Heroku account](https://devcenter.heroku.com/articles/account-verification).
-
-
-## Model & Controller Diagrams
-
-The [railroady](https://github.com/preston/railroady) gem generates Rails model
-and controller UML diagrams as cross-platform .svg files, as well as in the DOT
-language.
-
-```bash
-$ brew install graphviz
-$ rake diagram:all
-$ open doc/*.svg
-```
 
 
 ## License
