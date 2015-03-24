@@ -3,8 +3,10 @@ class ContentStripeWidgetSeederJob
   @queue = :content_stripe_seeder
 
   def self.perform(params, instructions=nil)
-    site = Location.find_by_urn(params['urn']).try(:website) unless params['urn'].blank?
-    web_template = site.web_templates.find_by_slug(params['slug']) if (site && !params['slug'].blank?)
+    urn = params ? params['urn'] : nil
+    slug = params ? params['slug'] : nil
+    site = Location.find_by_urn(urn).try(:website) unless urn.blank?
+    web_template = site.web_templates.find_by_slug(slug) if (site && !slug.blank?)
     self.new(web_template, instructions).perform if web_template
   end
 

@@ -7,7 +7,7 @@ class WebPageTemplateSeederJob
     self.new(site, instructions, is_home).perform if site
   end
 
-  def initialize(site, instructions, is_home=false)
+  def initialize(site, instructions=nil, is_home=false)
     @website = site
     @instructions = instructions
     @is_home = is_home
