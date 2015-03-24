@@ -13,6 +13,7 @@ module Seeder
       return widget_seeder_error("Invalid widget params") unless @widget.try(:valid?)
       begin
         return LayoutWidgetSeeder.new(@widget, @instructions).seed if @widget.is_layout?
+        Rails.logger.debug("Creating #{@widget.name} widget from instructions")
         set_default_widget_settings(@instructions[:settings])
       rescue => e
         widget_seeder_error(e)

@@ -1,4 +1,6 @@
 class WebsiteSeederSerializer < ActiveModel::Serializer
+  include SeederSerializerToYamlFile
+
   def as_json(options=nil)
     {
       website_template: website_template,
@@ -22,9 +24,13 @@ class WebsiteSeederSerializer < ActiveModel::Serializer
     end
   end
 
-  def to_yaml_file
-    file_name = object.urn.downcase.underscore
-    File.write("#{WEBSITE_DEFAULTS_PATH}/#{file_name}.yml", self.as_json.to_yaml)
-    file_name
+  def file_path
+    WEBSITE_DEFAULTS_PATH
+  end
+
+  def file_name
+    name = object.name
+    vert = object.website.client.vertical.downcase
+    "#{vert}_#{name}"
   end
 end

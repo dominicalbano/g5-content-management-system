@@ -19,7 +19,6 @@ http_interactions:
       message: Moved Permanently
     headers:
       Date:
-
       - Mon, 23 Mar 2015 19:04:15 GMT
       Content-Type:
       - text/html

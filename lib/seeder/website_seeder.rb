@@ -6,6 +6,7 @@ module Seeder
       @location = location
       @client = Client.first
       load_instructions(instructions || @client.website_defaults)
+      @location.website.destroy unless @location.website.nil?
       @website = @location.create_website
     end
 

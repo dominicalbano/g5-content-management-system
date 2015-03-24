@@ -8,6 +8,7 @@ module Seeder
     end
 
     def seed
+      Rails.logger.debug("Creating #{@widget.name} widget from instructions")
       set_default_widget_settings(@instructions[@widget.layout_var], @instructions[:widgets])
     end
 

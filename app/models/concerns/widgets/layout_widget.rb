@@ -3,7 +3,11 @@ module Widgets
     extend ActiveSupport::Concern
 
     def child_widgets
-      widget_settings.map(&:value).map { |id| Widget.find(id) if Widget.exists?(id) }.compact
+      (1..max_widgets).inject([]) do |arr, idx|
+        child = get_child_widget(idx)
+        arr << child if child
+        arr
+      end
     end
 
     def has_child_widget?(widget)
@@ -31,8 +35,12 @@ module Widgets
       [child_widgets, more_widgets].flatten.compact
     end
 
-    def nested_settings
-      widgets.collect {|widget| widget.settings}.flatten
+    def layout
+      get_setting_value(layout_var) unless layout_var.blank?
+    end
+
+    def set_layout(layout_value)
+      set_setting(layout_var, layout_value) unless layout_var.blank?
     end
 
     def position_var
@@ -54,6 +62,10 @@ module Widgets
 
     def layout_count_values
       {} # abstract
+    end
+
+    def well_formed?
+      valid? && child_widgets.size == max_widgets
     end
   end
 end
