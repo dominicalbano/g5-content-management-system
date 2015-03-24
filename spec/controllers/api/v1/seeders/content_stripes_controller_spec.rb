@@ -1,10 +1,19 @@
 require "spec_helper"
 
 describe Api::V1::Seeders::ContentStripesController do #, :auth_controller, vcr: VCR_OPTIONS do
+  let!(:location) { Fabricate(:location) }
+  let!(:website) { Fabricate(:website, owner: location) }
+  let!(:web_template) { Fabricate(:web_page_template, website: website) }
+  let!(:drop_target) { Fabricate(:drop_target, web_template: web_template, html_id: "drop-target-main") }
+  let!(:cs_garden_widget) { Fabricate(:content_stripe_garden_widget) }
+  let!(:cs_widget) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
+
   controller(Api::V1::Seeders::ContentStripesController) do
   end
 
   describe "#index" do
+    subject { get :index }
+
     it "finds all content stripe template seeder files" do
       #Widget.should_receive(:find).with(widget.id.to_s).once
       #get :show, id: widget.id
@@ -17,6 +26,8 @@ describe Api::V1::Seeders::ContentStripesController do #, :auth_controller, vcr:
   end
 
   describe "#show" do
+    subject { get :show, id: 'halves' }
+
     it "finds content stripe seeder files matching pattern" do
       #Widget.should_receive(:find).with(widget.id.to_s).once
       #get :show, id: widget.id
@@ -30,6 +41,8 @@ describe Api::V1::Seeders::ContentStripesController do #, :auth_controller, vcr:
 
   describe "#serialize" do
     context "by id" do
+      subject { post :serialize, id: cs_widget }
+
       it "finds content stripe by widget id" do
         #Widget.should_receive(:find).with(widget.id.to_s).once
         #get :show, id: widget.id

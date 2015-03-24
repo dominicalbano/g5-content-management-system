@@ -1,10 +1,13 @@
 class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
+  
+  ## GET Endpoints
+
   def index
     response = serializer.new(nil).get_yaml_files unless serializer.blank?
     json = response.to_json({root: false}) if response
     render json: json.gsub('.yml',''), status: (json.blank? ? 500 : 200)
   end
-  
+
   def show
     response = serializer.new(nil).get_yaml_files.inject([]) do |arr, file|
       prefix = /^#{params[:id].underscore}/
@@ -14,6 +17,8 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
     json = response.to_json({root: false}) if response
     render json: json.gsub('.yml',''), status: (json.blank? ? 500 : 200)
   end
+
+  ## POST Endpoints
 
   def serialize
     return if serializer.blank?
@@ -30,6 +35,8 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
       render json: { message: "Invalid seeder object" }, status: (response.blank? ? 500 : 200)
     end
   end
+
+  ## Abstract Methods
 
   def serializer
     nil # abstract

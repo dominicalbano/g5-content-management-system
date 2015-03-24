@@ -1,6 +1,10 @@
 require "spec_helper"
 
 describe Api::V1::Seeders::WebTemplatesController do #, :auth_controller, vcr: VCR_OPTIONS do
+  let!(:location) { Fabricate(:location) }
+  let!(:website) { Fabricate(:website, owner: location) }
+  let!(:web_template) { Fabricate(:web_page_template, website: website) }
+
   controller(Api::V1::Seeders::WebTemplatesController) do
   end
 
