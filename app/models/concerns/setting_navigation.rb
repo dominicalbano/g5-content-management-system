@@ -67,7 +67,7 @@ module SettingNavigation extend ActiveSupport::Concern
 
   #needed to handle when CMS is updated but widget garden navigation is not
   def remove_children_from_top(hash)
-    hash.slice(*WebsiteFinder::Setting.new(s).find.navigateable_web_templates.map{|wt| wt.id.to_s})
+    hash.slice(*WebsiteFinder::Setting.new(self).find.navigateable_web_templates.map{|wt| wt.id.to_s})
   end
 
   def deep_merge_without_title_url(old, new)
