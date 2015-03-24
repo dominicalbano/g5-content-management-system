@@ -22,16 +22,18 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
   private
 
   def widget
-    w = Widget.find(params[:id]) if params[:id].try(:to_i) > 0
-    return w if w.try(:is_content_stripe?)
+    # option 1: select CS by widget id
+    if params[:id].try(:to_i) > 0
+      w = Widget.find(params[:id])
+      return w.try(:is_content_stripe?) ? w : nil
+    end
     
-    # optional: select CS by index param on page matching slug param
-    # example:  params = { slug: 'apply', index: 2 }
-
+    # option 2: select CS by index param on page matching slug param
+    # - example:  params = { slug: 'apply', index: 2 }
     index = params[:index].try(:to_i) || 1
     cs = web_template.widgets.select { |w| w.is_content_stripe? } if web_template
-    if (cs && cs.size > index)
-      return cs[index] if cs[index].is_content_stripe?
+    if (cs && cs.size >= index)
+      return cs[index-1] if cs[index-1].is_content_stripe?
     end
   end
 end
