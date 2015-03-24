@@ -207,19 +207,79 @@ describe Api::V1::Seeders::ContentStripesController, :auth_controller do
   end
 
   describe "#seed" do
-    it "finds website by location urn" do
-      #Widget.should_receive(:find).with(widget.id.to_s).once
-      #get :show, id: widget.id
+    let!(:file_name) { yaml_files.first }
+    subject { post :seed, id: location.urn, slug: web_template.slug, yml: file_name }
+
+    before do
+      ResqueSpec.reset!
+      @response = subject
+      @json = JSON.parse(@response.body)
     end
 
-    it "finds web template on website by slug param" do
-    #  get :show, id: widget.id
-    #  expect(response.body).to eq WidgetSerializer.new(widget, root: :widget).to_json
+    context "id param matches location's urn, slug param matches web template, and has valid yml" do
+      it "returns json data and 202 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(202)
+      end
+
+      it "returns json without error" do
+        expect(@json['message']).to_not include('ERROR')
+      end
+
+      it "enqueues job in Resque" do
+        expect(seeder).to have_queue_size_of(1)
+      end
     end
 
-    it "creates a new ContentStripeSeederJob for web template using seeder file" do
-    #  get :show, id: widget.id
-    #  expect(response.body).to eq WidgetSerializer.new(widget, root: :widget).to_json
+    context "id param does not match any location's urn" do
+      subject { post :seed, id: 'foo', yml: file_name }
+
+      it "returns json data and 422 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(422)
+      end
+
+      it "returns json with error" do
+        expect(@json['message']).to include('ERROR')
+      end
+
+      it "does not enqueue job in Resque" do
+        expect(seeder).to have_queue_size_of(0)
+      end
+    end
+
+    context "slug param does not match any web template param for the location" do
+      subject { post :seed, id: 'foo', slug: web_template.slug, yml: file_name }
+
+      it "returns json data and 422 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(422)
+      end
+
+      it "returns json with error" do
+        expect(@json['message']).to include('ERROR')
+      end
+
+      it "does not enqueue job in Resque" do
+        expect(seeder).to have_queue_size_of(0)
+      end
+    end
+
+    context "yml param is not set" do
+      subject { post :seed, id: location.urn, slug: web_template.slug, yml: nil }
+
+      it "returns json data and 422 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(422)
+      end
+
+      it "returns json with error" do
+        expect(@json['message']).to include('ERROR')
+      end
+
+      it "does not enqueue job in Resque" do
+        expect(seeder).to have_queue_size_of(0)
+      end
     end
   end
 end
