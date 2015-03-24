@@ -20,10 +20,11 @@ describe "Integration '/'", auth_request: true, integration: true, js: true, vcr
     end
 
     it "'Deploy' link redirects back to root path" do
-      within LOCATION_SELECTOR do
-        click_link "Deploy"
+      accept_confirm do
+        within LOCATION_SELECTOR do
+          click_link "Deploy"
+        end
       end
-      accept_confirm(page)
       expect(current_path).to eq(root_path)
     end
 
