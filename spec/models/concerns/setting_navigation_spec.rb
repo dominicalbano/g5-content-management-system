@@ -2,8 +2,10 @@ require "spec_helper"
 
 shared_examples_for SettingNavigation do
   before do
-    allow(Website).to receive(:find).and_return(OpenStruct.new("navigateable_web_templates" => 
-                                      [OpenStruct.new("id" => "1"), OpenStruct.new("id" => "2")]))
+    fake_website = OpenStruct.new("navigateable_web_templates" => 
+                                      [OpenStruct.new("id" => "1"), OpenStruct.new("id" => "2")])
+    site_finder_instance = OpenStruct.new("find" => fake_website)
+    allow(WebsiteFinder::Setting).to receive(:new).and_return(site_finder_instance)
   end
  
   let(:described_instance) do 
