@@ -472,3 +472,7 @@
         - :slug: html
         - :slug: promoted-reviews
       - :slug: contact-info
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: gallery

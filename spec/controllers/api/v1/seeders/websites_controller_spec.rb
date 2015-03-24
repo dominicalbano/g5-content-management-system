@@ -7,7 +7,7 @@ describe Api::V1::Seeders::WebsitesController, :auth_controller do
   let!(:controller) { Api::V1::Seeders::WebsitesController }
   
   let!(:serializer) { WebsiteSeederSerializer }
-  let!(:seeder) { Seeder::WebsiteSeeder }
+  let!(:seeder) { WebsiteSeederJob }
   let!(:yaml_files) { ['apartments_luxe_1', 'apartments_luxe_2', 'self_storage_luxe_1', 'senior_living_luxe_1'] }
  
   let(:vertical) { 'apartments' }
@@ -75,7 +75,7 @@ describe Api::V1::Seeders::WebsitesController, :auth_controller do
     subject { post :serialize, id: location.urn }
 
     before do
-      File.any_instance.stub(:write).and_return(true)
+      File.stub(:write).and_return(true)
       @response = subject
       @json = JSON.parse(@response.body)
     end
@@ -106,14 +106,62 @@ describe Api::V1::Seeders::WebsitesController, :auth_controller do
   end
 
   describe "#seed" do
-    it "finds the location by location urn" do
-      #Widget.should_receive(:find).with(widget.id.to_s).once
-      #get :show, id: widget.id
+    let!(:file_name) { "#{vertical}_#{location_slug}" }
+    subject { post :seed, id: location.urn, yml: file_name }
+
+    before do
+      ResqueSpec.reset!
+      @response = subject
+      @json = JSON.parse(@response.body)
     end
 
-    it "creates a new WebsiteSeederJob for location using seeder file" do
-    #  get :show, id: widget.id
-    #  expect(response.body).to eq WidgetSerializer.new(widget, root: :widget).to_json
+    context "id param matches location's urn and has valid yml" do
+      it "returns json data and 202 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(202)
+      end
+
+      it "returns json without error" do
+        expect(@json['message']).to_not include('ERROR')
+      end
+
+      it "enqueues job in Resque" do
+        expect(seeder).to have_queue_size_of(1)
+      end
+    end
+
+    context "id param does not match any location's urn" do
+      subject { post :seed, id: 'foo', yml: file_name }
+
+      it "returns json data and 422 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(422)
+      end
+
+      it "returns json with error" do
+        expect(@json['message']).to include('ERROR')
+      end
+
+      it "does not enqueue job in Resque" do
+        expect(seeder).to have_queue_size_of(0)
+      end
+    end
+
+    context "yml param is not set" do
+      subject { post :seed, id: location.urn }
+
+      it "returns json data and 422 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(422)
+      end
+
+      it "returns json with error" do
+        expect(@json['message']).to include('ERROR')
+      end
+
+      it "does not enqueue job in Resque" do
+        expect(seeder).to have_queue_size_of(0)
+      end
     end
   end
 end
