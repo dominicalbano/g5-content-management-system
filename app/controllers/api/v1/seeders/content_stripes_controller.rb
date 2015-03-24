@@ -1,7 +1,4 @@
 class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederController
-  ##TODO: remove this! need to work with Maeve to make my POST requests work
-  skip_before_filter :authenticate_api_user!
-
   def serializer
     ContentStripeWidgetSeederSerializer
   end
@@ -16,6 +13,10 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
 
   def seeder_object
     @object ||= web_template
+  end
+
+  def seeder_params
+    { urn: @object.owner.urn, slug: @object.slug } if seeder_object
   end
 
   private

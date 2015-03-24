@@ -1,14 +1,17 @@
 require "spec_helper"
 
-describe Api::V1::Seeders::WebsitesController do #, :auth_controller, vcr: VCR_OPTIONS do
+describe Api::V1::Seeders::WebsitesController, :auth_controller do
+  let!(:client) { Fabricate(:client, vertical: vertical) }
   let!(:location) { Fabricate(:location) }
   let!(:website) { Fabricate(:website, owner: location) }
   let!(:controller) { Api::V1::Seeders::WebsitesController }
+  
   let!(:serializer) { WebsiteSeederSerializer }
   let!(:seeder) { Seeder::WebsiteSeeder }
   let!(:yaml_files) { ['apartments_luxe_1', 'apartments_luxe_2', 'self_storage_luxe_1', 'senior_living_luxe_1'] }
  
   let(:vertical) { 'apartments' }
+  let(:location_slug) { location.name.downcase.gsub(' ','_').underscore }
 
   before do
     serializer.any_instance.stub(:get_yaml_files).and_return(yaml_files)
@@ -68,19 +71,37 @@ describe Api::V1::Seeders::WebsitesController do #, :auth_controller, vcr: VCR_O
   end
 
   describe "#serialize" do
-    subject { post :serialize, id: vertical }
+    let!(:file_name) { "#{vertical}_#{location_slug}" }
+    subject { post :serialize, id: location.urn }
 
-    it "finds website by location urn" do
-      #Widget.should_receive(:find).with(widget.id.to_s).once
-      #get :show, id: widget.id
+    before do
+      File.any_instance.stub(:write).and_return(true)
+      @response = subject
+      @json = JSON.parse(@response.body)
     end
 
-    it "serializes website into seeder file" do
-    #  get :show, id: widget.id
-    #  expect(response.body).to eq WidgetSerializer.new(widget, root: :widget).to_json
+    context "id param matches location's urn" do
+      it "returns json data and 200 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(200)
+      end
+
+      it "returns the seeder file name created by the serializer" do
+        expect(@json['yml']).to eq(file_name)
+      end
     end
 
-    it "returns name of seeder file as json" do
+    context "id param does not match any location's urn" do
+      subject { post :serialize, id: 'foo' }
+
+      it "returns json data and 422 status" do
+        expect(@response.content_type).to eq('application/json')
+        expect(@response.status).to eq(422)
+      end
+
+      it "returns empty json" do
+        expect(@json['yml']).to be_nil
+      end
     end
   end
 

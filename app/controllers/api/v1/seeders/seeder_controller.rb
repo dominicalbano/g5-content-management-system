@@ -1,42 +1,41 @@
 class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
-  
-  ## GET Endpoints
+  # GET Endpoints
 
   def index
     response = serializer.new(nil).get_yaml_files unless serializer.blank?
-    json = response.to_json({root: false}) if response
-    render json: json.gsub('.yml',''), status: (json.blank? ? 500 : 200)
+    json = response_to_json(response)
+    render json: json || {}, status: (json.blank? ? 422 : 200)
   end
 
   def show
     response = serializer.new(nil).get_yaml_files.inject([]) do |arr, file|
-      prefix = /^#{params[:id].underscore}/
+      prefix = /^#{params[:id].downcase.underscore}/
       arr << file unless prefix.match(file).blank?
       arr
     end unless serializer.blank?
-    json = response.to_json({root: false}) if response
-    render json: json.gsub('.yml',''), status: (json.blank? ? 500 : 200)
+    json = response_to_json(response)
+    render json: json || {}, status: (json.blank? ? 422 : 200)
   end
 
-  ## POST Endpoints
+  # POST Endpoints
 
   def serialize
     return if serializer.blank?
     response = serializer.new(@object).to_yaml_file if serializer_object
-    render json: { yml: response }, status: (response.blank? ? 500 : 200)
+    render json: { yml: response }, status: (response.blank? ? 422 : 200)
   end
 
   def seed
     return if seeder.blank?
-    if seeder_object && !params[:yml].blank?
-      Resque.enqueue(seeder, { urn: @object.get_web_template.owner.urn, slug: @object.slug }, params[:yml])
+    if seeder_object && yml
+      Resque.enqueue(seeder, seeder_params, @yml)
       render json: { message: "Seeder enqueued" }, status: 202
     else
-      render json: { message: "Invalid seeder object" }, status: (response.blank? ? 500 : 200)
+      render json: { message: "ERROR: Invalid parameters" }, status: 422
     end
   end
 
-  ## Abstract Methods
+  # Abstract Methods
 
   def serializer
     nil # abstract
@@ -54,10 +53,16 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
     @object = nil # abstract
   end
 
+  def seeder_params
+    {} # abstract
+  end
+
   protected
 
+  # Object Methods
+
   def location
-    Location.find_by_urn(params[:id]) if params[:id]
+    Location.find_by_urn(params[:id]) unless params[:id].blank?
   end
 
   def website
@@ -65,10 +70,20 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
   end
 
   def web_template
-    website.web_templates.find_by_slug(@slug) if website && !slug.blank?
+    website.web_templates.find_by_slug(@slug) if website && slug
   end
 
   def slug
-    @slug ||= params[:slug] if params[:slug]
+    @slug ||= params[:slug] unless params[:slug].blank?
+  end
+
+  def yml
+    @yml ||= params[:yml] unless params[:yml].blank?
+  end
+
+  def response_to_json(response)
+    json = response.to_json({root: false}) if response
+    json.gsub!('.yml','') if json
+    json
   end
 end

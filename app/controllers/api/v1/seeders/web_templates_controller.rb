@@ -1,7 +1,4 @@
 class Api::V1::Seeders::WebTemplatesController < Api::V1::Seeders::SeederController
-  ##TODO: remove this! need to work with Maeve to make my POST requests work
-  skip_before_filter :authenticate_api_user!
-
   def serializer
     WebPageTemplateSeederSerializer
   end
@@ -15,6 +12,10 @@ class Api::V1::Seeders::WebTemplatesController < Api::V1::Seeders::SeederControl
   end
 
   def seeder_object
-    @object ||= params[:id]
+    @object ||= location
+  end
+
+  def seeder_params
+    @object.urn if seeder_object
   end
 end
