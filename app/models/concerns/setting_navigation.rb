@@ -1,5 +1,4 @@
-module SettingNavigation
-  extend ActiveSupport::Concern
+module SettingNavigation extend ActiveSupport::Concern
 
   included do
     before_update :update_widget_navigation_setting, if: :widget_navigation_setting_updated?
@@ -43,17 +42,14 @@ module SettingNavigation
   end
 
   def create_new_value(website_value, widget_value)
-    new_value = {}
-    website_value.each_pair do |key, website_partial_value|
-      widget_partial_value = widget_value[key]
-      # widget_partial_value could be false, so can't check presence
-      unless widget_partial_value.nil?
-        website_partial_value["display"] = widget_partial_value["display"]
-      end
-      new_value[key] = HashWithToLiquid[website_partial_value]
+    merged_value = deep_merge_without_title_url(website_value, widget_value)
+    merged_value.keys.each do |key|
+      merged_value[key]["sub_nav"] = "true" if show_sub_nav?(merged_value[key])
     end
-    new_value
+    cleaned_merged_value = remove_children_from_top(merged_value)
+    HashWithToLiquid[cleaned_merged_value]
   end
+
 
   def orphaned_drop_target?
     owner.kind_of?(Widget) && owner.drop_target_id.present? && owner.drop_target.blank?
@@ -66,4 +62,23 @@ module SettingNavigation
   def setting_website
     website ||= WebsiteFinder::Setting.new(self).find
   end
+
+  private
+
+  #needed to handle when CMS is updated but widget garden navigation is not
+  def remove_children_from_top(hash)
+    hash.slice(*Website.find(owner.website_id).navigateable_web_templates.map{|wt| wt.id.to_s})
+  end
+
+  def deep_merge_without_title_url(old, new)
+    old.deep_merge(new) do |key, old, new|
+      (key == "title" || key == "url") ? old : new
+    end
+  end
+  
+  def show_sub_nav?(website_value)
+    website_value.fetch("child_templates",[]).any? {|child| child[1]["display"] == "true"}
+  end
+
 end
+
