@@ -33,7 +33,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
 
     it "Home 'Edit' link goes to '/:website_slug/:home_slug'" do
       within WEB_HOME_SELECTOR do
-        click_link "Edit"
+        find(:link, 'Edit').trigger('click')
       end
 
       current_path.should eq "/#{@web_home_template.website.slug}/#{@web_home_template.slug}"
@@ -41,7 +41,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
 
     it "Page 'Edit' link goes to '/:website_slug/:page_slug'" do
       within WEB_PAGE_SELECTOR do
-        click_link "Edit"
+        find(:link, 'Edit').trigger('click')
       end
 
       current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}"
@@ -119,8 +119,8 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
 
     it "Updates database" do
       within ".web-page-templates" do
-        web_page_template1 = find(".web-page-template:first-of-type")
-        web_page_template2 = find(".web-page-template:last-of-type")
+        web_page_template1 = ".web-page-template:first-of-type"
+        web_page_template2 = ".web-page-template:last-of-type"
         expect(@web_page_template2.display_order > @web_page_template1.display_order).to be_truthy
         drag_and_drop(web_page_template1, web_page_template2)
         sleep 1
@@ -137,8 +137,8 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
     end
 
     it "Updates database" do
-      web_page_template = find(".web-page-templates .web-page-template:first-of-type")
-      trash = find(".web-page-templates-in-trash")
+      web_page_template = ".web-page-templates .web-page-template:first-of-type"
+      trash = ".web-page-templates-in-trash"
       expect do
         drag_and_drop(web_page_template, trash)
         sleep 1
@@ -156,8 +156,8 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
 
     it "Updates database" do
       pending("Drag and drop specs fail intermittently.")
-      web_page_template = find(".web-page-templates-in-trash .web-page-template:first-of-type")
-      not_trash = find(".web-page-templates")
+      web_page_template = ".web-page-templates-in-trash .web-page-template:first-of-type"
+      not_trash = ".web-page-templates"
       expect do
         drag_and_drop(web_page_template, not_trash)
         sleep 1

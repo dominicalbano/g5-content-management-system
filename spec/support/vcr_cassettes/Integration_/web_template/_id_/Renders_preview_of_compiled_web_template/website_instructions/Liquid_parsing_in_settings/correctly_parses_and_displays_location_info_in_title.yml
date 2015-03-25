@@ -23,7 +23,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jan 2015 19:07:53 GMT
+      - Wed, 18 Mar 2015 19:53:08 GMT
       Status:
       - 404 Not Found
       Content-Type:
@@ -31,9 +31,9 @@ http_interactions:
       Content-Length:
       - '728'
       X-Request-Id:
-      - 69e6d258-55aa-42b7-a35b-d092e13db120
+      - 2383e818-73c1-41d9-b742-60ace1101a85
       X-Runtime:
-      - '0.005634'
+      - '0.005431'
       Via:
       - 1.1 vegur
     body:
@@ -66,7 +66,7 @@ http_interactions:
         </body>
         </html>
     http_version: 
-  recorded_at: Wed, 14 Jan 2015 19:07:53 GMT
+  recorded_at: Wed, 18 Mar 2015 19:53:08 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -90,11 +90,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jan 2015 19:07:53 GMT
+      - Wed, 18 Mar 2015 19:53:09 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 06 Jan 2015 17:32:56 GMT
+      - Tue, 17 Mar 2015 22:58:29 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -142,7 +142,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Wed, 14 Jan 2015 19:07:53 GMT
+  recorded_at: Wed, 18 Mar 2015 19:53:09 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
@@ -166,11 +166,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jan 2015 19:07:53 GMT
+      - Wed, 18 Mar 2015 19:53:09 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 06 Jan 2015 17:32:56 GMT
+      - Tue, 17 Mar 2015 22:58:29 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -222,7 +222,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 14 Jan 2015 19:07:54 GMT
+  recorded_at: Wed, 18 Mar 2015 19:53:09 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -246,11 +246,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jan 2015 19:07:54 GMT
+      - Wed, 18 Mar 2015 19:53:10 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 06 Jan 2015 17:32:56 GMT
+      - Tue, 17 Mar 2015 22:58:29 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -271,7 +271,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Wed, 14 Jan 2015 19:07:54 GMT
+  recorded_at: Wed, 18 Mar 2015 19:53:10 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -295,11 +295,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jan 2015 19:07:54 GMT
+      - Wed, 18 Mar 2015 19:53:10 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 06 Jan 2015 17:32:56 GMT
+      - Tue, 17 Mar 2015 22:58:29 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -320,7 +320,7 @@ http_interactions:
         200px;\n}\n.footer-info .icon {\n  background-color: #000;\n  height: 40px;\n
         \ width: 40px;\n}"
     http_version: 
-  recorded_at: Wed, 14 Jan 2015 19:07:54 GMT
+  recorded_at: Wed, 18 Mar 2015 19:53:10 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/luxe/stylesheets/luxe.scss
@@ -344,21 +344,22 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 14 Jan 2015 19:07:55 GMT
+      - Wed, 18 Mar 2015 19:53:11 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Mon, 05 Jan 2015 22:18:33 GMT
+      - Wed, 18 Mar 2015 18:34:49 GMT
       Content-Type:
       - text/plain
       Content-Length:
-      - '20627'
+      - '26089'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: |-
+      string: |
         @import 'colors.scss';
+        @import 'fonts.scss';
         @import 'bourbon/bourbon.scss';
 
 
@@ -404,9 +405,11 @@ http_interactions:
         $base-fontWeight: 400;
         $base-fontSize: 16px;
         $base-lineHeight: 1.5;
-        $alt-fontFamily: $georgia;
         $alt-fontWeight: normal;
         $alt-fontStyle: italic;
+
+        $primary-font: $primaryFont, $base-fontFamily;
+        $secondary-font: $secondaryFont, $base-fontFamily;
 
 
         // ----- Whitespace ----- //
@@ -556,6 +559,14 @@ http_interactions:
           text-align: center;
         }
 
+        .primary-font {
+          font-family: $primary-font;
+        }
+
+        .secondary-font {
+          font-family: $secondary-font;
+        }
+
 
         // *************************************
         //
@@ -652,6 +663,66 @@ http_interactions:
         //   Rows
         // -------------------------------------
 
+        .row:before,
+        .row:after,
+        .row-grid:before,
+        .row-grid:after {
+          content: " ";
+          display: table;
+        }
+        .row:after,
+        .row-grid:after {
+          clear: both;
+        }
+
+        .row-grid {
+          margin: 0 -15px;
+        }
+
+        .col {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          padding: 0 15px;
+        }
+
+        .row-halves .col,
+        .row-uneven-thirds-1 .col,
+        .row-uneven-thirds-2 .col,
+        .row-thirds .col,
+        .row-quarters .col {
+          float: left;
+        }
+
+        .row-halves .col {
+          width: 50%;
+        }
+
+        .row-thirds .col {
+          width: 33.33333%;
+        }
+
+        .row-uneven-thirds-1 .col-1 {
+          width: 33.33333%;
+        }
+
+        .row-uneven-thirds-1 .col-2 {
+          width: 66.66667%;
+        }
+
+        .row-uneven-thirds-2 .col-1 {
+          width: 66.66667%;
+        }
+
+        .row-uneven-thirds-2 .col-2 {
+          width: 33.33333%;
+        }
+
+        .row-quarters .col {
+          width: 25%;
+        }
+
+
         .row {
           padding: 2em 0;
           &:nth-of-type(2n) {
@@ -705,12 +776,16 @@ http_interactions:
         }
 
         h1 {
-          font-family: $alt-fontFamily;
+          font-family: $secondary-font;
           font-style: italic;
           margin-bottom: 0;
           @include at-least($min-medium) {
             font-size: em(48);
           }
+        }
+
+        h2, h3, h4, h5, h6 {
+          font-family: $primary-font;
         }
 
         h2 {
@@ -843,6 +918,7 @@ http_interactions:
           @include transition(background-color .2s ease-in-out);
           background-color: $primaryColor;
           border: none;
+          font-family: $primary-font;
           text-align: center;
           display: block;
           padding: .5em;
@@ -862,6 +938,7 @@ http_interactions:
           @include transition(background-color .2s ease-in-out);
           background-color: $secondaryColor;
           border-left: 15px solid $secondary-alt;
+          font-family: $primary-font;
           display: block;
           padding: .4em .5em .3em;
           &:focus,
@@ -895,9 +972,9 @@ http_interactions:
         // *************************************
 
         [role=main] .contact-info {
+          font-family: $primary-font;
           .p-name {
             border-bottom: 1px solid $base-color;
-            font-family: $base-fontFamily;
             font-size: em(24);
             padding-bottom: .25em;
           }
@@ -1018,37 +1095,218 @@ http_interactions:
 
 
         // -------------------------------------
+        //   Multifamily IUI Cards
+        // -------------------------------------
+
+        .multifamily-iui-cards {
+          @include at-least($min-medium) {
+            h3 {
+             font-size: em(42);
+            }
+          }
+        }
+
+
+        // -------------------------------------
+        //   Multifamily Mini Search
+        // -------------------------------------
+
+        .corporate-search {
+          .resultUnitInfo,
+          .iconLegendToggle,
+          .search-form span.neighborhood,
+          .search-form span.bathrooms,
+          .search-form span.bedrooms,
+          .search-form span.square-feet-range,
+          .search-form span.price-range {
+            display:none;
+          }
+        }
+
+        .corporate-search {
+          position: relative;
+          z-index: 100;
+          margin-left: auto;
+          margin-right: auto;
+
+          .corpSearchWrapper {
+
+            .neighborhood,
+            .bedrooms,
+            .bathrooms,
+            .square-feet-range,
+            .price-range {
+              display: none !important;
+            }
+
+            .search-form {
+              background-color: $secondaryColor;
+              border-left: 15px solid $secondary-alt;
+              padding: 1em $half-whitespace;
+              h2,
+              span,
+              select {
+                font-family: $base-fontFamily;
+              }
+              h2 {
+                border-bottom: 2px solid $white;
+                color: $white;
+                font-size: em(28);
+                font-weight: $base-fontWeight;
+                line-height: 1.2;
+                text-align: center;
+                text-transform: uppercase;
+                margin-bottom: 1em;
+                padding-bottom: .5em;
+              }
+              span {
+                background-color: $secondary-dark;
+              }
+              .state,
+              .search-button {
+                margin-left: 0;
+                margin-right: 0;
+              }
+              .state {
+                width: 30%;
+              }
+              .city {
+                margin-right: 0;
+                margin-left: 2%;
+                width: 68%;
+              }
+              .search-button {
+                background-color: $primaryColor;
+                width: 100%;
+              }
+            }
+            .search-form-center,
+            .search-form-inner {
+              width: 100%;
+            }
+            .search-type-radio-buttons {
+              margin:0 0 10px 0;
+
+              label{
+                vertical-align:middle;
+                padding:0 10px 0 0;
+                font-size: em(16);
+                line-height: 1.25;
+              }
+              input{
+                width:15px;
+                height:15px;
+                margin:0 5px 0 10px;
+                vertical-align: middle;
+              }
+            }
+
+            @include at-least($min-medium) {
+              .search-form {
+                .state {
+                  width: 20%;
+                }
+                .city {
+                  margin-right: 2%;
+                  width: 45%;
+                }
+                .search-button {
+                  width: 31%;
+                }
+              }
+            }
+          }
+
+          @include at-least($min-small) {
+            max-width: 450px;
+          }
+
+          @include at-least($min-medium) {
+            max-width: none;
+            .corpSearchWrapper .search-form {
+              border-left-width: 30px;
+            }
+            .search-form-center {
+              max-width: 660px;
+            }
+            .web-home-template & {
+              width: 660px;
+            }
+          }
+        }
+
+
+        // -------------------------------------
         //   IUI
         // -------------------------------------
 
         .home-multifamily-iui {
-          background-color: rgba($primary-dark, .80);
-          margin-left: auto;
-          margin-right: auto;
-          max-width: 500px;
+          text-align: center;
+          padding: 0;
+          width: 100%;
+          max-width: none;
           .iui-steps {
+            display: inline-block;
             &:before {
-              background-color: $white;
+              background-color: $secondaryColor;
             }
             span {
-              background-color: $white;
-              color: $secondaryColor;
+              background-color: $secondaryColor;
+              color: $white;
               &:first-child {
                 background-color: $primaryColor;
                 color: $white;
+              }
+              &:last-child {
+                margin-right: 0;
               }
             }
           }
           .iui-title {
             @extend %shout;
+            font-family: $secondary-font;
             font-size: em(32);
+            text-align: center;
+            margin-bottom: .5em;
+          }
+          .iui-size {
+            @include transition(box-shadow .2s ease);
+            background: $white url(https://widgets.g5dxm.com/multifamily-iui-cards/background-stripes.png);
+            box-shadow: 0 0 4px rgba(0, 0, 0, .3);
+            padding: 20px;
+            margin: $half-whitespace;
+            vertical-align: top;
+            &,
+            &:last-child {
+              width: 200px;
+              height: 200px;
+            }
+            &:hover {
+              box-shadow: 0 0 4px rgba(0, 0, 0, .3), 0 0 0 15px $secondaryColor;
+            }
           }
           .btn {
             background-color: $primaryColor;
-            display: block;
-            font-size: em(21);
+            font-size: em(24);
+            display: table-cell;
+            height: 160px;
+            width: 160px;
+            vertical-align: middle;
+            padding: 0;
             &:hover {
-              background: lighten($primaryColor, 10%);
+              background: $secondaryColor;
+            }
+          }
+          @include at-least($min-medium) {
+            .iui-steps {
+              float: right;
+              margin-top: .75em;
+            }
+            .iui-title {
+              float: left;
+            }
+            .iui-container {
+              clear: both;
             }
           }
         }
@@ -1061,34 +1319,65 @@ http_interactions:
         // *************************************
 
         .city-state-zip-search {
+          font-size: 1.25em;
+          width: 100%;
           .zip-search-heading {
-            @extend %shout;
+            display: none;
           }
           .zip-search-top {
             @include clearfix;
-            background-color: rgba($primary-dark, .80);
-            padding: 1em $base-whitespace;
+            background-color: $secondaryColor;
+            border-left: 15px solid $secondary-alt;
+            float: none;
+            padding: $half-whitespace;
             margin: 0 auto;
-          }
-          .zip-search-button,
-          .zip-search-input {
             width: 100%;
+            overflow: hidden;
           }
           .zip-search-input {
+            float: left;
             padding: 0;
             input {
-              padding: .5em 20px;
+              padding: .4em 20px;
             }
           }
           .zip-search-button {
             background-color: transparent;
+            float: right;
             padding: 0;
             button {
               @extend .btn;
-              margin-top: 10px;
-              &:after {
-                right: 15px;
-              }
+              padding: .4em .5em;
+            }
+          }
+          @include at-least($min-small) {
+            font-size: 1.5em;
+            margin-left: auto;
+            margin-right: auto;
+            padding: $half-whitespace;
+            width: 75%;
+          }
+          @include at-least($min-medium) {
+            width: 50%;
+          }
+        }
+
+        // This class added when there is a calls to action
+        // and zip search on home page
+        .has-zip-search {
+          @extend %center;
+          @include at-least($min-small) {
+            .row-2,
+            .row-3 {
+              display: inline-block;
+              vertical-align: top;
+            }
+            .action-calls li {
+              width: auto !important;
+            }
+            .city-state-zip-search {
+              padding-top: 0;
+              width: auto;
             }
           }
         }
@@ -1200,7 +1489,7 @@ http_interactions:
         }
 
         [role=banner] .navigation {
-          font-family: $alt-fontFamily;
+          font-family: $secondary-font;
           text-align: center;
           a {
             @extend %inverse;
@@ -1382,6 +1671,7 @@ http_interactions:
           }
           #drop-target-main .row:first-of-type {
             @extend %relative;
+            @extend %shout;
             padding: 10px 0 0;
             overflow: hidden;
             @include at-least($min-medium) {
@@ -1407,11 +1697,15 @@ http_interactions:
               .photo {
                 overflow: hidden;
                 position: absolute;
-                top: 0;
+                top: -15em;
                 right: 0;
-                bottom: 0;
+                bottom: -5em;
                 left: 0;
                 margin: 0;
+                @include at-least($min-medium) {
+                  top: -20em;
+                  bottom: -10em;
+                }
                 img {
                   position: absolute;
                   top: 0;
@@ -1427,9 +1721,7 @@ http_interactions:
                   }
                 }
               }
-              .row-2 {
-                margin-top: 16em;
-              }
+
             }
             .html {
               background-color: $primary-dark;
@@ -1440,31 +1732,32 @@ http_interactions:
               @include at-least($min-small) {
                 background-color: rgba($primary-dark, .80);
                 margin-bottom: 0;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
               }
               .html-content {
                 @extend %content;
               }
             }
-          }
-          .home-multifamily-iui,
-          .city-state-zip-search,
-          .action-calls {
-            @include at-least($min-small) {
-              position: relative;
-              margin-top: 15em;
-              margin-bottom: 5em;
-            }
-            @include at-least($min-medium) {
-              margin-top: 20em;
-              margin-bottom: 10em;
-            }
-            @include at-least($min-large) {
+            .col:first-of-type {
+              @include at-least($min-small) {
+                position: relative;
+                padding-top: 15em;
+                padding-bottom: 5em;
+              }
+              @include at-least($min-medium) {
+                padding-top: 20em;
+                padding-bottom: 10em;
+              }
             }
           }
           .zip-search-top {
             float: none;
           }
           .action-calls {
+            position: relative;
             @include at-least($min-small) {
               li {
                 float: none;
@@ -1516,7 +1809,8 @@ http_interactions:
           .coupon,
           .contact-info,
           .contact-info a,
-          .form label {
+          .form label,
+          .form legend {
             color: $white !important;
           }
           .contact-info {
@@ -1536,9 +1830,12 @@ http_interactions:
           .html,
           .blockquote,
           .coupon,
+          .form label,
+          .form legend,
           .contact-info,
           .contact-info a,
-          .form label {
+          .form label,
+          .form legend {
             color: $base-color !important;
           }
           .contact-info {
@@ -1553,5 +1850,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 14 Jan 2015 19:07:55 GMT
+  recorded_at: Wed, 18 Mar 2015 19:53:11 GMT
 recorded_with: VCR 2.9.3

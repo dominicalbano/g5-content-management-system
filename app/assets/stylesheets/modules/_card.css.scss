@@ -34,10 +34,17 @@
   @include respond-to($l-min-xlarge) {
     width: 25%;
   }
+  .widgets-container {
+    height: 185px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
   .widgets {
     @extend %group;
     margin-bottom: 1em;
+    height: 280px;
   }
+
   .buttons .btn {
     @include respond-to($l-min-medium, min-width) {
       width: 48%;
@@ -97,6 +104,7 @@
   height: 320px;
   padding-bottom: 50px;
   width: 100%;
+  overflow: hidden;
 }
 
 .card-head {

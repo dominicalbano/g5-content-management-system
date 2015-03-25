@@ -23,7 +23,7 @@ module SeederSerializerToYamlFile
   end
 
   def sanitize_file_name
-    file_name.downcase.gsub(' ','_').underscore if file_name
+    file_name.downcase.gsub(' ','_').gsub('.','').underscore if file_name
   end
 
   def valid_yaml_file?
