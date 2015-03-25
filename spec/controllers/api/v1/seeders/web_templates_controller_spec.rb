@@ -6,7 +6,7 @@ describe Api::V1::Seeders::WebTemplatesController, :auth_controller do
   let!(:website) { Fabricate(:website, owner: location) }
   let!(:web_template) { Fabricate(:web_page_template, website: website) }
   let!(:controller) { Api::V1::Seeders::WebTemplatesController }
-  
+
   let!(:serializer) { WebPageTemplateSeederSerializer }
   let!(:seeder) { WebPageTemplateSeederJob }
   let!(:yaml_files) do
