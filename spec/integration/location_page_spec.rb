@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "Integration '/:website_slug/:web_page_template_slug'",
+describe "Integration '/:website_slug/:web_page_template_slug/edit'",
          auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS do
   before do
     VCR.use_cassette("Gardens") do
@@ -17,7 +17,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "initial page load" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
     end
 
     it "collapses all gardens" do
@@ -29,7 +29,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "themes" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -41,7 +41,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "Authorization" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -110,7 +110,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     context "storage" do
       before do
         @client.update_attribute(:vertical, "foo")
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "storage" do
@@ -121,7 +121,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "Color picker" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -158,7 +158,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Main widgets" do
     describe "Are drag and drop addable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -178,7 +178,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "diz haz da tooltipz" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
         open_gardens
         # puts current_url
         # require 'pry'; binding.pry
@@ -211,7 +211,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -229,7 +229,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @web_page_template.main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -245,7 +245,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
@@ -329,6 +329,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       it "Creates a new widget in the database and displays in DOM" do
+        # intermittent
         garden_widget = find(".widget-list .widget-view .widget:last-of-type")
         drop_target_add = find(".aside-before-main-widgets .drop-target-add:first-of-type")
         existing_widget_count = all(".aside-before-main-widgets .widget").length
@@ -350,7 +351,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -368,7 +369,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @website_template.aside_before_main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -384,7 +385,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
@@ -442,6 +443,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         end
 
         it "Destroys multiple existing widgets in the database and updates DOM" do
+          # intermittent
           drop_target_remove = find(".aside-before-main-widgets .drop-target-remove:first-of-type")
           existing_widget_count = all(".aside-before-main-widgets .widget").length
 
@@ -467,6 +469,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
 
       it "Creates a new widget in the database and displays in DOM" do
+        # intermittent
         garden_widget = find(".widget-list .widget-view .widget:last-of-type")
         drop_target_add = find(".aside-after-main-widgets .add-drop-zone:first-of-type")
         existing_widget_count = all(".aside-after-main-widgets .widget").length
@@ -488,7 +491,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -506,7 +509,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @website_template.aside_after_main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -522,7 +525,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
