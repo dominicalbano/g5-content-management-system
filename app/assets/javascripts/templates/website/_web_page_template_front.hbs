@@ -3,20 +3,22 @@
   {{ partial "website/webPageTemplateHead" }}
 
   <div class="card-body">
+      <div class="widgets-container" >
     <ul class="widgets">
       {{#each mainWidgets}}
         {{ partial "website/widget" }}
       {{/each}}
     </ul>
+      </div>
+      <div style="height: 10px">&nbsp;</div>
     <div class="buttons">
       {{#if isWebHomeTemplate}}
-        {{#link-to "webHomeTemplate" class="btn btn--small"}}Edit{{/link-to}}
+        {{#link-to "webHomeTemplate" class="btn btn--small btn-left"}}Edit{{/link-to}}
       {{else}}
-        {{#link-to "webPageTemplate" this class="btn btn--small"}}Edit{{/link-to}}
+        {{#link-to "webPageTemplate" this class="btn btn--small btn-left"}}Edit{{/link-to}}
       {{/if}}
-      <a {{bind-attr href="previewUrl"}} class="btn btn--small">Preview</a>
+      <a {{bind-attr href="previewUrl"}} class="btn btn--small btn-right">Preview</a>
     </div>
-
     {{ partial "website/webPageTemplateFlip" }}
   </div>
 </div>
