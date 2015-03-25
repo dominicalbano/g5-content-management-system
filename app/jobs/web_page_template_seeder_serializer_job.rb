@@ -3,7 +3,7 @@ class WebPageTemplateSeederSerializerJob
   @queue = :seeder_serializer
 
   def self.perform
-    Client.first.locations.each do |l|
+    Location.all.each do |l|
       next unless l && l.website
       WebPageTemplateSeederSerializer.new(l.website.web_home_template).to_yaml_file
       l.website.web_page_templates.each do |p|
