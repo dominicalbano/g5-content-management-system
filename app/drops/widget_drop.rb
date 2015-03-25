@@ -40,8 +40,8 @@ class WidgetDrop < Liquid::Drop
   end
 
   def navigateable_pages
-    pages = [WebsiteFinder::Widget.new(widget).find.web_page_templates.navigateable.rank(:display_order).all,
-             WebsiteFinder::Widget.new(widget).find.web_home_template].flatten
+    pages = [website.web_page_templates.navigateable.rank(:display_order).all,
+             website.web_home_template].flatten
     pages.map {|page| template_to_liquid(page)}
   end
   
@@ -50,22 +50,26 @@ class WidgetDrop < Liquid::Drop
   end
 
   def generated_url_1
-    WebTemplate.where(slug: widget.page_slug_1.value).first.send(url_get_method)
+    website.web_templates.where(slug: widget.page_slug_1.value).first.send(url_get_method)
   end
 
   def generated_url_2
-    WebTemplate.where(slug: widget.page_slug_2.value).first.send(url_get_method)
+    website.web_templates.where(slug: widget.page_slug_2.value).first.send(url_get_method)
   end
 
   def generated_url_3
-    WebTemplate.where(slug: widget.page_slug_3.value).first.send(url_get_method)
+    website.web_templates.where(slug: widget.page_slug_3.value).first.send(url_get_method)
   end
 
   def generated_url_4
-    WebTemplate.where(slug: widget.page_slug_4.value).first.send(url_get_method)
+    website.web_templates.where(slug: widget.page_slug_4.value).first.send(url_get_method)
   end
 
 private
+
+  def website
+    WebsiteFinder::Widget.new(widget).find
+  end
 
   def template_to_liquid(web_template)
     liquid_hash = HashWithToLiquid.new
