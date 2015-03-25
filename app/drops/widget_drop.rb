@@ -40,6 +40,7 @@ class WidgetDrop < Liquid::Drop
   end
 
   def navigateable_pages
+    binding.pry
     pages = [website.web_page_templates.navigateable.rank(:display_order).all,
              website.web_home_template].flatten
     pages.map {|page| template_to_liquid(page)}
@@ -68,7 +69,7 @@ class WidgetDrop < Liquid::Drop
 private
 
   def website
-    WebsiteFinder::Widget.new(widget).find
+    WebsiteFinder::Setting.new(widget.settings.first).find
   end
 
   def template_to_liquid(web_template)
