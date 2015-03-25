@@ -5,10 +5,12 @@ class UpdateCtasWithPaths < ActiveRecord::Migration
     def update_cta_widget_settings(widget, website_slug)
       (1..4).each do |n|
         old_setting_value = widget.settings.where(name: "cta_link_#{n}").first.value
-        if old_setting_value.split('/').last == website_slug
-          new_setting_value = "home"
-        else
-          new_setting_value = old_setting_value.split('/').last
+        unless old_setting_value.nil?
+          if old_setting_value.split('/').last == website_slug
+            new_setting_value = "home"
+          else
+            new_setting_value = old_setting_value.split('/').last
+          end
         end
         setting = widget.settings.where(name: "page_slug_#{n}").first
         if setting
