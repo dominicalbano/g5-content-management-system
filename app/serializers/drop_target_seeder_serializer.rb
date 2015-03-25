@@ -3,9 +3,8 @@ class DropTargetSeederSerializer < ActiveModel::Serializer
               :widgets
 
   def widgets
-    object.widgets.inject([]) do |arr, w|
-      arr << WidgetSeederSerializer.new(w, {root: false}).as_json
-      arr
+    object.widgets.map do |w|
+      WidgetSeederSerializer.new(w, {root: false}).as_json
     end
   end
 end

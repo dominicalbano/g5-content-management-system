@@ -18,9 +18,8 @@ class WebsiteSeederSerializer < ActiveModel::Serializer
   end
 
   def web_page_templates
-    object.website.web_page_templates.inject([]) do |arr, wt|
-      arr << WebPageTemplateSeederSerializer.new(wt, {root: false}).as_json
-      arr
+    object.website.web_page_templates.map do |wt|
+      WebPageTemplateSeederSerializer.new(wt, {root: false}).as_json
     end
   end
 

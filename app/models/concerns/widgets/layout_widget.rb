@@ -3,11 +3,7 @@ module Widgets
     extend ActiveSupport::Concern
 
     def child_widgets
-      (1..max_widgets).inject([]) do |arr, idx|
-        child = get_child_widget(idx)
-        arr << child if child
-        arr
-      end
+      (1..max_widgets).map { |idx| get_child_widget(idx) }.compact
     end
 
     def has_child_widget?(widget)

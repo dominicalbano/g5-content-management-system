@@ -16,10 +16,7 @@ module SeederSerializerToYamlFile
 
   def get_yaml_files
     return [] unless Dir.exists?(file_path)
-    Dir.entries(file_path).inject([]) do |arr, file|
-      arr << file unless file[0] == '.'
-      arr
-    end
+    Dir.entries(file_path).map { |file| file unless file[0] == '.' }.compact
   end
 
   def sanitize_file_name

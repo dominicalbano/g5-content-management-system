@@ -11,7 +11,7 @@ describe Api::V1::Seeders::WebsitesController, :auth_controller do
   let!(:yaml_files) { ['apartments_luxe_1', 'apartments_luxe_2', 'self_storage_luxe_1', 'senior_living_luxe_1'] }
  
   let(:vertical) { 'apartments' }
-  let(:location_slug) { location.name.downcase.gsub(' ','_').underscore }
+  let(:location_slug) { underscore_slug(location.name) }
 
   before do
     serializer.any_instance.stub(:get_yaml_files).and_return(yaml_files)

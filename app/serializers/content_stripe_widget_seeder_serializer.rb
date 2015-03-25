@@ -20,7 +20,7 @@ class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
   end
 
   def nested_widget_slugs
-    nested_widget_list.inject([]) do |arr,widget|
+    object.child_widgets.inject([]) do |arr,widget|
       arr << widget.slug
       arr = arr.push(ColumnWidgetSeederSerializer.new(widget).nested_widget_slugs) if widget.is_column?
       arr

@@ -18,8 +18,8 @@ describe Api::V1::Seeders::WebTemplatesController, :auth_controller do
   end
  
   let(:vertical) { 'apartments' }
-  let(:web_template_slug) { web_template.slug.downcase.gsub(' ','_').underscore }
-  let(:location_slug) { location.name.downcase.gsub(' ','_').underscore }
+  let(:web_template_slug) { underscore_slug(web_template.slug) }
+  let(:location_slug) { underscore_slug(location.name) }
 
   before do
     serializer.any_instance.stub(:get_yaml_files).and_return(yaml_files)

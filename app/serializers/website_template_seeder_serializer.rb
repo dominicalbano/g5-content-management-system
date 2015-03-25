@@ -13,9 +13,8 @@ class WebsiteTemplateSeederSerializer < ActiveModel::Serializer
   end
 
   def drop_targets
-    object.drop_targets.inject([]) do |arr, dt|
-      arr << DropTargetSeederSerializer.new(dt, {root: false}).as_json
-      arr
+    object.drop_targets.map do |dt|
+      DropTargetSeederSerializer.new(dt, {root: false}).as_json
     end
   end
 end

@@ -83,6 +83,10 @@ RSpec.configure do |config|
   end
 end
 
+def underscore_slug(str)
+  str.downcase.gsub(' ','_').gsub('.','').underscore if str
+end
+
 def load_yaml_file(path)
   HashWithIndifferentAccess.new(YAML.load_file(path)) if File.exists?(path)
 end

@@ -29,14 +29,6 @@ class LayoutWidgetSeederSerializer < ActiveModel::Serializer
   end
 
   def nested_widget_slugs
-    nested_widget_list.map(&:slug)
-  end
-
-  def nested_widget_list
-    (1..object.max_widgets).inject([]) do |arr,pos| 
-      child = object.get_child_widget(pos)
-      arr << child if child 
-      arr
-    end
+    object.child_widgets.map(&:slug)
   end
 end
