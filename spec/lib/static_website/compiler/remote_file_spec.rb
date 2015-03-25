@@ -36,6 +36,14 @@ describe StaticWebsite::Compiler::RemoteFile do
         expect(File.exists?(subject.compile_path)).to be_truthy
       end
     end
+
+    context "when widget garden is unavailable" do
+      let(:remote_path) { "http://nosuchdomain.jquery.com/jquery-2.0.3.min.js" }
+      it "fails if remote not available" do
+        expect { subject.compile }.to raise_error 
+      end
+    end
+
   end
 
   describe "#compile_directory" do

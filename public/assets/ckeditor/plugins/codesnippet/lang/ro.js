@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","ro",{button:"Adaugă segment de cod",codeContents:"Code content",emptySnippetError:"A code snippet cannot be empty.",language:"Language",title:"Code snippet",pathName:"code snippet"});

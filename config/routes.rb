@@ -99,6 +99,7 @@ G5CMS::Application.routes.draw do
   get "/:location_slug/assets", to: "locations#index"
   get "/:location_slug/redirect", to: "locations#index"
   get "/:location_slug/releases", to: "locations#index"
+  get "/:location_slug/redirects", to: "locations#index"
   get "/:location_slug/docs", to: "locations#index"
   get "/:location_slug/:web_page_template_slug/edit", to: "locations#index"
   get "/:location_slug/:web_page_template_slug/new", to: "locations#index"
