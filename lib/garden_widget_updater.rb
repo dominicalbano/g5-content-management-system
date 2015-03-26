@@ -10,7 +10,11 @@ class GardenWidgetUpdater
       Rails.logger.info "Error getting edit html: #{ex}"
       attempts += 1
       sleep 15
-      retry if attempts < MAX_ATTEMPTS
+      if attempts < MAX_ATTEMPTS
+        retry 
+      else
+        raise ex
+      end
     end
 
     components_data.map do |component|
