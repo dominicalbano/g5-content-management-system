@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326184756) do
+ActiveRecord::Schema.define(version: 20150326231158) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(version: 20150326184756) do
     t.boolean  "secure_domain",        default: false
     t.string   "go_squared_client_id"
     t.string   "go_squared_tag"
+    t.string   "cls_url"
+    t.string   "cxm_url"
+    t.string   "dsh_url"
+    t.string   "cpas_url"
+    t.string   "cpns_url"
+    t.string   "nae_url"
+    t.string   "vls_url"
   end
 
   create_table "drop_targets", force: true do |t|

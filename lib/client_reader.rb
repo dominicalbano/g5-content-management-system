@@ -28,13 +28,20 @@ private
   def create_client
     client = Client.find_or_initialize_by(uid: @client_uid)
 
-    client.name     = uf2_client.name.to_s
-    client.vertical = uf2_client.g5_vertical.to_s
-    client.domain   = uf2_client.g5_domain.to_s
-    client.type     = uf2_client.g5_domain_type.to_s
-    client.organization = uf2_client.g5_organization.to_s
+    client.name                 = uf2_client.name.to_s
+    client.vertical             = uf2_client.g5_vertical.to_s
+    client.domain               = uf2_client.g5_domain.to_s
+    client.type                 = uf2_client.g5_domain_type.to_s
+    client.organization         = uf2_client.g5_organization.to_s
     client.go_squared_client_id = uf2_client.try(:go_squared_client_id).to_s
-    client.go_squared_tag = uf2_client.try(:go_squared_tag).to_s
+    client.go_squared_tag       = uf2_client.try(:go_squared_tag).to_s
+    client.cls_url              = uf2_client.try(:g5_cls_url).to_s
+    client.cxm_url              = uf2_client.try(:g5_cxm_url).to_s
+    client.dsh_url              = uf2_client.try(:g5_dsh_url).to_s
+    client.cpas_url             = uf2_client.try(:g5_cpas_url).to_s
+    client.cpns_url             = uf2_client.try(:g5_cpns_url).to_s
+    client.nae_url              = uf2_client.try(:g5_nae_url).to_s
+    client.vls_url              = uf2_client.try(:g5_vls_url).to_s
     client.save
 
     find_or_create_client_website(client) if client.type == "SingleDomainClient"
