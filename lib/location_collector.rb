@@ -1,4 +1,5 @@
 class LocationCollector
+  LOGGERS = [Resque.logger, Rails.logger] unless defined? LOGGERS
   def initialize(params)
     LOGGERS.each {|logger| logger.debug("initializing LocationCollector with: #{params}")}
     @params = params

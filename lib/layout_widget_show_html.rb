@@ -1,8 +1,9 @@
 class LayoutWidgetShowHtml
-  attr_accessor :widget
+  attr_accessor :widget, :preview
 
-  def initialize(widget)
+  def initialize(widget, preview=false)
     @widget = widget
+    @preview = preview
   end
 
   protected
@@ -16,7 +17,7 @@ class LayoutWidgetShowHtml
     if found_widget = find_widget(setting_name)
       html_at_id = @nokogiri.at_css(html_id)
       if html_at_id
-        html_at_id.inner_html = found_widget.render_show_html
+        html_at_id.inner_html = found_widget.render_show_html(preview)
       end
     end
   end
