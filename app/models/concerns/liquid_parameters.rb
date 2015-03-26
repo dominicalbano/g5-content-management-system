@@ -1,6 +1,12 @@
 module LiquidParameters
   extend ActiveSupport::Concern
 
+  def extend_liquid_methods
+    liquid_parameters.each do |key, value|
+      define_singleton_method(key) { liquid_parameters[key] }
+    end
+  end
+
   def liquid_parameters
     template = get_web_template
     return {} if template.blank?
@@ -32,6 +38,10 @@ module LiquidParameters
       "client_uid"                => client.uid,
       "client_type"               => client.type
     }
+  end
+
+  def get_liquid_parameter(key)
+    return liquid_parameters[key] if liquid_parameters.has_key?(key)
   end
 
   # override to extend behavior

@@ -10,7 +10,13 @@ class WidgetDrop < Liquid::Drop
   end
 
   def before_method(method)
-    setting = widget.settings.find_by(name: method)
+    # look up setting from widget's Settings first
+    setting = widget.get_setting(method)
+    # create faux setting for widget drop to access liquid parameters if it exists
+    unless setting
+      result = widget.get_liquid_parameter(method)
+      setting = Setting.new(name: method, value: result, owner: widget) if result
+    end
     setting.try(:decorate)
   end
 
