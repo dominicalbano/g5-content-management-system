@@ -33,6 +33,8 @@ private
     client.domain   = uf2_client.g5_domain.to_s
     client.type     = uf2_client.g5_domain_type.to_s
     client.organization = uf2_client.g5_organization.to_s
+    client.go_squared_client_id = uf2_client.try(:go_squared_client_id).to_s
+    client.go_squared_tag = uf2_client.try(:go_squared_tag).to_s
     client.save
 
     find_or_create_client_website(client) if client.type == "SingleDomainClient"
@@ -51,23 +53,30 @@ private
 
     location = Location.find_or_initialize_by(uid: uf2_location.uid.to_s)
 
-    location.urn              = uf2_location.uid.to_s.split("/").last
-    location.name             = uf2_location.name.to_s
-    location.domain           = uf2_location.g5_domain.to_s
-    location.street_address   = uf2_location.adr.try(:format).try(:street_address).to_s
-    location.state            = uf2_location.adr.try(:format).try(:region).to_s
-    location.city             = uf2_location.adr.try(:format).try(:locality).to_s
-    location.neighborhood     = uf2_location.adr.try(:format).try(:g5_neighborhood).to_s
-    location.postal_code      = uf2_location.adr.try(:format).try(:postal_code).to_s
-    location.phone_number     = uf2_location.adr.try(:format).try(:tel).to_s
-    location.corporate        = uf2_location.g5_corporate.to_s
-    location.floor_plans      = uf2_location.g5_floorplan.to_s
-    location.primary_amenity  = uf2_location.g5_aparment_amenity_1.to_s
-    location.qualifier        = uf2_location.g5_aparment_feature_1.to_s
-    location.primary_landmark = uf2_location.g5_landmark_1.to_s
-    location.status           = uf2_location.g5_status.to_s
-    location.thumb_url        = uf2_location.try(:photo).to_s
-    location.secure_domain    = uf2_location.g5_secure_domain.to_s
+    location.urn                    = uf2_location.uid.to_s.split("/").last
+    location.name                   = uf2_location.name.to_s
+    location.domain                 = uf2_location.g5_domain.to_s
+    location.street_address         = uf2_location.adr.try(:format).try(:street_address).to_s
+    location.state                  = uf2_location.adr.try(:format).try(:region).to_s
+    location.city                   = uf2_location.adr.try(:format).try(:locality).to_s
+    location.neighborhood           = uf2_location.adr.try(:format).try(:g5_neighborhood).to_s
+    location.postal_code            = uf2_location.adr.try(:format).try(:postal_code).to_s
+    location.phone_number           = uf2_location.adr.try(:format).try(:tel).to_s
+    location.corporate              = uf2_location.g5_corporate.to_s
+    location.floor_plans            = uf2_location.g5_floorplan.to_s
+    location.primary_amenity        = uf2_location.g5_aparment_amenity_1.to_s
+    location.qualifier              = uf2_location.g5_aparment_feature_1.to_s
+    location.primary_landmark       = uf2_location.g5_landmark_1.to_s
+    location.status                 = uf2_location.g5_status.to_s
+    location.thumb_url              = uf2_location.try(:photo).to_s
+    location.secure_domain          = uf2_location.try(:g5_secure_domain).to_s
+    location.ga_tracking_id         = uf2_location.try(:ga_tracking_id).to_s
+    location.ga_profile_id          = uf2_location.try(:ga_profile_id).to_s
+    location.go_squared_client_id   = uf2_location.try(:go_squared_client_id).to_s
+    location.go_squared_site_token  = uf2_location.try(:go_squared_site_token).to_s
+    location.facebook_id            = uf2_location.try(:g5_nickname_facebook).to_s
+    location.twitter_id             = uf2_location.try(:g5_nickname_twitter).to_s
+    location.yelp_id                = uf2_location.try(:g5_nickname_yelp).to_s
 
     location.save
   end

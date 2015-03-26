@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150317230620) do
+ActiveRecord::Schema.define(version: 20150326184756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,7 +41,9 @@ ActiveRecord::Schema.define(version: 20150317230620) do
     t.string   "type"
     t.string   "domain"
     t.string   "organization"
-    t.boolean  "secure_domain", default: false
+    t.boolean  "secure_domain",        default: false
+    t.string   "go_squared_client_id"
+    t.string   "go_squared_tag"
   end
 
   create_table "drop_targets", force: true do |t|
@@ -134,9 +136,16 @@ ActiveRecord::Schema.define(version: 20150317230620) do
     t.string   "primary_landmark"
     t.string   "qualifier"
     t.string   "floor_plans"
-    t.string   "status",           default: "Pending"
+    t.string   "status",                default: "Pending"
     t.string   "thumb_url"
-    t.boolean  "secure_domain",    default: false
+    t.boolean  "secure_domain",         default: false
+    t.string   "go_squared_client_id"
+    t.string   "go_squared_site_token"
+    t.string   "ga_tracking_id"
+    t.string   "ga_profile_id"
+    t.string   "facebook_id"
+    t.string   "twitter_id"
+    t.string   "yelp_id"
   end
 
   add_index "locations", ["urn"], name: "index_locations_on_urn", using: :btree
