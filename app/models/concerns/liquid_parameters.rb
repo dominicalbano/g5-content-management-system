@@ -13,8 +13,12 @@ module LiquidParameters
 
     client = template.client
     location = template.owner
+    web_template = template.website_template
+    web_theme = web_template.web_theme
+
     {
-      "web_template_name"         => template.name,
+      "page_name"                 => template.name,
+      "page_slug"                 => template.slug,
       "website_urn"               => location.website.urn,
       "location_uid"              => location.uid,
       "location_urn"              => location.urn,
@@ -36,7 +40,14 @@ module LiquidParameters
       "client_vertical"           => client.vertical,
       "client_urn"                => client.urn,
       "client_uid"                => client.uid,
-      "client_type"               => client.type
+      "client_type"               => client.type,
+      "theme_name"                => web_theme.name,
+      "theme_slug"                => web_theme.garden_web_theme.slug,
+      "theme_primary_color"       => web_theme.primary_color,
+      "theme_secondary_color"     => web_theme.secondary_color,
+      "theme_tertiary_color"      => web_theme.tertiary_color,
+      "theme_primary_font"        => web_theme.primary_font,
+      "theme_secondary_font"      => web_theme.secondary_font
     }
   end
 

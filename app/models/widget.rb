@@ -174,7 +174,6 @@ class Widget < ActiveRecord::Base
   def set_defaults
     self.removeable = true
     extend_widget
-#    extend_liquid_methods if liquid
   end
 
   def extend_widget
