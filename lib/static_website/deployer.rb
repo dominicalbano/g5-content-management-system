@@ -16,6 +16,7 @@ module StaticWebsite
       @retries = 0
       begin
         LOGGERS.each {|logger| logger.debug("About to deploy with options")}
+        binding.pry
         deployer.deploy(deployer_options) do |repo|
           LOGGERS.each{|logger| logger.debug("calling cp_r_compile_path(repo)")}
           cp_r_compile_path(repo)

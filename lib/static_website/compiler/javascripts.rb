@@ -24,17 +24,20 @@ module StaticWebsite
       def compile
         @js_paths = []
         @include_paths = []
+        uploaded_paths = []
         unless javascript_paths.empty?
           javascript_paths.each do |javascript_path|
             compile_javascript(javascript_path)
           end
 
-          
-          LOGGERS.each{|logger| logger.debug("About to call javascript_compressor.compile")}
-          @js_paths = Array(javascript_compressor.compile) unless preview
-          LOGGERS.each{|logger| logger.debug("Done calling javascript_compressor.compile")}
-          LOGGERS.each{|logger| logger.debug("Calling compile on javascript_uploader unless preview")}
-          javascript_uploader.compile unless preview
+          unless preview
+            LOGGERS.each{|logger| logger.debug("About to call javascript_compressor.compile")}
+            @js_paths = Array(javascript_compressor.compile) 
+            LOGGERS.each{|logger| logger.debug("Done calling javascript_compressor.compile")}
+            LOGGERS.each{|logger| logger.debug("Calling compile on javascript_uploader unless preview")}
+            uploaded_paths = Javascript::Uploader.new(js_paths, location_name).upload
+          end
+          uploaded_paths 
         end
       end
 
@@ -54,14 +57,6 @@ module StaticWebsite
       def compressed_path
         @compressed_path ||= File.join(compile_path, "javascripts",
                                        "#{@page_name.parameterize}-#{Time.now.to_i}.min.js")
-      end
-
-      def javascript_uploader
-        @javascript_uploader ||= Javascript::Uploader.new(js_paths, location_name)
-      end
-
-      def uploaded_paths
-        @uploaded_path ||= javascript_uploader.uploaded_paths
       end
     end
   end

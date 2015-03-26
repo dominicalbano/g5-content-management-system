@@ -36,37 +36,46 @@ describe StaticWebsite::Compiler::Javascripts do
         end
 
         it "does not upload javascripts" do
-          subject.javascript_uploader.should_not_receive(:compile)
+          expect_any_instance_of(StaticWebsite::Compiler::Javascript::Uploader).to_not receive(:new)
+          #subject.javascript_uploader.should_not_receive(:compile)
+
           subject.compile
         end
       end
 
       context "and deploying" do
         let(:preview) { false }
-        let(:subject) { javascripts_class.new(javascript_path,
-                                              compile_directory, 
-                                              "some-page",
-                                              "",
-                                              preview) }
+        let(:subject) { StaticWebsite::Compiler::Javascripts.new(javascript_path,
+                                                                 compile_directory, 
+                                                                 "some-page",
+                                                                 "",
+                                                                 preview) }
 
         before do
           javascript_class.any_instance.stub(:compile)
-          StaticWebsite::Compiler::Javascript::Uploader.any_instance.stub(:compile) 
+          StaticWebsite::Compiler::Javascript::Uploader.any_instance.stub(:upload) 
+          Timecop.freeze(DateTime.new(1983,8,17))
+        end
+
+        after do
+          Timecop.return
         end
 
         it "compiles each one" do
-          subject.should_receive(:compile_javascript).once
+          expect(subject).to receive(:compile_javascript).once
           subject.compile
         end
 
-        # it "compresses javascripts" do
-        #   subject.javascript_compressor.should_receive(:compile).once
-        #   subject.compile
-        # end
-
-        it "uploads javascripts" do
-          subject.javascript_uploader.should_receive(:compile).once
+        it "compresses javascripts" do
+          subject.javascript_compressor.should_receive(:compile).once
           subject.compile
+        end
+
+        it "uploads javascripts and returns uploaded paths" do
+          uploader = double(:uploader, upload: ['foo','bar'])
+          expect(StaticWebsite::Compiler::Javascript::Uploader).to receive(:new).with(["#{compile_directory}/javascripts/some-page-429926400.min.js"], "").and_return uploader
+          expect(uploader).to receive(:upload)
+          expect(subject.compile).to eq(['foo','bar'])
         end
       end
     end

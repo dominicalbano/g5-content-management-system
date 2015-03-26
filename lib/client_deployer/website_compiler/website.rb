@@ -3,8 +3,8 @@ module ClientDeployer
     class Website < StaticWebsite::Compiler::Website
       def compile
         LOGGERS.each {|logger| logger.debug("2222222222222222222222222222222222222222222")}
-        LOGGERS.each {|logger| logger.debug("calling compile_directory.compile")}
-        compile_directory.compile
+        LOGGERS.each {|logger| logger.debug("calling compile_directory.find_or_make_dir")}
+        compile_directory.find_or_make_dir
         LOGGERS.each {|logger| logger.debug("2222222222222222222222222222222222222222222")}
         LOGGERS.each {|logger| logger.debug("calling stylesheets.compile")}
         stylesheets.compile

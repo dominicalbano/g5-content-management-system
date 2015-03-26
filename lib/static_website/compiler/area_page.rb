@@ -8,8 +8,8 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each {|logger| logger.debug("calling compile_directory.compile with compile_path #{compile_path}")}
-        compile_directory.compile
+        LOGGERS.each {|logger| logger.debug("calling compile_directory.find_or_make_dir with compile_path #{compile_path}")}
+        compile_directory.find_or_make_dir
         LOGGERS.each {|logger| logger.debug("calling render_to_file")}
         render_to_file
       end

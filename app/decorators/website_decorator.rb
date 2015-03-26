@@ -39,3 +39,4 @@ class WebsiteDecorator < Draper::Decorator
     domain || heroku_url
   end
 end
+

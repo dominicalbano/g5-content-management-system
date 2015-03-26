@@ -9,7 +9,7 @@ module ClientDeployer
       end
 
       def compile
-        compile_directory.compile
+        compile_directory.find_or_make_dir
         render_to_file
       end
 

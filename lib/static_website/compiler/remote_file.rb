@@ -13,9 +13,9 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each{|logger| logger.debug("about to call compile_directory.compile")}
-        compile_directory.compile
-        LOGGERS.each{|logger| logger.debug("done calling compile_directory.compile")}
+        LOGGERS.each{|logger| logger.debug("about to call compile_directory.find_or_make_dir")}
+        compile_directory.find_or_make_dir
+        LOGGERS.each{|logger| logger.debug("done calling compile_directory.find_or_make_dir")}
         LOGGERS.each{|logger| logger.debug("about to write_to_file")}
         result = write_to_file
         LOGGERS.each{|logger| logger.debug("done write_to_file")}

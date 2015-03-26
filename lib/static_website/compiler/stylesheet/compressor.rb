@@ -15,7 +15,7 @@ module StaticWebsite
 
         def compile
           File.delete(compile_path) if File.exists?(compile_path)
-          compile_directory.compile
+          compile_directory.find_or_make_dir
           compress
         end
 

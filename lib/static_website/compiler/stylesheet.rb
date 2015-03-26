@@ -13,7 +13,7 @@ module StaticWebsite
       end
 
       def compile
-        compile_directory.compile
+        compile_directory.find_or_make_dir
         remote_stylesheet.compile
         scss_stylesheet.compile
       end

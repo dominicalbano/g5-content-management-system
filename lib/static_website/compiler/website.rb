@@ -20,7 +20,7 @@ module StaticWebsite
 
       def compile
         LOGGERS.each{|logger| logger.debug("\n\n########################################### Website ######\n")}
-        compile_directory.compile
+        compile_directory.find_or_make_dir
         clean_up
         LOGGERS.each{|logger| logger.debug("Starting javascripts.compile for website")}
         LOGGERS.each{|logger| logger.debug("finished javascripts.compile")}

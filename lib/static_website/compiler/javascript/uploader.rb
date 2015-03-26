@@ -8,7 +8,11 @@ module StaticWebsite
 
         def initialize(from_paths, location_name)
           @from_paths = Array(from_paths)
-          LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{Array(from_paths).join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
+          LOGGERS.each do |logger| 
+            logger.debug("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader 
+                          with from_paths: #{Array(from_paths).join('\n\t').prepend('\n\t')},
+                          \n\tlocation_name: #{location_name}\n")
+          end
           @location_name = location_name
           @s3 = AWS::S3.new(
             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
@@ -22,7 +26,7 @@ module StaticWebsite
           end
         end
 
-        def compile
+        def upload
           @uploaded_paths = []
           LOGGERS.each{|logger| logger.debug("Writing js assets to S3")}
           from_paths.each do |from_path|
@@ -36,7 +40,10 @@ module StaticWebsite
             LOGGERS.each{|logger| logger.debug(result.inspect)}
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
           end
+          @uploaded_paths
         end
+
+private
 
         def s3_bucket
           @s3_bucket ||= if s3.buckets[bucket_name].exists?
@@ -60,7 +67,6 @@ module StaticWebsite
           to_path = File.join("#{location.bucket_asset_key_prefix}/javascripts", filename)
         end
 
-        private
 
         def s3_bucket_name_manager
           @s3_bucket_name_manager ||= S3BucketNameManager.new(location)
@@ -73,3 +79,4 @@ module StaticWebsite
     end
   end
 end
+

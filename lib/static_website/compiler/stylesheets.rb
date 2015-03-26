@@ -27,12 +27,17 @@ module StaticWebsite
           colors_stylesheet.compile
           fonts_stylesheet.compile
 
+          LOGGERS.each{|logger| logger.debug("done colors fonts")}
           stylesheet_paths.each do |stylesheet|
+            LOGGERS.each{|logger| logger.debug("############### compile on #{stylesheet}")}
             compile_stylesheet(stylesheet)
           end
 
+          LOGGERS.each{|logger| logger.debug("done compiling each stylesheet")}
           stylesheet_compressor.compile unless preview
+          LOGGERS.each{|logger| logger.debug("done compressing each stylesheet")}
           stylesheet_uploader.compile unless preview
+          LOGGERS.each{|logger| logger.debug("done uploading each stylesheet")}
         end
       end
 
@@ -45,6 +50,8 @@ module StaticWebsite
       end
 
       def compile_stylesheet(stylesheet_path)
+
+        LOGGERS.each{|logger| logger.debug("compile_stylesheet method")}
         if stylesheet_path
           stylesheet = Stylesheet.new(stylesheet_path, compile_path)
           stylesheet.compile
