@@ -1,5 +1,5 @@
 module WebTemplatesHelper
-  def preview(web_layout, web_template, preview)
+  def preview(web_layout, web_template, preview=false)
     base_html(web_layout, web_template, preview).to_html
   end
 
