@@ -126,22 +126,12 @@ describe "Integration '/:website_slug/:web_page_template_slug/edit'",
     end
 
     describe "Theme selection" do
-      let(:primary_color) { @web_theme.primary_color }
-      let(:secondary_color) { @web_theme.secondary_color }
-      let(:tertiary_color) { @web_theme.tertiary_color }
-      let(:html_primary_color) { find('#color-1', :visible => false).text }
-      let(:html_secondary_color) { find('#color-2', :visible => false).text }
-      let(:html_tertiary_color) { "#000" }
       let(:garden_theme) { find('.theme-picker .thumb:first-of-type') }
 
       context "accepting the confirm dialog" do
         it "Will update with theme colors when theme changes" do
           garden_theme.click
-
           expect(@website.reload.website_template).to_not eq @web_theme
-          expect(primary_color).to_not eq html_primary_color
-          expect(secondary_color).to_not eq html_secondary_color
-          expect(tertiary_color).to_not eq html_tertiary_color
         end
       end
 
