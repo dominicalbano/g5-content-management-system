@@ -3,10 +3,15 @@ require "spec_helper"
 describe Widget, vcr: VCR_OPTIONS do
   let!(:client) { Fabricate(:client) }
   let!(:location) { Fabricate(:location) }
-  let(:website) { Fabricate(:website, owner: location) }
-  let(:web_template) { Fabricate(:web_page_template, website: website)}
-  let(:drop_target) { Fabricate(:drop_target, web_template: web_template) }
 
+  let!(:website) { Fabricate(:website, owner: location, website_template: web_template) }
+  let!(:web_theme) { Fabricate(:web_theme, garden_web_theme: garden_web_theme) }
+  let!(:garden_web_theme) { Fabricate(:garden_web_theme, primary_color: "#000000") }
+  let!(:web_template) { Fabricate(:website_template, web_theme: web_theme) }
+
+  let!(:page_template) { Fabricate(:web_page_template, website: website)}
+  let(:drop_target) { Fabricate(:drop_target, web_template: page_template) }
+  
   describe "validations" do
     let(:widget){Fabricate(:widget)}
     let(:no_garden_widget){Fabricate.build(:widget, {garden_widget: nil})}
@@ -209,7 +214,7 @@ describe Widget, vcr: VCR_OPTIONS do
         end
 
         it "gets correct web template info" do
-          expect(widget.liquid_parameters['web_template_name']).to eq(web_template.name)
+          expect(widget.liquid_parameters['page_name']).to eq(page_template.name)
         end
 
         it "gets correct location info" do
@@ -279,7 +284,7 @@ describe Widget, vcr: VCR_OPTIONS do
         let(:widget) { Fabricate.build(:widget, garden_widget: garden_widget, drop_target: drop_target) }
 
         it "returns drop target web template" do
-          expect(widget.get_web_template).to eq web_template
+          expect(widget.get_web_template).to eq page_template
         end
       end
 
@@ -291,7 +296,7 @@ describe Widget, vcr: VCR_OPTIONS do
         end
 
         it "returns drop target web template" do
-          expect(widget.get_web_template).to eq web_template
+          expect(widget.get_web_template).to eq page_template
         end
       end
 
@@ -305,7 +310,7 @@ describe Widget, vcr: VCR_OPTIONS do
         end
 
         it "returns correct parent and grandparent widgets" do
-          expect(widget.get_web_template).to eq web_template
+          expect(widget.get_web_template).to eq page_template
         end
       end
     end

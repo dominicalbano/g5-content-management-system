@@ -14,7 +14,7 @@ module LiquidParameters
     client = template.client
     location = template.owner
     web_template = template.website_template
-    web_theme = web_template.web_theme
+    web_theme = web_template.try(:web_theme)
 
     {
       "page_name"                 => template.name,
@@ -38,7 +38,7 @@ module LiquidParameters
       "location_go_squared_id"    => location.go_squared_client_id,
       "location_go_squared_tag"   => location.go_squared_site_token,
       "location_ga_tracking_id"   => location.ga_tracking_id,
-      "location_ga_profile_id"    => location.go_profile_id,
+      "location_ga_profile_id"    => location.ga_profile_id,
       "location_facebook_id"      => location.facebook_id,
       "location_twitter_id"       => location.twitter_id,
       "location_yelp_id"          => location.yelp_id,
@@ -57,13 +57,13 @@ module LiquidParameters
       "client_cpns_url"           => client.cpns_url,
       "client_nae_url"            => client.nae_url,
       "client_vls_url"            => client.vls_url,
-      "theme_name"                => web_theme.name,
-      "theme_slug"                => web_theme.garden_web_theme.slug,
-      "theme_primary_color"       => web_theme.primary_color,
-      "theme_secondary_color"     => web_theme.secondary_color,
-      "theme_tertiary_color"      => web_theme.tertiary_color,
-      "theme_primary_font"        => web_theme.primary_font,
-      "theme_secondary_font"      => web_theme.secondary_font
+      "theme_name"                => web_theme.try(:name),
+      "theme_slug"                => web_theme.try(:garden_web_theme).try(:slug),
+      "theme_primary_color"       => web_theme.try(:primary_color),
+      "theme_secondary_color"     => web_theme.try(:secondary_color),
+      "theme_tertiary_color"      => web_theme.try(:tertiary_color),
+      "theme_primary_font"        => web_theme.try(:primary_font),
+      "theme_secondary_font"      => web_theme.try(:secondary_font)
     }
   end
 

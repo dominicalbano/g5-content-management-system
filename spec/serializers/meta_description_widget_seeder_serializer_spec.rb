@@ -3,9 +3,14 @@ require "spec_helper"
 describe MetaDescriptionWidgetSeederSerializer do
   let!(:client) { Fabricate(:client) }
   let!(:location) { Fabricate(:location) }
-  let(:website) { Fabricate(:website, owner: location) }
-  let(:web_template) { Fabricate(:web_page_template, website: website)}
-  let(:drop_target) { Fabricate(:drop_target, web_template: web_template) }
+
+  let!(:website) { Fabricate(:website, owner: location, website_template: web_template) }
+  let!(:web_theme) { Fabricate(:web_theme, garden_web_theme: garden_web_theme) }
+  let!(:garden_web_theme) { Fabricate(:garden_web_theme, primary_color: "#000000") }
+  let!(:web_template) { Fabricate(:website_template, web_theme: web_theme) }
+
+  let!(:page_template) { Fabricate(:web_page_template, website: website)}
+  let(:drop_target) { Fabricate(:drop_target, web_template: page_template) }
 
   describe "#as_json" do
     context "meta description widget seeder" do
