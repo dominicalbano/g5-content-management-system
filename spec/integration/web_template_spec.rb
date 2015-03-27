@@ -70,17 +70,17 @@ describe "Integration '/web_template/:id'",
 
       describe "Liquid parsing in settings" do
         it "correctly parses and displays page name in title" do
-          @web_page_template.update_attributes!(title: "{{web_template_name}}")
+          @web_page_template.update_attributes!(title: "{{page_name}}")
           url = '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
           visit url
           expect(page).to have_title "#{@web_page_template.name}"
         end
 
-        #it "correctly parses and displays location address in title" do
-          #@web_page_template.update_attributes!(title: "{{location_city}} {{loation_neighborhood}} {{location_state}}")
-          #visit '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
-          #expect(page).to have_title "#{@location.city} #{@location.neighborhood} #{@location.state}"
-        #end
+        it "correctly parses and displays location address in title" do
+          @web_page_template.update_attributes!(title: "{{location_city}} {{loation_neighborhood}} {{location_state}}")
+          visit '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
+          expect(page).to have_title "#{@location.city} #{@location.neighborhood} #{@location.state}"
+        end
 
         it "correctly parses and displays location info in title" do
           @web_page_template.update_attributes!(title: "{{location_floor_plans}} {{location_primary_amenity}} {{location_qualifier}} {{location_primary_landmark}}")
