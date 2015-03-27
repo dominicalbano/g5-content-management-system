@@ -1,4 +1,4 @@
-function app() {
+function areaPage() {
   // If <= IE 9
   if (window.XDomainRequest) {
     loadScript("//g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js");
@@ -63,6 +63,6 @@ function initialize() {
 }
 
 $(document).ready(function(){
-  app();
+  areaPage();
 });
 
