@@ -2,17 +2,13 @@ class GardenWidgetUpdater
   MAX_ATTEMPTS = 5
   TIMEOUT = 15
 
-  def update_all(force_all=false)
+  def update_all(force_all=false, only_these_widgets=[])
     updated_garden_widgets = []
     components_data = send_with_retry(:components_microformats)
     
     components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
-      
-      if (force_all || get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
-        update(garden_widget, component)
-      end
-      
+      update(garden_widget, component) if update_widget?(garden_widget, component, force_all, only_these_widgets)
       updated_garden_widgets << garden_widget
     end if components_data
 
@@ -39,6 +35,14 @@ class GardenWidgetUpdater
         retry if attempts < MAX_ATTEMPTS
       end
       raise ex
+    end
+  end
+
+  def update_widget?(garden_widget, component=nil, force_all=false, only_these_widgets=[])
+    if !force_all && !only_these_widgets.empty?
+      only_these_widgets.include?(garden_widget.slug) || only_these_widgets.include?(garden_widget.name)
+    else
+      force_all || get_url(component) != garden_widget.url || get_modified(component) != garden_widget.widget_modified
     end
   end
   

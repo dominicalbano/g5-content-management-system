@@ -32,6 +32,10 @@ class Widget < ActiveRecord::Base
 
   scope :has_drop_target, -> {
     where("drop_target_id IS NOT NULL") }
+  scope :by_name, ->(name) { 
+    joins(:garden_widget).where("garden_widgets.name = ?", name)}
+  scope :by_slug, ->(slug) { 
+    joins(:garden_widget).where("garden_widgets.slug = ?", slug)}
   scope :name_like_form, -> {
     joins(:garden_widget).where("garden_widgets.name LIKE '%Form'") }
   scope :meta_description, -> {

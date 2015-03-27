@@ -7,5 +7,7 @@ class AddDxmFieldsToClients < ActiveRecord::Migration
     add_column :clients, :cpns_url, :string
     add_column :clients, :nae_url, :string
     add_column :clients, :vls_url, :string
+
+    ClientReader.new(ENV["G5_CLIENT_UID"]).perform
   end
 end

@@ -10,8 +10,8 @@ module Widgets
       "row_count"
     end
 
-    def render_show_html
-      return ColumnWidgetShowHtml.new(self).render
+    def render_show_html(preview=false)
+      return ColumnWidgetShowHtml.new(self, preview).render
     end
 
     def layout_count_values

@@ -18,7 +18,12 @@ private
   # to be one in the database and we are about to create a new one.
   #
   def destroy_clients
-    Client.destroy_all if Client.first && Client.first.uid != @client_uid
+    Client.destroy_all if has_different_client_uid?
+  end
+
+  def has_different_client_uid?
+    client = Client.first
+    client.uid.split('//')[1] != @client_uid.split('//')[1] if client
   end
 
   # So now either there is a client in the database with the UID we want or
@@ -95,8 +100,12 @@ private
   #
   def cleanup_locations
     Location.all.each do |location|
-      location.destroy unless @uf2_location_uids.include?(location.uid)
+      location.destroy if has_different_location_uid?(location)
     end
+  end
+
+  def has_different_location_uid?(location)
+    @uf2_location_uids.include?(location.uid.split(//)[1])
   end
 
   # Use the provided client UID to grab the microformats2 representation of
