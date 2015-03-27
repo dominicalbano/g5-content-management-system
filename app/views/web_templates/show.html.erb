@@ -37,7 +37,7 @@
 
 <% content_for(:body_classes) { "page-#{web_template.name.parameterize} #{web_template.body_class} #{web_template.location_body_class}" } %>
 
-<%= raw preview(web_template.website_layout, web_template) %>
+<%= raw preview(web_template.website_layout, web_template, is_preview) %>
 
 <% content_for(:bottom_of_body) do %> 
   <% if is_preview %>
