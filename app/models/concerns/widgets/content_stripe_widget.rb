@@ -10,8 +10,8 @@ module Widgets
       "row_layout"
     end
 
-    def render_show_html
-      ContentStripeWidgetShowHtml.new(self).render
+    def render_show_html(preview=false)
+      ContentStripeWidgetShowHtml.new(self, preview).render
     end
 
     def layout_count_values

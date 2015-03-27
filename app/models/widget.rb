@@ -94,8 +94,8 @@ class Widget < ActiveRecord::Base
     false
   end
 
-  def render_show_html
-    html = liquid_render(show_html, "widget" => liquid_widget_drop)
+  def render_show_html(preview=false)
+    html = liquid_render(show_html, "widget" => liquid_widget_drop(preview))
     html = liquid_render(html, liquid_parameters) if liquid
     html
   end
@@ -161,8 +161,8 @@ class Widget < ActiveRecord::Base
     Liquid::Template.parse(html).render(params)
   end
 
-  def liquid_widget_drop
-    WidgetDrop.new(self, client.try(:locations))
+  def liquid_widget_drop(preview=false)
+    WidgetDrop.new(self, client.try(:locations), preview)
   end
 
   def nested_settings

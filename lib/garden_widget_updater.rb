@@ -1,8 +1,11 @@
 class GardenWidgetUpdater
+  MAX_ATTEMPTS = 5
+  TIMEOUT = 15
+
   def update_all(force_all=false)
     updated_garden_widgets = []
-    components_data = components_microformats
-
+    components_data = send_with_retry(:components_microformats)
+    
     components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
       
@@ -23,6 +26,21 @@ class GardenWidgetUpdater
   end
 
   private  
+
+  def send_with_retry(method, *args)
+    attempts = 0
+    begin
+      return self.send(method, *args)
+    rescue Exception => ex
+      Rails.logger.info "Error getting edit html: #{ex}"
+      unless Rails.env.test?
+        attempts += 1
+        sleep TIMEOUT
+        retry if attempts < MAX_ATTEMPTS
+      end
+      raise ex
+    end
+  end
   
   def update(garden_widget, component=nil)
     component ||= garden_widget.component_microformat
@@ -114,7 +132,7 @@ class GardenWidgetUpdater
   def get_edit_html(component)
     if component.respond_to?(:g5_edit_template)
       url = component.g5_edit_template.to_s
-      open(url).read if url
+      send_with_retry(:get_html, url)
     end
   end
 
@@ -127,8 +145,12 @@ class GardenWidgetUpdater
   def get_show_html(component)
     if component.respond_to?(:g5_show_template)
       url = component.g5_show_template.to_s
-      open(url).read if url
+      send_with_retry(:get_html, url)
     end
+  end
+
+  def get_html(url)
+    open(url).read if url
   end
 
   def get_show_javascript(component)

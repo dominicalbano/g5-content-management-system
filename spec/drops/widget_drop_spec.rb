@@ -3,7 +3,8 @@ require "spec_helper"
 describe WidgetDrop do
   let!(:client) { Fabricate(:client, uid: "http://g5-hub.herokuapp.com/g5-c-12345-test") }
   let!(:location) { Fabricate(:location) }
-  let!(:web_template) { Fabricate(:web_template) }
+  let!(:web_template) { Fabricate(:web_page_template) }
+  let(:web_home_template) {Fabricate(:web_home_template)}
   let(:drop_target) { Fabricate(:drop_target, web_template: web_template) }
   let(:widget) { Fabricate(:widget, drop_target: drop_target) }
   subject(:drop) { described_class.new(widget, [location]) }
@@ -55,4 +56,48 @@ describe WidgetDrop do
       expect(setting).to have_received(:value)
     end
   end
+
+  describe "#navigateable_pages" do
+    before do
+      website = Fabricate(:website)
+      website.web_templates << web_template
+      website.web_home_template = web_home_template
+    end
+    it "returns a thing" do
+      expected = [{"url" => web_template.url,
+                   "preview_url" => web_template.preview_url,
+                   "slug" => web_template.slug},
+                  {"url" => web_home_template.url,
+                   "preview_url" => web_home_template.preview_url,
+                   "slug" => web_home_template.slug}]
+      WidgetDrop.new(widget, client.try(:locations)).navigateable_pages.should eql(expected)
+    end
+  end
+
+  describe "#generated urls"do 
+    before do
+      @web_template_2 = Fabricate(:web_page_template, name: web_template.name)
+      website_2 = Fabricate(:website)
+      website_2.web_templates << @web_template_2
+      drop_target_2 = Fabricate(:drop_target, web_template: @web_template_2)
+
+      website = Fabricate(:website)
+      website.web_templates << web_template
+
+      @cta_widget = Fabricate(:widget, drop_target: drop_target_2)
+
+      allow(@cta_widget).to receive(:page_slug_1).and_return(double("value", {value: @web_template_2.slug}))
+    end
+    context "preview" do
+      it "gets the preview url for the right page based on the slug in the setting" do
+        WidgetDrop.new(@cta_widget, client.try(:locations), true).generated_url_1.should eql(@web_template_2.preview_url)
+      end
+    end
+    context "production" do
+      it "gets the production url for the right page based on the slug in the setting" do
+        WidgetDrop.new(@cta_widget, client.try(:locations)).generated_url_1.should eql(@web_template_2.url)
+      end
+    end
+  end
 end
+
