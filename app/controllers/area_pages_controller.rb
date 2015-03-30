@@ -7,8 +7,9 @@ class AreaPagesController < ApplicationController
       web_template: Location.corporate.website.website_template,
       area: area,
       params: params,
-      mode: "preview"
+      is_preview: true
     }
+
   end
 
 private

@@ -55,7 +55,6 @@ RSpec.configure do |config|
 
   config.before(:each) do
     DatabaseCleaner.strategy = :transaction
-    set_selenium_window_size(1250, 800) if Capybara.current_driver == :selenium
   end
 
   config.before(:each, :js => true) do
@@ -72,7 +71,7 @@ RSpec.configure do |config|
 
   config.after(:suite) do
     puts "\n\nReminder: \033[1;31m\Don't forget to run integration specs with rspec -t integration\e[0m"
-  end
+    end
   config.mock_with :rspec do |mocks|
 
     # This option should be set when all dependencies are being loaded
@@ -82,23 +81,16 @@ RSpec.configure do |config|
     mocks.verify_doubled_constant_names = true
 
   end
+
+  # Config for rspec retry
+  config.verbose_retry = true # show retry status in spec process
 end
 
-def set_selenium_window_size(width, height)
-  window = Capybara.current_session.driver.browser.manage.window
-  window.resize_to(width, height)
+require 'capybara/poltergeist'
+Capybara.register_driver :poltergeist do |app|
+  # Default timeout is 30, but that causes sporadic timeout errors
+  # on the CI server
+  Capybara::Poltergeist::Driver.new(app, timeout: 180)
 end
-
-# We need this to fix the random timeout error that we were seeing in CI.
-# May be related to: http://code.google.com/p/selenium/issues/detail?id=1439
- 
-Capybara.register_driver :selenium_with_long_timeout do |app|
-  client = Selenium::WebDriver::Remote::Http::Default.new
-  client.timeout = 120
-  Capybara::Selenium::Driver.new(app, :browser => :firefox, :http_client => client)
-end
- 
-# By default specs will run in a headless webkit browser.
-# Set CI=true if you want to run integration specs with Firefox.
-Capybara.javascript_driver = :selenium_with_long_timeout
-
+Capybara.javascript_driver = :poltergeist
+Capybara.default_wait_time = 5

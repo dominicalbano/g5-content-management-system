@@ -20,4 +20,9 @@ class WebPageTemplate < WebTemplate
 
     File.join(client.vertical_slug, owner.state_slug, owner.city_slug, slug)
   end
+
+  def preview_url
+    url.prepend(owner.urn + "/")
+  end
 end
+

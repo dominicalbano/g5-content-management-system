@@ -1,7 +1,7 @@
 <% content_for(:title) { "Locations" } %>
 
 <% content_for(:head) {
-  if mode == "preview"
+  if is_preview
     stylesheet_link_tag(*web_template.stylesheet_link_paths)
   else
     stylesheet_link_tag(web_template.application_min_css_path)
@@ -10,8 +10,8 @@
 
 <% content_for(:head) { stylesheet_link_tag("area_page") } %>
 <% content_for(:head) { raw canonical_link_element(params, web_template) } %>
-<% content_for(:head_widgets) { raw meta_description_widgets(web_template) } %>
-<% content_for(:head_widgets) { raw head_widgets(web_template) } %>
+<% content_for(:head_widgets) { raw meta_description_widgets(web_template, is_preview) } %>
+<% content_for(:head_widgets) { raw head_widgets(web_template, is_preview) } %>
 <% content_for(:body_classes) { "area" } %>
 
 <%= raw area_preview(web_template.website_layout, web_template, locations, area) %>
@@ -19,7 +19,7 @@
 <% content_for(:bottom_of_body) { javascript_include_tag(*web_template.javascript_include_paths) } %>
 
 <% content_for(:bottom_of_body) {
-  if mode == "preview"
+  if is_preview
     javascript_include_tag("/area_page.js")
   else
     javascript_include_tag("/javascripts/area_page.js")

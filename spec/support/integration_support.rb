@@ -1,6 +1,6 @@
 LOCATION_SELECTOR = ".location:first-of-type"
-WEB_HOME_SELECTOR = ".web-home-template"
-WEB_PAGE_SELECTOR = ".web-page-template"
+WEB_HOME_SELECTOR = ".web-home-template:first-of-type"
+WEB_PAGE_SELECTOR = ".web-page-template:first-of-type"
 TOP_NAV          = ".page > .l-container > .page-title"
 
 def scroll_to(page, selector)
@@ -13,48 +13,53 @@ def scroll_to(page, selector)
   EOS
 end
 
-def drag_and_drop(element, target)
-  builder = page.driver.browser.action
-  element = element.native
-  target = target.native
-
-  builder.click_and_hold(element)
-  sleep 1
-  builder.move_to(target)
-  builder.release
-  builder.perform
+def position(selector)
+  coordinates = page.evaluate_script("$('#{selector}').position()")
+  OpenStruct.new(coordinates)
 end
 
-def drag_and_drop_below(source, target)
-  builder = page.driver.browser.action
-  source = source.native
-  target = target.native
-  builder.click_and_hold source
-  builder.move_to(target, 
-                  (target.size.width)/2+1, 
-                  (target.size.height)/2+10)
-  builder.release
-  builder.perform
+def height(selector)
+  page.evaluate_script("$('#{selector}').height()")
 end
 
-def drag_and_drop_add(element, target)
-  builder = page.driver.browser.action
-  element = element.native
-  target = target.native
-
-  builder.click_and_hold(element)
-  sleep 1
-  builder.move_to(target, 5, 5)
-  builder.release
-  builder.perform
+def width(selector)
+  page.evaluate_script("$('#{selector}').width()")
 end
 
-def accept_confirm(page)
-  page.driver.browser.switch_to.alert.accept
+def drag_and_drop(source_selector, target_selector)
+  source = find(source_selector)
+  target = find(target_selector)
+  source.drag_to(target)
 end
 
-def dismiss_confirm(page)
-  page.driver.browser.switch_to.alert.dismiss
+def drag_and_drop_below(source_selector, target_selector)
+  source_pos = position(source_selector)
+  target_pos = position(target_selector)
+
+  offset_x = target_pos.left - source_pos.left + width(target_selector)/2 + 1
+  offset_y = target_pos.top - source_pos.top + height(target_selector)/2 + 1
+
+  find(source_selector).native.drag_by(offset_x, offset_y)
+end
+
+def drag_and_drop_add(source_selector, target_selector)
+  source_pos = position(source_selector)
+  target_pos = position(target_selector)
+
+  offset_x = target_pos.left - source_pos.left + 5
+  offset_y = target_pos.top - source_pos.top + 5
+
+  find(source_selector).native.drag_by(offset_x, offset_y)
+end
+
+# Capybara 2.4.1 introduced a model API that is currently not supported by
+# poltergeist, but probably will be in the near future (there was already
+# an abortive attempt: https://github.com/teampoltergeist/poltergeist/pull/516)
+# In the meantime, we'll mock out the capybara accept_confirm method to
+# take advantage of poltergeist's default behavior of returning true from
+# any call to window.confirm()
+def accept_confirm(text_or_options=nil, options={}, &block)
+  block.call
 end
 
 def seed(file="example.yml")
@@ -69,20 +74,8 @@ end
 def open_gardens
   # add a long delay to make sure ember is done doing all it's black magic
   # otherwise we get intermittent failures when looking around in a garden
-  find(".theme-picker .toggle-panel-text").click
-  find(".widget-list .toggle-panel-text").click
-end
-def open_widget_garden
-  # add a long delay to make sure ember is done doing all it's black magic
-  # otherwise we get intermittent failures when looking around in a garden
-  find(".widget-list .toggle-panel-text").click
-end
-
-def wait_until
-  require "timeout"
-  Timeout.timeout(Capybara.default_wait_time) do
-    sleep(0.1) until value = yield
-    value
+  sleep 3
+  all(".btn--toggle-show").each do |toggle_button|
+    toggle_button.click
   end
-end 
-
+end

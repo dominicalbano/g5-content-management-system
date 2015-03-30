@@ -37,7 +37,7 @@ group :development, :test do
   # secrets
   gem "dotenv-rails", "~> 0.11.1"
   # debugging
-  gem "pry"
+  gem "pry-byebug"
   # database
   gem "sqlite3"
   # server processes runner
@@ -62,9 +62,12 @@ group :test do
   gem "rspec-its"
   gem "shoulda-matchers"
   # ruby request specs
-  gem "capybara", "2.3.0"
+  gem "capybara"
   gem "launchy"
-  gem "selenium-webdriver"
+  # We need drag_by support on native elements:
+  # https://github.com/teampoltergeist/poltergeist/pull/552
+  # This should be released with v1.6.1 or v1.7.0
+  gem "poltergeist", github: "teampoltergeist/poltergeist", ref: "f826d135dd54a91f674992e2b5cab60a081e39c"
   gem "database_cleaner"
   # ruby spec support
   gem 'factory_girl_rails'
@@ -77,4 +80,5 @@ group :test do
   # guard specs
   gem "guard-rspec", require: false
   gem "rb-fsevent"
+  gem "rspec-retry"
 end  

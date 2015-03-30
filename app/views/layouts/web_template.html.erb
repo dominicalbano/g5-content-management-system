@@ -17,7 +17,7 @@
     <%= yield(:head) %>
   </head>
 
-  <body class="<%= [mode, yield(:body_classes)].join(" ") %>">
+  <body class="<%= [(is_preview ? 'preview' : ''), yield(:body_classes)].join(" ") %>">
 
     <%= yield %>
 
@@ -33,7 +33,7 @@
       <script src="http://themes.g5dxm.com/shared/javascripts/respond.min.js"></script>
     <![endif]-->
 
-    <%= javascript_include_tag "web_template" if mode == "preview" %>
+    <%= javascript_include_tag "web_template" if is_preview %>
     <%= yield(:bottom_of_body) %>
   </body>
 </html>

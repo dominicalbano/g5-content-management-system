@@ -53,3 +53,4 @@ module HasSettingNavigation
     partial_hash
   end
 end
+

@@ -30,6 +30,7 @@ module ComponentGardenable
       if e.message.include?("304")
         @microformats || []
       else
+        Rails.logger.debug("error: #{e}")
         raise e
       end
     end
