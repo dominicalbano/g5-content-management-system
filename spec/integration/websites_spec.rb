@@ -8,6 +8,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       @web_page_template = @website.web_page_templates.first
       visit "/#{@website.slug}"
     end
+
     it "displays the website menu" do
       within TOP_NAV do
         page.should have_content "DEPLOY"

@@ -1,7 +1,7 @@
 LOCATION_SELECTOR = ".location:first-of-type"
 WEB_HOME_SELECTOR = ".web-home-template:first-of-type"
 WEB_PAGE_SELECTOR = ".web-page-template:first-of-type"
-TOP_NAV          = ".page > .l-container > .page-title"
+TOP_NAV          = ".page .l-container > .page-title"
 
 def scroll_to(page, selector)
   page.execute_script <<-EOS
