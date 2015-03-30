@@ -23,7 +23,7 @@ private
 
   def has_different_client_uid?
     client = Client.first
-    client.uid.split('//')[1] != @client_uid.split('//')[1] if client
+    client ? strip_protocols(client.uid) != strip_protocols(@client_uid) : false
   end
 
   # So now either there is a client in the database with the UID we want or
@@ -105,7 +105,12 @@ private
   end
 
   def has_different_location_uid?(location)
-    @uf2_location_uids.include?(location.uid.split(//)[1])
+    return true if @uf2_location_uids.empty?
+    !@uf2_location_uids.any? { |l| l.include?(strip_protocols(location.uid)) }
+  end
+
+  def strip_protocols(url)
+    url.gsub('https://', '').gsub('http://', '')
   end
 
   # Use the provided client UID to grab the microformats2 representation of
