@@ -571,7 +571,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
               sleep 1
             end
           end.to change{ @website_template.reload.aside_after_main_widgets.count }.by(-2)
-          expect(all(".aside-after-main-widgets .widget").length).to eq(existing_widget_count - 2)
+          expect(all(".aside-after-main-widgets .widget").length).to eq existing_widget_count-2
         end
       end
 
