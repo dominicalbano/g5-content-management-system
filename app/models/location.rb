@@ -20,6 +20,8 @@ class Location < ActiveRecord::Base
 
   scope :live, -> { where(status: "Live") }
   scope :live_websites, -> { live.map(&:website) }
+  scope :without_corporate, -> { where(corporate: false)}
+  scope :for_area_pages, -> { live.without_corporate }
 
   before_validation :set_city_slug_from_city
 

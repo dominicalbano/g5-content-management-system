@@ -2,16 +2,16 @@ module StaticWebsite
   module Compiler
     class AreaPages
       def initialize(base_path, websites)
-        LOGGERS.each {|logger| logger.debug("initializing Compiler::AreaPages with (base_path, websites): #{base_path} #{websites}")}
+        LOGGERS.each {|logger| logger.debug("init Compiler::AreaPages w/ (base_path, websites): #{base_path} #{websites}")}
         @base_path = base_path
         @websites = websites
       end
 
       def compile
         states.each do |state|
-          LOGGERS.each {|logger| logger.debug("compiling state #{state}")}
+          LOGGERS.each {|logger| logger.debug("compiling state #{state.to_s}")}
           compile_area_page(state, params(state))
-          LOGGERS.each {|logger| logger.debug("Done compile_area_page, calling compile_cities_for(#{state.to_s})")}
+          LOGGERS.each {|logger| logger.debug("calling compile_cities_for(#{state.to_s})")}
           compile_cities_for(state)
         end
       end
