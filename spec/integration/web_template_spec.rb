@@ -77,7 +77,7 @@ describe "Integration '/web_template/:id'",
         end
 
         it "correctly parses and displays location address in title" do
-          @web_page_template.update_attributes!(title: "{{location_city}} {{loation_neighborhood}} {{location_state}}")
+          @web_page_template.update_attributes!(title: "{{location_city}} {{location_neighborhood}} {{location_state}}")
           visit '/' + [@web_page_template.owner.urn, @web_page_template.url].join('/')
           expect(page).to have_title "#{@location.city} #{@location.neighborhood} #{@location.state}"
         end
