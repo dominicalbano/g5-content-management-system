@@ -54,35 +54,37 @@ shared_examples_for SettingNavigation do
   end
 
   context "child pages" do
-    describe "When the child page is checked" do
-      let(:widget_value) {
-        {
-          "1"=>{"display"=>"true", "title"=>"about", "url"=>"/about"},
-          "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "child_templates" => {
-            "3"=>{"display"=>"true", "title"=>"child page", "url"=>"/old-title"}
-            }
-          }
-        }
-      }
+    let(:website_value) {
+      {"1"=>{"display"=>"true", "title"=>"about", "url"=>"/about"},
+       "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "child_templates" => {
+         "3"=>{"display"=>false, "title"=>"child page", "url"=>"/old-title"}}}}}
 
-      let(:website_value) {
-        {
+    describe "when the display value for the child page is `nil`" do
+      let(:widget_value) {{
           "1"=>{"display"=>"true", "title"=>"about", "url"=>"/about"},
           "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "child_templates" => {
-            "3"=>{"display"=>false, "title"=>"child page", "url"=>"/old-title"}
-            }
-          }
-        }
-      }
-      let(:expected_value) {
-        {
+            "3"=>{"display"=>nil, "title"=>"child page", "url"=>"/old-title"}}}}}
+
+      let(:expected_value) {{
+        "1"=>{"display"=>"true", "title"=>"about", "url"=>"/about"},
+        "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "sub_nav" => "true", "child_templates" => {
+          "3"=>{"display"=>nil, "title"=>"child page", "url"=>"/old-title"}}}}}
+
+      it "sets display to true on the child page and sets a sub_nav property" do
+        described_instance.create_new_value(website_value, widget_value).should eq expected_value
+      end
+    end
+
+    describe "When the child page is checked" do
+      let(:widget_value) {{
           "1"=>{"display"=>"true", "title"=>"about", "url"=>"/about"},
-          "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "sub_nav" => "true", "child_templates" => {
-            "3"=>{"display"=>"true", "title"=>"child page", "url"=>"/old-title"}
-            }
-          }
-        }
-      }
+          "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "child_templates" => {
+            "3"=>{"display"=>"true", "title"=>"child page", "url"=>"/old-title"}}}}}
+
+      let(:expected_value) {{
+        "1"=>{"display"=>"true", "title"=>"about", "url"=>"/about"},
+        "2"=>{"display"=>"true", "title"=>"floorplans", "url"=>"/floorplans", "sub_nav" => "true", "child_templates" => {
+          "3"=>{"display"=>"true", "title"=>"child page", "url"=>"/old-title"}}}}}
 
       it "sets display to true on the child page and sets a sub_nav property" do
         described_instance.create_new_value(website_value, widget_value).should eq expected_value

@@ -65,6 +65,10 @@ module SettingNavigation extend ActiveSupport::Concern
 
   private
 
+  def display_value_to_boolean(hash)
+    hash["display"].nil? ? hash["display"] = true : hash["display"] = false 
+  end
+
   #needed to handle when CMS is updated but widget garden navigation is not
   def remove_children_from_top(hash)
     hash.slice(*WebsiteFinder::Setting.new(self).find.navigateable_web_templates.map{|wt| wt.id.to_s})
@@ -77,7 +81,9 @@ module SettingNavigation extend ActiveSupport::Concern
   end
   
   def show_sub_nav?(website_value)
-    website_value.fetch("child_templates",[]).any? {|child| child[1]["display"] == "true"}
+    website_value.fetch("child_templates",[]).any? do |child|
+      child[1]["display"] == "true" || child[1]["display"] == nil
+    end
   end
 
 end
