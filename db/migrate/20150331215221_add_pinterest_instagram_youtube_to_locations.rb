@@ -1,9 +1,7 @@
 class AddPinterestInstagramYoutubeToLocations < ActiveRecord::Migration
   def change
-    add_column :location, :pinterest_id, :string
-    add_column :location, :instagram_id, :string
-    add_column :location, :thumbnail_id, :string
-
-    ClientReader.new(ENV["G5_CLIENT_UID"]).perform
+    add_column :locations, :pinterest_id, :string, :default => ""
+    add_column :locations, :instagram_id, :string, :default => ""
+    add_column :locations, :youtube_id, :string, :default => ""
   end
 end
