@@ -39,7 +39,7 @@ class WebsiteDecorator < Draper::Decorator
     if single_domain_location?
       single_domain_location_path + "singledomainlocationpath"
     else
-      domain || heroku_url
+      domain + "not single domain" || heroku_url
     end
   end
 
