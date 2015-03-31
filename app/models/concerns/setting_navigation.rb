@@ -77,9 +77,7 @@ module SettingNavigation extend ActiveSupport::Concern
   end
   
   def show_sub_nav?(website_value)
-    website_value.fetch("child_templates",[]).any? do |child|
-      child[1]["display"] == "true" || child[1]["display"] == nil
-    end
+    website_value.fetch("child_templates",[]).any? {|child| child[1]["display"] != "false"}
   end
 
 end
