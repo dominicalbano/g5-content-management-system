@@ -25,21 +25,24 @@
 }).call(this);
 (function() {
   $(function() {
-    var previewConfigs;
-    previewConfigs = JSON.parse($('#preview-configs').html());
-    return $('body').delegate('a', 'click', function() {
-      var linkHref, pattern, previewHref;
-      linkHref = $(this).attr('href');
+    var config, pattern, previewConfigs;
+    config = $('#preview-configs');
+    if (config.length !== 0) {
+      previewConfigs = JSON.parse(config.html());
       pattern = "^http|^\/\/|^" + previewConfigs.urn;
-      if (typeof linkHref !== 'undefined' && !linkHref.match(new RegExp(pattern, 'i'))) {
-        if (previewConfigs.corporate) {
-          previewHref = previewConfigs.slug_corporate + linkHref;
-        } else {
-          previewHref = linkHref.replace("" + previewConfigs.slug + "/", "" + previewConfigs.urn + "/" + previewConfigs.slug + "/");
+      return $('body').delegate('a', 'click', function() {
+        var linkHref, previewHref;
+        linkHref = $(this).attr('href');
+        if (typeof linkHref !== 'undefined' && !linkHref.match(new RegExp(pattern, 'i'))) {
+          if (previewConfigs.corporate) {
+            previewHref = previewConfigs.slug_corporate + linkHref;
+          } else {
+            previewHref = linkHref.replace("" + previewConfigs.slug + "/", "" + previewConfigs.urn + "/" + previewConfigs.slug + "/");
+          }
+          return $(this).attr('href', previewHref);
         }
-        return $(this).attr('href', previewHref);
-      }
-    });
+      });
+    }
   });
 
 }).call(this);
