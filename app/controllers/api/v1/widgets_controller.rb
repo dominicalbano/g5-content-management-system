@@ -34,6 +34,10 @@ class Api::V1::WidgetsController < Api::V1::ApplicationController
     end
   end
 
+  def options
+    render json: {}
+  end
+
   private
 
   def widget_params

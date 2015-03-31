@@ -17,7 +17,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "initial page load" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
     end
 
     it "collapses all gardens" do
@@ -29,7 +29,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "themes" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -41,7 +41,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "Authorization" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
@@ -110,7 +110,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     context "storage" do
       before do
         @client.update_attribute(:vertical, "foo")
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "storage" do
@@ -121,17 +121,11 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
   describe "Color picker" do
     before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}"
+      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       open_gardens
     end
 
     describe "Theme selection" do
-      let(:primary_color) { @web_theme.primary_color }
-      let(:secondary_color) { @web_theme.secondary_color }
-      let(:tertiary_color) { @web_theme.tertiary_color }
-      let(:html_primary_color) { find('#color-1', :visible => false).text }
-      let(:html_secondary_color) { find('#color-2', :visible => false).text }
-      let(:html_tertiary_color) { "#000" }
       let(:garden_theme) { find('.theme-picker .thumb:first-of-type') }
 
       context "accepting the confirm dialog" do
@@ -139,9 +133,6 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           garden_theme.trigger('click')
 
           expect(@website.reload.website_template).to_not eq @web_theme
-          expect(primary_color).to_not eq html_primary_color
-          expect(secondary_color).to_not eq html_secondary_color
-          expect(tertiary_color).to_not eq html_tertiary_color
         end
       end
 
@@ -158,7 +149,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Main widgets" do
     describe "Are drag and drop addable", skip: "Drag and drop specs fail intermittently." do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Creates a new widget in the database and displays in DOM" do
@@ -184,7 +175,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -200,7 +191,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @web_page_template.main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -215,7 +206,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
@@ -297,7 +288,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Aside before main widgets" do
     describe "Are drag and drop addable", skip: "Drag and drop specs fail intermittently." do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
         open_gardens
       end
 
@@ -323,7 +314,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -339,7 +330,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @website_template.aside_before_main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -354,7 +345,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do
@@ -436,7 +427,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
   describe "Aside after main widgets" do
     describe "Are drag and drop addable", skip: "Drag and drop specs fail intermittently." do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
         open_gardens
       end
 
@@ -462,7 +453,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         @widget1.update_attribute :display_order, :first
         @widget2.update_attribute :display_order, :last
 
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "Updates display order in database" do
@@ -478,7 +469,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     describe "editable" do
       before do
         @widget1 = @website_template.aside_after_main_widgets.first
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       it "has a dynamic heading" do
@@ -493,7 +484,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
     describe "Are drag and drop removeable" do
       before do
-        visit "/#{@website.slug}/#{@web_page_template.slug}"
+        visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
       end
 
       describe "When widgets exist on page load" do

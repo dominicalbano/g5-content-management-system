@@ -7,8 +7,10 @@ G5CMS::Application.routes.draw do
   mount Resque::Server, :at => "/resque"
 
   # API endpoints
-  namespace :api do
+  namespace :api, defaults: {format: :json} do
     namespace :v1 do
+      match "*options", to: "widgets#options", via: [:options]
+
       get '/sign_upload', to: 'assets#sign_upload'
       get '/sign_delete', to: 'assets#sign_delete'
 
@@ -20,9 +22,11 @@ G5CMS::Application.routes.draw do
       resources :websites, only: [:index, :show] do
         post "deploy"
       end
+
       resources :website_templates, only: [:show]
       resources :web_layouts, only: [:show, :update]
       resources :web_themes, only: [:show, :update]
+
       resources :head_widgets, only: [:index, :show, :create, :destroy]
       resources :logo_widgets, only: [:index, :show, :create, :destroy]
       resources :btn_widgets, only: [:index, :show, :create, :destroy]
@@ -30,13 +34,12 @@ G5CMS::Application.routes.draw do
       resources :aside_before_main_widgets, only: [:index, :show, :create, :update, :destroy]
       resources :aside_after_main_widgets, only: [:index, :show, :create, :update, :destroy]
       resources :footer_widgets, only: [:index, :show, :create, :destroy]
-
-      resources :web_home_templates, only: [:index, :show, :update]
-      resources :web_page_templates, only: [:index, :show, :create, :update, :destroy]
       resources :main_widgets, only: [:index, :show, :create, :update, :destroy]
+      
+      resources :web_home_templates, only: [:index, :show, :update]
+      resources :web_page_templates, only: [:index, :show, :create, :update, :destroy, :options]
       resources :assets, only: [:index, :show, :create, :update, :destroy]
       resources :categories, only: [:index, :show]
-
       resources :garden_web_layouts, only: [:index] do
         collection do
           post "update"
@@ -58,6 +61,9 @@ G5CMS::Application.routes.draw do
       resources :releases, only: [:index, :show] do
         post "website/:website_slug", to: 'releases#rollback'
       end
+
+      post "websites/:website_id/navigation-settings/update", to: 'websites#update_navigation_settings'
+
       resources :saves, only: [:index, :show, :create] do
         post "restore"
       end
@@ -90,7 +96,13 @@ G5CMS::Application.routes.draw do
 
   # Ember.js application
   get "/:location_slug", to: "locations#index"
-  get "/:location_slug/:web_page_template_slug", to: "locations#index"
+  get "/:location_slug/assets", to: "locations#index"
+  get "/:location_slug/redirect", to: "locations#index"
+  get "/:location_slug/releases", to: "locations#index"
+  get "/:location_slug/redirects", to: "locations#index"
+  get "/:location_slug/docs", to: "locations#index"
+  get "/:location_slug/:web_page_template_slug/edit", to: "locations#index"
+  get "/:location_slug/:web_page_template_slug/new", to: "locations#index"
   get "/:urn/:vertical_slug/:state_slug/:city_slug", to: "web_templates#show"
   get "/:urn/:vertical_slug/:state_slug/:city_slug/:web_template_slug", to: "web_templates#show"
   get "/:vertical_slug/:state_slug/:city_slug/:owner_urn/:web_template_slug", to: "web_templates#show"

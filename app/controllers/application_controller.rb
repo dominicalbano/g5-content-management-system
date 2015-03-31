@@ -3,9 +3,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :client_name
   helper_method :client
-  prepend_before_filter :authenticate_user!
+  prepend_before_filter :authenticate_user!, unless: proc{ Rails.env.development? }
 
   helper G5Header::ApplicationHelper
+
+  before_filter :set_headers, if: proc{ Rails.env.development? }
+  
+  def set_headers
+    headers['X-Frame-Options'] = 'ALLOWALL'
+  end
 
   def client
     @client ||= Client.first

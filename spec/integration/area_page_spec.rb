@@ -19,10 +19,8 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
     end
     let!(:neighborhood_website) { Fabricate(:website, owner: neighborhood_location) }
 
-    before { visit path }
-
     context "state, city and neighborhood parameters" do
-      let(:path) { "/areas/or/bend/foo" }
+      before { visit "/areas/or/bend/foo" }
 
       it "has the appropriate area in the header" do
         expect(page).to have_content("Locations in Foo, Bend, OR")
@@ -55,7 +53,7 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
     end
 
     context "state, and city parameters" do
-      let(:path) { "/areas/or/bend" }
+      before {visit "/areas/or/bend" }
 
       it "has the appropriate area in the header" do
         expect(page).to have_content("Locations in Bend, OR")
@@ -67,7 +65,7 @@ describe "Integration '/areas'", auth_request: true, integration: true, vcr: VCR
     end
 
     context "state only parameters" do
-      let(:path) { "/areas/or" }
+      before {visit "/areas/or"}
 
       it "has the appropriate area in the header" do
         expect(page).to have_content("Locations in OR")

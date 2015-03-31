@@ -18,6 +18,7 @@ class Website < ActiveRecord::Base
   has_many :web_templates
   has_many :assets, dependent: :destroy
   has_many :widgets, through: :web_templates
+  has_many :categories, through: :assets
 
   validates :urn, presence: true, uniqueness: true, unless: :new_record?
 
