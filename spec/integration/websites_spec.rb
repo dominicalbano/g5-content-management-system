@@ -8,6 +8,7 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       @web_page_template = @website.web_page_templates.first
       visit "/#{@website.slug}"
     end
+
     it "displays the website menu" do
       within TOP_NAV do
         page.should have_content "DEPLOY"
@@ -31,26 +32,26 @@ describe "Integration '/:id'", auth_request: true, integration: true, js: true, 
       end
     end
 
-    it "Home 'Edit' link goes to '/:website_slug/:home_slug'" do
+    it "Home 'Edit' link goes to '/:website_slug/:home_slug/edit'" do
       within WEB_HOME_SELECTOR do
         find(:link, 'Edit').trigger('click')
       end
 
-      current_path.should eq "/#{@web_home_template.website.slug}/#{@web_home_template.slug}"
+      current_path.should eq "/#{@web_home_template.website.slug}/#{@web_home_template.slug}/edit"
     end
 
-    it "Page 'Edit' link goes to '/:website_slug/:page_slug'" do
+    it "Page 'Edit' link goes to '/:website_slug/:page_slug/edit'" do
       within WEB_PAGE_SELECTOR do
         find(:link, 'Edit').trigger('click')
       end
 
-      current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}"
+      current_path.should eq "/#{@website.slug}/#{@web_page_template.slug}/edit"
     end
 
-    it "'create new page' link goes to '/:website_slug/webPageTemplates/new'" do
+    it "'create new page' link goes to '/:website_slug/web-page-templates/new'" do
       click_link "Create New Page"
 
-      current_path.should eq "/#{@website.slug}/webPageTemplates/new"
+      current_path.should eq "/#{@website.slug}/web-page-templates/new"
     end
 
   end

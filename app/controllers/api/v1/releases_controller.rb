@@ -5,7 +5,7 @@ class Api::V1::ReleasesController < Api::V1::ApplicationController
 
   def rollback
     release_manager.rollback(params[:release_id])
-    redirect_to root_path, notice: "Rolling Back Deploy. This may take a few minutes."
+    render json: {message: "Rolling Back Deploy. This may take a few minutes."}
   end
 
   private

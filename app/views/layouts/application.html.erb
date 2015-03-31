@@ -4,16 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>G5 CMS: <%= @client_name %></title>
-    <%= stylesheet_link_tag "application" %>
-    <%= javascript_include_tag "application" %>
+    
     <%= csrf_meta_tag %>
     <%= yield(:head) %>
+
+    <meta name="cms/config/environment" content="%7B%22modulePrefix%22%3A%22cms%22%2C%22environment%22%3A%22production%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22auto%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%7D%2C%22exportApplicationGlobal%22%3Afalse%7D" />
+    
+    <script type="text/javascript">
+      var CKEDITOR_BASEPATH = '/assets/ckeditor/';
+    </script>
+
+    <link rel="stylesheet" href="/assets/vendor.css">
+    <link rel="stylesheet" href="/assets/cms.css">
   </head>
+
   <body class="<%= user_class %>">
-    <% flash.each do |name, msg| %>
-      <%= flash_div name %>
-    <% end %>
+    <%# vendor.js needs to be above g5 header since it fulfills its jquery requirement 
+        eventually this needs to be fixed in the g5 header gem possibly wiht a content for block
+        or create an ember addon %>
+    <script src="/assets/vendor.js"></script>
     <%= g5_header %>
     <%= yield %>
+    <script src="/assets/cms.js"></script>
   </body>
+
 </html>

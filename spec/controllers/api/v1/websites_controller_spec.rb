@@ -29,17 +29,32 @@ describe Api::V1::WebsitesController, :auth_controller do
     end
   end
 
+  describe "#update_navigation_settings" do
+    let(:website) { Fabricate(:website) }
+
+    before(:each) do
+      allow(Website).to receive(:find).and_return(website)
+    end
+    
+    it "updates navigation settings" do
+      expect(Resque).to receive(:enqueue)
+      post :update_navigation_settings, website_id: 1
+      expect(response.body).to eq %Q({"message":"Page order Updated."})
+    end
+  end
+
   describe "#deploy" do
     let(:website) { Fabricate(:website) }
 
     before(:each) do
-      Website.stub(:find).and_return(website)
+      allow(Website).to receive(:find).and_return(website)
     end
 
-    it "redirects to root" do
-      Resque.stub(:enqueue).and_return(true)
+    it "queues deploy with async deploy" do
+      # add test for passing email to async_deploy
+      allow(website).to receive(:async_deploy)
       post :deploy, website_id: 1
-      response.should redirect_to root_path
+      expect(response.body).to eq %Q({"message":"Deploying website #{website.name}. This may take few minutes."})
     end
   end
 end

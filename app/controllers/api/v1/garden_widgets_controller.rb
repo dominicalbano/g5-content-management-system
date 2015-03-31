@@ -5,6 +5,6 @@ class Api::V1::GardenWidgetsController < Api::V1::ApplicationController
 
   def update
     Resque.enqueue(GardenWidgetUpdaterJob)
-    redirect_to root_path, notice: "Updating Widgets. This may take a few minutes."
+    render json: {message: "Widget Garden Queued For Update."}
   end
 end

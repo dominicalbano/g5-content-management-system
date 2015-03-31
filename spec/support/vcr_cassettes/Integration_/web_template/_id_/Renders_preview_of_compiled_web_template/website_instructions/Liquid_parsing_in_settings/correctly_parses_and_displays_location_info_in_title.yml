@@ -23,7 +23,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 18 Mar 2015 19:53:08 GMT
+      - Mon, 30 Mar 2015 17:44:34 GMT
       Status:
       - 404 Not Found
       Content-Type:
@@ -31,9 +31,9 @@ http_interactions:
       Content-Length:
       - '728'
       X-Request-Id:
-      - 2383e818-73c1-41d9-b742-60ace1101a85
+      - 28b41af5-0115-478b-98e7-3a540dbdc8f5
       X-Runtime:
-      - '0.005431'
+      - '0.017566'
       Via:
       - 1.1 vegur
     body:
@@ -66,7 +66,208 @@ http_interactions:
         </body>
         </html>
     http_version: 
-  recorded_at: Wed, 18 Mar 2015 19:53:08 GMT
+  recorded_at: Mon, 30 Mar 2015 17:44:35 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/content-stripe/stylesheets/row.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 30 Mar 2015 17:44:37 GMT
+      Status:
+      - 404 Not Found
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '728'
+      X-Request-Id:
+      - 0a08b701-7e63-45df-bbf1-597661927bea
+      X-Runtime:
+      - '0.016152'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>The page you were looking for doesn't exist (404)</title>
+          <style type="text/css">
+            body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+            div.dialog {
+              width: 25em;
+              padding: 0 4em;
+              margin: 4em auto 0 auto;
+              border: 1px solid #ccc;
+              border-right-color: #999;
+              border-bottom-color: #999;
+            }
+            h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+          </style>
+        </head>
+
+        <body>
+          <!-- This file lives in public/404.html -->
+          <div class="dialog">
+            <h1>The page you were looking for doesn't exist.</h1>
+            <p>You may have mistyped the address or the page may have moved.</p>
+          </div>
+        </body>
+        </html>
+    http_version: 
+  recorded_at: Mon, 30 Mar 2015 17:44:39 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/content-stripe/stylesheets/row.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 30 Mar 2015 17:44:42 GMT
+      Status:
+      - 404 Not Found
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '728'
+      X-Request-Id:
+      - 15af8b8a-7529-48b9-9fe3-bc3deda6e470
+      X-Runtime:
+      - '0.007585'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>The page you were looking for doesn't exist (404)</title>
+          <style type="text/css">
+            body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+            div.dialog {
+              width: 25em;
+              padding: 0 4em;
+              margin: 4em auto 0 auto;
+              border: 1px solid #ccc;
+              border-right-color: #999;
+              border-bottom-color: #999;
+            }
+            h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+          </style>
+        </head>
+
+        <body>
+          <!-- This file lives in public/404.html -->
+          <div class="dialog">
+            <h1>The page you were looking for doesn't exist.</h1>
+            <p>You may have mistyped the address or the page may have moved.</p>
+          </div>
+        </body>
+        </html>
+    http_version: 
+  recorded_at: Mon, 30 Mar 2015 17:44:44 GMT
+- request:
+    method: get
+    uri: https://g5-widget-garden.herokuapp.com/static/components/content-stripe/stylesheets/row.css
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Server:
+      - Cowboy
+      Connection:
+      - keep-alive
+      Date:
+      - Mon, 30 Mar 2015 17:44:53 GMT
+      Status:
+      - 404 Not Found
+      Content-Type:
+      - text/html; charset=utf-8
+      Content-Length:
+      - '728'
+      X-Request-Id:
+      - 6da9724a-7e85-448b-bee3-3a4319c96780
+      X-Runtime:
+      - '0.022854'
+      Via:
+      - 1.1 vegur
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>The page you were looking for doesn't exist (404)</title>
+          <style type="text/css">
+            body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
+            div.dialog {
+              width: 25em;
+              padding: 0 4em;
+              margin: 4em auto 0 auto;
+              border: 1px solid #ccc;
+              border-right-color: #999;
+              border-bottom-color: #999;
+            }
+            h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
+          </style>
+        </head>
+
+        <body>
+          <!-- This file lives in public/404.html -->
+          <div class="dialog">
+            <h1>The page you were looking for doesn't exist.</h1>
+            <p>You may have mistyped the address or the page may have moved.</p>
+          </div>
+        </body>
+        </html>
+    http_version: 
+  recorded_at: Mon, 30 Mar 2015 17:44:54 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/button/stylesheets/button.css
@@ -90,11 +291,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 18 Mar 2015 19:53:09 GMT
+      - Mon, 30 Mar 2015 17:44:53 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 17 Mar 2015 22:58:29 GMT
+      - Thu, 26 Mar 2015 01:18:05 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -142,7 +343,7 @@ http_interactions:
           margin: 0 auto 1em;
         }
     http_version: 
-  recorded_at: Wed, 18 Mar 2015 19:53:09 GMT
+  recorded_at: Mon, 30 Mar 2015 17:44:55 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/navigation/stylesheets/navigation.css
@@ -166,11 +367,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 18 Mar 2015 19:53:09 GMT
+      - Mon, 30 Mar 2015 17:44:54 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 17 Mar 2015 22:58:29 GMT
+      - Thu, 26 Mar 2015 01:18:05 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -222,7 +423,7 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 18 Mar 2015 19:53:09 GMT
+  recorded_at: Mon, 30 Mar 2015 17:44:55 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/contact-info/stylesheets/contact-info.css
@@ -246,11 +447,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 18 Mar 2015 19:53:10 GMT
+      - Mon, 30 Mar 2015 17:44:54 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 17 Mar 2015 22:58:29 GMT
+      - Thu, 26 Mar 2015 01:18:05 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -271,7 +472,7 @@ http_interactions:
           margin-top: 0;
         }
     http_version: 
-  recorded_at: Wed, 18 Mar 2015 19:53:10 GMT
+  recorded_at: Mon, 30 Mar 2015 17:44:55 GMT
 - request:
     method: get
     uri: https://g5-widget-garden.herokuapp.com/static/components/footer-info/stylesheets/footer-info.css
@@ -295,11 +496,11 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 18 Mar 2015 19:53:10 GMT
+      - Mon, 30 Mar 2015 17:44:54 GMT
       Status:
       - 200 OK
       Last-Modified:
-      - Tue, 17 Mar 2015 22:58:29 GMT
+      - Thu, 26 Mar 2015 01:18:05 GMT
       Content-Type:
       - text/css
       Content-Length:
@@ -320,7 +521,7 @@ http_interactions:
         200px;\n}\n.footer-info .icon {\n  background-color: #000;\n  height: 40px;\n
         \ width: 40px;\n}"
     http_version: 
-  recorded_at: Wed, 18 Mar 2015 19:53:10 GMT
+  recorded_at: Mon, 30 Mar 2015 17:44:56 GMT
 - request:
     method: get
     uri: https://g5-theme-garden.herokuapp.com/static/components/luxe/stylesheets/luxe.scss
@@ -344,7 +545,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Wed, 18 Mar 2015 19:53:11 GMT
+      - Mon, 30 Mar 2015 17:44:55 GMT
       Status:
       - 200 OK
       Last-Modified:
@@ -1850,5 +2051,5 @@ http_interactions:
           }
         }
     http_version: 
-  recorded_at: Wed, 18 Mar 2015 19:53:11 GMT
+  recorded_at: Mon, 30 Mar 2015 17:44:56 GMT
 recorded_with: VCR 2.9.3

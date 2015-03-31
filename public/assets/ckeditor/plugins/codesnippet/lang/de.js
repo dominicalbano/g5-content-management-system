@@ -1,0 +1,1 @@
+CKEDITOR.plugins.setLang("codesnippet","de",{button:"Codeschnipsel einfügen",codeContents:"Codeinhalt",emptySnippetError:"Ein Codeschnipsel kann nicht leer sein.",language:"Sprache",title:"Codeschnipsel",pathName:"codeschnipsel"});
