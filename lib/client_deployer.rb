@@ -27,7 +27,7 @@ module ClientDeployer
 
   def self.area_pages(compile_path)
     LOGGERS.each {|logger| logger.debug("in area_pages with compile_path: #{compile_path}")}
-    StaticWebsite::Compiler::AreaPages.new(compile_path, Location.for_area_pages)
+    StaticWebsite::Compiler::AreaPages.new(compile_path, Location.for_area_pages.map(&:website))
   end
 
   def self.compile_location_websites
