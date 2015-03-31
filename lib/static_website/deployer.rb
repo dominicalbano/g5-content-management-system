@@ -70,7 +70,13 @@ module StaticWebsite
       FileUtils.mkdir(File.join(@repo_dir, "assets"))
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
 
-      FileUtils.cp_r(File.join(Rails.root, 'public', ActionController::Base.helpers.asset_path("area_page.css")), @repo_dir + ActionController::Base.helpers.asset_path('area_page.css'))
+
+      area_page_css_path = File.join(Rails.root, 'public', ActionController::Base.helpers.asset_path("area_page.css"))
+      area_page_css_destination_path = @repo_dir + ActionController::Base.helpers.asset_path('area_page.css')
+
+      LOGGERS.each{|logger| logger.debug("running fileutils.cp_r with: #{area_page_css_path} : #{area_page_css_destination_path}")}
+
+      FileUtils.cp_r(area_page_css_path, area_page_css_destination_path)
 
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME']) 
