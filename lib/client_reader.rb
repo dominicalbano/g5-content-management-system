@@ -113,7 +113,7 @@ private
   end
 
   def strip_protocols(url)
-    url.gsub('https://', '').gsub('http://', '')
+    url.gsub('https://', '').gsub('http://', '').gsub('//', '')
   end
 
   # Use the provided client UID to grab the microformats2 representation of
