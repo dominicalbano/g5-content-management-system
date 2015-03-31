@@ -89,6 +89,9 @@ private
     location.facebook_id            = uf2_location.try(:g5_nickname_facebook).to_s
     location.twitter_id             = uf2_location.try(:g5_nickname_twitter).to_s
     location.yelp_id                = uf2_location.try(:g5_nickname_yelp).to_s
+    location.pinterest_id           = uf2_location.try(:g5_nickname_pinterest).to_s
+    location.instagram_id           = uf2_location.try(:g5_nickname_instagram).to_s
+    location.youtube_id             = uf2_location.try(:g5_nickname_youtube).to_s
 
     location.save
   end
