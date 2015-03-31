@@ -66,7 +66,7 @@ module StaticWebsite
       end
 
       def area_pages
-        AreaPages.new(website.compile_path, ::Location.live_websites)
+        AreaPages.new(website.compile_path, ::Location.for_area_pages.map(&:website))
       end
 
       def htaccess
