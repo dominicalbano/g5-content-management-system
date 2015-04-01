@@ -166,12 +166,10 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
     end
 
-    describe "diz haz da tooltipz" do
+    describe "Widget has a Popover" do
       before do
         visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
         open_gardens
-        # puts current_url
-        # require 'pry'; binding.pry
       end
 
       it "a popover gets inserted into the page when a widet item is clicked" do
