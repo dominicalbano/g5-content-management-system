@@ -174,7 +174,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
 
       it "a popover gets inserted into the page when a widet item is clicked" do
         garden_widget = find(".widget-list .widget-view .widget:last-of-type")
-        garden_widget.click
+        garden_widget.trigger('click')
 
         page.should have_selector('h3.popover-title', visible: true)
       end
@@ -183,7 +183,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         #find the last widget object above the main widget area.
         garden_widget = find(".widget-list .widget-view .new-widget:last-of-type")
         @widget_text = garden_widget.text
-        garden_widget.click
+        garden_widget.trigger('click')
         popover = find('h3.popover-title') 
 
         popover.should have_content("#{@widget_text}")

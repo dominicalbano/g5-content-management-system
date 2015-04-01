@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150326231158) do
+ActiveRecord::Schema.define(version: 20150314014205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,16 +41,7 @@ ActiveRecord::Schema.define(version: 20150326231158) do
     t.string   "type"
     t.string   "domain"
     t.string   "organization"
-    t.boolean  "secure_domain",        default: false
-    t.string   "go_squared_client_id"
-    t.string   "go_squared_tag"
-    t.string   "cls_url"
-    t.string   "cxm_url"
-    t.string   "dsh_url"
-    t.string   "cpas_url"
-    t.string   "cpns_url"
-    t.string   "nae_url"
-    t.string   "vls_url"
+    t.boolean  "secure_domain", default: false
   end
 
   create_table "drop_targets", force: true do |t|
@@ -121,7 +112,6 @@ ActiveRecord::Schema.define(version: 20150326231158) do
     t.string   "widget_type"
     t.integer  "widget_id"
     t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
-    t.boolean  "liquid",           default: false
     t.text     "widget_popover",   default: ""
   end
 
@@ -144,16 +134,9 @@ ActiveRecord::Schema.define(version: 20150326231158) do
     t.string   "primary_landmark"
     t.string   "qualifier"
     t.string   "floor_plans"
-    t.string   "status",                default: "Pending"
+    t.string   "status",           default: "Pending"
     t.string   "thumb_url"
-    t.boolean  "secure_domain",         default: false
-    t.string   "go_squared_client_id"
-    t.string   "go_squared_site_token"
-    t.string   "ga_tracking_id"
-    t.string   "ga_profile_id"
-    t.string   "facebook_id"
-    t.string   "twitter_id"
-    t.string   "yelp_id"
+    t.boolean  "secure_domain",    default: false
   end
 
   add_index "locations", ["urn"], name: "index_locations_on_urn", using: :btree
