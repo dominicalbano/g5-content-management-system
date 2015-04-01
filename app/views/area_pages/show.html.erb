@@ -14,6 +14,7 @@
 <% content_for(:head_widgets) { raw head_widgets(web_template, is_preview) } %>
 <% content_for(:body_classes) { "area" } %>
 
+<% Rails.logger.debug("raw area_preview with locations: #{locations.map(&:inspect)}")%>
 <%= raw area_preview(web_template.website_layout, web_template, locations, area) %>
 
 <% content_for(:bottom_of_body) { javascript_include_tag(*web_template.javascript_include_paths) } %>

@@ -4,7 +4,7 @@ source "https://msc9777J2TEEbgRsedKE@gem.fury.io/g5dev/"
 ruby "2.2.0"
 
 gem "rails", "4.1.7"
-gem "active_model_serializers", "~> 0.9"
+gem "active_model_serializers", "~> 0.8.2"
 
 gem "heroku_resque_autoscaler"
 gem "microformats2"

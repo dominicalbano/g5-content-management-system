@@ -404,9 +404,9 @@ DEPENDENCIES
   factory_girl_rails
   faker
   foreman
-  g5_authenticatable!
-  g5_header!
-  g5_sibling_deployer_engine!
+  g5_authenticatable
+  g5_header
+  g5_sibling_deployer_engine
   github_heroku_deployer
   guard-rspec
   heroku_resque_autoscaler
