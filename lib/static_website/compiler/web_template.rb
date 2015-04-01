@@ -28,7 +28,8 @@ module StaticWebsite
             location: web_template.try(:owner),
             website: web_template.try(:website),
             web_template: web_template,
-            mode: "deployed"
+            mode: "deployed",
+            is_preview: false
           }
         }
       end

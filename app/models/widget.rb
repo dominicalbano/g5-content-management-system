@@ -61,17 +61,18 @@ class Widget < ActiveRecord::Base
     name == kind
   end
 
-  def render_show_html
-    return RowWidgetShowHtml.new(self).render if kind_of_widget?("Content Stripe")
-    return ColumnWidgetShowHtml.new(self).render if kind_of_widget?("Column")
+  def render_show_html(preview=false)
+    return RowWidgetShowHtml.new(self, preview).render if kind_of_widget?("Content Stripe")
+    return ColumnWidgetShowHtml.new(self, preview).render if kind_of_widget?("Column")
 
     Liquid::Template.parse(show_html).render(
-      "widget" => WidgetDrop.new(self, client.try(:locations)))
+      "widget" => WidgetDrop.new(self, client.try(:locations), preview))
   end
 
   def render_edit_html
     Liquid::Template.parse(edit_html).render(
-      "widget" => WidgetDrop.new(self, client.try(:locations)))
+      "widget" => WidgetDrop.new(self, client.try(:locations))
+    )
   end
 
   def create_widget_entry_if_updated

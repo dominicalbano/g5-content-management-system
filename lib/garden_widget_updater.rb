@@ -1,7 +1,21 @@
 class GardenWidgetUpdater
+  MAX_ATTEMPTS = 5
+
   def update_all
     updated_garden_widgets = []
-    components_data = components_microformats
+    attempts = 0
+    begin
+      components_data = components_microformats
+    rescue Exception => ex
+      Rails.logger.info "Error getting edit html: #{ex}"
+      attempts += 1
+      sleep 15
+      if attempts < MAX_ATTEMPTS
+        retry 
+      else
+        raise ex
+      end
+    end
 
     components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
@@ -114,7 +128,15 @@ class GardenWidgetUpdater
   def get_edit_html(component)
     if component.respond_to?(:g5_edit_template)
       url = component.g5_edit_template.to_s
-      open(url).read if url
+      attempts = 0
+      begin
+        open(url).read if url
+      rescue Exception => ex
+        Rails.logger.info "Error getting edit html: #{ex}"
+        attempts += 1
+        sleep 15
+        retry if attempts < MAX_ATTEMPTS
+      end
     end
   end
 
@@ -127,7 +149,14 @@ class GardenWidgetUpdater
   def get_show_html(component)
     if component.respond_to?(:g5_show_template)
       url = component.g5_show_template.to_s
-      open(url).read if url
+      begin
+        open(url).read if url
+      rescue Exception => ex
+        Rails.logger.info "Error getting edit html: #{ex}"
+        attempts += 1
+        sleep 15
+        retry if attempts < MAX_ATTEMPTS
+      end
     end
   end
 

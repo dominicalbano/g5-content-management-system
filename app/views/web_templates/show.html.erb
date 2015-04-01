@@ -4,7 +4,7 @@
     <script type="text/javascript">
       if(!window.console)var console={log:function(){},warn:function(){},error:function(){},time:function(){},timeEnd:function(){}};
     </script>
-  <% if mode == "preview" %>
+  <% if is_preview %>
     <base href="<%= request.protocol + [request.host_with_port, @location.urn].join('/') %>/">
     <STYLE type="text/css">
       <% web_template.stylesheet_link_paths.each do |css| %>
@@ -32,15 +32,15 @@
 
 <% content_for(:head) { raw web_template.decorate.canonical_link_element } %>
 
-<% content_for(:head_widgets) { raw meta_description_widgets(web_template) } %>
-<% content_for(:head_widgets) { raw head_widgets(web_template) } %>
+<% content_for(:head_widgets) { raw meta_description_widgets(web_template, is_preview) } %>
+<% content_for(:head_widgets) { raw head_widgets(web_template, is_preview) } %>
 
 <% content_for(:body_classes) { "page-#{web_template.name.parameterize} #{web_template.body_class} #{web_template.location_body_class}" } %>
 
-<%= raw preview(web_template.website_layout, web_template) %>
+<%= raw preview(web_template.website_layout, web_template, is_preview) %>
 
 <% content_for(:bottom_of_body) do %> 
-  <% if mode == "preview" %>
+  <% if is_preview %>
     <%= javascript_include_tag(*web_template.javascripts) %>
 
     <script id="preview-configs" type="application/json">

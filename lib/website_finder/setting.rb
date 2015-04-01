@@ -9,7 +9,7 @@ class WebsiteFinder::Setting < WebsiteFinder::Base
     loop do
       @website = website_for(@owner)
       return @website if @website.present?
-      setting = layout_setting_for(@owner.id)
+      setting = layout_setting_for(@owner)
       return unless setting
 
       @owner = setting.owner
