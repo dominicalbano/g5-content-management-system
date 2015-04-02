@@ -142,7 +142,7 @@ class Widget < ActiveRecord::Base
 
   def parent_widget
     setting = parent_setting
-    Widget.find(setting.owner_id) if setting
+    Widget.find_by_id(setting.owner_id) if setting
   end
 
   def child_widgets

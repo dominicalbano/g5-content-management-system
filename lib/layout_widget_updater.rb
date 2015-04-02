@@ -18,7 +18,7 @@ class LayoutWidgetUpdater
   end
 
   def destroy_old_widget
-    Widget.find(widget_id_setting_value).try(:destroy) if widget_id_setting_value
+    Widget.find_by_id(widget_id_setting_value).try(:destroy) if widget_id_setting_value
   rescue ActiveRecord::RecordNotFound
   end
 

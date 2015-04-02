@@ -35,16 +35,16 @@ class Cloner::WidgetCloner
           begin
             # Try your best
 
-            widget_b = Widget.find(widget_b.id)
+            widget_b = Widget.find_by_id(widget_b.id)
             Rails.logger.debug("widget_b id is: #{widget_b.id}")
 
             widget_id = s.name.gsub('_name', '_id')
             #new_widget = Widget.find(widget_b.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
-            new_widget = Widget.find(widget_b.get_setting_value(widget_id))
+            new_widget = Widget.find_by_id(widget_b.get_setting_value(widget_id))
             Rails.logger.debug("new_widget id is: #{new_widget.id}")
 
             #orig_widget = Widget.find(widget_a.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
-            orig_widget = Widget.find(widget_a.get_setting_value(widget_id))
+            orig_widget = Widget.find_by_id(widget_a.get_setting_value(widget_id))
             Rails.logger.debug("orig_widget is #{orig_widget}")
 
             if s.is_layout?

@@ -18,7 +18,7 @@ class LayoutWidgetShowHtml
 
   def find_widget(setting_name)
     id = @widget.get_setting_value(setting_name)
-    Widget.find(id) if id
+    Widget.find_by_id(id) if id
   end
 
   def render_widgets
