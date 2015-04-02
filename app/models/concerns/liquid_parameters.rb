@@ -54,7 +54,7 @@ module LiquidParameters
       "client_go_squared_id"      => client.go_squared_client_id,
       "client_go_squared_tag"     => client.go_squared_tag,
       "client_cls_url"            => client.cls_url,
-      "client_cxm_url"            => client.cls_url,
+      "client_cxm_url"            => client.cxm_url,
       "client_dsh_url"            => client.dsh_url,
       "client_cpas_url"           => client.cpas_url,
       "client_cpns_url"           => client.cpns_url,
