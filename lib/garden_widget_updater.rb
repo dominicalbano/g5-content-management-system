@@ -1,7 +1,7 @@
 class GardenWidgetUpdater
   MAX_ATTEMPTS = 5
 
-  def update_all
+  def update_all(force_all=false)
     updated_garden_widgets = []
     attempts = 0
     begin
@@ -20,7 +20,7 @@ class GardenWidgetUpdater
     components_data.map do |component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
       
-      if (get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
+      if (force_all || get_url(component) != garden_widget.url) || (get_modified(component) != garden_widget.widget_modified)
         update(garden_widget, component)
       end
       
