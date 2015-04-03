@@ -23,7 +23,7 @@ module LiquidParameters
       "location_uid"              => location.uid,
       "location_urn"              => location.urn,
       "location_domain"           => location.domain,
-      "location_corporate"        => location.corporate,
+      "location_corporate"        => location.corporate ? 'true' : 'false',
       "location_name"             => location.name,
       "location_city"             => location.city,
       "location_state"            => location.state,
