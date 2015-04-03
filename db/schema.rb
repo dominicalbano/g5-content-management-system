@@ -122,6 +122,7 @@ ActiveRecord::Schema.define(version: 20150331220103) do
     t.integer  "widget_id"
     t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
     t.boolean  "liquid",           default: false
+    t.text     "widget_popover",   default: ""
   end
 
   create_table "locations", force: true do |t|
