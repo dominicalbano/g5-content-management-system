@@ -5,7 +5,7 @@ module Seeder
     def initialize(location, instructions=nil)
       @location = location
       @client = Client.first
-      load_instructions(instructions || @client.website_defaults)
+      load_instructions(instructions || @location.website_defaults)
       @location.website.destroy unless @location.website.nil?
       @website = @location.create_website
     end

@@ -47,6 +47,17 @@ class Location < ActiveRecord::Base
     BucketCreator.new(self).create
   end
 
+  def website_defaults
+    HashWithIndifferentAccess.new(YAML.load_file(website_default_file))
+  end
+
+  def website_default_file
+    vert = Client.take.vertical.downcase.underscore
+    corp = "_corporate" if corporate
+    file = "#{WEBSITE_DEFAULTS_PATH}/website_defaults_#{vert}#{corp}.yml"
+    File.exists?(file) ? file : "defaults.yml"
+  end
+
   private
 
   def set_city_slug_from_city

@@ -30,19 +30,6 @@ class Client < ActiveRecord::Base
     Resque.enqueue(ClientDeployerJob, user_email)
   end
 
-  def website_defaults
-    case vertical
-    when 'Senior-Living'
-      WEBSITE_DEFAULTS_SENIOR_LIVING
-    when 'Apartments'
-      WEBSITE_DEFAULTS_APARTMENTS
-    when 'Self-Storage'
-      WEBSITE_DEFAULTS_SELF_STORAGE
-    else
-      WEBSITE_DEFAULTS
-    end
-  end
-
   def create_bucket
     BucketCreator.new(self).create
   end

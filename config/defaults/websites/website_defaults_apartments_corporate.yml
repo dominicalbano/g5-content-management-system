@@ -4,7 +4,7 @@
   :web_layout:
     :slug: rows
   :web_theme:
-    :slug: compass-rock-c
+    :slug: ivy
   :drop_targets:
   - :html_id: drop-target-head
     :widgets:
@@ -472,7 +472,3 @@
         - :slug: html
         - :slug: promoted-reviews
       - :slug: contact-info
-    - :slug: content-stripe
-      :row_layout: single
-      :widgets:
-      - :slug: gallery

@@ -23,44 +23,6 @@ describe Client do
   describe "instance methods" do
     let(:client) {Fabricate(:client)}
 
-    describe "#website_defaults" do
-      let!(:client) { Fabricate(:client, vertical: vertical) }
-
-      subject { client.website_defaults }
-
-      context "Self Storage" do
-        let(:vertical) { "Self-Storage" }
-
-        it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_self_storage")
-        end
-      end
-
-      context "Apartments" do
-        let(:vertical) { "Apartments" }
-
-        it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_apartments")
-        end
-      end
-
-      context "Assisted Living" do
-        let(:vertical) { "senior-Living" }
-
-        it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_senior_living")
-        end
-      end
-
-      context "everything else" do
-        let(:vertical) { "foo" }
-
-        it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("defaults")
-        end
-      end
-    end
-
     describe "#deploy" do
       it "calls StaticWebsiteDeployerJob with urn" do
         ClientDeployerJob.should_receive(:perform).once

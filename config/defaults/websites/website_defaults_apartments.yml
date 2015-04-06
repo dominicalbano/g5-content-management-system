@@ -1,244 +1,474 @@
-website_template:
-  name: Website Template
-  web_layout:
-    slug: rows
-  web_theme:
-    slug: luxe
-  drop_targets:
-    - html_id: drop-target-head
-      widgets:
-        - slug: meta
-        - slug: typekit
-        - slug: analytics
-    - html_id: drop-target-logo
-      widgets:
-        - slug: logo
-    - html_id: drop-target-btn
-      widgets:
-        - slug: button
-    - html_id: drop-target-nav
-      widgets:
-        - slug: navigation
-    - html_id: drop-target-aside-before-main
-      widgets:
-        - slug: navigation
-          settings:
-            - name: display_as_calls_to_action
-              value: "true"
-    - html_id: drop-target-aside-after-main
-      widgets:
-        - slug: contact-info
-    - html_id: drop-target-footer
-      widgets:
-        - slug: contact-info
-        - slug: footer-info
-
-web_home_template:
-  name: Home
-  title: "Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}} with {{location_primary_amenity}}"
-  drop_targets:
-    - html_id: drop-target-main
-      widgets:
-        - slug: content-stripe
-        - slug: content-stripe
-        - slug: content-stripe
-        - slug: meta-description
-          settings:
-            - name: meta_description
-              value: "Find out how great life is at our {{location_neighborhood}} {{location_city}} apartments! To learn more about apartments for rent at {{location_name}} in {{location_city}}, {{location_state}}, please visit our website."
-
-web_page_templates:
-  - name: Floor Plans
-    title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "{{location_floor_plans}} bedroom apartments in {{location_city}}, {{location_state}}; visit our website to find the floor plan at {{location_name}} that will best work for you."
-
-  - name: Amenities
-    title: "{{location_city}} {{location_qualifier}} Apartment Amenities at {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "{{{location_city}} {{location_qualifier}} apartment amenities are designed to meet all your needs at {{location_name}}. We are located near {{location_primary_landmark}} in {{location_city}}, {{location_state}}."
-
-  - name: Photo Gallery
-    title: "Photos of our Apartments in {{location_city}} | {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "Want to see photos of our apartments in {{location_city}}, {{location_state}}? Visit our website and picture yourself at {{location_name}}."
-
-  - name: Neighborhood
-    title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}} | {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "Life is great at our {{location_neighborhood}} {{location_city}} apartments near {{location_primary_landmark}}; call {{location_name}} today at {{location_marketing_number}}."
-
-  - name: Map and Directions
-    title: "Directions to Apartments for Rent in {{location_city}}, {{location_state}} | {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "For map & directions to our apartments for rent in {{location_city}}, {{location_state}}, visit {{location_name}} at our website."
-
-  - name: Residents
-    title: "Information for Current Residents at {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "{{location_name}} in {{location_city}}, {{location_state}}, offers apartment residents the resources to ensure your lifestyle is everything that you want it to be."
-
-  - name: Apply
-    title: "Apply to live at {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "Do you like what you've seen and want to apply to live at {{ store.branded_name }}? Do it from the comfort of your sofa on our website today."
-
-  - name: Schedule Tour
-    title: "Schedule a tour to view {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "Want to see more of {{ store.branded_name }}? Touch and feel our community by scheduling a tour."
-
-  - name: Request Information
-    title: "Request information from {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "Do you like what you see on {{ store.branded_name }}'s website and want more information? Request information today!"
-
-  - name: Contact Us
-    title: "Contact {{location_name}} in {{location_city}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "At {{ store.branded_name }}  we are dedicated to your satisfaction. Contact us to learn more about our apartment rentals in {{ store.city }}."
-
-  - name: Pet Friendly
-    title: "Pet Friendly Apartments in {{location_city}} by {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "{{ store.branded_name }} offers pet friendly apartments in {{ store.city }}, {{ store.state }}; visit our website or call {{ store.marketing_number }} to learn more."
-
-  - name: Community Events
-    title: "Events at {{location_name}} in {{location_city}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "There is always something going on at {{ store.branded_name }}; visit our calendar of events page and never miss anything."
-
-  - name: Maintenance Request
-    title: "Maintenance request at {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "Do you live at {{ store.branded_name }} and have noticed something not working properly on the property? Submit a maintenance request today!"
-
-  - name: Suggestion Box
-    title: "Suggestion box at {{location_name}}"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "Do you live at {{ store.branded_name }} and have a suggestion that you'd like our management team to read? Submit your idea via our online suggestion box!"
-
-  - name: Privacy Policy
-    title: "{{location_name}}'s Privacy Policy"
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: meta-description
-            settings:
-              - name: meta_description
-                value: "{{ store.branded_name }} collects only the information that you give in order to provide the best possible care, and we never share.  View our privacy policy at our website."
+---
+:website_template:
+  :name: Website Template
+  :web_layout:
+    :slug: rows
+  :web_theme:
+    :slug: ivy
+  :drop_targets:
+  - :html_id: drop-target-head
+    :widgets:
+    - :slug: meta
+    - :slug: typekit
+    - :slug: analytics
+  - :html_id: drop-target-logo
+    :widgets:
+    - :slug: logo
+  - :html_id: drop-target-phone
+    :widgets: []
+  - :html_id: drop-target-btn
+    :widgets: []
+  - :html_id: drop-target-nav
+    :widgets:
+    - :slug: navigation
+      :settings:
+      - :name: display_navigation
+        :value: 'true'
+      - :name: display_as_calls_to_action
+        :value: 'false'
+      - :name: display_corporate_navigation
+        :value: 'false'
+  - :html_id: drop-target-aside-before-main
+    :widgets:
+    - :slug: contact-info-sheet
+    - :slug: promoted-reviews
+  - :html_id: drop-target-aside-after-main
+    :widgets: []
+  - :html_id: drop-target-footer
+    :widgets:
+    - :slug: contact-info
+    - :slug: footer-info
+:web_home_template:
+  :name: Home
+  :title: Apartments in {{location_city}}, {{location_state}} | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
+          website today. '
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: three
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: photo
+        - :slug: home-page-multifamily-iui
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: gallery
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: map
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: photo
+      - :slug: social-feed
+:web_page_templates:
+- :name: Floor Plans
+  :title: "{{location_floor_plans}} in {{location_city}}, {{location_state}} with
+    {{location_primary_amenity}}"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Are you looking for spacious 1 and 2 bedroom student apartments in
+          {{location_city}}? Visit {{location_name}}'s website for more information.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: multifamily-iui-cards
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+- :name: Amenities
+  :title: "{{location_city}}, {{location_state}} Apartment Amenities at {{location_name}}"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} offers some of the nicest {{location_city}} apartments
+          near University of {{location_city}} and Lake Billmore."
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: photo
+      - :slug: html
+      - :slug: html
+- :name: Photos
+  :title: Photos of Our Apartments in {{location_city}}, {{location_state}} | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: For photos of Contemporary apartments in {{location_city}} or to see
+          your new apartment home visit the {{location_name}} website today for more
+          information.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: gallery
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+- :name: Neighborhood
+  :title: "{{location_neighborhood}} {{location_city}}, {{location_state}} Apartments
+    near {{location_primary_landmark}} | {{location_name}}"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} provides apartments near Lake Billmore in {{location_city}}.
+          Learn more about our units with Covered Parking by visiting our website
+          today."
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+- :name: Map & Directions
+  :title: Directions to Apartments for Rent in {{location_city}}, {{location_state}}
+    | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: For map & directions to apartments for rent in {{location_city}},
+          {{location_state}} visit the {{location_name}} website.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: map
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+- :name: Residents
+  :title: Information for Current Residents at {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Are you a resident at {{location_name}} and looking for some helpful
+          information? Visit our website today.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+      - :slug: html
+      - :slug: html
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+      - :slug: html
+- :name: Apply
+  :title: Apply to Live at {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you like what you've seen and want to apply to live at {{location_name}}?
+          Do it from the comfort of your sofa on our website today.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: lead-form
+      - :slug: contact-info
+- :name: Schedule Tour
+  :title: Schedule a Tour to View {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Want to see more of {{location_name}}? Touch and feel our community
+          by scheduling a tour.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: lead-form
+      - :slug: contact-info
+- :name: Request Information
+  :title: Request Information from {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you like what you see on {{location_name}}' website and want more
+          information? You can request it here.
+    - :slug: content-stripe
+      :row_layout: 
+      :widgets: []
+- :name: Contact Us
+  :title: Contact {{location_name}} in {{location_city}}, {{location_state}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Find {{location_name}}' contact information on our website today.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: lead-form
+      - :slug: contact-info
+- :name: Pet Friendly
+  :title: Pet Friendly Apartments in {{location_city}} by {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} offers pet friendly apartments in {{location_city}},
+          {{location_state}}; visit our website to learn more."
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+- :name: Community Events
+  :title: Events at {{location_name}} in {{location_city}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: For information about whats going on at {{location_name}} visit our
+          Event Calendar page today.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+- :name: Maintenance Request
+  :title: Maintenance Request at {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you live at {{location_name}} and have noticed that something isn't
+          working properly on the property? Submit a maintenance request today.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: lead-form
+- :name: Suggestion Box
+  :title: Suggestion Box at {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Visit {{location_name}}' website if you have a suggestion that you'd
+          like our management team to read.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: lead-form
+      - :slug: contact-info
+- :name: Privacy Policy
+  :title: "{{location_name}}'s Privacy Policy"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} collects only the information that you give in
+          order to provide the best possible care, and we never share. View our privacy
+          policy at our website."
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: html
+    - :slug: column
+      :row_count: 
+      :widgets: []
+- :name: Apply Now
+  :title: Apply Now
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings: []
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: lead-form
+      - :slug: contact-info
+- :name: Reviews
+  :title: Customer Reviews of {{ location_name }} in {{ location_city }}, {{ location_state
+    }}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Read what our customers are saying about us! Visit our site to read
+          customer reviews.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+        - :slug: promoted-reviews
+      - :slug: contact-info
