@@ -90,7 +90,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: {{client_name}} locations.
+        :value: "{{client_name}} Locations."
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
