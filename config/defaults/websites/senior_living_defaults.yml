@@ -53,6 +53,11 @@
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:
@@ -66,6 +71,11 @@
       :row_layout: halves
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: map
     - :slug: content-stripe
       :row_layout: halves
@@ -82,12 +92,17 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Are you looking for spacious 1 and 2 bedroom student senior livings in
-          {{location_city}}? Visit {{location_name}}'s website for more information.
+        :value: Are you looking for spacious 1 and 2 bedroom student senior livings
+          in {{location_city}}? Visit {{location_name}}'s website for more information.
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -97,24 +112,36 @@
         :widgets:
         - :slug: multifamily-iui-cards
         - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: contact-info
         - :slug: social-links
 - :name: Amenities
-  :title: "{{location_city}}, {{location_state}} Senior Living Facility Amenities at {{location_name}}"
+  :title: "{{location_city}}, {{location_state}} Senior Living Facility Amenities
+    at {{location_name}}"
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{location_name}} offers some of the nicest {{location_city}} senior living facilities."
+        :value: "{{location_name}} offers some of the nicest {{location_city}} senior
+          living facilities."
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -124,6 +151,11 @@
         :widgets:
         - :slug: photo
         - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:
@@ -134,22 +166,38 @@
       :widgets:
       - :slug: photo
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
 - :name: Photos
-  :title: Photos of Our Senior Living Facilities in {{location_city}}, {{location_state}} | {{location_name}}
+  :title: Photos of Our Senior Living Facilities in {{location_city}}, {{location_state}}
+    | {{location_name}}
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: For photos of senior living facilities in {{location_city}} or to see
-          your new senior living home visit the {{location_name}} website today for more
-          information.
+        :value: For {{page_slug}} of senior living facilities in {{location_city}}
+          or to see your new senior living home visit the {{location_name}} website
+          today for more information.
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -159,6 +207,11 @@
         :widgets:
         - :slug: gallery
         - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:

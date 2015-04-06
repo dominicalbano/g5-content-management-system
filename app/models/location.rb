@@ -53,8 +53,8 @@ class Location < ActiveRecord::Base
 
   def website_default_file
     vert = Client.take.vertical.downcase.underscore
-    corp = "_corporate" if corporate
-    file = "#{WEBSITE_DEFAULTS_PATH}/website_defaults_#{vert}#{corp}.yml"
+    corp = "_corp" if corporate
+    file = "#{WEBSITE_DEFAULTS_PATH}/#{vert}#{corp}_defaults.yml"
     File.exists?(file) ? file : "#{WEBSITE_DEFAULTS_PATH}/defaults.yml"
   end
 

@@ -40,15 +40,14 @@
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: Apartments in {{client_name}}
+  :title: "{{client_name}} Senior Living Facilities"
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{client_name}} by visiting our
-          website today. '
+        :value: 'Learn about {{client_name}} by visiting our website today. '
     - :slug: content-stripe
       :row_layout: single
       :widgets:
@@ -57,11 +56,16 @@
         :widgets:
         - :slug: calls-to-action
         - :slug: photo
-        - :slug: self-storage-iui-filtered
+        - :slug: home-page-multifamily-iui
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:
@@ -75,6 +79,11 @@
       :row_layout: halves
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: map
     - :slug: content-stripe
       :row_layout: halves
@@ -90,11 +99,16 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{client_name}} locations."
+        :value: "{{client_name}} {{page_slug}}."
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -104,24 +118,34 @@
         :widgets:
         - :slug: photo
         - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: contact-info
         - :slug: social-links
 - :name: Features
-  :title: "{{client_name}} Storage Unit Features"
+  :title: "{{client_name}} Senior Living Facility Features"
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{client_name}} offers some of the nicest apartments."
+        :value: "{{client_name}} senior living facilities."
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -131,6 +155,11 @@
         :widgets:
         - :slug: photo
         - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:
@@ -141,20 +170,35 @@
       :widgets:
       - :slug: photo
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
 - :name: Photos
-  :title: Photos of Our Storage Units
+  :title: Photos of Our Senior Living Facilities
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Photos of Storage Units
+        :value: "{{page_name}} of senior living facilities"
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: calls-to-action
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -164,6 +208,11 @@
         :widgets:
         - :slug: gallery
         - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
         :row_count: two
         :widgets:

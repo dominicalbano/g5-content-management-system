@@ -1,0 +1,433 @@
+---
+:website_template:
+  :name: Website Template
+  :web_layout:
+    :slug: rows
+  :web_theme:
+    :slug: ivy
+  :drop_targets:
+  - :html_id: drop-target-head
+    :widgets:
+    - :slug: meta
+    - :slug: typekit
+    - :slug: analytics
+  - :html_id: drop-target-logo
+    :widgets:
+    - :slug: logo
+  - :html_id: drop-target-phone
+    :widgets: []
+  - :html_id: drop-target-btn
+    :widgets: []
+  - :html_id: drop-target-nav
+    :widgets:
+    - :slug: navigation
+      :settings:
+      - :name: display_navigation
+        :value: 'true'
+      - :name: display_as_calls_to_action
+        :value: 'false'
+      - :name: display_corporate_navigation
+        :value: 'false'
+  - :html_id: drop-target-aside-before-main
+    :widgets:
+    - :slug: contact-info-sheet
+    - :slug: promoted-reviews
+  - :html_id: drop-target-aside-after-main
+    :widgets: []
+  - :html_id: drop-target-footer
+    :widgets:
+    - :slug: contact-info
+    - :slug: footer-info
+:web_home_template:
+  :name: Home
+  :title: 'Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}}
+    with {{location_primary_amenity}} '
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
+          website today. '
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: social-feed
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+:web_page_templates:
+- :name: Floor Plans
+  :title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_floor_plans}} bedroom apartments in {{location_city}},
+          {{location_state}}; visit our website to find the floor plan at {{location_name}}
+          that will work best for you."
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: contact-info
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: floorplans-cards
+- :name: Amenities
+  :title: "{{location_city}} {{location_qualifier}} Apartment Amenities at {{location_name}}"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_city}} {{location_qualifier}} apartment {{page_slug}}
+          are designed to meet all your needs at {{location_name}}. We are located
+          near {{location_primary_landmark}} in {{location_city}}, {{location_state}}. "
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: contact-info
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: photo
+- :name: Photos
+  :title: Photos of our Apartments in {{location_city}} | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Want to see {{page_slug}} of our apartments in {{location_city}},
+          {{location_state}}? Visit our website and picture yourself at {{location_name}}.
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: contact-info
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: gallery
+- :name: Neighborhood
+  :title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}}
+    | {{location_name}}"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Life is great at our {{location_{{page_slug}}}} {{location_city}}
+          apartments near {{location_primary_landmark}}; call {{location_name}} today
+          at {{location_marketing_number}}.
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: contact-info
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: photo
+- :name: Map & Directions
+  :title: Directions to Apartments for Rent in {{location_city}}, {{location_state}}
+    | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: For a map & directions to our apartments for rent in {{location_city}},
+          {{location_state}}, visit {{location_name}} at our website.
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: three
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+        - :slug: directions
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: contact-info
+- :name: Residents
+  :title: Information for Current Residents at {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} in {{location_city}}, {{location_state}}, offers
+          apartment {{page_slug}} the resources to ensure your lifestyle is everything
+          that you want it to be."
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Contact Us
+  :title: Contact {{location_name}} in {{location_city}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings: []
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+        - :slug: lead-form
+- :name: Events
+  :title: Events at {{location_name}} in {{location_city}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'There is always something going on at {{location_name}}; visit our
+          calendar of {{page_slug}} page to stay caught up with what''s happening. '
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: contact-info
+- :name: Reviews
+  :title: Testimonials about {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: People are talking about {{location_name}}; find out what they are
+          saying by visiting our testimonials page and reading {{page_slug}}.
+    - :slug: photo
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+        - :slug: promoted-reviews
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: contact-info

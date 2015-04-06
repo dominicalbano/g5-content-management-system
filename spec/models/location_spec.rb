@@ -147,7 +147,7 @@ describe Location do
         let(:vertical) { "Self-Storage" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_self_storage_corporate")
+          expect(subject).to eq load_website_yaml_file("self_storage_corp_defaults")
         end
       end
 
@@ -155,15 +155,15 @@ describe Location do
         let(:vertical) { "Apartments" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_apartments_corporate")
+          expect(subject).to eq load_website_yaml_file("apartments_corp_defaults")
         end
       end
 
-      context "Assisted Living" do
+      context "Senior Living" do
         let(:vertical) { "senior-Living" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_senior_living_corporate")
+          expect(subject).to eq load_website_yaml_file("senior_living_corp_defaults")
         end
       end
 
@@ -182,7 +182,7 @@ describe Location do
         let(:vertical) { "Self-Storage" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_self_storage")
+          expect(subject).to eq load_website_yaml_file("self_storage_defaults")
         end
       end
 
@@ -190,15 +190,15 @@ describe Location do
         let(:vertical) { "Apartments" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_apartments")
+          expect(subject).to eq load_website_yaml_file("apartments_defaults")
         end
       end
 
-      context "Assisted Living" do
+      context "Senior Living" do
         let(:vertical) { "senior-Living" }
 
         it "loads the appropriate defaults" do
-          expect(subject).to eq load_website_yaml_file("website_defaults_senior_living")
+          expect(subject).to eq load_website_yaml_file("senior_living_defaults")
         end
       end
 
