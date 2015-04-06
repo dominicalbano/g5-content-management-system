@@ -40,15 +40,14 @@
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: Senior Living Facilities in {{location_city}}, {{location_state}} | {{location_name}}
+  :title: {{client_name}} Senior Living Facilities
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
-          website today. '
+        :value: 'Learn about {{client_name}} by visiting our website today. '
     - :slug: content-stripe
       :row_layout: single
       :widgets:
@@ -90,7 +89,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: {{client_name}} locations.
+        :value: '{{client_name}} locations.'
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
@@ -117,7 +116,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{location_name}} offers some of the nicest {{location_city}} senior living facilities."
+        :value: "{{client_name}} senior living facilities."
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
@@ -143,14 +142,14 @@
       - :slug: html
       - :slug: html
 - :name: Photos
-  :title: Photos of Our Senior Living Facilities in {{location_city}}, {{location_state}} | {{location_name}}
+  :title: Photos of Our Senior Living Facilities
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Photos of Contemporary senior living facilities
+        :value: Photos of senior living facilities
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:

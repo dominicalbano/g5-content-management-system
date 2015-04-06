@@ -40,14 +40,14 @@
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: Apartments in {{location_city}}, {{location_state}} | {{location_name}}
+  :title: Apartments in {{client_name}}
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
+        :value: 'Learn about {{client_name}} by visiting our
           website today. '
     - :slug: content-stripe
       :row_layout: single
@@ -143,7 +143,7 @@
       - :slug: html
       - :slug: html
 - :name: Photos
-  :title: Photos of Our Storage Units in {{location_city}}, {{location_state}} | {{location_name}}
+  :title: Photos of Our Storage Units
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
