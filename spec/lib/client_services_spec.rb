@@ -8,7 +8,7 @@ describe ClientServices do
 
   before do
     @client_services = ClientServices.new
-    @heroku_app_max_length = ClientServices::HEROKU_APP_NAME_MAX_LENGTH
+    @heroku_app_max_length = G5HerokuAppNameFormatter::Formatter::HEROKU_APP_NAME_LIMIT
   end
 
   describe "#client" do
