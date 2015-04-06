@@ -1,164 +1,171 @@
-website_template:
-  name: Website Template
-  web_layout:
-    slug: rows
-  web_theme:
-    slug: luxe
-  drop_targets:
-    - html_id: drop-target-head
-      widgets:
-        - slug: meta
-        - slug: typekit
-        - slug: analytics
-    - html_id: drop-target-logo
-      widgets:
-        - slug: logo
-    - html_id: drop-target-btn
-      widgets:
-        - slug: button
-    - html_id: drop-target-nav
-      widgets:
-        - slug: navigation
-    - html_id: drop-target-aside-before-main
-      widgets:
-        - slug: navigation
-          settings:
-            - name: display_as_calls_to_action
-              value: "true"
-    - html_id: drop-target-aside-after-main
-      widgets:
-        - slug: contact-info
-    - html_id: drop-target-footer
-      widgets:
-        - slug: contact-info
-        - slug: footer-info
-
-web_home_template:
-  name: Home
-  drop_targets:
-    - html_id: drop-target-main
-      widgets:
-        - slug: content-stripe
-        - slug: content-stripe
-        - slug: content-stripe
-
-web_page_templates:
-  - name: Floor Plans
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Amenities
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Photo Gallery
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Neighborhood
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Map and Directions
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Residents
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Apply
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Schedule Tour
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Request Information
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Contact Us
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Pet Friendly
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Community Events
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Maintenance Request
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Suggestion Box
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
-
-  - name: Privacy Policy
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: content-stripe
-          - slug: content-stripe
-          - slug: content-stripe
+---
+:website_template:
+  :name: Website Template
+  :web_layout:
+    :slug: rows
+  :web_theme:
+    :slug: ivy
+  :drop_targets:
+  - :html_id: drop-target-head
+    :widgets:
+    - :slug: meta
+    - :slug: typekit
+    - :slug: analytics
+  - :html_id: drop-target-logo
+    :widgets:
+    - :slug: logo
+  - :html_id: drop-target-phone
+    :widgets: []
+  - :html_id: drop-target-btn
+    :widgets: []
+  - :html_id: drop-target-nav
+    :widgets:
+    - :slug: navigation
+      :settings:
+      - :name: display_navigation
+        :value: 'true'
+      - :name: display_as_calls_to_action
+        :value: 'false'
+      - :name: display_corporate_navigation
+        :value: 'false'
+  - :html_id: drop-target-aside-before-main
+    :widgets:
+    - :slug: contact-info-sheet
+    - :slug: promoted-reviews
+  - :html_id: drop-target-aside-after-main
+    :widgets: []
+  - :html_id: drop-target-footer
+    :widgets:
+    - :slug: contact-info
+    - :slug: footer-info
+:web_home_template:
+  :name: Home
+  :title: Senior Living Facilities in {{location_city}}, {{location_state}} | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
+          website today. '
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: three
+        :widgets:
+        - :slug: calls-to-action
+        - :slug: photo
+        - :slug: home-page-multifamily-iui
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
+      - :slug: gallery
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+      - :slug: map
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: photo
+      - :slug: social-feed
+:web_page_templates:
+- :name: Locations
+  :title: "{{client_name}} Locations"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: {{client_name}} locations.
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+- :name: Features
+  :title: "{{client_name}} Senior Living Facility Features"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} offers some of the nicest {{location_city}} senior living facilities."
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
+    - :slug: content-stripe
+      :row_layout: thirds
+      :widgets:
+      - :slug: photo
+      - :slug: html
+      - :slug: html
+- :name: Photos
+  :title: Photos of Our Senior Living Facilities in {{location_city}}, {{location_state}} | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Photos of Contemporary senior living facilities
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+      - :slug: calls-to-action
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: gallery
+        - :slug: html
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+        - :slug: social-links
