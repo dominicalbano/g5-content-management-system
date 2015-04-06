@@ -40,7 +40,7 @@
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: {{client_name}} Senior Living Facilities
+  :title: "{{client_name}} Senior Living Facilities"
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
