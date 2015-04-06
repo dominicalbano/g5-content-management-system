@@ -29,7 +29,7 @@ class WebsiteSeederSerializer < ActiveModel::Serializer
 
   def file_name
     name = object.name
-    vert = object.website.client.vertical.downcase
+    vert = Client.first.vertical.downcase
     "#{vert}_#{name}"
   end
 end

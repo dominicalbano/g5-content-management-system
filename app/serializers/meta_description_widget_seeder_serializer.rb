@@ -1,7 +1,7 @@
 class MetaDescriptionWidgetSeederSerializer < ExtendedWidgetSeederSerializer
   protected
 
-  def settings_list
+  def extended_settings_list
     ['meta_description']
   end
 

@@ -121,8 +121,8 @@ ActiveRecord::Schema.define(version: 20150331220103) do
     t.string   "widget_type"
     t.integer  "widget_id"
     t.datetime "widget_modified",  default: '2012-01-01 00:00:00'
-    t.boolean  "liquid",           default: false
     t.text     "widget_popover",   default: ""
+    t.boolean  "liquid",           default: false
   end
 
   create_table "locations", force: true do |t|
@@ -147,13 +147,13 @@ ActiveRecord::Schema.define(version: 20150331220103) do
     t.string   "status",                default: "Pending"
     t.string   "thumb_url"
     t.boolean  "secure_domain",         default: false
-    t.string   "go_squared_client_id"
-    t.string   "go_squared_site_token"
-    t.string   "ga_tracking_id"
-    t.string   "ga_profile_id"
-    t.string   "facebook_id"
-    t.string   "twitter_id"
-    t.string   "yelp_id"
+    t.string   "go_squared_client_id",  default: ""
+    t.string   "go_squared_site_token", default: ""
+    t.string   "ga_tracking_id",        default: ""
+    t.string   "ga_profile_id",         default: ""
+    t.string   "facebook_id",           default: ""
+    t.string   "twitter_id",            default: ""
+    t.string   "yelp_id",               default: ""
     t.string   "pinterest_id",          default: ""
     t.string   "instagram_id",          default: ""
     t.string   "youtube_id",            default: ""

@@ -4,8 +4,12 @@ class ExtendedWidgetSeederSerializer < ActiveModel::Serializer
 
   def settings
     settings_list.inject([]) do |arr, setting|
-      s = object.settings.where_name(setting).first
-      arr << { name: s.name, value: reverse_liquid(s.value) } if s && !s.value.blank?
+      if extended_settings_list.include?(setting)
+        s = object.get_setting(setting)
+        val = reverse_liquid(s.value) if s && !s.value.blank?
+      end
+      val ||= object.get_setting(setting).default_value if default_settings_list.include?(setting)
+      arr << { name: setting, value: val } unless val.blank?
       arr
     end
   end
@@ -13,6 +17,14 @@ class ExtendedWidgetSeederSerializer < ActiveModel::Serializer
   protected
 
   def settings_list
+    default_settings_list | extended_settings_list
+  end
+
+  def default_settings_list
+    [] ## abstract
+  end
+
+  def extended_settings_list
     [] ## abstract
   end
 
