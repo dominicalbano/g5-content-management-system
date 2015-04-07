@@ -305,6 +305,19 @@
       :row_layout: single
       :widgets:
       - :slug: gallery
+        :settings:
+        - :name: gallery_thumbnails
+          :value: 'no'
+        - :name: gallery_mini
+          :value: 'no'
+        - :name: gallery_carousel
+          :value: 'no'
+        - :name: gallery_photo1_url
+          :value: http://placehold.it/1000x594
+        - :name: gallery_photo2_url
+          :value: http://placehold.it/1000x594
+        - :name: gallery_photo3_url
+          :value: http://placehold.it/1000x594
 - :name: Neighborhood
   :title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}}
     | {{location_name}}"
@@ -420,6 +433,8 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Photos of our apartments in {{ location_city }}
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -476,6 +491,9 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Contact {{ location_name }} for information about our apartments in
+          {{ location_city }}
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -503,6 +521,8 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Pet friendly apartments in {{ location_name }}
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -541,6 +561,9 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Events at our apartments in {{ location_city }}, {{ location_state
+          }}
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -578,6 +601,9 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Read what residents of our {{ location_city }} apartments have to
+          say
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -618,6 +644,8 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Apply to live at our apartments in {{ location_city }}
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -646,6 +674,9 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Schedule a tour to view our apartments in {{ location_city }}, {{
+          location_state }}
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -673,6 +704,8 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Request information about our {{ location_city }} apartments
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -701,6 +734,8 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Submit your maintenance requests online
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
@@ -729,6 +764,8 @@
       :settings:
       - :name: photo_source_url
         :value: http://placehold.it/1600x250
+      - :name: photo_alt_tag
+        :value: Submit your suggestions and feedback
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
