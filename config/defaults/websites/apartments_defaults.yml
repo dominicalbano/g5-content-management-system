@@ -14,6 +14,11 @@
   - :html_id: drop-target-logo
     :widgets:
     - :slug: logo
+      :settings:
+      - :name: display_logo
+        :value: 'true'
+      - :name: logo_url
+        :value: http://placehold.it/230x150/fff/000&text=LOGO
   - :html_id: drop-target-phone
     :widgets: []
   - :html_id: drop-target-btn
