@@ -9,19 +9,19 @@ module Seeder
 
     def seed
       Rails.logger.debug("Creating #{@widget.name} widget from instructions")
-      set_default_widget_settings(@instructions[@widget.layout_var], @instructions[:widgets], @instructions[custom_css_var])
+      set_default_widget_settings(@instructions[@widget.layout_var], @instructions[:widgets], @instructions[css_custom_var])
     end
 
     protected
 
-    def custom_css_var
-      'row_custom_css'
+    def css_custom_var
+      'row_css_custom'
     end
 
     def set_default_widget_settings(layout, widget_instructions, custom_css="")
       return @widget unless layout && widget_instructions
       @widget.set_setting(@widget.layout_var, layout)
-      @widget.set_setting(custom_css_var, custom_css) unless custom_css.blank?
+      @widget.set_setting(css_custom_var, custom_css) unless custom_css.blank?
       
       widget_instructions.each.with_index(1) do |instruction, idx|
         w = WidgetSeeder.new(nil, instruction).seed
