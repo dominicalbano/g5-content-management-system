@@ -1,9 +1,14 @@
 class ContentStripeWidgetSeederSerializer < LayoutWidgetSeederSerializer
   attributes  :slug,
+              :row_css_custom,
               :row_layout,
               :widgets
 
   include SeederSerializerToYamlFile
+
+  def row_css_custom
+    object.get_setting_value('row_css_custom')
+  end
 
   def row_layout
     object.get_setting_value('row_layout')

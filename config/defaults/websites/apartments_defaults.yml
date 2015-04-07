@@ -47,6 +47,7 @@
   :name: Home
   :title: 'Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}}
     with {{location_primary_amenity}} '
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -56,6 +57,7 @@
         :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
           website today. '
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: single
       :widgets:
       - :slug: column
@@ -74,6 +76,7 @@
           - :name: page_slug_1
             :value: floor-plans
     - :slug: content-stripe
+      :row_css_custom: features-row
       :row_layout: thirds
       :widgets:
       - :slug: column
@@ -125,6 +128,7 @@
               probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
               href=\"#\">Read More</a></p>\r\n"
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -140,6 +144,7 @@
         - :slug: contact-info
         - :slug: social-links
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-1
       :widgets:
       - :slug: social-feed
@@ -159,6 +164,7 @@
 :web_page_templates:
 - :name: Floor Plans
   :title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -175,6 +181,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -202,6 +209,7 @@
             :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: single
       :widgets:
       - :slug: column
@@ -210,6 +218,7 @@
         - :slug: floorplans-cards
 - :name: Amenities
   :title: "{{location_city}} {{location_qualifier}} Apartment Amenities at {{location_name}}"
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -226,6 +235,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -253,6 +263,7 @@
             :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: thirds
       :widgets:
       - :slug: html
@@ -271,6 +282,7 @@
           :value: photo-block
 - :name: Photos
   :title: Photos of our Apartments in {{location_city}} | {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -286,6 +298,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -307,6 +320,7 @@
             :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: single
       :widgets:
       - :slug: gallery
@@ -326,6 +340,7 @@
 - :name: Neighborhood
   :title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}}
     | {{location_name}}"
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -342,6 +357,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -363,6 +379,7 @@
             :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: thirds
       :widgets:
       - :slug: html
@@ -382,6 +399,7 @@
 - :name: Map & Directions
   :title: Directions to Apartments for Rent in {{location_city}}, {{location_state}}
     | {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -397,6 +415,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -425,6 +444,7 @@
         - :slug: contact-info
 - :name: Residents
   :title: Information for Current Residents at {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -443,6 +463,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -450,6 +471,7 @@
         - :name: text
           :value: "<h1>Current Residents</h1>\r\n"
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: thirds
       :widgets:
       - :slug: html
@@ -471,6 +493,7 @@
             style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Pet
             Friendly</h3>\r\n"
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: thirds
       :widgets:
       - :slug: html
@@ -487,6 +510,7 @@
             Calendar</h3>\r\n"
 - :name: Contact Us
   :title: Contact {{location_name}} in {{location_city}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -502,6 +526,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -514,6 +539,7 @@
         - :slug: lead-form
 - :name: Pet Friendly
   :title: Pet Friendly Apartments in {{location_city}} by {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -531,6 +557,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -554,6 +581,7 @@
         - :slug: contact-info
 - :name: Events
   :title: Events at {{location_name}} in {{location_city}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -572,6 +600,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
@@ -594,6 +623,7 @@
         - :slug: contact-info
 - :name: Reviews
   :title: Testimonials about {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -612,6 +642,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -636,6 +667,7 @@
         - :slug: contact-info
 - :name: Apply
   :title: Apply to Live at {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -654,6 +686,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -666,6 +699,7 @@
         - :slug: lead-form
 - :name: Schedule a Tour
   :title: Schedule a Tour to View {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -685,6 +719,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -697,6 +732,7 @@
         - :slug: lead-form
 - :name: Request Information
   :title: Request Information from {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -714,6 +750,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -726,6 +763,7 @@
         - :slug: lead-form
 - :name: Maintenance Request
   :title: Maintenance Request at {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -744,6 +782,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -756,6 +795,7 @@
         - :slug: lead-form
 - :name: Suggestion Box
   :title: Suggestion Box | {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -774,6 +814,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
@@ -786,6 +827,7 @@
         - :slug: lead-form
 - :name: Privacy Policy
   :title: "{{location_name}} Privacy Policy"
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
@@ -801,6 +843,7 @@
       - :name: photo_alignment
         :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html

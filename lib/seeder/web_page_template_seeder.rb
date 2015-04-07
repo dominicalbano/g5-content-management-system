@@ -31,7 +31,7 @@ module Seeder
     end
 
     def web_page_template_params
-      ActionController::Parameters.new(@instructions).permit(:name, :title)
+      ActionController::Parameters.new(@instructions).permit(:name, :title, :enabled)
     end
   end
 end

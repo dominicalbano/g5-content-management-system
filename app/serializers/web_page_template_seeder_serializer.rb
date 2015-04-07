@@ -1,6 +1,7 @@
 class WebPageTemplateSeederSerializer < ActiveModel::Serializer
   attributes  :name,
               :title,
+              :enabled,
               :drop_targets
 
   include SeederSerializerToYamlFile
