@@ -142,13 +142,14 @@ describe Widget, vcr: VCR_OPTIONS do
     end
   end
   describe "instance methods" do
-    let(:widget) {Fabricate.create(:widget, garden_widget: garden_widget)}
-    let(:garden_widget) {Fabricate.create(:garden_widget,
+    let!(:garden_widget) {Fabricate.create(:garden_widget,
                                  {  show_stylesheets: ["foo.css", "bar.css"],
                                     show_javascript: "show.js",
-                                    lib_javascripts: ["a.js", "b.js"] })}
-    let(:setting) { Fabricate.create(:setting, owner: widget, name: 'test', value: 'foo') }
-
+                                    lib_javascripts: ["a.js", "b.js"],
+                                    settings: [{:name=>"test", :editable=>"true", :default_value=>"foo", :categories=>["Instance"]}]  })}
+    let!(:widget) {Fabricate.create(:widget, garden_widget: garden_widget)}
+    
+    before { widget.set_setting('test', 'foo') }
 
     describe "#show_stylesheets" do
       it "returns stylesheets associated through garden_widget" do
@@ -176,7 +177,9 @@ describe Widget, vcr: VCR_OPTIONS do
 
     describe "#get_setting" do
       it "returns setting if exists" do
-        expect(widget.get_setting('test')).to eq(setting)
+        expect(widget.get_setting('test')).to_not be_nil
+        expect(widget.get_setting('test').name).to eq('test')
+        expect(widget.get_setting('test').value).to eq('foo')
       end
 
       it "returns nil if setting does not exist" do
@@ -186,7 +189,7 @@ describe Widget, vcr: VCR_OPTIONS do
 
     describe "#get_setting_value" do
       it "returns setting value if exists" do
-        expect(widget.get_setting_value('test')).to eq(setting.value)
+        expect(widget.get_setting_value('test')).to eq('foo')
       end
 
       it "returns nil if setting does not exist" do
