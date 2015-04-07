@@ -145,6 +145,12 @@ class Widget < ActiveRecord::Base
     Widget.find_by_id(setting.owner_id) if setting
   end
 
+  def parent_content_stripe(object=self)
+    w = object.parent_widget
+    return w if w.is_content_stripe?
+    parent_content_stripe(w) if w
+  end
+
   def child_widgets
     []
   end

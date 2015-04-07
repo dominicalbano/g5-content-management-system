@@ -8,6 +8,8 @@ class ExtendedWidgetSeederSerializer < ActiveModel::Serializer
         s = object.get_setting(setting)
         val = reverse_liquid(s.value) if s && !s.value.blank?
       end
+      
+      val ||= self.try("default_#{setting}")
       val ||= object.get_setting(setting).default_value if default_settings_list.include?(setting)
       arr << { name: setting, value: val } unless val.blank?
       arr

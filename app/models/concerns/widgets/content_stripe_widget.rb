@@ -28,5 +28,9 @@ module Widgets
     def is_content_stripe?
       true
     end
+
+    def parent_content_stripe
+      nil
+    end
   end
 end
