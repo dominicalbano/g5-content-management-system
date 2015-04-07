@@ -77,7 +77,7 @@ Fabricator :html_garden_widget, from: :garden_widget do
   widget_type { "" }
   settings do
     [
-      {:name=>"text", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
+      {:name=>"text", :editable=>"true", :default_value=>"Lorem Ipsum", :categories=>["Instance"]}
     ]
   end
 end
