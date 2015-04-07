@@ -147,6 +147,7 @@ describe Widget, vcr: VCR_OPTIONS do
                                  {  show_stylesheets: ["foo.css", "bar.css"],
                                     show_javascript: "show.js",
                                     lib_javascripts: ["a.js", "b.js"] })}
+    let(:setting) { Fabricate.create(:setting, owner: widget, name: 'test', value: 'foo') }
 
 
     describe "#show_stylesheets" do
@@ -174,12 +175,31 @@ describe Widget, vcr: VCR_OPTIONS do
     end
 
     describe "#get_setting" do
+      it "returns setting if exists" do
+        expect(widget.get_setting('test')).to eq(setting)
+      end
+
+      it "returns nil if setting does not exist" do
+        expect(widget.get_setting('fail')).to be_nil
+      end
     end
 
     describe "#get_setting_value" do
+      it "returns setting value if exists" do
+        expect(widget.get_setting_value('test')).to eq(setting.value)
+      end
+
+      it "returns nil if setting does not exist" do
+        expect(widget.get_setting_value('fail')).to be_nil
+      end
     end
 
     describe "#set_setting" do
+      before { widget.set_setting('test', 'bar') }
+
+      it "updates the setting" do
+        expect(widget.get_setting_value('test')).to eq('bar')
+      end
     end
 
     describe "#widgets" do
