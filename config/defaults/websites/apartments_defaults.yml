@@ -57,7 +57,17 @@
         :row_count: two
         :widgets:
         - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/1871x690&text=Ivy+Hero+Size+1871x690%7CLuxe+Hero+Size+2000x1300(abritrary)%7CWellborne+Hero+Size+TDB
+          - :name: photo_alignment
+            :value: photo-block
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
     - :slug: content-stripe
       :row_layout: thirds
       :widgets:
@@ -65,41 +75,60 @@
         :row_count: two
         :widgets:
         - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-1%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h4>Callout 1</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-2%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h4>Callout 2</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-3%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h4>Callout 3</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h1>Heading (h1)</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, legendos
+            iracundia cu nam. Ne quo dicunt audiam principes, te vis veniam malorum
+            assueverit. Cum explicari repudiare deseruisse at, qui cetero consetetur
+            te. Duo te odio labore deseruisse. Dicant consul ne vel.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -112,9 +141,16 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h2>Build Notes:</h2>\r\n\r\n<p>Build notes for Orion Themes:&nbsp;<a
+            href=\"https://g5.jiveon.com/docs/DOC-7193\" target=\"_blank\">Theme /
+            Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build notes for Orion Widgets:&nbsp;<a
+            href=\"https://g5.jiveon.com/docs/DOC-6923\" target=\"_blank\">Widget
+            Index (Hub)</a></p>\r\n\r\n<p><img alt=\"\" src=\"http://placehold.it/730x200\"
+            /></p>\r\n\r\n<h2>Heading (h2)</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+            est te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
 :web_page_templates:
 - :name: Floor Plans
   :title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
@@ -128,19 +164,37 @@
           {{location_state}}; visit our website to find the floor plan at {{location_name}}
           that will work best for you."
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h1>Floor Plans</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
+            eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt, dictas
+            quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex. Sit natum
+            evertitur ex, quo at officiis assentior. Nibh congue est eu, suas nullam
+            fastidii ne vix, fugit appetere consectetuer vix ex. Scripta delenit sea
+            id, est ipsum mazim no. Ad delectus voluptatibus est, duo fugit definitiones
+            an.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
       :row_layout: single
@@ -161,19 +215,37 @@
           are designed to meet all your needs at {{location_name}}. We are located
           near {{location_primary_landmark}} in {{location_city}}, {{location_state}}. "
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h1>Amenities</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te
+            volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo
+            veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing et
+            usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no vix
+            ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
+            eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt, dictas
+            quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex. Sit natum
+            evertitur ex, quo at officiis assentior. Nibh congue est eu, suas nullam
+            fastidii ne vix, fugit appetere consectetuer vix ex. Scripta delenit sea
+            id, est ipsum mazim no. Ad delectus voluptatibus est, duo fugit definitiones
+            an.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
       :row_layout: thirds
@@ -181,16 +253,17 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h2>Community Amenities:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h2>Apartment Features:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
       - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/350x295
+        - :name: photo_alignment
+          :value: photo-block
 - :name: Photos
   :title: Photos of our Apartments in {{location_city}} | {{location_name}}
   :drop_targets:
@@ -202,19 +275,31 @@
         :value: Want to see {{page_slug}} of our apartments in {{location_city}},
           {{location_state}}? Visit our website and picture yourself at {{location_name}}.
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h1>Photo Gallery</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
       :row_layout: single
@@ -233,19 +318,31 @@
           apartments near {{location_primary_landmark}}; call {{location_name}} today
           at {{location_marketing_number}}.
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h1>Neighborhood</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
         - :slug: contact-info
     - :slug: content-stripe
       :row_layout: thirds
@@ -253,16 +350,17 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h2>Shopping</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Dining</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h2>Schools</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Employers</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
       - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/350x295
+        - :name: photo_alignment
+          :value: photo-block
 - :name: Map & Directions
   :title: Directions to Apartments for Rent in {{location_city}}, {{location_state}}
     | {{location_name}}
@@ -275,6 +373,11 @@
         :value: For a map & directions to our apartments for rent in {{location_city}},
           {{location_state}}, visit {{location_name}} at our website.
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
@@ -284,20 +387,23 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h1>Map &amp; Directions</h1>\r\n"
         - :slug: directions
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h2>Driving Directions</h2>\r\n\r\n<p>Follow the driving&nbsp;directions
+              below to reach apartments for rent in {{ location_city }}, {{ location_state
+              }}.</p>\r\n\r\n<p><strong>From:</strong></p>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
         - :slug: contact-info
 - :name: Residents
   :title: Information for Current Residents at {{location_name}}
@@ -311,51 +417,54 @@
           apartment {{page_slug}} the resources to ensure your lifestyle is everything
           that you want it to be."
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h1>Current Residents</h1>\r\n"
     - :slug: content-stripe
       :row_layout: thirds
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
+            style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Pay
+            Online</h3>\r\n"
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
+            style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Maintenance
+            Request</h3>\r\n"
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
+            style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Pet
+            Friendly</h3>\r\n"
     - :slug: content-stripe
       :row_layout: thirds
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
+            style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Suggestions
+            & Feedback</h3>\r\n"
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
+            style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Event
+            Calendar</h3>\r\n"
 - :name: Contact Us
   :title: Contact {{location_name}} in {{location_city}}
   :drop_targets:
@@ -364,6 +473,11 @@
     - :slug: meta-description
       :settings: []
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
@@ -373,10 +487,46 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h1>Contact Us</h1>\r\n"
         - :slug: lead-form
+- :name: Pet Friendly
+  :title: Pet Friendly Apartments in {{location_city}} by {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} offers pet friendly apartments in {{location_city}},
+          {{location_state}}; visit our website or call to learn more."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Pet Friendly Apartments in {{ location_city }}</h1>\r\n\r\n<p>Reque
+            labore ad per, amet partiendo eu pro. Docendi postulant dissentiet ad
+            has. Ne copiosae explicari urbanitas sea, cu duis doming noluisse vel,
+            te est possim recteque neglegentur. Ad tritani tincidunt mei. Ne eos fugit
+            soleat mediocrem. Ius ei ipsum delenit suscipiantur, sea habeo alterum
+            singulis ea.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
 - :name: Events
   :title: Events at {{location_name}} in {{location_city}}
   :drop_targets:
@@ -388,19 +538,31 @@
         :value: 'There is always something going on at {{location_name}}; visit our
           calendar of {{page_slug}} page to stay caught up with what''s happening. '
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
+          :value: "<h1>Events</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te volutpat
+            torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo veniam
+            has cu, eu brute blandit praesent nec. Vero mundi adipiscing et usu, et
+            quodsi lobortis atomorum pri. At vel dicant incorrupte, no vix ridens
+            discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
         - :slug: contact-info
 - :name: Reviews
   :title: Testimonials about {{location_name}}
@@ -413,6 +575,11 @@
         :value: People are talking about {{location_name}}; find out what they are
           saying by visiting our testimonials page and reading {{page_slug}}.
     - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
       :widgets:
@@ -422,12 +589,179 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h1>Reviews</h1>\r\n\r\n<p>Reviews are very important to us and
+              are the best way to let others know if our team has provided you with
+              a great experience. Write a Review.</p>\r\n"
         - :slug: promoted-reviews
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
         - :slug: contact-info
+- :name: Apply
+  :title: Apply to Live at {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'Do you like what you''ve seen and want to {{page_slug}} to live at
+          {{location_name}}? Do it from the comfort of your sofa by visiting our website
+          today. '
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Apply</h1>\r\n"
+        - :slug: lead-form
+- :name: Schedule a Tour
+  :title: Schedule a Tour to View {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Want to see more of {{location_name}}? See our property in person
+          by scheduling a tour of our {{location_qualifier}} community. Click or call
+          {{location_marketing_number}}!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Schedule a Tour</h1>\r\n"
+        - :slug: lead-form
+- :name: Request Information
+  :title: Request Information from {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you like what you see about {{location_name}} on our website and
+          want more information? Request information today!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Request Information</h1>\r\n"
+        - :slug: lead-form
+- :name: Maintenance Request
+  :title: Maintenance Request at {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'Do you live at {{location_name}} and have noticed something not working
+          properly on the property? You can easily submit a maintenance request on
+          our website. '
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Maintenance Request</h1>\r\n"
+        - :slug: lead-form
+- :name: Suggestion Box
+  :title: Suggestion Box | {{location_name}}
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you live at {{location_name}} and have a suggestion that you'd
+          like our management team to read? Submit your idea via our online suggestion
+          box!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Suggestions &amp; Feedback</h1>\r\n"
+        - :slug: lead-form
+- :name: Privacy Policy
+  :title: "{{location_name}} Privacy Policy"
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} collects information only to provide the best possible
+          service and we never share. View our privacy policy at our website."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Privacy Policy</h1>\r\n"
