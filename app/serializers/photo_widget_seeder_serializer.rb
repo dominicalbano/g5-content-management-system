@@ -5,6 +5,10 @@ class PhotoWidgetSeederSerializer < ExtendedWidgetSeederSerializer
 
   protected
 
+  def extended_settings_list
+    ['photo_source_url','photo_alignment']
+  end
+
   def default_settings_list
     ['photo_source_url']
   end

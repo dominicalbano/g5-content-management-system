@@ -147,7 +147,7 @@ class Widget < ActiveRecord::Base
 
   def parent_content_stripe(object=self)
     w = object.parent_widget
-    return w if w.is_content_stripe?
+    return w if (w && w.is_content_stripe?)
     parent_content_stripe(w) if w
   end
 
