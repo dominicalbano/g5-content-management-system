@@ -142,3 +142,22 @@ Fabricator :calls_to_action_garden_widget, from: :garden_widget do
   end
 end
 
+Fabricator :logo_garden_widget, from: :garden_widget do
+  url { Faker::Internet.url }
+  name { "Logo" }
+  widget_id { 25 }
+  slug { |attrs| attrs[:name].to_s.parameterize }
+  thumbnail { Faker::Internet.url }
+  liquid { true }
+  edit_html { "<div>edit</div>" }
+  show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">{{ widget.text.value }}</div>" }
+  widget_type { "" }
+  settings do
+    [
+      {:name=>"business_name", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"display_logo", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"single_domain_location", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"logo_url", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
+    ]
+  end
+end
