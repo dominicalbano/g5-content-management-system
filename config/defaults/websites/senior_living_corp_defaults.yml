@@ -56,6 +56,9 @@
         :widgets:
         - :slug: calls-to-action
         - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/1140x705
         - :slug: home-page-multifamily-iui
     - :slug: content-stripe
       :row_layout: uneven-thirds-2
@@ -89,6 +92,9 @@
       :row_layout: halves
       :widgets:
       - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/540x334
       - :slug: social-feed
 :web_page_templates:
 - :name: Locations
@@ -117,6 +123,9 @@
         :row_count: two
         :widgets:
         - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/760x470
         - :slug: html
           :settings:
           - :name: text
@@ -154,6 +163,9 @@
         :row_count: two
         :widgets:
         - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/760x470
         - :slug: html
           :settings:
           - :name: text
@@ -169,12 +181,66 @@
       :row_layout: thirds
       :widgets:
       - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/350x216
       - :slug: html
         :settings:
         - :name: text
           :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
             odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
             commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+    - :slug: content-stripe
+      :row_layout: halves
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+    - :slug: content-stripe
+      :row_layout: quarters
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+    - :slug: content-stripe
+      :row_layout: single
+      :widgets:
       - :slug: html
         :settings:
         - :name: text
