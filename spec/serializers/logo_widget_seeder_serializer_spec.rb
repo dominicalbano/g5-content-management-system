@@ -13,7 +13,7 @@ describe LogoWidgetSeederSerializer do
   let(:drop_target) { Fabricate(:drop_target, web_template: page_template) }
 
   describe "#as_json" do
-    context "html widget seeder" do
+    context "logo widget seeder" do
       let(:garden_widget) { Fabricate(:logo_garden_widget) }
       let(:widget) { Fabricate(:widget, garden_widget: garden_widget, drop_target: drop_target) }
       let(:serializer) { WidgetSeederSerializer.new(widget) }

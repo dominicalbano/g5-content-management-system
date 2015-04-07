@@ -161,3 +161,26 @@ Fabricator :logo_garden_widget, from: :garden_widget do
     ]
   end
 end
+
+Fabricator :photo_garden_widget, from: :garden_widget do
+  url { Faker::Internet.url }
+  name { "Photo" }
+  widget_id { 34 }
+  slug { |attrs| attrs[:name].to_s.parameterize }
+  thumbnail { Faker::Internet.url }
+  liquid { true }
+  edit_html { "<div>edit</div>" }
+  show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">{{ widget.text.value }}</div>" }
+  widget_type { "" }
+  settings do
+    [
+      {:name=>"photo_source_url", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"photo_link_url", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"photo_alt_tag", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"photo_caption", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"photo_alignment", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"photo_class", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
+    ]
+  end
+end
+
