@@ -147,6 +147,9 @@ describe Widget, vcr: VCR_OPTIONS do
                                     show_javascript: "show.js",
                                     lib_javascripts: ["a.js", "b.js"],
                                     settings: [{:name=>"test", :editable=>"true", :default_value=>"foo", :categories=>["Instance"]}]  })}
+    let(:cs_garden_widget) { Fabricate(:content_stripe_garden_widget) }
+    let(:col_garden_widget) { Fabricate(:column_garden_widget) }
+
     let!(:widget) {Fabricate.create(:widget, garden_widget: garden_widget)}
     
     before { widget.set_setting('test', 'foo') }
@@ -210,10 +213,48 @@ describe Widget, vcr: VCR_OPTIONS do
         expect(widget.widgets).to be_empty
       end
 
-      it "returns all nested widgets for content stripe" do
+      context "content stripe" do
+        let(:cs) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
+        let(:col) { Fabricate(:widget, garden_widget: col_garden_widget, drop_target: drop_target) }
+        
+        context "nested one deep" do
+          before { cs.set_child_widget(1, widget) }
+          it "returns nested widgets" do
+            expect(cs.widgets).to eq([widget])
+          end
+        end
+
+        context "nested two deep" do
+          before do
+            col.set_child_widget(1, widget)
+            cs.set_child_widget(1, col) 
+          end
+          it "returns nested widgets" do
+            expect(cs.widgets).to eq([col, widget])
+          end
+        end
+
+        context "has no nested widgets" do
+          it "returns empty array" do
+            expect(cs.widgets).to be_empty
+          end
+        end
       end
 
-      it "returns all nested widget for column" do
+      context "column widget" do
+        let(:col) { Fabricate(:widget, garden_widget: col_garden_widget, drop_target: drop_target) }
+        context "has nested widgets" do
+          before { col.set_child_widget(1, widget) }
+          it "returns nested widgets" do
+            expect(col.widgets).to eq([widget])
+          end
+        end
+
+        context "has no nested widgets" do
+          it "returns empty array" do
+            expect(col.widgets).to be_empty
+          end
+        end
       end
     end
 
