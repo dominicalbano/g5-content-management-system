@@ -118,3 +118,27 @@ Fabricator :analytics_garden_widget, from: :garden_widget do
   end
 end
 
+Fabricator :calls_to_action_garden_widget, from: :garden_widget do
+  url { Faker::Internet.url }
+  name { "Calls To Action" }
+  widget_id { 5 }
+  slug { |attrs| attrs[:name].to_s.parameterize }
+  thumbnail { Faker::Internet.url }
+  liquid { true }
+  edit_html { "<div>edit</div>" }
+  show_html { |attrs| "<div class=\"widget #{attrs[:slug]}\">{{ widget.text.value }}</div>" }
+  widget_type { "" }
+  settings do
+    [
+      {:name=>"cta_text_1", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"page_slug_1", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"cta_text_2", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"page_slug_2", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"cta_text_3", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"page_slug_3", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"cta_text_4", :editable=>"true", :default_value=>"", :categories=>["Instance"]},
+      {:name=>"page_slug_4", :editable=>"true", :default_value=>"", :categories=>["Instance"]}
+    ]
+  end
+end
+
