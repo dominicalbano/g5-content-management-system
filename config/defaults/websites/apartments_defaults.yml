@@ -66,7 +66,7 @@
         - :slug: photo
           :settings:
           - :name: photo_source_url
-            :value: http://placehold.it/1871x690&text=Ivy+Hero+Size+1871x690%7CLuxe+Hero+Size+2000x1300(abritrary)%7CWellborne+Hero+Size+TDB
+            :value: http://placehold.it/1871x690&text=Ivy:2000x1200%7CLuxe:2000x1300(abritrary)%7CWellborne:TDB
           - :name: photo_alignment
             :value: photo-block
         - :slug: calls-to-action
@@ -131,13 +131,17 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Heading (h1)</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, legendos
-            iracundia cu nam. Ne quo dicunt audiam principes, te vis veniam malorum
-            assueverit. Cum explicari repudiare deseruisse at, qui cetero consetetur
-            te. Duo te odio labore deseruisse. Dicant consul ne vel.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Heading (h1)</h1>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build
+              notes for Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\"
+              target=\"_blank\">Theme / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build
+              notes for Orion Widgets:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-6923\"
+              target=\"_blank\">Widget Index (Hub)</a></p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -148,19 +152,18 @@
       :row_layout: uneven-thirds-1
       :widgets:
       - :slug: social-feed
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h2>Build Notes:</h2>\r\n\r\n<p>Build notes for Orion Themes:&nbsp;<a
-            href=\"https://g5.jiveon.com/docs/DOC-7193\" target=\"_blank\">Theme /
-            Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build notes for Orion Widgets:&nbsp;<a
-            href=\"https://g5.jiveon.com/docs/DOC-6923\" target=\"_blank\">Widget
-            Index (Hub)</a></p>\r\n\r\n<p><img alt=\"\" src=\"http://placehold.it/730x200\"
-            /></p>\r\n\r\n<h2>Heading (h2)</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet,
-            est te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
-            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
-            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
-            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<p><img alt=\"\" src=\"http://placehold.it/730x200\" /></p>\r\n\r\n<h2>Heading
+              (h2)</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te volutpat torquatos,
+              nibh sale vocent te vix. Mei cu illud quaeque, probo veniam has cu,
+              eu brute blandit praesent nec. Vero mundi adipiscing et usu, et quodsi
+              lobortis atomorum pri. At vel dicant incorrupte, no vix ridens discere
+              reprimique, ullum convenire intellegam no nam.</p>\r\n"
 :web_page_templates:
 - :name: Floor Plans
   :title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
@@ -184,20 +187,27 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Floor Plans</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
-            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
-            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
-            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
-            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
-            eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt, dictas
-            quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex. Sit natum
-            evertitur ex, quo at officiis assentior. Nibh congue est eu, suas nullam
-            fastidii ne vix, fugit appetere consectetuer vix ex. Scripta delenit sea
-            id, est ipsum mazim no. Ad delectus voluptatibus est, duo fugit definitiones
-            an.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Floor Plans</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+              et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+              vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
+              eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt,
+              dictas quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex.
+              Sit natum evertitur ex, quo at officiis assentior. Nibh congue est eu,
+              suas nullam fastidii ne vix, fugit appetere consectetuer vix ex. Scripta
+              delenit sea id, est ipsum mazim no. Ad delectus voluptatibus est, duo
+              fugit definitiones an.</p>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7179\"
+              target=\"_blank\">Floor Plans Cards Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-6870\"
+              target=\"_blank\">Multi Family IUI Cards Widget (Hub)</a><br />\r\n<a
+              href=\"https://g5.jiveon.com/docs/DOC-6881\" target=\"_blank\">Home
+              Page IUI Cards Widget (Hub)</a></p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -238,20 +248,23 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Amenities</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te
-            volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo
-            veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing et
-            usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no vix
-            ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
-            eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt, dictas
-            quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex. Sit natum
-            evertitur ex, quo at officiis assentior. Nibh congue est eu, suas nullam
-            fastidii ne vix, fugit appetere consectetuer vix ex. Scripta delenit sea
-            id, est ipsum mazim no. Ad delectus voluptatibus est, duo fugit definitiones
-            an.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Amenities</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+              et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+              vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
+              eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt,
+              dictas quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex.
+              Sit natum evertitur ex, quo at officiis assentior. Nibh congue est eu,
+              suas nullam fastidii ne vix, fugit appetere consectetuer vix ex. Scripta
+              delenit sea id, est ipsum mazim no. Ad delectus voluptatibus est, duo
+              fugit definitiones an.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -266,20 +279,29 @@
       :row_css_custom: ''
       :row_layout: thirds
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h2>Community Amenities:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h2>Apartment Features:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
-      - :slug: photo
-        :settings:
-        - :name: photo_source_url
-          :value: http://placehold.it/350x295
-        - :name: photo_alignment
-          :value: photo-block
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Community Amenities:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Apartment Features:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/350x295
+          - :name: photo_alignment
+            :value: photo-block
 - :name: Photos
   :title: Photos of our Apartments in {{location_city}} | {{location_name}}
   :enabled: true
@@ -301,14 +323,19 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Photo Gallery</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
-            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
-            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
-            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
-            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Photo Gallery</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+              est te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+              et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+              vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p><a
+              href=\"https://g5.jiveon.com/docs/DOC-6842\" target=\"_blank\">Gallery
+              Widget (Hub)</a></p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -360,14 +387,17 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Neighborhood</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
-            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
-            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
-            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
-            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Neighborhood</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+              et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+              vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -382,20 +412,29 @@
       :row_css_custom: ''
       :row_layout: thirds
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h2>Shopping</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Dining</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h2>Schools</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Employers</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
-      - :slug: photo
-        :settings:
-        - :name: photo_source_url
-          :value: http://placehold.it/350x295
-        - :name: photo_alignment
-          :value: photo-block
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Shopping</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Dining</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Schools</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Employers</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/350x250
+          - :name: photo_alignment
+            :value: photo-block
 - :name: Map & Directions
   :title: Directions to Apartments for Rent in {{location_city}}, {{location_state}}
     | {{location_name}}
@@ -424,7 +463,9 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: "<h1>Map &amp; Directions</h1>\r\n"
+            :value: "<h1>Map &amp; Directions</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7181\"
+              target=\"_blank\">Map Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-7175\"
+              target=\"_blank\">Directions Widget (Hub)</a></p>\r\n"
         - :slug: directions
         - :slug: html
           :settings:
@@ -466,10 +507,13 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Current Residents</h1>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Current Residents</h1>\r\n"
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: thirds
@@ -560,15 +604,18 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Pet Friendly Apartments in {{ location_city }}</h1>\r\n\r\n<p>Reque
-            labore ad per, amet partiendo eu pro. Docendi postulant dissentiet ad
-            has. Ne copiosae explicari urbanitas sea, cu duis doming noluisse vel,
-            te est possim recteque neglegentur. Ad tritani tincidunt mei. Ne eos fugit
-            soleat mediocrem. Ius ei ipsum delenit suscipiantur, sea habeo alterum
-            singulis ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Pet Friendly Apartments in {{ location_city }}</h1>\r\n\r\n<p>Reque
+              labore ad per, amet partiendo eu pro. Docendi postulant dissentiet ad
+              has. Ne copiosae explicari urbanitas sea, cu duis doming noluisse vel,
+              te est possim recteque neglegentur. Ad tritani tincidunt mei. Ne eos
+              fugit soleat mediocrem. Ius ei ipsum delenit suscipiantur, sea habeo
+              alterum singulis ea.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -603,14 +650,17 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: "<h1>Events</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te volutpat
-            torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo veniam
-            has cu, eu brute blandit praesent nec. Vero mundi adipiscing et usu, et
-            quodsi lobortis atomorum pri. At vel dicant incorrupte, no vix ridens
-            discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Events</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te
+              volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo
+              veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+              et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+              vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -653,7 +703,8 @@
           - :name: text
             :value: "<h1>Reviews</h1>\r\n\r\n<p>Reviews are very important to us and
               are the best way to let others know if our team has provided you with
-              a great experience. Write a Review.</p>\r\n"
+              a great experience. Write a Review.</p>\r\n\r\n<p><a href=\"https://reputation.g5search.com/\"
+              target=\"_blank\">Reputation Manager Login</a></p>\r\n"
         - :slug: promoted-reviews
       - :slug: column
         :row_count: two
@@ -849,4 +900,5 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Privacy Policy</h1>\r\n"
+          :value: "<h1>Privacy Policy</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7554\"
+            target=\"_blank\">Stock Privacy Policy (Hub)</a></p>\r\n"
