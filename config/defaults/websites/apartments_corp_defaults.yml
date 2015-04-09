@@ -14,6 +14,13 @@
   - :html_id: drop-target-logo
     :widgets:
     - :slug: logo
+      :settings:
+      - :name: business_name
+        :value: "{{client_name}}"
+      - :name: display_logo
+        :value: 'true'
+      - :name: logo_url
+        :value: http://placehold.it/230x150/000/fff
   - :html_id: drop-target-phone
     :widgets: []
   - :html_id: drop-target-btn
@@ -31,191 +38,473 @@
   - :html_id: drop-target-aside-before-main
     :widgets:
     - :slug: contact-info-sheet
-    - :slug: promoted-reviews
+      :settings: []
   - :html_id: drop-target-aside-after-main
     :widgets: []
   - :html_id: drop-target-footer
     :widgets:
     - :slug: contact-info
+      :settings: []
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: Apartments in {{location_city}}, {{location_state}} | {{location_name}}
+  :title: "{{client_name}} | Apartments "
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
-          website today. '
+        :value: At {{client_name}} we are dedicated to providing the best in apartment
+          {{page_slug}}s.  To learn m{{location_state_slug}}e about our apartment
+          communities, please visit our website.
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: single
       :widgets:
       - :slug: column
         :row_count: three
         :widgets:
-        - :slug: calls-to-action
         - :slug: photo
-        - :slug: home-page-multifamily-iui
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/1871x680
+          - :name: photo_alignment
+            :value: photo-block
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: contact-us
+        - :slug: city-state-zip-search
+          :settings:
+          - :name: search_results_page
+            :value: "/our-communities"
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
       - :slug: column
-        :row_count: two
+        :row_count: one
         :widgets:
-        - :slug: contact-info
-        - :slug: social-links
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1><span style=\"font-family:arial,sans,sans-serif\">Welcome
+              to {{client_name}}</span></h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+              pri paulo quidam cu. Sea ad quot reque tantas, quaeque placerat maluisset
+              pro ut. Ne ius antiopam interpretaris. Mazim oporteat reprehendunt per
+              ea, semper assueverit mel id. Copiosae deseruisse no vix, cu labitur
+              saperet praesent per.</p>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build
+              notes for Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\"
+              target=\"_blank\">Theme / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build
+              notes for Orion Widgets:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-6923\"
+              target=\"_blank\">Widget Index (Hub)</a></p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: corporate-locations-map
     - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eos ad
+              tibique appetere scribentur, accusamus prodesset nec an. Nostrud adipiscing
+              id mea, commodo copiosae mel ex. Essent causae eu pro, diam periculis
+              reformidans usu et. An sit eros definiebas inciderint, dicunt inimicus
+              praesent nam ei.</p>\r\n\r\n<p>Autem suavitate definitiones in eos,
+              est omittam epicurei vulputate an, vel meis dicta atomorum ut. Quo scripta
+              appareat hendrerit an, eum graeco dissentiet ex. Option mentitum sit
+              at. Sit an falli choro vituperatoribus, at vix movet prompta constituam,
+              eam et veri movet senserit. Luptatum signiferumque eum in. Omittam ponderum
+              et mel, sea libris verterem recteque ut.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/540x400
+          - :name: photo_alignment
+            :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: single
       :widgets:
-      - :slug: gallery
+      - :slug: featured-property-gallery
     - :slug: content-stripe
-      :row_layout: halves
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: map
-    - :slug: content-stripe
-      :row_layout: halves
-      :widgets:
-      - :slug: photo
-      - :slug: social-feed
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: video
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: social-feed
 :web_page_templates:
-- :name: Locations
-  :title: "{{client_name}} Locations"
+- :name: Our Communities
+  :title: "{{client_name}} | Our Communities "
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{client_name}} {{page_name}}."
+        :value: "{{client_name}} offers high quality apartment communities in your
+          area."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: calls-to-action
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-1
       :widgets:
       - :slug: column
-        :row_count: two
+        :row_count: one
         :widgets:
-        - :slug: photo
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h1>{{client.branded_name}} Communities</h1>\r\n\r\n<p>Lorem
+              ipsum dolor sit amet, viris lobortis sit in, ad usu diam magna, debet
+              noster aliquid et est. Vis cu tota nostrum salutatus, nonumy ullamcorper
+              contentiones nec id. Tota appareat percipit qui at, ius antiopam vulputate
+              intellegebat ea. Eam labitur gubergren urbanitas ea, his cu wisi vitae,
+              nisl mollis fierent mel te. Mel at saepe platonem, eos an illud aeterno
+              abhorreant, in graeci regione sit. At dicit appetere eum.</p>\r\n"
       - :slug: column
-        :row_count: two
+        :row_count: one
         :widgets:
-        - :slug: contact-info
-        - :slug: social-links
-- :name: Features
-  :title: "{{client_name}} Apartment Features"
+        - :slug: city-state-zip-search
+          :settings: []
+- :name: About Us
+  :title: "{{client_name}} About Us"
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{location_name}} offers some of the nicest {{location_city}} apartments."
+        :value: Learn about {{client_name}} by visiting our website.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>About {{ client_name }}</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, natum erant luptatum ea pri, feugiat minimum eligendi pri
+              ex. Sit eu odio dolores, vel noster conceptam ei, ius te sonet philosophia.
+              Eu vix soluta noluisse, simul dissentias sea ea, ei eos copiosae oporteat
+              scribentur. Mel cu brute quodsi detracto, aperiri accusata adversarium
+              sed an. Omnis sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque
+              abhorreant. Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/400x300
+          - :name: photo_alignment
+            :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
       :widgets:
       - :slug: html
         :settings:
         - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: calls-to-action
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: column
-        :row_count: two
-        :widgets:
-        - :slug: photo
-        - :slug: html
-          :settings:
-          - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: column
-        :row_count: two
-        :widgets:
-        - :slug: contact-info
-        - :slug: social-links
-    - :slug: content-stripe
-      :row_layout: thirds
-      :widgets:
+          :value: "<h2>Heading</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum erant
+            luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio dolores,
+            vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta noluisse,
+            simul dissentias sea ea, ei eos copiosae oporteat scribentur. Mel cu brute
+            quodsi detracto, aperiri accusata adversarium sed an. Omnis sonet mel
+            ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant. Vel an luptatum
+            laboramus, per at illum probatus.</p>\r\n"
       - :slug: photo
-      - :slug: html
         :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-- :name: Photos
-  :title: Photos of Our Apartments in {{location_city}}, {{location_state}} | {{location_name}}
+        - :name: photo_source_url
+          :value: http://placehold.it/460x300
+        - :name: photo_alignment
+          :value: photo-block
+- :name: Contact Us
+  :title: Contact us at {{client_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{page_name}} of Contemporary apartments"
+        :value: Looking f{{location_state_slug}} contact inf{{location_state_slug}}mation
+          f{{location_state_slug}} {{client_name}}? Visit our website and find it
+          here!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
     - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: calls-to-action
-    - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
         :row_count: two
         :widgets:
-        - :slug: gallery
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h1>Contact {{ client_name }}</h1>\r\n"
+        - :slug: lead-form
       - :slug: column
-        :row_count: two
+        :row_count: 
+        :widgets: []
+- :name: Careers
+  :title: "{{client_name}} | Career Opritunities"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Looking f{{location_state_slug}} a Career at {{client_name}}? Visit
+          this page to find out m{{location_state_slug}}e inf{{location_state_slug}}mation.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
         :widgets:
-        - :slug: contact-info
-        - :slug: social-links
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Career Opritunities at {{client_name}}</h1>\r\n\r\n<p>Lorem
+              ipsum dolor sit amet, natum erant luptatum ea pri, feugiat minimum eligendi
+              pri ex. Sit eu odio dolores, vel noster conceptam ei, ius te sonet philosophia.
+              Eu vix soluta noluisse, simul dissentias sea ea, ei eos copiosae oporteat
+              scribentur. Mel cu brute quodsi detracto, aperiri accusata adversarium
+              sed an. Omnis sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque
+              abhorreant. Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/360x300
+          - :name: photo_alignment
+            :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum
+              erant luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio
+              dolores, vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta
+              noluisse, simul dissentias sea ea, ei eos copiosae oporteat scribentur.
+              Mel cu brute quodsi detracto, aperiri accusata adversarium sed an. Omnis
+              sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant.
+              Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: News & Events
+  :title: News & Events | {{ client_name }}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'Are you looking f{{location_state_slug}} {{client_name}}''s latest
+          news and events? Visit our website to find exactly what you are looking
+          f{{location_state_slug}}. '
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Heading</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum
+              erant luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio
+              dolores, vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta
+              noluisse, simul dissentias sea ea, ei eos copiosae oporteat scribentur.
+              Mel cu brute quodsi detracto, aperiri accusata adversarium sed an. Omnis
+              sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant.
+              Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/450x350
+          - :name: photo_alignment
+            :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: single
+      :widgets:
+      - :slug: news-feed
+- :name: EEO Statement
+  :title: "{{client_name}} | EEO Statement "
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{client_name}} is an Equal Opp{{location_state_slug}}tunity Employer.
+          \ Visit our site f{{location_state_slug}} our Equal Employment Opp{{location_state_slug}}tunity
+          statement."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum
+              erant luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio
+              dolores, vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta
+              noluisse, simul dissentias sea ea, ei eos copiosae oporteat scribentur.
+              Mel cu brute quodsi detracto, aperiri accusata adversarium sed an. Omnis
+              sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant.
+              Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/450x300
+          - :name: photo_alignment
+            :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum
+              erant luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio
+              dolores, vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta
+              noluisse, simul dissentias sea ea, ei eos copiosae oporteat scribentur.
+              Mel cu brute quodsi detracto, aperiri accusata adversarium sed an. Omnis
+              sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant.
+              Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/600x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Privacy Policy
+  :title: "{{client_name}} Privacy Policy"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{client_name}} values your privacy. We collect only the personal
+          inf{{location_state_slug}}mation you voluntarily provide in {{location_state_slug}}der
+          to give the best possible service."
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Privacy Policy</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7554\"
+              target=\"_blank\">Stock Privacy Policy (Hub)</a></p>\r\n"
+      - :slug: column
+        :row_count: 
+        :widgets: []
