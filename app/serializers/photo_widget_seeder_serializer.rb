@@ -3,14 +3,18 @@ class PhotoWidgetSeederSerializer < ExtendedWidgetSeederSerializer
     placeholdit_url(get_container_size)
   end
 
+  def default_photo_alignment
+    'photo-block'
+  end
+
   protected
 
   def extended_settings_list
-    ['photo_source_url','photo_link_url','photo_alt_tag','photo_caption','photo_alignment','photo_class']
+    ['photo_source_url','photo_link_url','photo_alt_tag','photo_caption','photo_class']
   end
 
   def default_settings_list
-    ['photo_source_url']
+    ['photo_source_url','photo_alignment']
   end
 
   def placeholdit_url(size)
