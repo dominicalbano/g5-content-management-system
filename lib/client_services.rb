@@ -1,9 +1,12 @@
 class ClientServices
-  HEROKU_APP_NAME_MAX_LENGTH = 30
-  SERVICES = %w(cms cpns cpas cls cxm dsh)
+  SERVICES = %w(c cms cpns cpas cls cxm dsh)
+
+  def initialize
+    @formatter = G5HerokuAppNameFormatter::Formatter.new(client_urn, SERVICES)
+  end
 
   def client
-    Client.first
+    @client ||= Client.first
   end
 
   def client_urn
@@ -11,7 +14,7 @@ class ClientServices
   end
 
   def client_app_name
-    client_urn[0...HEROKU_APP_NAME_MAX_LENGTH]
+    @formatter.c_app_name
   end
 
   def client_url
@@ -29,12 +32,12 @@ class ClientServices
   SERVICES.each do |service|
     define_method("#{service}_urn") do
       # Custom or replace the Client's app prefix
-      ENV["#{service.upcase}_URN"] || client_urn.gsub(/-c-/, "-#{service}-")
+      ENV["#{service.upcase}_URN"] || @formatter.try("#{service}_urn")
     end
 
     define_method("#{service}_app_name") do
       # Custom or truncate to Heroku's max app name length
-      ENV["#{service.upcase}_APP_NAME"] || send(:"#{service}_urn")[0...HEROKU_APP_NAME_MAX_LENGTH]
+      ENV["#{service.upcase}_APP_NAME"] || @formatter.try("#{service}_app_name")
     end
 
     define_method("#{service}_url") do |secure: false|
