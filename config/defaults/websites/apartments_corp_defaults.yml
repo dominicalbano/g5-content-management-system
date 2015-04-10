@@ -57,8 +57,8 @@
       :settings:
       - :name: meta_description
         :value: At {{client_name}} we are dedicated to providing the best in apartment
-          {{page_slug}}s.  To learn m{{location_state_slug}}e about our apartment
-          communities, please visit our website.
+          homes.  To learn more about our apartment communities, please visit our
+          website.
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: single
@@ -279,9 +279,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Looking f{{location_state_slug}} contact inf{{location_state_slug}}mation
-          f{{location_state_slug}} {{client_name}}? Visit our website and find it
-          here!
+        :value: Looking for contact information for {{client_name}}? Visit our website
+          and find it here!
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -312,8 +311,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Looking f{{location_state_slug}} a Career at {{client_name}}? Visit
-          this page to find out m{{location_state_slug}}e inf{{location_state_slug}}mation.
+        :value: Looking for a Career at {{client_name}}? Visit this page to find out
+          more information.
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -381,9 +380,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Are you looking f{{location_state_slug}} {{client_name}}''s latest
-          news and events? Visit our website to find exactly what you are looking
-          f{{location_state_slug}}. '
+        :value: 'Are you looking for {{client_name}}''s latest news and events? Visit
+          our website to find exactly what you are looking for. '
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -430,9 +428,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{client_name}} is an Equal Opp{{location_state_slug}}tunity Employer.
-          \ Visit our site f{{location_state_slug}} our Equal Employment Opp{{location_state_slug}}tunity
-          statement."
+        :value: "{{client_name}} is an Equal Opportunity Employer.  Visit our site
+          for our Equal Employment Opportunity statement."
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -507,8 +504,7 @@
       :settings:
       - :name: meta_description
         :value: "{{client_name}} values your privacy. We collect only the personal
-          inf{{location_state_slug}}mation you voluntarily provide in {{location_state_slug}}der
-          to give the best possible service."
+          information you voluntarily provide in order to give the best possible service."
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: uneven-thirds-2

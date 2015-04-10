@@ -62,8 +62,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{{{location_name_slug}}_name}} in {{{{location_name_slug}}_city}}
-          by visiting our website today. '
+        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
+          website today. '
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: single
@@ -74,7 +74,7 @@
         - :slug: photo
           :settings:
           - :name: photo_source_url
-            :value: http://placehold.it/2000x1250&text=Ivy:2000x1200%7CLuxe:2000x1300(abritrary)%7CWellborne:TDB
+            :value: http://placehold.it/2000x1250&text=Ivy:2000x1200%7CLuxe:2000x1300(arbitrary)%7CWellborne:TDB
           - :name: photo_alignment
             :value: photo-block
         - :slug: calls-to-action
@@ -189,10 +189,9 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{{{location_name_slug}}_flo{{location_state_slug}}_plans}} bedroom
-          apartments in {{{{location_name_slug}}_city}}, {{{{location_name_slug}}_state}};
-          visit our website to find the flo{{location_state_slug}} plan at {{{{location_name_slug}}_name}}
-          that will w{{location_state_slug}}k best f{{location_state_slug}} you."
+        :value: "{{location_floor_plans}} bedroom apartments in {{location_city}},
+          {{location_state}}; visit our website to find the floor plan at {{location_name}}
+          that will work best for you."
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -252,10 +251,9 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{{{location_name_slug}}_city}} {{{{location_name_slug}}_qualifier}}
-          apartment {{page_slug}} are designed to meet all your needs at {{{{location_name_slug}}_name}}.
-          We are located near {{{{location_name_slug}}_primary_landmark}} in {{{{location_name_slug}}_city}},
-          {{{{location_name_slug}}_state}}. "
+        :value: "{{location_city}} {{location_qualifier}} apartment amenities are
+          designed to meet all your needs at {{location_name}}. We are located near
+          {{location_primary_landmark}} in {{location_city}}, {{location_state}}. "
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -334,9 +332,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Want to see {{page_slug}} of our apartments in {{{{location_name_slug}}_city}},
-          {{{{location_name_slug}}_state}}? Visit our website and picture yourself
-          at {{{{location_name_slug}}_name}}.
+        :value: Want to see photos of our apartments in {{location_city}}, {{location_state}}?
+          Visit our website and picture yourself at {{location_name}}.
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -403,9 +400,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Life is great at our {{{{location_name_slug}}_{{page_slug}}}} {{{{location_name_slug}}_city}}
-          apartments near {{{{location_name_slug}}_primary_landmark}}; call {{{{location_name_slug}}_name}}
-          today at {{{{location_name_slug}}_marketing_number}}.
+        :value: Life is great at our {{location_neighborhood}} {{location_city}} apartments
+          near {{location_primary_landmark}}; call {{location_name}} today at {{location_marketing_number}}.
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -475,9 +471,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: F{{location_state_slug}} a map & directions to our apartments f{{location_state_slug}}
-          rent in {{{{location_name_slug}}_city}}, {{{{location_name_slug}}_state}},
-          visit {{{{location_name_slug}}_name}} at our website.
+        :value: For a map & directions to our apartments for rent in {{location_city}},
+          {{location_state}}, visit {{location_name}} at our website.
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -524,9 +519,9 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{{{location_name_slug}}_name}} in {{{{location_name_slug}}_city}},
-          {{{{location_name_slug}}_state}}, offers apartment {{page_slug}} the resources
-          to ensure your lifestyle is everything that you want it to be."
+        :value: "{{location_name}} in {{location_city}}, {{location_state}}, offers
+          apartment residents the resources to ensure your lifestyle is everything
+          that you want it to be."
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -630,9 +625,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{{{location_name_slug}}_name}} offers pet friendly apartments in
-          {{{{location_name_slug}}_city}}, {{{{location_name_slug}}_state}}; visit
-          our website {{location_state_slug}} call to learn m{{location_state_slug}}e."
+        :value: "{{location_name}} offers pet friendly apartments in {{location_city}},
+          {{location_state}}; visit our website or call to learn more."
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -677,9 +671,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'There is always something going on at {{{{location_name_slug}}_name}};
-          visit our calendar of {{page_slug}} page to stay caught up with what''s
-          happening. '
+        :value: 'There is always something going on at {{location_name}}; visit our
+          calendar of events page to stay caught up with what''s happening. '
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -724,8 +717,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: People are talking about {{{{location_name_slug}}_name}}; find out
-          what they are saying by visiting our testimonials page and reading {{page_slug}}.
+        :value: People are talking about {{location_name}}; find out what they are
+          saying by visiting our testimonials page and reading reviews.
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -774,9 +767,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Do you like what you''ve seen and want to {{page_slug}} to live at
-          {{{{location_name_slug}}_name}}? Do it from the comf{{location_state_slug}}t
-          of your sofa by visiting our website today. '
+        :value: 'Do you like what you''ve seen and want to apply to live at {{location_name}}?
+          Do it from the comfort of your sofa by visiting our website today. '
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -806,9 +798,9 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Want to see m{{location_state_slug}}e of {{{{location_name_slug}}_name}}?
-          See our property in person by scheduling a tour of our {{{{location_name_slug}}_qualifier}}
-          community. Click {{location_state_slug}} call {{{{location_name_slug}}_marketing_number}}!
+        :value: Want to see more of {{location_name}}? See our property in person
+          by scheduling a tour of our {{location_qualifier}} community. Click or call
+          {{location_marketing_number}}!
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -839,9 +831,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Do you like what you see about {{{{location_name_slug}}_name}} on
-          our website and want m{{location_state_slug}}e inf{{location_state_slug}}mation?
-          Request inf{{location_state_slug}}mation today!
+        :value: Do you like what you see about {{location_name}} on our website and
+          want more information? Request information today!
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -871,9 +862,9 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Do you live at {{{{location_name_slug}}_name}} and have noticed something
-          not w{{location_state_slug}}king properly on the property? You can easily
-          submit a maintenance request on our website. '
+        :value: 'Do you live at {{location_name}} and have noticed something not working
+          properly on the property? You can easily submit a maintenance request on
+          our website. '
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -903,9 +894,9 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Do you live at {{{{location_name_slug}}_name}} and have a suggestion
-          that you'd like our management team to read? Submit your idea via our online
-          suggestion box!
+        :value: Do you live at {{location_name}} and have a suggestion that you'd
+          like our management team to read? Submit your idea via our online suggestion
+          box!
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -935,9 +926,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{{{location_name_slug}}_name}} collects inf{{location_state_slug}}mation
-          only to provide the best possible service and we never share. View our privacy
-          policy at our website."
+        :value: "{{location_name}} collects information only to provide the best possible
+          service and we never share. View our privacy policy at our website."
     - :slug: photo
       :settings:
       - :name: photo_source_url

@@ -6,6 +6,7 @@ class MetaDescriptionWidgetSeederSerializer < ExtendedWidgetSeederSerializer
   end
 
   def use_reverse_liquid?
-    true
+    #true
+    false
   end
 end
