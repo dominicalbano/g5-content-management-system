@@ -19,8 +19,8 @@ module LiquidParameters
     {
       "page_name"                 => template.name,
       "page_slug"                 => template.slug,
-      "page_created"              => template.created_at.gsub(' UTC',''),
-      "page_updated"              => template.updated_at.gsub(' UTC',''),
+      "page_created"              => template.created_at.to_s.gsub(' UTC',''),
+      "page_updated"              => template.updated_at.to_s.gsub(' UTC',''),
       "website_urn"               => location.website.urn,
       "location_uid"              => location.uid,
       "location_urn"              => location.urn,
