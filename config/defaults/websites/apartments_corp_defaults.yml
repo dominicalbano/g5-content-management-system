@@ -38,13 +38,19 @@
   - :html_id: drop-target-aside-before-main
     :widgets:
     - :slug: contact-info-sheet
-      :settings: []
+      :settings:
+      - :name: contact_url
+        :value: "/contact-us"
   - :html_id: drop-target-aside-after-main
     :widgets: []
   - :html_id: drop-target-footer
     :widgets:
     - :slug: contact-info
-      :settings: []
+      :settings:
+      - :name: maps_url
+        :value: "/our-communities"
+      - :name: location_email
+        :value: "/contact-us"
     - :slug: footer-info
 :web_home_template:
   :name: Home
@@ -209,7 +215,7 @@
         - :slug: city-state-zip-search
           :settings: []
 - :name: About Us
-  :title: "{{client_name}} About Us"
+  :title: About {{client_name}}
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -271,7 +277,7 @@
         - :name: photo_alignment
           :value: photo-block
 - :name: Contact Us
-  :title: Contact us at {{client_name}}
+  :title: Contact {{client_name}}
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -311,7 +317,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Looking for a Career at {{client_name}}? Visit this page to find out
+        :value: Looking for a career at {{client_name}}? Visit this page to find out
           more information.
     - :slug: photo
       :settings:
@@ -372,7 +378,7 @@
           - :name: photo_alignment
             :value: photo-block
 - :name: News & Events
-  :title: News & Events | {{ client_name }}
+  :title: "{{client_name}} News & Events"
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main

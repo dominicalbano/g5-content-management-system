@@ -53,8 +53,8 @@
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: 'Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}}
-    with {{location_primary_amenity}} '
+  :title: Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}}
+    | {{location_name}}
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -62,8 +62,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
-          website today. '
+        :value: Find out how great life is at our {{location_neighborhood}} {{location_city}}
+          apartments! To learn more about {{location_name}} visit our website.
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: single
@@ -74,7 +74,7 @@
         - :slug: photo
           :settings:
           - :name: photo_source_url
-            :value: http://placehold.it/2000x1250&text=Ivy:2000x1200%7CLuxe:2000x1300(arbitrary)%7CWellborne:TDB
+            :value: http://placehold.it/2000x1250&text=Hero+Image
           - :name: photo_alignment
             :value: photo-block
         - :slug: calls-to-action
@@ -166,7 +166,10 @@
       :row_css_custom: ''
       :row_layout: uneven-thirds-1
       :widgets:
-      - :slug: social-feed
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: social-feed
       - :slug: column
         :row_count: one
         :widgets:
@@ -222,7 +225,7 @@
               target=\"_blank\">Floor Plans Cards Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-6870\"
               target=\"_blank\">Multi Family IUI Cards Widget (Hub)</a><br />\r\n<a
               href=\"https://g5.jiveon.com/docs/DOC-6881\" target=\"_blank\">Home
-              Page IUI Cards Widget (Hub)</a></p>\r\n"
+              Page IUI Cards Widget (Hub)</a></p>\r\n\r\n<p>&nbsp;</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
@@ -943,35 +946,7 @@
         - :name: text
           :value: "<h1>Privacy Policy</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7554\"
             target=\"_blank\">Stock Privacy Policy (Hub)</a></p>\r\n"
-- :name: Liquid Link Test
-  :title: Stupid page titles
-  :enabled: true
-  :drop_targets:
-  - :html_id: drop-target-main
-    :widgets:
-    - :slug: photo
-      :settings:
-      - :name: photo_source_url
-        :value: http://placehold.it/1600x250
-      - :name: photo_alignment
-        :value: photo-block
-    - :slug: content-stripe
-      :row_css_custom: ''
-      :row_layout: thirds
-      :widgets:
-      - :slug: button
+      - :slug: html
         :settings:
-        - :name: button_label
-          :value: test link
-        - :name: button_url
-          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/privacy-policy"
-        - :name: button_layout
-          :value: inline
-      - :slug: photo
-        :settings:
-        - :name: photo_source_url
-          :value: http://placehold.it/400x400
-        - :name: photo_alignment
-          :value: photo-block
-        - :name: photo_link_url
-          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/privacy-policy"
+        - :name: text
+          :value: "<p>Last Updated: {{ page_updated }}</p>\r\n"
