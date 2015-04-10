@@ -1,6 +1,6 @@
 class NavigationWidgetSeederSerializer < ExtendedWidgetSeederSerializer
   def default_display_navigation
-    false
+    'false'
   end
 
   protected

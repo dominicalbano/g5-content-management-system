@@ -28,7 +28,7 @@
     - :slug: navigation
       :settings:
       - :name: display_navigation
-        :value: 'true'
+        :value: 'false'
       - :name: display_as_calls_to_action
         :value: 'false'
       - :name: display_corporate_navigation
