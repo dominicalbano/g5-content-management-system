@@ -36,12 +36,20 @@
   - :html_id: drop-target-aside-before-main
     :widgets:
     - :slug: contact-info-sheet
+      :settings:
+      - :name: contact_url
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
     - :slug: promoted-reviews
   - :html_id: drop-target-aside-after-main
     :widgets: []
   - :html_id: drop-target-footer
     :widgets:
     - :slug: contact-info
+      :settings:
+      - :name: maps_url
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+      - :name: location_email
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
     - :slug: footer-info
 :web_home_template:
   :name: Home
@@ -148,6 +156,11 @@
         :row_count: two
         :widgets:
         - :slug: contact-info
+          :settings:
+          - :name: maps_url
+            :value: "/apartments/{{location_state}}/{{location_city}}/map-and-directions"
+          - :name: location_email
+            :value: "/apartments/{{location_state}}/{{location_city}}/contact-us"
         - :slug: social-links
     - :slug: content-stripe
       :row_css_custom: ''
@@ -221,6 +234,7 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings: []
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: single
@@ -279,6 +293,11 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings:
+          - :name: maps_url
+            :value: "#"
+          - :name: location_email
+            :value: "#"
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: thirds
@@ -351,6 +370,11 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings:
+          - :name: maps_url
+            :value: "#"
+          - :name: location_email
+            :value: "#"
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: single
@@ -413,6 +437,7 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings: []
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: thirds
@@ -489,6 +514,7 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings: []
 - :name: Residents
   :title: Information for Current Residents at {{location_name}}
   :enabled: true
@@ -641,6 +667,7 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings: []
 - :name: Events
   :title: Events at {{location_name}} in {{location_city}}
   :enabled: false
@@ -687,6 +714,7 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings: []
 - :name: Reviews
   :title: Testimonials about {{location_name}}
   :enabled: true
@@ -732,6 +760,11 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
+          :settings:
+          - :name: maps_url
+            :value: "#"
+          - :name: location_email
+            :value: "#"
 - :name: Apply
   :title: Apply to Live at {{location_name}}
   :enabled: true
@@ -920,3 +953,35 @@
         - :name: text
           :value: "<h1>Privacy Policy</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7554\"
             target=\"_blank\">Stock Privacy Policy (Hub)</a></p>\r\n"
+- :name: Liquid Link Test
+  :title: Stupid page titles
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: thirds
+      :widgets:
+      - :slug: button
+        :settings:
+        - :name: button_label
+          :value: test link
+        - :name: button_url
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/privacy-policy"
+        - :name: button_layout
+          :value: inline
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/400x400
+        - :name: photo_alignment
+          :value: photo-block
+        - :name: photo_link_url
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/privacy-policy"

@@ -140,6 +140,15 @@
       :row_layout: single
       :widgets:
       - :slug: featured-property-gallery
+        :settings:
+        - :name: gallery_title
+          :value: Featured Locations
+        - :name: gallery_thumbnails
+          :value: 'yes'
+        - :name: gallery_mini
+          :value: 'no'
+        - :name: gallery_carousel
+          :value: 'no'
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: uneven-thirds-2
@@ -148,6 +157,13 @@
         :row_count: one
         :widgets:
         - :slug: video
+          :settings:
+          - :name: video_id
+            :value: SkghXII4h7k
+          - :name: video_title
+            :value: Orion vs Fruit
+          - :name: source
+            :value: "//www.youtube.com/embed/"
       - :slug: column
         :row_count: one
         :widgets:
