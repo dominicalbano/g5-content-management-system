@@ -19,6 +19,8 @@ module LiquidParameters
     {
       "page_name"                 => template.name,
       "page_slug"                 => template.slug,
+      "page_created"              => template.created_at,
+      "page_updated"              => template.updated_at,
       "website_urn"               => location.website.urn,
       "location_uid"              => location.uid,
       "location_urn"              => location.urn,
