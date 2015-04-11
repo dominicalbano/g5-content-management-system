@@ -1,0 +1,32 @@
+---
+:name: Suggestion Box
+:title: Suggestion Box | {{location_name}}
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: Do you live at {{location_name}} and have a suggestion that you'd like
+        our management team to read? Submit your idea via our online suggestion box!
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+    - :name: photo_alt_tag
+      :value: Submit your suggestions and feedback
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Suggestions &amp; Feedback</h1>\r\n"
+      - :slug: lead-form

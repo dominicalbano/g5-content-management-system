@@ -1,0 +1,33 @@
+---
+:name: Privacy Policy
+:title: "{{client_name}} Privacy Policy"
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: "{{client_name}} values your privacy. We collect only the personal information
+        you voluntarily provide in order to give the best possible service."
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Privacy Policy</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7554\"
+            target=\"_blank\">Stock Privacy Policy (Hub)</a></p>\r\n"
+    - :slug: column
+      :row_count: 
+      :widgets: []

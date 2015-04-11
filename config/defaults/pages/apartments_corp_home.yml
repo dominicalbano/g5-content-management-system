@@ -1,0 +1,121 @@
+---
+:name: Home
+:title: "{{client_name}} | Apartments "
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: At {{client_name}} we are dedicated to providing the best in apartment
+        homes.  To learn more about our apartment communities, please visit our website.
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: single
+    :widgets:
+    - :slug: column
+      :row_count: three
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/1871x680
+        - :name: photo_alignment
+          :value: photo-block
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: contact-us
+      - :slug: city-state-zip-search
+        :settings:
+        - :name: search_results_page
+          :value: "/our-communities"
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1><span style=\"font-family:arial,sans,sans-serif\">Welcome to
+            {{client_name}}</span></h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, pri
+            paulo quidam cu. Sea ad quot reque tantas, quaeque placerat maluisset
+            pro ut. Ne ius antiopam interpretaris. Mazim oporteat reprehendunt per
+            ea, semper assueverit mel id. Copiosae deseruisse no vix, cu labitur saperet
+            praesent per.</p>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build notes for
+            Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\" target=\"_blank\">Theme
+            / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build notes for Orion Widgets:&nbsp;<a
+            href=\"https://g5.jiveon.com/docs/DOC-6923\" target=\"_blank\">Widget
+            Index (Hub)</a></p>\r\n"
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: corporate-locations-map
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: halves
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h2>Heading</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eos ad tibique
+            appetere scribentur, accusamus prodesset nec an. Nostrud adipiscing id
+            mea, commodo copiosae mel ex. Essent causae eu pro, diam periculis reformidans
+            usu et. An sit eros definiebas inciderint, dicunt inimicus praesent nam
+            ei.</p>\r\n\r\n<p>Autem suavitate definitiones in eos, est omittam epicurei
+            vulputate an, vel meis dicta atomorum ut. Quo scripta appareat hendrerit
+            an, eum graeco dissentiet ex. Option mentitum sit at. Sit an falli choro
+            vituperatoribus, at vix movet prompta constituam, eam et veri movet senserit.
+            Luptatum signiferumque eum in. Omittam ponderum et mel, sea libris verterem
+            recteque ut.</p>\r\n"
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/540x400
+        - :name: photo_alignment
+          :value: photo-block
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: single
+    :widgets:
+    - :slug: featured-property-gallery
+      :settings:
+      - :name: gallery_title
+        :value: Featured Locations
+      - :name: gallery_thumbnails
+        :value: 'yes'
+      - :name: gallery_mini
+        :value: 'no'
+      - :name: gallery_carousel
+        :value: 'no'
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: video
+        :settings:
+        - :name: video_id
+          :value: SkghXII4h7k
+        - :name: video_title
+          :value: Orion vs Fruit
+        - :name: source
+          :value: "//www.youtube.com/embed/"
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: social-feed

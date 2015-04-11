@@ -1,0 +1,77 @@
+---
+:name: Residents
+:title: Information for Current Residents at {{location_name}}
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: "{{location_name}} in {{location_city}}, {{location_state}}, offers
+        apartment residents resources to ensure your lifestyle is everything that
+        you want it to be."
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+    - :name: photo_alt_tag
+      :value: Photos of our apartments in {{ location_city }}
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Current Residents</h1>\r\n"
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: thirds
+    :widgets:
+    - :slug: html
+      :settings:
+      - :name: text
+        :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
+          style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Pay
+          Online</h3>\r\n"
+    - :slug: html
+      :settings:
+      - :name: text
+        :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/maintenance-request\"><img
+          alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+          border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+          href=\"/apartments/{{location_state}}/{{location_city}}/maintenance-request\">Maintenance
+          Request</a></h3>\r\n"
+    - :slug: html
+      :settings:
+      - :name: text
+        :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/pet-friendly\"><img
+          alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+          border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+          href=\"/apartments/{{location_state}}/{{location_city}}/pet-friendly\">Pet
+          Friendly</a></h3>\r\n"
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: thirds
+    :widgets:
+    - :slug: html
+      :settings:
+      - :name: text
+        :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/suggestion-box\"><img
+          alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+          border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+          href=\"/apartments/{{location_state}}/{{location_city}}/suggestion-box\">Suggestions
+          &amp; Feedback</a></h3>\r\n"
+    - :slug: html
+      :settings:
+      - :name: text
+        :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/events\"><img
+          alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+          border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+          href=\"/apartments/{{location_state}}/{{location_city}}/events\">Event Calendar</a></h3>\r\n"

@@ -1,0 +1,46 @@
+---
+:name: Events
+:title: Events at {{location_name}} in {{location_city}}
+:enabled: false
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: 'There is always something going on at {{location_name}}. Visit our
+        calendar of events page to stay caught up with what''s happening. '
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+    - :name: photo_alt_tag
+      :value: Events at our apartments in {{ location_city }}, {{ location_state }}
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Events</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te volutpat
+            torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo veniam
+            has cu, eu brute blandit praesent nec. Vero mundi adipiscing et usu, et
+            quodsi lobortis atomorum pri. At vel dicant incorrupte, no vix ridens
+            discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: floor-plans
+      - :slug: contact-info
+        :settings: []

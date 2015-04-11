@@ -1,0 +1,72 @@
+---
+:name: Neighborhood
+:title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}}
+  | {{location_name}}"
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: Life is great at our {{location_neighborhood}} {{location_city}} apartments
+        near {{location_primary_landmark}}; call {{location_name}} today at {{location_marketing_number}}.
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Neighborhood</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
+            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
+            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: floor-plans
+      - :slug: contact-info
+        :settings: []
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: thirds
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h2>Shopping</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Dining</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h2>Schools</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Employers</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/350x250
+        - :name: photo_alignment
+          :value: photo-block

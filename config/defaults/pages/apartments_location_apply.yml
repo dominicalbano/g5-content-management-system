@@ -1,0 +1,32 @@
+---
+:name: Apply
+:title: "{{location_name}} Online Application"
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: You can apply online to live at {{location_name}}. Visit our website
+        to complete our online application form.
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+    - :name: photo_alt_tag
+      :value: Apply to live at our apartments in {{ location_city }}
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Apply</h1>\r\n"
+      - :slug: lead-form

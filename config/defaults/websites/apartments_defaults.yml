@@ -184,7 +184,7 @@
               reprimique, ullum convenire intellegam no nam.</p>\r\n"
 :web_page_templates:
 - :name: Floor Plans
-  :title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}} with {{location_primary_amenity}}"
+  :title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}}, {{location_state}}"
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -948,18 +948,18 @@
         :settings:
         - :name: text
           :value: "<h1>{{client_name}} Privacy Policy</h1>\r\n \r\n<p>Thank you for
-            visiting {{client_name}}’s (\"{{client_name}}\") Internet web site (\"Site\")
+            visiting {{client_name}}’s (\"[CLIENT]\") Internet web site (\"Site\")
             located at the URL {{client_domain}}. This Privacy Policy details certain
-            policies implemented throughout {{client_name}} governing {{client_name}}'s
-            collection and use of personally identifiable information about users
-            of our Site and our services. </p>\r\n \r\n<h2>Privacy Policy Updates</h2>\r\n<p>Due
-            to the Internet's rapidly evolving nature, {{client_name}} may need to
-            update this Privacy Policy from time to time.  If so, {{client_name}}
-            will post its updated Privacy Policy on our Site along with a change notice
-            on the Site.  {{client_name}} may also send registered users of our services
-            a notice that this Privacy Policy has been changed.  {{client_name}} encourages
-            you to review this Privacy Policy regularly for any changes.  Your continued
-            use of this Site and/or services and/or your continued provision of personally
+            policies implemented throughout [CLIENT] governing [CLIENT]'s collection
+            and use of personally identifiable information about users of our Site
+            and our services. </p>\r\n \r\n<h2>Privacy Policy Updates</h2>\r\n<p>Due
+            to the Internet's rapidly evolving nature, [CLIENT] may need to update
+            this Privacy Policy from time to time.  If so, [CLIENT] will post its
+            updated Privacy Policy on our Site along with a change notice on the Site.
+            \ [CLIENT] may also send registered users of our services a notice that
+            this Privacy Policy has been changed.  [CLIENT] encourages you to review
+            this Privacy Policy regularly for any changes.  Your continued use of
+            this Site and/or services and/or your continued provision of personally
             identifiable information to us after the posting of such notice will be
             subject to the terms of the then-current Privacy Policy.</p>\r\n<h2>Information
             Collection</h2>\r\n<p>You can generally visit our Site without revealing
@@ -981,13 +981,13 @@
             the content and general administration of the Site and our services.</p><!--[WORK
             WITH YOUR COUNSEL TO INCLUDE HOW YOU USE THE INFORMATION]-->\r\n<p>If
             you are a user of our services, we may use your personally identifiable
-            information to provide the services to you.</p>\r\n<h2>Children's Privacy</h2>\r\n<p>{{client_name}}
+            information to provide the services to you.</p>\r\n<h2>Children's Privacy</h2>\r\n<p>[CLIENT]
             recognizes the privacy interests of children and we encourage parents
             and guardians to take an active role in their children's online activities
             and interests.  Neither our Site nor our services are intended for children
-            under the age of 13.  {{client_name}} does not target its services or
-            this Site to children under 13.  {{client_name}} does not knowingly collect
-            personally identifiable information from children under the age of 13.</p><!--[NOTE-
+            under the age of 13.  [CLIENT] does not target its services or this Site
+            to children under 13.  [CLIENT] does not knowingly collect personally
+            identifiable information from children under the age of 13.</p><!--[NOTE-
             CLIENT CANNOT COLLECT AGE INFORMATION ON THE SITE AND IF CLIENT DOES COLLECT
             AGE, YOU MUST DELETE AND NOT USE INFORMATION FROM A USER UNDER THE AGE
             OF 13. WORK WITH YOUR COUNSEL TO ACCURATELY ADJUST THIS SECTION]-->\r\n<h2>Cookies</h2>\r\n
@@ -1005,26 +1005,25 @@
             some areas of our Site may be limited.</p>\r\n \r\n<h2>Third Party Analytics
             Tools</h2>\r\n<!--[WORK WITH YOUR COUNSEL TO ADJUST THIS SECTION TO REFLECT
             YOUR PRACTICES]-->\r\n \r\n<p>Beyond the personally identifiable information
-            you voluntarily provide to us, {{client_name}} utilizes analytics tools
-            including third party technologies, such as Google Analytics, to collect
-            non-personally identifiable information utilizing cookies. Certain types
-            of information, including geolocation, device type, onsite website usage
-            and behavior, demographic data, and purchase history, is collected and
-            aggregated across {{client_name}} Site users for our analysis and advertising
-            efforts.</p>\r\n \r\n<p>{{client_name}} uses Remarketing with Google Analytics
-            and Google Adwords to display relevant advertisements to users who have
-            previously visited our Site. Referred to as remarketing or retargeting,
-            {{client_name}} may utilize previous session information to serve display
-            advertisements to you on the Site and based on such session information
-            Google may set a cookie and serve ads to you on third party websites on
-            the Google Display Network. Third party vendors such as Google may display
-            {{client_name}} ads on websites across the Internet.  Aggregated user
-            data may be utilized to create remarketing/retargeting “lists,” or groups
-            of users with similar onsite behaviors or demographics.</p>\r\n \r\n<p>{{client_name}}
-            also uses Google Display Network Impression Reporting and Google Analytics
-            Demographics and Interest Reporting and Interest-Based Advertising to
-            display advertisements to users based on their inferred interests and
-            demographics. {{client_name}} does not run interest-based advertising
+            you voluntarily provide to us, [CLIENT] utilizes analytics tools including
+            third party technologies, such as Google Analytics, to collect non-personally
+            identifiable information utilizing cookies. Certain types of information,
+            including geolocation, device type, onsite website usage and behavior,
+            demographic data, and purchase history, is collected and aggregated across
+            [CLIENT] Site users for our analysis and advertising efforts.</p>\r\n
+            \r\n<p>[CLIENT] uses Remarketing with Google Analytics and Google Adwords
+            to display relevant advertisements to users who have previously visited
+            our Site. Referred to as remarketing or retargeting, [CLIENT] may utilize
+            previous session information to serve display advertisements to you on
+            the Site and based on such session information Google may set a cookie
+            and serve ads to you on third party websites on the Google Display Network.
+            Third party vendors such as Google may display [CLIENT] ads on websites
+            across the Internet.  Aggregated user data may be utilized to create remarketing/retargeting
+            “lists,” or groups of users with similar onsite behaviors or demographics.</p>\r\n
+            \r\n<p>[CLIENT] also uses Google Display Network Impression Reporting
+            and Google Analytics Demographics and Interest Reporting and Interest-Based
+            Advertising to display advertisements to users based on their inferred
+            interests and demographics. [CLIENT] does not run interest-based advertising
             campaigns that collect personally identifiable information.</p>\r\n \r\n<p>Users
             may learn more about Google Analytics use of cookies by visiting the Google
             Privacy and Terms page at http://www.google.com/policies/. You may opt
@@ -1058,26 +1057,26 @@
             identifiable information to any company or organization except we may
             transfer your personally identifiable information to a successor entity
             upon a merger, consolidation or other corporate reorganization in which
-            {{client_name}} participates or to a purchaser of all or substantially
-            all of {{client_name}}'s assets to which this Site relates.</p>\r\n<h2>Links
-            to Third Party Sites</h2>\r\n<p>The Site may provide links to other Web
-            sites or resources over which {{client_name}} does not have control (\"External
-            Web Sites\").  Such links do not constitute an endorsement by {{client_name}}
-            of those External Web Sites.  You acknowledge that {{client_name}} is
-            providing these links to you only as a convenience, and further agree
-            that {{client_name}} is not responsible for the content of such External
-            Web Sites.  Your use of External Web Sites is subject to the terms of
-            use and privacy policies located on the linked to External Web Sites.</p>\r\n<h2>Security</h2>\r\n<p>We
-            may employ industry standard procedural and technological measures that
-            are reasonably designed to help protect your personally identifiable information
-            from loss, unauthorized access, disclosure, alteration or destruction.
-            \ {{client_name}} may use, without limitation, firewalls, password protection,
-            secure socket layer, and other security measures to help prevent unauthorized
-            access to your personally identifiable information.</p><!--[WORK WITH
-            YOUR COUNSEL TO INCLUDE OTHER SECURITY MEASURES OR ADJUST BASED ON SECURITY
-            MEASURES USED ON THE SITE]-->\r\n<h2>Notice to European Users</h2>\r\n<p>This
-            Site and the services on this Site are targeted for users in the United
-            States of America.  Any information you enter on this Site may be transferred
+            [CLIENT] participates or to a purchaser of all or substantially all of
+            [CLIENT]'s assets to which this Site relates.</p>\r\n<h2>Links to Third
+            Party Sites</h2>\r\n<p>The Site may provide links to other Web sites or
+            resources over which [CLIENT] does not have control (\"External Web Sites\").
+            \ Such links do not constitute an endorsement by [CLIENT] of those External
+            Web Sites.  You acknowledge that [CLIENT] is providing these links to
+            you only as a convenience, and further agree that [CLIENT] is not responsible
+            for the content of such External Web Sites.  Your use of External Web
+            Sites is subject to the terms of use and privacy policies located on the
+            linked to External Web Sites.</p>\r\n<h2>Security</h2>\r\n<p>We may employ
+            industry standard procedural and technological measures that are reasonably
+            designed to help protect your personally identifiable information from
+            loss, unauthorized access, disclosure, alteration or destruction.  [CLIENT]
+            may use, without limitation, firewalls, password protection, secure socket
+            layer, and other security measures to help prevent unauthorized access
+            to your personally identifiable information.</p><!--[WORK WITH YOUR COUNSEL
+            TO INCLUDE OTHER SECURITY MEASURES OR ADJUST BASED ON SECURITY MEASURES
+            USED ON THE SITE]-->\r\n<h2>Notice to European Users</h2>\r\n<p>This Site
+            and the services on this Site are targeted for users in the United States
+            of America.  Any information you enter on this Site may be transferred
             outside of the European Union to the United States of America which does
             not offer an equivalent level of protection to that required in the European
             Union. In particular, you are advised that the United States of America
@@ -1090,9 +1089,9 @@
             level of protection. By using this Site or the services, you consent to
             the transfer of all such information to the United States of America which
             may not offer an equivalent level of protection to that required in the
-            European Union and to the processing of that information by {{client_name}}
-            on its servers located in the United States of America as described in
-            this Privacy Policy.</p>\r\n<h2>Questions</h2>\r\n<p>If you have any questions
+            European Union and to the processing of that information by [CLIENT] on
+            its servers located in the United States of America as described in this
+            Privacy Policy.</p>\r\n<h2>Questions</h2>\r\n<p>If you have any questions
             regarding this Privacy Policy please contact us.</p>\r\n\r\n<p>This Privacy
             Policy was last updated: <strong>{{page_updated}}</strong></p>\r\n<p>This
             Privacy Policy is effective as of: <strong>{{page_created}}</strong></p>\r\n\r\n"

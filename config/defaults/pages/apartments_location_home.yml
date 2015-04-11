@@ -1,0 +1,131 @@
+---
+:name: Home
+:title: Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}}
+  | {{location_name}}
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: Find out how great life is at our {{location_neighborhood}} {{location_city}}
+        apartments! To learn more about {{location_name}} visit our website.
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: single
+    :widgets:
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/2000x1250&text=Hero+Image
+        - :name: photo_alignment
+          :value: photo-block
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: floor-plans
+  - :slug: content-stripe
+    :row_css_custom: features-row
+    :row_layout: thirds
+    :widgets:
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/320x220&text=Callout-1%7C320x220
+        - :name: photo_alignment
+          :value: photo-block
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h4>Callout 1</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te
+            volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo
+            veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a href=\"#\">Read
+            More</a></p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/320x220&text=Callout-2%7C320x220
+        - :name: photo_alignment
+          :value: photo-block
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h4>Callout 2</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te
+            volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo
+            veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a href=\"#\">Read
+            More</a></p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/320x220&text=Callout-3%7C320x220
+        - :name: photo_alignment
+          :value: photo-block
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h4>Callout 3</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te
+            volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo
+            veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a href=\"#\">Read
+            More</a></p>\r\n"
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Heading (h1)</h1>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build
+            notes for Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\"
+            target=\"_blank\">Theme / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build
+            notes for Orion Widgets:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-6923\"
+            target=\"_blank\">Widget Index (Hub)</a></p>\r\n\r\n<p>Hero Image Sizing:
+            <a href=\"https://g5.jiveon.com/docs/DOC-7608\" target=\"_blank\">Hero
+            Training</a></p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: contact-info
+        :settings:
+        - :name: maps_url
+          :value: "/apartments/{{location_state}}/{{location_city}}/map-and-directions"
+        - :name: location_email
+          :value: "/apartments/{{location_state}}/{{location_city}}/contact-us"
+      - :slug: social-links
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-1
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: social-feed
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<p><img alt=\"\" src=\"http://placehold.it/730x200\" /></p>\r\n\r\n<h2>Heading
+            (h2)</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te volutpat torquatos,
+            nibh sale vocent te vix. Mei cu illud quaeque, probo veniam has cu, eu
+            brute blandit praesent nec. Vero mundi adipiscing et usu, et quodsi lobortis
+            atomorum pri. At vel dicant incorrupte, no vix ridens discere reprimique,
+            ullum convenire intellegam no nam.</p>\r\n"

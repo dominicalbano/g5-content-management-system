@@ -1,0 +1,49 @@
+---
+:name: News & Events
+:title: "{{client_name}} News & Events"
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: 'Are you looking for {{client_name}}''s latest news and events? Visit
+        our website to find exactly what you are looking for. '
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Heading</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum erant
+            luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio dolores,
+            vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta noluisse,
+            simul dissentias sea ea, ei eos copiosae oporteat scribentur. Mel cu brute
+            quodsi detracto, aperiri accusata adversarium sed an. Omnis sonet mel
+            ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant. Vel an luptatum
+            laboramus, per at illum probatus.</p>\r\n"
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: photo
+        :settings:
+        - :name: photo_source_url
+          :value: http://placehold.it/450x350
+        - :name: photo_alignment
+          :value: photo-block
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: single
+    :widgets:
+    - :slug: news-feed

@@ -1,0 +1,33 @@
+---
+:name: Contact Us
+:title: Contact {{client_name}}
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: Looking for contact information for {{client_name}}? Visit our website
+        and find it here!
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Contact {{ client_name }}</h1>\r\n"
+      - :slug: lead-form
+    - :slug: column
+      :row_count: 
+      :widgets: []
