@@ -1,5 +1,19 @@
 ---
 :slug: content-stripe
+:row_css_custom: ''
 :row_layout: single
 :widgets:
 - :slug: gallery
+  :settings:
+  - :name: gallery_thumbnails
+    :value: 'no'
+  - :name: gallery_mini
+    :value: 'no'
+  - :name: gallery_carousel
+    :value: 'no'
+  - :name: gallery_photo1_url
+    :value: http://placehold.it/1000x594
+  - :name: gallery_photo2_url
+    :value: http://placehold.it/1000x594
+  - :name: gallery_photo3_url
+    :value: http://placehold.it/1000x594

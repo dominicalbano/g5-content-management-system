@@ -1,0 +1,27 @@
+---
+:slug: content-stripe
+:row_css_custom: ''
+:row_layout: uneven-thirds-2
+:widgets:
+- :slug: column
+  :row_count: one
+  :widgets:
+  - :slug: html
+    :settings:
+    - :name: text
+      :value: "<h1>Events</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te volutpat
+        torquatos, nibh sale vocent te vix. Mei cu illud quaeque, probo veniam has
+        cu, eu brute blandit praesent nec. Vero mundi adipiscing et usu, et quodsi
+        lobortis atomorum pri. At vel dicant incorrupte, no vix ridens discere reprimique,
+        ullum convenire intellegam no nam.</p>\r\n"
+- :slug: column
+  :row_count: two
+  :widgets:
+  - :slug: calls-to-action
+    :settings:
+    - :name: cta_text_1
+      :value: Contact Us
+    - :name: page_slug_1
+      :value: floor-plans
+  - :slug: contact-info
+    :settings: []

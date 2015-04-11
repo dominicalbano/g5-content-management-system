@@ -1,0 +1,20 @@
+---
+:slug: content-stripe
+:row_css_custom: ''
+:row_layout: halves
+:widgets:
+- :slug: html
+  :settings:
+  - :name: text
+    :value: "<h2>Heading</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum erant luptatum
+      ea pri, feugiat minimum eligendi pri ex. Sit eu odio dolores, vel noster conceptam
+      ei, ius te sonet philosophia. Eu vix soluta noluisse, simul dissentias sea ea,
+      ei eos copiosae oporteat scribentur. Mel cu brute quodsi detracto, aperiri accusata
+      adversarium sed an. Omnis sonet mel ex, eu mea sint maiorum eligendi. Eu mea
+      utroque abhorreant. Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
+- :slug: photo
+  :settings:
+  - :name: photo_source_url
+    :value: http://placehold.it/460x300
+  - :name: photo_alignment
+    :value: photo-block
