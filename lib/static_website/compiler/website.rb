@@ -22,6 +22,7 @@ module StaticWebsite
         LOGGERS.each{|logger| logger.info("Static Website Compiler: Location: #{location_name}")}
         compile_directory.clean_up
         stylesheets.compile
+        CompileDirectory.new(File.join(compile_path, "stylesheets")).clean_up
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?

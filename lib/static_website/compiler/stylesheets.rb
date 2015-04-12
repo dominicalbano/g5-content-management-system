@@ -33,7 +33,6 @@ module StaticWebsite
 
           stylesheet_compressor.compile unless preview
           stylesheet_uploader.compile unless preview
-          compile_directory.clean_up
         end
       end
 

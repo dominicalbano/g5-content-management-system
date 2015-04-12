@@ -16,7 +16,7 @@ module StaticWebsite
       LOGGERS.each {|logger| logger.info("Deploy called with #{[@website, @compile_path, @user_email]}")}
       @retries = 0
       begin
-        deployer.create(deployer_options)
+        #deployer.create(deployer_options)
         deployer.deploy(deployer_options) do |repo|
           LOGGERS.each{|logger| logger.info("calling cp_r_compile_path(repo)")}
           cp_r_compile_path(repo)
@@ -47,7 +47,7 @@ module StaticWebsite
 
     def deployer_options
       {
-          github_repo: source_repo,
+          github_repo: @website.github_repo,
           heroku_app_name: @website.heroku_app_name,
           heroku_repo: @website.heroku_repo,
           git_url: @website.github_repo,
