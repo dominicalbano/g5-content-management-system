@@ -1,3 +1,4 @@
+
 require "static_website/compiler"
 require "static_website/deployer"
 
