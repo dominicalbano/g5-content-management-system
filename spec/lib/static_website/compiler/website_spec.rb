@@ -12,11 +12,6 @@ describe StaticWebsite::Compiler::Website do
       StaticWebsite::Compiler::Stylesheet::Uploader.any_instance.stub(:compile) { true }
     end
 
-    it "compiles compile directory" do
-      subject.compile_directory.should_receive(:compile).once
-      subject.compile
-    end
-
     it "compiles stylesheets" do
       subject.stylesheets.should_receive(:compile).once
       subject.compile
@@ -24,11 +19,6 @@ describe StaticWebsite::Compiler::Website do
 
     it "compiles web home template" do
       subject.web_home_template.should_receive(:compile).once
-      subject.compile
-    end
-
-    it "compiles web page templates" do
-      subject.compile_directory.should_receive(:compile).once
       subject.compile
     end
   end

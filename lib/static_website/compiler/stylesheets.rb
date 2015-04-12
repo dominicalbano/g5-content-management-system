@@ -33,6 +33,7 @@ module StaticWebsite
 
           stylesheet_compressor.compile unless preview
           stylesheet_uploader.compile unless preview
+          compile_directory.clean_up
         end
       end
 
@@ -67,6 +68,10 @@ module StaticWebsite
 
       def uploaded_path
         @uploaded_path ||= stylesheet_uploader.uploaded_path
+      end
+
+      def compile_directory
+        @compile_dictory ||= CompileDirectory.new(compile_path)
       end
     end
   end

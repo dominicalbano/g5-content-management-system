@@ -23,6 +23,7 @@ module StaticWebsite
       private
 
       def render_to_file
+        LOGGERS.each{|logger| logger.info("Rending HTML for #{compile_path}")}
         File.open(compile_path, "w") do |file|
           file << ApplicationController.new.render_to_string(view_path, view_options)
         end if compile_path

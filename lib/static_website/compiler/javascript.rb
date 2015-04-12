@@ -14,12 +14,9 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each{|logger| logger.debug("about to call compile_directory.compile")}
         compile_directory.compile
-        LOGGERS.each{|logger| logger.debug("done calling compile_directory.compile")}
-        LOGGERS.each{|logger| logger.debug("about to call remote_javascript.compile")}
+        LOGGERS.each{|logger| logger.debug("Call remote_javascript.compile")}
         remote_javascript.compile
-        LOGGERS.each{|logger| logger.debug("done calling remote_javascript.compile")}
         # coffee_javascript.compile
       end
 

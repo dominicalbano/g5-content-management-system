@@ -26,9 +26,8 @@ module StaticWebsite
         end
 
         def compress
-          LOGGERS.each{|logger| logger.debug("compile_path:\n#{compile_path}")}
+          LOGGERS.each{|logger| logger.debug("  compile_path=#{compile_path}")}
           compressed = open(compile_path, "w") do |file|
-            LOGGERS.each{|logger| logger.debug("calling compressor.compile(concatenate)")}
             file.write compressor.compile(concatenate)
           end if compile_path
           compile_path
@@ -36,7 +35,7 @@ module StaticWebsite
 
         def concatenate
           result = file_paths.map do |file_path|
-            LOGGERS.each{|logger| logger.debug("getting file_path:\n#{file_path.to_s}\n for concatenation")}
+            LOGGERS.each{|logger| logger.debug("  Cating file: #{file_path.to_s}")}
             if File.exists?(file_path)
               js = open(file_path).read
               File.delete(file_path)

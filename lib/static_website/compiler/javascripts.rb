@@ -22,18 +22,14 @@ module StaticWebsite
       end
 
       def compile
+        LOGGERS.each{|logger| logger.info("Compiling javascript for web_template: #{@page_name}")}
         @js_paths = []
         @include_paths = []
         unless javascript_paths.empty?
           javascript_paths.each do |javascript_path|
             compile_javascript(javascript_path)
           end
-
-          
-          LOGGERS.each{|logger| logger.debug("About to call javascript_compressor.compile")}
           @js_paths = Array(javascript_compressor.compile) unless preview
-          LOGGERS.each{|logger| logger.debug("Done calling javascript_compressor.compile")}
-          LOGGERS.each{|logger| logger.debug("Calling compile on javascript_uploader unless preview")}
           javascript_uploader.compile unless preview
         end
       end

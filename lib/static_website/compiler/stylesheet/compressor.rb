@@ -14,6 +14,7 @@ module StaticWebsite
         end
 
         def compile
+          LOGGERS.each{|logger| logger.info("Compressing Stylesheets in #{compile_path.to_s}")}
           File.delete(compile_path) if File.exists?(compile_path)
           compile_directory.compile
           compress
