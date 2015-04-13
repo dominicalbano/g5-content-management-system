@@ -39,7 +39,7 @@ module StaticWebsite
 
       def compile_area_page(path, params)
         LOGGERS.each {|logger| logger.debug("calling AreaPage.new().compile")}
-        pages << AreaPage.new(@base_path, path, params).compile
+        pages << AreaPage.new(@base_path, path, params).compile.sub("/index.html",'')
       end
 
       def states

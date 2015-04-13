@@ -25,7 +25,7 @@ module StaticWebsite
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
-        Sitemap.new(website, area_pages.pages.uniq).compile
+        Sitemap.new(website, area_page_directories).compile
         htaccess.compile
         robots.compile
       end
@@ -60,6 +60,10 @@ module StaticWebsite
 
       def area_pages
         @area_pages ||= AreaPages.new(website.compile_path, ::Location.for_area_pages.map(&:website))
+      end
+
+      def area_page_directories
+        area_pages.pages.map {|area_page| area_page.strip("/index.html")}.uniq
       end
 
       def htaccess
