@@ -47,7 +47,7 @@ module StaticWebsite
 
     def deployer_options
       {
-          github_repo: @website.github_repo,
+          github_repo: source_repo,
           heroku_app_name: @website.heroku_app_name,
           heroku_repo: @website.heroku_repo,
           git_url: @website.github_repo,
@@ -58,6 +58,18 @@ module StaticWebsite
       }
     end
 
+    def single_domain_client?
+      Client.first.type == "SingleDomainClient"
+    end
+
+    def copy_path
+      if single_domain_client?
+        Client.first.website.compile_path
+      else
+        compile_path
+      end
+    end
+
     def cp_r_compile_path(repo)
       # save repo dir so we can remove it later
       @repo_dir = repo.dir.to_s
@@ -65,7 +77,8 @@ module StaticWebsite
 
       # copy static website into repo
       LOGGERS.each{|logger| logger.info("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")}
-      FileUtils.cp_r(compile_path + "/.", @repo_dir)
+
+      FileUtils.cp_r(copy_path + "/.", @repo_dir)
 
       # copy public javascripts into repo
       #FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
@@ -88,12 +101,9 @@ module StaticWebsite
       @retries < 3
     end
 
-    def app_exists?
-      @app_exists ||= find_app(@website.heroku_app_name)
-    end
-
     def source_repo
-      @source_repo ||= app_exists? ? @website.heroku_repo : @website.github_repo
+      #TODO: Test this for an app that has never been deployed before.
+      @website.heroku_repo
     end
 
     def increment_retries
@@ -105,26 +115,12 @@ module StaticWebsite
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
     end
 
-    def heroku
-      @heroku ||= ::Heroku::API.new(api_key: ENV["HEROKU_API_KEY"])
-    end
-
 
     private
 
     def take_db_snapshot
       SavesManager.new(@user_email).save
     end
-
-    def find_app(app_name)
-      begin
-        heroku.get_app(app_name)
-          true
-      rescue ::Heroku::API::Errors::NotFound
-        false
-      end
-    end
-
 
   end
 end

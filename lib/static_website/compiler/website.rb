@@ -26,9 +26,13 @@ module StaticWebsite
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
-        htaccess.compile
-        sitemap.compile
-        robots.compile
+        htaccess.compile unless single_domain_client?
+        sitemap.compile unless single_domain_client?
+        robots.compile unless single_domain_client?
+      end
+
+      def single_domain_client?
+        Client.first.type == "SingleDomainClient"
       end
 
       def compile_directory

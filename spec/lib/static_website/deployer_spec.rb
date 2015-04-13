@@ -43,8 +43,8 @@ describe StaticWebsite::Deployer do
   end
 
   describe "#deployer_options" do
-    it "sets github_repo" do
-      expect(subject.deployer_options).to include(github_repo: website.github_repo)
+    it "sets github_repo to heroku_repo, to clone and update" do
+      expect(subject.deployer_options).to include(github_repo: website.heroku_repo)
     end
 
     it "sets heroku_app_name" do
