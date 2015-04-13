@@ -17,7 +17,7 @@ module ClientDeployer
     private
 
       def compile_directory
-       StaticWebsite::Compiler::CompileDirectory.new(compile_path, false)
+        StaticWebsite::Compiler::CompileDirectory.new(compile_path, false)
       end
 
       def compile_path
