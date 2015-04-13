@@ -63,7 +63,7 @@ module StaticWebsite
       end
 
       def area_page_directories
-        area_pages.pages.map {|area_page| area_page.strip("/index.html")}.uniq
+        area_pages.pages.map {|area_page| area_page.sub("/index.html",'')}.uniq
       end
 
       def htaccess
