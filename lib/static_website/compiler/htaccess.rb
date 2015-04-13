@@ -57,6 +57,7 @@ module StaticWebsite
 
         htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-d",
                               "\tRewriteCond %{REQUEST_FILENAME} !-f",
+                              "\tRewriteRule ^(.*)/$ /$1 [L,R=301]",
                               "</IfModule>"]
 
         return htaccess_contents.flatten.join("\n")
