@@ -81,7 +81,7 @@ module ClientDeployer
       def area_page_xml(area_page_path)
         <<-end.strip_heredoc
           <url>
-            <loc>#{File.join(@web_home_template.owner_domain, area_page_path)}</loc>
+            <loc>#{File.join(Client.first.domain, area_page_path)}</loc>
             <changefreq>weekly</changefreq>
             <priority>0.9</priority>
           </url>
