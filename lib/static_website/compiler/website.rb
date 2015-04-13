@@ -25,7 +25,7 @@ module StaticWebsite
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
-        Sitemap.new(website, area_pages.pages).compile
+        Sitemap.new(website, area_pages.pages.uniq).compile
         htaccess.compile
         robots.compile
       end
