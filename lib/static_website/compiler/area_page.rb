@@ -12,6 +12,7 @@ module StaticWebsite
         compile_directory.compile
         LOGGERS.each {|logger| logger.debug("calling render_to_file")}
         render_to_file
+        compile_path.split(@base_path)[1]
       end
 
       def compile_directory

@@ -19,20 +19,14 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each{|logger| logger.debug("\n\n########################################### Website ######\n")}
         compile_directory.compile
         clean_up
-        LOGGERS.each{|logger| logger.debug("Starting stylesheets.compile for website")}
         stylesheets.compile
-        LOGGERS.each{|logger| logger.debug("finished stylesheets.compile")}
-        LOGGERS.each{|logger| logger.debug("########## Beginning WEB_HOME compile")}
         web_home_template.compile
-        LOGGERS.each{|logger| logger.debug("########## Finished WEB_HOME compile")}
         web_page_templates.compile
-        LOGGERS.each{|logger| logger.debug("compiling area pages? #{website.owner.corporate?}")}
         area_pages.compile if website.owner.corporate?
+        Sitemap.new(website, area_pages.pages).compile
         htaccess.compile
-        sitemap.compile
         robots.compile
       end
 
@@ -65,8 +59,7 @@ module StaticWebsite
       end
 
       def area_pages
-        LOGGERS.each{|logger| logger.debug("\n\n########################################### Area Pages ######\n")}
-        AreaPages.new(website.compile_path, ::Location.for_area_pages.map(&:website))
+        @area_pages ||= AreaPages.new(website.compile_path, ::Location.for_area_pages.map(&:website))
       end
 
       def htaccess
@@ -74,7 +67,6 @@ module StaticWebsite
       end
 
       def sitemap
-        @sitemap ||= Sitemap.new(website)
       end
 
       def robots
@@ -83,3 +75,4 @@ module StaticWebsite
     end
   end
 end
+

@@ -1,6 +1,7 @@
 require "static_website/compiler/compile_directory"
 require "static_website/compiler/area_pages"
 require "client_deployer/base_compiler"
+require "client_deployer/base_compiler/sitemap"
 require "client_deployer/website_compiler"
 
 LOGGERS = [Rails.logger, Resque.logger] unless defined? LOGGERS
@@ -10,7 +11,8 @@ module ClientDeployer
     LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to base_compiler")}
     base_compiler(client).compile
     LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to AreaPages.new")}
-    area_pages(client.website.compile_path).compile
+    area_page_paths = area_pages(client.website.compile_path).compile
+    ClientDeployer::BaseCompiler::Sitemap.new(@client, area_page_paths).compile
     compile_location_websites
     deployer(client, user_email).deploy
     cleanup(client.website.compile_path)

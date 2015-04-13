@@ -77,23 +77,10 @@ RSpec.configure do |config|
     mocks.verify_doubled_constant_names = true
 
   end
+  # Config for rspec retry
+  config.verbose_retry = true # show retry status in spec process
 end
 
-def underscore_slug(str)
-  str.downcase.gsub(' ','_').gsub('.','').underscore if str
-end
-
-def load_yaml_file(path)
-  HashWithIndifferentAccess.new(YAML.load_file(path)) if File.exists?(path)
-end
-
-def load_website_yaml_file(file)
-  load_yaml_file("#{Rails.root}/config/defaults/websites/#{file}.yml")
-end
-
-def set_selenium_window_size(width, height)
-  window = Capybara.current_session.driver.browser.manage.window
-  window.resize_to(width, height)
   # Config for rspec retry
   config.verbose_retry = true # show retry status in spec process
 end
@@ -106,3 +93,4 @@ Capybara.register_driver :poltergeist do |app|
 end
 Capybara.javascript_driver = :poltergeist
 Capybara.default_wait_time = 15
+

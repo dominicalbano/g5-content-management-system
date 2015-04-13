@@ -3,9 +3,10 @@ require "static_website/compiler/compile_directory"
 module ClientDeployer
   module BaseCompiler
     class Sitemap
-      def initialize(client)
+      def initialize(client, area_page_paths=[])
         @client = client
         @urls = []
+        @area_page_paths = area_page_paths
       end
 
       def compile
@@ -26,6 +27,10 @@ module ClientDeployer
       def render_sitemap
         Website.location_websites.each { |website| process_website(website.decorate) }
 
+        @area_page_paths.each do |area_page_path|
+          @urls << area_page_xml(area_page_path)
+        end
+
         sitemap_contents = ["<?xml version='1.0' encoding='UTF-8'?>",
                             "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>",
                             @urls.flatten,
@@ -38,9 +43,7 @@ module ClientDeployer
         web_home_template = website.web_home_template
         web_page_templates = website.web_page_templates
 
-        if web_home_template && web_home_template.enabled
-          process_web_home_template(web_home_template)
-        end
+        process_web_home_template(web_home_template)
 
         web_page_templates.each do |template|
           process_web_template(web_home_template, template)
@@ -72,6 +75,16 @@ module ClientDeployer
           end
 
           @urls << web_page_template
+        end
+      end
+
+      def area_page_xml(area_page_path)
+        <<-end.strip_heredoc
+          <url>
+            <loc>#{File.join(@web_home_template.owner_domain, area_page_path)}</loc>
+            <changefreq>weekly</changefreq>
+            <priority>0.9</priority>
+          </url>
         end
       end
 

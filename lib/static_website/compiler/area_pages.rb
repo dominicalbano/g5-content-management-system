@@ -1,10 +1,13 @@
 module StaticWebsite
   module Compiler
     class AreaPages
+      attr_accessor :pages
+
       def initialize(base_path, websites)
         LOGGERS.each {|logger| logger.debug("init Compiler::AreaPages w/ (base_path, websites): #{base_path} #{websites}")}
         @base_path = base_path
         @websites = websites
+        @pages = []
       end
 
       def compile
@@ -36,7 +39,8 @@ module StaticWebsite
 
       def compile_area_page(path, params)
         LOGGERS.each {|logger| logger.debug("calling AreaPage.new().compile")}
-        AreaPage.new(@base_path, path, params).compile
+        binding.pry
+        pages << AreaPage.new(@base_path, path, params).compile
       end
 
       def states
