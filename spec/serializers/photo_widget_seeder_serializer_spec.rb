@@ -41,7 +41,7 @@ describe PhotoWidgetSeederSerializer do
         end
       end
 
-      context "has photo_source_url setting" do
+      context "has default photo_source_url setting" do
         before { widget.set_setting('photo_source_url', 'http://placehold.it/300x200') }
 
         it "serializes the photo_source_url setting" do
@@ -49,11 +49,17 @@ describe PhotoWidgetSeederSerializer do
         end
       end
 
+      context "has default photo_alignment setting" do
+        it "serializes the photo_link_url setting" do
+          expect(subject[:settings].second[:value]).to eq('photo-block')
+        end
+      end
+
       context "has photo_link_url setting" do
         before { widget.set_setting('photo_link_url', 'http://getg5.com') }
 
         it "serializes the photo_link_url setting" do
-          expect(subject[:settings].second[:value]).to eq('http://getg5.com')
+          expect(subject[:settings].third[:value]).to eq('http://getg5.com')
         end
       end
 
@@ -61,7 +67,7 @@ describe PhotoWidgetSeederSerializer do
         before { widget.set_setting('photo_alt_tag', 'test') }
 
         it "serializes the photo_alt_tag setting" do
-          expect(subject[:settings].second[:value]).to eq('test')
+          expect(subject[:settings].third[:value]).to eq('test')
         end
       end
 
@@ -69,15 +75,7 @@ describe PhotoWidgetSeederSerializer do
         before { widget.set_setting('photo_caption', 'test caption') }
 
         it "serializes the photo_caption setting" do
-          expect(subject[:settings].second[:value]).to eq('test caption')
-        end
-      end
-
-      context "has photo_alignment setting" do
-        before { widget.set_setting('photo_alignment', 'left') }
-
-        it "serializes the photo_alignment setting" do
-          expect(subject[:settings].second[:value]).to eq('left')
+          expect(subject[:settings].third[:value]).to eq('test caption')
         end
       end
 
@@ -85,7 +83,7 @@ describe PhotoWidgetSeederSerializer do
         before { widget.set_setting('photo_class', 'custom') }
 
         it "serializes the photo_class setting" do
-          expect(subject[:settings].second[:value]).to eq('custom')
+          expect(subject[:settings].third[:value]).to eq('custom')
         end
       end
     end
