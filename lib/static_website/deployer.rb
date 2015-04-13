@@ -1,4 +1,3 @@
-require "heroku-api"
 require "static_website/compiler"
 
 module StaticWebsite
