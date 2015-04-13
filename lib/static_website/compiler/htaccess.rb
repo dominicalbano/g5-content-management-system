@@ -55,9 +55,9 @@ module StaticWebsite
                                 "\tRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]"]
         end
 
-        htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-d",
+        htaccess_contents << ["\tRewriteRule ^(.*)/$ /$1 [L,R=301]",
+                              "\tRewriteCond %{REQUEST_FILENAME} !-d",
                               "\tRewriteCond %{REQUEST_FILENAME} !-f",
-                              "\tRewriteRule ^(.*)/$ /$1 [L,R=301]",
                               "</IfModule>"]
 
         return htaccess_contents.flatten.join("\n")
