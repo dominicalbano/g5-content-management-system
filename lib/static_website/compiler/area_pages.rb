@@ -39,7 +39,6 @@ module StaticWebsite
 
       def compile_area_page(path, params)
         LOGGERS.each {|logger| logger.debug("calling AreaPage.new().compile")}
-        binding.pry
         pages << AreaPage.new(@base_path, path, params).compile
       end
 

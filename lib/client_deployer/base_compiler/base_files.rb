@@ -1,5 +1,4 @@
 require "client_deployer/base_compiler/htaccess"
-require "client_deployer/base_compiler/sitemap"
 require "client_deployer/base_compiler/robots"
 
 module ClientDeployer
@@ -11,7 +10,6 @@ module ClientDeployer
 
       def compile
         HTAccess.new(@client).compile
-        Sitemap.new(@client).compile
         Robots.new(@client).compile
       end
     end
