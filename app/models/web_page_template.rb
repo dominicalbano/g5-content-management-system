@@ -8,7 +8,7 @@ class WebPageTemplate < WebTemplate
   end
 
   def htaccess_substitution
-    ["/", relative_path, "/"].join
+    ["/", relative_path].join
   end
 
   def compile_path
