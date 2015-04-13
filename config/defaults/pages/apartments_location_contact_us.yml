@@ -30,5 +30,8 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Contact Us</h1>\r\n"
+          :value: "<h1>Contact {{location_name}}</h1>\r\n"
       - :slug: lead-form
+    - :slug: column
+      :row_count: 
+      :widgets: []

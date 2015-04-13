@@ -27,11 +27,11 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Floor Plans</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
-            te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
-            probo veniam has cu, eu brute blandit praesent nec. Vero mundi adipiscing
-            et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte, no
-            vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
+          :value: "<h1>{{location_name}} Floor Plans</h1>\r\n\r\n<p>Lorem ipsum dolor
+            sit amet, est te volutpat torquatos, nibh sale vocent te vix. Mei cu illud
+            quaeque, probo veniam has cu, eu brute blandit praesent nec. Vero mundi
+            adipiscing et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte,
+            no vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
             eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt, dictas
             quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex. Sit natum
             evertitur ex, quo at officiis assentior. Nibh congue est eu, suas nullam

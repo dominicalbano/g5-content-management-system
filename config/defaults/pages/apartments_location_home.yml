@@ -92,13 +92,13 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Heading (h1)</h1>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build
+          :value: "<h1>Welcome to {{location_name}}</h1>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build
             notes for Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\"
             target=\"_blank\">Theme / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build
             notes for Orion Widgets:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-6923\"
             target=\"_blank\">Widget Index (Hub)</a></p>\r\n\r\n<p>Hero Image Sizing:
             <a href=\"https://g5.jiveon.com/docs/DOC-7608\" target=\"_blank\">Hero
-            Training</a></p>\r\n"
+            Images (Hub)</a></p>\r\n"
     - :slug: column
       :row_count: two
       :widgets:

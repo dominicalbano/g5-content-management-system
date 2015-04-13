@@ -19,7 +19,7 @@
       :value: photo-block
   - :slug: content-stripe
     :row_css_custom: ''
-    :row_layout: single
+    :row_layout: uneven-thirds-2
     :widgets:
     - :slug: html
       :settings:
@@ -168,3 +168,9 @@
           you have any questions regarding this Privacy Policy please contact us.</p>\r\n\r\n<p>This
           Privacy Policy was last updated: <strong>{{page_updated}}</strong></p>\r\n<p>This
           Privacy Policy is effective as of: <strong>{{page_created}}</strong></p>\r\n\r\n"
+    - :slug: html
+      :settings:
+      - :name: text
+        :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean odio
+          nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus, commodo
+          sit amet, viverra in, sagittis nec, justo.

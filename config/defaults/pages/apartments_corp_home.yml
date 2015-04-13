@@ -20,7 +20,7 @@
       - :slug: photo
         :settings:
         - :name: photo_source_url
-          :value: http://placehold.it/1871x680
+          :value: http://placehold.it/1871x680&text=Hero+Image
         - :name: photo_alignment
           :value: photo-block
       - :slug: calls-to-action
@@ -52,7 +52,8 @@
             Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\" target=\"_blank\">Theme
             / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build notes for Orion Widgets:&nbsp;<a
             href=\"https://g5.jiveon.com/docs/DOC-6923\" target=\"_blank\">Widget
-            Index (Hub)</a></p>\r\n"
+            Index (Hub)</a></p>\r\n\r\n<p>Hero Image Sizing: <a href=\"https://g5.jiveon.com/docs/DOC-7608\"
+            target=\"_blank\">Hero Images (Hub)</a></p>\r\n"
     - :slug: column
       :row_count: one
       :widgets:
@@ -95,11 +96,27 @@
       - :name: gallery_title
         :value: Featured Locations
       - :name: gallery_thumbnails
-        :value: 'yes'
+        :value: 'no'
       - :name: gallery_mini
         :value: 'no'
       - :name: gallery_carousel
-        :value: 'no'
+        :value: 'yes'
+      - :name: gallery_photo1_url
+        :value: http://placehold.it/354x228
+      - :name: gallery_photo1_caption
+        :value: 'Property #1'
+      - :name: gallery_photo2_url
+        :value: http://placehold.it/354x228
+      - :name: gallery_photo2_caption
+        :value: 'Property #1'
+      - :name: gallery_photo3_url
+        :value: http://placehold.it/354x228
+      - :name: gallery_photo3_caption
+        :value: 'Property #3'
+      - :name: gallery_photo4_url
+        :value: http://placehold.it/354x228
+      - :name: gallery_photo4_caption
+        :value: 'Property #4'
   - :slug: content-stripe
     :row_css_custom: ''
     :row_layout: uneven-thirds-2

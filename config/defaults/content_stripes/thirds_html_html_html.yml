@@ -6,20 +6,20 @@
 - :slug: html
   :settings:
   - :name: text
-    :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
-      style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Pay
-      Online</h3>\r\n"
+    :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/suggestion-box\"><img
+      alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid; border-width:0px\"
+      /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/suggestion-box\">Suggestions
+      &amp; Feedback</a></h3>\r\n"
 - :slug: html
   :settings:
   - :name: text
-    :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/maintenance-request\"><img
+    :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/events\"><img
       alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid; border-width:0px\"
-      /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/maintenance-request\">Maintenance
-      Request</a></h3>\r\n"
+      /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/events\">Event
+      Calendar</a></h3>\r\n"
 - :slug: html
   :settings:
   - :name: text
-    :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/pet-friendly\"><img
-      alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid; border-width:0px\"
-      /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/pet-friendly\">Pet
-      Friendly</a></h3>\r\n"
+    :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean odio
+      nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus, commodo
+      sit amet, viverra in, sagittis nec, justo.

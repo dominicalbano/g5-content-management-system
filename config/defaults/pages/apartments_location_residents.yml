@@ -29,7 +29,16 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Current Residents</h1>\r\n"
+          :value: "<h1>Current Resident Information</h1>\r\n"
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
   - :slug: content-stripe
     :row_css_custom: ''
     :row_layout: thirds
@@ -75,3 +84,9 @@
           alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
           border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
           href=\"/apartments/{{location_state}}/{{location_city}}/events\">Event Calendar</a></h3>\r\n"
+    - :slug: html
+      :settings:
+      - :name: text
+        :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean odio
+          nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus, commodo
+          sit amet, viverra in, sagittis nec, justo.

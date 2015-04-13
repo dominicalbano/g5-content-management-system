@@ -28,7 +28,7 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Pet Friendly Apartments in {{ location_city }}</h1>\r\n\r\n<p>Reque
+          :value: "<h1>Pet Friendly Apartments in {{location_city}}</h1>\r\n\r\n<p>Reque
             labore ad per, amet partiendo eu pro. Docendi postulant dissentiet ad
             has. Ne copiosae explicari urbanitas sea, cu duis doming noluisse vel,
             te est possim recteque neglegentur. Ad tritani tincidunt mei. Ne eos fugit

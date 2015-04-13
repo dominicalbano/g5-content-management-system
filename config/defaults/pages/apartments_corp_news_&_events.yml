@@ -26,13 +26,13 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Heading</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, natum erant
-            luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio dolores,
-            vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta noluisse,
-            simul dissentias sea ea, ei eos copiosae oporteat scribentur. Mel cu brute
-            quodsi detracto, aperiri accusata adversarium sed an. Omnis sonet mel
-            ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant. Vel an luptatum
-            laboramus, per at illum probatus.</p>\r\n"
+          :value: "<h1>News &amp; Events</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+            natum erant luptatum ea pri, feugiat minimum eligendi pri ex. Sit eu odio
+            dolores, vel noster conceptam ei, ius te sonet philosophia. Eu vix soluta
+            noluisse, simul dissentias sea ea, ei eos copiosae oporteat scribentur.
+            Mel cu brute quodsi detracto, aperiri accusata adversarium sed an. Omnis
+            sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque abhorreant.
+            Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
     - :slug: column
       :row_count: one
       :widgets:

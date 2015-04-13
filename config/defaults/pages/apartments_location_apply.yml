@@ -28,5 +28,14 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Apply</h1>\r\n"
+          :value: "<h1>{{location_name}} Application</h1>\r\n"
       - :slug: lead-form
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
