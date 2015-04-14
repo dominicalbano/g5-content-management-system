@@ -8,22 +8,17 @@ module ClientDeployer
         @urls = []
         @area_page_paths = area_page_paths
       end
-
       def compile
         compile_directory.compile
         render_to_file
       end
-
-    private
-
+private
       def compile_path
         File.join(@client.website.decorate.compile_path, "sitemap.xml")
       end
-
       def compile_directory
         StaticWebsite::Compiler::CompileDirectory.new(compile_path, false)
       end
-
       def render_sitemap
         Website.location_websites.each { |website| process_website(website.decorate) }
 
@@ -35,10 +30,8 @@ module ClientDeployer
                             "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>",
                             @urls.flatten,
                             "</urlset>"]
-
         sitemap_contents.flatten.join("\n")
       end
-
       def process_website(website)
         web_home_template = website.web_home_template
         web_page_templates = website.web_page_templates
@@ -49,7 +42,6 @@ module ClientDeployer
           process_web_template(web_home_template, template)
         end
       end
-
       def process_web_home_template(web_home_template)
         web_home_template = <<-end.strip_heredoc
           <url>
@@ -59,10 +51,8 @@ module ClientDeployer
             <priority>0.9</priority>
           </url>
         end
-
         @urls << web_home_template
       end
-
       def process_web_template(web_home_template, template)
         if web_home_template && template.enabled
           web_page_template = <<-end.strip_heredoc
@@ -77,17 +67,15 @@ module ClientDeployer
           @urls << web_page_template
         end
       end
-
       def area_page_xml(area_page_path)
         <<-end.strip_heredoc
           <url>
             <loc>#{File.join(Client.first.domain, area_page_path)}</loc>
             <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
+            <priority>0.6</priority>
           </url>
         end
       end
-
       def render_to_file
         open(compile_path, "wb") do |file|
           file << render_sitemap

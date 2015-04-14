@@ -76,7 +76,7 @@ private
           <url>
             <loc>#{File.join(@web_home_template.owner_domain, area_page_path)}</loc>
             <changefreq>monthly</changefreq>
-            <priority>0.9</priority>
+            <priority>0.6</priority>
           </url>
         end
       end
