@@ -11,7 +11,7 @@ class RenameLayoutSettingsToUseIntegers < ActiveRecord::Migration
         end
       end
     end
-    GardenWidgetUpdater.new.update_all(false, ['content-stripe','column'])
+    #GardenWidgetUpdater.new.update_all(false, ['content-stripe','column'])
   end
 
   def down
