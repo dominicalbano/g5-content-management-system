@@ -490,7 +490,7 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
       end
     end
 
-    describe "editable", skip: "Editable endpoint fails intermittently." do
+    describe "editable" do
       before do
         @widget1 = @website_template.aside_after_main_widgets.first
         visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
