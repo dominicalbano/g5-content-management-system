@@ -75,7 +75,7 @@ private
         <<-end.strip_heredoc
           <url>
             <loc>#{File.join(@web_home_template.owner_domain, area_page_path)}</loc>
-            <changefreq>weekly</changefreq>
+            <changefreq>monthly</changefreq>
             <priority>0.9</priority>
           </url>
         end

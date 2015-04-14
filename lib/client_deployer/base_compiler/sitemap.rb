@@ -82,7 +82,7 @@ module ClientDeployer
         <<-end.strip_heredoc
           <url>
             <loc>#{File.join(Client.first.domain, area_page_path)}</loc>
-            <changefreq>weekly</changefreq>
+            <changefreq>monthly</changefreq>
             <priority>0.9</priority>
           </url>
         end
