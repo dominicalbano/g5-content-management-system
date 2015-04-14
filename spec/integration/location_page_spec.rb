@@ -27,17 +27,17 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
     end
   end
 
-  describe "themes" do
-    before do
-      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
-      open_gardens
-    end
-
-    it "hides unused themes" do
-      page.should have_selector('.unused-theme', visible: false)
-      page.should have_selector('.used-theme', visible: true)
-    end
-  end
+#  describe "themes" do
+#    before do
+#      visit "/#{@website.slug}/#{@web_page_template.slug}/edit"
+#      open_gardens
+#    end
+#
+#    it "hides unused themes" do
+#      page.should have_selector('.unused-theme', visible: false)
+#      page.should have_selector('.used-theme', visible: true)
+#    end
+#  end
 
   describe "Authorization" do
     before do
