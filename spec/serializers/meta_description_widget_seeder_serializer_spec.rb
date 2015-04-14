@@ -38,26 +38,28 @@ describe MetaDescriptionWidgetSeederSerializer do
         end
       end
 
-      context "reverse liquid" do
-        let(:meta_desc) { "Test #{client.name} Description" }
-        before do
-          widget.set_setting('meta_description', meta_desc)
-        end
-        context "uses reverse liquid" do
-          it "reverse encodes setting values to include liquid variables" do
-            expect(subject[:settings].first[:value]).to include "{{client_name}}"
-          end
-        end
+    ## DISABLE REVERSE LIQUID FOR NOW
 
-        context "does not use reverse liquid" do
-          before do
-            MetaDescriptionWidgetSeederSerializer.any_instance.stub(:use_reverse_liquid?).and_return(false)
-          end
-          it "leaves setting value intact" do
-            expect(subject[:settings].first[:value]).to include meta_desc
-          end
-        end
-      end
-    end
+    #  context "reverse liquid" do
+    #    let(:meta_desc) { "Test #{client.name} Description" }
+    #    before do
+    #      widget.set_setting('meta_description', meta_desc)
+    #    end
+    #    context "uses reverse liquid" do
+    #      it "reverse encodes setting values to include liquid variables" do
+    #        expect(subject[:settings].first[:value]).to include "{{client_name}}"
+    #      end
+    #    end
+
+    #    context "does not use reverse liquid" do
+    #      before do
+    #        MetaDescriptionWidgetSeederSerializer.any_instance.stub(:use_reverse_liquid?).and_return(false)
+    #      end
+    #      it "leaves setting value intact" do
+    #        expect(subject[:settings].first[:value]).to include meta_desc
+    #      end
+    #    end
+    #  end
+    #end
   end
 end
