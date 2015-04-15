@@ -5,7 +5,7 @@ class Api::V1::ClientsController < Api::V1::ApplicationController
 
   def deploy_websites
     user_email = current_user.email
-    Client.first.async_deploy(user_email)
-    render json: {message: "Deploying websites. This may take few minutes."}
+    Location.all.each {|location| location.website.async_deploy(user_email) }
+    render json: {message: "Deploying all websites. This may take few minutes."}
   end
 end

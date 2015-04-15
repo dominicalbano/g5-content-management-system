@@ -26,7 +26,7 @@ module StaticWebsite
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
-        if (!StaticWebsite.single_domain_client? or website.owner.corporate?)
+        if (!website.single_domain_location? or website.owner.corporate?)
           htaccess.compile
           sitemap.compile
           robots.compile

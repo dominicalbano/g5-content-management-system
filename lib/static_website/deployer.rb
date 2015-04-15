@@ -56,7 +56,7 @@ module StaticWebsite
     end
 
     def copy_path
-      if StaticWebsite.single_domain_client?
+      if website.single_domain_location?
         Client.first.website.compile_path
       else
         compile_path

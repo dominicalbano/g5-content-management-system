@@ -16,9 +16,5 @@ module StaticWebsite
     LOGGERS.each{|logger| logger.info("Deploying website: #{website.urn}")}
     Deployer.new(website, user_email).deploy
   end
-
-  def self.single_domain_client?
-    Client.first.type == "SingleDomainClient"
-  end
 end
 
