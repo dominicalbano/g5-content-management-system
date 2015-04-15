@@ -360,7 +360,7 @@
               odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
               risus, commodo sit amet, viverra in, sagittis nec, justo.
 - :name: Careers
-  :title: "{{location_name}} | Career Opritunities"
+  :title: "{{location_name}} | Career Opportunities"
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -485,7 +485,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{location_name}} is an Equal Opportunity Employer.  Visit our site
+        :value: "{{location_name}} is an Equal Opportunity Employer. Visit our site
           for our Equal Employment Opportunity statement."
     - :slug: photo
       :settings:
