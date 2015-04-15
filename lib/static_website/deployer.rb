@@ -55,12 +55,8 @@ module StaticWebsite
       }
     end
 
-    def single_domain_client?
-      Client.first.type == "SingleDomainClient"
-    end
-
     def copy_path
-      if single_domain_client?
+      if StaticWebsite.single_domain_client?
         Client.first.website.compile_path
       else
         compile_path
