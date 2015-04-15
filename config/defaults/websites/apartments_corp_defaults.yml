@@ -16,7 +16,7 @@
     - :slug: logo
       :settings:
       - :name: business_name
-        :value: "{{client_name}}"
+        :value: "{{location_name}}"
       - :name: display_logo
         :value: 'true'
       - :name: logo_url
@@ -47,14 +47,24 @@
     :widgets:
     - :slug: contact-info
       :settings:
-      - :name: maps_url
-        :value: "/our-communities"
+      - :name: location_name
+        :value: "{{location_name }}"
+      - :name: location_street_address
+        :value: "{{ location_street_address}}"
+      - :name: location_city
+        :value: "{{location_city}}"
+      - :name: location_postal_code
+        :value: "{{location_postal_code}}"
+      - :name: location_tel
+        :value: "{{location_phone_number}}"
       - :name: location_email
         :value: "/contact-us"
+      - :name: maps_url
+        :value: "/our-communities"
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: "{{client_name}} | Apartments "
+  :title: "{{location_name}} | Apartments "
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -62,7 +72,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: At {{client_name}} we are dedicated to providing the best in apartment
+        :value: At {{location_name}} we are dedicated to providing the best in apartment
           homes.  To learn more about our apartment communities, please visit our
           website.
     - :slug: content-stripe
@@ -99,7 +109,7 @@
           :settings:
           - :name: text
             :value: "<h1><span style=\"font-family:arial,sans,sans-serif\">Welcome
-              to {{client_name}}</span></h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+              to {{location_name}}</span></h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
               pri paulo quidam cu. Sea ad quot reque tantas, quaeque placerat maluisset
               pro ut. Ne ius antiopam interpretaris. Mazim oporteat reprehendunt per
               ea, semper assueverit mel id. Copiosae deseruisse no vix, cu labitur
@@ -192,9 +202,26 @@
         :row_count: one
         :widgets:
         - :slug: social-feed
+          :settings:
+          - :name: blog_feed_display_summary
+            :value: 'false'
+          - :name: blog_feed_number_to_display
+            :value: '3'
+          - :name: twitter_username
+            :value: "{{location_twitter_id}}"
+          - :name: display_avatars
+            :value: 'true'
+          - :name: twitter_tweet_count
+            :value: '3'
+          - :name: facebook_post_count
+            :value: '3'
+          - :name: facebook_page_id
+            :value: "{{location_facebook_id}}"
+          - :name: google_plus_post_count
+            :value: '3'
 :web_page_templates:
 - :name: Our Communities
-  :title: "{{client_name}} | Our Communities "
+  :title: "{{location_name}} | Our Communities "
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -202,7 +229,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{client_name}} offers high quality apartment communities in your
+        :value: "{{location_name}} offers high quality apartment communities in your
           area."
     - :slug: photo
       :settings:
@@ -220,20 +247,20 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: "<h1>{{client.branded_name}} Communities</h1>\r\n\r\n<p>Lorem
-              ipsum dolor sit amet, viris lobortis sit in, ad usu diam magna, debet
-              noster aliquid et est. Vis cu tota nostrum salutatus, nonumy ullamcorper
-              contentiones nec id. Tota appareat percipit qui at, ius antiopam vulputate
-              intellegebat ea. Eam labitur gubergren urbanitas ea, his cu wisi vitae,
-              nisl mollis fierent mel te. Mel at saepe platonem, eos an illud aeterno
-              abhorreant, in graeci regione sit. At dicit appetere eum.</p>\r\n"
+            :value: "<h1>{{location_name}} Communities</h1>\r\n\r\n<p>Lorem ipsum
+              dolor sit amet, viris lobortis sit in, ad usu diam magna, debet noster
+              aliquid et est. Vis cu tota nostrum salutatus, nonumy ullamcorper contentiones
+              nec id. Tota appareat percipit qui at, ius antiopam vulputate intellegebat
+              ea. Eam labitur gubergren urbanitas ea, his cu wisi vitae, nisl mollis
+              fierent mel te. Mel at saepe platonem, eos an illud aeterno abhorreant,
+              in graeci regione sit. At dicit appetere eum.</p>\r\n"
       - :slug: column
         :row_count: one
         :widgets:
         - :slug: city-state-zip-search
           :settings: []
 - :name: About Us
-  :title: About {{client_name}}
+  :title: About {{location_name}}
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -241,7 +268,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Learn about {{client_name}} by visiting our website.
+        :value: Learn about {{location_name}} by visiting our website.
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -258,7 +285,7 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: "<h1>About {{ client_name }}</h1>\r\n\r\n<p>Lorem ipsum dolor
+            :value: "<h1>About {{ location_name }}</h1>\r\n\r\n<p>Lorem ipsum dolor
               sit amet, natum erant luptatum ea pri, feugiat minimum eligendi pri
               ex. Sit eu odio dolores, vel noster conceptam ei, ius te sonet philosophia.
               Eu vix soluta noluisse, simul dissentias sea ea, ei eos copiosae oporteat
@@ -291,11 +318,11 @@
       - :slug: photo
         :settings:
         - :name: photo_source_url
-          :value: http://placehold.it/460x300
+          :value: http://placehold.it/505x400
         - :name: photo_alignment
           :value: photo-block
 - :name: Contact Us
-  :title: Contact {{client_name}}
+  :title: Contact {{location_name}}
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -303,7 +330,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Looking for contact information for {{client_name}}? Visit our website
+        :value: Looking for contact information for {{location_name}}? Visit our website
           and find it here!
     - :slug: photo
       :settings:
@@ -321,7 +348,7 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: "<h1>Contact {{ client_name }}</h1>\r\n"
+            :value: "<h1>Contact {{location_name}}</h1>\r\n"
         - :slug: lead-form
       - :slug: column
         :row_count: one
@@ -333,7 +360,7 @@
               odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
               risus, commodo sit amet, viverra in, sagittis nec, justo.
 - :name: Careers
-  :title: "{{client_name}} | Career Opritunities"
+  :title: "{{location_name}} | Career Opritunities"
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -341,8 +368,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: Looking for a career at {{client_name}}? Visit this page to find out
-          more information.
+        :value: Looking for a career at {{location_name}}? Visit this page to find
+          out more information.
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -359,7 +386,7 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: "<h1>Career Opritunities at {{client_name}}</h1>\r\n\r\n<p>Lorem
+            :value: "<h1>Career Opritunities at {{location_name}}</h1>\r\n\r\n<p>Lorem
               ipsum dolor sit amet, natum erant luptatum ea pri, feugiat minimum eligendi
               pri ex. Sit eu odio dolores, vel noster conceptam ei, ius te sonet philosophia.
               Eu vix soluta noluisse, simul dissentias sea ea, ei eos copiosae oporteat
@@ -398,11 +425,11 @@
         - :slug: photo
           :settings:
           - :name: photo_source_url
-            :value: http://placehold.it/550x400
+            :value: http://placehold.it/505x400
           - :name: photo_alignment
             :value: photo-block
 - :name: News & Events
-  :title: "{{client_name}} News & Events"
+  :title: "{{location_name}} News & Events"
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -410,8 +437,8 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Are you looking for {{client_name}}''s latest news and events? Visit
-          our website to find exactly what you are looking for. '
+        :value: 'Are you looking for {{location_name}}''s latest news and events?
+          Visit our website to find exactly what you are looking for. '
     - :slug: photo
       :settings:
       - :name: photo_source_url
@@ -450,7 +477,7 @@
       :widgets:
       - :slug: news-feed
 - :name: EEO Statement
-  :title: "{{client_name}} | EEO Statement "
+  :title: "{{location_name}} | EEO Statement "
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -458,7 +485,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{client_name}} is an Equal Opportunity Employer.  Visit our site
+        :value: "{{location_name}} is an Equal Opportunity Employer.  Visit our site
           for our Equal Employment Opportunity statement."
     - :slug: photo
       :settings:
@@ -515,11 +542,11 @@
         - :slug: photo
           :settings:
           - :name: photo_source_url
-            :value: http://placehold.it/600x400
+            :value: http://placehold.it/505x400
           - :name: photo_alignment
             :value: photo-block
 - :name: Privacy Policy
-  :title: "{{client_name}} Privacy Policy"
+  :title: "{{location_name}} Privacy Policy"
   :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
@@ -533,7 +560,7 @@
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: "{{client_name}} values your privacy. We collect only the personal
+        :value: "{{location_name}} values your privacy. We collect only the personal
           information you voluntarily provide in order to give the best possible service."
     - :slug: content-stripe
       :row_css_custom: ''
@@ -545,16 +572,16 @@
         - :slug: html
           :settings:
           - :name: text
-            :value: "<h1>{{client_name}} Privacy Policy</h1>\r\n\r\n<p>Thank you for
-              visiting {{client_name}}&rsquo;s (&quot;[CLIENT]&quot;) Internet web
-              site (&quot;Site&quot;) located at the URL {{client_domain}}. This Privacy
-              Policy details certain policies implemented throughout [CLIENT] governing
-              [CLIENT]&#39;s collection and use of personally identifiable information
-              about users of our Site and our services.</p>\r\n\r\n<h2>Privacy Policy
-              Updates</h2>\r\n\r\n<p>Due to the Internet&#39;s rapidly evolving nature,
-              [CLIENT] may need to update this Privacy Policy from time to time. If
-              so, [CLIENT] will post its updated Privacy Policy on our Site along
-              with a change notice on the Site. [CLIENT] may also send registered
+            :value: "<h1>{{location_name}} Privacy Policy</h1>\r\n\r\n<p>Thank you
+              for visiting {{location_name}}&rsquo;s (&quot;[CLIENT]&quot;) Internet
+              web site (&quot;Site&quot;) located at the URL {{client_domain}}. This
+              Privacy Policy details certain policies implemented throughout [CLIENT]
+              governing [CLIENT]&#39;s collection and use of personally identifiable
+              information about users of our Site and our services.</p>\r\n\r\n<h2>Privacy
+              Policy Updates</h2>\r\n\r\n<p>Due to the Internet&#39;s rapidly evolving
+              nature, [CLIENT] may need to update this Privacy Policy from time to
+              time. If so, [CLIENT] will post its updated Privacy Policy on our Site
+              along with a change notice on the Site. [CLIENT] may also send registered
               users of our services a notice that this Privacy Policy has been changed.
               [CLIENT] encourages you to review this Privacy Policy regularly for
               any changes. Your continued use of this Site and/or services and/or

@@ -15,6 +15,8 @@
     :widgets:
     - :slug: logo
       :settings:
+      - :name: business_name
+        :value: "{{location_name}}"
       - :name: display_logo
         :value: 'true'
       - :name: logo_url
@@ -40,16 +42,29 @@
       - :name: contact_url
         :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
     - :slug: promoted-reviews
+      :settings:
+      - :name: review_page_url
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/reviews"
   - :html_id: drop-target-aside-after-main
     :widgets: []
   - :html_id: drop-target-footer
     :widgets:
     - :slug: contact-info
       :settings:
-      - :name: maps_url
-        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+      - :name: location_name
+        :value: "{{location_name }}"
+      - :name: location_street_address
+        :value: "{{ location_street_address}}"
+      - :name: location_city
+        :value: "{{location_city}}"
+      - :name: location_postal_code
+        :value: "{{location_postal_code}}"
+      - :name: location_tel
+        :value: "{{ location_phone_number }}"
       - :name: location_email
         :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+      - :name: maps_url
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
     - :slug: footer-info
 :web_home_template:
   :name: Home
@@ -157,11 +172,30 @@
         :widgets:
         - :slug: contact-info
           :settings:
-          - :name: maps_url
-            :value: "/apartments/{{location_state}}/{{location_city}}/map-and-directions"
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
           - :name: location_email
             :value: "/apartments/{{location_state}}/{{location_city}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state}}/{{location_city}}/map-and-directions"
         - :slug: social-links
+          :settings:
+          - :name: twitter_username
+            :value: "{{location_twitter_id}}"
+          - :name: facebook_username
+            :value: "{{location_facebook_id}}"
+          - :name: yelp_username
+            :value: "{{location_yelp_id}}"
+          - :name: google_plus_id
+            :value: 100000000000000000G5
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: uneven-thirds-1
@@ -170,6 +204,23 @@
         :row_count: one
         :widgets:
         - :slug: social-feed
+          :settings:
+          - :name: blog_feed_display_summary
+            :value: 'false'
+          - :name: blog_feed_number_to_display
+            :value: '3'
+          - :name: twitter_username
+            :value: "{{location_twitter_id}}"
+          - :name: display_avatars
+            :value: 'true'
+          - :name: twitter_tweet_count
+            :value: '3'
+          - :name: facebook_post_count
+            :value: '3'
+          - :name: facebook_page_id
+            :value: "{{location_facebook_id}}"
+          - :name: google_plus_post_count
+            :value: '3'
       - :slug: column
         :row_count: one
         :widgets:
@@ -237,7 +288,21 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
-          :settings: []
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: single
@@ -296,10 +361,20 @@
             :value: floor-plans
         - :slug: contact-info
           :settings:
-          - :name: maps_url
-            :value: "#"
+          - :name: location_name
+            :value: "{{location_name }}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
           - :name: location_email
-            :value: "#"
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: thirds
@@ -372,10 +447,20 @@
             :value: floor-plans
         - :slug: contact-info
           :settings:
-          - :name: maps_url
-            :value: "#"
+          - :name: location_name
+            :value: "{{location_name }}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
           - :name: location_email
-            :value: "#"
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: single
@@ -438,7 +523,21 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
-          :settings: []
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
     - :slug: content-stripe
       :row_css_custom: ''
       :row_layout: thirds
@@ -497,6 +596,13 @@
               target=\"_blank\">Map Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-7175\"
               target=\"_blank\">Directions Widget (Hub)</a></p>\r\n"
         - :slug: directions
+          :settings:
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
         - :slug: html
           :settings:
           - :name: text
@@ -513,7 +619,21 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
-          :settings: []
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
 - :name: Residents
   :title: Information for Current Residents at {{location_name}}
   :enabled: true
@@ -640,8 +760,14 @@
             :value: "<h1>Contact {{location_name}}</h1>\r\n"
         - :slug: lead-form
       - :slug: column
-        :row_count: 
-        :widgets: []
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
 - :name: Pet Friendly
   :title: Pet Friendly Apartments in {{location_city}} at {{location_name}}
   :enabled: true
@@ -687,7 +813,21 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
-          :settings: []
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
 - :name: Events
   :title: Events at {{location_name}} in {{location_city}}
   :enabled: false
@@ -734,7 +874,21 @@
           - :name: page_slug_1
             :value: floor-plans
         - :slug: contact-info
-          :settings: []
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
 - :name: Reviews
   :title: "{{location_name}} Reviews"
   :enabled: true
@@ -772,6 +926,7 @@
               href=\"https://reputation.g5search.com/\" target=\"_blank\">Reputation
               Manager Login</a></p>\r\n"
         - :slug: promoted-reviews
+          :settings: []
       - :slug: column
         :row_count: two
         :widgets:
@@ -783,10 +938,20 @@
             :value: floor-plans
         - :slug: contact-info
           :settings:
-          - :name: maps_url
-            :value: "#"
+          - :name: location_name
+            :value: "{{ location_name }}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{ location_city }}"
+          - :name: location_postal_code
+            :value: "{{ location_postal_code }}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
           - :name: location_email
-            :value: "#"
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
 - :name: Apply
   :title: "{{location_name}} Online Application"
   :enabled: true
