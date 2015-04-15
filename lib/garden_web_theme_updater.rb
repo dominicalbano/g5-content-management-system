@@ -24,6 +24,7 @@ class GardenWebThemeUpdater
     garden_web_theme.thumbnail = get_thumbnail(component)
     garden_web_theme.javascripts = get_javascripts(component)
     garden_web_theme.stylesheets = get_stylesheets(component)
+    garden_web_theme.layouts = get_layouts(component)
     garden_web_theme.primary_color = get_primary_color(component)
     garden_web_theme.secondary_color = get_secondary_color(component)
     garden_web_theme.tertiary_color = get_tertiary_color(component)
@@ -71,6 +72,12 @@ class GardenWebThemeUpdater
   def get_stylesheets(component)
     if component.respond_to?(:g5_stylesheets)
       component.g5_stylesheets.try(:map) { |s| s.to_s }
+    end
+  end
+
+  def get_layouts(component)
+    if component.respond_to?(:g5_layouts)
+      component.g5_layouts.try(:map) { |s| s.to_s }
     end
   end
 

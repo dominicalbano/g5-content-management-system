@@ -120,6 +120,18 @@ class WebTemplate < ActiveRecord::Base
     show_javascripts + lib_javascripts + website_template_javascripts
   end
 
+  def layout_html
+    web_theme_layout_html || website_layout.html
+  end
+
+  def web_theme_layout_html
+    garden_theme = website_template.web_theme.garden_web_theme
+    begin
+      open(garden_theme.layouts[0]).read unless garden_theme.layouts[0].blank?
+    rescue OpenURI::HTTPError
+    end
+  end
+
   def website_compile_path
     website.compile_path if website
   end

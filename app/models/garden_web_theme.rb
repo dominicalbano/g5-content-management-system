@@ -5,6 +5,7 @@ class GardenWebTheme < ActiveRecord::Base
 
   serialize :stylesheets, Array
   serialize :javascripts, Array
+  serialize :layouts, Array
 
   has_many :web_themes, dependent: :destroy
 
@@ -24,5 +25,6 @@ class GardenWebTheme < ActiveRecord::Base
   def set_defaults
     self.stylesheets ||= []
     self.javascripts ||= []
+    self.layouts ||= []
   end
 end

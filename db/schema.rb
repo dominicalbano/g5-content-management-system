@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150413231251) do
+ActiveRecord::Schema.define(version: 20150414224912) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150413231251) do
     t.string   "tertiary_color",  default: "#ffffff"
     t.string   "primary_font",    default: "PT Sans"
     t.string   "secondary_font",  default: "Georgia"
+    t.text     "layouts"
   end
 
   create_table "garden_widgets", force: true do |t|
