@@ -14,6 +14,7 @@
         with a great experience. Write a Review.</p>\r\n\r\n<p><a href=\"https://reputation.g5search.com/\"
         target=\"_blank\">Reputation Manager Login</a></p>\r\n"
   - :slug: promoted-reviews
+    :settings: []
 - :slug: column
   :row_count: two
   :widgets:
@@ -25,7 +26,17 @@
       :value: floor-plans
   - :slug: contact-info
     :settings:
-    - :name: maps_url
-      :value: "#"
+    - :name: location_name
+      :value: "{{ location_name }}"
+    - :name: location_street_address
+      :value: "{{ location_street_address}}"
+    - :name: location_city
+      :value: "{{ location_city }}"
+    - :name: location_postal_code
+      :value: "{{ location_postal_code }}"
+    - :name: location_tel
+      :value: "{{ location_phone_number }}"
     - :name: location_email
-      :value: "#"
+      :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+    - :name: maps_url
+      :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"

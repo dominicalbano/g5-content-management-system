@@ -1,6 +1,6 @@
 ---
 :name: Careers
-:title: "{{client_name}} | Career Opritunities"
+:title: "{{location_name}} | Career Opritunities"
 :enabled: true
 :drop_targets:
 - :html_id: drop-target-main
@@ -8,7 +8,7 @@
   - :slug: meta-description
     :settings:
     - :name: meta_description
-      :value: Looking for a career at {{client_name}}? Visit this page to find out
+      :value: Looking for a career at {{location_name}}? Visit this page to find out
         more information.
   - :slug: photo
     :settings:
@@ -26,7 +26,7 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>Career Opritunities at {{client_name}}</h1>\r\n\r\n<p>Lorem
+          :value: "<h1>Career Opritunities at {{location_name}}</h1>\r\n\r\n<p>Lorem
             ipsum dolor sit amet, natum erant luptatum ea pri, feugiat minimum eligendi
             pri ex. Sit eu odio dolores, vel noster conceptam ei, ius te sonet philosophia.
             Eu vix soluta noluisse, simul dissentias sea ea, ei eos copiosae oporteat
@@ -65,6 +65,6 @@
       - :slug: photo
         :settings:
         - :name: photo_source_url
-          :value: http://placehold.it/550x400
+          :value: http://placehold.it/505x400
         - :name: photo_alignment
           :value: photo-block

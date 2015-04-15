@@ -1,6 +1,6 @@
 ---
 :name: Home
-:title: "{{client_name}} | Apartments "
+:title: "{{location_name}} | Apartments "
 :enabled: true
 :drop_targets:
 - :html_id: drop-target-main
@@ -8,7 +8,7 @@
   - :slug: meta-description
     :settings:
     - :name: meta_description
-      :value: At {{client_name}} we are dedicated to providing the best in apartment
+      :value: At {{location_name}} we are dedicated to providing the best in apartment
         homes.  To learn more about our apartment communities, please visit our website.
   - :slug: content-stripe
     :row_css_custom: ''
@@ -44,7 +44,7 @@
         :settings:
         - :name: text
           :value: "<h1><span style=\"font-family:arial,sans,sans-serif\">Welcome to
-            {{client_name}}</span></h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, pri
+            {{location_name}}</span></h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, pri
             paulo quidam cu. Sea ad quot reque tantas, quaeque placerat maluisset
             pro ut. Ne ius antiopam interpretaris. Mazim oporteat reprehendunt per
             ea, semper assueverit mel id. Copiosae deseruisse no vix, cu labitur saperet
@@ -136,3 +136,20 @@
       :row_count: one
       :widgets:
       - :slug: social-feed
+        :settings:
+        - :name: blog_feed_display_summary
+          :value: 'false'
+        - :name: blog_feed_number_to_display
+          :value: '3'
+        - :name: twitter_username
+          :value: "{{location_twitter_id}}"
+        - :name: display_avatars
+          :value: 'true'
+        - :name: twitter_tweet_count
+          :value: '3'
+        - :name: facebook_post_count
+          :value: '3'
+        - :name: facebook_page_id
+          :value: "{{location_facebook_id}}"
+        - :name: google_plus_post_count
+          :value: '3'

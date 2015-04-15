@@ -1,6 +1,6 @@
 ---
 :name: EEO Statement
-:title: "{{client_name}} | EEO Statement "
+:title: "{{location_name}} | EEO Statement "
 :enabled: true
 :drop_targets:
 - :html_id: drop-target-main
@@ -8,8 +8,8 @@
   - :slug: meta-description
     :settings:
     - :name: meta_description
-      :value: "{{client_name}} is an Equal Opportunity Employer.  Visit our site for
-        our Equal Employment Opportunity statement."
+      :value: "{{location_name}} is an Equal Opportunity Employer.  Visit our site
+        for our Equal Employment Opportunity statement."
   - :slug: photo
     :settings:
     - :name: photo_source_url
@@ -65,6 +65,6 @@
       - :slug: photo
         :settings:
         - :name: photo_source_url
-          :value: http://placehold.it/600x400
+          :value: http://placehold.it/505x400
         - :name: photo_alignment
           :value: photo-block
