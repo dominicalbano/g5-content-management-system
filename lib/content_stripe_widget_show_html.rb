@@ -1,0 +1,2 @@
+class ContentStripeWidgetShowHtml < LayoutWidgetShowHtml
+end

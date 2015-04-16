@@ -1,0 +1,6 @@
+---
+:slug: content-stripe
+:row_css_custom: ''
+:row_layout: single
+:widgets:
+- :slug: news-feed

@@ -28,16 +28,15 @@ describe WidgetDrop do
       webtemplate = Fabricate(:web_template)
       website.web_templates << webtemplate
       webtemplate.drop_targets << Fabricate(:drop_target)
-      row_garden_widget = Fabricate(:row_garden_widget)
-      row_garden_widget.settings << Fabricate.build(:column_one_widget_name)
-      row_garden_widget.settings << Fabricate.build(:column_one_widget_id)
-      @widget = Fabricate(:widget, garden_widget: row_garden_widget, drop_target: webtemplate.drop_targets.first)
-      @widget.settings.where(name: "column_one_widget_name").first.
-        update_attributes(value: (Fabricate(:garden_widget).name))
+      row_garden_widget = Fabricate(:content_stripe_garden_widget)
+      garden_widget = Fabricate(:garden_widget)
+      @row_widget = Fabricate(:widget, garden_widget: row_garden_widget, drop_target: webtemplate.drop_targets.first)
+      @child_widget = Fabricate(:widget, garden_widget: garden_widget )
+      @row_widget.set_child_widget(1, @child_widget)
     end
 
     it "returns the parent widget id if there is one" do
-      WidgetDrop.new(Widget.last, client.try(:locations)).parent_widget_id.should eql(@widget.id)
+      WidgetDrop.new(@child_widget, client.try(:locations)).parent_widget_id.should eql(@row_widget.id)
     end
   end
 

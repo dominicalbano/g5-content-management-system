@@ -22,7 +22,7 @@ describe WebsiteFinder::Widget do
         let!(:setting) do
           Fabricate(:setting,
                     owner: parent_widget,
-                    name: "column_one_widget_id",
+                    name: "column_1_widget_id",
                     value: widget.id
                    )
         end

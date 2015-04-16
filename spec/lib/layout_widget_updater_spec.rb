@@ -5,12 +5,12 @@ describe LayoutWidgetUpdater do
   let!(:setting) { Fabricate(:setting, name: name, owner: widget) }
   let(:updater) { described_class.new(setting, name_settings, id_settings) }
   let(:name_settings) do
-    ["row_one_widget_name", "row_two_widget_name",
-     "row_three_widget_name", "row_four_widget_name"]
+    ["row_1_widget_name", "row_2_widget_name",
+     "row_3_widget_name", "row_4_widget_name"]
   end
   let(:id_settings) do
-    ["row_one_widget_id", "row_two_widget_id",
-     "row_three_widget_id", "row_four_widget_id"]
+    ["row_1_widget_id", "row_2_widget_id",
+     "row_3_widget_id", "row_4_widget_id"]
   end
 
   describe "#update" do

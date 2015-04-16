@@ -40,6 +40,22 @@ G5CMS::Application.routes.draw do
       resources :web_page_templates, only: [:index, :show, :create, :update, :destroy, :options]
       resources :assets, only: [:index, :show, :create, :update, :destroy]
       resources :categories, only: [:index, :show]
+
+      namespace :seeders do
+        resources :websites, only: [:index, :show] do
+          post 'serialize', on: :member
+          post 'seed', on: :member
+        end
+        resources :web_templates, only: [:index, :show] do
+          post 'serialize', on: :member
+          post 'seed', on: :member
+        end
+        resources :content_stripes, only: [:index, :show] do
+          post 'serialize', on: :member
+          post 'seed', on: :member
+        end
+      end
+
       resources :garden_web_layouts, only: [:index] do
         collection do
           post "update"

@@ -1,0 +1,62 @@
+---
+:name: Reviews
+:title: "{{location_name}} Reviews"
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: At {{location_name}} we strive to create a great experience for our
+        residents. Visit our reviews page to get a summary of just how great your
+        living experience could be.
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+    - :name: photo_alt_tag
+      :value: Read what residents of our {{ location_city }} apartments have to say
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>{{location_name}} Reviews</h1>\r\n\r\n<p>Reviews are very important
+            to us and are the best way to let others know if our team has provided
+            you with a great experience. Write a Review.</p>\r\n\r\n<p><a href=\"https://reputation.g5search.com/\"
+            target=\"_blank\">Reputation Manager Login</a></p>\r\n"
+      - :slug: promoted-reviews
+        :settings: []
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: floor-plans
+      - :slug: contact-info
+        :settings:
+        - :name: location_name
+          :value: "{{ location_name }}"
+        - :name: location_street_address
+          :value: "{{ location_street_address}}"
+        - :name: location_city
+          :value: "{{ location_city }}"
+        - :name: location_postal_code
+          :value: "{{ location_postal_code }}"
+        - :name: location_tel
+          :value: "{{ location_phone_number }}"
+        - :name: location_email
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+        - :name: maps_url
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"

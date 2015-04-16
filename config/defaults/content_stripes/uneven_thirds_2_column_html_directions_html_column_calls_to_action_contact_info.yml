@@ -1,0 +1,53 @@
+---
+:slug: content-stripe
+:row_css_custom: ''
+:row_layout: uneven-thirds-2
+:widgets:
+- :slug: column
+  :row_count: three
+  :widgets:
+  - :slug: html
+    :settings:
+    - :name: text
+      :value: "<h1>Directions to {{location_name}}</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7181\"
+        target=\"_blank\">Map Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-7175\"
+        target=\"_blank\">Directions Widget (Hub)</a></p>\r\n"
+  - :slug: directions
+    :settings:
+    - :name: location_street_address
+      :value: "{{ location_street_address}}"
+    - :name: location_city
+      :value: "{{location_city}}"
+    - :name: location_postal_code
+      :value: "{{location_postal_code}}"
+  - :slug: html
+    :settings:
+    - :name: text
+      :value: "<h2>Driving Directions</h2>\r\n\r\n<p>Follow the driving&nbsp;directions
+        below to reach apartments for rent in {{ location_city }}, {{ location_state
+        }}.</p>\r\n\r\n<p><strong>From:</strong></p>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+- :slug: column
+  :row_count: two
+  :widgets:
+  - :slug: calls-to-action
+    :settings:
+    - :name: cta_text_1
+      :value: Contact Us
+    - :name: page_slug_1
+      :value: floor-plans
+  - :slug: contact-info
+    :settings:
+    - :name: location_name
+      :value: "{{location_name}}"
+    - :name: location_street_address
+      :value: "{{ location_street_address}}"
+    - :name: location_city
+      :value: "{{location_city}}"
+    - :name: location_postal_code
+      :value: "{{location_postal_code}}"
+    - :name: location_tel
+      :value: "{{ location_phone_number }}"
+    - :name: location_email
+      :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+    - :name: maps_url
+      :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"

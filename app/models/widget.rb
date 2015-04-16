@@ -2,10 +2,11 @@ class Widget < ActiveRecord::Base
   include RankedModel
   include HasManySettings
   include UpdateNavSettings
+  include LiquidParameters
 
   validates :garden_widget_id, presence: true
 
-  ranks :display_order, with_same: :drop_target_id
+  ranks :display_order, with_same: :drop_target_id, scope: :has_drop_target
 
   belongs_to :garden_widget
   belongs_to :drop_target
@@ -18,7 +19,7 @@ class Widget < ActiveRecord::Base
   delegate :html_id,
     to: :drop_target, allow_nil: true
 
-  delegate :name, :slug, :url, :thumbnail, :edit_html, :edit_javascript, :show_html, :widget_type,
+  delegate :name, :slug, :url, :thumbnail, :liquid, :edit_html, :edit_javascript, :show_html, :widget_type,
     to: :garden_widget, allow_nil: true
 
   # prefix means access with `garden_widget_settings` not `settings`
@@ -29,15 +30,27 @@ class Widget < ActiveRecord::Base
   after_initialize :set_defaults
   after_create :update_settings!
 
+  scope :has_drop_target, -> {
+    where("drop_target_id IS NOT NULL") }
+  scope :by_name, ->(name) { 
+    joins(:garden_widget).where("garden_widgets.name = ?", name)}
+  scope :by_slug, ->(slug) { 
+    joins(:garden_widget).where("garden_widgets.slug = ?", slug)}
   scope :name_like_form, -> {
     joins(:garden_widget).where("garden_widgets.name LIKE '%Form'") }
   scope :meta_description, -> {
     joins(:garden_widget).where("garden_widgets.name = ?", "Meta Description") }
   scope :not_meta_description, -> {
     joins(:garden_widget).where("garden_widgets.name != ?", "Meta Description") }
-  
+  scope :content_stripe, -> {
+    joins(:garden_widget).where("garden_widgets.name = ?", "Content Stripe") }
+  scope :column, -> {
+    joins(:garden_widget).where("garden_widgets.name = ?", "Column") }
+  scope :layout, -> {
+    joins(:garden_widget).where("garden_widgets.name = ? OR garden_widgets.name = ?", "Content Stripe", "Column") }
+
   def show_stylesheets
-    [garden_widget.try(:show_stylesheets), 
+    [garden_widget.try(:show_stylesheets),
      widgets.collect(&:show_stylesheets)].flatten.compact.uniq
   end
 
@@ -47,32 +60,52 @@ class Widget < ActiveRecord::Base
   end
 
   def lib_javascripts
-    [garden_widget.try(:lib_javascripts), 
+    [garden_widget.try(:lib_javascripts),
      widgets.collect(&:lib_javascripts)].flatten.compact.uniq
   end
 
-  def widgets
-    more_widgets = child_widgets.collect { |widget| widget.try(:widgets) }
+  def get_setting(name)
+    settings.detect { |s| s.name == name }
+  end
 
-    [child_widgets, more_widgets].flatten.compact
+  def get_setting_value(name)
+    setting = get_setting(name)
+    setting.value if setting
+  end
+
+  def set_setting(name, value)
+    setting = get_setting(name)
+    setting.update_attribute(:value, value) if setting
+  end
+
+  def widgets
+    [] # non-layout widgets don't have child widgets
   end
 
   def kind_of_widget?(kind)
     name == kind
   end
 
-  def render_show_html(preview=false)
-    return RowWidgetShowHtml.new(self, preview).render if kind_of_widget?("Content Stripe")
-    return ColumnWidgetShowHtml.new(self, preview).render if kind_of_widget?("Column")
+  def is_layout?
+    false
+  end
 
-    Liquid::Template.parse(show_html).render(
-      "widget" => WidgetDrop.new(self, client.try(:locations), preview))
+  def is_column?
+    false
+  end
+
+  def is_content_stripe?
+    false
+  end
+
+  def render_show_html(preview=false)
+    html = liquid_render(show_html, "widget" => liquid_widget_drop(preview))
+    html = liquid_render(html, liquid_parameters) if liquid
+    html
   end
 
   def render_edit_html
-    Liquid::Template.parse(edit_html).render(
-      "widget" => WidgetDrop.new(self, client.try(:locations))
-    )
+    liquid_render(edit_html, "widget" => liquid_widget_drop)
   end
 
   def create_widget_entry_if_updated
@@ -88,15 +121,58 @@ class Widget < ActiveRecord::Base
     return unless garden_widget_settings
     updated_settings = []
     garden_widget_settings.each do |garden_widget_setting|
-      setting = settings.find_or_initialize_by(name: garden_widget_setting[:name])
-      setting.editable = garden_widget_setting[:editable]
-      setting.default_value = garden_widget_setting[:default_value]
-      setting.categories = garden_widget_setting[:categories]
-      setting.save
-      updated_settings << setting
+      updated_settings << update_setting(garden_widget_setting)
     end
     removed_settings = settings - updated_settings
     removed_settings.map(&:destroy)
+  end
+
+  def update_setting(widget_settings)
+    setting = settings.find_or_initialize_by(name: widget_settings[:name])
+    setting.editable = widget_settings[:editable]
+    setting.default_value = widget_settings[:default_value]
+    setting.categories = widget_settings[:categories]
+    setting.save
+    setting
+  end
+
+  def get_web_template(object=self)
+    (object.web_template || get_web_template(object.parent_widget)) if object
+  end
+
+  def parent_widget
+    setting = parent_setting
+    Widget.find_by_id(setting.owner_id) if setting
+  end
+
+  def parent_content_stripe(object=self)
+    w = object.parent_widget
+    return w if (w && w.is_content_stripe?)
+    parent_content_stripe(w) if w
+  end
+
+  def child_widgets
+    []
+  end
+
+  def has_child_widget?(widget)
+    false
+  end
+
+  def get_child_widget(position)
+    nil
+  end
+
+  def set_child_widget(position, widget)
+    nil
+  end
+
+  def liquid_render(html, params)
+    Liquid::Template.parse(html).render(params)
+  end
+
+  def liquid_widget_drop(preview=false)
+    WidgetDrop.new(self, client.try(:locations), preview)
   end
 
   def nested_settings
@@ -105,9 +181,19 @@ class Widget < ActiveRecord::Base
 
   private
 
-  # TODO: Is this being used?
   def set_defaults
     self.removeable = true
+    extend_widget
+  end
+
+  def extend_widget
+    begin
+      mod = "Widgets::#{name.gsub(' ','').classify}Widget"
+      mod = mod.constantize
+      extend mod if mod.is_a?(Module)
+    rescue => e
+      # do nothing - this is normal
+    end
   end
 
   def widget_settings
@@ -115,9 +201,9 @@ class Widget < ActiveRecord::Base
     settings.select { |setting| setting.name =~ pattern && setting.value != nil }
   end
 
-  def child_widgets
-    widget_settings.map(&:value).map do |id|
-      Widget.find(id) if Widget.exists?(id)
-    end
+  def parent_setting
+    Setting.where("value = ?", id.to_yaml).find do |setting|
+      setting.name =~ /(?=(column|row))(?=.*widget_id).*/
+    end unless drop_target
   end
 end

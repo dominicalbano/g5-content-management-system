@@ -1,0 +1,1335 @@
+---
+:website_template:
+  :name: Website Template
+  :web_layout:
+    :slug: rows
+  :web_theme:
+    :slug: ivy
+  :drop_targets:
+  - :html_id: drop-target-head
+    :widgets:
+    - :slug: meta
+    - :slug: typekit
+    - :slug: analytics
+  - :html_id: drop-target-logo
+    :widgets:
+    - :slug: logo
+      :settings:
+      - :name: business_name
+        :value: "{{location_name}}"
+      - :name: display_logo
+        :value: 'true'
+      - :name: logo_url
+        :value: http://placehold.it/230x150/fff/000&text=LOGO
+  - :html_id: drop-target-phone
+    :widgets: []
+  - :html_id: drop-target-btn
+    :widgets: []
+  - :html_id: drop-target-nav
+    :widgets:
+    - :slug: navigation
+      :settings:
+      - :name: display_navigation
+        :value: 'false'
+      - :name: display_as_calls_to_action
+        :value: 'false'
+      - :name: display_corporate_navigation
+        :value: 'false'
+  - :html_id: drop-target-aside-before-main
+    :widgets:
+    - :slug: contact-info-sheet
+      :settings:
+      - :name: contact_url
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+    - :slug: promoted-reviews
+      :settings:
+      - :name: review_page_url
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/reviews"
+  - :html_id: drop-target-aside-after-main
+    :widgets: []
+  - :html_id: drop-target-footer
+    :widgets:
+    - :slug: contact-info
+      :settings:
+      - :name: location_name
+        :value: "{{location_name }}"
+      - :name: location_street_address
+        :value: "{{ location_street_address}}"
+      - :name: location_city
+        :value: "{{location_city}}"
+      - :name: location_postal_code
+        :value: "{{location_postal_code}}"
+      - :name: location_tel
+        :value: "{{ location_phone_number }}"
+      - :name: location_email
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+      - :name: maps_url
+        :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+    - :slug: footer-info
+:web_home_template:
+  :name: Home
+  :title: Apartments in {{location_neighborhood}} {{location_city}}, {{location_state}}
+    | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Find out how great life is at our {{location_neighborhood}} {{location_city}}
+          apartments! To learn more about {{location_name}} visit our website.
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/2000x1250&text=Hero+Image
+          - :name: photo_alignment
+            :value: photo-block
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+    - :slug: content-stripe
+      :row_css_custom: features-row
+      :row_layout: thirds
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-1%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h4>Callout 1</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-2%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h4>Callout 2</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-3%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h4>Callout 3</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Welcome to {{location_name}}</h1>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build
+              notes for Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\"
+              target=\"_blank\">Theme / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build
+              notes for Orion Widgets:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-6923\"
+              target=\"_blank\">Widget Index (Hub)</a></p>\r\n\r\n<p>Hero Image Sizing:
+              <a href=\"https://g5.jiveon.com/docs/DOC-7608\" target=\"_blank\">Hero
+              Images (Hub)</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/apartments/{{location_state}}/{{location_city}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state}}/{{location_city}}/map-and-directions"
+        - :slug: social-links
+          :settings:
+          - :name: twitter_username
+            :value: "{{location_twitter_id}}"
+          - :name: facebook_username
+            :value: "{{location_facebook_id}}"
+          - :name: yelp_username
+            :value: "{{location_yelp_id}}"
+          - :name: google_plus_id
+            :value: 100000000000000000G5
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-1
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: social-feed
+          :settings:
+          - :name: blog_feed_display_summary
+            :value: 'false'
+          - :name: blog_feed_number_to_display
+            :value: '3'
+          - :name: twitter_username
+            :value: "{{location_twitter_id}}"
+          - :name: display_avatars
+            :value: 'true'
+          - :name: twitter_tweet_count
+            :value: '3'
+          - :name: facebook_post_count
+            :value: '3'
+          - :name: facebook_page_id
+            :value: "{{location_facebook_id}}"
+          - :name: google_plus_post_count
+            :value: '3'
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<p><img alt=\"\" src=\"http://placehold.it/730x200\" /></p>\r\n\r\n<h2>Heading
+              (h2)</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, est te volutpat torquatos,
+              nibh sale vocent te vix. Mei cu illud quaeque, probo veniam has cu,
+              eu brute blandit praesent nec. Vero mundi adipiscing et usu, et quodsi
+              lobortis atomorum pri. At vel dicant incorrupte, no vix ridens discere
+              reprimique, ullum convenire intellegam no nam.</p>\r\n"
+:web_page_templates:
+- :name: Floor Plans
+  :title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}}, {{location_state}}"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: We offer {{location_floor_plans}} bedroom apartments in {{location_city}},
+          {{location_state}}. Visit our website to find the floor plan at {{location_name}}
+          that will work best for you.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>{{location_name}} Floor Plans</h1>\r\n\r\n<p>Lorem ipsum
+              dolor sit amet, est te volutpat torquatos, nibh sale vocent te vix.
+              Mei cu illud quaeque, probo veniam has cu, eu brute blandit praesent
+              nec. Vero mundi adipiscing et usu, et quodsi lobortis atomorum pri.
+              At vel dicant incorrupte, no vix ridens discere reprimique, ullum convenire
+              intellegam no nam.</p>\r\n\r\n<p>No eam quaeque repudiare percipitur.
+              Sed no dictas vocibus dissentiunt, dictas quaestio cum no, ius dico
+              summo laoreet ex. Eum odio ipsum ex. Sit natum evertitur ex, quo at
+              officiis assentior. Nibh congue est eu, suas nullam fastidii ne vix,
+              fugit appetere consectetuer vix ex. Scripta delenit sea id, est ipsum
+              mazim no. Ad delectus voluptatibus est, duo fugit definitiones an.</p>\r\n\r\n<p><a
+              href=\"https://g5.jiveon.com/docs/DOC-7179\" target=\"_blank\">Floor
+              Plans Cards Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-6870\"
+              target=\"_blank\">Multi Family IUI Cards Widget (Hub)</a><br />\r\n<a
+              href=\"https://g5.jiveon.com/docs/DOC-6881\" target=\"_blank\">Home
+              Page IUI Cards Widget (Hub)</a></p>\r\n\r\n<p>&nbsp;</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: floorplans-cards
+- :name: Amenities
+  :title: "{{location_city}} {{location_qualifier}} Apartment Amenities at {{location_name}}"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_city}} {{location_qualifier}} apartment amenities are
+          designed to meet all your needs at {{location_name}}. We are located near
+          {{location_primary_landmark}} in {{location_city}}, {{location_state}}. "
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>{{location_name}} Amenities</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, est te volutpat torquatos, nibh sale vocent te vix. Mei cu
+              illud quaeque, probo veniam has cu, eu brute blandit praesent nec. Vero
+              mundi adipiscing et usu, et quodsi lobortis atomorum pri. At vel dicant
+              incorrupte, no vix ridens discere reprimique, ullum convenire intellegam
+              no nam.</p>\r\n\r\n<p>No eam quaeque repudiare percipitur. Sed no dictas
+              vocibus dissentiunt, dictas quaestio cum no, ius dico summo laoreet
+              ex. Eum odio ipsum ex. Sit natum evertitur ex, quo at officiis assentior.
+              Nibh congue est eu, suas nullam fastidii ne vix, fugit appetere consectetuer
+              vix ex. Scripta delenit sea id, est ipsum mazim no. Ad delectus voluptatibus
+              est, duo fugit definitiones an.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name }}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: thirds
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Community Amenities:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Apartment Features:</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n\t<li>Four</li>\r\n\t<li>Five</li>\r\n\t<li>Six</li>\r\n\t<li>Seven</li>\r\n\t<li>Eight</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/350x295
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Photos
+  :title: Photos of {{location_name}} in {{location_city}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Want to see photos of our apartments in {{location_city}}, {{location_state}}?
+          Visit our website and picture yourself at {{location_name}}.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Photos of {{location_name}}</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, est te volutpat torquatos, nibh sale vocent te vix. Mei cu
+              illud quaeque, probo veniam has cu, eu brute blandit praesent nec. Vero
+              mundi adipiscing et usu, et quodsi lobortis atomorum pri. At vel dicant
+              incorrupte, no vix ridens discere reprimique, ullum convenire intellegam
+              no nam.</p>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-6842\"
+              target=\"_blank\">Gallery Widget (Hub)</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name }}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: single
+      :widgets:
+      - :slug: gallery
+        :settings:
+        - :name: gallery_thumbnails
+          :value: 'no'
+        - :name: gallery_mini
+          :value: 'no'
+        - :name: gallery_carousel
+          :value: 'no'
+        - :name: gallery_photo1_url
+          :value: http://placehold.it/1000x594
+        - :name: gallery_photo2_url
+          :value: http://placehold.it/1000x594
+        - :name: gallery_photo3_url
+          :value: http://placehold.it/1000x594
+- :name: Neighborhood
+  :title: "{{location_neighborhood}} {{location_city}} Apartments near {{location_primary_landmark}}
+    | {{location_name}}"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Life is great at our {{location_neighborhood}} {{location_city}} apartments
+          near {{location_primary_landmark}}; call {{location_name}} today at {{location_marketing_number}}.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>{{location_neighborhood}} {{location_city}} Apartments</h1>\r\n\r\n<p>Lorem
+              ipsum dolor sit amet, est te volutpat torquatos, nibh sale vocent te
+              vix. Mei cu illud quaeque, probo veniam has cu, eu brute blandit praesent
+              nec. Vero mundi adipiscing et usu, et quodsi lobortis atomorum pri.
+              At vel dicant incorrupte, no vix ridens discere reprimique, ullum convenire
+              intellegam no nam.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: thirds
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Shopping</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Dining</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Schools</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n\r\n<h2>Employers</h2>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/350x250
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Map & Directions
+  :title: Directions to {{location_name}} in {{location_city}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Visit our website for map & directions to {{location_name}} in {{location_city}},
+          {{location_state}}, or give us a call for more information.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: three
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Directions to {{location_name}}</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7181\"
+              target=\"_blank\">Map Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-7175\"
+              target=\"_blank\">Directions Widget (Hub)</a></p>\r\n"
+        - :slug: directions
+          :settings:
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Driving Directions</h2>\r\n\r\n<p>Follow the driving&nbsp;directions
+              below to reach apartments for rent in {{ location_city }}, {{ location_state
+              }}.</p>\r\n\r\n<p><strong>From:</strong></p>\r\n\r\n<ul>\r\n\t<li>One</li>\r\n\t<li>Two</li>\r\n\t<li>Three</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+- :name: Residents
+  :title: Information for Current Residents at {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} in {{location_city}}, {{location_state}}, offers
+          apartment residents resources to ensure your lifestyle is everything that
+          you want it to be."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Photos of our apartments in {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Current Resident Information</h1>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<p style=\"text-align:center\"><img alt=\"\" src=\"http://placehold.it/75x75/\"
+            style=\"border-style:solid; border-width:0px\" /></p>\r\n\r\n<h3 style=\"text-align:center\">Pay
+            Online</h3>\r\n"
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/maintenance-request\"><img
+            alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+            border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+            href=\"/apartments/{{location_state}}/{{location_city}}/maintenance-request\">Maintenance
+            Request</a></h3>\r\n"
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/pet-friendly\"><img
+            alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+            border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+            href=\"/apartments/{{location_state}}/{{location_city}}/pet-friendly\">Pet
+            Friendly</a></h3>\r\n"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: thirds
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/suggestion-box\"><img
+            alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+            border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+            href=\"/apartments/{{location_state}}/{{location_city}}/suggestion-box\">Suggestions
+            &amp; Feedback</a></h3>\r\n"
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<p style=\"text-align:center\"><a href=\"/apartments/{{location_state}}/{{location_city}}/events\"><img
+            alt=\"\" src=\"http://placehold.it/75x75/\" style=\"border-style:solid;
+            border-width:0px\" /></a></p>\r\n\r\n<h3 style=\"text-align:center\"><a
+            href=\"/apartments/{{location_state}}/{{location_city}}/events\">Event
+            Calendar</a></h3>\r\n"
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Contact Us
+  :title: Contact {{location_name}} in {{location_city}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Contact {{location_name}} to learn more about our apartment rentals
+          in {{location_city}}, {{location_state}}. We are dedicated to creating a
+          great living experience.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Contact {{ location_name }} for information about our apartments in
+          {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Contact {{location_name}}</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Pet Friendly
+  :title: Pet Friendly Apartments in {{location_city}} at {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} offers pet friendly apartments in {{location_city}},
+          {{location_state}}; visit our website or call to learn more."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Pet friendly apartments in {{ location_name }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Pet Friendly Apartments in {{location_city}}</h1>\r\n\r\n<p>Reque
+              labore ad per, amet partiendo eu pro. Docendi postulant dissentiet ad
+              has. Ne copiosae explicari urbanitas sea, cu duis doming noluisse vel,
+              te est possim recteque neglegentur. Ad tritani tincidunt mei. Ne eos
+              fugit soleat mediocrem. Ius ei ipsum delenit suscipiantur, sea habeo
+              alterum singulis ea.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+- :name: Events
+  :title: Events at {{location_name}} in {{location_city}}
+  :enabled: false
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'There is always something going on at {{location_name}}. Visit our
+          calendar of events page to stay caught up with what''s happening. '
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Events at our apartments in {{ location_city }}, {{ location_state
+          }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Events at {{location_name}}</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, est te volutpat torquatos, nibh sale vocent te vix. Mei cu
+              illud quaeque, probo veniam has cu, eu brute blandit praesent nec. Vero
+              mundi adipiscing et usu, et quodsi lobortis atomorum pri. At vel dicant
+              incorrupte, no vix ridens discere reprimique, ullum convenire intellegam
+              no nam.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+- :name: Reviews
+  :title: "{{location_name}} Reviews"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: At {{location_name}} we strive to create a great experience for our
+          residents. Visit our reviews page to get a summary of just how great your
+          living experience could be.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Read what residents of our {{ location_city }} apartments have to
+          say
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>{{location_name}} Reviews</h1>\r\n\r\n<p>Reviews are very
+              important to us and are the best way to let others know if our team
+              has provided you with a great experience. Write a Review.</p>\r\n\r\n<p><a
+              href=\"https://reputation.g5search.com/\" target=\"_blank\">Reputation
+              Manager Login</a></p>\r\n"
+        - :slug: promoted-reviews
+          :settings: []
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Contact Us
+          - :name: page_slug_1
+            :value: floor-plans
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{ location_name }}"
+          - :name: location_street_address
+            :value: "{{ location_street_address}}"
+          - :name: location_city
+            :value: "{{ location_city }}"
+          - :name: location_postal_code
+            :value: "{{ location_postal_code }}"
+          - :name: location_tel
+            :value: "{{ location_phone_number }}"
+          - :name: location_email
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+- :name: Apply
+  :title: "{{location_name}} Online Application"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: You can apply online to live at {{location_name}}. Visit our website
+          to complete our online application form.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Apply to live at our apartments in {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>{{location_name}} Application</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Schedule a Tour
+  :title: Schedule a Tour of {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: We welcome you to tour {{location_name}} in person. Schdule your tour
+          online or call {{location_marketing_number}}!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Schedule a tour to view our apartments in {{ location_city }}, {{
+          location_state }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Schedule a Tour</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Request Information
+  :title: Request Information from {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you like what you see about {{location_name}} on our website and
+          want more information? Request information today!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Request information about our {{ location_city }} apartments
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Request Information</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Maintenance Request
+  :title: Maintenance Request at {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Visit the {{location_name}} website to submit a maintenance request.
+          We are here to help.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Submit your maintenance requests online
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Maintenance Request</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Suggestion Box
+  :title: Suggestion Box | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you live at {{location_name}} and have a suggestion that you'd
+          like our management team to read? Submit your idea via our online suggestion
+          box!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Submit your suggestions and feedback
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Suggestions &amp; Feedback</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
+              risus, commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Privacy Policy
+  :title: "{{location_name}} Privacy Policy"
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} collects your information only to provide the best
+          possible service and we never share what you provide. View our privacy policy
+          at our website."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>{{client_name}} Privacy Policy</h1>\r\n \r\n<p>Thank you for
+            visiting {{client_name}}’s (\"[CLIENT]\") Internet web site (\"Site\")
+            located at the URL {{client_domain}}. This Privacy Policy details certain
+            policies implemented throughout [CLIENT] governing [CLIENT]'s collection
+            and use of personally identifiable information about users of our Site
+            and our services. </p>\r\n \r\n<h2>Privacy Policy Updates</h2>\r\n<p>Due
+            to the Internet's rapidly evolving nature, [CLIENT] may need to update
+            this Privacy Policy from time to time.  If so, [CLIENT] will post its
+            updated Privacy Policy on our Site along with a change notice on the Site.
+            \ [CLIENT] may also send registered users of our services a notice that
+            this Privacy Policy has been changed.  [CLIENT] encourages you to review
+            this Privacy Policy regularly for any changes.  Your continued use of
+            this Site and/or services and/or your continued provision of personally
+            identifiable information to us after the posting of such notice will be
+            subject to the terms of the then-current Privacy Policy.</p>\r\n<h2>Information
+            Collection</h2>\r\n<p>You can generally visit our Site without revealing
+            any personally identifiable information about yourself.  However, in certain
+            sections of this Site, we may require you to submit your personally identifiable
+            information to us and we may invite you to submit questions, comments
+            and request information.</p>\r\n<p>Due to the nature of some of our services,
+            you may provide us with personally identifiable information such as your
+            name, email address, username, password, address, phone number, and other
+            contact information<!-- [WORK WITH YOUR COUNSEL TO INCLUDE ANY OTHER TYPE
+            OF INFORMATION THAT IS COLLECTED]  --> that you voluntarily transmit with
+            your communication to us.</p>\r\n<h2>Information Use</h2>\r\n<p>We may
+            use your personally identifiable information to deliver our services or
+            information you have requested, verify your authority to enter certain
+            password protected areas of the Site, verify that you are a customer or
+            prospective customer, send you information that you have signed up to
+            receive, notices about our products and/or services that you have used
+            or that may be of interest to you and notices about events, and improve
+            the content and general administration of the Site and our services.</p><!--[WORK
+            WITH YOUR COUNSEL TO INCLUDE HOW YOU USE THE INFORMATION]-->\r\n<p>If
+            you are a user of our services, we may use your personally identifiable
+            information to provide the services to you.</p>\r\n<h2>Children's Privacy</h2>\r\n<p>[CLIENT]
+            recognizes the privacy interests of children and we encourage parents
+            and guardians to take an active role in their children's online activities
+            and interests.  Neither our Site nor our services are intended for children
+            under the age of 13.  [CLIENT] does not target its services or this Site
+            to children under 13.  [CLIENT] does not knowingly collect personally
+            identifiable information from children under the age of 13.</p><!--[NOTE-
+            CLIENT CANNOT COLLECT AGE INFORMATION ON THE SITE AND IF CLIENT DOES COLLECT
+            AGE, YOU MUST DELETE AND NOT USE INFORMATION FROM A USER UNDER THE AGE
+            OF 13. WORK WITH YOUR COUNSEL TO ACCURATELY ADJUST THIS SECTION]-->\r\n<h2>Cookies</h2>\r\n
+            \r\n<p>We use both session ID cookies and persistent cookies. A session
+            ID cookie expires when you close your browser. A persistent cookie remains
+            on your hard drive for an extended period of time. You can remove persistent
+            cookies by following directions provided in your Internet browser's \"help\"
+            file.</p>\r\n \r\n<p>On our Site, we use session cookies to make it easier
+            for you to navigate the Site by remembering your locale preferences and
+            to improve and track the overall Site experience.  For our Site, we set
+            a persistent cookie to authenticate your login and authorization to use
+            the services. Persistent cookies enable us to track, store and target
+            the interests of our users to enhance the experience on our Site.  If
+            you reject cookies, you may still use our Site, but your ability to use
+            some areas of our Site may be limited.</p>\r\n \r\n<h2>Third Party Analytics
+            Tools</h2>\r\n<!--[WORK WITH YOUR COUNSEL TO ADJUST THIS SECTION TO REFLECT
+            YOUR PRACTICES]-->\r\n \r\n<p>Beyond the personally identifiable information
+            you voluntarily provide to us, [CLIENT] utilizes analytics tools including
+            third party technologies, such as Google Analytics, to collect non-personally
+            identifiable information utilizing cookies. Certain types of information,
+            including geolocation, device type, onsite website usage and behavior,
+            demographic data, and purchase history, is collected and aggregated across
+            [CLIENT] Site users for our analysis and advertising efforts.</p>\r\n
+            \r\n<p>[CLIENT] uses Remarketing with Google Analytics and Google Adwords
+            to display relevant advertisements to users who have previously visited
+            our Site. Referred to as remarketing or retargeting, [CLIENT] may utilize
+            previous session information to serve display advertisements to you on
+            the Site and based on such session information Google may set a cookie
+            and serve ads to you on third party websites on the Google Display Network.
+            Third party vendors such as Google may display [CLIENT] ads on websites
+            across the Internet.  Aggregated user data may be utilized to create remarketing/retargeting
+            “lists,” or groups of users with similar onsite behaviors or demographics.</p>\r\n
+            \r\n<p>[CLIENT] also uses Google Display Network Impression Reporting
+            and Google Analytics Demographics and Interest Reporting and Interest-Based
+            Advertising to display advertisements to users based on their inferred
+            interests and demographics. [CLIENT] does not run interest-based advertising
+            campaigns that collect personally identifiable information.</p>\r\n \r\n<p>Users
+            may learn more about Google Analytics use of cookies by visiting the Google
+            Privacy and Terms page at http://www.google.com/policies/. You may opt
+            out of being tracked by Google Analytics by i) Turning off cookies in
+            the preferences settings in your browser ii) Downloading the Google Analytics
+            opt-out browser add on available at: https://tools.google.com/dlpage/gaoptout/
+            \ iii) Opting out of user interest and demographic categories in the Settings
+            for Google Ads feature to manage or opt out of Google interest based ads
+            at: or iv) Managing cookies used for online advertising across multiple
+            companies at the US-based Network Advertising Initiative at http://www.networkadvertising.org/choices/.</p>\r\n
+            \r\n \r\n<h2>Aggregate Information</h2>\r\n<p>The Site may track the total
+            number of visitors to our Site, the number of visitors to each page of
+            our Site, browser type, IP addresses, External Web Sites (defined below)
+            linked to and other aggregated data collected through our services and
+            we may analyze this data for trends and statistics in the aggregate but
+            such information will be maintained, used and disclosed in aggregate form
+            only and it will not contain personally identifiable information.  We
+            may use such aggregate information to analyze trends, administer the Site,
+            track users' movement, and gather broad demographic information for aggregate
+            use. </p>\r\n<h2>Disclosure of Personally Identifiable Information</h2>\r\n<p>We
+            may provide your personally identifiable information and the data generated
+            by cookies and third party analytics tools and the aggregate information
+            to the vendors and service agencies that we may engage to assist us in
+            providing our services to you. For example, we engage with G5 Search Marketing,
+            Inc. to assist us in creating and hosting this Site.</p>  <!--[WORK WITH
+            YOUR COUNSEL TO INCLUDE ANY OTHER DISCLOSURES OF PERSONAL DATA] -->\r\n<p>We
+            will disclose your personally identifiable information if we reasonably
+            believe we are required to do so by law, regulation or other government
+            authority or to assist in any investigation, to protect our or our users'
+            rights or to enforce our terms of use.  We will not sell your personally
+            identifiable information to any company or organization except we may
+            transfer your personally identifiable information to a successor entity
+            upon a merger, consolidation or other corporate reorganization in which
+            [CLIENT] participates or to a purchaser of all or substantially all of
+            [CLIENT]'s assets to which this Site relates.</p>\r\n<h2>Links to Third
+            Party Sites</h2>\r\n<p>The Site may provide links to other Web sites or
+            resources over which [CLIENT] does not have control (\"External Web Sites\").
+            \ Such links do not constitute an endorsement by [CLIENT] of those External
+            Web Sites.  You acknowledge that [CLIENT] is providing these links to
+            you only as a convenience, and further agree that [CLIENT] is not responsible
+            for the content of such External Web Sites.  Your use of External Web
+            Sites is subject to the terms of use and privacy policies located on the
+            linked to External Web Sites.</p>\r\n<h2>Security</h2>\r\n<p>We may employ
+            industry standard procedural and technological measures that are reasonably
+            designed to help protect your personally identifiable information from
+            loss, unauthorized access, disclosure, alteration or destruction.  [CLIENT]
+            may use, without limitation, firewalls, password protection, secure socket
+            layer, and other security measures to help prevent unauthorized access
+            to your personally identifiable information.</p><!--[WORK WITH YOUR COUNSEL
+            TO INCLUDE OTHER SECURITY MEASURES OR ADJUST BASED ON SECURITY MEASURES
+            USED ON THE SITE]-->\r\n<h2>Notice to European Users</h2>\r\n<p>This Site
+            and the services on this Site are targeted for users in the United States
+            of America.  Any information you enter on this Site may be transferred
+            outside of the European Union to the United States of America which does
+            not offer an equivalent level of protection to that required in the European
+            Union. In particular, you are advised that the United States of America
+            uses a sectoral model of privacy protection that relies on a mix of legislation,
+            governmental regulation, and self-regulation. Article 26 of the European
+            Union’s Data Protection Directive (Directive 95/46/EC, 1995 O.J. (L 281)
+            31) allows for transfer of personal data from the European Union to a
+            third country if the individual has unambiguously given his consent to
+            the transfer of personal information, regardless of the third country's
+            level of protection. By using this Site or the services, you consent to
+            the transfer of all such information to the United States of America which
+            may not offer an equivalent level of protection to that required in the
+            European Union and to the processing of that information by [CLIENT] on
+            its servers located in the United States of America as described in this
+            Privacy Policy.</p>\r\n<h2>Questions</h2>\r\n<p>If you have any questions
+            regarding this Privacy Policy please contact us.</p>\r\n\r\n<p>This Privacy
+            Policy was last updated: <strong>{{page_updated}}</strong></p>\r\n<p>This
+            Privacy Policy is effective as of: <strong>{{page_created}}</strong></p>\r\n\r\n"
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.

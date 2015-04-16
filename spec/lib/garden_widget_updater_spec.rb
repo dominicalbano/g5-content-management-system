@@ -73,11 +73,11 @@ describe GardenWidgetUpdater do
                     widget_modified: Time.zone.parse("2014-11-25 17:25:48 UTC")) # incoming is equal
         end
 
-        it "updates GardenWidget with new name" do
+        it "doesn't update GardenWidget with new name" do
           expect { updater.update_all }.to_not change { garden_widget.reload.name }
         end
 
-        it "updates GardenWidget with new url" do
+        it "doesn't update GardenWidget with new url" do
           expect { updater.update_all }.to_not change { garden_widget.reload.url }
         end
       end
@@ -95,6 +95,22 @@ describe GardenWidgetUpdater do
 
         it "updates GardenWidget with new url" do
           expect { updater.update_all }.to change { garden_widget.reload.url }.to("http://widget-garden.com/widget-test")
+        end
+      end
+
+      context "force_all parameter is true - widget url and widget modified are same" do
+        let(:garden_widget) do
+          Fabricate(:garden_widget, name: "Force All Garden Widget",
+                    url: "http://widget-garden.com/widget-test", # incoming is equal
+                    widget_modified: Time.zone.parse("2014-11-25 17:25:48 UTC")) # incoming is equal
+        end
+
+        it "updates GardenWidget with new name" do
+          expect { updater.update_all(true) }.to change { garden_widget.reload.name }
+        end
+
+        it "doesn't updates GardenWidget with new url" do
+          expect { updater.update_all(true) }.to_not change { garden_widget.reload.url }
         end
       end
 
@@ -189,6 +205,10 @@ describe GardenWidgetUpdater do
 
       it "sets thumbnail" do
         expect(garden_widget.thumbnail).to eq "http://widget-garden.com/widget-test/images/thumbnail.png"
+      end
+
+      it "sets liquid" do
+        expect(garden_widget.liquid).to eq true
       end
 
       it "sets edit_html" do

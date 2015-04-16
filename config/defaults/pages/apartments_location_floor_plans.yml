@@ -1,0 +1,77 @@
+---
+:name: Floor Plans
+:title: "{{location_floor_plans}} Bedroom Apartments in {{location_city}}, {{location_state}}"
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: We offer {{location_floor_plans}} bedroom apartments in {{location_city}},
+        {{location_state}}. Visit our website to find the floor plan at {{location_name}}
+        that will work best for you.
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>{{location_name}} Floor Plans</h1>\r\n\r\n<p>Lorem ipsum dolor
+            sit amet, est te volutpat torquatos, nibh sale vocent te vix. Mei cu illud
+            quaeque, probo veniam has cu, eu brute blandit praesent nec. Vero mundi
+            adipiscing et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte,
+            no vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p>No
+            eam quaeque repudiare percipitur. Sed no dictas vocibus dissentiunt, dictas
+            quaestio cum no, ius dico summo laoreet ex. Eum odio ipsum ex. Sit natum
+            evertitur ex, quo at officiis assentior. Nibh congue est eu, suas nullam
+            fastidii ne vix, fugit appetere consectetuer vix ex. Scripta delenit sea
+            id, est ipsum mazim no. Ad delectus voluptatibus est, duo fugit definitiones
+            an.</p>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7179\" target=\"_blank\">Floor
+            Plans Cards Widget (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-6870\"
+            target=\"_blank\">Multi Family IUI Cards Widget (Hub)</a><br />\r\n<a
+            href=\"https://g5.jiveon.com/docs/DOC-6881\" target=\"_blank\">Home Page
+            IUI Cards Widget (Hub)</a></p>\r\n\r\n<p>&nbsp;</p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: floor-plans
+      - :slug: contact-info
+        :settings:
+        - :name: location_name
+          :value: "{{location_name}}"
+        - :name: location_street_address
+          :value: "{{location_street_address}}"
+        - :name: location_city
+          :value: "{{location_city}}"
+        - :name: location_postal_code
+          :value: "{{location_postal_code}}"
+        - :name: location_tel
+          :value: "{{location_phone_number}}"
+        - :name: location_email
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+        - :name: maps_url
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: single
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: floorplans-cards
