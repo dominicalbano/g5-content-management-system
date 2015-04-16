@@ -28,11 +28,11 @@ private
   def create_client
     client = Client.find_or_initialize_by(uid: @client_uid)
 
-    client.name     = uf2_client.name.to_s
-    client.vertical = uf2_client.g5_vertical.to_s
-    client.domain   = uf2_client.g5_domain.to_s
-    client.type     = uf2_client.g5_domain_type.to_s
-    client.organization = uf2_client.g5_organization.to_s
+    client.name          = uf2_client.name.to_s
+    client.vertical      = uf2_client.g5_vertical.to_s
+    client.domain        = uf2_client.g5_domain.to_s
+    client.type          = uf2_client.g5_domain_type.to_s
+    client.organization  = uf2_client.g5_organization.to_s
     client.secure_domain = uf2_client.g5_secure_domain.to_s
     client.save
 

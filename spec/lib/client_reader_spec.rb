@@ -3,6 +3,7 @@ require "spec_helper"
 describe ClientReader do
   let(:client_reader) { described_class.new(client_uid) }
   let(:client_uid) { "#{Rails.root}/spec/support/client.html" }
+  let(:other_client_uid) { "spec/support/other_client.html" }
   let(:uf2_client) { Microformats2.parse(client_uid) }
   let(:parsed) { double(first: uf2_client.first) }
 
@@ -43,11 +44,28 @@ describe ClientReader do
     end
 
     describe "client create/update" do
+
+      describe "cleans up clients" do
+        before do
+          other_client = Fabricate(:client, uid: other_client_uid)
+          subject
+        end
+
+        it "saves client with a uid equal to the client_uid passed in" do
+          Client.first.uid.should eq client_uid
+        end
+      end
+
       context "an existing client" do
         let!(:client) { Fabricate(:client, uid: client_uid) }
 
         it "does not create a website for the client" do
           expect { subject }.not_to change { Website.all.size }
+        end
+
+        it "creates 0 new clients" do
+          expect { subject }.to change(Client, :count).by(0)
+          Client.all.length.should eq 1
         end
       end
 
@@ -121,7 +139,7 @@ describe ClientReader do
 
       before { subject }
 
-      it "destroys the rougue location" do
+      it "destroys the rogue location" do
         expect(Location.all).to_not include(rogue_location)
       end
 
