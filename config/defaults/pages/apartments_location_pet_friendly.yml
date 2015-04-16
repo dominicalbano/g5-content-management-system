@@ -1,0 +1,61 @@
+---
+:name: Pet Friendly
+:title: Pet Friendly Apartments in {{location_city}} at {{location_name}}
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: "{{location_name}} offers pet friendly apartments in {{location_city}},
+        {{location_state}}; visit our website or call to learn more."
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+    - :name: photo_alt_tag
+      :value: Pet friendly apartments in {{ location_name }}
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Pet Friendly Apartments in {{location_city}}</h1>\r\n\r\n<p>Reque
+            labore ad per, amet partiendo eu pro. Docendi postulant dissentiet ad
+            has. Ne copiosae explicari urbanitas sea, cu duis doming noluisse vel,
+            te est possim recteque neglegentur. Ad tritani tincidunt mei. Ne eos fugit
+            soleat mediocrem. Ius ei ipsum delenit suscipiantur, sea habeo alterum
+            singulis ea.</p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: floor-plans
+      - :slug: contact-info
+        :settings:
+        - :name: location_name
+          :value: "{{location_name}}"
+        - :name: location_street_address
+          :value: "{{ location_street_address}}"
+        - :name: location_city
+          :value: "{{location_city}}"
+        - :name: location_postal_code
+          :value: "{{location_postal_code}}"
+        - :name: location_tel
+          :value: "{{ location_phone_number }}"
+        - :name: location_email
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+        - :name: maps_url
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"

@@ -1,0 +1,78 @@
+---
+:name: Photos
+:title: Photos of {{location_name}} in {{location_city}}
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: Want to see photos of our apartments in {{location_city}}, {{location_state}}?
+        Visit our website and picture yourself at {{location_name}}.
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Photos of {{location_name}}</h1>\r\n\r\n<p>Lorem ipsum dolor
+            sit amet, est te volutpat torquatos, nibh sale vocent te vix. Mei cu illud
+            quaeque, probo veniam has cu, eu brute blandit praesent nec. Vero mundi
+            adipiscing et usu, et quodsi lobortis atomorum pri. At vel dicant incorrupte,
+            no vix ridens discere reprimique, ullum convenire intellegam no nam.</p>\r\n\r\n<p><a
+            href=\"https://g5.jiveon.com/docs/DOC-6842\" target=\"_blank\">Gallery
+            Widget (Hub)</a></p>\r\n"
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: calls-to-action
+        :settings:
+        - :name: cta_text_1
+          :value: Contact Us
+        - :name: page_slug_1
+          :value: floor-plans
+      - :slug: contact-info
+        :settings:
+        - :name: location_name
+          :value: "{{location_name }}"
+        - :name: location_street_address
+          :value: "{{ location_street_address}}"
+        - :name: location_city
+          :value: "{{location_city}}"
+        - :name: location_postal_code
+          :value: "{{location_postal_code}}"
+        - :name: location_tel
+          :value: "{{ location_phone_number }}"
+        - :name: location_email
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/contact-us"
+        - :name: maps_url
+          :value: "/apartments/{{location_state_slug}}/{{location_city_slug}}/map-and-directions"
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: single
+    :widgets:
+    - :slug: gallery
+      :settings:
+      - :name: gallery_thumbnails
+        :value: 'no'
+      - :name: gallery_mini
+        :value: 'no'
+      - :name: gallery_carousel
+        :value: 'no'
+      - :name: gallery_photo1_url
+        :value: http://placehold.it/1000x594
+      - :name: gallery_photo2_url
+        :value: http://placehold.it/1000x594
+      - :name: gallery_photo3_url
+        :value: http://placehold.it/1000x594

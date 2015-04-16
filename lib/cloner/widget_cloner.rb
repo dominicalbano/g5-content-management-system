@@ -29,19 +29,22 @@ class Cloner::WidgetCloner
     widget_a.settings.each do |s|
       Resque.logger.debug("for setting: #{s.name}")
       unless (/widget_id$/ =~ s.name) || (/parent_id$/ =~ s.name)  # Never set 'widget_id'/'parent_id'
-        set_setting(widget_b, s)
+        widget_b.set_setting(s.name, s.value)
         if /widget_name$/ =~ s.name # then we just created a new widget
           # Reload it so we can get the id that was created in the settings
           begin
             # Try your best
 
-            widget_b = Widget.find(widget_b.id)
+            widget_b = Widget.find_by_id(widget_b.id)
             Rails.logger.debug("widget_b id is: #{widget_b.id}")
 
-            new_widget = Widget.find(widget_b.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
+            widget_id = s.name.gsub('_name', '_id')
+            #new_widget = Widget.find(widget_b.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
+            new_widget = Widget.find_by_id(widget_b.get_setting_value(widget_id))
             Rails.logger.debug("new_widget id is: #{new_widget.id}")
 
-            orig_widget = Widget.find(widget_a.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
+            #orig_widget = Widget.find(widget_a.settings.where({name: s.name.gsub('_name', '_id')}).first.value)
+            orig_widget = Widget.find_by_id(widget_a.get_setting_value(widget_id))
             Rails.logger.debug("orig_widget is #{orig_widget}")
 
             if s.is_layout?
@@ -56,12 +59,11 @@ class Cloner::WidgetCloner
               orig_widget.settings.each do |s1|
                 Rails.logger.debug("set_setting(#{new_widget}, #{s1}")
 
-                set_setting(new_widget, s1)
+                new_widget.set_setting(s1.name, s1.value)
               end
             end
           rescue => e
             Rails.logger.debug("Borked: #{e}")
-
             # Oh well
           end
         end

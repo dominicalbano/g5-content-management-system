@@ -1,0 +1,41 @@
+---
+:name: Request Information
+:title: Request Information from {{location_name}}
+:enabled: true
+:drop_targets:
+- :html_id: drop-target-main
+  :widgets:
+  - :slug: meta-description
+    :settings:
+    - :name: meta_description
+      :value: Do you like what you see about {{location_name}} on our website and
+        want more information? Request information today!
+  - :slug: photo
+    :settings:
+    - :name: photo_source_url
+      :value: http://placehold.it/1600x250
+    - :name: photo_alignment
+      :value: photo-block
+    - :name: photo_alt_tag
+      :value: Request information about our {{ location_city }} apartments
+  - :slug: content-stripe
+    :row_css_custom: ''
+    :row_layout: uneven-thirds-2
+    :widgets:
+    - :slug: column
+      :row_count: two
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: "<h1>Request Information</h1>\r\n"
+      - :slug: lead-form
+    - :slug: column
+      :row_count: one
+      :widgets:
+      - :slug: html
+        :settings:
+        - :name: text
+          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
+            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
+            commodo sit amet, viverra in, sagittis nec, justo.

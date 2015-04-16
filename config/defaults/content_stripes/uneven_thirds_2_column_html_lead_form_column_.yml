@@ -1,0 +1,16 @@
+---
+:slug: content-stripe
+:row_css_custom: ''
+:row_layout: uneven-thirds-2
+:widgets:
+- :slug: column
+  :row_count: two
+  :widgets:
+  - :slug: html
+    :settings:
+    - :name: text
+      :value: "<h1>Contact {{location_name}}</h1>\r\n"
+  - :slug: lead-form
+- :slug: column
+  :row_count: 
+  :widgets: []

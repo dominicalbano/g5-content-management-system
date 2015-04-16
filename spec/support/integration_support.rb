@@ -65,8 +65,8 @@ end
 def seed(file="example.yml")
   client = Fabricate(:client)
   location = Fabricate(:location)
-  instructions = YAML.load_file("#{Rails.root}/spec/support/website_instructions/#{file}")
-  website = WebsiteSeeder.new(location, instructions).seed
+  instructions = HashWithIndifferentAccess.new(YAML.load_file("#{Rails.root}/spec/support/website_instructions/#{file}"))
+  website = Seeder::WebsiteSeeder.new(location, instructions).seed
   website.assets << Fabricate(:asset)
   [client, location, website]
 end

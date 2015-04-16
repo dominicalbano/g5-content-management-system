@@ -16,7 +16,7 @@ describe ClientDeployer, vcr: { record: :new_episodes }, deployment: true do
   before do
     @client = Fabricate(:client)
     @location = Fabricate(:location)
-    WebsiteSeeder.new(@location).seed
+    Seeder::WebsiteSeeder.new(@location).seed
   end
 
   it "compiles and deploys website" do

@@ -1,0 +1,16 @@
+---
+:slug: content-stripe
+:row_css_custom: ''
+:row_layout: uneven-thirds-2
+:widgets:
+- :slug: column
+  :row_count: one
+  :widgets:
+  - :slug: html
+    :settings:
+    - :name: text
+      :value: "<h1>Privacy Policy</h1>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7554\"
+        target=\"_blank\">Stock Privacy Policy (Hub)</a></p>\r\n"
+- :slug: column
+  :row_count: 
+  :widgets: []

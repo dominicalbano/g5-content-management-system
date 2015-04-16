@@ -21,7 +21,7 @@ describe ColumnWidgetShowHtml do
       end
 
       it "parses widget as a liquid template" do
-        expect(liquid_parse).to have_received(:render).with("widget" => column_widget)
+        expect(liquid_parse).to have_received(:render)
       end
 
       it "parses the liquid template with Nokogiri" do
@@ -30,7 +30,7 @@ describe ColumnWidgetShowHtml do
     end
 
     describe "rendering" do
-      let(:show) { Liquid::Template.parse(column_widget.show_html).render("widget" => column_widget) }
+      let(:show) { Liquid::Template.parse(column_widget.show_html).render("widget" => column_widget.liquid_widget_drop) }
       let(:parsed) { Nokogiri.parse(show) }
 
       before { Nokogiri.stub(parse: parsed) }
@@ -42,7 +42,8 @@ describe ColumnWidgetShowHtml do
         after { subject }
 
         context "single row" do
-          let(:name) { "row_one_widget_id" }
+          let(:name) { "row_1_widget_id" }
+          before { column_widget.reload }
 
           it "calls render_widget once" do
             expect(column_widget_show_html).to receive(:render_widget).once
@@ -50,8 +51,9 @@ describe ColumnWidgetShowHtml do
         end
 
         context "two rows" do
-          let(:name) { "row_two_widget_id" }
+          let(:name) { "row_2_widget_id" }
           let(:value) { "two" }
+          before { column_widget.reload }
 
           it "calls render_widget twice" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(2).times
@@ -59,8 +61,9 @@ describe ColumnWidgetShowHtml do
         end
 
         context "three rows" do
-          let(:name) { "row_three_widget_id" }
+          let(:name) { "row_3_widget_id" }
           let(:value) { "three" }
+          before { column_widget.reload }
 
           it "calls render_widget three times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(3).times
@@ -68,8 +71,9 @@ describe ColumnWidgetShowHtml do
         end
 
         context "four rows" do
-          let(:name) { "row_four_widget_id" }
+          let(:name) { "row_4_widget_id" }
           let(:value) { "four" }
+          before { column_widget.reload }
 
           it "calls render_widget four times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(4).times
@@ -77,8 +81,9 @@ describe ColumnWidgetShowHtml do
         end
 
         context "five rows" do
-          let(:name) { "row_five_widget_id" }
+          let(:name) { "row_5_widget_id" }
           let(:value) { "five" }
+          before { column_widget.reload }
 
           it "calls render_widget five times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(5).times
@@ -86,8 +91,9 @@ describe ColumnWidgetShowHtml do
         end
 
         context "six rows" do
-          let(:name) { "row_six_widget_id" }
+          let(:name) { "row_6_widget_id" }
           let(:value) { "six" }
+          before { column_widget.reload }
 
           it "calls render_widget six times" do
             expect(column_widget_show_html).to receive(:render_widget).exactly(6).times

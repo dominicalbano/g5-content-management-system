@@ -10,7 +10,7 @@ class DeployTasks
 
     Location.all.each do |location|
       next if location.website.present?
-      WebsiteSeeder.new(location).seed
+      Seeder::WebsiteSeeder.new(location).seed
     end
   end
 end

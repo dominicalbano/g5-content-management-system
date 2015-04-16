@@ -20,12 +20,12 @@ describe WebsiteFinder::Setting do
       let!(:row_widget) { Fabricate(:widget, drop_target: drop_target) }
 
       let!(:row_widget_setting) do
-        Fabricate(:setting, name: "row_one_widget_id", value: widget.id, owner: row_widget)
+        Fabricate(:setting, name: "row_1_widget_id", value: widget.id, owner: row_widget)
       end
 
       before do
         web_template.stub(:update_navigation_settings)
-      end  
+      end
 
       context "a widget within a row widget" do
         before { Widget.any_instance.stub(drop_target: drop_target) }

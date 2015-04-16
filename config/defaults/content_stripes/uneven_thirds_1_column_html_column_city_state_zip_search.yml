@@ -1,0 +1,23 @@
+---
+:slug: content-stripe
+:row_css_custom: ''
+:row_layout: uneven-thirds-1
+:widgets:
+- :slug: column
+  :row_count: one
+  :widgets:
+  - :slug: html
+    :settings:
+    - :name: text
+      :value: "<h1>{{location_name}} Communities</h1>\r\n\r\n<p>Lorem ipsum dolor
+        sit amet, viris lobortis sit in, ad usu diam magna, debet noster aliquid et
+        est. Vis cu tota nostrum salutatus, nonumy ullamcorper contentiones nec id.
+        Tota appareat percipit qui at, ius antiopam vulputate intellegebat ea. Eam
+        labitur gubergren urbanitas ea, his cu wisi vitae, nisl mollis fierent mel
+        te. Mel at saepe platonem, eos an illud aeterno abhorreant, in graeci regione
+        sit. At dicit appetere eum.</p>\r\n"
+- :slug: column
+  :row_count: one
+  :widgets:
+  - :slug: city-state-zip-search
+    :settings: []

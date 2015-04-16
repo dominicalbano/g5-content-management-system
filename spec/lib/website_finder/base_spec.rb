@@ -5,8 +5,8 @@ describe WebsiteFinder::Base do
   let(:base_finder) { described_class.new(object) }
 
   describe "#layout_setting_for" do
-    let!(:setting_one) { Fabricate(:setting, value: 1234, name: "column_one_widget_id") }
-    let!(:setting_two) { Fabricate(:setting, value: 123, name: "column_one_widget_id") }
+    let!(:setting_one) { Fabricate(:setting, value: 1234, name: "column_1_widget_id") }
+    let!(:setting_two) { Fabricate(:setting, value: 123, name: "column_1_widget_id") }
 
     subject { base_finder.layout_setting_for(object) }
 

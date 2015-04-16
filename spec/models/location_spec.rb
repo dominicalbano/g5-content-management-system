@@ -134,5 +134,82 @@ describe Location do
       location_bucket_creator.should_receive(:create)
     end
   end
+
+  describe "#website_defaults" do
+    let!(:client) { Fabricate(:client, vertical: vertical) }
+    let!(:location) { Fabricate(:location, corporate: corporate) }
+
+    subject { location.website_defaults }
+
+    context "Corporate" do
+      let(:corporate) { true }
+      context "Self Storage" do
+        let(:vertical) { "Self-Storage" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("self_storage_corp_defaults")
+        end
+      end
+
+      context "Apartments" do
+        let(:vertical) { "Apartments" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("apartments_corp_defaults")
+        end
+      end
+
+      context "Senior Living" do
+        let(:vertical) { "senior-Living" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("senior_living_corp_defaults")
+        end
+      end
+
+      context "everything else" do
+        let(:vertical) { "foo" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("defaults")
+        end
+      end
+    end
+
+    context "Non-Corporate" do
+      let(:corporate) { false }
+      context "Self Storage" do
+        let(:vertical) { "Self-Storage" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("self_storage_defaults")
+        end
+      end
+
+      context "Apartments" do
+        let(:vertical) { "Apartments" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("apartments_defaults")
+        end
+      end
+
+      context "Senior Living" do
+        let(:vertical) { "senior-Living" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("senior_living_defaults")
+        end
+      end
+
+      context "everything else" do
+        let(:vertical) { "foo" }
+
+        it "loads the appropriate defaults" do
+          expect(subject).to eq load_website_yaml_file("defaults")
+        end
+      end
+    end
+  end
 end
 

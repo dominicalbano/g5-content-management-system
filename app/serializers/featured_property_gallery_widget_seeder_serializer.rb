@@ -1,0 +1,2 @@
+class FeaturedPropertyGalleryWidgetSeederSerializer < GalleryWidgetSeederSerializer
+end

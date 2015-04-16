@@ -1,34 +1,67 @@
-website_template:
-  name: Website Template
-  web_layout:
-    slug: main-first-sidebar-left
-  web_theme:
-    slug: classic
-  drop_targets:
-    - html_id: drop-target-head
-      widgets:
-        - slug: meta
-          settings:
-            - name: google_plus_id
-              value: the google plus id
-            - name: optimizely_id
-              value: 12345999
-        - slug: typekit
+:website_template:
+  :name: Website Template
+  :web_layout:
+    :slug: main-first-sidebar-left
+  :web_theme:
+    :slug: classic
+  :drop_targets:
+    - :html_id: drop-target-head
+      :widgets:
+      - :slug: meta
+        :settings:
+          - :name: google_plus_id
+            :value: the google plus id
+          - :name: optimizely_id
+            :value: 12345999
+      - :slug: typekit
+:web_home_template:
+  :name: Home
+  :drop_targets:
+    - :html_id: drop-target-main
+      :widgets:
+        - :slug: meta-description
+          :settings:
+            - :name: meta_description
+              :value: the meta description value
+:web_page_templates:
+  - :name: Simple
+    :drop_targets:
+      - :html_id: drop-target-main
+        :widgets:
+          - :slug: html
+  - :name: Content Stripe
+    :drop_targets:
+      - :html_id: drop-target-main
+        :widgets:
+          - :slug: content-stripe
+            :row_layout: halves
+            :widgets:
+              - :slug: html
+              - :slug: map
+  - :name: Column
+    :drop_targets:
+      - :html_id: drop-target-main
+        :widgets:
+          - :slug: column
+            :row_count: two
+            :widgets:
+              - :slug: gallery
+              - :slug: html
+  - :name: Complex
+    :drop_targets:
+      - :html_id: drop-target-main
+        :widgets:
+          - :slug: content-stripe
+            :row_layout: uneven-thirds-2
+            :widgets:
+              - :slug: column
+                :row_count: two
+                :widgets:
+                  - :slug: gallery
+                  - :slug: html
+              - :slug: column
+                :row_count: one
+                :widgets:
+                  - :slug: map
 
-web_home_template:
-  name: Home
-  drop_targets:
-    - html_id: drop-target-main
-      widgets:
-        - slug: meta-description
-          settings:
-            - name: meta_description
-              value: the meta description value
-
-web_page_templates:
-  - name: Floor Plans
-    drop_targets:
-      - html_id: drop-target-main
-        widgets:
-          - slug: html
 
