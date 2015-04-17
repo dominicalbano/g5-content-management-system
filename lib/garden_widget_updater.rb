@@ -5,7 +5,7 @@ class GardenWidgetUpdater
   def update_all(force_all=false, only_these_widgets=[])
     components_data = send_with_retry(:components_microformats)
     updated_garden_widgets = components_data.inject([]) do |arr, component|
-      garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
+      garden_widget = GardenWidget.find_or_initialize_by(widget_id: value_to_s(component, :widget_id).try(:to_i))
       update(garden_widget, component) if update_widget?(garden_widget, component, force_all, only_these_widgets)
       arr << garden_widget
       arr
@@ -44,7 +44,7 @@ class GardenWidgetUpdater
   end
 
   def widget_needs_update?(garden_widget, component)
-    get_url(component) != garden_widget.url || get_modified(component) != garden_widget.widget_modified
+    value_to_s(component, :url) != garden_widget.url || get_modified(component) != garden_widget.widget_modified
   end
   
   def update(garden_widget, component=nil)
@@ -57,23 +57,23 @@ class GardenWidgetUpdater
   end
 
   def set_garden_widget_info(garden_widget, component)
-    garden_widget.url             = get_url(component)
-    garden_widget.name            = get_name(component)
-    garden_widget.widget_id       = get_widget_id(component)
-    garden_widget.widget_type     = get_widget_type(component)
-    garden_widget.slug            = get_slug(component)
-    garden_widget.thumbnail       = get_thumbnail(component)
-    garden_widget.liquid          = get_liquid(component)
+    garden_widget.url             = value_to_s(component, :url)
+    garden_widget.name            = value_to_s(component, :name)
+    garden_widget.widget_id       = value_to_s(component, :widget_id).try(:to_i)
+    garden_widget.widget_type     = value_to_s(component, :widget_type)
+    garden_widget.slug            = value_to_s(component, :name).try(:parameterize)
+    garden_widget.thumbnail       = value_to_s(component, :photo)
+    garden_widget.liquid          = value_to_s(component, :g5_liquid)
     garden_widget
   end
 
   def set_garden_widget_files(garden_widget, component)
     garden_widget.edit_html         = get_edit_html(component)
-    garden_widget.edit_javascript   = get_edit_javascript(component)
+    garden_widget.edit_javascript   = value_to_s(component, :g5_edit_javascript)
     garden_widget.show_html         = get_show_html(component)
-    garden_widget.show_javascript   = get_show_javascript(component)
-    garden_widget.lib_javascripts   = get_lib_javascripts(component)
-    garden_widget.show_stylesheets  = get_show_stylesheets(component)
+    garden_widget.show_javascript   = value_to_s(component, :g5_show_javascript)
+    garden_widget.lib_javascripts   = value_array_to_s(component, :g5_lib_javascripts)
+    garden_widget.show_stylesheets  = value_array_to_s(component, :g5_stylesheets)
     garden_widget
   end
 
@@ -108,14 +108,6 @@ class GardenWidgetUpdater
     object.send(value).try(:map, &:to_s) if object.respond_to?(value)
   end
 
-  def get_url(component)
-    value_to_s(component, :url)
-  end
-
-  def get_name(component)
-    value_to_s(component, :name)
-  end
-
   def get_modified(component)
     Time.zone.parse(component.modified.to_s) if component.respond_to?(:modified)
   end
@@ -124,32 +116,8 @@ class GardenWidgetUpdater
     CGI.unescapeHTML(component.popover.to_s) if component.respond_to?(:popover)
   end
 
-  def get_widget_id(component)
-    value_to_s(component, :widget_id).try(:to_i)
-  end
-
-  def get_widget_type(component)
-    value_to_s(component, :widget_type)
-  end
-
-  def get_slug(component)
-    value_to_s(component, :name).try(:parameterize)
-  end
-
-  def get_thumbnail(component)
-    value_to_s(component, :photo)
-  end
-
-  def get_liquid(component)
-    value_to_s(component, :g5_liquid)
-  end
-
   def get_edit_html(component)
     get_html_with_retry(component.try(:g5_edit_template))
-  end
-
-  def get_edit_javascript(component)
-    value_to_s(component, :g5_edit_javascript)
   end
 
   def get_show_html(component)
@@ -162,18 +130,6 @@ class GardenWidgetUpdater
 
   def get_html(url)
     open(url).read if url
-  end
-
-  def get_show_javascript(component)
-    value_to_s(component, :g5_show_javascript)
-  end
-
-  def get_show_stylesheets(component)
-    value_array_to_s(component, :g5_stylesheets)
-  end
-
-  def get_lib_javascripts(component)
-    value_array_to_s(component, :g5_lib_javascripts)
   end
 
   def get_settings(component)
