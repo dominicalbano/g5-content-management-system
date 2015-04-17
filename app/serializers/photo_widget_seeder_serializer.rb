@@ -44,7 +44,7 @@ class PhotoWidgetSeederSerializer < ExtendedWidgetSeederSerializer
 
   def get_uneven_thirds_size(cs)
     pw = object.parent_widget
-    if pw.is_column?
+    if pw.kind_of_widget?('column')
       is_first = (cs.get_child_widget(1) == pw)
     else
       is_first = (cs.get_child_widget(1) == object)

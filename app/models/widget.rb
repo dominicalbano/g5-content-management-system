@@ -64,18 +64,10 @@ class Widget < ActiveRecord::Base
   end
 
   def kind_of_widget?(kind)
-    name == kind
+    name == kind || slug == kind
   end
 
   def is_layout?
-    false
-  end
-
-  def is_column?
-    false
-  end
-
-  def is_content_stripe?
     false
   end
 
@@ -127,7 +119,7 @@ class Widget < ActiveRecord::Base
 
   def parent_content_stripe(object=self)
     w = object.parent_widget
-    return w if (w && w.is_content_stripe?)
+    return w if (w && w.kind_of_widget?('content-stripe'))
     parent_content_stripe(w) if w
   end
 

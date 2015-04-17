@@ -17,9 +17,5 @@ module Widgets
     def layout_count_values
       {one: 1, two: 2, three: 3, four: 4, five: 5, six: 6}
     end
-
-    def is_column?
-      true
-    end
   end
 end
