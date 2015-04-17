@@ -11,7 +11,7 @@ module LiquidParameters
     template = get_web_template
     return {} if template.blank?
     params = page_liquid(template).merge(location_liquid(template)).merge(social_liquid(template))
-    params.client_liquid(template).merge(theme_liquid(template))
+    params.merge(client_liquid(template)).merge(theme_liquid(template))
   end
 
   def get_liquid_parameter(key)
