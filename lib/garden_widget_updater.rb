@@ -3,19 +3,17 @@ class GardenWidgetUpdater
   TIMEOUT = 15
 
   def update_all(force_all=false, only_these_widgets=[])
-    updated_garden_widgets = []
     components_data = send_with_retry(:components_microformats)
     
-    components_data.map do |component|
+    updated_garden_widgets = components_data.inject([]) do |arr, component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
       update(garden_widget, component) if update_widget?(garden_widget, component, force_all, only_these_widgets)
-      updated_garden_widgets << garden_widget
-    end if components_data
+      arr << garden_widget
+      arr
+    end unless components_data.blank?
 
-    removed_garden_widgets = GardenWidget.all - updated_garden_widgets
-    removed_garden_widgets.each do |removed_garden_widget|
-      removed_garden_widget.destroy
-    end
+    removed_garden_widgets = GardenWidget.all - (updated_garden_widgets || [])
+    removed_garden_widgets.each { |removed| removed.destroy }
 
     update_row_widget_garden_widgets_setting
     update_column_widget_garden_widgets_setting
@@ -28,7 +26,7 @@ class GardenWidgetUpdater
     begin
       return self.send(method, *args)
     rescue Exception => ex
-      Rails.logger.info "Error getting edit html: #{ex}"
+      Rails.logger.info "Error getting html: #{ex}"
       unless Rails.env.test?
         attempts += 1
         sleep TIMEOUT
@@ -39,11 +37,18 @@ class GardenWidgetUpdater
   end
 
   def update_widget?(garden_widget, component=nil, force_all=false, only_these_widgets=[])
-    if !force_all && !only_these_widgets.empty?
-      only_these_widgets.include?(garden_widget.slug) || only_these_widgets.include?(garden_widget.name)
-    else
-      force_all || get_url(component) != garden_widget.url || get_modified(component) != garden_widget.widget_modified
-    end
+    return true if force_all
+    return widget_in_update_list?(garden_widget, only_these_widgets) unless only_these_widgets.blank?
+    return widget_needs_update?(garden_widget, component) unless component.blank?
+    false
+  end
+
+  def widget_in_update_list?(garden_widget, only_these_widgets)
+    only_these_widgets.include?(garden_widget.slug) || only_these_widgets.include?(garden_widget.name)
+  end
+
+  def widget_needs_update?(garden_widget, component)
+    get_url(component) != garden_widget.url || get_modified(component) != garden_widget.widget_modified
   end
   
   def update(garden_widget, component=nil)
@@ -93,8 +98,7 @@ class GardenWidgetUpdater
 
   def update_layout_widget_garden_widgets_setting(name, value)
     Website.all.each do |website|
-      setting = website.settings.find_or_create_by(name: name)
-      setting.update_attributes!(value: value)
+      website.settings.find_or_create_by(name: name).update_attributes!(value: value)
     end
   end
 
@@ -139,10 +143,7 @@ class GardenWidgetUpdater
   end
 
   def get_edit_html(component)
-    if component.respond_to?(:g5_edit_template)
-      url = component.g5_edit_template.to_s
-      send_with_retry(:get_html, url)
-    end
+    get_html_with_retry(component.try(:g5_edit_template))
   end
 
   def get_edit_javascript(component)
@@ -150,10 +151,11 @@ class GardenWidgetUpdater
   end
 
   def get_show_html(component)
-    if component.respond_to?(:g5_show_template)
-      url = component.g5_show_template.to_s
-      send_with_retry(:get_html, url)
-    end
+    get_html_with_retry(component.try(:g5_show_template))
+  end
+
+  def get_html_with_retry(html_file)
+    send_with_retry(:get_html, html_file.to_s) if html_file
   end
 
   def get_html(url)
@@ -165,18 +167,17 @@ class GardenWidgetUpdater
   end
 
   def get_show_stylesheets(component)
-    component.g5_stylesheets.try(:map) { |s| s.to_s } if component.respond_to?(:g5_stylesheets)
+    component.g5_stylesheets.try(:map, &:to_s) if component.respond_to?(:g5_stylesheets)
   end
 
   def get_lib_javascripts(component)
-    component.g5_lib_javascripts.try(:map) { |j| j.to_s } if component.respond_to?(:g5_lib_javascripts)
+    component.g5_lib_javascripts.try(:map, &:to_s) if component.respond_to?(:g5_lib_javascripts)
   end
 
   def get_settings(component)
     settings = []
     if component.respond_to?(:g5_property_groups)
-      e_property_groups = component.g5_property_groups
-      e_property_groups.each do |e_property_group|
+      component.g5_property_groups.each do |e_property_group|
         h_property_group = e_property_group.format
         h_property_group.g5_properties.each do |e_property|
           settings << {
