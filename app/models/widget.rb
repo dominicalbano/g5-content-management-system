@@ -29,20 +29,21 @@ class Widget < ActiveRecord::Base
   scope :name_like_form, -> { joins(:garden_widget).where("garden_widgets.name LIKE '%Form'") }
   scope :meta_description, -> { joins(:garden_widget).where("garden_widgets.name = ?", "Meta Description") }
   scope :not_meta_description, -> { joins(:garden_widget).where("garden_widgets.name != ?", "Meta Description") }
-  scope :content_stripe, -> { joins(:garden_widget).where("garden_widgets.name = ?", "Content Stripe") }
-  scope :column, -> { joins(:garden_widget).where("garden_widgets.name = ?", "Column") }
-  scope :layout, -> { joins(:garden_widget).where("garden_widgets.name = ? OR garden_widgets.name = ?", "Content Stripe", "Column") }
 
   def show_stylesheets
-    [garden_widget.try(:show_stylesheets), widgets.collect(&:show_stylesheets)].flatten.compact.uniq
+    lib_array(:show_stylesheets)
   end
 
   def show_javascripts
-    [garden_widget.try(:show_javascript), widgets.collect(&:show_javascripts)].flatten.compact.uniq
+    lib_array(:show_javascript)
   end
 
   def lib_javascripts
-    [garden_widget.try(:lib_javascripts), widgets.collect(&:lib_javascripts)].flatten.compact.uniq
+    lib_array(:lib_javascripts)
+  end
+
+  def lib_array(param)
+    [garden_widget.try(param), widgets.collect { |w| w.try(param) }].flatten.compact.uniq
   end
 
   def get_setting(name)
@@ -50,8 +51,7 @@ class Widget < ActiveRecord::Base
   end
 
   def get_setting_value(name)
-    setting = get_setting(name)
-    setting.value if setting
+    get_setting(name).try(:value)
   end
 
   def set_setting(name, value)
@@ -100,9 +100,8 @@ class Widget < ActiveRecord::Base
 
   def update_settings!
     return unless garden_widget_settings
-    updated_settings = []
-    garden_widget_settings.each do |garden_widget_setting|
-      updated_settings << update_setting(garden_widget_setting)
+    updated_settings = garden_widget_settings.inject([]) do |arr, gw_setting|
+      arr << update_setting(gw_setting)
     end
     removed_settings = settings - updated_settings
     removed_settings.map(&:destroy)
@@ -161,8 +160,7 @@ class Widget < ActiveRecord::Base
   end
 
   def widget_settings
-    pattern = /(?=.*widget_id\z).*/
-    settings.select { |setting| setting.name =~ pattern && setting.value != nil }
+    settings.select { |setting| setting.name =~ /(?=.*widget_id\z).*/ && setting.value != nil }
   end
 
   def parent_setting
