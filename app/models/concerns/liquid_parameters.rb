@@ -10,7 +10,8 @@ module LiquidParameters
   def liquid_parameters
     template = get_web_template
     return {} if template.blank?
-    page_liquid(template).merge(location_liquid(template)).merge(client_liquid(template)).merge(theme_liquid(template))
+    params = page_liquid(template).merge(location_liquid(template)).merge(social_liquid(template))
+    params.client_liquid(template).merge(theme_liquid(template))
   end
 
   def get_liquid_parameter(key)
@@ -55,7 +56,13 @@ module LiquidParameters
       "location_floor_plans"      => location.floor_plans,
       "location_primary_amenity"  => location.primary_amenity,
       "location_qualifier"        => location.qualifier,
-      "location_primary_landmark" => location.primary_landmark,
+      "location_primary_landmark" => location.primary_landmark
+    }
+  end
+
+  def social_liquid(template)
+    location = template.owner
+    {
       "location_go_squared_id"    => location.go_squared_client_id,
       "location_go_squared_tag"   => location.go_squared_site_token,
       "location_ga_tracking_id"   => location.ga_tracking_id,
