@@ -1,6 +1,6 @@
 ---
 :name: Our Communities
-:title: "{{client_name}} | Our Communities "
+:title: "{{location_name}} | Our Communities "
 :enabled: true
 :drop_targets:
 - :html_id: drop-target-main
@@ -8,7 +8,8 @@
   - :slug: meta-description
     :settings:
     - :name: meta_description
-      :value: "{{client_name}} offers high quality apartment communities in your area."
+      :value: "{{location_name}} offers high quality apartment communities in your
+        area."
   - :slug: photo
     :settings:
     - :name: photo_source_url
@@ -25,9 +26,9 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>{{client.branded_name}} Communities</h1>\r\n\r\n<p>Lorem ipsum
-            dolor sit amet, viris lobortis sit in, ad usu diam magna, debet noster
-            aliquid et est. Vis cu tota nostrum salutatus, nonumy ullamcorper contentiones
+          :value: "<h1>{{location_name}} Communities</h1>\r\n\r\n<p>Lorem ipsum dolor
+            sit amet, viris lobortis sit in, ad usu diam magna, debet noster aliquid
+            et est. Vis cu tota nostrum salutatus, nonumy ullamcorper contentiones
             nec id. Tota appareat percipit qui at, ius antiopam vulputate intellegebat
             ea. Eam labitur gubergren urbanitas ea, his cu wisi vitae, nisl mollis
             fierent mel te. Mel at saepe platonem, eos an illud aeterno abhorreant,

@@ -1,6 +1,6 @@
 ---
 :name: Privacy Policy
-:title: "{{client_name}} Privacy Policy"
+:title: "{{location_name}} Privacy Policy"
 :enabled: true
 :drop_targets:
 - :html_id: drop-target-main
@@ -14,8 +14,8 @@
   - :slug: meta-description
     :settings:
     - :name: meta_description
-      :value: "{{client_name}} values your privacy. We collect only the personal information
-        you voluntarily provide in order to give the best possible service."
+      :value: "{{location_name}} values your privacy. We collect only the personal
+        information you voluntarily provide in order to give the best possible service."
   - :slug: content-stripe
     :row_css_custom: ''
     :row_layout: uneven-thirds-2
@@ -26,9 +26,9 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>{{client_name}} Privacy Policy</h1>\r\n\r\n<p>Thank you for
-            visiting {{client_name}}&rsquo;s (&quot;[CLIENT]&quot;) Internet web site
-            (&quot;Site&quot;) located at the URL {{client_domain}}. This Privacy
+          :value: "<h1>{{location_name}} Privacy Policy</h1>\r\n\r\n<p>Thank you for
+            visiting {{location_name}}&rsquo;s (&quot;[CLIENT]&quot;) Internet web
+            site (&quot;Site&quot;) located at the URL {{client_domain}}. This Privacy
             Policy details certain policies implemented throughout [CLIENT] governing
             [CLIENT]&#39;s collection and use of personally identifiable information
             about users of our Site and our services.</p>\r\n\r\n<h2>Privacy Policy

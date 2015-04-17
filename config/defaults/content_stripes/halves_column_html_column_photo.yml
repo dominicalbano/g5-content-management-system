@@ -22,6 +22,6 @@
   - :slug: photo
     :settings:
     - :name: photo_source_url
-      :value: http://placehold.it/600x400
+      :value: http://placehold.it/505x400
     - :name: photo_alignment
       :value: photo-block

@@ -1,6 +1,6 @@
 ---
 :name: News & Events
-:title: "{{client_name}} News & Events"
+:title: "{{location_name}} News & Events"
 :enabled: true
 :drop_targets:
 - :html_id: drop-target-main
@@ -8,7 +8,7 @@
   - :slug: meta-description
     :settings:
     - :name: meta_description
-      :value: 'Are you looking for {{client_name}}''s latest news and events? Visit
+      :value: 'Are you looking for {{location_name}}''s latest news and events? Visit
         our website to find exactly what you are looking for. '
   - :slug: photo
     :settings:

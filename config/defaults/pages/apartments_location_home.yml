@@ -104,11 +104,30 @@
       :widgets:
       - :slug: contact-info
         :settings:
-        - :name: maps_url
-          :value: "/apartments/{{location_state}}/{{location_city}}/map-and-directions"
+        - :name: location_name
+          :value: "{{location_name}}"
+        - :name: location_street_address
+          :value: "{{location_street_address}}"
+        - :name: location_city
+          :value: "{{location_city}}"
+        - :name: location_postal_code
+          :value: "{{location_postal_code}}"
+        - :name: location_tel
+          :value: "{{location_phone_number}}"
         - :name: location_email
           :value: "/apartments/{{location_state}}/{{location_city}}/contact-us"
+        - :name: maps_url
+          :value: "/apartments/{{location_state}}/{{location_city}}/map-and-directions"
       - :slug: social-links
+        :settings:
+        - :name: twitter_username
+          :value: "{{location_twitter_id}}"
+        - :name: facebook_username
+          :value: "{{location_facebook_id}}"
+        - :name: yelp_username
+          :value: "{{location_yelp_id}}"
+        - :name: google_plus_id
+          :value: 100000000000000000G5
   - :slug: content-stripe
     :row_css_custom: ''
     :row_layout: uneven-thirds-1
@@ -117,6 +136,23 @@
       :row_count: one
       :widgets:
       - :slug: social-feed
+        :settings:
+        - :name: blog_feed_display_summary
+          :value: 'false'
+        - :name: blog_feed_number_to_display
+          :value: '3'
+        - :name: twitter_username
+          :value: "{{location_twitter_id}}"
+        - :name: display_avatars
+          :value: 'true'
+        - :name: twitter_tweet_count
+          :value: '3'
+        - :name: facebook_post_count
+          :value: '3'
+        - :name: facebook_page_id
+          :value: "{{location_facebook_id}}"
+        - :name: google_plus_post_count
+          :value: '3'
     - :slug: column
       :row_count: one
       :widgets:

@@ -1,6 +1,6 @@
 ---
 :name: About Us
-:title: About {{client_name}}
+:title: About {{location_name}}
 :enabled: true
 :drop_targets:
 - :html_id: drop-target-main
@@ -8,7 +8,7 @@
   - :slug: meta-description
     :settings:
     - :name: meta_description
-      :value: Learn about {{client_name}} by visiting our website.
+      :value: Learn about {{location_name}} by visiting our website.
   - :slug: photo
     :settings:
     - :name: photo_source_url
@@ -25,10 +25,10 @@
       - :slug: html
         :settings:
         - :name: text
-          :value: "<h1>About {{ client_name }}</h1>\r\n\r\n<p>Lorem ipsum dolor sit
-            amet, natum erant luptatum ea pri, feugiat minimum eligendi pri ex. Sit
-            eu odio dolores, vel noster conceptam ei, ius te sonet philosophia. Eu
-            vix soluta noluisse, simul dissentias sea ea, ei eos copiosae oporteat
+          :value: "<h1>About {{ location_name }}</h1>\r\n\r\n<p>Lorem ipsum dolor
+            sit amet, natum erant luptatum ea pri, feugiat minimum eligendi pri ex.
+            Sit eu odio dolores, vel noster conceptam ei, ius te sonet philosophia.
+            Eu vix soluta noluisse, simul dissentias sea ea, ei eos copiosae oporteat
             scribentur. Mel cu brute quodsi detracto, aperiri accusata adversarium
             sed an. Omnis sonet mel ex, eu mea sint maiorum eligendi. Eu mea utroque
             abhorreant. Vel an luptatum laboramus, per at illum probatus.</p>\r\n"
@@ -58,6 +58,6 @@
     - :slug: photo
       :settings:
       - :name: photo_source_url
-        :value: http://placehold.it/460x300
+        :value: http://placehold.it/505x400
       - :name: photo_alignment
         :value: photo-block
