@@ -71,10 +71,10 @@ private
 
   def process_uf2_location(uf2_location)
     @uf2_location_uids << uf2_location.uid.to_s
-
     location = Location.find_or_initialize_by(uid: uf2_location.uid.to_s)
     location = set_location_info(location, uf2_location)
     location = set_location_address(location, uf2_location)
+    location = set_location_multifamily(location, uf2_location)
     location = set_location_social(location, uf2_location)
     location.save
   end
@@ -97,6 +97,10 @@ private
     location.neighborhood           = uf2_location.adr.try(:format).try(:g5_neighborhood).to_s
     location.postal_code            = uf2_location.adr.try(:format).try(:postal_code).to_s
     location.phone_number           = uf2_location.adr.try(:format).try(:tel).to_s
+    location
+  end
+
+  def set_location_multifamily(location, uf2_location)
     location.floor_plans            = uf2_location.g5_floorplan.to_s
     location.primary_amenity        = uf2_location.g5_aparment_amenity_1.to_s
     location.qualifier              = uf2_location.g5_aparment_feature_1.to_s
