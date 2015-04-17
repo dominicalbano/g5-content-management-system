@@ -15,7 +15,10 @@ module StaticWebsite
             secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
             region: ENV["AWS_REGION"] || "us-west-2"
           )
+          initialize_bucket_name_manager
+        end
 
+        def initialize_bucket_name_manager
           unless @location_name.empty?
             @bucket_name = s3_bucket_name_manager.bucket_name
             @bucket_url = s3_bucket_name_manager.bucket_url
@@ -51,7 +54,7 @@ module StaticWebsite
 
         def s3_bucket_update(from_path, path, write_options)
           path = Pathname.new(from_path)
-          write_compile_path_to_loggers(from_path, path, write_options)
+          write_to_loggers("writing to bucket\n#{from_path.to_s}\n#{path.to_s}\n#{write_options.to_s}")
           result = s3_bucket_object(from_path).write(path, write_options)
           write_to_loggers(result.inspect)
           File.join(bucket_url.to_s, to_path(from_path).to_s)
@@ -67,13 +70,6 @@ module StaticWebsite
 
         def write_to_loggers(msg)
           LOGGERS.each{|logger| logger.debug(msg)}
-        end
-
-        def write_compile_path_to_loggers(from_path, path, write_options)
-          write_to_loggers("writing to bucket")
-          write_to_loggers("#{from_path.to_s}")
-          write_to_loggers("#{path.to_s}")
-          write_to_loggers("#{write_options.to_s}")
         end
       end
     end
