@@ -32,12 +32,23 @@ private
   #
   def create_client
     client = Client.find_or_initialize_by(uid: @client_uid)
+    client = set_client_info(client, uf2_client)
+    client = set_client_social(client, uf2_client)
+    client.save
 
+    find_or_create_client_website(client) if client.type == "SingleDomainClient"
+  end
+
+  def set_client_info(client, uf2_client)
     client.name                 = uf2_client.name.to_s
     client.vertical             = uf2_client.g5_vertical.to_s
     client.domain               = uf2_client.g5_domain.to_s
     client.type                 = uf2_client.g5_domain_type.to_s
     client.organization         = uf2_client.g5_organization.to_s
+    client
+  end
+
+  def set_client_social(client, uf2_client)
     client.go_squared_client_id = uf2_client.try(:go_squared_client_id).to_s
     client.go_squared_tag       = uf2_client.try(:go_squared_tag).to_s
     client.cls_url              = uf2_client.try(:g5_cls_url).to_s
@@ -47,9 +58,7 @@ private
     client.cpns_url             = uf2_client.try(:g5_cpns_url).to_s
     client.nae_url              = uf2_client.try(:g5_nae_url).to_s
     client.vls_url              = uf2_client.try(:g5_vls_url).to_s
-    client.save
-
-    find_or_create_client_website(client) if client.type == "SingleDomainClient"
+    client
   end
 
   def process_client
@@ -64,7 +73,12 @@ private
     @uf2_location_uids << uf2_location.uid.to_s
 
     location = Location.find_or_initialize_by(uid: uf2_location.uid.to_s)
+    location = set_location_info(location, uf2_location)
+    location = set_location_social(location, uf2_location)
+    location.save
+  end
 
+  def set_location_info(location, uf2_location)
     location.urn                    = uf2_location.uid.to_s.split("/").last
     location.name                   = uf2_location.name.to_s
     location.domain                 = uf2_location.g5_domain.to_s
@@ -82,6 +96,10 @@ private
     location.status                 = uf2_location.g5_status.to_s
     location.thumb_url              = uf2_location.try(:photo).to_s
     location.secure_domain          = uf2_location.try(:g5_secure_domain).to_s
+    location
+  end
+
+  def set_location_social(location, uf2_location)
     location.ga_tracking_id         = uf2_location.try(:ga_tracking_id).to_s
     location.ga_profile_id          = uf2_location.try(:ga_profile_id).to_s
     location.go_squared_client_id   = uf2_location.try(:go_squared_client_id).to_s
@@ -92,8 +110,7 @@ private
     location.pinterest_id           = uf2_location.try(:g5_nickname_pinterest).to_s
     location.instagram_id           = uf2_location.try(:g5_nickname_instagram).to_s
     location.youtube_id             = uf2_location.try(:g5_nickname_youtube).to_s
-
-    location.save
+    location
   end
 
   # Now we need to clean up locations that are in the database that shouldn't
