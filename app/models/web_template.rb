@@ -114,15 +114,15 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def website_compile_path
-    website.compile_path if website
+    website.try(:compile_path)
   end
 
   def website_colors
-    website.colors if website
+    website.try(:colors)
   end
 
   def website_fonts
-    website.fonts if website
+    website.try(:fonts)
   end
 
   def stylesheets_compiler
