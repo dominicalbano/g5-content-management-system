@@ -41,7 +41,7 @@ class GardenWidgetUpdater
   end
 
   def widget_in_update_list?(garden_widget, only_these_widgets)
-    only_these_widgets.include?(garden_widget.slug) || only_these_widgets.include?(garden_widget.name)
+    !(only_these_widgets & [garden_widget.slug, garden_widget.name]).empty?
   end
 
   def widget_needs_update?(garden_widget, component)
@@ -94,9 +94,7 @@ class GardenWidgetUpdater
   end
 
   def update_layout_widget_garden_widgets_setting(name, value)
-    Website.all.each do |website|
-      website.settings.find_or_create_by(name: name).update_attributes!(value: value)
-    end
+    Website.all.each { |website| website.settings.find_or_create_by(name: name).update_attributes!(value: value) }
   end
 
   def components_microformats
@@ -172,21 +170,27 @@ class GardenWidgetUpdater
   end
 
   def get_settings(component)
-    settings = []
-    if component.respond_to?(:g5_property_groups)
-      component.g5_property_groups.each do |e_property_group|
-        h_property_group = e_property_group.format
-        h_property_group.g5_properties.each do |e_property|
-          settings << {
-            name: get_setting_name(e_property.format),
-            editable: get_setting_editable(e_property.format) || false,
-            default_value: get_setting_default_value(e_property.format),
-            categories: get_setting_categories(h_property_group)
-          }
-        end
-      end
+    settings = component.g5_property_groups.inject([]) do |arr, e_property_group|
+      arr << get_setting(e_property_group.format)
+      arr
+    end if component.respond_to?(:g5_property_groups)
+    settings.try(:flatten) || []
+  end
+
+  def get_setting(h_property_group)
+    h_property_group.g5_properties.inject([]) do |arr, e_property|
+      arr << get_setting_object(e_property.format, h_property_group)
+      arr
     end
-    settings
+  end
+
+  def get_setting_object(e_prop, h_property_group)
+    {
+      name: get_setting_name(e_prop),
+      editable: get_setting_editable(e_prop) || false,
+      default_value: get_setting_default_value(e_prop),
+      categories: get_setting_categories(h_property_group)
+    }
   end
 
   def get_setting_name(setting)
