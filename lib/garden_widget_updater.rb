@@ -37,10 +37,7 @@ class GardenWidgetUpdater
   end
 
   def update_widget?(garden_widget, component=nil, force_all=false, only_these_widgets=[])
-    return true if force_all
-    return widget_in_update_list?(garden_widget, only_these_widgets) unless only_these_widgets.blank?
-    return widget_needs_update?(garden_widget, component) unless component.blank?
-    false
+    force_all || widget_in_update_list?(garden_widget, only_these_widgets) || widget_needs_update?(garden_widget, component)
   end
 
   def widget_in_update_list?(garden_widget, only_these_widgets)
