@@ -11,10 +11,8 @@ class WebTemplate < ActiveRecord::Base
   belongs_to :website
   has_one :website_template, through: :website
   has_one :website_layout, through: :website_template, source: :web_layout
-
   has_one :web_layout , autosave: true , dependent: :destroy
   has_one :web_theme  , autosave: true , dependent: :destroy
-
   has_many :drop_targets, autosave: true, dependent: :destroy
   has_many :widgets, -> { order("widgets.display_order ASC") }, through: :drop_targets
 
@@ -24,11 +22,7 @@ class WebTemplate < ActiveRecord::Base
   validates :title , presence: true
   validates :name  , presence: true
   validates :slug  , presence: true ,
-    format: {
-      with: /\A[-_A-Za-z0-9]*\z/,
-      message: "can only contain letters, numbers, dashes, and underscores."
-    },
-    unless: :new_record?
+    format: { with: /\A[-_A-Za-z0-9]*\z/, message: "can only contain letters, numbers, dashes, and underscores." }, unless: :new_record?
 
   scope :home, -> { where(name: "Home") }
   scope :enabled, -> { where(enabled: true) }

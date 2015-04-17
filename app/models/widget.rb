@@ -3,6 +3,7 @@ class Widget < ActiveRecord::Base
   include HasManySettings
   include UpdateNavSettings
   include LiquidParameters
+  include Widgets::StandardWidget
 
   validates :garden_widget_id, presence: true
 
@@ -13,13 +14,11 @@ class Widget < ActiveRecord::Base
   has_one :web_template, through: :drop_target
   has_many :widget_entries, dependent: :destroy
 
-  delegate :website_id, to: :web_template, allow_nil: true
-  delegate :html_id, to: :drop_target, allow_nil: true
-
-  delegate :name, :slug, :url, :thumbnail, :liquid, :edit_html, :edit_javascript, :show_html, :widget_type, to: :garden_widget, allow_nil: true
-
   # prefix means access with `garden_widget_settings` not `settings`
   delegate :settings, to: :garden_widget, allow_nil: true, prefix: true
+  delegate :name, :slug, :url, :thumbnail, :liquid, :edit_html, :edit_javascript, :show_html, :widget_type, to: :garden_widget, allow_nil: true
+  delegate :website_id, to: :web_template, allow_nil: true
+  delegate :html_id, to: :drop_target, allow_nil: true
   delegate :client, to: :drop_target, allow_nil: true
 
   after_initialize :set_defaults
@@ -61,24 +60,8 @@ class Widget < ActiveRecord::Base
     setting.update_attribute(:value, value) if setting
   end
 
-  def widgets
-    [] # non-layout widgets don't have child widgets
-  end
-
   def kind_of_widget?(kind)
     name == kind
-  end
-
-  def is_layout?
-    false
-  end
-
-  def is_column?
-    false
-  end
-
-  def is_content_stripe?
-    false
   end
 
   def render_show_html(preview=false)
@@ -132,22 +115,6 @@ class Widget < ActiveRecord::Base
     w = object.parent_widget
     return w if (w && w.is_content_stripe?)
     parent_content_stripe(w) if w
-  end
-
-  def child_widgets
-    []
-  end
-
-  def has_child_widget?(widget)
-    false
-  end
-
-  def get_child_widget(position)
-    nil
-  end
-
-  def set_child_widget(position, widget)
-    nil
   end
 
   def liquid_render(html, params)
