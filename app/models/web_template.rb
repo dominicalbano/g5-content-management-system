@@ -112,8 +112,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def stylesheets
-    widgets.map(&:show_stylesheets).flatten +
-    website.try(:website_template).try(:stylesheets).to_a
+    widgets.map(&:show_stylesheets).flatten + website.try(:website_template).try(:stylesheets).to_a
   end
 
   def javascripts
@@ -133,15 +132,13 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def stylesheets_compiler
-    @stylesheets_compiler ||=
-      StaticWebsite::Compiler::Stylesheets.new(stylesheets,
-      "#{Rails.root}/public", website_colors, website_fonts, owner_name, true)
+    @stylesheets_compiler ||= StaticWebsite::Compiler::Stylesheets.new(stylesheets, "#{Rails.root}/public", website_colors, website_fonts, owner_name, true)
   end
 
   def stylesheet_link_paths
-    LOGGERS.each{|logger| logger.debug("\n#### sending compile to stylesheets_compiler for web_template #{name}\n")}
+    write_to_loggers("\n#### sending compile to stylesheets_compiler for web_template #{name}\n")
     stylesheets_compiler.compile
-    LOGGERS.each{|logger| logger.debug("\n#### sending link_paths to stylesheets_compiler for web_template #{name}\n")}
+    write_to_loggers("\n#### sending link_paths to stylesheets_compiler for web_template #{name}\n")
     stylesheets_compiler.link_paths
   end
 
@@ -150,16 +147,14 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascripts_compiler
-    @javascripts_compiler ||=
-      StaticWebsite::Compiler::Javascripts.new(javascripts,
-        "#{Rails.root}/public", name, owner_name)
+    @javascripts_compiler ||= StaticWebsite::Compiler::Javascripts.new(javascripts, "#{Rails.root}/public", name, owner_name)
   end
 
   def javascript_include_paths
-    LOGGERS.each{|logger| logger.debug("Starting compile on javascripts_compiler for web_template: #{name}")}
+    write_to_loggers("Starting compile on javascripts_compiler for web_template: #{name}")
     javascripts_compiler.compile unless javascripts.empty?
-    LOGGERS.each{|logger| logger.debug("Finished compile on javascripts_compiler for web_template: #{name}")}
-    LOGGERS.each{|logger| logger.debug("Calling upload_paths on javascripts_compiler for web_template:\n #{name}")}
+    write_to_loggers("Finished compile on javascripts_compiler for web_template: #{name}")
+    write_to_loggers("Calling upload_paths on javascripts_compiler for web_template:\n #{name}")
     javascripts_compiler.uploaded_paths
   end
 
@@ -257,6 +252,10 @@ class WebTemplate < ActiveRecord::Base
 
   def single_domain_internal_page?
     web_page_template? && single_domain? && !website.corporate?
+  end
+
+  def write_to_loggers(msg)
+    LOGGERS.each{|logger| logger.debug(msg)}
   end
 end
 
