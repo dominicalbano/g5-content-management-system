@@ -22,16 +22,30 @@ module StaticWebsite
         write_to_loggers("\n\n########################################### Website ######\n")
         compile_directory.compile
         clean_up
-        write_to_loggers("Starting javascripts.compile for website")
-        write_to_loggers("finished javascripts.compile")
+        compile_pages
+        compile_routes
+      end
+
+      def compile_stylesheets
         write_to_loggers("Starting stylesheets.compile for website")
         stylesheets.compile
         write_to_loggers("finished stylesheets.compile")
+      end
+
+      def compile_web_home_template
         write_to_loggers("########## Beginning WEB_HOME compile")
         web_home_template.compile
         write_to_loggers("########## Finished WEB_HOME compile")
+      end
+
+      def compile_pages
+        compile_stylesheets
+        compile_web_home_template
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
+      end
+
+      def compile_routes
         htaccess.compile
         sitemap.compile
         robots.compile
