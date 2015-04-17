@@ -13,55 +13,38 @@ class Widget < ActiveRecord::Base
   has_one :web_template, through: :drop_target
   has_many :widget_entries, dependent: :destroy
 
-  delegate :website_id,
-    to: :web_template, allow_nil: true
+  delegate :website_id, to: :web_template, allow_nil: true
+  delegate :html_id, to: :drop_target, allow_nil: true
 
-  delegate :html_id,
-    to: :drop_target, allow_nil: true
-
-  delegate :name, :slug, :url, :thumbnail, :liquid, :edit_html, :edit_javascript, :show_html, :widget_type,
-    to: :garden_widget, allow_nil: true
+  delegate :name, :slug, :url, :thumbnail, :liquid, :edit_html, :edit_javascript, :show_html, :widget_type, to: :garden_widget, allow_nil: true
 
   # prefix means access with `garden_widget_settings` not `settings`
-  delegate :settings,
-    to: :garden_widget, allow_nil: true, prefix: true
+  delegate :settings, to: :garden_widget, allow_nil: true, prefix: true
   delegate :client, to: :drop_target, allow_nil: true
 
   after_initialize :set_defaults
   after_create :update_settings!
 
-  scope :has_drop_target, -> {
-    where("drop_target_id IS NOT NULL") }
-  scope :by_name, ->(name) { 
-    joins(:garden_widget).where("garden_widgets.name = ?", name)}
-  scope :by_slug, ->(slug) { 
-    joins(:garden_widget).where("garden_widgets.slug = ?", slug)}
-  scope :name_like_form, -> {
-    joins(:garden_widget).where("garden_widgets.name LIKE '%Form'") }
-  scope :meta_description, -> {
-    joins(:garden_widget).where("garden_widgets.name = ?", "Meta Description") }
-  scope :not_meta_description, -> {
-    joins(:garden_widget).where("garden_widgets.name != ?", "Meta Description") }
-  scope :content_stripe, -> {
-    joins(:garden_widget).where("garden_widgets.name = ?", "Content Stripe") }
-  scope :column, -> {
-    joins(:garden_widget).where("garden_widgets.name = ?", "Column") }
-  scope :layout, -> {
-    joins(:garden_widget).where("garden_widgets.name = ? OR garden_widgets.name = ?", "Content Stripe", "Column") }
+  scope :has_drop_target, -> { where("drop_target_id IS NOT NULL") }
+  scope :by_name, ->(name) { joins(:garden_widget).where("garden_widgets.name = ?", name) }
+  scope :by_slug, ->(slug) { joins(:garden_widget).where("garden_widgets.slug = ?", slug) }
+  scope :name_like_form, -> { joins(:garden_widget).where("garden_widgets.name LIKE '%Form'") }
+  scope :meta_description, -> { joins(:garden_widget).where("garden_widgets.name = ?", "Meta Description") }
+  scope :not_meta_description, -> { joins(:garden_widget).where("garden_widgets.name != ?", "Meta Description") }
+  scope :content_stripe, -> { joins(:garden_widget).where("garden_widgets.name = ?", "Content Stripe") }
+  scope :column, -> { joins(:garden_widget).where("garden_widgets.name = ?", "Column") }
+  scope :layout, -> { joins(:garden_widget).where("garden_widgets.name = ? OR garden_widgets.name = ?", "Content Stripe", "Column") }
 
   def show_stylesheets
-    [garden_widget.try(:show_stylesheets),
-     widgets.collect(&:show_stylesheets)].flatten.compact.uniq
+    [garden_widget.try(:show_stylesheets), widgets.collect(&:show_stylesheets)].flatten.compact.uniq
   end
 
   def show_javascripts
-    [garden_widget.try(:show_javascript),
-     widgets.collect(&:show_javascripts)].flatten.compact.uniq
+    [garden_widget.try(:show_javascript), widgets.collect(&:show_javascripts)].flatten.compact.uniq
   end
 
   def lib_javascripts
-    [garden_widget.try(:lib_javascripts),
-     widgets.collect(&:lib_javascripts)].flatten.compact.uniq
+    [garden_widget.try(:lib_javascripts), widgets.collect(&:lib_javascripts)].flatten.compact.uniq
   end
 
   def get_setting(name)
