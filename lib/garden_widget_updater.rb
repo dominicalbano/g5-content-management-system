@@ -4,7 +4,6 @@ class GardenWidgetUpdater
 
   def update_all(force_all=false, only_these_widgets=[])
     components_data = send_with_retry(:components_microformats)
-    
     updated_garden_widgets = components_data.inject([]) do |arr, component|
       garden_widget = GardenWidget.find_or_initialize_by(widget_id: get_widget_id(component))
       update(garden_widget, component) if update_widget?(garden_widget, component, force_all, only_these_widgets)
@@ -19,7 +18,7 @@ class GardenWidgetUpdater
     update_column_widget_garden_widgets_setting
   end
 
-  private  
+  private
 
   def send_with_retry(method, *args)
     attempts = 0
@@ -101,12 +100,20 @@ class GardenWidgetUpdater
     GardenWidget.components_microformats
   end
 
+  def value_to_s(object, value)
+    object.send(value).try(:to_s) if object.respond_to?(value)
+  end
+
+  def value_array_to_s(object, value)
+    object.send(value).try(:map, &:to_s) if object.respond_to?(value)
+  end
+
   def get_url(component)
-    component.url.to_s if component.respond_to?(:url)
+    value_to_s(component, :url)
   end
 
   def get_name(component)
-    component.name.to_s if component.respond_to?(:name)
+    value_to_s(component, :name)
   end
 
   def get_modified(component)
@@ -118,23 +125,23 @@ class GardenWidgetUpdater
   end
 
   def get_widget_id(component)
-    component.widget_id.to_s.to_i if component.respond_to?(:widget_id)
+    value_to_s(component, :widget_id).try(:to_i)
   end
 
   def get_widget_type(component)
-    component.widget_type.to_s if component.respond_to?(:widget_type)
+    value_to_s(component, :widget_type)
   end
 
   def get_slug(component)
-    component.name.to_s.parameterize if component.respond_to?(:name)
+    value_to_s(component, :name).try(:parameterize)
   end
 
   def get_thumbnail(component)
-    component.photo.to_s if component.respond_to?(:photo)
+    value_to_s(component, :photo)
   end
 
   def get_liquid(component)
-    component.g5_liquid.to_s if component.respond_to?(:g5_liquid)
+    value_to_s(component, :g5_liquid)
   end
 
   def get_edit_html(component)
@@ -142,7 +149,7 @@ class GardenWidgetUpdater
   end
 
   def get_edit_javascript(component)
-    component.g5_edit_javascript.to_s if component.respond_to?(:g5_edit_javascript)
+    value_to_s(component, :g5_edit_javascript)
   end
 
   def get_show_html(component)
@@ -158,15 +165,15 @@ class GardenWidgetUpdater
   end
 
   def get_show_javascript(component)
-    component.g5_show_javascript.to_s if component.respond_to?(:g5_show_javascript)
+    value_to_s(component, :g5_show_javascript)
   end
 
   def get_show_stylesheets(component)
-    component.g5_stylesheets.try(:map, &:to_s) if component.respond_to?(:g5_stylesheets)
+    value_array_to_s(component, :g5_stylesheets)
   end
 
   def get_lib_javascripts(component)
-    component.g5_lib_javascripts.try(:map, &:to_s) if component.respond_to?(:g5_lib_javascripts)
+    value_array_to_s(component, :g5_lib_javascripts)
   end
 
   def get_settings(component)
@@ -186,26 +193,10 @@ class GardenWidgetUpdater
 
   def get_setting_object(e_prop, h_property_group)
     {
-      name: get_setting_name(e_prop),
-      editable: get_setting_editable(e_prop) || false,
-      default_value: get_setting_default_value(e_prop),
-      categories: get_setting_categories(h_property_group)
+      name: value_to_s(e_prop, :g5_name),
+      editable: value_to_s(e_prop, :g5_editable) || false,
+      default_value: value_to_s(e_prop, :g5_default_value),
+      categories: value_array_to_s(h_property_group, :categories)
     }
-  end
-
-  def get_setting_name(setting)
-    setting.g5_name.to_s if setting.respond_to?(:g5_name)
-  end
-
-  def get_setting_editable(setting)
-    setting.g5_editable.to_s if setting.respond_to?(:g5_editable)
-  end
-
-  def get_setting_default_value(setting)
-    setting.g5_default_value.to_s if setting.respond_to?(:g5_default_value)
-  end
-
-  def get_setting_categories(setting)
-    setting.categories.try(:map, &:to_s) if setting.respond_to?(:categories)
   end
 end
