@@ -68,9 +68,9 @@ class GardenWidgetUpdater
   end
 
   def set_garden_widget_files(garden_widget, component)
-    garden_widget.edit_html         = get_edit_html(component)
+    garden_widget.edit_html         = get_html_with_retry(component.try(:g5_edit_template))
     garden_widget.edit_javascript   = value_to_s(component, :g5_edit_javascript)
-    garden_widget.show_html         = get_show_html(component)
+    garden_widget.show_html         = get_html_with_retry(component.try(:g5_show_template))
     garden_widget.show_javascript   = value_to_s(component, :g5_show_javascript)
     garden_widget.lib_javascripts   = value_array_to_s(component, :g5_lib_javascripts)
     garden_widget.show_stylesheets  = value_array_to_s(component, :g5_stylesheets)
@@ -114,14 +114,6 @@ class GardenWidgetUpdater
 
   def get_popover(component)
     CGI.unescapeHTML(component.popover.to_s) if component.respond_to?(:popover)
-  end
-
-  def get_edit_html(component)
-    get_html_with_retry(component.try(:g5_edit_template))
-  end
-
-  def get_show_html(component)
-    get_html_with_retry(component.try(:g5_show_template))
   end
 
   def get_html_with_retry(html_file)
