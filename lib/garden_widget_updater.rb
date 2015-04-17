@@ -48,37 +48,53 @@ class GardenWidgetUpdater
   
   def update(garden_widget, component=nil)
     component ||= garden_widget.component_microformat
-    garden_widget.url = get_url(component)
-    garden_widget.name = get_name(component)
-    garden_widget.widget_id = get_widget_id(component)
-    garden_widget.widget_type = get_widget_type(component)
-    garden_widget.slug = get_slug(component)
-    garden_widget.thumbnail = get_thumbnail(component)
-    garden_widget.liquid = get_liquid(component)
-    garden_widget.edit_html = get_edit_html(component)
-    garden_widget.edit_javascript = get_edit_javascript(component)
-    garden_widget.show_html = get_show_html(component)
-    garden_widget.show_javascript = get_show_javascript(component)
-    garden_widget.lib_javascripts = get_lib_javascripts(component)
-    garden_widget.show_stylesheets = get_show_stylesheets(component)
-    garden_widget.settings = get_settings(component)
-    garden_widget.widget_modified = get_modified(component)
-    garden_widget.widget_popover = get_popover(component)
+    garden_widget = set_garden_widget_info(garden_widget, component)
+    garden_widget = set_garden_widget_files(garden_widget, component)
+    garden_widget = set_garden_widget_settings(garden_widget, component)
     garden_widget.save
     garden_widget.update_widgets_settings!
   end
 
+  def set_garden_widget_info(garden_widget, component)
+    garden_widget.url             = get_url(component)
+    garden_widget.name            = get_name(component)
+    garden_widget.widget_id       = get_widget_id(component)
+    garden_widget.widget_type     = get_widget_type(component)
+    garden_widget.slug            = get_slug(component)
+    garden_widget.thumbnail       = get_thumbnail(component)
+    garden_widget.liquid          = get_liquid(component)
+    garden_widget
+  end
+
+  def set_garden_widget_files(garden_widget, component)
+    garden_widget.edit_html         = get_edit_html(component)
+    garden_widget.edit_javascript   = get_edit_javascript(component)
+    garden_widget.show_html         = get_show_html(component)
+    garden_widget.show_javascript   = get_show_javascript(component)
+    garden_widget.lib_javascripts   = get_lib_javascripts(component)
+    garden_widget.show_stylesheets  = get_show_stylesheets(component)
+    garden_widget
+  end
+
+  def set_garden_widget_settings(garden_widget, component)
+    garden_widget.settings          = get_settings(component)
+    garden_widget.widget_modified   = get_modified(component)
+    garden_widget.widget_popover    = get_popover(component)
+    garden_widget
+  end
+
   def update_row_widget_garden_widgets_setting
-    Website.all.each do |website|
-      setting = website.settings.find_or_create_by(name: "row_widget_garden_widgets")
-      setting.update_attributes!(value: ContentStripeWidgetGardenWidgetsSetting.new.value)
-    end
+    update_layout_widget_garden_widgets_setting("row_widget_garden_widgets", ContentStripeWidgetGardenWidgetsSetting.new.value)
   end
 
   def update_column_widget_garden_widgets_setting
+    update_layout_widget_garden_widgets_setting("column_widget_garden_widgets", ColumnWidgetGardenWidgetsSetting.new.value)
+  end
+
+  def update_layout_widget_garden_widgets_setting(name, value)
     Website.all.each do |website|
-      setting = website.settings.find_or_create_by(name: "column_widget_garden_widgets")
-      setting.update_attributes!(value: ColumnWidgetGardenWidgetsSetting.new.value)
+      setting = website.settings.find_or_create_by(name: name)
+      setting.update_attributes!(value: value)
     end
   end
 
