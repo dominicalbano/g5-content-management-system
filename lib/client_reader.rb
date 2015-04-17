@@ -91,12 +91,13 @@ private
   end
 
   def set_location_address(location, uf2_location)
-    location.street_address         = uf2_location.adr.try(:format).try(:street_address).to_s
-    location.state                  = uf2_location.adr.try(:format).try(:region).to_s
-    location.city                   = uf2_location.adr.try(:format).try(:locality).to_s
-    location.neighborhood           = uf2_location.adr.try(:format).try(:g5_neighborhood).to_s
-    location.postal_code            = uf2_location.adr.try(:format).try(:postal_code).to_s
-    location.phone_number           = uf2_location.adr.try(:format).try(:tel).to_s
+    addr_format = uf2_location.adr.try(:format)
+    location.street_address         = addr_format.try(:street_address).to_s
+    location.state                  = addr_format.try(:region).to_s
+    location.city                   = addr_format.try(:locality).to_s
+    location.neighborhood           = addr_format.try(:g5_neighborhood).to_s
+    location.postal_code            = addr_format.try(:postal_code).to_s
+    location.phone_number           = addr_format.try(:tel).to_s
     location
   end
 
