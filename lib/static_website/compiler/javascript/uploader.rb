@@ -23,24 +23,15 @@ module StaticWebsite
         end
 
         def compile
-          @uploaded_paths = []
           write_to_loggers("Writing js assets to S3")
-          from_paths.each do |from_path|
-            #write with a metadata flag of status: current
-            path = Pathname.new(from_path)
-            write_compile_path_to_loggers(from_path, path, write_options)
-            result = s3_bucket_object(from_path).write(path, write_options)
-            write_to_loggers(result.inspect)
-            @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
+          @uploaded_paths = from_paths.inject([]) do |arr, from_path|
+            arr << s3_bucket_update(from_path, path, write_options)
+            arr
           end
         end
 
         def s3_bucket
-          @s3_bucket ||= if s3.buckets[bucket_name].exists?
-            s3.buckets[bucket_name]
-          else
-            s3.buckets.create(bucket_name)
-          end
+          @s3_bucket ||= s3.buckets[bucket_name].exists? ? s3.buckets[bucket_name] : s3.buckets.create(bucket_name)
         end
 
         def s3_bucket_object(from_path)
@@ -48,8 +39,7 @@ module StaticWebsite
         end
 
         def write_options
-          {:acl => :public_read, :content_type => "text/javascript",
-           metadata: {"x-amz-meta-freshness" => "current"}}
+          {:acl => :public_read, :content_type => "text/javascript", metadata: {"x-amz-meta-freshness" => "current"}}
         end
 
         def to_path(from_path)
@@ -58,6 +48,14 @@ module StaticWebsite
         end
 
         private
+
+        def s3_bucket_update(from_path, path, write_options)
+          path = Pathname.new(from_path)
+          write_compile_path_to_loggers(from_path, path, write_options)
+          result = s3_bucket_object(from_path).write(path, write_options)
+          write_to_loggers(result.inspect)
+          File.join(bucket_url.to_s, to_path(from_path).to_s)
+        end
 
         def s3_bucket_name_manager
           @s3_bucket_name_manager ||= S3BucketNameManager.new(location)
