@@ -15,20 +15,12 @@ module StaticWebsite
       write_to_loggers("Deploy called with #{[@website, @compile_path, @user_email]}")
       @retries = 0
       begin
-        write_to_loggers("About to deploy with options")
-        deployer.deploy(deployer_options) do |repo|
-          write_to_loggers("calling cp_r_compile_path(repo)")
-          cp_r_compile_path(repo)
-        end
-      rescue GithubHerokuDeployer::CommandException,
-             Heroku::API::Errors::ErrorWithResponse => e
+        deploy_repos
+      rescue GithubHerokuDeployer::CommandException, Heroku::API::Errors::ErrorWithResponse => e
         write_to_loggers("Try failed with: " + e.to_s)
-        if should_retry?
-          increment_retries
-          retry
-        else
-          raise e
-        end
+        raise e unless should_retry?
+        increment_retries
+        retry
       rescue => e
         write_to_loggers("Try failed with: " + e.to_s)
       else
@@ -54,22 +46,35 @@ module StaticWebsite
       }
     end
 
+    def deploy_repos
+      write_to_loggers("About to deploy with options")
+      deployer.deploy(deployer_options) do |repo|
+        write_to_loggers("calling cp_r_compile_path(repo)")
+        cp_r_compile_path(repo)
+      end
+    end
+
     def cp_r_compile_path(repo)
       # save repo dir so we can remove it later
       @repo_dir = repo.dir.to_s
       write_to_loggers("Repo dir: #{@repo_dir}")
 
       # copy static website into repo
+      copy_to_repo
+      commit_to_repo
+    end
+
+    def copy_to_repo
       write_to_loggers("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
-      # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
+    end
 
+    def commit_to_repo
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME']) 
       repo.config('user.email', ENV['HEROKU_APP_NAME']) 
-
       # commit changes
       repo.add('.')
       Rails.logger.debug("git committing all")
