@@ -8,11 +8,12 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
   end
 
   def show
+    pattern = params[:id].downcase.underscore
+    prefix = /^#{pattern}/
     response = serializer.new(nil).get_yaml_files.inject([]) do |arr, file|
-      prefix = /^#{params[:id].downcase.underscore}/
       arr << file unless prefix.match(file).blank?
       arr
-    end unless serializer.blank?
+    end unless serializer.blank? || pattern.blank?
     json = response_to_json(response)
     render json: json || {}, status: (json.blank? ? 422 : 200)
   end
