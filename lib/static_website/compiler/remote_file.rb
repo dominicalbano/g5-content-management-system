@@ -31,17 +31,18 @@ module StaticWebsite
       def write_to_file
         begin
           write_to_loggers("opening #{compile_path}")
-          open(compile_path, "wb") do |file|
-            write_to_loggers("shoveling contents of #{remote_path} into #{compile_path}")
-            file << read_remote(remote_path)
-          end if compile_path
+          read_compile_path
         rescue OpenURI::HTTPError => e
-          if e.message.include?("404")
-            Rails.logger.warn e.message
-          else
-            raise e
-          end
+          raise e unless e.message.include?("404")
+          Rails.logger.warn e.message
         end
+      end
+
+      def read_compile_path
+        open(compile_path, "wb") do |file|
+          write_to_loggers("shoveling contents of #{remote_path} into #{compile_path}")
+          file << read_remote(remote_path)
+        end if compile_path
       end
 
       def read_remote(remote_path)
@@ -49,12 +50,9 @@ module StaticWebsite
         begin
           open(remote_path).read
         rescue OpenURI::HTTPError
-          if delay = retries.shift
-            sleep delay
-            retry
-          else
-            raise
-          end
+          raise unless delay = retries.shift
+          sleep delay
+          retry
         end
       end
     end
