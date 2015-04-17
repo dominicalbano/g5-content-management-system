@@ -8,7 +8,7 @@ module StaticWebsite
 
         def initialize(from_paths, location_name)
           @from_paths = Array(from_paths)
-          LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{Array(from_paths).join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")}
+          write_to_loggers("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{Array(from_paths).join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")
           @location_name = location_name
           @s3 = AWS::S3.new(
             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
@@ -24,16 +24,16 @@ module StaticWebsite
 
         def compile
           @uploaded_paths = []
-          LOGGERS.each{|logger| logger.debug("Writing js assets to S3")}
+          write_to_loggers("Writing js assets to S3")
           from_paths.each do |from_path|
             #write with a metadata flag of status: current
             path = Pathname.new(from_path)
-            LOGGERS.each{|logger| logger.debug("writing to bucket")}
-            LOGGERS.each{|logger| logger.debug("#{from_path.to_s}")}
-            LOGGERS.each{|logger| logger.debug("#{path.to_s}")}
-            LOGGERS.each{|logger| logger.debug("#{write_options.to_s}")}
+            write_to_loggers("writing to bucket")
+            write_to_loggers("#{from_path.to_s}")
+            write_to_loggers("#{path.to_s}")
+            write_to_loggers("#{write_options.to_s}")
             result = s3_bucket_object(from_path).write(path, write_options)
-            LOGGERS.each{|logger| logger.debug(result.inspect)}
+            write_to_loggers(result.inspect)
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
           end
         end
@@ -68,6 +68,10 @@ module StaticWebsite
 
         def location
           Location.where(name: @location_name).first
+        end
+
+        def write_to_loggers(msg)
+          LOGGERS.each{|logger| logger.debug(msg)}
         end
       end
     end
