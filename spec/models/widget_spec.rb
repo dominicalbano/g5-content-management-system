@@ -386,32 +386,6 @@ describe Widget, vcr: VCR_OPTIONS do
       let(:widget) { Fabricate(:widget, garden_widget: garden_widget)}
       let(:other_widget) { Fabricate(:widget, garden_widget: garden_widget) }
 
-      context "default widget" do
-        describe "#child_widgets" do
-          it "returns empty array by default" do
-            expect(widget.child_widgets).to be_empty
-          end
-        end
-
-        describe "#has_child_widget" do
-          it "returns false by default" do
-            expect(widget.has_child_widget?(other_widget)).to be_falsey
-          end
-        end
-
-        describe "#get_child_widget" do
-          it "returns nil by default" do
-            expect(widget.get_child_widget(1)).to be_nil
-          end
-        end
-
-        describe "#set_child_widget" do
-          it "does nothing by default" do
-            expect(widget.set_child_widget(1, other_widget)).to be_nil
-          end
-        end
-      end
-
       context "content stripe" do
         let(:cs_widget) { Fabricate(:widget, garden_widget: cs_garden_widget, drop_target: drop_target) }
         before { cs_widget.set_child_widget(1, other_widget) }

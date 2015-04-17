@@ -3,7 +3,6 @@ class Widget < ActiveRecord::Base
   include HasManySettings
   include UpdateNavSettings
   include LiquidParameters
-  include Widgets::StandardWidget
 
   validates :garden_widget_id, presence: true
 
@@ -60,8 +59,24 @@ class Widget < ActiveRecord::Base
     setting.update_attribute(:value, value) if setting
   end
 
+  def widgets
+    [] # non-layout widgets don't have child widgets
+  end
+
   def kind_of_widget?(kind)
     name == kind
+  end
+
+  def is_layout?
+    false
+  end
+
+  def is_column?
+    false
+  end
+
+  def is_content_stripe?
+    false
   end
 
   def render_show_html(preview=false)
@@ -138,8 +153,7 @@ class Widget < ActiveRecord::Base
 
   def extend_widget
     begin
-      mod = "Widgets::#{name.gsub(' ','').classify}Widget"
-      mod = mod.constantize
+      mod = "Widgets::#{name.gsub(' ','').classify}Widget".constantize
       extend mod if mod.is_a?(Module)
     rescue => e
       # do nothing - this is normal
