@@ -28,10 +28,7 @@ module StaticWebsite
           from_paths.each do |from_path|
             #write with a metadata flag of status: current
             path = Pathname.new(from_path)
-            write_to_loggers("writing to bucket")
-            write_to_loggers("#{from_path.to_s}")
-            write_to_loggers("#{path.to_s}")
-            write_to_loggers("#{write_options.to_s}")
+            write_compile_path_to_loggers(from_path, path, write_options)
             result = s3_bucket_object(from_path).write(path, write_options)
             write_to_loggers(result.inspect)
             @uploaded_paths << File.join(bucket_url.to_s, to_path(from_path).to_s)
@@ -72,6 +69,13 @@ module StaticWebsite
 
         def write_to_loggers(msg)
           LOGGERS.each{|logger| logger.debug(msg)}
+        end
+
+        def write_compile_path_to_loggers(from_path, path, write_options)
+          write_to_loggers("writing to bucket")
+          write_to_loggers("#{from_path.to_s}")
+          write_to_loggers("#{path.to_s}")
+          write_to_loggers("#{write_options.to_s}")
         end
       end
     end
