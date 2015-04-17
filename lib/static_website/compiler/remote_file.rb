@@ -7,18 +7,18 @@ module StaticWebsite
       attr_reader :remote_path, :compile_path
 
       def initialize(remote_path, compile_path)
-        LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::RemoteFile with remote_path: #{remote_path},\n\n\tcompile_path: #{compile_path}")}
+        write_to_loggers("\n\nInitializing StaticWebsite::Compiler::RemoteFile with remote_path: #{remote_path},\n\n\tcompile_path: #{compile_path}")
         @remote_path = remote_path
         @compile_path = compile_path
       end
 
       def compile
-        LOGGERS.each{|logger| logger.debug("about to call compile_directory.compile")}
+        write_to_loggers("about to call compile_directory.compile")
         compile_directory.compile
-        LOGGERS.each{|logger| logger.debug("done calling compile_directory.compile")}
-        LOGGERS.each{|logger| logger.debug("about to write_to_file")}
+        write_to_loggers("done calling compile_directory.compile")
+        write_to_loggers("about to write_to_file")
         result = write_to_file
-        LOGGERS.each{|logger| logger.debug("done write_to_file")}
+        write_to_loggers("done write_to_file")
         result
       end
 
@@ -29,9 +29,9 @@ module StaticWebsite
       private
 
       def write_to_file
-        LOGGERS.each{|logger| logger.debug("opening #{compile_path}")}
+        write_to_loggers("opening #{compile_path}")
         open(compile_path, "wb") do |file|
-          LOGGERS.each{|logger| logger.debug("shoveling contents of #{remote_path} into #{compile_path}")}
+          write_to_loggers("shoveling contents of #{remote_path} into #{compile_path}")
           file << read_remote(remote_path)
         end if compile_path
       rescue OpenURI::HTTPError => e

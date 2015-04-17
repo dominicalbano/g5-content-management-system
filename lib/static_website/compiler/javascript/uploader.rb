@@ -67,10 +67,6 @@ module StaticWebsite
         def location
           Location.where(name: @location_name).first
         end
-
-        def write_to_loggers(msg)
-          LOGGERS.each{|logger| logger.debug(msg)}
-        end
       end
     end
   end

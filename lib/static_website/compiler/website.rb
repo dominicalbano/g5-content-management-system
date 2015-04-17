@@ -19,17 +19,17 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each{|logger| logger.debug("\n\n########################################### Website ######\n")}
+        write_to_loggers("\n\n########################################### Website ######\n")
         compile_directory.compile
         clean_up
-        LOGGERS.each{|logger| logger.debug("Starting javascripts.compile for website")}
-        LOGGERS.each{|logger| logger.debug("finished javascripts.compile")}
-        LOGGERS.each{|logger| logger.debug("Starting stylesheets.compile for website")}
+        write_to_loggers("Starting javascripts.compile for website")
+        write_to_loggers("finished javascripts.compile")
+        write_to_loggers("Starting stylesheets.compile for website")
         stylesheets.compile
-        LOGGERS.each{|logger| logger.debug("finished stylesheets.compile")}
-        LOGGERS.each{|logger| logger.debug("########## Beginning WEB_HOME compile")}
+        write_to_loggers("finished stylesheets.compile")
+        write_to_loggers("########## Beginning WEB_HOME compile")
         web_home_template.compile
-        LOGGERS.each{|logger| logger.debug("########## Finished WEB_HOME compile")}
+        write_to_loggers("########## Finished WEB_HOME compile")
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
         htaccess.compile

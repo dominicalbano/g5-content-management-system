@@ -27,3 +27,11 @@ if ENV["RESQUE_HTTP_USER"] && ENV["RESQUE_HTTP_PASSWORD"]
     user == ENV["RESQUE_HTTP_USER"] and password == ENV["RESQUE_HTTP_PASSWORD"]
   end
 end
+
+def write_to_loggers(msg)
+  LOGGERS.each{|logger| logger.debug(msg)}
+end
+
+def write_to_loggers_info(msg)
+  LOGGERS.each{|logger| logger.info(msg)}
+end

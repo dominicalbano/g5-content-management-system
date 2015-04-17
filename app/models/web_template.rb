@@ -247,9 +247,5 @@ class WebTemplate < ActiveRecord::Base
   def single_domain_internal_page?
     web_page_template? && single_domain? && !website.corporate?
   end
-
-  def write_to_loggers(msg)
-    LOGGERS.each{|logger| logger.debug(msg)}
-  end
 end
 

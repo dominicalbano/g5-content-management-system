@@ -12,17 +12,17 @@ module StaticWebsite
     end
 
     def deploy
-      LOGGERS.each {|logger| logger.debug("Deploy called with #{[@website, @compile_path, @user_email]}")}
+      write_to_loggers("Deploy called with #{[@website, @compile_path, @user_email]}")
       @retries = 0
       begin
-        LOGGERS.each {|logger| logger.debug("About to deploy with options")}
+        write_to_loggers("About to deploy with options")
         deployer.deploy(deployer_options) do |repo|
-          LOGGERS.each{|logger| logger.debug("calling cp_r_compile_path(repo)")}
+          write_to_loggers("calling cp_r_compile_path(repo)")
           cp_r_compile_path(repo)
         end
       rescue GithubHerokuDeployer::CommandException,
              Heroku::API::Errors::ErrorWithResponse => e
-        LOGGERS.each{|logger| logger.debug("Try failed with: " + e.to_s)}
+        write_to_loggers("Try failed with: " + e.to_s)
         if should_retry?
           increment_retries
           retry
@@ -30,12 +30,12 @@ module StaticWebsite
           raise e
         end
       rescue => e
-        LOGGERS.each{|logger| logger.debug("Try failed with: " + e.to_s)}
+        write_to_loggers("Try failed with: " + e.to_s)
       else
-        LOGGERS.each{|logger| logger.debug("Taking db snapshot")}
+        write_to_loggers("Taking db snapshot")
         take_db_snapshot
       ensure
-        LOGGERS.each{|logger| logger.debug("Cleaning up")}
+        write_to_loggers("Cleaning up")
         clean_up
       end
     end
@@ -57,10 +57,10 @@ module StaticWebsite
     def cp_r_compile_path(repo)
       # save repo dir so we can remove it later
       @repo_dir = repo.dir.to_s
-      LOGGERS.each{|logger| logger.debug("Repo dir: #{@repo_dir}")}
+      write_to_loggers("Repo dir: #{@repo_dir}")
 
       # copy static website into repo
-      LOGGERS.each{|logger| logger.debug("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")}
+      write_to_loggers("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
@@ -85,7 +85,7 @@ module StaticWebsite
     end
 
     def clean_up
-      LOGGERS.each{|logger| logger.debug("Removing directory: #{@repo_dir} if exists")}
+      write_to_loggers("Removing directory: #{@repo_dir} if exists")
       FileUtils.rm_rf(@repo_dir) if @repo_dir && Dir.exists?(@repo_dir)
     end
 

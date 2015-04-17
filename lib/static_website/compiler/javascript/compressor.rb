@@ -8,7 +8,7 @@ module StaticWebsite
         attr_reader :file_paths, :compile_path, :compressor
 
         def initialize(file_paths, compile_path)
-          LOGGERS.each{|logger| logger.debug("\n\nInitializing StaticWebsite::Compiler::Javascript::Compressor with file_paths:#{file_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path}")} if file_paths
+          write_to_loggers("\n\nInitializing StaticWebsite::Compiler::Javascript::Compressor with file_paths:#{file_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path}") if file_paths
 
           @file_paths = file_paths
           @compile_path = compile_path
@@ -26,9 +26,9 @@ module StaticWebsite
         end
 
         def compress
-          LOGGERS.each{|logger| logger.debug("compile_path:\n#{compile_path}")}
+          write_to_loggers("compile_path:\n#{compile_path}")
           compressed = open(compile_path, "w") do |file|
-            LOGGERS.each{|logger| logger.debug("calling compressor.compile(concatenate)")}
+            write_to_loggers("calling compressor.compile(concatenate)")
             file.write compressor.compile(concatenate)
           end if compile_path
           compile_path
@@ -36,7 +36,7 @@ module StaticWebsite
 
         def concatenate
           result = file_paths.map do |file_path|
-            LOGGERS.each{|logger| logger.debug("getting file_path:\n#{file_path.to_s}\n for concatenation")}
+            write_to_loggers("getting file_path:\n#{file_path.to_s}\n for concatenation")
             if File.exists?(file_path)
               js = open(file_path).read
               File.delete(file_path)
