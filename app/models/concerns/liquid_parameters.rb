@@ -10,17 +10,33 @@ module LiquidParameters
   def liquid_parameters
     template = get_web_template
     return {} if template.blank?
+    page_liquid(template).merge(location_liquid(template)).merge(client_liquid(template)).merge(theme_liquid(template))
+  end
 
-    client = template.client
-    location = template.owner
-    web_template = template.website_template
-    web_theme = web_template.try(:web_theme)
+  def get_liquid_parameter(key)
+    return liquid_parameters[key] if liquid_parameters.has_key?(key)
+  end
 
+  # override to extend behavior
+  def get_web_template(object=self)
+    return object if object.is_a?(WebTemplate)
+    object.try(:web_template)
+  end
+
+  private
+
+  def page_liquid(template)
     {
       "page_name"                 => template.name,
       "page_slug"                 => template.slug,
       "page_created"              => template.created_at.to_s.gsub(' UTC',''),
-      "page_updated"              => template.updated_at.to_s.gsub(' UTC',''),
+      "page_updated"              => template.updated_at.to_s.gsub(' UTC','')
+    }
+  end
+
+  def location_liquid(template)
+    location = template.owner
+    {
       "website_urn"               => location.website.urn,
       "location_uid"              => location.uid,
       "location_urn"              => location.urn,
@@ -49,7 +65,13 @@ module LiquidParameters
       "location_yelp_id"          => location.yelp_id,
       "location_pinterest_id"     => location.pinterest_id,
       "location_instagram_id"     => location.instagram_id,
-      "location_youtube_id"       => location.youtube_id,
+      "location_youtube_id"       => location.youtube_id
+    }
+  end
+
+  def client_liquid(template)
+    client = template.client
+    {
       "client_name"               => client.name,
       "client_name_slug"          => client.name.parameterize,
       "client_domain"             => client.domain,
@@ -65,7 +87,14 @@ module LiquidParameters
       "client_cpas_url"           => client.cpas_url,
       "client_cpns_url"           => client.cpns_url,
       "client_nae_url"            => client.nae_url,
-      "client_vls_url"            => client.vls_url,
+      "client_vls_url"            => client.vls_url
+    }
+  end
+
+  def theme_liquid(template)
+    web_template = template.website_template
+    web_theme = web_template.try(:web_theme)
+    {
       "theme_name"                => web_theme.try(:name),
       "theme_slug"                => web_theme.try(:garden_web_theme).try(:slug),
       "theme_primary_color"       => web_theme.try(:primary_color),
@@ -74,15 +103,5 @@ module LiquidParameters
       "theme_primary_font"        => web_theme.try(:primary_font),
       "theme_secondary_font"      => web_theme.try(:secondary_font)
     }
-  end
-
-  def get_liquid_parameter(key)
-    return liquid_parameters[key] if liquid_parameters.has_key?(key)
-  end
-
-  # override to extend behavior
-  def get_web_template(object=self)
-    return object if object.is_a?(WebTemplate)
-    object.try(:web_template)
   end
 end
