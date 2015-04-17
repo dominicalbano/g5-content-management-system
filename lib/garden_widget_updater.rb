@@ -87,57 +87,39 @@ class GardenWidgetUpdater
   end
 
   def get_url(component)
-    if component.respond_to?(:url)
-      component.url.to_s
-    end
+    component.url.to_s if component.respond_to?(:url)
   end
 
   def get_name(component)
-    if component.respond_to?(:name)
-      component.name.to_s
-    end
+    component.name.to_s if component.respond_to?(:name)
   end
 
   def get_modified(component)
-    if component.respond_to?(:modified)
-      Time.zone.parse(component.modified.to_s)
-    end
+    Time.zone.parse(component.modified.to_s) if component.respond_to?(:modified)
   end
 
   def get_popover(component)
-    if component.respond_to?(:popover)
-      CGI.unescapeHTML(component.popover.to_s)
-    end
+    CGI.unescapeHTML(component.popover.to_s) if component.respond_to?(:popover)
   end
 
   def get_widget_id(component)
-    if component.respond_to?(:widget_id)
-      component.widget_id.to_s.to_i
-    end
+    component.widget_id.to_s.to_i if component.respond_to?(:widget_id)
   end
 
   def get_widget_type(component)
-    if component.respond_to?(:widget_type)
-      component.widget_type.to_s
-    end
+    component.widget_type.to_s if component.respond_to?(:widget_type)
   end
 
   def get_slug(component)
-    if component.respond_to?(:name)
-      component.name.to_s.parameterize
-    end
+    component.name.to_s.parameterize if component.respond_to?(:name)
   end
 
   def get_thumbnail(component)
-    if component.respond_to?(:photo)
-      component.photo.to_s
-    end
+    component.photo.to_s if component.respond_to?(:photo)
   end
 
   def get_liquid(component)
-    if component.respond_to?(:g5_liquid)
-      component.g5_liquid.to_s
-    end
+    component.g5_liquid.to_s if component.respond_to?(:g5_liquid)
   end
 
   def get_edit_html(component)
@@ -148,9 +130,7 @@ class GardenWidgetUpdater
   end
 
   def get_edit_javascript(component)
-    if component.respond_to?(:g5_edit_javascript)
-      component.g5_edit_javascript.to_s
-    end
+    component.g5_edit_javascript.to_s if component.respond_to?(:g5_edit_javascript)
   end
 
   def get_show_html(component)
@@ -165,21 +145,15 @@ class GardenWidgetUpdater
   end
 
   def get_show_javascript(component)
-    if component.respond_to?(:g5_show_javascript)
-      component.g5_show_javascript.to_s
-    end
+    component.g5_show_javascript.to_s if component.respond_to?(:g5_show_javascript)
   end
 
   def get_show_stylesheets(component)
-    if component.respond_to?(:g5_stylesheets)
-      component.g5_stylesheets.try(:map) { |s| s.to_s }
-    end
+    component.g5_stylesheets.try(:map) { |s| s.to_s } if component.respond_to?(:g5_stylesheets)
   end
 
   def get_lib_javascripts(component)
-    if component.respond_to?(:g5_lib_javascripts)
-      component.g5_lib_javascripts.try(:map) { |j| j.to_s }
-    end
+    component.g5_lib_javascripts.try(:map) { |j| j.to_s } if component.respond_to?(:g5_lib_javascripts)
   end
 
   def get_settings(component)
@@ -202,26 +176,18 @@ class GardenWidgetUpdater
   end
 
   def get_setting_name(setting)
-    if setting.respond_to?(:g5_name)
-      setting.g5_name.to_s
-    end
+    setting.g5_name.to_s if setting.respond_to?(:g5_name)
   end
 
   def get_setting_editable(setting)
-    if setting.respond_to?(:g5_editable)
-      setting.g5_editable.to_s
-    end
+    setting.g5_editable.to_s if setting.respond_to?(:g5_editable)
   end
 
   def get_setting_default_value(setting)
-    if setting.respond_to?(:g5_default_value)
-      setting.g5_default_value.to_s
-    end
+    setting.g5_default_value.to_s if setting.respond_to?(:g5_default_value)
   end
 
   def get_setting_categories(setting)
-    if setting.respond_to?(:categories)
-      setting.categories.try(:map, &:to_s)
-    end
+    setting.categories.try(:map, &:to_s) if setting.respond_to?(:categories)
   end
 end
