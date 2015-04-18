@@ -3,34 +3,12 @@ require "aws-sdk"
 module StaticWebsite
   module Compiler
     class Javascript
-      class Uploader
+      class Uploader < StaticWebsite::Compiler::Uploader
         attr_reader :from_paths, :s3, :bucket_name, :bucket_url, :uploaded_paths
 
         def initialize(from_paths, location_name)
-          @from_paths = Array(from_paths)
           write_to_loggers("\n\nInitializing StaticWebsite::Compiler::Javascript::Uploader with from_paths: #{Array(from_paths).join("\n\t").prepend("\n\t")},\n\tlocation_name: #{location_name}\n")
-          @location_name = location_name
-          @s3 = AWS::S3.new(
-            access_key_id: ENV["AWS_ACCESS_KEY_ID"],
-            secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
-            region: ENV["AWS_REGION"] || "us-west-2"
-          )
-          initialize_bucket_name_manager
-        end
-
-        def initialize_bucket_name_manager
-          unless @location_name.empty?
-            @bucket_name = s3_bucket_name_manager.bucket_name
-            @bucket_url = s3_bucket_name_manager.bucket_url
-          end
-        end
-
-        def compile
-          write_to_loggers("Writing js assets to S3")
-          @uploaded_paths = from_paths.inject([]) do |arr, from_path|
-            arr << s3_bucket_update(from_path, path, write_options)
-            arr
-          end
+          super(from_paths, location_name)
         end
 
         def s3_bucket
@@ -41,13 +19,12 @@ module StaticWebsite
           s3_bucket.objects[to_path(from_path)]
         end
 
-        def write_options
-          {:acl => :public_read, :content_type => "text/javascript", metadata: {"x-amz-meta-freshness" => "current"}}
+        def data_type
+          "javascript"
         end
 
-        def to_path(from_path)
-          filename = File.basename(from_path)
-          to_path = File.join("#{location.bucket_asset_key_prefix}/javascripts", filename)
+        def data_dir
+          "javascripts"
         end
 
         private
@@ -58,14 +35,6 @@ module StaticWebsite
           result = s3_bucket_object(from_path).write(path, write_options)
           write_to_loggers(result.inspect)
           File.join(bucket_url.to_s, to_path(from_path).to_s)
-        end
-
-        def s3_bucket_name_manager
-          @s3_bucket_name_manager ||= S3BucketNameManager.new(location)
-        end
-
-        def location
-          Location.where(name: @location_name).first
         end
       end
     end
