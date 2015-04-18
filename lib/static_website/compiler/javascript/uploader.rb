@@ -11,14 +11,6 @@ module StaticWebsite
           super(from_paths, location_name)
         end
 
-        def s3_bucket
-          @s3_bucket ||= s3.buckets[bucket_name].exists? ? s3.buckets[bucket_name] : s3.buckets.create(bucket_name)
-        end
-
-        def s3_bucket_object(from_path)
-          s3_bucket.objects[to_path(from_path)]
-        end
-
         def data_type
           "javascript"
         end
