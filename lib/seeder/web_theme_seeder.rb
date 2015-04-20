@@ -1,28 +1,18 @@
 
 module Seeder
-  class WebThemeSeeder < Seeder::ModelSeeder
-    attr_reader :instructions, :template, :website
+  class WebThemeSeeder < Seeder::GardenSeeder
+    protected
 
-    def initialize(template, instructions)
-      @template = template
-      @instructions = instructions
+    def garden_class
+      GardenWebTheme
     end
 
-    def seed
-      raise SyntaxError unless has_valid_instructions?
-      @template.create_web_theme(theme_params)
-      @template
-    end
-    
-    private
-
-    def has_valid_instructions?
-      @template && @instructions &&
-      @instructions.has_key?(:slug)
+    def garden_id
+      :garden_web_theme_id
     end
 
-    def theme_params
-      params_for(GardenWebTheme, @instructions, :garden_web_theme_id)
+    def create_garden_method
+      :create_web_theme
     end
   end
 end

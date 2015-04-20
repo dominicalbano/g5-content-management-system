@@ -1,27 +1,17 @@
 module Seeder
-  class WebLayoutSeeder < Seeder::ModelSeeder
-    attr_reader :instructions, :template, :website
+  class WebLayoutSeeder < Seeder::GardenSeeder
+    protected
 
-    def initialize(template, instructions)
-      @template = template
-      @instructions = instructions
+    def garden_class
+      GardenWebLayout
     end
 
-    def seed
-      raise SyntaxError unless has_valid_instructions?
-      @template.create_web_layout(layout_params)
-      @template
+    def garden_id
+      :garden_web_layout_id
     end
 
-    private
-
-    def has_valid_instructions?
-      @template && @instructions &&
-      @instructions.has_key?(:slug)
-    end
-
-    def layout_params
-      params_for(GardenWebLayout, @instructions, :garden_web_layout_id)
+    def create_garden_method
+      :create_web_layout
     end
   end
 end
