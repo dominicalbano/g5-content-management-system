@@ -1,46 +1,30 @@
-class GardenWidgetUpdater
-  MAX_ATTEMPTS = 5
-  TIMEOUT = 15
-
-  def update_all(force_all=false, only_these_widgets=[])
-    components_data = send_with_retry(:components_microformats)
-    updated_garden_widgets = components_data.inject([]) do |arr, component|
-      garden_widget = GardenWidget.find_or_initialize_by(widget_id: value_to_s(component, :widget_id).try(:to_i))
-      update(garden_widget, component) if update_widget?(garden_widget, component, force_all, only_these_widgets)
-      arr << garden_widget
-      arr
-    end unless components_data.blank?
-
-    removed_garden_widgets = GardenWidget.all - (updated_garden_widgets || [])
-    removed_garden_widgets.each { |removed| removed.destroy }
-
+class GardenWidgetUpdater < GardenComponentUpdater
+  def update_all(force_all=false, only_these=[])
+    super(force_all, only_these)
     update_row_widget_garden_widgets_setting
     update_column_widget_garden_widgets_setting
   end
 
-  private
+  protected
 
-  def send_with_retry(method, *args)
-    attempts = 0
-    begin
-      return self.send(method, *args)
-    rescue Exception => ex
-      Rails.logger.info "Error getting html: #{ex}"
-      unless Rails.env.test?
-        attempts += 1
-        sleep TIMEOUT
-        retry if attempts < MAX_ATTEMPTS
-      end
-      raise ex
-    end
+  def garden_components_class
+    GardenWidget
   end
 
-  def update_widget?(garden_widget, component=nil, force_all=false, only_these_widgets=[])
-    force_all || widget_in_update_list?(garden_widget, only_these_widgets) || widget_needs_update?(garden_widget, component)
+  def garden_components_id
+    :widget_id
   end
 
-  def widget_in_update_list?(garden_widget, only_these_widgets)
-    !(only_these_widgets & [garden_widget.slug, garden_widget.name]).empty?
+  def garden_components_id_value(component)
+    value_to_s(component, garden_components_id).try(:to_i)
+  end
+
+  def update_garden_component?(garden_component, component=nil, force_all=false, only_these=[])
+    force_all || widget_in_update_list?(garden_component, only_these) || widget_needs_update?(garden_component, component)
+  end
+
+  def widget_in_update_list?(garden_widget, only_these)
+    !(only_these & [garden_widget.slug, garden_widget.name]).empty?
   end
 
   def widget_needs_update?(garden_widget, component)
@@ -80,7 +64,7 @@ class GardenWidgetUpdater
   def set_garden_widget_settings(garden_widget, component)
     garden_widget.settings          = get_settings(component)
     garden_widget.widget_modified   = get_modified(component)
-    garden_widget.widget_popover    = get_popover(component)
+    garden_widget.widget_popover    = value_to_html(component, :popover)
     garden_widget
   end
 
@@ -96,32 +80,8 @@ class GardenWidgetUpdater
     Website.all.each { |website| website.settings.find_or_create_by(name: name).update_attributes!(value: value) }
   end
 
-  def components_microformats
-    GardenWidget.components_microformats
-  end
-
-  def value_to_s(object, value)
-    object.send(value).try(:to_s) if object.respond_to?(value)
-  end
-
-  def value_array_to_s(object, value)
-    object.send(value).try(:map, &:to_s) if object.respond_to?(value)
-  end
-
   def get_modified(component)
     Time.zone.parse(component.modified.to_s) if component.respond_to?(:modified)
-  end
-
-  def get_popover(component)
-    CGI.unescapeHTML(component.popover.to_s) if component.respond_to?(:popover)
-  end
-
-  def get_html_with_retry(html_file)
-    send_with_retry(:get_html, html_file.to_s) if html_file
-  end
-
-  def get_html(url)
-    open(url).read if url
   end
 
   def get_settings(component)
