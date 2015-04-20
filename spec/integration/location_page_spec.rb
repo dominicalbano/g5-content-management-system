@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "Integration '/:website_slug/:web_page_template_slug'",
-         auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS, retry: 3 do
+         auth_request: true, integration: true, js: true, vcr: VCR_OPTIONS, retry: 1 do
   before do
     VCR.use_cassette("Gardens") do
       GardenWebLayoutUpdater.new.update_all
@@ -237,31 +237,34 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
         it "Destroys an existing widget in the database and updates DOM" do
           existing_widget = ".main-widgets .widget:first-of-type"
           drop_target_remove = ".main-widgets .remove-drop-zone"
-          existing_widget_count = all(".main-widgets .widget").length
+          existing_widget_count = find(".main-widgets").all(".widget").length
 
-          expect do
-            accept_confirm do
-              drag_and_drop(existing_widget, drop_target_remove)
-            end
-            sleep 1
-          end.to change{ @web_page_template.reload.main_widgets.count }.by(-1)
-          expect(all(".main-widgets .widget").length).to eq existing_widget_count-1
+          accept_confirm do
+            drag_and_drop(existing_widget, drop_target_remove)
+            sleep(1.0/2.0)
+          end
+          wait_until{@web_page_template.reload.main_widgets.count == 1}
+          expect(find(".main-widgets").all(".widget").length).to eq existing_widget_count-1
         end
 
         it "Destroys multiple existing widgets in the database and updates DOM" do
           existing_widget = ".main-widgets .widget:first-of-type"
           drop_target_remove = ".main-widgets .drop-target-remove:first-of-type"
-          existing_widget_count = all(".main-widgets .widget").length
+          existing_widget_count = find(".main-widgets").all(".widget").length
 
-          expect do
-            2.times do
-              accept_confirm do
-                drag_and_drop(existing_widget, drop_target_remove)
-              end
-              sleep 1
-            end
-          end.to change{ @web_page_template.reload.main_widgets.count }.by(-2)
-          expect(all(".main-widgets .widget").length).to eq existing_widget_count-2
+          accept_confirm do
+            drag_and_drop(existing_widget, drop_target_remove)
+            sleep(1.0/2.0)
+          end
+          sleep 10
+          wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count - 1)}
+          accept_confirm do
+            drag_and_drop(existing_widget, drop_target_remove)
+            sleep(1.0/2.0)
+          end
+          wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count - 2)}
+          expect(@web_page_template.reload.main_widgets.count).to eq(existing_widget_count - 2)
+          expect(find(".main-widgets").all(".widget").length).to eq (existing_widget_count - 2)
         end
       end
 
@@ -270,10 +273,16 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           open_gardens
           garden_widget = ".widget-list .widgets--list-view .widget:last-of-type"
           drop_target_add = ".main-widgets .drop-target-add:first-of-type"
-          2.times do
-            drag_and_drop(garden_widget, drop_target_add)
-            sleep 1
-          end
+              
+          existing_widget_count = @web_page_template.reload.main_widgets.count
+
+          drag_and_drop(garden_widget, drop_target_add)
+          #sleep 30 
+          #wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count + 1)}
+
+          drag_and_drop(garden_widget, drop_target_add)
+          #sleep 30
+          #wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count + 2)}
         end
 
         it "Destroys an existing widget in the database and updates DOM" do
@@ -281,13 +290,14 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           drop_target_remove = ".main-widgets .drop-target-remove:first-of-type"
           existing_widget_count = all(".main-widgets .widget").length
 
-          expect do
-            accept_confirm do
-              drag_and_drop(existing_widget, drop_target_remove)
-            end
-            sleep 1
-          end.to change{ @web_page_template.reload.main_widgets.count }.by(-1)
-          expect(all(".main-widgets .widget").length).to eq existing_widget_count-1
+          accept_confirm do
+            drag_and_drop(existing_widget, drop_target_remove)
+            sleep(1.0/2.0)
+          end
+          wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count - 1)}
+
+          expect(@web_page_template.reload.main_widgets.count).to eq existing_widget_count - 1
+          expect(all(".main-widgets .widget").length).to eq existing_widget_count - 1
         end
 
         it "Destroys multiple existing widgets in the database and updates DOM" do
@@ -295,14 +305,16 @@ describe "Integration '/:website_slug/:web_page_template_slug'",
           drop_target_remove = ".main-widgets .drop-target-remove:first-of-type"
           existing_widget_count = all(".main-widgets .widget").length
 
-          expect do
-            2.times do
-              accept_confirm do
-                drag_and_drop(existing_widget, drop_target_remove)
-              end
-              sleep 1
-            end
-          end.to change{ @web_page_template.reload.main_widgets.count }.by(-2)
+          accept_confirm do
+            drag_and_drop(existing_widget, drop_target_remove)
+            sleep(0.5)
+          end
+          wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count - 1)}
+          accept_confirm do
+            drag_and_drop(existing_widget, drop_target_remove)
+            sleep(0.5)
+          end
+          wait_until{@web_page_template.reload.main_widgets.count == (existing_widget_count - 2)}
           expect(all(".main-widgets .widget").length).to eq existing_widget_count-2
         end
       end
