@@ -1,9 +1,10 @@
 module StaticWebsite
   module Compiler
     class SitemapCompiler < StaticWebsite::Compiler::CompileDirectory
-      def initialize(path, directory=true)
+      def initialize(path, directory=true, websites=[])
         super(path, directory)
         @urls = []
+        @websites = websites
       end
 
       def sitemap_contents
@@ -22,6 +23,20 @@ module StaticWebsite
               <priority>#{priority}</priority>
             </url>
           end
+      end
+
+      def compile_and_render_to_file
+        compile
+        render_to_file
+      end
+
+      def render_to_file
+        open(File.join(@path, 'sitemap.xml'), "wb") { |file| file << render_sitemap } if @path
+      end
+
+      def render_sitemap
+        @websites.each { |website| process_website(website.decorate) }
+        sitemap_contents
       end
 
       def process_website(website)
