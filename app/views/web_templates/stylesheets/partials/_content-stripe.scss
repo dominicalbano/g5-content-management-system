@@ -26,6 +26,12 @@
       color: rgba($white, .6) !important;
     }
   }
+  // Overrides text color on Map (avoids white text color on white background-color)
+  div#map-canvas{
+    p, a > h2{
+      color: inherit !important;
+    }
+  }
 }
 
 .text-dark {
