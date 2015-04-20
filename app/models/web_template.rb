@@ -18,7 +18,6 @@ class WebTemplate < ActiveRecord::Base
 
   delegate :application_min_css_path, :application_min_js_path,
     to: :website, allow_nil: true
-  delegate :owner, to: :website
 
   validates :title , presence: true
   validates :name  , presence: true
@@ -48,6 +47,10 @@ class WebTemplate < ActiveRecord::Base
 
   def meta_description_widgets
     widgets.meta_description
+  end
+
+  def owner
+    @owner ||= website.try(:owner)
   end
 
   def client
