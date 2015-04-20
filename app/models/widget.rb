@@ -95,16 +95,12 @@ class Widget < ActiveRecord::Base
     updated_settings = garden_widget_settings.inject([]) do |arr, gw_setting|
       arr << update_setting(gw_setting)
     end
-    removed_settings = settings - updated_settings
-    removed_settings.map(&:destroy)
+    (settings - updated_settings).map(&:destroy)
   end
 
   def update_setting(widget_settings)
     setting = settings.find_or_initialize_by(name: widget_settings[:name])
-    setting.editable = widget_settings[:editable]
-    setting.default_value = widget_settings[:default_value]
-    setting.categories = widget_settings[:categories]
-    setting.save
+    setting.update_attributes({editable: widget_settings[:editable], default_value: widget_settings[:default_value], categories: widget_settings[:categories]})
     setting
   end
 
