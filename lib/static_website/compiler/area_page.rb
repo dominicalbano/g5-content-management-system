@@ -62,8 +62,11 @@ module StaticWebsite
       end
 
       def area
-        areas = [@params[:neighborhood], @params[:city], @params[:state]]
-        areas.reject(&:blank?).map(&:humanize).map(&:titleize).join(", ")
+        area_params.map { |a| a.humanize.titleize }.join(", ")
+      end
+
+      def area_params
+        [@params[:neighborhood], @params[:city], @params[:state]].reject(&:blank?)
       end
     end
   end
