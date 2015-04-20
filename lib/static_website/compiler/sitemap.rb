@@ -28,7 +28,7 @@ module StaticWebsite
         if @web_home_template && @web_home_template.enabled
           web_home_template = <<-end.strip_heredoc
             <url>
-              <loc>#{@web_home_template.owner_domain}</loc>
+              <loc>#{@web_home_template.owner.domain}</loc>
               <lastmod>#{@web_home_template.last_mod}</lastmod>
               <changefreq>weekly</changefreq>
               <priority>0.9</priority>
@@ -42,7 +42,7 @@ module StaticWebsite
           if @web_home_template && template.enabled
             web_page_template = <<-end.strip_heredoc
               <url>
-                <loc>#{File.join(@web_home_template.owner_domain, @web_home_template.client.vertical_slug, @web_home_template.owner.state_slug, @web_home_template.owner.city_slug)}/#{template.slug}</loc>
+                <loc>#{File.join(@web_home_template.owner.domain, @web_home_template.client.vertical_slug, @web_home_template.owner.state_slug, @web_home_template.owner.city_slug)}/#{template.slug}</loc>
                 <lastmod>#{template.last_mod}</lastmod>
                 <changefreq>weekly</changefreq>
                 <priority>0.7</priority>

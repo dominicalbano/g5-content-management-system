@@ -18,6 +18,7 @@ class WebTemplate < ActiveRecord::Base
 
   delegate :application_min_css_path, :application_min_js_path,
     to: :website, allow_nil: true
+  delegate :owner, to: :website
 
   validates :title , presence: true
   validates :name  , presence: true
@@ -50,51 +51,15 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def client
-    Client.first
+    @client ||= Client.first
   end
 
   def single_domain?
     client.type == "SingleDomainClient"
   end
 
-  def owner
-    website.try(:owner)
-  end
-
-  def owner_id
-    owner.try(:id)
-  end
-
-  def owner_name
-    owner.try(:name)
-  end
-
-  def vertical
-    client.try(:vertical_slug)
-  end
-
-  def city
-    owner.try(:city_slug)
-  end
-
-  def state
-    owner.try(:state_slug)
-  end
-
   def url
     client.url_formatter_class.new(self, owner).format
-  end
-
-  def website_id
-    website.try(:id)
-  end
-
-  def web_layout_id
-    web_layout.try(:id)
-  end
-
-  def web_theme_id
-    web_theme.try(:id)
   end
 
   def web_home_template?
@@ -113,20 +78,8 @@ class WebTemplate < ActiveRecord::Base
     show_javascripts + lib_javascripts + website_template_javascripts
   end
 
-  def website_compile_path
-    website.try(:compile_path)
-  end
-
-  def website_colors
-    website.try(:colors)
-  end
-
-  def website_fonts
-    website.try(:fonts)
-  end
-
   def stylesheets_compiler
-    @stylesheets_compiler ||= StaticWebsite::Compiler::Stylesheets.new(stylesheets, "#{Rails.root}/public", website_colors, website_fonts, owner_name, true)
+    @stylesheets_compiler ||= StaticWebsite::Compiler::Stylesheets.new(stylesheets, "#{Rails.root}/public", website.try(:colors), website.try(:fonts), owner.try(:name), true)
   end
 
   def stylesheet_link_paths
@@ -141,7 +94,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def javascripts_compiler
-    @javascripts_compiler ||= StaticWebsite::Compiler::Javascripts.new(javascripts, "#{Rails.root}/public", name, owner_name)
+    @javascripts_compiler ||= StaticWebsite::Compiler::Javascripts.new(javascripts, "#{Rails.root}/public", name, owner.try(:name))
   end
 
   def javascript_include_paths
@@ -177,7 +130,7 @@ class WebTemplate < ActiveRecord::Base
     if single_domain? && website.corporate?
       client.website.compile_path
     else
-      website_compile_path
+      website.compile_path
     end
   end
 
@@ -186,8 +139,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def location_body_class
-    corporate = website.owner.try(:corporate)
-    corporate ? "site-corporate" : "site-location"
+    website.corporate? ? "site-corporate" : "site-location"
   end
 
   def children
@@ -241,7 +193,7 @@ class WebTemplate < ActiveRecord::Base
   end
 
   def domain_for_type
-    single_domain? ? client.domain : owner_domain
+    single_domain? ? client.domain : owner.domain
   end
 
   def single_domain_internal_page?

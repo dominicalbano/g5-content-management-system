@@ -7,6 +7,7 @@ describe WebTemplate do
 
   before do
     web_template.stub(:update_navigation_settings)
+    web_template.stub(:write_to_loggers)
   end
 
   describe "validations" do

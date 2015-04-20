@@ -12,7 +12,7 @@ class WebHomeTemplate < WebTemplate
   end
 
   def preview_url
-    "#{owner.urn}/#{vertical}/#{state}/#{city}"
+    "#{owner.urn}/#{client.vertical_slug}/#{owner.state_slug}/#{owner.city_slug}"
   end
 
   def htaccess_substitution
