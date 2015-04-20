@@ -18,7 +18,7 @@ class BucketCreator
   private
 
   def create_bucket
-    s3_client.buckets.create(bucket_name)
+    BucketCreator::s3_client.buckets.create(bucket_name)
   end
 
   def config_exists?
@@ -37,7 +37,7 @@ class BucketCreator
     s3_bucket_name_manager.heroku_config_key_for_bucket_name
   end
 
-  def s3_client
+  def self.s3_client
     AWS::S3.new(
       access_key_id: ENV["AWS_ACCESS_KEY_ID"],
       secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],

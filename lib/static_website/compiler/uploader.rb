@@ -6,7 +6,7 @@ module StaticWebsite
       def initialize(from_paths, location_name)
         @from_paths = Array(from_paths)
         @location_name = location_name
-        @s3 = AWS::S3.new(access_key_id: ENV["AWS_ACCESS_KEY_ID"], secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"], region: ENV["AWS_REGION"] || "us-west-2")
+        @s3 = BucketCreator::s3_client
         initialize_bucket_name_manager
       end
 
