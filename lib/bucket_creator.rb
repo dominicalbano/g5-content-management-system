@@ -15,6 +15,15 @@ class BucketCreator
     end
   end
 
+  
+  def self.s3_client
+    AWS::S3.new(
+      access_key_id: ENV["AWS_ACCESS_KEY_ID"],
+      secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
+      region: ENV["AWS_REGION"] || "us-west-2"
+    )
+  end
+
   private
 
   def create_bucket
@@ -35,14 +44,6 @@ class BucketCreator
 
   def config_var
     s3_bucket_name_manager.heroku_config_key_for_bucket_name
-  end
-
-  def self.s3_client
-    AWS::S3.new(
-      access_key_id: ENV["AWS_ACCESS_KEY_ID"],
-      secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
-      region: ENV["AWS_REGION"] || "us-west-2"
-    )
   end
 
   def heroku_client
