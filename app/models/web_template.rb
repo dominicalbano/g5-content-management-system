@@ -89,7 +89,7 @@ class WebTemplate < ActiveRecord::Base
     write_to_loggers("\n#### sending compile to stylesheets_compiler for web_template #{name}\n")
     stylesheets_compiler.compile
     write_to_loggers("\n#### sending link_paths to stylesheets_compiler for web_template #{name}\n")
-    stylesheets_compiler.link_paths
+    stylesheets_compiler.asset_urls
   end
 
   def preview_stylesheet_link_paths
@@ -105,7 +105,7 @@ class WebTemplate < ActiveRecord::Base
     javascripts_compiler.compile unless javascripts.empty?
     write_to_loggers("Finished compile on javascripts_compiler for web_template: #{name}")
     write_to_loggers("Calling upload_paths on javascripts_compiler for web_template:\n #{name}")
-    javascripts_compiler.uploaded_paths
+    javascripts_compiler.asset_urls
   end
 
   def owner_domain

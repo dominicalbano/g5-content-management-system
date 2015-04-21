@@ -26,17 +26,17 @@ describe StaticWebsite::Compiler::Javascripts do
         end
 
         it "compiles each one" do
-          subject.should_receive(:compile_javascript).once
+          subject.should_receive(:compile_asset).once
           subject.compile
         end
 
         it "does not compress javascripts" do
-          subject.javascript_compressor.should_not_receive(:compile)
+          subject.compressor.should_not_receive(:compile)
           subject.compile
         end
 
         it "does not upload javascripts" do
-          subject.javascript_uploader.should_not_receive(:compile)
+          subject.uploader.should_not_receive(:compile)
           subject.compile
         end
       end
@@ -55,7 +55,7 @@ describe StaticWebsite::Compiler::Javascripts do
         end
 
         it "compiles each one" do
-          subject.should_receive(:compile_javascript).once
+          subject.should_receive(:compile_asset).once
           subject.compile
         end
 
@@ -65,7 +65,7 @@ describe StaticWebsite::Compiler::Javascripts do
         # end
 
         it "uploads javascripts" do
-          subject.javascript_uploader.should_receive(:compile).once
+          subject.uploader.should_receive(:compile).once
           subject.compile
         end
       end
@@ -77,7 +77,7 @@ describe StaticWebsite::Compiler::Javascripts do
       let(:subject) { javascripts_class.new(nil, compile_directory, "some-page") }
 
       it "does nothing" do
-        expect(subject.compile_javascript(nil)).to be_nil
+        expect(subject.compile_asset(nil)).to be_nil
       end
     end
 
@@ -90,7 +90,7 @@ describe StaticWebsite::Compiler::Javascripts do
 
       it "compile javascript" do
         javascript_class.any_instance.should_receive(:compile).once
-        subject.compile_javascript(javascript_path)
+        subject.compile_asset(javascript_path)
       end
     end
   end
@@ -108,7 +108,7 @@ describe StaticWebsite::Compiler::Javascripts do
 
     it "matches /javascripts/some-page.min.js" do
       allow(Time).to receive(:now).and_return "123"
-      expect(subject.compressed_path).to match "/javascripts/some-page-123.min.js"
+      expect(subject.compressed_path).to match "#{compile_directory}/javascripts/some-page-123.min.js"
     end
   end
 end

@@ -1,67 +1,39 @@
 require "static_website/compiler/javascript"
 require "static_website/compiler/javascript/compressor"
 
-LOGGERS = [Rails.logger, Resque.logger]
-
 module StaticWebsite
   module Compiler
-    class Javascripts
-      attr_reader :javascript_paths, :compile_path, :location_name, :preview,
-        :js_paths, :include_paths
+    class Javascripts < StaticWebsite::Compiler::Assets
 
       def initialize(javascript_paths, compile_path, page_name, location_name="", preview=false)
-        javascript_paths = Array(javascript_paths)
-        write_to_loggers("\n\nInitializing StaticWebsite::Compiler::Javascripts with javascript_paths: #{javascript_paths.join("\n\t").prepend("\n\t")},\n\n\tcompile_path: #{compile_path},\n\tlocation_name: #{location_name},\n\tpreview: #{preview}\n") if javascript_paths
-        @javascript_paths = javascript_paths.try(:compact).try(:uniq)
-        @compile_path = compile_path
-        @location_name = location_name
-        @preview = preview
-        @js_paths = []
-        @include_paths = []
+        super(javascript_paths, compile_path, location_name, preview)
         @page_name = page_name
       end
 
-      def compile
-        @js_paths = []
-        @include_paths = []
-        unless javascript_paths.empty?
-          javascript_paths.each do |javascript_path|
-            compile_javascript(javascript_path)
-          end
+      protected
 
-          
-          write_to_loggers("About to call javascript_compressor.compile")
-          @js_paths = Array(javascript_compressor.compile) unless preview
-          write_to_loggers("Done calling javascript_compressor.compile")
-          write_to_loggers("Calling compile on javascript_uploader unless preview")
-          javascript_uploader.compile unless preview
-        end
+      def asset_name
+        "javascript"
       end
 
-      def compile_javascript(javascript_path)
-        if javascript_path
-          javascript = Javascript.new(javascript_path, compile_path)
-          javascript.compile
-          @js_paths << javascript.js_path
-          @include_paths << javascript.include_path
-        end
+      def asset_class
+        Javascript
       end
 
-      def javascript_compressor
-        @javascript_compressor ||= Javascript::Compressor.new(js_paths, compressed_path)
+      def asset_ext
+        "js"
       end
 
-      def compressed_path
-        @compressed_path ||= File.join(compile_path, "javascripts",
-                                       "#{@page_name.parameterize}-#{Time.now.to_i}.min.js")
+      def asset_file_name
+        "#{@page_name.parameterize}-#{Time.now.to_i}"
       end
 
-      def javascript_uploader
-        @javascript_uploader ||= Javascript::Uploader.new(js_paths, location_name)
+      def asset_path
+        :js_path
       end
 
-      def uploaded_paths
-        @uploaded_path ||= javascript_uploader.uploaded_paths
+      def asset_url
+        :include_path
       end
     end
   end

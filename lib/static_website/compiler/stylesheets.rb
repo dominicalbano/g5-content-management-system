@@ -4,36 +4,22 @@ require "static_website/compiler/stylesheet/compressor"
 
 module StaticWebsite
   module Compiler
-    class Stylesheets
-      attr_reader :stylesheet_paths, :compile_path, :colors, :fonts, :location_name,
-        :preview, :css_paths, :link_paths
+    class Stylesheets < StaticWebsite::Compiler::Assets
+
+      attr_reader :colors, :fonts
 
       def initialize(stylesheet_paths, compile_path, colors={}, fonts={}, location_name="", preview=false)
-        write_to_loggers("\n\nInitializing StaticWebsite::Compiler::Stylesheets with stylesheet_paths:\n #{stylesheet_paths.join("\n\t").prepend("\t")},\n\n\tcompile_path: #{compile_path},\n\tcolors: #{colors},\n\tfonts: #{fonts},location_name: #{location_name},\n\tpreview: #{preview}\n") if stylesheet_paths
-        @stylesheet_paths = stylesheet_paths.try(:compact).try(:uniq)
-        @compile_path = compile_path
+        super(stylesheet_paths, compile_path, location_name, preview)
         @colors = colors
         @fonts = fonts
-        @location_name = location_name
-        @preview = preview
-        @css_paths = []
-        @link_paths = []
       end
 
       def compile
-        @css_paths = []
-        @link_paths = []
-        if stylesheet_paths
+        unless @paths.empty?
           colors_stylesheet.compile
           fonts_stylesheet.compile
-
-          stylesheet_paths.each do |stylesheet|
-            compile_stylesheet(stylesheet)
-          end
-
-          stylesheet_compressor.compile unless preview
-          stylesheet_uploader.compile unless preview
         end
+        super
       end
 
       def colors_stylesheet
@@ -44,29 +30,30 @@ module StaticWebsite
         @fonts_stylesheet ||= Stylesheet::Fonts.new(fonts, compile_path)
       end
 
-      def compile_stylesheet(stylesheet_path)
-        if stylesheet_path
-          stylesheet = Stylesheet.new(stylesheet_path, compile_path)
-          stylesheet.compile
-          @css_paths << stylesheet.css_path
-          @link_paths << stylesheet.link_path
-        end
+      protected
+
+      def asset_name
+        "stylesheet"
       end
 
-      def stylesheet_compressor
-        @stylesheet_compressor ||= Stylesheet::Compressor.new(css_paths, compressed_path)
+      def asset_class
+        Stylesheet
       end
 
-      def compressed_path
-        @compressed_path ||= File.join(compile_path, "stylesheets", "application.min.css")
+      def asset_ext
+        "css"
       end
 
-      def stylesheet_uploader
-        @stylesheet_uploader ||= Stylesheet::Uploader.new(compressed_path, location_name)
+      def asset_file_name
+        "application"
       end
 
-      def uploaded_path
-        @uploaded_path ||= stylesheet_uploader.uploaded_path
+      def asset_path
+        :css_path
+      end
+
+      def asset_url
+        :link_path
       end
     end
   end

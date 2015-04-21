@@ -38,17 +38,17 @@ describe StaticWebsite::Compiler::Stylesheets do
         end
 
         it "compiles each one" do
-          subject.should_receive(:compile_stylesheet).once
+          subject.should_receive(:compile_asset).once
           subject.compile
         end
 
         it "does not compress stylesheets" do
-          subject.stylesheet_compressor.should_not_receive(:compile)
+          subject.compressor.should_not_receive(:compile)
           subject.compile
         end
 
         it "does not upload stylesheets" do
-          subject.stylesheet_uploader.should_not_receive(:compile)
+          subject.uploader.should_not_receive(:compile)
           subject.compile
         end
       end
@@ -62,8 +62,8 @@ describe StaticWebsite::Compiler::Stylesheets do
           subject.colors_stylesheet.stub(:compile)
           subject.fonts_stylesheet.stub(:compile)
           stylesheet_klass.any_instance.stub(:compile)
-          subject.stylesheet_compressor.stub(:compile)
-          subject.stylesheet_uploader.stub(:compile)
+          subject.compressor.stub(:compile)
+          subject.uploader.stub(:compile)
         end
 
         it "compiles colors stylesheet" do
@@ -77,17 +77,17 @@ describe StaticWebsite::Compiler::Stylesheets do
         end
 
         it "compiles each one" do
-          subject.should_receive(:compile_stylesheet).once
+          subject.should_receive(:compile_asset).once
           subject.compile
         end
 
         it "compresses stylesheets" do
-          subject.stylesheet_compressor.should_receive(:compile).once
+          subject.compressor.should_receive(:compile).once
           subject.compile
         end
 
         it "uploads stylesheets" do
-          subject.stylesheet_uploader.should_receive(:compile).once
+          subject.uploader.should_receive(:compile).once
           subject.compile
         end
       end
@@ -110,12 +110,12 @@ describe StaticWebsite::Compiler::Stylesheets do
     end
   end
 
-  describe "#compile_stylesheet" do
+  describe "#compile_asset" do
     context "when stylesheets is blank" do
       let(:subject) { stylesheets_klass.new(nil, compile_directory) }
 
       it "does nothing" do
-        expect(subject.compile_stylesheet(nil)).to be_nil
+        expect(subject.compile_asset(nil)).to be_nil
       end
     end
 
@@ -128,7 +128,7 @@ describe StaticWebsite::Compiler::Stylesheets do
 
       it "compiles stylesheet" do
         stylesheet_klass.any_instance.should_receive(:compile).once
-        subject.compile_stylesheet(stylesheet_path)
+        subject.compile_asset(stylesheet_path)
       end
     end
   end
