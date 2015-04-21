@@ -24,20 +24,16 @@ private
     self.value != self.value_was
   end
 
+  def setting_names(widget, name_type)
+    (1..6).map { |idx| "#{widget}_1_widget_#{name_type}" }
+  end
+
   def name_setting_names(widget)
-    [
-      "#{widget}_1_widget_name", "#{widget}_2_widget_name",
-      "#{widget}_3_widget_name", "#{widget}_4_widget_name",
-      "#{widget}_5_widget_name", "#{widget}_6_widget_name"
-    ]
+    setting_names(widget, 'name')
   end
 
   def id_setting_names(widget)
-    [
-      "#{widget}_1_widget_id", "#{widget}_2_widget_id",
-      "#{widget}_3_widget_id", "#{widget}_4_widget_id",
-      "#{widget}_5_widget_id", "#{widget}_6_widget_id"
-    ]
+    setting_names(widget, 'id')
   end
 
   def updater(widget)

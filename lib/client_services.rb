@@ -29,16 +29,15 @@ class ClientServices
     Location.all.map(&:domain)
   end
 
-  SERVICES.each do |service|
-    define_method("#{service}_urn") do
-      # Custom or replace the Client's app prefix
-      ENV["#{service.upcase}_URN"] || @formatter.try("#{service}_urn")
+  def self.define_service_method(service, suffix)
+    define_method("#{service}_#{suffix}") do
+      ENV["#{service.upcase}_#{suffix.upcase}"] || @formatter.try("#{service}_#{suffix}")
     end
+  end
 
-    define_method("#{service}_app_name") do
-      # Custom or truncate to Heroku's max app name length
-      ENV["#{service.upcase}_APP_NAME"] || @formatter.try("#{service}_app_name")
-    end
+  SERVICES.each do |service|
+    ClientServices.define_service_method(service, "urn")
+    ClientServices.define_service_method(service, "app_name")
 
     define_method("#{service}_url") do |secure: false|
       protocol = secure ? "https" : "http"
