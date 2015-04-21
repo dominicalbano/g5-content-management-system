@@ -9,14 +9,9 @@ describe StaticWebsite::Compiler::Sitemap do
   describe "#compile" do
 
     before do
-      FakeFS.activate!
       sitemap = described_class.new(website, ['/area/one','/area/two'])
       sitemap.compile
     end 
-
-    after do
-      FakeFS.deactivate!
-    end
 
     it "creates sitemap file" do
       File.exists?(File.join("#{website.compile_path}", "sitemap.xml")).should eq(true)
