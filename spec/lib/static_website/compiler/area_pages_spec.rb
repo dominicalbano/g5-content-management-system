@@ -10,7 +10,7 @@ describe StaticWebsite::Compiler::AreaPages do
   describe "#compile" do
     let(:websites) { [website_one, website_two] }
     let(:base_path) { "foo" }
-    let(:area_page) { double(compile: nil) }
+    let(:area_page) { double(compile: "foo/bar/index.html") }
 
     subject { area_pages.compile }
 
