@@ -19,7 +19,7 @@ class Api::V1::BaseController < Api::V1::ApplicationController
   protected
 
   def klass
-    raise NotImplementedError
+    controller_name.classify.constantize
   end
 
   def klass_params

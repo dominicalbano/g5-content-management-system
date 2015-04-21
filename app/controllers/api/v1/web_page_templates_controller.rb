@@ -22,12 +22,8 @@ class Api::V1::WebPageTemplatesController < Api::V1::BaseController
 
   private
 
-  def klass
-    WebPageTemplate
-  end
-
   def klass_params
     params.require(:web_page_template).permit(:website_id, :name, :title,
-    :enabled, :display_order_position, :redirect_patterns, :in_trash, :parent_id)
+      :enabled, :display_order_position, :redirect_patterns, :in_trash, :parent_id)
   end
 end
