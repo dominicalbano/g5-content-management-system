@@ -8,6 +8,7 @@ class SettingDecorator < Draper::Decorator
                   :value_field_name,
                   :value_field_id,
                   :value,
+                  :value_or_default,
                   :best_value
 
   def owner_name

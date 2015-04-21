@@ -46,6 +46,10 @@ class Setting < ActiveRecord::Base
     value == 'Content Stripe' || value == 'Column'
   end
 
+  def value_or_default
+    value || default_value
+  end
+
   # TODO: rename to best_value to value
   # TODO: rename value to my_value or something
   def best_value
