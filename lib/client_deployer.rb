@@ -12,6 +12,7 @@ module ClientDeployer
     base_compiler(client).compile
     LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to AreaPages.new")}
     area_page_paths = area_pages(client.website.compile_path).compile
+    LOGGERS.each {|logger| logger.debug("ClientDeployer:BaseCompiler::Sitemap with paths: #{area_page_paths.uniq.to_s}")}
     ClientDeployer::BaseCompiler::Sitemap.new(client, area_page_paths.uniq).compile
     compile_location_websites
     deployer(client, user_email).deploy
