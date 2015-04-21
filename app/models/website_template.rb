@@ -3,39 +3,43 @@ class WebsiteTemplate < WebTemplate
     widgets.not_meta_description
   end
 
+  def drop_target_widgets(html_id)
+    drop_targets.where(html_id: "drop-target-#{html_id}").first.try(:widgets) || []
+  end
+
   # TODO: remove when Ember App implements DropTarget
   def head_widgets
-    drop_targets.where(html_id: "drop-target-head").first.try(:widgets) || []
+    drop_target_widgets('head')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def logo_widgets
-    drop_targets.where(html_id: "drop-target-logo").first.try(:widgets) || []
+    drop_target_widgets('logo')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def btn_widgets
-    drop_targets.where(html_id: "drop-target-btn").first.try(:widgets) || []
+    drop_target_widget('btn')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def nav_widgets
-    drop_targets.where(html_id: "drop-target-nav").first.try(:widgets) || []
+    drop_target_widget('nav')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def footer_widgets
-    drop_targets.where(html_id: "drop-target-footer").first.try(:widgets) || []
+    drop_target_widget('footer')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_before_main_widgets
-    drop_targets.where(html_id: "drop-target-aside-before-main").first.try(:widgets) || []
+    drop_target_widget('aside-before-main')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_after_main_widgets
-    drop_targets.where(html_id: "drop-target-aside-after-main").first.try(:widgets) || []
+    drop_target_widget('aside-after-main')
   end
 
   def stylesheets
@@ -43,9 +47,7 @@ class WebsiteTemplate < WebTemplate
   end
 
   def layout_stylesheets
-    local_stylesheets +
-      web_layout_stylesheets +
-      web_theme_stylesheets
+    local_stylesheets + web_layout_stylesheets + web_theme_stylesheets
   end
 
   def local_stylesheets
@@ -53,11 +55,11 @@ class WebsiteTemplate < WebTemplate
   end
 
   def web_layout_stylesheets
-    web_layout ? web_layout.stylesheets : []
+    web_layout.try(:stylesheets) || []
   end
 
   def web_theme_stylesheets
-    web_theme ? web_theme.stylesheets : []
+    web_theme.try(:stylesheets) || []
   end
 
   def widget_stylesheets
@@ -77,7 +79,7 @@ class WebsiteTemplate < WebTemplate
   end
 
   def web_theme_javascripts
-    web_theme ? web_theme.javascripts : []
+    web_theme.try(:javascripts) || []
   end
 
   def colors
