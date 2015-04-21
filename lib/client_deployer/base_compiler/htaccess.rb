@@ -25,6 +25,8 @@ module ClientDeployer
       end
 
       def render_htaccess
+        ENV['SITE_REDIRECTS'].to_s.split("\n").each {|redirect| @redirect_rules << redirect}
+
         Website.location_websites.each { |website| process_website(website.decorate) }
 
         htaccess_contents = ["DirectoryIndex index.html",
