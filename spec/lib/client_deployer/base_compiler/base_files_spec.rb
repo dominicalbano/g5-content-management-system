@@ -8,7 +8,6 @@ describe ClientDeployer::BaseCompiler::BaseFiles do
 
   before do
     ClientDeployer::BaseCompiler::HTAccess.stub(new: htaccess)
-    ClientDeployer::BaseCompiler::Sitemap.stub(new: sitemap)
     ClientDeployer::BaseCompiler::Robots.stub(new: robots)
   end
 
