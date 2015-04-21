@@ -77,9 +77,6 @@ RSpec.configure do |config|
     mocks.verify_doubled_constant_names = true
 
   end
-  # Config for rspec retry
-  config.verbose_retry = true # show retry status in spec process
-end
 
   # Config for rspec retry
   config.verbose_retry = true # show retry status in spec process
