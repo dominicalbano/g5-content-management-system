@@ -28,6 +28,8 @@ if ENV["RESQUE_HTTP_USER"] && ENV["RESQUE_HTTP_PASSWORD"]
   end
 end
 
+LOGGERS = [Rails.logger, Resque.logger]
+
 def write_to_loggers(msg)
   LOGGERS.each{|logger| logger.debug(msg)}
 end

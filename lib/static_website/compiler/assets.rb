@@ -1,5 +1,3 @@
-LOGGERS = [Rails.logger, Resque.logger]
-
 module StaticWebsite
   module Compiler
     class Assets

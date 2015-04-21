@@ -3,8 +3,6 @@ require "static_website/compiler/area_pages"
 require "client_deployer/base_compiler"
 require "client_deployer/website_compiler"
 
-LOGGERS = [Rails.logger, Resque.logger]
-
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
     write_to_loggers("ClientDeployer: Sending compile to base_compiler")

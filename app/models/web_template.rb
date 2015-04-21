@@ -4,8 +4,6 @@ class WebTemplate < ActiveRecord::Base
   include AfterUpdateSetSettingNavigation
   include LiquidParameters
 
-  LOGGERS = [Rails.logger, Resque.logger]
-
   ranks :display_order, with_same: :website_id
 
   belongs_to :website
