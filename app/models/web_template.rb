@@ -33,11 +33,7 @@ class WebTemplate < ActiveRecord::Base
   scope :created_at_asc, -> { order("created_at ASC") }
   scope :top_level, -> { where(parent_id: nil)}
 
-  before_validation :default_enabled_to_true
-  before_validation :default_in_trash_to_false
-  before_validation :default_title_from_name
-  before_validation :default_slug_from_title
-
+  before_validation :set_defaults
   before_save :format_redirect_patterns
 
   # TODO: remove when Ember App implements DropTarget
@@ -169,6 +165,13 @@ class WebTemplate < ActiveRecord::Base
 
   def website_template_javascripts
     website.try(:website_template).try(:javascripts).to_a.flatten.compact
+  end
+
+  def set_defaults
+    default_enabled_to_true
+    default_in_trash_to_false
+    default_title_from_name
+    default_slug_from_title
   end
 
   def default_enabled_to_true

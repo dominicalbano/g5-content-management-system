@@ -23,10 +23,20 @@ module StaticWebsite
       end
 
       def render_htaccess
-        # array of redirect patterns after being formatted for htaccess
-        redirect_rules = []
-        templates = (@web_page_templates + [@web_home_template]).compact
+        htaccess_contents = ["DirectoryIndex index.html",
+                             "<IfModule mod_rewrite.c>",
+                             "\tRewriteEngine On",
+                             empty_folders,
+                             redirect_rules]
+        htaccess_contents << htaccess_secure if @website.owner.try(:secure_domain)
+        htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-d",
+                              "\tRewriteCond %{REQUEST_FILENAME} !-f",
+                              "</IfModule>"]
+        return htaccess_contents.flatten.join("\n")
+      end
 
+      def redirect_rules
+        templates = (@web_page_templates + [@web_home_template]).compact
         templates.each do |template|
           if template.redirect_patterns
             template.redirect_patterns.split.each do |pattern|
@@ -34,40 +44,25 @@ module StaticWebsite
             end
           end
         end
+      end
 
-        if @web_home_template
-          empty_folders = ["\tRewriteRule ^#{File.join(@web_home_template.client.vertical_slug)}/?$ #{@web_home_template.htaccess_substitution} [R=301,L]",
-                           "\tRewriteRule ^#{File.join(@web_home_template.client.vertical_slug, @web_home_template.owner.state_slug)}/?$ #{@web_home_template.htaccess_substitution} [R=301,L]",
-                           "\tRewriteRule ^#{File.join(@web_home_template.client.vertical_slug, @web_home_template.owner.state_slug, @web_home_template.owner.city_slug)}/?$ #{@web_home_template.htaccess_substitution} [R=301,L]"]
-        else
-          empty_folders = []
-        end
+      def empty_folders
+        return [] unless @web_home_template
+        [ "\tRewriteRule ^#{File.join(@web_home_template.client.vertical_slug)}/?$ #{@web_home_template.htaccess_substitution} [R=301,L]",
+          "\tRewriteRule ^#{File.join(@web_home_template.client.vertical_slug, @web_home_template.owner.state_slug)}/?$ #{@web_home_template.htaccess_substitution} [R=301,L]",
+          "\tRewriteRule ^#{File.join(@web_home_template.client.vertical_slug, @web_home_template.owner.state_slug, @web_home_template.owner.city_slug)}/?$ #{@web_home_template.htaccess_substitution} [R=301,L]" ]
+      end
 
-        htaccess_contents = ["DirectoryIndex index.html",
-                             "<IfModule mod_rewrite.c>",
-                             "\tRewriteEngine On",
-                             empty_folders,
-                             redirect_rules]
-
-        if @website.owner.try(:secure_domain)
-          htaccess_contents << ["\tRewriteCond %{HTTPS} !=on",
-                                "\tRewriteCond %{HTTP:X-Forwarded-Proto} !https",
-                                "\tRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]"]
-        end
-
-        htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-d",
-                              "\tRewriteCond %{REQUEST_FILENAME} !-f",
-                              "</IfModule>"]
-
-        return htaccess_contents.flatten.join("\n")
+      def htacess_secure
+        [ "\tRewriteCond %{HTTPS} !=on",
+          "\tRewriteCond %{HTTP:X-Forwarded-Proto} !https",
+          "\tRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]" ]
       end
 
       private
 
       def render_to_file
-        open(compile_path, "wb") do |file|
-          file << render_htaccess
-        end if compile_path
+        open(compile_path, "wb") { |file| file << render_htaccess } if compile_path
       end
     end
   end
