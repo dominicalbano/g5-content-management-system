@@ -5,7 +5,7 @@ module ClientDeployer
     class Robots
       def initialize(client)
         @website = client.website
-        @heroku_app = "http://#{WebsiteDecorator.decorate(@website).heroku_app_name}.herokuapp.com"
+        @heroku_app = WebsiteDecorator.decorate(@website).url
         @website_compile_path = @website.compile_path
       end
 

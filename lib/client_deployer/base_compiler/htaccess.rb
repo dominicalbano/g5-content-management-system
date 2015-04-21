@@ -25,14 +25,23 @@ module ClientDeployer
       end
 
       def render_htaccess
+        ENV['SITE_REDIRECTS'].to_s.split("\n").each {|redirect| @redirect_rules << redirect}
+
         Website.location_websites.each { |website| process_website(website.decorate) }
 
         htaccess_contents = ["DirectoryIndex index.html",
                              "<IfModule mod_rewrite.c>",
                              "\tRewriteEngine On",
                              @empty_folders.flatten,
-                             @redirect_rules.flatten,
-                             "\tRewriteCond %{REQUEST_FILENAME} !-d",
+                             @redirect_rules.flatten]
+
+        if @client.try(:secure_domain)
+          htaccess_contents << ["\tRewriteCond %{HTTPS} !=on",
+                                "\tRewriteCond %{HTTP:X-Forwarded-Proto} !https",
+                                "\tRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]"]
+        end
+
+        htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-d",
                              "\tRewriteCond %{REQUEST_FILENAME} !-f",
                              "</IfModule>",
                              "SetEnvIfNoCase Referer semalt.com spammer=yes",

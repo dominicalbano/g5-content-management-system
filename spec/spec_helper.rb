@@ -35,10 +35,6 @@ RSpec.configure do |config|
   config.order = "random"
   config.include Capybara::DSL, type: :request
 
-  # Allows us to  use :vcr rather than :vcr => true
-  # In RSpec 3 this will no longer be necessary
-  config.treat_symbols_as_metadata_keys_with_true_values = true
-
   # The integration deployment tests can be run with:
   # rspec --tag deployment
   # (`--tag` is `-t` for short)
@@ -106,7 +102,7 @@ require 'capybara/poltergeist'
 Capybara.register_driver :poltergeist do |app|
   # Default timeout is 30, but that causes sporadic timeout errors
   # on the CI server
-  Capybara::Poltergeist::Driver.new(app, timeout: 180)
+  Capybara::Poltergeist::Driver.new(app, {timeout: 180, js_errors: false})
 end
 Capybara.javascript_driver = :poltergeist
-Capybara.default_wait_time = 5
+Capybara.default_wait_time = 15

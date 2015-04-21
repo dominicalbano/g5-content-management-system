@@ -23,7 +23,7 @@ http_interactions:
       Connection:
       - keep-alive
       Date:
-      - Fri, 17 Apr 2015 17:18:38 GMT
+      - Mon, 20 Apr 2015 17:04:20 GMT
       Status:
       - 200 OK
       X-Frame-Options:
@@ -39,19 +39,19 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       Content-Length:
-      - '1099173'
+      - '1099172'
       Set-Cookie:
-      - _g5_layout_garden_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTk3NjQyYjU0MmRjYTQzMDYxYWZiOTUxZjg3OWQzMzUwBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMUhDcE4veXQ0Ty81WmR3MXp0U2lUOEJCcVhldmZ4TDRTcXEyZ2RyVlBvL3c9BjsARg%3D%3D--55a46b4a675536cb9b2470252c47177f63aa511d;
+      - _g5_layout_garden_session=BAh7B0kiD3Nlc3Npb25faWQGOgZFVEkiJTBhMDdlMzNmMzY1MDhhNzBjYmQxMjZmMzJhNDI1OWZmBjsAVEkiEF9jc3JmX3Rva2VuBjsARkkiMUJDNWVnYWFGMWJoN014YThrbXpET0RyOUhJbkV1VFlxRlhVSHpTZzQrM2M9BjsARg%3D%3D--4b61ab9e70fa51c5ca6f7eb7e7565bd2e1483d7b;
         path=/; HttpOnly
       X-Request-Id:
-      - 8051adf8-7b75-40a3-9f8f-1b759cf6d650
+      - b8688b1d-fb81-48d9-a2f9-81d1d5b4211d
       X-Runtime:
-      - '2.609002'
+      - '2.077967'
       Via:
       - 1.1 vegur
     body:
       encoding: UTF-8
-      string: "<!DOCTYPE html>\n<html>\n  <head>\n<script type=\"text/javascript\">window.NREUM||(NREUM={});NREUM.info={\"beacon\":\"bam.nr-data.net\",\"errorBeacon\":\"bam.nr-data.net\",\"licenseKey\":\"8df695e62d\",\"applicationID\":\"11616770\",\"transactionName\":\"d1YPTUcKXlhdE01TXFlJDldQC0ZHFwgMVFZM\",\"queueTime\":13,\"applicationTime\":2603,\"ttGuid\":\"\",\"agentToken\":null,\"agent\":\"js-agent.newrelic.com/nr-632.min.js\"}</script>\n<script
+      string: "<!DOCTYPE html>\n<html>\n  <head>\n<script type=\"text/javascript\">window.NREUM||(NREUM={});NREUM.info={\"beacon\":\"bam.nr-data.net\",\"errorBeacon\":\"bam.nr-data.net\",\"licenseKey\":\"8df695e62d\",\"applicationID\":\"11616770\",\"transactionName\":\"d1YPTUcKXlhdE01TXFlJDldQC0ZHFwgMVFZM\",\"queueTime\":7,\"applicationTime\":2071,\"ttGuid\":\"\",\"agentToken\":null,\"agent\":\"js-agent.newrelic.com/nr-632.min.js\"}</script>\n<script
         type=\"text/javascript\">window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function
         r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var
         o=e[t][1][n];return r(o?o:n)},o,o.exports)}return n[t].exports}if(\"function\"==typeof
@@ -85,7 +85,7 @@ http_interactions:
         \   <script>\n//<![CDATA[\nhljs.initHighlightingOnLoad();\n//]]>\n</script>\n
         \   <link href=\"/assets/application-1315172bec56037430bea159e133636e.css\"
         media=\"screen\" rel=\"stylesheet\" />\n    <script src=\"/assets/application-0a0175db06e5f91535975f5d264923cb.js\"></script>\n
-        \   <meta content=\"authenticity_token\" name=\"csrf-param\" />\n<meta content=\"HCpN/yt4O/5Zdw1ztSiT8BBqXevfxL4Sqq2gdrVPo/w=\"
+        \   <meta content=\"authenticity_token\" name=\"csrf-param\" />\n<meta content=\"BC5egaaF1bh7Mxa8kmzDODr9HInEuTYqFXUHzSg4+3c=\"
         name=\"csrf-token\" />\n    <meta charset=\"utf8\" />\n    \n    \n    \n
         \ </head>\n  <body>\n    <div class=\"container-fluid\">\n\n      <div class=\"navbar\">\n
         \       <div class=\"navbar-inner\">\n          <div class=\"container\">\n\n
@@ -4596,8 +4596,8 @@ http_interactions:
         href=\"https://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js\">https://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.xdomainrequest.min.js</a>\n
         \       </p>\n      <p>\n        <a class=\"u-g5-show-javascript u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans/javascripts/show.js\">https://g5-widget-garden.herokuapp.com/static/components/floorplans/javascripts/show.js</a>\n
         \     </p>\n      <h3>Stylesheets</h3>\n        <p>\n          <a class=\"u-g5-stylesheet
-        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css\">https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-stylesheet u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css\">https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css</a>\n
+        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css\">https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/jquery.fancybox.css</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-stylesheet u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css\">https://g5-widget-garden.herokuapp.com/static/components/floorplans/stylesheets/floorplans.css</a>\n
         \       </p>\n      <ul class=\"unstyled\">\n          <li class=\"e-g5-property-group
         h-g5-property-group\">\n            <h3><span class=\"p-name\">Floor Plans</span>
         Settings</h3>\n  <p class=\"p-category\">Instance</p>\n  <div class=\"row\">\n
@@ -4652,8 +4652,8 @@ http_interactions:
         \     <p>\n        <a class=\"u-g5-edit-template u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/edit.html\">https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/edit.html</a>\n
         \     </p>\n      <p>\n        <a class=\"u-g5-show-template u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/show.html\">https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/show.html</a>\n
         \     </p>\n      <h3>Images</h3>\n        <p>\n          <a class=\"u-g5-image
-        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/magnifying-glass.png\">https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/magnifying-glass.png</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/floorplan-icon.png\">https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/floorplan-icon.png</a>\n
+        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/floorplan-icon.png\">https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/floorplan-icon.png</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/magnifying-glass.png\">https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/magnifying-glass.png</a>\n
         \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/thumbnail.png\">https://g5-widget-garden.herokuapp.com/static/components/floorplans-cards/images/thumbnail.png</a>\n
         \       </p>\n\n      <h3>Javascripts</h3>\n\n        <p>\n          <a class=\"u-g5-lib-javascript
         u-url\" href=\"https://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.fancybox.pack.js\">https://g5-widget-garden.herokuapp.com/javascripts/libs/jquery.fancybox.pack.js</a>\n
@@ -8626,14 +8626,14 @@ http_interactions:
         \     <p>\n        <a class=\"u-g5-edit-template u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/edit.html\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/edit.html</a>\n
         \     </p>\n      <p>\n        <a class=\"u-g5-show-template u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/show.html\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/show.html</a>\n
         \     </p>\n      <h3>Images</h3>\n        <p>\n          <a class=\"u-g5-image
-        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_loading@2x.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_loading@2x.gif</a>\n
+        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/ajax-loader.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/ajax-loader.gif</a>\n
         \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/blank.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/blank.gif</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite.png</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/ajax-loader.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/ajax-loader.gif</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite@2x.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite@2x.png</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_overlay.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_overlay.png</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/thumbnail.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/thumbnail.png</a>\n
         \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_loading.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_loading.gif</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_overlay.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_overlay.png</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite.png</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/thumbnail.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/thumbnail.png</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_loading@2x.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_loading@2x.gif</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite@2x.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/images/fancybox_sprite@2x.png</a>\n
         \       </p>\n\n      <h3>Javascripts</h3>\n\n      <p>\n        <a class=\"u-g5-show-javascript
         u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/javascripts/show.js\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-iui-cards/javascripts/show.js</a>\n
         \     </p>\n      <h3>Stylesheets</h3>\n        <p>\n          <a class=\"u-g5-stylesheet
@@ -8886,13 +8886,13 @@ http_interactions:
         \     <p>\n        <a class=\"u-g5-edit-template u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/edit.html\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/edit.html</a>\n
         \     </p>\n      <p>\n        <a class=\"u-g5-show-template u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/show.html\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/show.html</a>\n
         \     </p>\n      <h3>Images</h3>\n        <p>\n          <a class=\"u-g5-image
-        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/thumbnail.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/thumbnail.png</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/ajax-bar.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/ajax-bar.gif</a>\n
+        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/ajax-bar.gif\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/ajax-bar.gif</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-image u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/thumbnail.png\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/images/thumbnail.png</a>\n
         \       </p>\n\n      <h3>Javascripts</h3>\n\n      <p>\n        <a class=\"u-g5-show-javascript
         u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/javascripts/show.js\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/javascripts/show.js</a>\n
         \     </p>\n      <h3>Stylesheets</h3>\n        <p>\n          <a class=\"u-g5-stylesheet
-        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multifamily-search.css\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multifamily-search.css</a>\n
-        \       </p>\n        <p>\n          <a class=\"u-g5-stylesheet u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multi-family-search.css\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multi-family-search.css</a>\n
+        u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multi-family-search.css\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multi-family-search.css</a>\n
+        \       </p>\n        <p>\n          <a class=\"u-g5-stylesheet u-url\" href=\"https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multifamily-search.css\">https://g5-widget-garden.herokuapp.com/static/components/multifamily-search/stylesheets/multifamily-search.css</a>\n
         \       </p>\n      <ul class=\"unstyled\">\n          <li class=\"e-g5-property-group
         h-g5-property-group\">\n            <h3><span class=\"p-name\">Multifamily
         Search</span> Settings</h3>\n  <p class=\"p-category\">Instance</p>\n  <div
@@ -13232,5 +13232,5 @@ http_interactions:
         {% if widget.primary_color.value != blank %}btn{% endif %}&quot;&gt;\n  &lt;/div&gt;\n&lt;/div&gt;\n&lt;!--
         END SHOW MARKUP --&gt;</code></pre>\n</article>\n\n\n\n    </div>\n  </body>\n</html>\n"
     http_version: 
-  recorded_at: Fri, 17 Apr 2015 17:18:39 GMT
+  recorded_at: Mon, 20 Apr 2015 17:04:27 GMT
 recorded_with: VCR 2.9.3
