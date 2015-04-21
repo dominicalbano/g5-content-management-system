@@ -22,6 +22,10 @@ class Api::V1::BaseController < Api::V1::ApplicationController
     controller_name.classify.constantize
   end
 
+  def klass_name
+    controller_name.singularize
+  end
+
   def klass_params
     raise NotImplementedError
   end

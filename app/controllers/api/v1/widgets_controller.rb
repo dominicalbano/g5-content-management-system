@@ -40,14 +40,18 @@ class Api::V1::WidgetsController < Api::V1::ApplicationController
 
   private
 
+  def web_template_id
+    p = params[klass]
+    @web_template_id ||= p[:website_template_id]
+    @web_template_id ||= p[:web_home_template_id]
+    @web_template_id ||= p[:web_page_template_id]
+  end
+
   def widget_params
     # TODO: remove when Ember App implements DropTarget
-    web_template_id ||= params[klass][:website_template_id]
-    web_template_id ||= params[klass][:web_home_template_id]
-    web_template_id ||= params[klass][:web_page_template_id]
-    web_template = WebTemplate.find(web_template_id) if web_template_id
+    web_template = WebTemplate.find_by_id(web_template_id)
     drop_target = web_template.drop_targets.find_by_html_id(section) if web_template
-    params[klass][:drop_target_id] ||= drop_target.id if drop_target
+    params[klass][:drop_target_id] ||= drop_target.try(:id)
     params.require(klass).permit(:garden_widget_id, :drop_target_id, :display_order_position)
   end
 
