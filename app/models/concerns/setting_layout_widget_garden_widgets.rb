@@ -25,7 +25,7 @@ private
   end
 
   def setting_names(widget, name_type)
-    (1..6).map { |idx| "#{widget}_1_widget_#{name_type}" }
+    (1..6).map { |idx| "#{widget}_#{idx}_widget_#{name_type}" }
   end
 
   def name_setting_names(widget)
