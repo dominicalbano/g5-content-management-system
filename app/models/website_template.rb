@@ -19,27 +19,27 @@ class WebsiteTemplate < WebTemplate
 
   # TODO: remove when Ember App implements DropTarget
   def btn_widgets
-    drop_target_widget('btn')
+    drop_target_widgets('btn')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def nav_widgets
-    drop_target_widget('nav')
+    drop_target_widgets('nav')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def footer_widgets
-    drop_target_widget('footer')
+    drop_target_widgets('footer')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_before_main_widgets
-    drop_target_widget('aside-before-main')
+    drop_target_widgets('aside-before-main')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_after_main_widgets
-    drop_target_widget('aside-after-main')
+    drop_target_widgets('aside-after-main')
   end
 
   def stylesheets
