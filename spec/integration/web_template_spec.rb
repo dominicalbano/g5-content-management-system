@@ -53,7 +53,6 @@ describe "Integration '/web_template/:id'",
         end
 
         it "has web template title in title tag" do
-          puts page.html
           expect(page).to have_title @web_page_template.render_title
         end
 
