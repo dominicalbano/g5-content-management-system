@@ -1,5 +1,7 @@
 require "static_website/compiler"
 
+LOGGERS = [Rails.logger, Resque.logger] unless defined? LOGGERS
+
 module StaticWebsite
   class Deployer
     attr_reader :website, :compile_path, :retries
@@ -17,6 +19,7 @@ module StaticWebsite
       begin
         LOGGERS.each {|logger| logger.debug("About to deploy with options")}
         deployer.deploy(deployer_options) do |repo|
+          
           LOGGERS.each{|logger| logger.debug("calling cp_r_compile_path(repo)")}
           cp_r_compile_path(repo)
         end
@@ -64,7 +67,16 @@ module StaticWebsite
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       # copy public javascripts into repo
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
+      FileUtils.mkdir(File.join(@repo_dir, "assets"))
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
+
+
+      area_page_css_path = File.join(Rails.root, 'public', ActionController::Base.helpers.asset_path("area_page.css"))
+      area_page_css_destination_path = @repo_dir + ActionController::Base.helpers.asset_path('area_page.css')
+
+      LOGGERS.each{|logger| logger.debug("running fileutils.cp_r with: #{area_page_css_path} : #{area_page_css_destination_path}")}
+
+      FileUtils.cp_r(area_page_css_path, area_page_css_destination_path)
 
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME']) 
