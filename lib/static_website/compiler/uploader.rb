@@ -34,11 +34,11 @@ module StaticWebsite
       end
 
       def data_type
-        ""
+        raise NotImplementedError
       end
 
       def data_dir
-        ""
+        raise NotImplementedError
       end
 
       def write_options

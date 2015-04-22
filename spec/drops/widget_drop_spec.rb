@@ -76,8 +76,8 @@ describe WidgetDrop do
 
   describe "#generated urls"do 
     before do
-      @web_template_2 = Fabricate(:web_page_template, name: web_template.name)
       website_2 = Fabricate(:website)
+      @web_template_2 = Fabricate(:web_page_template, name: web_template.name, website: website_2)
       website_2.web_templates << @web_template_2
       drop_target_2 = Fabricate(:drop_target, web_template: @web_template_2)
 

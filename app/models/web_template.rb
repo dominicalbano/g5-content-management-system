@@ -18,7 +18,7 @@ class WebTemplate < ActiveRecord::Base
     to: :website, allow_nil: true
 
   validates :title , presence: true
-  validates :name  , presence: true
+  validates :name  , presence: true , uniqueness: { scope: :website, case_sensitive: false }
   validates :slug  , presence: true ,
     format: { with: /\A[-_A-Za-z0-9]*\z/, message: "can only contain letters, numbers, dashes, and underscores." }, unless: :new_record?
 
