@@ -73,6 +73,7 @@ group :test do
   gem 'factory_girl_rails'
   gem "fabrication"
   gem "faker"
+  gem "fakefs", "0.6", :require => "fakefs/safe"
   gem "webmock", require: false
   gem "vcr", require: false
   # ruby spec coverage

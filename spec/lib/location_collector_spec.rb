@@ -12,7 +12,9 @@ describe LocationCollector do
     context "state level params" do
       let(:params) { { state: "or" } }
 
-      it { should eq([state_location, city_location, neighborhood_location]) }
+      it "contains all three locations" do
+        expect(subject).to match_array([state_location, city_location, neighborhood_location])
+      end
     end
 
     context "city level params" do

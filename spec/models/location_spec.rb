@@ -39,33 +39,39 @@ describe Location do
   end
 
   describe "scopes" do
-    let!(:live_location) { Fabricate(:location, status: "Live") }
-    let!(:corp_location) { Fabricate(:location, status: "Pending", corporate: true) }
-    let!(:live_website) { Fabricate(:website, owner: live_location) }
+    let!(:live_location)    { Fabricate(:location, status: "Live", corporate: false) }
+    let!(:pending_location) { Fabricate(:location, status: "Pending", corporate: false) }
+    let!(:corp_location)    { Fabricate(:location, status: "Live", corporate: true) }
+
+    let!(:live_website)     { Fabricate(:website, owner: live_location) }
+    let!(:corp_website)     { Fabricate(:website, owner: corp_location) }
 
     describe "#default_scope" do
       subject { Location.all }
 
-      it { is_expected.to eq([corp_location, live_location]) }
+      it { is_expected.to eq([corp_location, live_location, pending_location]) }
     end
 
     describe "#corporate" do
       subject { Location.corporate }
-
       it { is_expected.to eq(corp_location) }
     end
 
     describe "#live" do
       subject { Location.live }
-
-      it { is_expected.to eq([live_location]) }
+      it { is_expected.to eq([corp_location, live_location]) }
     end
 
     describe "#live_websites" do
       subject { Location.live_websites }
-
-      it { is_expected.to eq([live_website]) }
+      it { is_expected.to eq([corp_website, live_website]) }
     end
+
+    describe "#for_area_pages" do
+      subject { Location.for_area_pages }
+      it { is_expected.to eq([live_location]) }
+    end
+
   end
 
   describe "#urn" do

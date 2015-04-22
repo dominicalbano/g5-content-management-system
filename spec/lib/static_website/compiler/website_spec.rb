@@ -10,6 +10,7 @@ describe StaticWebsite::Compiler::Website do
     before do
       StaticWebsite::Compiler::Javascript::Uploader.any_instance.stub(:compile) { true }
       StaticWebsite::Compiler::Stylesheet::Uploader.any_instance.stub(:compile) { true }
+      StaticWebsite::Compiler::Sitemap.any_instance.stub(:compile) {true}
     end
 
     it "compiles compile directory" do

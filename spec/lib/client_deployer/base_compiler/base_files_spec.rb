@@ -4,12 +4,10 @@ describe ClientDeployer::BaseCompiler::BaseFiles do
   let!(:client) { Fabricate(:client) }
   let(:website) { Fabricate(:website) }
   let(:htaccess) { double(compile: nil) }
-  let(:sitemap) { double(compile: nil) }
   let(:robots) { double(compile: nil) }
 
   before do
     ClientDeployer::BaseCompiler::HTAccess.stub(new: htaccess)
-    ClientDeployer::BaseCompiler::Sitemap.stub(new: sitemap)
     ClientDeployer::BaseCompiler::Robots.stub(new: robots)
   end
 
@@ -20,10 +18,6 @@ describe ClientDeployer::BaseCompiler::BaseFiles do
 
     it "compiles htaccess" do
       expect(htaccess).to have_received(:compile)
-    end
-
-    it "compiles sitemap" do
-      expect(sitemap).to have_received(:compile)
     end
 
     it "compiles robots" do

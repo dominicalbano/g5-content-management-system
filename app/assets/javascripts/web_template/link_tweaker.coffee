@@ -1,16 +1,18 @@
 $ ->
-  previewConfigs = JSON.parse($('#preview-configs').html())
+  config = $('#preview-configs')
 
-  $('body').delegate('a', 'click', ->
-    linkHref = $( this ).attr('href')
-
-    # Don't mess with anything if linkHref starts with "http" or "//" or already begins with urn
+  if config.length != 0
+    previewConfigs = JSON.parse(config.html())
     pattern = "^http|^\/\/|^" + previewConfigs.urn
-    if typeof linkHref != 'undefined' and !linkHref.match(new RegExp(pattern, 'i'))
-      if previewConfigs.corporate
-        previewHref = previewConfigs.slug_corporate + linkHref
-      else
-        previewHref = linkHref.replace("#{previewConfigs.slug}/",  "#{previewConfigs.urn}/#{previewConfigs.slug}/")
+    $('body').delegate('a', 'click', ->
+      linkHref = $( this ).attr('href')
 
-      $( this ).attr('href', previewHref)
-  )
+      # Don't mess with anything if linkHref starts with "http" or "//"
+      if typeof linkHref != 'undefined' and !linkHref.match(new RegExp(pattern, 'i'))
+        if previewConfigs.corporate
+          previewHref = previewConfigs.slug_corporate + linkHref
+        else
+          previewHref = linkHref.replace("#{previewConfigs.slug}/",  "#{previewConfigs.urn}/#{previewConfigs.slug}/")
+
+        $( this ).attr('href', previewHref)
+    )

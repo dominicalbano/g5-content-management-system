@@ -1,6 +1,7 @@
 module AreaPagesHelper
-  def area_preview(layout_html, web_template, locations, area)
-    html = base_html(layout_html, web_template)
+  def area_preview(web_layout, web_template, locations, area)
+    Rails.logger.debug("inside area_preview helper method with locations: #{locations.map(&:inspect)}")
+    html = base_html(web_layout, web_template)
     html_section = html.at_css("#drop-target-main")
     html_section.inner_html = AreaPageRenderer.new(locations, area).render
 

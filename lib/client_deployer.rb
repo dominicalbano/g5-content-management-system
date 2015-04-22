@@ -1,15 +1,19 @@
 require "static_website/compiler/compile_directory"
 require "static_website/compiler/area_pages"
 require "client_deployer/base_compiler"
+require "client_deployer/base_compiler/sitemap"
 require "client_deployer/website_compiler"
 
-LOGGERS = [Rails.logger, Resque.logger]
+LOGGERS = [Rails.logger, Resque.logger] unless defined? LOGGERS
 
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
     LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to base_compiler")}
     base_compiler(client).compile
-    area_pages(client.website.compile_path).compile
+    LOGGERS.each {|logger| logger.debug("ClientDeployer: Sending compile to AreaPages.new")}
+    area_page_paths = area_pages(client.website.compile_path).compile
+    LOGGERS.each {|logger| logger.debug("ClientDeployer:BaseCompiler::Sitemap with paths: #{area_page_paths.uniq.to_s}")}
+    ClientDeployer::BaseCompiler::Sitemap.new(client, area_page_paths.uniq).compile
     compile_location_websites
     deployer(client, user_email).deploy
     cleanup(client.website.compile_path)
@@ -26,7 +30,7 @@ module ClientDeployer
 
   def self.area_pages(compile_path)
     LOGGERS.each {|logger| logger.debug("in area_pages with compile_path: #{compile_path}")}
-    StaticWebsite::Compiler::AreaPages.new(compile_path, Location.live_websites)
+    StaticWebsite::Compiler::AreaPages.new(compile_path, Location.for_area_pages.map(&:website))
   end
 
   def self.compile_location_websites
