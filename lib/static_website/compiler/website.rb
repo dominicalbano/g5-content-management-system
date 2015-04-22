@@ -76,7 +76,7 @@ module StaticWebsite
       end
 
       def web_page_templates
-        @web_page_templates ||= WebTemplates.new(website.web_page_templates)
+        @web_page_templates ||= WebTemplates.new(website.web_page_templates.not_trash)
       end
 
       def area_pages
