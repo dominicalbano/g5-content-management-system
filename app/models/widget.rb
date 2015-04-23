@@ -120,7 +120,13 @@ class Widget < ActiveRecord::Base
   end
 
   def liquid_render(html, params)
-    Liquid::Template.parse(html).render(params)
+    begin
+      Liquid::Template.parse(html).render(params)
+    rescue => e
+      msg = "ERROR: Invalid Liquid for Widget ##{id} #{name} - #{e.message}"
+      write_to_loggers(msg)
+      msg
+    end
   end
 
   def liquid_widget_drop(preview=false)
