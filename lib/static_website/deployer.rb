@@ -75,11 +75,7 @@ module StaticWebsite
     end
 
     def commit_to_repo
-      area_page_css_path = File.join(Rails.root, 'public', ActionController::Base.helpers.asset_path("area_page.css"))
-      area_page_css_destination_path = @repo_dir + ActionController::Base.helpers.asset_path('area_page.css')
-
-      write_to_loggers("running fileutils.cp_r with: #{area_page_css_path} : #{area_page_css_destination_path}")
-      FileUtils.cp_r(area_page_css_path, area_page_css_destination_path)
+      commit_all_pages_to_repo
 
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME'])
@@ -88,6 +84,14 @@ module StaticWebsite
       repo.add('.')
       Rails.logger.debug("git committing all")
       repo.commit_all "Add compiled site"
+    end
+
+    def commit_all_pages_to_repo
+      helper = ActionController::Base.helpers
+      area_page_css_path = File.join(Rails.root, 'public', helper.asset_path("area_page.css"))
+      area_page_css_destination_path = @repo_dir + helper.asset_path('area_page.css')
+      write_to_loggers("running fileutils.cp_r with: #{area_page_css_path} : #{area_page_css_destination_path}")
+      FileUtils.cp_r(area_page_css_path, area_page_css_destination_path)
     end
 
     def should_retry?
