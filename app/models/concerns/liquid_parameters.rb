@@ -50,6 +50,8 @@ module LiquidParameters
       "location_pinterest_id"     => location.pinterest_id,
       "location_instagram_id"     => location.instagram_id,
       "location_youtube_id"       => location.youtube_id,
+      "location_office_hours"     => location.office_hours,
+      "location_access_hours"     => location.access_hours,
       "client_name"               => client.name,
       "client_name_slug"          => client.name.parameterize,
       "client_domain"             => client.domain,
