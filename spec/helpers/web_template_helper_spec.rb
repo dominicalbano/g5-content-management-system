@@ -3,7 +3,7 @@ require "spec_helper"
 describe WebTemplatesHelper, vcr: VCR_OPTIONS do
   let!(:client) {Fabricate(:client)}
   let(:website) { Fabricate(:website) }
-  let(:website_template) { Fabricate(:website_template) }
+  let(:website_template) { Fabricate(:website_template, website: website) }
   let(:web_layout) { Fabricate(:web_layout) }
   let(:web_theme) { Fabricate(:web_theme) }
   let(:web_home_template) { Fabricate(:web_home_template) }
@@ -22,7 +22,7 @@ describe WebTemplatesHelper, vcr: VCR_OPTIONS do
   end
 
   describe "preview" do
-    let(:preview) { helper.preview(web_layout, web_home_template) }
+    let(:preview) { helper.preview(web_home_template) }
 
     it "has layout in html" do
       preview.should match /layout/

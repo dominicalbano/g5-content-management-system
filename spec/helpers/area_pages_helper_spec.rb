@@ -25,7 +25,7 @@ describe AreaPagesHelper, vcr: VCR_OPTIONS do
   describe "#area_preview" do
     let(:locations) { [Fabricate(:location)] }
     let(:area) { "Bend, Oregon" }
-    let(:preview) { helper.area_preview(web_layout, web_home_template, locations, area) }
+    let(:preview) { helper.area_preview(web_home_template, locations, area) }
 
     it "has layout in html" do
       preview.should match /layout/

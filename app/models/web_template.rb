@@ -75,16 +75,16 @@ class WebTemplate < ActiveRecord::Base
     show_javascripts + lib_javascripts + website_template_javascripts
   end
 
-  def layout_html
+  def web_template_layout_html
     web_theme_layout_html || website_layout.html
   end
 
   def web_theme_layout_html
-    garden_theme = website_template.web_theme.garden_web_theme
+    garden_theme = website_template.try(:web_theme).try(:garden_web_theme)
     begin
       open(garden_theme.layouts[0]).read unless garden_theme.layouts[0].blank?
     rescue OpenURI::HTTPError
-    end
+    end if garden_theme
   end
 
   def stylesheets_compiler
