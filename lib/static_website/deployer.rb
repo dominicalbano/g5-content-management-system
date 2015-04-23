@@ -1,5 +1,7 @@
 require "static_website/compiler"
 
+LOGGERS = [Rails.logger, Resque.logger] unless defined? LOGGERS
+
 module StaticWebsite
   class Deployer
     attr_reader :website, :compile_path, :retries
@@ -68,13 +70,20 @@ module StaticWebsite
       write_to_loggers("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
+      FileUtils.mkdir(File.join(@repo_dir, "assets"))
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
     end
 
     def commit_to_repo
+      area_page_css_path = File.join(Rails.root, 'public', ActionController::Base.helpers.asset_path("area_page.css"))
+      area_page_css_destination_path = @repo_dir + ActionController::Base.helpers.asset_path('area_page.css')
+
+      write_to_loggers("running fileutils.cp_r with: #{area_page_css_path} : #{area_page_css_destination_path}")
+      FileUtils.cp_r(area_page_css_path, area_page_css_destination_path)
+
       Rails.logger.debug("git config name, email")
-      repo.config('user.name', ENV['HEROKU_APP_NAME']) 
-      repo.config('user.email', ENV['HEROKU_APP_NAME']) 
+      repo.config('user.name', ENV['HEROKU_APP_NAME'])
+      repo.config('user.email', ENV['HEROKU_APP_NAME'])
       # commit changes
       repo.add('.')
       Rails.logger.debug("git committing all")

@@ -3,9 +3,9 @@ require "static_website/compiler/sitemap_compiler"
 module ClientDeployer
   module BaseCompiler
     class Sitemap
-      def initialize(client)
+      def initialize(client, area_pages=[])
         @client = client
-        @compile_directory = StaticWebsite::Compiler::SitemapCompiler.new(compile_path, false, Website.location_websites)
+        @compile_directory = StaticWebsite::Compiler::SitemapCompiler.new(compile_path, false, Website.location_websites, area_pages)
       end
 
       def compile

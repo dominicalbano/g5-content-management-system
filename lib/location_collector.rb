@@ -29,7 +29,7 @@ private
 
   def locations_by_state
     write_to_loggers("getting Location.live.all.select by state: #{@params.to_s}")
-    locations = Location.live.all.select { |location| location.state_slug == @params[:state] }
+    locations = Location.for_area_pages.all.select { |location| location.state_slug == @params[:state] }
     write_to_loggers("got locations: #{locations.map(&:name)}")
     locations
   end

@@ -106,3 +106,4 @@ class Website < ActiveRecord::Base
     @client ||= Client.first
   end
 end
+

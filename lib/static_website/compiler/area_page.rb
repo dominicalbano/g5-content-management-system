@@ -12,6 +12,7 @@ module StaticWebsite
         compile_directory.compile
         write_to_loggers("calling render_to_file")
         render_to_file
+        compile_path.split(@base_path)[1]
       end
 
       def compile_directory
@@ -21,7 +22,7 @@ module StaticWebsite
       def render_to_file
         write_to_loggers("opening compile_path #{compile_path}")
         open(compile_path, "wb") do |file|
-          write_to_loggers("view path #{view_path}\nabout to try to render to string from #{view_path} with options")
+          write_to_loggers("about to try to render to string from #{view_path} with options")
           file << ApplicationController.new.render_to_string(view_path, view_options)
         end if compile_path
       end
@@ -41,12 +42,7 @@ module StaticWebsite
       end
 
       def view_options
-        write_to_loggers(%Q(
-          creating view_options hash
-          going to call LocationCollector.new with #{@params} and then .collect
-          setting web_template to: #{corporate_location.website.website_template.to_s}
-          setting area to: #{area.to_s}
-          ))
+        write_to_loggers("creating view_options hash")
         options = { layout: "web_template",
           locals: {
             locations: LocationCollector.new(@params).collect,

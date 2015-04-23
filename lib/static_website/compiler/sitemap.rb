@@ -2,9 +2,9 @@ module StaticWebsite
   module Compiler
     class Sitemap
 
-      def initialize(website)
+      def initialize(website, area_pages=[])
         @website = website
-        @compile_directory = SitemapCompiler.new(compile_path, false, [@website])
+        @compile_directory = SitemapCompiler.new(compile_path, false, [@website], area_pages)
       end
 
       def compile

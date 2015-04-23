@@ -1,6 +1,5 @@
 class AreaPageRenderer
   def initialize(locations, area)
-    Resque.logger.debug("Intitializing AreaPageRenderer with(locations,area): #{locations}, #{area}")
     @locations = locations
     @area = area
   end
