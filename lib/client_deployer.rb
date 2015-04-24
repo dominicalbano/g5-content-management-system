@@ -7,8 +7,8 @@ require "client_deployer/website_compiler"
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
     compile_base_compiler(client)
-    area_pages_paths = compile_area_pages(client)
-    compile_sitemap(client, area_pages_paths)
+    area_page_paths = compile_area_pages(client)
+    compile_sitemap(client, area_page_paths)
     compile_location_websites
     deployer(client, user_email).deploy
     cleanup(client.website.compile_path)
@@ -38,7 +38,7 @@ module ClientDeployer
     area_page_paths = area_pages(client.website.compile_path).compile
   end
 
-  def self.compile_sitemap(client, area_pages_paths)
+  def self.compile_sitemap(client, area_page_paths)
     write_to_loggers("ClientDeployer:BaseCompiler::Sitemap with paths: #{area_page_paths.uniq.to_s}")
     ClientDeployer::BaseCompiler::Sitemap.new(client, area_page_paths.uniq).compile
   end
