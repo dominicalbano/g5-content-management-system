@@ -92,8 +92,8 @@ private
     location.pinterest_id           = uf2_location.try(:g5_nickname_pinterest).to_s
     location.instagram_id           = uf2_location.try(:g5_nickname_instagram).to_s
     location.youtube_id             = uf2_location.try(:g5_nickname_youtube).to_s
-    location.office_hours           = uf2_location.try(:g5_office_hours).to_s
-    location.access_hours           = uf2_location.try(:g5_access_hours).to_s
+    location.office_hours           = uf2_location.try(:g5_office_hour).to_s
+    location.access_hours           = uf2_location.try(:g5_access_hour).to_s
     location.save
   end
 
