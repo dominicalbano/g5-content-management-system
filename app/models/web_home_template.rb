@@ -17,7 +17,7 @@ class WebHomeTemplate < WebTemplate
 
   def htaccess_substitution
     if single_domain?
-      website.single_domain_location_path
+      ["/", website.single_domain_location_path, "/"].join
     else
       relative_path
     end
