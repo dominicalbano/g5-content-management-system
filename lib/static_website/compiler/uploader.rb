@@ -46,8 +46,7 @@ module StaticWebsite
       end
 
       def to_path(from_path)
-        filename = File.basename(from_path)
-        to_path = File.join("#{location.bucket_asset_key_prefix}/#{data_dir}", filename)
+        File.join("#{location.bucket_asset_key_prefix}/#{data_dir}", File.basename(from_path))
       end
 
       protected
