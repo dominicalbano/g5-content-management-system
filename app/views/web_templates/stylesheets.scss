@@ -1,8 +1,8 @@
-@import "normalize";
-@import "base";
+@import "stylesheets/normalize";
+@import "stylesheets/base";
 
 .dxm {
-  background: url(https://s3.amazonaws.com/themes.g5dxm.com/shared/dxm.png) no-repeat;
+  background: url("https://s3.amazonaws.com/themes.g5dxm.com/shared/dxm.png") no-repeat;
   display: inline-block;
   height: 23px;
   overflow: hidden;
