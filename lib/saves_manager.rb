@@ -1,5 +1,6 @@
 class SavesManager
   FOLDER_NAME = "db-backups"
+  SAVES_LIMIT=100
 
   def initialize(user_email)
     @user_email = user_email.parameterize
@@ -7,12 +8,7 @@ class SavesManager
 
 
   def fetch_all
-    items = bucket_target_branch_children.select do |leaf|
-      leaf.key if leaf.key =~ /.+\.dump\z/
-    end.map do |leaf|
-      { id: leaf.key.split('/').last.rpartition('.').first,
-        created_at: leaf.object.last_modified }
-    end.sort {|a,b| b[:created_at] <=> a[:created_at]}
+    sort_bucket_children_by_date
   rescue => e
     Rails.logger.warn e.message
     []
@@ -40,12 +36,40 @@ class SavesManager
 
   private
 
+  def sort_bucket_children_by_date(limit=SAVES_LIMIT)
+    sort_bucket_children(limit).map do |item|
+      leaf = item[:leaf]
+      { id: parse_bucket_name(leaf).rpartition('.').first,
+        created_at: leaf.object.last_modified }
+    end.sort {|a,b| b[:created_at] <=> a[:created_at]}
+  end
+
+  def sort_bucket_children(limit=SAVES_LIMIT)
+    bucket_children.map do |leaf|
+      { leaf: leaf, file_name: strip_bucket_name(leaf)}
+    end.sort { |a,b| b[:file_name] <=> a[:file_name] }.take(limit)
+  end
+
+  def strip_bucket_name(leaf)
+    parse_bucket_name(leaf).split('-com-').try(:second) || bucket_name
+  end
+
+  def parse_bucket_name(leaf)
+    leaf.key.split('/').last
+  end
+
   def bucket_target_branch_children
     s3_bucket.as_tree(prefix: backups_path).children
   end
 
   def backups_path
     "#{prefix}/#{FOLDER_NAME}"
+  end
+
+  def bucket_children
+    bucket_target_branch_children.select do |leaf|
+      leaf.key if leaf.key =~ /.+\.dump\z/
+    end
   end
 
   def bucket_backups_full_path
