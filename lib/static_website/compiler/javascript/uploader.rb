@@ -18,16 +18,6 @@ module StaticWebsite
         def data_dir
           "javascripts"
         end
-
-        private
-
-        def s3_bucket_update(from_path, path, write_options)
-          path = Pathname.new(from_path)
-          write_to_loggers("writing to bucket\n#{from_path.to_s}\n#{path.to_s}\n#{write_options.to_s}")
-          result = s3_bucket_object(from_path).write(path, write_options)
-          write_to_loggers(result.inspect)
-          File.join(bucket_url.to_s, to_path(from_path).to_s)
-        end
       end
     end
   end

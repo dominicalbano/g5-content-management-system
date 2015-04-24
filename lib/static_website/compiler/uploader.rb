@@ -18,7 +18,7 @@ module StaticWebsite
       end
 
       def s3_bucket
-        @s3_bucket ||= s3.buckets[bucket_name].exists? ? s3.buckets[bucket_name] : s3.buckets.create(bucket_name)
+        @s3_bucket ||= s3.buckets[@bucket_name].exists? ? s3.buckets[@bucket_name] : s3.buckets.create(@bucket_name)
       end
 
       def s3_bucket_object
@@ -28,7 +28,7 @@ module StaticWebsite
       def compile
         write_to_loggers("Writing assets to S3")
         @uploaded_paths = from_paths.inject([]) do |arr, from_path|
-          arr << s3_bucket_update(from_path, path, write_options)
+          arr << s3_bucket_update(from_path, write_options)
           arr
         end
       end
@@ -56,8 +56,16 @@ module StaticWebsite
         @s3_bucket_name_manager ||= S3BucketNameManager.new(location)
       end
 
+      def s3_bucket_update(from_path, write_options)
+        path = Pathname.new(from_path)
+        write_to_loggers("writing to bucket\n#{from_path.to_s}\n#{path.to_s}\n#{write_options.to_s}")
+        result = s3_bucket_object(from_path).write(path, write_options)
+        write_to_loggers(result.inspect)
+        File.join(@bucket_url.to_s, to_path(from_path).to_s)
+      end
+
       def location
-        Location.where(name: @location_name).first
+        @location ||= Location.where(name: @location_name).first
       end
     end
   end
