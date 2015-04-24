@@ -35,7 +35,7 @@ module ClientDeployer
 
   def self.compile_area_pages(client)
     write_to_loggers("ClientDeployer: Sending compile to AreaPages.new")
-    area_page_paths = area_pages(client.website.compile_path).compile
+    area_pages(client.website.compile_path).compile
   end
 
   def self.compile_sitemap(client, area_page_paths)
