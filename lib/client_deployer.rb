@@ -18,7 +18,7 @@ module ClientDeployer
     ClientDeployer::BaseCompiler.new(client)
   end
 
-  def self.compile_base_compiler
+  def self.compile_base_compiler(client)
     write_to_loggers("ClientDeployer: Sending compile to base_compiler")
     base_compiler(client).compile
   end
