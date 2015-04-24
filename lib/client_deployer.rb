@@ -6,7 +6,7 @@ require "client_deployer/website_compiler"
 
 module ClientDeployer
   def self.compile_and_deploy(client, user_email)
-    compile_base_compiler
+    compile_base_compiler(client)
     area_pages_paths = compile_area_pages(client)
     compile_sitemap(client, area_pages_paths)
     compile_location_websites
