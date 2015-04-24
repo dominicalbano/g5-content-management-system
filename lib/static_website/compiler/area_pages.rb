@@ -8,12 +8,14 @@ module StaticWebsite
         @base_path = base_path
         @websites = websites
         @pages = []
+        @client = Client.first
       end
 
       def compile
         states.each do |state|
           LOGGERS.each {|logger| logger.debug("compiling state #{state.to_s}")}
-          compile_area_page(state, params(state))
+          path = "#{vertical}/#{state}"
+          compile_area_page(path, params(state))
           LOGGERS.each {|logger| logger.debug("calling compile_cities_for_state(#{state.to_s})")}
           compile_cities_for_state(state)
         end
@@ -25,7 +27,7 @@ module StaticWebsite
       def compile_cities_for_state(state)
         cities_for_state(state).each do |city|
           LOGGERS.each {|logger| logger.debug("compiling city #{city.to_s}")}
-          compile_area_page("#{state}/#{city}", params(state, city))
+          compile_area_page("#{vertical}/#{state}/#{city}", params(state, city))
           LOGGERS.each {|logger| logger.debug("compiling neighborhoods for #{city.to_s} and #{state.to_s}")}
           compile_neighborhoods_for_city_and_state(city, state)
         end
@@ -33,7 +35,7 @@ module StaticWebsite
 
       def compile_neighborhoods_for_city_and_state(city, state)
         neighborhoods_for_city(city).each do |neighborhood|
-          path = "#{state}/#{city}/#{neighborhood}"
+          path = "#{vertical}/#{state}/#{city}/#{neighborhood}"
           compile_area_page(path, params(state, city, neighborhood))
         end
       end
@@ -41,6 +43,10 @@ module StaticWebsite
       def compile_area_page(path, params)
         LOGGERS.each {|logger| logger.debug("calling AreaPage.new().compile")}
         pages << AreaPage.new(@base_path, path, params).compile.sub("/index.html",'')
+      end
+
+      def vertical
+        @client.vertical.downcase
       end
 
       def states
