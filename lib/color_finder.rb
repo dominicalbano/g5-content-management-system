@@ -4,6 +4,7 @@ class ColorFinder
 
   def initialize(location=nil)
     @location = location
+    @website = location.try(:website)
   end
 
   def primary_color
@@ -18,7 +19,7 @@ class ColorFinder
 
   def location_primary_color
     return unless valid?
-    web_theme.custom_primary_color || web_theme.garden_web_theme.primary_color
+    web_theme.try(:custom_primary_color) || web_theme.try(:garden_web_theme).try(:primary_color)
   end
 
   def calculate_hover_color(base_color)
@@ -31,10 +32,10 @@ class ColorFinder
   end
 
   def web_theme
-    @web_theme ||= @location.website.website_template.web_theme
+    @web_theme ||= @website.try(:website_template).try(:web_theme)
   end
 
   def valid?
-    @location && @location.website && @location.website.website_template
+    @location && @website && @website.try(:website_template)
   end
 end
