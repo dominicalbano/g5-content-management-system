@@ -13,7 +13,7 @@ class Api::V1::Seeders::SeederController < Api::V1::ApplicationController
     response = serializer.new(nil).get_yaml_files.inject([]) do |arr, file|
       arr << file unless prefix.match(file).blank?
       arr
-    end unless serializer.blank? || pattern.blank?
+    end unless serializer.blank?
     json = response_to_json(response)
     render json: json || {}, status: (json.blank? ? 422 : 200)
   end

@@ -3,43 +3,43 @@ class WebsiteTemplate < WebTemplate
     widgets.not_meta_description
   end
 
-  def drop_target_widgets(html_id)
+  def widgets_for_drop_target_type(html_id)
     drop_targets.where(html_id: "drop-target-#{html_id}").first.try(:widgets) || []
   end
 
   # TODO: remove when Ember App implements DropTarget
   def head_widgets
-    drop_target_widgets('head')
+    widgets_for_drop_target_type('head')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def logo_widgets
-    drop_target_widgets('logo')
+    widgets_for_drop_target_type('logo')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def btn_widgets
-    drop_target_widgets('btn')
+    widgets_for_drop_target_type('btn')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def nav_widgets
-    drop_target_widgets('nav')
+    widgets_for_drop_target_type('nav')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def footer_widgets
-    drop_target_widgets('footer')
+    widgets_for_drop_target_type('footer')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_before_main_widgets
-    drop_target_widgets('aside-before-main')
+    widgets_for_drop_target_type('aside-before-main')
   end
 
   # TODO: remove when Ember App implements DropTarget
   def aside_after_main_widgets
-    drop_target_widgets('aside-after-main')
+    widgets_for_drop_target_type('aside-after-main')
   end
 
   def stylesheets
