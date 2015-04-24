@@ -35,14 +35,14 @@ class Api::V1::Seeders::ContentStripesController < Api::V1::Seeders::SeederContr
   end
 
   def get_widget_by_id(id)
-    w = Widget.find(id)
-    is_content_stripe?(w) ? w : nil
+    w = Widget.find_by_id(id)
+    w.try(:kind_of_widget?, 'content-stripe') ? w : nil
   end
 
   def get_widget_by_index(index)
-    cs = web_template.widgets.select { |w| is_content_stripe?(w) } if web_template
+    cs = web_template.widgets.select { |w| w.kind_of_widget?('Content Stripe') } if web_template
     if (cs && cs.size >= index)
-      return cs[index-1] if is_content_stripe?(cs[index-1])
+      return cs[index-1] if cs[index-1].try(:kind_of_widget?, 'Content Stripe')
     end
   end
 end
