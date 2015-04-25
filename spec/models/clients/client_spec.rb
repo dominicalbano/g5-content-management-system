@@ -23,22 +23,6 @@ describe Client do
   describe "instance methods" do
     let(:client) {Fabricate(:client)}
 
-    describe "#deploy" do
-      it "calls StaticWebsiteDeployerJob with urn" do
-        ClientDeployerJob.should_receive(:perform).once
-        client.deploy
-      end
-    end
-
-    describe "#async_deploy" do
-      it "enqueues StaticWebsiteDeployerJob with urn" do
-        user_email = "user@email.com"
-        Resque.stub(:enqueue)
-        Resque.should_receive(:enqueue).with(ClientDeployerJob, user_email).once
-        client.async_deploy(user_email)
-      end
-    end
-
     describe "#create_bucket" do
       it "sends self to the bucket creator" do
         client = Fabricate(:client)
