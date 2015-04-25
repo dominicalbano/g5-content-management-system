@@ -4,7 +4,7 @@ module StaticWebsite
       attr_reader :path
 
       def initialize(path, directory=true)
-        LOGGERS.each{|logger| logger.info("Initializing StaticWebsite::Compiler::CompileDirectory with path: #{path}, directory: #{directory}")}
+        LOGGERS.each{|logger| logger.debug("Initializing StaticWebsite::Compiler::CompileDirectory with path: #{path}, directory: #{directory}")}
         @path = directory ? path : directory_path(path)
       end
 
@@ -14,7 +14,7 @@ module StaticWebsite
 
       def compile
         if @path && !Dir.exists?(@path)
-          LOGGERS.each { |logger| logger.info("#{self.class.to_s}##{__method__.to_s} Making directory: #{@path}") }
+          LOGGERS.each { |logger| logger.debug("#{self.class.to_s}##{__method__.to_s} Making directory: #{@path}") }
           FileUtils.mkdir_p(@path)
         end
       end

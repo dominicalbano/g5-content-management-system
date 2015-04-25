@@ -16,9 +16,12 @@ class WebPageTemplate < WebTemplate
   end
 
   def relative_path
-    return slug if website.corporate? || single_domain?
-
-    File.join(client.vertical_slug, owner.state_slug, owner.city_slug, slug)
+    if single_domain?
+      File.join(website.single_domain_location_path, slug)
+    else
+      return slug if website.corporate?
+      File.join(client.vertical_slug, owner.state_slug, owner.city_slug, slug)
+    end
   end
 
   def preview_url

@@ -91,7 +91,10 @@ module StaticWebsite
 
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME']) 
-      repo.config('user.email', ENV['HEROKU_APP_NAME']) 
+      repo.config('user.email', ENV['HEROKU_APP_NAME'])
+
+      # Update deploy date. Useful to make sure our commit pushes
+      File.open(File.join(@repo_dir, '.publish_timestamp'), 'w') { |file| file.write(DateTime.now) }
 
       # commit changes
       repo.add('.')
