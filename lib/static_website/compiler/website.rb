@@ -7,6 +7,9 @@ require "static_website/compiler/area_pages"
 require "static_website/compiler/htaccess"
 require "static_website/compiler/sitemap"
 require "static_website/compiler/robots"
+require "client_deployer/base_compiler/htaccess"
+require "client_deployer/base_compiler/robots"
+require "client_deployer/base_compiler/sitemap"
 
 module StaticWebsite
   module Compiler
@@ -25,11 +28,11 @@ module StaticWebsite
         CompileDirectory.new(File.join(compile_path, "stylesheets")).clean_up
         web_home_template.compile
         web_page_templates.compile
-        area_pages.compile if website.owner.corporate?
-        if (!website.single_domain_location? or website.owner.corporate?)
-          Sitemap.new(website, area_page_directories).compile
+        if website.owner.corporate?
           htaccess.compile
           robots.compile
+          area_pages.compile
+          sitemap.compile
         end
       end
 
@@ -58,7 +61,7 @@ module StaticWebsite
       end
 
       def area_pages
-        @area_pages ||= AreaPages.new(website.compile_path, ::Location.for_area_pages.map(&:website))
+          @area_pages ||= AreaPages.new(website.compile_path, ::Location.for_area_pages.map(&:website))
       end
 
       def area_page_directories
@@ -66,14 +69,31 @@ module StaticWebsite
       end
 
       def htaccess
-        @htaccess ||= HTAccess.new(website)
+        if website.single_domain_location?
+          @htaccess ||= ClientDeployer::BaseCompiler::HTAccess.new(client)
+        else
+          @htaccess ||= StaticWebsite::Compiler::HTAccess.new(website)
+        end
       end
 
       def sitemap
+        if website.single_domain_location?
+          @sitemap ||= ClientDeployer::BaseCompiler::Sitemap.new(client, area_page_directories)
+        else
+          @sitemap ||= StaticWebsite::Compiler::Sitemap.new(website, area_page_directories)
+        end
       end
 
       def robots
-        @robots ||= Robots.new(website)
+        if website.single_domain_location?
+          @robots ||= ClientDeployer::BaseCompiler::Robots.new(client)
+        else
+          @robots ||= StaticWebsite::Compiler::Robots.new(website)
+        end
+      end
+
+      def client
+        @client ||= Client.first
       end
     end
   end
