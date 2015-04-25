@@ -8,9 +8,8 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each {|logger| logger.debug("calling compile_directory.compile with compile_path #{compile_path}")}
         compile_directory.compile
-        LOGGERS.each {|logger| logger.debug("calling render_to_file")}
+        LOGGERS.each {|logger| logger.info("calling render_to_file")}
         render_to_file
         compile_path.split(@base_path)[1]
       end
@@ -20,9 +19,9 @@ module StaticWebsite
       end
 
       def render_to_file
-        LOGGERS.each {|logger| logger.debug("opening compile_path #{compile_path}")}
+        LOGGERS.each {|logger| logger.info("opening compile_path #{compile_path}")}
         open(compile_path, "wb") do |file|
-          LOGGERS.each {|logger| logger.debug("about to try to render to string from #{view_path} with options")}
+          LOGGERS.each {|logger| logger.info("Render to string from view_path=#{view_path} with options=#{view_options}")}
           file << ApplicationController.new.render_to_string(view_path, view_options)
         end if compile_path
       end

@@ -8,12 +8,12 @@ module StaticWebsite
   end
 
   def self.compile(website)
-    LOGGERS.each{|logger| logger.info("Compiling website")}
+    LOGGERS.each{|logger| logger.info("Compiling: #{website.urn}")}
     Compiler.new(website).compile
   end
 
   def self.deploy(website, user_email)
-    LOGGERS.each{|logger| logger.info("Deploying website")}
+    LOGGERS.each{|logger| logger.info("Deploying website: #{website.urn}")}
     Deployer.new(website, user_email).deploy
   end
 end

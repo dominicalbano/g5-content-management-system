@@ -19,19 +19,16 @@ module StaticWebsite
       end
 
       def compile
-        compile_directory.compile
-        clean_up
+        LOGGERS.each{|logger| logger.info("Static Website Compiler: Location: #{location_name}")}
+        compile_directory.clean_up
         stylesheets.compile
+        CompileDirectory.new(File.join(compile_path, "stylesheets")).clean_up
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
         Sitemap.new(website, area_page_directories).compile
         htaccess.compile
         robots.compile
-      end
-
-      def clean_up
-        compile_directory.clean_up
       end
 
       def compile_directory

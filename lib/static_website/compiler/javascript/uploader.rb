@@ -13,7 +13,8 @@ module StaticWebsite
           @s3 = AWS::S3.new(
             access_key_id: ENV["AWS_ACCESS_KEY_ID"],
             secret_access_key: ENV["AWS_SECRET_ACCESS_KEY"],
-            region: ENV["AWS_REGION"] || "us-west-2"
+            region: ENV["AWS_REGION"] || "us-west-2",
+            :logger => nil
           )
 
           unless @location_name.empty?
@@ -24,11 +25,10 @@ module StaticWebsite
 
         def compile
           @uploaded_paths = []
-          LOGGERS.each{|logger| logger.debug("Writing js assets to S3")}
           from_paths.each do |from_path|
+            LOGGERS.each{|logger| logger.info("Writing #{from_path} to S3")}
             #write with a metadata flag of status: current
             path = Pathname.new(from_path)
-            LOGGERS.each{|logger| logger.debug("writing to bucket")}
             LOGGERS.each{|logger| logger.debug("#{from_path.to_s}")}
             LOGGERS.each{|logger| logger.debug("#{path.to_s}")}
             LOGGERS.each{|logger| logger.debug("#{write_options.to_s}")}

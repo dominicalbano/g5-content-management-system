@@ -12,6 +12,7 @@ module StaticWebsite
       end
 
       def compile
+        LOGGERS.each{|logger| logger.info("Rending HTML for #{compile_path}")}
         compile_directory.compile
         render_to_file
       end

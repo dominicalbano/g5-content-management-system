@@ -13,13 +13,8 @@ module StaticWebsite
       end
 
       def compile
-        LOGGERS.each{|logger| logger.debug("about to call compile_directory.compile")}
         compile_directory.compile
-        LOGGERS.each{|logger| logger.debug("done calling compile_directory.compile")}
-        LOGGERS.each{|logger| logger.debug("about to write_to_file")}
-        result = write_to_file
-        LOGGERS.each{|logger| logger.debug("done write_to_file")}
-        result
+        write_to_file
       end
 
       def compile_directory
@@ -29,9 +24,8 @@ module StaticWebsite
       private
 
       def write_to_file
-        LOGGERS.each{|logger| logger.debug("opening #{compile_path}")}
+        LOGGERS.each{|logger| logger.info("  Shoveling contents of #{remote_path} into #{compile_path}")}
         open(compile_path, "wb") do |file|
-          LOGGERS.each{|logger| logger.debug("shoveling contents of #{remote_path} into #{compile_path}")}
           file << read_remote(remote_path)
         end if compile_path
       rescue OpenURI::HTTPError => e
