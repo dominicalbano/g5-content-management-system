@@ -26,9 +26,11 @@ module StaticWebsite
         web_home_template.compile
         web_page_templates.compile
         area_pages.compile if website.owner.corporate?
-        Sitemap.new(website, area_page_directories).compile
-        htaccess.compile
-        robots.compile
+        if (!website.single_domain_location? or website.owner.corporate?)
+          Sitemap.new(website, area_page_directories).compile
+          htaccess.compile
+          robots.compile
+        end
       end
 
       def compile_directory

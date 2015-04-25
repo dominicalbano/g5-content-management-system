@@ -48,7 +48,8 @@ module StaticWebsite
     end
 
     def deployer_options
-      { github_repo: @website.github_repo,
+      {
+          github_repo: source_repo,
         heroku_app_name: @website.heroku_app_name,
         heroku_repo: @website.heroku_repo,
         git_url: @website.github_repo,
@@ -57,14 +58,27 @@ module StaticWebsite
       }
     end
 
+    def copy_path
+      if website.single_domain_location?
+        Client.first.website.compile_path
+      else
+        compile_path
+      end
+    end
+
+    def source_repo
+      #TODO: Test this for an app that has never been deployed before.
+      @website.heroku_repo
+    end
+
     def cp_r_compile_path(repo)
       # save repo dir so we can remove it later
       @repo_dir = repo.dir.to_s
       LOGGERS.each{|logger| logger.info("Repo dir: #{@repo_dir}")}
 
       # copy static website into repo
-      LOGGERS.each{|logger| logger.info("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")}
-      FileUtils.cp_r(compile_path + "/.", @repo_dir)
+      LOGGERS.each{|logger| logger.info("running fileutils.cp_r with: #{copy_path} + '/.' + #{@repo_dir}")}
+      FileUtils.cp_r(copy_path + "/.", @repo_dir)
 
       if website.owner.corporate?
         FileUtils.mkdir(File.join(@repo_dir, "assets"))
