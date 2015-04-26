@@ -87,7 +87,11 @@ class Website < ActiveRecord::Base
   end
 
   def single_domain_location_path
-    "#{single_domain_location_base_path}/#{slug}"
+    if corporate?
+      "/"
+    else
+      "#{single_domain_location_base_path}/#{slug}"
+    end
   end
 
   def single_domain_location_base_path
@@ -106,4 +110,3 @@ class Website < ActiveRecord::Base
     @client ||= Client.first
   end
 end
-

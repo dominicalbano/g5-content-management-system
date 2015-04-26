@@ -28,12 +28,10 @@ module StaticWebsite
         CompileDirectory.new(File.join(compile_path, "stylesheets")).clean_up
         web_home_template.compile
         web_page_templates.compile
-        if website.owner.corporate?
-          htaccess.compile
-          robots.compile
-          area_pages.compile
-          sitemap.compile
-        end
+        htaccess.compile unless website.single_domain_location? and !website.owner.corporate?
+        robots.compile unless website.single_domain_location? and !website.owner.corporate?
+        area_pages.compile if website.owner.corporate?
+        sitemap.compile unless website.single_domain_location? and !website.owner.corporate?
       end
 
       def compile_directory

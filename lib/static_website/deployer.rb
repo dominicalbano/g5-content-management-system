@@ -81,7 +81,7 @@ module StaticWebsite
       FileUtils.cp_r(copy_path + "/.", @repo_dir)
 
       if website.owner.corporate?
-        FileUtils.mkdir(File.join(@repo_dir, "assets"))
+        FileUtils.mkdir(File.join(@repo_dir, "assets")) unless Dir.exists?(File.join(@repo_dir, "assets"))
         FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
         area_page_css_path = File.join(Rails.root, 'public', ActionController::Base.helpers.asset_path("area_page.css"))
         area_page_css_destination_path = @repo_dir + ActionController::Base.helpers.asset_path('area_page.css')
