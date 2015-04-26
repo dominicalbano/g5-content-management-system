@@ -89,6 +89,8 @@ module StaticWebsite
         FileUtils.cp_r(area_page_css_path, area_page_css_destination_path)
       end
 
+      #TODO: Handle any deleted pages.
+
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME']) 
       repo.config('user.email', ENV['HEROKU_APP_NAME'])

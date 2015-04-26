@@ -28,9 +28,12 @@ module StaticWebsite
         CompileDirectory.new(File.join(compile_path, "stylesheets")).clean_up
         web_home_template.compile
         web_page_templates.compile
-        htaccess.compile unless website.single_domain_location? and !website.owner.corporate?
-        robots.compile unless website.single_domain_location? and !website.owner.corporate?
+        htaccess.compile
+        robots.compile
         area_pages.compile if website.owner.corporate?
+        #TODO: Sitemap *should* be updated any time single domain location is deployed.
+        #      But this would remove all area pages from sitemap. So for now we only
+        #      publish sitemap on single domain location when that location is corporate.
         sitemap.compile unless website.single_domain_location? and !website.owner.corporate?
       end
 
