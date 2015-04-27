@@ -60,11 +60,11 @@ module StaticWebsite
       write_to_loggers("Repo dir: #{@repo_dir}")
 
       # copy static website into repo
-      copy_to_repo
-      commit_to_repo
+      copy_to_repo(repo)
+      commit_to_repo(repo)
     end
 
-    def copy_to_repo
+    def copy_to_repo(repo)
       write_to_loggers("running fileutils.cp_r with: #{compile_path} + '/.' + #{@repo_dir}")
       FileUtils.cp_r(compile_path + "/.", @repo_dir)
       FileUtils.cp_r(File.join(Rails.root, "public", "javascripts") + "/.", @repo_dir + "/javascripts")
@@ -72,8 +72,8 @@ module StaticWebsite
       FileUtils.cp(File.join(Rails.root, "public", "area_page.js"), @repo_dir + "/javascripts/area_page.js")
     end
 
-    def commit_to_repo
-      commit_all_pages_to_repo
+    def commit_to_repo(repo)
+      commit_all_pages_to_repo(repo)
 
       Rails.logger.debug("git config name, email")
       repo.config('user.name', ENV['HEROKU_APP_NAME'])
@@ -84,10 +84,10 @@ module StaticWebsite
       repo.commit_all "Add compiled site"
     end
 
-    def commit_all_pages_to_repo
-      helper = ActionController::Base.helpers
-      area_page_css_path = File.join(Rails.root, 'public', helper.asset_path("area_page.css"))
-      area_page_css_destination_path = @repo_dir + helper.asset_path('area_page.css')
+    def commit_all_pages_to_repo(repo)
+      helper_asset_path = ActionController::Base.helpers.asset_path("area_page.css")
+      area_page_css_path = File.join(Rails.root, 'public', helper_asset_path)
+      area_page_css_destination_path = @repo_dir + helper_asset_path
       write_to_loggers("running fileutils.cp_r with: #{area_page_css_path} : #{area_page_css_destination_path}")
       FileUtils.cp_r(area_page_css_path, area_page_css_destination_path)
     end
