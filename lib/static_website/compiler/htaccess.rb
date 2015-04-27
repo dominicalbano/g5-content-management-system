@@ -53,7 +53,7 @@ module StaticWebsite
           "\tRewriteRule ^#{File.join(@web_home_template.client.vertical_slug, @web_home_template.owner.state_slug, @web_home_template.owner.city_slug)}/?$ #{@web_home_template.htaccess_substitution} [R=301,L]" ]
       end
 
-      def htacess_secure
+      def htaccess_secure
         [ "\tRewriteCond %{HTTPS} !=on",
           "\tRewriteCond %{HTTP:X-Forwarded-Proto} !https",
           "\tRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]" ]

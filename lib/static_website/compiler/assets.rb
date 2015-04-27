@@ -13,7 +13,7 @@ module StaticWebsite
       end
 
       def compressor
-        @compressor ||= asset_class::Compressor.new(@paths, compressed_path)
+        @compressor ||= asset_class::Compressor.new(@asset_paths, compressed_path)
       end
 
       def compressed_path
