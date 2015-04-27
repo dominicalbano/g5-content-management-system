@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150414224912) do
+ActiveRecord::Schema.define(version: 20150423224718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -158,6 +158,8 @@ ActiveRecord::Schema.define(version: 20150414224912) do
     t.string   "pinterest_id",          default: ""
     t.string   "instagram_id",          default: ""
     t.string   "youtube_id",            default: ""
+    t.string   "office_hours",          default: ""
+    t.string   "access_hours",          default: ""
   end
 
   add_index "locations", ["urn"], name: "index_locations_on_urn", using: :btree

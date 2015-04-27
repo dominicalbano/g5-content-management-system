@@ -78,6 +78,7 @@ private
     location = set_location_multifamily(location, uf2_location)
     location = set_location_social(location, uf2_location)
     location.save
+    location
   end
 
   def set_location_info(location, uf2_location)
@@ -99,6 +100,8 @@ private
     location.neighborhood           = addr_format.try(:g5_neighborhood).to_s
     location.postal_code            = addr_format.try(:postal_code).to_s
     location.phone_number           = addr_format.try(:tel).to_s
+    location.office_hours           = uf2_location.try(:g5_office_hour).to_s
+    location.access_hours           = uf2_location.try(:g5_access_hour).to_s
     location
   end
 
