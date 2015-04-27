@@ -41,13 +41,13 @@ module ClientDeployer
                                 "\tRewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]"]
         end
 
-        htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-d",
-                             "\tRewriteCond %{REQUEST_FILENAME} !-f",
-                             "</IfModule>",
-                             "SetEnvIfNoCase Referer semalt.com spammer=yes",
-                             "Order allow,deny",
-                             "Allow from all",
-                             "Deny from env=spammer"]
+        htaccess_contents << ["\tRewriteCond %{REQUEST_FILENAME} !-f",
+                              "RewriteRule ^([^\.]+)$ $1.html [NC,L]",
+                              "</IfModule>",
+                              "SetEnvIfNoCase Referer semalt.com spammer=yes",
+                              "Order allow,deny",
+                              "Allow from all",
+                              "Deny from env=spammer"]
         htaccess_contents.flatten.join("\n")
       end
 
