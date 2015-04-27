@@ -14,6 +14,13 @@
   - :html_id: drop-target-logo
     :widgets:
     - :slug: logo
+      :settings:
+      - :name: business_name
+        :value: "{{location_name}}"
+      - :name: display_logo
+        :value: 'true'
+      - :name: logo_url
+        :value: http://placehold.it/230x150/fff/000&text=LOGO
   - :html_id: drop-target-phone
     :widgets: []
   - :html_id: drop-target-btn
@@ -23,7 +30,7 @@
     - :slug: navigation
       :settings:
       - :name: display_navigation
-        :value: 'true'
+        :value: 'false'
       - :name: display_as_calls_to_action
         :value: 'false'
       - :name: display_corporate_navigation
@@ -31,122 +38,49 @@
   - :html_id: drop-target-aside-before-main
     :widgets:
     - :slug: contact-info-sheet
+      :settings:
+      - :name: contact_url
+        :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
     - :slug: promoted-reviews
+      :settings:
+      - :name: review_page_url
+        :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/reviews"
   - :html_id: drop-target-aside-after-main
     :widgets: []
   - :html_id: drop-target-footer
     :widgets:
     - :slug: contact-info
+      :settings:
+      - :name: location_name
+        :value: "{{location_name}}"
+      - :name: location_street_address
+        :value: "{{location_street_address}}"
+      - :name: location_city
+        :value: "{{location_city}}"
+      - :name: location_postal_code
+        :value: "{{location_postal_code}}"
+      - :name: location_tel
+        :value: "{{location_phone_number}}"
+      - :name: location_email
+        :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+      - :name: maps_url
+        :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
     - :slug: footer-info
 :web_home_template:
   :name: Home
-  :title: Storage Units in {{location_city}}, {{location_state}} | {{location_name}}
+  :title: "{{location_neighborhood}} {{location_city}} Self Storage | {{location_name}}"
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: 'Learn about {{location_name}} in {{location_city}} by visiting our
-          website today. '
+        :value: "{{location_name}} provides affordable, clean, secure {{location_city}}
+          {{location_main_keyword}} units. Learn more about our convenient location."
     - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: column
-        :row_count: two
-        :widgets:
-        - :slug: contact-info
-        - :slug: social-links
-    - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: single
-      :widgets:
-      - :slug: gallery
-    - :slug: content-stripe
-      :row_layout: halves
-      :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: map
-    - :slug: content-stripe
-      :row_layout: halves
-      :widgets:
-      - :slug: photo
-        :settings:
-        - :name: photo_source_url
-          :value: http://placehold.it/540x334
-      - :slug: social-feed
-:web_page_templates:
-- :name: Storage Units
-  :title: "{{location_floor_plans}} in {{location_city}}, {{location_state}} with
-    {{location_primary_amenity}}"
-  :drop_targets:
-  - :html_id: drop-target-main
-    :widgets:
-    - :slug: meta-description
-      :settings:
-      - :name: meta_description
-        :value: Are you looking for spacious 1 and 2 bedroom student storage units
-          in {{location_city}}? Visit {{location_name}}'s website for more information.
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: calls-to-action
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: column
-        :row_count: two
-        :widgets:
-        - :slug: multifamily-iui-cards
-        - :slug: html
-          :settings:
-          - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: column
-        :row_count: two
-        :widgets:
-        - :slug: contact-info
-        - :slug: social-links
-- :name: Amenities
-  :title: "{{location_city}}, {{location_state}} Storage Unit Amenities at {{location_name}}"
-  :drop_targets:
-  - :html_id: drop-target-main
-    :widgets:
-    - :slug: meta-description
-      :settings:
-      - :name: meta_description
-        :value: "{{location_name}} offers some of the nicest {{location_city}} storage
-          units."
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
-      :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: calls-to-action
-    - :slug: content-stripe
-      :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
         :row_count: two
@@ -154,72 +88,1679 @@
         - :slug: photo
           :settings:
           - :name: photo_source_url
-            :value: http://placehold.it/760x470
+            :value: http://placehold.it/2000x1200&text=Hero+Image
+          - :name: photo_alignment
+            :value: photo-block
+          - :name: photo_alt_tag
+            :value: Self storage in {{ location_city }} {{ location_state }}
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: home
+    - :slug: content-stripe
+      :row_css_custom: features-row
+      :row_layout: thirds
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-1%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
         - :slug: html
           :settings:
           - :name: text
-            :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-              odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
-              risus, commodo sit amet, viverra in, sagittis nec, justo.
+            :value: "<h4>Callout 1</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-1%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h4>Callout 2</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/320x220&text=Callout-1%7C320x220
+          - :name: photo_alignment
+            :value: photo-block
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h4>Callout 3</h4>\r\n\r\n<p>Lorem ipsum dolor sit amet, est
+              te volutpat torquatos, nibh sale vocent te vix. Mei cu illud quaeque,
+              probo veniam has cu, eu brute blandit praesent nec.</p>\r\n\r\n<p><a
+              href=\"#\">Read More</a></p>\r\n"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Welcome to {{location_name}}</h1>\r\n\r\n<h2>Build Notes:</h2>\r\n\r\n<p>Build
+              notes for Orion Themes:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-7193\"
+              target=\"_blank\">Theme / Blueprint Index (Hub)</a></p>\r\n\r\n<p>Build
+              notes for Orion Widgets:&nbsp;<a href=\"https://g5.jiveon.com/docs/DOC-6923\"
+              target=\"_blank\">Widget Index (Hub)</a></p>\r\n\r\n<p>Hero Image Sizing:&nbsp;<a
+              href=\"https://g5.jiveon.com/docs/DOC-7608\" target=\"_blank\">Hero
+              Training</a></p>\r\n\r\n<h2>Heading (h2)</h2>\r\n\r\n<p>Lorem ipsum
+              dolor sit amet, est te volutpat torquatos, nibh sale vocent te vix.
+              Mei cu illud quaeque, probo veniam has cu, eu brute blandit praesent
+              nec. Vero mundi adipiscing et usu, et quodsi lobortis atomorum pri.
+              At vel dicant incorrupte, no vix ridens discere reprimique, ullum convenire
+              intellegam no nam.</p>\r\n"
       - :slug: column
         :row_count: two
         :widgets:
         - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
         - :slug: social-links
+          :settings:
+          - :name: twitter_username
+            :value: "{{location_twitter_id}}"
+          - :name: facebook_username
+            :value: "{{location_facebook_id}}"
+          - :name: yelp_username
+            :value: "{{location_yelp_id}}"
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: thirds
       :widgets:
-      - :slug: photo
-        :settings:
-        - :name: photo_source_url
-          :value: http://placehold.it/350x216
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-- :name: Photos
-  :title: Photos of Our Storage Units in {{location_city}}, {{location_state}} | {{location_name}}
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: map
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h3><strong>Office Hours:</strong></h3>\r\n\r\n<p>Monday - Friday:<br
+              />\r\nSaturday:&nbsp;<br />\r\nSunday:&nbsp;</p>\r\n\r\n<h3><strong>Access
+              Hours:</strong></h3>\r\n\r\n<p>Monday - Friday:<br />\r\nSaturday:&nbsp;<br
+              />\r\nSunday:&nbsp;</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: social-feed
+          :settings:
+          - :name: blog_feed_display_summary
+            :value: 'false'
+          - :name: blog_feed_number_to_display
+            :value: '2'
+          - :name: twitter_username
+            :value: "{{location_twitter_id}}"
+          - :name: display_avatars
+            :value: 'true'
+          - :name: twitter_tweet_count
+            :value: '2'
+          - :name: facebook_post_count
+            :value: '2'
+          - :name: facebook_page_id
+            :value: "{{location_facebook_id}}"
+          - :name: google_plus_post_count
+            :value: '3'
+:web_page_templates:
+- :name: Unit Sizes & Prices
+  :title: Storage Units in {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: true
   :drop_targets:
   - :html_id: drop-target-main
     :widgets:
     - :slug: meta-description
       :settings:
       - :name: meta_description
-        :value: For photos of storage units in {{location_city}} or to see your new
-          storage unit visit the {{location_name}} website today for more information.
+        :value: "{{location_name}} offers the finest in clean, secure storage units
+          in {{location_city}}, {{location_state}}. Call {{location_marketing_number}}
+          today."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Self storage units in {{ location_city }}
     - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
-      - :slug: html
-        :settings:
-        - :name: text
-          :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-            odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem risus,
-            commodo sit amet, viverra in, sagittis nec, justo.
-      - :slug: calls-to-action
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Our Storage Unit Sizes and Prices</h1>\r\n\r\n<p>Lorem ipsum
+              dolor sit amet, est te volutpat torquatos, nibh sale vocent te vix.
+              Mei cu illud quaeque, probo veniam has cu, eu brute blandit praesent
+              nec. Vero mundi adipiscing et usu, et quodsi lobortis atomorum pri.
+              At vel dicant incorrupte, no vix ridens discere reprimique, ullum convenire
+              intellegam no nam.</p>\r\n\r\n<p><a href=\"https://g5.jiveon.com/docs/DOC-7408\"
+              target=\"_blank\">SS IUI Cards (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/videos/1115\"
+              target=\"_blank\">SS IUI Cards Setup&nbsp;Video (Hub)</a></p>\r\n\r\n<p><a
+              href=\"https://g5.jiveon.com/docs/DOC-7266\" target=\"_blank\">Sitelink
+              Setup (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-7504\"
+              target=\"_blank\">Sitelink eSign (Hub)</a><br />\r\n<br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-7416\"
+              target=\"_blank\">Non-integrated Storage Unit Setup (Hub)</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
     - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: single
+      :widgets:
+      - :slug: self-storage-iui-cards
+- :name: Features
+  :title: Self Storage Facility in {{location_city}} - Features | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Our facility in {{location_city}}, {{location_state}}, offers {{location_primary_feature}}
+          and more. Visit our website today to learn about what {{location_name}}
+          has to offer you!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: "{{ location_city }} {{ location_state }} storage features"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>{{location_name}} Features</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, eu velit persius salutandi qui. Ad his tation tollit recusabo.
+              Dicat discere erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren
+              eam in. At timeam albucius vis, usu sint laudem an. Malorum voluptatum
+              eos eu, at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Features</h2>\r\n\r\n<ul>\r\n\t<li>one</li>\r\n\t<li>two</li>\r\n\t<li>three</li>\r\n\t<li>four</li>\r\n\t<li>five</li>\r\n\t<li>six</li>\r\n\t<li>seven</li>\r\n\t<li>eight</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Boat Storage
+  :title: Boat Storage in {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Looking for boat storage in {{location_city}}, {{location_state}}?  Visit
+          our website or call {{location_name}} at {{location_marketing_number}} to
+          learn more.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: "{{ location_city }} boat storage"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Boat Storage {{location_city}}</h1>\r\n\r\n<p>Lorem ipsum
+              dolor sit amet, falli persius at est, has decore iuvaret percipitur
+              et, delectus patrioque in quo. Atqui option sit ad, ut mea elitr saepe
+              dicant. Fugit blandit mea et, has ex probo fabellas. Tation labore no
+              per, cetero utroque adipisci ea per. Legere referrentur instructior
+              ne pro, probatus singulis evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His
+              eu erant putant fabulas, id vidisse intellegat dissentiunt sed. Aperiam
+              ornatus placerat cum ei, postea bonorum officiis ius ex, melius voluptatum
+              mea et. Ut cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet
+              ridens discere an. His ad tempor ornatus, pri laudem mentitum maluisset
+              ut, at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: RV Storage
+  :title: RV Storage in {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Looking for RV storage in {{location_city}}, {{location_state}}? Check
+          out our website or give {{location_name}} a call at {{location_marketing_number}}
+          to learn more.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: RV storage in {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>RV Storage {{location_city}}</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, falli persius at est, has decore iuvaret percipitur et, delectus
+              patrioque in quo. Atqui option sit ad, ut mea elitr saepe dicant. Fugit
+              blandit mea et, has ex probo fabellas. Tation labore no per, cetero
+              utroque adipisci ea per. Legere referrentur instructior ne pro, probatus
+              singulis evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His eu
+              erant putant fabulas, id vidisse intellegat dissentiunt sed. Aperiam
+              ornatus placerat cum ei, postea bonorum officiis ius ex, melius voluptatum
+              mea et. Ut cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet
+              ridens discere an. His ad tempor ornatus, pri laudem mentitum maluisset
+              ut, at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Boat & RV Storage
+  :title: Boat & RV Storage in {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: false
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: We provide secure boat & RV storage in {{location_city}}, {{location_state}}.
+          Call {{location_marketing_number}} to learn about storing your boat or RV.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Self storage in {{ location_city }} offering boat and RV storage
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Boat &amp; RV Storage {{location_city}}</h1>\r\n\r\n<p>Lorem
+              ipsum dolor sit amet, falli persius at est, has decore iuvaret percipitur
+              et, delectus patrioque in quo. Atqui option sit ad, ut mea elitr saepe
+              dicant. Fugit blandit mea et, has ex probo fabellas. Tation labore no
+              per, cetero utroque adipisci ea per. Legere referrentur instructior
+              ne pro, probatus singulis evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His
+              eu erant putant fabulas, id vidisse intellegat dissentiunt sed. Aperiam
+              ornatus placerat cum ei, postea bonorum officiis ius ex, melius voluptatum
+              mea et. Ut cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet
+              ridens discere an. His ad tempor ornatus, pri laudem mentitum maluisset
+              ut, at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Car Storage
+  :title: Car Storage in {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: false
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} provides safe, secure storage in {{location_city}},
+          {{location_state}}, for vehicles including cars, motorcycles, trucks, ATVs,
+          and more."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Car storage in {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Car Storage {{location_city}}</h1>\r\n\r\n<p>Lorem ipsum
+              dolor sit amet, falli persius at est, has decore iuvaret percipitur
+              et, delectus patrioque in quo. Atqui option sit ad, ut mea elitr saepe
+              dicant. Fugit blandit mea et, has ex probo fabellas. Tation labore no
+              per, cetero utroque adipisci ea per. Legere referrentur instructior
+              ne pro, probatus singulis evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His
+              eu erant putant fabulas, id vidisse intellegat dissentiunt sed. Aperiam
+              ornatus placerat cum ei, postea bonorum officiis ius ex, melius voluptatum
+              mea et. Ut cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet
+              ridens discere an. His ad tempor ornatus, pri laudem mentitum maluisset
+              ut, at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings: []
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Packing Supplies
+  :title: Packing Supplies {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} has all the moving supplies you may need for packing,
+          from glassware to furniture. Learn more on our website!"
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Self storage in {{ location_city }}, {{ location_state }} sells packing
+          supplies
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Packing Supplies</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+              falli persius at est, has decore iuvaret percipitur et, delectus patrioque
+              in quo. Atqui option sit ad, ut mea elitr saepe dicant. Fugit blandit
+              mea et, has ex probo fabellas. Tation labore no per, cetero utroque
+              adipisci ea per. Legere referrentur instructior ne pro, probatus singulis
+              evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His eu erant putant
+              fabulas, id vidisse intellegat dissentiunt sed. Aperiam ornatus placerat
+              cum ei, postea bonorum officiis ius ex, melius voluptatum mea et. Ut
+              cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet ridens
+              discere an. His ad tempor ornatus, pri laudem mentitum maluisset ut,
+              at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Storage Solutions
+  :title: Storage Solutions at {{location_name}} in {{location_city}}
+  :enabled: false
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} has the storage solutions you are looking for.
+          Visit our website to learn more about our services. "
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Self storage in {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Storage Solutions</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+              falli persius at est, has decore iuvaret percipitur et, delectus patrioque
+              in quo. Atqui option sit ad, ut mea elitr saepe dicant. Fugit blandit
+              mea et, has ex probo fabellas. Tation labore no per, cetero utroque
+              adipisci ea per. Legere referrentur instructior ne pro, probatus singulis
+              evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His eu erant putant
+              fabulas, id vidisse intellegat dissentiunt sed. Aperiam ornatus placerat
+              cum ei, postea bonorum officiis ius ex, melius voluptatum mea et. Ut
+              cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet ridens
+              discere an. His ad tempor ornatus, pri laudem mentitum maluisset ut,
+              at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Moving Supplies
+  :title: Moving Supplies in {{location_city}} | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} offers everything from locks to boxes, visit our
+          website to find more information about our moving supplies in {{location_city}}."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Moving supplies offered at {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Moving Supplies</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+              falli persius at est, has decore iuvaret percipitur et, delectus patrioque
+              in quo. Atqui option sit ad, ut mea elitr saepe dicant. Fugit blandit
+              mea et, has ex probo fabellas. Tation labore no per, cetero utroque
+              adipisci ea per. Legere referrentur instructior ne pro, probatus singulis
+              evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His eu erant putant
+              fabulas, id vidisse intellegat dissentiunt sed. Aperiam ornatus placerat
+              cum ei, postea bonorum officiis ius ex, melius voluptatum mea et. Ut
+              cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet ridens
+              discere an. His ad tempor ornatus, pri laudem mentitum maluisset ut,
+              at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: About Us
+  :title: About {{location_name}} in {{location_city}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Learn more about {{location_name}}. Our team is committed to providing
+          quality storage units at competitive prices.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: About self storage in {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>About {{location_name}}</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, falli persius at est, has decore iuvaret percipitur et, delectus
+              patrioque in quo. Atqui option sit ad, ut mea elitr saepe dicant. Fugit
+              blandit mea et, has ex probo fabellas. Tation labore no per, cetero
+              utroque adipisci ea per. Legere referrentur instructior ne pro, probatus
+              singulis evertitur mel an, fugit mucius vim no.</p>\r\n\r\n<p>His eu
+              erant putant fabulas, id vidisse intellegat dissentiunt sed. Aperiam
+              ornatus placerat cum ei, postea bonorum officiis ius ex, melius voluptatum
+              mea et. Ut cum sumo movet commodo. Enim iusto luptatum ad eam, nam amet
+              ridens discere an. His ad tempor ornatus, pri laudem mentitum maluisset
+              ut, at impetus graecis commune mea</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Map & Directions
+  :title: Directions to {{location_name}} in {{location_city}}, {{location_state}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: For a map and directions to our convenient self storage facility in
+          {{location_city}}, {{location_state}}, please visit the {{location_name}}
+          website.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Directions to {{ location_city }} self storage
+    - :slug: content-stripe
+      :row_css_custom: ''
       :row_layout: uneven-thirds-2
       :widgets:
       - :slug: column
         :row_count: two
         :widgets:
-        - :slug: gallery
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Map &amp; Directions to {{location_name}}</h1>\r\n\r\n<p><a
+              href=\"https://g5.jiveon.com/docs/DOC-7181\" target=\"_blank\">Map Widget
+              (Hub)</a><br />\r\n<a href=\"https://g5.jiveon.com/docs/DOC-7175\" target=\"_blank\">Directions
+              Widget (Hub)</a></p>\r\n"
+        - :slug: directions
+          :settings:
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Driving Directions</h2>\r\n\r\n<p>Follow the driving directions
+              below to reach self storage in {{ location_city }}, {{location_state}}.</p>\r\n\r\n<p><strong>From:</strong></p>\r\n\r\n<ul>\r\n\t<li>one</li>\r\n\t<li>two</li>\r\n\t<li>three</li>\r\n</ul>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
         - :slug: html
           :settings:
           - :name: text
             :value: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
               odio nibh, euismod a, lobortis in, laoreet eu, eros. Praesent lorem
               risus, commodo sit amet, viverra in, sagittis nec, justo.
+- :name: Refer a Friend
+  :title: Refer a Friend Program at {{location_name}} in {{location_city}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Do you enjoy the service you receive at {{location_name}}? Refer a
+          friend and save money with our refer a friend program!
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Refer a friend to self storage in {{ location_city }} {{ location_state
+          }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
       - :slug: column
         :row_count: two
         :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Refer a Friend</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
         - :slug: contact-info
-        - :slug: social-links
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+- :name: Office & Access Hours
+  :title: Office & Access Hours at {{location_name}} in {{location_city}}, {{location_state}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} in {{location_city}}, {{location_state}}, has convenient
+          office and access hours to ensure that your experience with us is outstanding."
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Office and access hours at self storage in {{ location_city }} {{
+          location_state }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Office &amp; Access Hours</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, eu velit persius salutandi qui. Ad his tation tollit recusabo.
+              Dicat discere erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren
+              eam in. At timeam albucius vis, usu sint laudem an. Malorum voluptatum
+              eos eu, at facer denique mei. Putant consetetur vel ea.</p>\r\n\r\n<h3><strong>Office
+              Hours:</strong></h3>\r\n\r\n<p>Monday - Friday:<br />\r\nSaturday:&nbsp;<br
+              />\r\nSunday:&nbsp;</p>\r\n\r\n<h3><strong>Access Hours:</strong></h3>\r\n\r\n<p>Monday
+              - Friday:<br />\r\nSaturday:&nbsp;<br />\r\nSunday:&nbsp;</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+- :name: Mobile Storage
+  :title: Mobile Storage in {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: 'Do you live in {{location_city}} and want the freedom of mobile storage?
+          Visit the {{location_name}} website for information regarding our {{location_city}}
+          portable storage options.  '
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Self storage in {{ location_city }} {{ location_state }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Mobile Storage at {{location_name}}</h1>\r\n\r\n<p>Lorem
+              ipsum dolor sit amet, eu velit persius salutandi qui. Ad his tation
+              tollit recusabo. Dicat discere erroribus ex qui, in iisque voluptatibus
+              duo. Rebum gubergren eam in. At timeam albucius vis, usu sint laudem
+              an. Malorum voluptatum eos eu, at facer denique mei. Putant consetetur
+              vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Photo Gallery
+  :title: Photos of {{location_name}} in {{location_city}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Would you like a photo tour of {{location_name}}? Visit our website
+          to see our self storage photos of our facility in {{location_city}}, {{location_state}}.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Photos of our self storage facility in {{ location_city }} {{ location_state
+          }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Photos of {{location_name}}</h1>\r\n\r\n<p>Lorem ipsum dolor
+              sit amet, eu velit persius salutandi qui. Ad his tation tollit recusabo.
+              Dicat discere erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren
+              eam in. At timeam albucius vis, usu sint laudem an. Malorum voluptatum
+              eos eu, at facer denique mei. Putant consetetur vel ea.</p>\r\n<p><a
+              href=\"https://g5.jiveon.com/docs/DOC-6842\" target=\"_blank\">Gallery
+              Widget (Hub)</a></p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: single
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: gallery
+          :settings:
+          - :name: gallery_thumbnails
+            :value: 'no'
+          - :name: gallery_mini
+            :value: 'no'
+          - :name: gallery_carousel
+            :value: 'no'
+          - :name: gallery_photo1_url
+            :value: http://placehold.it/1000x594
+          - :name: gallery_photo2_url
+            :value: http://placehold.it/1000x594
+          - :name: gallery_photo3_url
+            :value: http://placehold.it/1000x594
+          - :name: gallery_photo4_url
+            :value: http://placehold.it/1000x594
+          - :name: gallery_photo5_url
+            :value: http://placehold.it/1000x594
+- :name: Moving Truck
+  :title: Moving Truck Rentals in {{location_city}}, {{location_state}} | {{location_name}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: We have moving trucks available for your convenience at {{location_name}}
+          in {{location_city}}. Give us a call or visit our website for more information.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Self storage in {{ location_city }} {{ location_state }} offering
+          moving trucks
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Moving Truck</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu
+              velit persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings: []
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Get a Quote
+  :title: Get a Quote from {{location_name}} in {{location_city}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Interested in renting a storage unit at {{location_name}} in {{location_city}}?
+          Visit our website or give us a call for more information.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Request a quote for a self storage unit in {{ location_city }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Get a Quote</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings: []
+- :name: What We Offer
+  :title: What We Offer at {{location_name}} in {{location_city}}, {{location_state}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: "{{location_name}} offers a variety of self storage solutions to meet
+          your needs in {{location_city}}. "
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Self storage in {{ location_city }} {{ location_state }}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>What We Offer</h1>\r\n\r\n<p>Lorem ipsum dolor sit amet,
+              eu velit persius salutandi qui. Ad his tation tollit recusabo. Dicat
+              discere erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren
+              eam in. At timeam albucius vis, usu sint laudem an. Malorum voluptatum
+              eos eu, at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: calls-to-action
+          :settings:
+          - :name: cta_text_1
+            :value: Unit Sizes & Prices
+          - :name: page_slug_1
+            :value: unit-sizes-prices
+        - :slug: contact-info
+          :settings: []
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: halves
+      :widgets:
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h2>Heading 2</h2>\r\n\r\n<p>Lorem ipsum dolor sit amet, eu velit
+              persius salutandi qui. Ad his tation tollit recusabo. Dicat discere
+              erroribus ex qui, in iisque voluptatibus duo. Rebum gubergren eam in.
+              At timeam albucius vis, usu sint laudem an. Malorum voluptatum eos eu,
+              at facer denique mei. Putant consetetur vel ea.</p>\r\n"
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: photo
+          :settings:
+          - :name: photo_source_url
+            :value: http://placehold.it/550x400
+          - :name: photo_alignment
+            :value: photo-block
+- :name: Contact Us
+  :title: Contact {{location_name}} in {{location_city}}, {{location_state}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: Contact {{location_name}} for directions to our facility or more information
+          about your storage unit in {{location_city}}, {{location_state}}.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Contact us for your self storage needs in {{location_city}}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<h1>Contact {{location_name}}</h1>\r\n"
+        - :slug: lead-form
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+- :name: Reviews
+  :title: Reviews of {{location_name}} in {{location_city}}, {{location_state}}
+  :enabled: true
+  :drop_targets:
+  - :html_id: drop-target-main
+    :widgets:
+    - :slug: meta-description
+      :settings:
+      - :name: meta_description
+        :value: At {{location_name}} in {{location_city}}, {{location_state}} we strive
+          to create a great customer storage experience. Our reviews page has a summary
+          of the experiences that our current and past tenants have had.
+    - :slug: photo
+      :settings:
+      - :name: photo_source_url
+        :value: http://placehold.it/1600x250
+      - :name: photo_alignment
+        :value: photo-block
+      - :name: photo_alt_tag
+        :value: Reviews of self storage in {{location_city}} {{location_state}}
+    - :slug: content-stripe
+      :row_css_custom: ''
+      :row_layout: uneven-thirds-2
+      :widgets:
+      - :slug: column
+        :row_count: two
+        :widgets:
+        - :slug: html
+          :settings:
+          - :name: text
+            :value: "<p>Reviews are very important to us and are the best way to let
+              others know if our team has provided you with a great experience. Write
+              a Review.</p>\r\n\r\n<p><a href=\"https://reputation.g5search.com/\"
+              target=\"_blank\">Reputation Manager Login</a></p>\r\n"
+        - :slug: promoted-reviews
+          :settings: []
+      - :slug: column
+        :row_count: one
+        :widgets:
+        - :slug: contact-info
+          :settings:
+          - :name: location_name
+            :value: "{{location_name}}"
+          - :name: location_street_address
+            :value: "{{location_street_address}}"
+          - :name: location_city
+            :value: "{{location_city}}"
+          - :name: location_postal_code
+            :value: "{{location_postal_code}}"
+          - :name: location_tel
+            :value: "{{location_phone_number}}"
+          - :name: location_email
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/contact-us"
+          - :name: maps_url
+            :value: "/self-storage/{{location_state_slug}}/{{location_city_slug}}/{{location_name_slug}}/map-and-directions"
+    - :slug: content-stripe
+      :row_css_custom: 
+      :row_layout: 
+      :widgets: []
