@@ -8,7 +8,6 @@ require "static_website/compiler/htaccess"
 require "static_website/compiler/sitemap"
 require "static_website/compiler/robots"
 require "client_deployer/base_compiler/htaccess"
-require "client_deployer/base_compiler/robots"
 require "client_deployer/base_compiler/sitemap"
 
 module StaticWebsite
@@ -86,11 +85,7 @@ module StaticWebsite
       end
 
       def robots
-        if website.single_domain_location?
-          @robots ||= ClientDeployer::BaseCompiler::Robots.new(client)
-        else
-          @robots ||= StaticWebsite::Compiler::Robots.new(website)
-        end
+        @robots ||= StaticWebsite::Compiler::Robots.new(website)
       end
 
       def client
