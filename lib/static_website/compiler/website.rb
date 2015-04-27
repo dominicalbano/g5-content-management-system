@@ -4,12 +4,12 @@ require "static_website/compiler/stylesheets"
 require "static_website/compiler/web_template"
 require "static_website/compiler/web_templates"
 require "static_website/compiler/area_pages"
-require "static_website/compiler/htaccess"
-require "static_website/compiler/sitemap"
+require "static_website/compiler/single-domain/htaccess"
+require "static_website/compiler/single-domain/sitemap"
+require "static_website/compiler/multi-domain/htaccess"
+require "static_website/compiler/multi-domain/sitemap"
 require "static_website/compiler/robots"
-require "client_deployer/base_compiler/htaccess"
-require "client_deployer/base_compiler/sitemap"
-
+\
 module StaticWebsite
   module Compiler
     class Website
@@ -70,17 +70,17 @@ module StaticWebsite
 
       def htaccess
         if website.single_domain_location?
-          @htaccess ||= ClientDeployer::BaseCompiler::HTAccess.new(client)
+          @htaccess ||= StaticWebsite::Compiler::SingleDomain::HTAccess.new(client)
         else
-          @htaccess ||= StaticWebsite::Compiler::HTAccess.new(website)
+          @htaccess ||= StaticWebsite::Compiler::MultiDomain::HTAccess.new(website)
         end
       end
 
       def sitemap
         if website.single_domain_location?
-          @sitemap ||= ClientDeployer::BaseCompiler::Sitemap.new(client, area_page_directories)
+          @sitemap ||= StaticWebsite::Compiler::SingleDomain::Sitemap.new(client, area_page_directories)
         else
-          @sitemap ||= StaticWebsite::Compiler::Sitemap.new(website, area_page_directories)
+          @sitemap ||= StaticWebsite::Compiler::MultiDomain::Sitemap.new(website, area_page_directories)
         end
       end
 

@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe StaticWebsite::Compiler::Sitemap do
+describe StaticWebsite::Compiler::MultiDomain::Sitemap do
   let!(:client) {Fabricate(:client)}
   let!(:website) {Fabricate(:website)}
   let!(:web_home_template) {Fabricate(:web_home_template, website: website)}
